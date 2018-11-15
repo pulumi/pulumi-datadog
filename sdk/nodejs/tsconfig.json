@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "outDir": "bin",
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true
+    },
+    "files": [
+        "config/index.ts",
+        "config/vars.ts",
+        "downtime/downtime.ts",
+        "downtime/index.ts",
+        "gcp/index.ts",
+        "gcp/integration.ts",
+        "index.ts",
+        "metricMetadata/index.ts",
+        "metricMetadata/metricMetadata.ts",
+        "monitor/index.ts",
+        "monitor/monitor.ts",
+        "provider.ts",
+        "screenBoard/index.ts",
+        "screenBoard/screenBoard.ts",
+        "timeBoard/index.ts",
+        "timeBoard/timeBoard.ts",
+        "user/index.ts",
+        "user/user.ts",
+        "utilities.ts"
+    ]
+}
+

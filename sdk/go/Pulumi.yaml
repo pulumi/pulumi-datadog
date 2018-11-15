@@ -1,0 +1,3 @@
+name: datadog
+description: A Pulumi resource provider for datadog.
+language: go
