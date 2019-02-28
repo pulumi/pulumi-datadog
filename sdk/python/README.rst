@@ -34,7 +34,7 @@ To use from Python, install using ``pip``:
 
 ::
 
-   $ pip install pulumi_datadog
+   $ pip install pulumi-datadog
 
 Go
 ~~
