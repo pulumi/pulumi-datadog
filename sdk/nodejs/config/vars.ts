@@ -6,6 +6,6 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("datadog");
 
-export let apiKey: string = __config.require("apiKey");
-export let apiUrl: string | undefined = __config.get("apiUrl");
-export let appKey: string = __config.require("appKey");
+export let apiKey: string | undefined = __config.get("apiKey") || utilities.getEnv("DATADOG_API_KEY");
+export let apiUrl: string | undefined = __config.get("apiUrl") || utilities.getEnv("DATADOG_HOST");
+export let appKey: string | undefined = __config.get("appKey") || utilities.getEnv("DATADOG_APP_KEY");

@@ -8,4 +8,4 @@ Pulumi.*.yaml
 .idea/
 *.iml
 
-.DS_Store
+yarn.lock
