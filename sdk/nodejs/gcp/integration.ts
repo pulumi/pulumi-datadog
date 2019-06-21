@@ -6,6 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ * 
+ * // Create a new Datadog - Google Cloud Platform integration
+ * const awesomeGcpProjectIntegration = new datadog.gcp.Integration("awesome_gcp_project_integration", {
+ *     clientEmail: "awesome-service-account@awesome-project-id.iam.gserviceaccount.com",
+ *     clientId: "123456789012345678901",
+ *     hostFilters: "foo:bar,buzz:lightyear",
+ *     privateKey: `-----BEGIN PRIVATE KEY-----
+ * ...
+ * -----END PRIVATE KEY-----
+ * `,
+ *     privateKeyId: "1234567890123456789012345678901234567890",
+ *     projectId: "awesome-project-id",
+ * });
+ * ```
  */
 export class Integration extends pulumi.CustomResource {
     /**
@@ -16,34 +36,48 @@ export class Integration extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IntegrationState): Integration {
-        return new Integration(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IntegrationState, opts?: pulumi.CustomResourceOptions): Integration {
+        return new Integration(name, <any>state, { ...opts, id: id });
+    }
+
+    /** @internal */
+    public static readonly __pulumiType = 'index:gcp/integration:Integration';
+
+    /**
+     * Returns true if the given object is an instance of Integration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Integration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
     /**
      * Your email found in your JSON service account key.
      */
-    public readonly clientEmail: pulumi.Output<string>;
+    public readonly clientEmail!: pulumi.Output<string>;
     /**
      * Your ID found in your JSON service account key.
      */
-    public readonly clientId: pulumi.Output<string>;
+    public readonly clientId!: pulumi.Output<string>;
     /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
-    public readonly hostFilters: pulumi.Output<string | undefined>;
+    public readonly hostFilters!: pulumi.Output<string | undefined>;
     /**
      * Your private key name found in your JSON service account key.
      */
-    public readonly privateKey: pulumi.Output<string>;
+    public readonly privateKey!: pulumi.Output<string>;
     /**
      * Your private key ID found in your JSON service account key.
      */
-    public readonly privateKeyId: pulumi.Output<string>;
+    public readonly privateKeyId!: pulumi.Output<string>;
     /**
      * Your Google Cloud project ID found in your JSON service account key.
      */
-    public readonly projectId: pulumi.Output<string>;
+    public readonly projectId!: pulumi.Output<string>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -56,7 +90,7 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IntegrationState = argsOrState as IntegrationState | undefined;
+            const state = argsOrState as IntegrationState | undefined;
             inputs["clientEmail"] = state ? state.clientEmail : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["hostFilters"] = state ? state.hostFilters : undefined;
@@ -87,7 +121,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["privateKeyId"] = args ? args.privateKeyId : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
         }
-        super("datadog:gcp/integration:Integration", name, inputs, opts);
+        super(Integration.__pulumiType, name, inputs, opts);
     }
 }
 

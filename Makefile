@@ -1,23 +1,22 @@
-PROJECT_NAME := datadog Package
+PROJECT_NAME := Datadog Package
 include build/common.mk
 
 PACK             := datadog
 PACKDIR          := sdk
-PROJECT          := github.com/pulumi/pulumi-${PACK}
-NODE_MODULE_NAME := @pulumi/${PACK}
-TF_NAME          := ${PACK}
+PROJECT          := github.com/pulumi/pulumi-datadog
+NODE_MODULE_NAME := @pulumi/datadog
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell scripts/get-py-version)
 
-TESTPARALLELISM := 4
+TESTPARALLELISM := 20
 
 # NOTE: Since the plugin is published using the nodejs style semver version
 # We set the PLUGIN_VERSION to be the same as the version we use when building
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
-build:: tfgen provider
+build:: provider tfgen
 	for LANGUAGE in "nodejs" "python" "go" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
@@ -39,17 +38,17 @@ build:: tfgen provider
 		rm ./bin/setup.py.bak && \
 		cd ./bin && $(PYTHON) setup.py build sdist
 
-tfgen::
-	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
-
 provider::
-	go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	go install -ldflags "-X github.com/pulumi/pulumi-datadog/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+
+tfgen::
+	go install -ldflags "-X github.com/pulumi/pulumi-datadog/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
 
 lint::
 	golangci-lint run
 
 install::
-	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-datadog/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r ${PACKDIR}/nodejs/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
@@ -60,9 +59,11 @@ install::
 		yarn link
 	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
+test_fast::
+	$(GO_TEST_FAST) ./examples
+
 test_all::
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
-	PATH=$(PULUMI_BIN):$(PATH) go test -v -count=1 -cover -timeout 1h -parallel ${TESTPARALLELISM} ./tests/...
+	$(GO_TEST) ./examples
 
 .PHONY: publish_tgz
 publish_tgz:
@@ -82,5 +83,5 @@ check_clean_worktree:
 .PHONY: travis_cron travis_push travis_pull_request travis_api
 travis_cron: all
 travis_push: only_build check_clean_worktree publish_tgz only_test publish_packages
-travis_pull_request: all check_clean_worktree
+travis_pull_request: only_build check_clean_worktree only_test_fast
 travis_api: all

@@ -9,13 +9,34 @@ import (
 )
 
 func GetApiKey(ctx *pulumi.Context) string {
-	return config.Require(ctx, "datadog:apiKey")
+	v, err := config.Try(ctx, "datadog:apiKey")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "DATADOG_API_KEY").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetApiUrl(ctx *pulumi.Context) string {
-	return config.Get(ctx, "datadog:apiUrl")
+	v, err := config.Try(ctx, "datadog:apiUrl")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "DATADOG_HOST").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetAppKey(ctx *pulumi.Context) string {
-	return config.Require(ctx, "datadog:appKey")
+	v, err := config.Try(ctx, "datadog:appKey")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "DATADOG_APP_KEY").(string); ok {
+		return dv
+	}
+	return v
 }

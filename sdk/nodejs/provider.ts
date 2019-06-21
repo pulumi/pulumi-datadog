@@ -5,9 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * The provider type for the datadog package
+ * The provider type for the datadog package. By default, resources use package-wide configuration
+ * settings, however an explicit `Provider` instance may be created and passed during resource
+ * construction to achieve fine-grained programmatic control over provider settings. See the
+ * [documentation](https://pulumi.io/reference/programming-model.html#providers) for more information.
  */
 export class Provider extends pulumi.ProviderResource {
+    /** @internal */
+    public static readonly __pulumiType = 'datadog';
+
+    /**
+     * Returns true if the given object is an instance of Provider.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Provider {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Provider.__pulumiType;
+    }
+
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -16,20 +33,14 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            if (!args || args.apiKey === undefined) {
-                throw new Error("Missing required property 'apiKey'");
-            }
-            if (!args || args.appKey === undefined) {
-                throw new Error("Missing required property 'appKey'");
-            }
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["apiUrl"] = args ? args.apiUrl : undefined;
-            inputs["appKey"] = args ? args.appKey : undefined;
+            inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("DATADOG_API_KEY");
+            inputs["apiUrl"] = (args ? args.apiUrl : undefined) || utilities.getEnv("DATADOG_HOST");
+            inputs["appKey"] = (args ? args.appKey : undefined) || utilities.getEnv("DATADOG_APP_KEY");
         }
-        super("datadog", name, inputs, opts);
+        super(Provider.__pulumiType, name, inputs, opts);
     }
 }
 
@@ -37,7 +48,7 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    readonly apiKey: pulumi.Input<string>;
+    readonly apiKey?: pulumi.Input<string>;
     readonly apiUrl?: pulumi.Input<string>;
-    readonly appKey: pulumi.Input<string>;
+    readonly appKey?: pulumi.Input<string>;
 }

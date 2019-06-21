@@ -2,15 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./downtime";
+export * from "./metricMetadata";
+export * from "./monitor";
 export * from "./provider";
+export * from "./screenBoard";
+export * from "./syntheticsTest";
+export * from "./timeBoard";
+export * from "./user";
 
 // Export sub-modules:
+import * as aws from "./aws/index";
 import * as config from "./config/index";
-import * as downtime from "./downtime/index";
 import * as gcp from "./gcp/index";
-import * as metricMetadata from "./metricMetadata/index";
-import * as monitor from "./monitor/index";
-import * as screenBoard from "./screenBoard/index";
-import * as timeBoard from "./timeBoard/index";
-import * as user from "./user/index";
-export {config, downtime, gcp, metricMetadata, monitor, screenBoard, timeBoard, user};
+import * as pagerduty from "./pagerduty/index";
+export {aws, config, gcp, pagerduty};

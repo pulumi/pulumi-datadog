@@ -47,7 +47,7 @@ func NewIntegration(ctx *pulumi.Context,
 		inputs["privateKeyId"] = args.PrivateKeyId
 		inputs["projectId"] = args.ProjectId
 	}
-	s, err := ctx.RegisterResource("datadog:gcp/integration:Integration", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("index:gcp/integration:Integration", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func GetIntegration(ctx *pulumi.Context,
 		inputs["privateKeyId"] = state.PrivateKeyId
 		inputs["projectId"] = state.ProjectId
 	}
-	s, err := ctx.ReadResource("datadog:gcp/integration:Integration", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("index:gcp/integration:Integration", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

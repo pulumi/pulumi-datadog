@@ -11,10 +11,11 @@ import (
 
 const (
 	// packages:
-	datadogPkg = "datadog"
+	datadogPkg = "index"
 	// modules:
 	gcpMod = "gcp"
 	awsMod = "aws"
+	pdMod  = "pagerduty"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -25,14 +26,6 @@ func makeMember(mod string, mem string) tokens.ModuleMember {
 // makeType manufactures a type token for the package and the given module and type.
 func makeType(mod string, typ string) tokens.Type {
 	return tokens.Type(makeMember(mod, typ))
-}
-
-// makeDataSource manufactures a standard resource token given a module and resource name.  It
-// automatically uses the main package and names the file by simply lower casing the data source's
-// first character.
-func makeDataSource(mod string, res string) tokens.ModuleMember {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeMember(mod+"/"+fn, res)
 }
 
 // makeResource manufactures a standard resource token given a module and resource name.  It
@@ -55,19 +48,16 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-datadog",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"api_key": {
-				Type: makeType("api_key", "ApiKey"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"DATADOG_API_KEY"},
 				},
 			},
 			"app_key": {
-				Type: makeType("app_key", "AppKey"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"DATADOG_APP_KEY"},
 				},
 			},
 			"api_url": {
-				Type: makeType("api_url", "ApiUrl"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"DATADOG_HOST"},
 				},
@@ -101,6 +91,9 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_integration_aws": {
 				Tok: makeResource(awsMod, "Integration"),
 			},
+			"datadog_integration_pagerduty": {
+				Tok: makeResource(pdMod, "Integration"),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -112,7 +105,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.16.4,<0.17.0",
+				"pulumi": ">=0.17.0,<0.18.0",
 			},
 		},
 	}
