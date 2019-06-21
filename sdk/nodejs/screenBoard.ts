@@ -348,7 +348,7 @@ export class ScreenBoard extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'index:index/screenBoard:ScreenBoard';
+    public static readonly __pulumiType = 'datadog:index/screenBoard:ScreenBoard';
 
     /**
      * Returns true if the given object is an instance of ScreenBoard.  This is designed to work even

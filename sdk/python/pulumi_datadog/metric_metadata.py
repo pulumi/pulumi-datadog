@@ -79,7 +79,7 @@ class MetricMetadata(pulumi.CustomResource):
         __props__['unit'] = unit
 
         super(MetricMetadata, __self__).__init__(
-            'index:index/metricMetadata:MetricMetadata',
+            'datadog:index/metricMetadata:MetricMetadata',
             resource_name,
             __props__,
             opts)

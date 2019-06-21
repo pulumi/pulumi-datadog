@@ -59,7 +59,7 @@ func NewSyntheticsTest(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["type"] = args.Type
 	}
-	s, err := ctx.RegisterResource("index:index/syntheticsTest:SyntheticsTest", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:index/syntheticsTest:SyntheticsTest", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func GetSyntheticsTest(ctx *pulumi.Context,
 		inputs["tags"] = state.Tags
 		inputs["type"] = state.Type
 	}
-	s, err := ctx.ReadResource("index:index/syntheticsTest:SyntheticsTest", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:index/syntheticsTest:SyntheticsTest", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

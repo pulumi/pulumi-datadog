@@ -72,7 +72,7 @@ func NewMonitor(ctx *pulumi.Context,
 		inputs["timeoutH"] = args.TimeoutH
 		inputs["type"] = args.Type
 	}
-	s, err := ctx.RegisterResource("index:index/monitor:Monitor", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:index/monitor:Monitor", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -106,7 +106,7 @@ func GetMonitor(ctx *pulumi.Context,
 		inputs["timeoutH"] = state.TimeoutH
 		inputs["type"] = state.Type
 	}
-	s, err := ctx.ReadResource("index:index/monitor:Monitor", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:index/monitor:Monitor", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -45,7 +45,7 @@ func NewDowntime(ctx *pulumi.Context,
 		inputs["start"] = args.Start
 		inputs["startDate"] = args.StartDate
 	}
-	s, err := ctx.RegisterResource("index:index/downtime:Downtime", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:index/downtime:Downtime", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func GetDowntime(ctx *pulumi.Context,
 		inputs["start"] = state.Start
 		inputs["startDate"] = state.StartDate
 	}
-	s, err := ctx.ReadResource("index:index/downtime:Downtime", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:index/downtime:Downtime", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

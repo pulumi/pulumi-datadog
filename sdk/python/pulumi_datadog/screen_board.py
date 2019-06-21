@@ -57,7 +57,7 @@ class ScreenBoard(pulumi.CustomResource):
         __props__['width'] = width
 
         super(ScreenBoard, __self__).__init__(
-            'index:index/screenBoard:ScreenBoard',
+            'datadog:index/screenBoard:ScreenBoard',
             resource_name,
             __props__,
             opts)

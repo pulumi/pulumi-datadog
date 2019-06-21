@@ -79,7 +79,7 @@ class Integration(pulumi.CustomResource):
         __props__['external_id'] = None
 
         super(Integration, __self__).__init__(
-            'index:aws/integration:Integration',
+            'datadog:aws/integration:Integration',
             resource_name,
             __props__,
             opts)

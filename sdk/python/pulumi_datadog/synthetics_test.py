@@ -77,7 +77,7 @@ class SyntheticsTest(pulumi.CustomResource):
         __props__['type'] = type
 
         super(SyntheticsTest, __self__).__init__(
-            'index:index/syntheticsTest:SyntheticsTest',
+            'datadog:index/syntheticsTest:SyntheticsTest',
             resource_name,
             __props__,
             opts)

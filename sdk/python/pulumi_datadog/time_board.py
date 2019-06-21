@@ -73,7 +73,7 @@ class TimeBoard(pulumi.CustomResource):
         __props__['title'] = title
 
         super(TimeBoard, __self__).__init__(
-            'index:index/timeBoard:TimeBoard',
+            'datadog:index/timeBoard:TimeBoard',
             resource_name,
             __props__,
             opts)

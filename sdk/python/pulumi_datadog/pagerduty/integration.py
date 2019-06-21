@@ -64,7 +64,7 @@ class Integration(pulumi.CustomResource):
         __props__['subdomain'] = subdomain
 
         super(Integration, __self__).__init__(
-            'index:pagerduty/integration:Integration',
+            'datadog:pagerduty/integration:Integration',
             resource_name,
             __props__,
             opts)

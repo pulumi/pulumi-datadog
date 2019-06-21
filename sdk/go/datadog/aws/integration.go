@@ -39,7 +39,7 @@ func NewIntegration(ctx *pulumi.Context,
 		inputs["roleName"] = args.RoleName
 	}
 	inputs["externalId"] = nil
-	s, err := ctx.RegisterResource("index:aws/integration:Integration", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:aws/integration:Integration", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func GetIntegration(ctx *pulumi.Context,
 		inputs["hostTags"] = state.HostTags
 		inputs["roleName"] = state.RoleName
 	}
-	s, err := ctx.ReadResource("index:aws/integration:Integration", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:aws/integration:Integration", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

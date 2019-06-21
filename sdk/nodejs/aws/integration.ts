@@ -45,7 +45,7 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'index:aws/integration:Integration';
+    public static readonly __pulumiType = 'datadog:aws/integration:Integration';
 
     /**
      * Returns true if the given object is an instance of Integration.  This is designed to work even

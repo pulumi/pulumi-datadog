@@ -84,7 +84,7 @@ class Integration(pulumi.CustomResource):
         __props__['project_id'] = project_id
 
         super(Integration, __self__).__init__(
-            'index:gcp/integration:Integration',
+            'datadog:gcp/integration:Integration',
             resource_name,
             __props__,
             opts)

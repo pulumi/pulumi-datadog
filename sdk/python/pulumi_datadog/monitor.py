@@ -276,7 +276,7 @@ class Monitor(pulumi.CustomResource):
         __props__['type'] = type
 
         super(Monitor, __self__).__init__(
-            'index:index/monitor:Monitor',
+            'datadog:index/monitor:Monitor',
             resource_name,
             __props__,
             opts)

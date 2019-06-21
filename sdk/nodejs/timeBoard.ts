@@ -72,7 +72,7 @@ export class TimeBoard extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'index:index/timeBoard:TimeBoard';
+    public static readonly __pulumiType = 'datadog:index/timeBoard:TimeBoard';
 
     /**
      * Returns true if the given object is an instance of TimeBoard.  This is designed to work even

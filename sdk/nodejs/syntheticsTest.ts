@@ -18,7 +18,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'index:index/syntheticsTest:SyntheticsTest';
+    public static readonly __pulumiType = 'datadog:index/syntheticsTest:SyntheticsTest';
 
     /**
      * Returns true if the given object is an instance of SyntheticsTest.  This is designed to work even

@@ -107,7 +107,7 @@ class Downtime(pulumi.CustomResource):
         __props__['start_date'] = start_date
 
         super(Downtime, __self__).__init__(
-            'index:index/downtime:Downtime',
+            'datadog:index/downtime:Downtime',
             resource_name,
             __props__,
             opts)

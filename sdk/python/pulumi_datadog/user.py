@@ -93,7 +93,7 @@ class User(pulumi.CustomResource):
         __props__['verified'] = None
 
         super(User, __self__).__init__(
-            'index:index/user:User',
+            'datadog:index/user:User',
             resource_name,
             __props__,
             opts)

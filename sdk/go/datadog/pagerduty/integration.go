@@ -34,7 +34,7 @@ func NewIntegration(ctx *pulumi.Context,
 		inputs["services"] = args.Services
 		inputs["subdomain"] = args.Subdomain
 	}
-	s, err := ctx.RegisterResource("index:pagerduty/integration:Integration", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:pagerduty/integration:Integration", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func GetIntegration(ctx *pulumi.Context,
 		inputs["services"] = state.Services
 		inputs["subdomain"] = state.Subdomain
 	}
-	s, err := ctx.ReadResource("index:pagerduty/integration:Integration", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:pagerduty/integration:Integration", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

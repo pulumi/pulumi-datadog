@@ -40,7 +40,7 @@ func NewScreenBoard(ctx *pulumi.Context,
 		inputs["widgets"] = args.Widgets
 		inputs["width"] = args.Width
 	}
-	s, err := ctx.RegisterResource("index:index/screenBoard:ScreenBoard", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:index/screenBoard:ScreenBoard", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func GetScreenBoard(ctx *pulumi.Context,
 		inputs["widgets"] = state.Widgets
 		inputs["width"] = state.Width
 	}
-	s, err := ctx.ReadResource("index:index/screenBoard:ScreenBoard", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:index/screenBoard:ScreenBoard", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

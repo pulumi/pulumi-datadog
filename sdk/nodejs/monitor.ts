@@ -56,7 +56,7 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'index:index/monitor:Monitor';
+    public static readonly __pulumiType = 'datadog:index/monitor:Monitor';
 
     /**
      * Returns true if the given object is an instance of Monitor.  This is designed to work even

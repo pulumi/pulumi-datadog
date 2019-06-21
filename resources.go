@@ -11,11 +11,12 @@ import (
 
 const (
 	// packages:
-	datadogPkg = "index"
+	datadogPkg = "datadog"
 	// modules:
-	gcpMod = "gcp"
-	awsMod = "aws"
-	pdMod  = "pagerduty"
+	datadogMod = "index"
+	gcpMod     = "gcp"
+	awsMod     = "aws"
+	pdMod      = "pagerduty"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -65,25 +66,25 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"datadog_downtime": {
-				Tok: makeResource(datadogPkg, "Downtime"),
+				Tok: makeResource(datadogMod, "Downtime"),
 			},
 			"datadog_metric_metadata": {
-				Tok: makeResource(datadogPkg, "MetricMetadata"),
+				Tok: makeResource(datadogMod, "MetricMetadata"),
 			},
 			"datadog_monitor": {
-				Tok: makeResource(datadogPkg, "Monitor"),
+				Tok: makeResource(datadogMod, "Monitor"),
 			},
 			"datadog_timeboard": {
-				Tok: makeResource(datadogPkg, "TimeBoard"),
+				Tok: makeResource(datadogMod, "TimeBoard"),
 			},
 			"datadog_screenboard": {
-				Tok: makeResource(datadogPkg, "ScreenBoard"),
+				Tok: makeResource(datadogMod, "ScreenBoard"),
 			},
 			"datadog_user": {
-				Tok: makeResource(datadogPkg, "User"),
+				Tok: makeResource(datadogMod, "User"),
 			},
 			"datadog_synthetics_test": {
-				Tok: makeResource(datadogPkg, "SyntheticsTest"),
+				Tok: makeResource(datadogMod, "SyntheticsTest"),
 			},
 			"datadog_integration_gcp": {
 				Tok: makeResource(gcpMod, "Integration"),

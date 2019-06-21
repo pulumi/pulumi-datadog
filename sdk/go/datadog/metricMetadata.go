@@ -37,7 +37,7 @@ func NewMetricMetadata(ctx *pulumi.Context,
 		inputs["type"] = args.Type
 		inputs["unit"] = args.Unit
 	}
-	s, err := ctx.RegisterResource("index:index/metricMetadata:MetricMetadata", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:index/metricMetadata:MetricMetadata", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func GetMetricMetadata(ctx *pulumi.Context,
 		inputs["type"] = state.Type
 		inputs["unit"] = state.Unit
 	}
-	s, err := ctx.ReadResource("index:index/metricMetadata:MetricMetadata", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:index/metricMetadata:MetricMetadata", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,7 +21,7 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'index:pagerduty/integration:Integration';
+    public static readonly __pulumiType = 'datadog:pagerduty/integration:Integration';
 
     /**
      * Returns true if the given object is an instance of Integration.  This is designed to work even

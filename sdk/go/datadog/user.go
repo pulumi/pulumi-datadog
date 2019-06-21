@@ -44,7 +44,7 @@ func NewUser(ctx *pulumi.Context,
 		inputs["role"] = args.Role
 	}
 	inputs["verified"] = nil
-	s, err := ctx.RegisterResource("index:index/user:User", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:index/user:User", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func GetUser(ctx *pulumi.Context,
 		inputs["role"] = state.Role
 		inputs["verified"] = state.Verified
 	}
-	s, err := ctx.ReadResource("index:index/user:User", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:index/user:User", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

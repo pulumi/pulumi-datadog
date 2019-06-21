@@ -14,6 +14,6 @@
     "typescript": "^3.0.3"
   },
   "peerDependencies": {
-    "@pulumi/digitalocean": "latest"
+    "@pulumi/datadog": "latest"
   }
 }

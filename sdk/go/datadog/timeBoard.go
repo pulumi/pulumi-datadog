@@ -39,7 +39,7 @@ func NewTimeBoard(ctx *pulumi.Context,
 		inputs["templateVariables"] = args.TemplateVariables
 		inputs["title"] = args.Title
 	}
-	s, err := ctx.RegisterResource("index:index/timeBoard:TimeBoard", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("datadog:index/timeBoard:TimeBoard", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func GetTimeBoard(ctx *pulumi.Context,
 		inputs["templateVariables"] = state.TemplateVariables
 		inputs["title"] = state.Title
 	}
-	s, err := ctx.ReadResource("index:index/timeBoard:TimeBoard", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("datadog:index/timeBoard:TimeBoard", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}

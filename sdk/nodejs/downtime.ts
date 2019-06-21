@@ -39,7 +39,7 @@ export class Downtime extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'index:index/downtime:Downtime';
+    public static readonly __pulumiType = 'datadog:index/downtime:Downtime';
 
     /**
      * Returns true if the given object is an instance of Downtime.  This is designed to work even
