@@ -31,9 +31,12 @@ class Downtime(pulumi.CustomResource):
     """
     monitor_id: pulumi.Output[float]
     """
-    Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+    Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
     """
     monitor_tags: pulumi.Output[list]
+    """
+    A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+    """
     recurrence: pulumi.Output[dict]
     """
     A dictionary to configure the downtime to be recurring.
@@ -50,7 +53,11 @@ class Downtime(pulumi.CustomResource):
     """
     String representing date and time to start the downtime in RFC3339 format.
     """
-    def __init__(__self__, resource_name, opts=None, active=None, disabled=None, end=None, end_date=None, message=None, monitor_id=None, monitor_tags=None, recurrence=None, scopes=None, start=None, start_date=None, __name__=None, __opts__=None):
+    timezone: pulumi.Output[str]
+    """
+    The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+    """
+    def __init__(__self__, resource_name, opts=None, active=None, disabled=None, end=None, end_date=None, message=None, monitor_id=None, monitor_tags=None, recurrence=None, scopes=None, start=None, start_date=None, timezone=None, __name__=None, __opts__=None):
         """
         Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
         
@@ -61,11 +68,13 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[float] end: POSIX timestamp to end the downtime.
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: A message to include with notifications for this downtime.
-        :param pulumi.Input[float] monitor_id: Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+        :param pulumi.Input[float] monitor_id: Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+        :param pulumi.Input[list] monitor_tags: A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
         :param pulumi.Input[dict] recurrence: A dictionary to configure the downtime to be recurring.
         :param pulumi.Input[list] scopes: A list of items to apply the downtime to, e.g. host:X
         :param pulumi.Input[float] start: POSIX timestamp to start the downtime.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
+        :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,6 +114,8 @@ class Downtime(pulumi.CustomResource):
         __props__['start'] = start
 
         __props__['start_date'] = start_date
+
+        __props__['timezone'] = timezone
 
         super(Downtime, __self__).__init__(
             'datadog:index/downtime:Downtime',

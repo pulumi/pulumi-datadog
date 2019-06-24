@@ -13,6 +13,7 @@ class SyntheticsTest(pulumi.CustomResource):
     device_ids: pulumi.Output[list]
     locations: pulumi.Output[list]
     message: pulumi.Output[str]
+    monitor_id: pulumi.Output[float]
     name: pulumi.Output[str]
     options: pulumi.Output[dict]
     request: pulumi.Output[dict]
@@ -75,6 +76,8 @@ class SyntheticsTest(pulumi.CustomResource):
         if type is None:
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
+
+        __props__['monitor_id'] = None
 
         super(SyntheticsTest, __self__).__init__(
             'datadog:index/syntheticsTest:SyntheticsTest',

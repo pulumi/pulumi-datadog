@@ -59,6 +59,7 @@ func NewSyntheticsTest(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["type"] = args.Type
 	}
+	inputs["monitorId"] = nil
 	s, err := ctx.RegisterResource("datadog:index/syntheticsTest:SyntheticsTest", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -76,6 +77,7 @@ func GetSyntheticsTest(ctx *pulumi.Context,
 		inputs["deviceIds"] = state.DeviceIds
 		inputs["locations"] = state.Locations
 		inputs["message"] = state.Message
+		inputs["monitorId"] = state.MonitorId
 		inputs["name"] = state.Name
 		inputs["options"] = state.Options
 		inputs["request"] = state.Request
@@ -117,6 +119,10 @@ func (r *SyntheticsTest) Message() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["message"])
 }
 
+func (r *SyntheticsTest) MonitorId() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["monitorId"])
+}
+
 func (r *SyntheticsTest) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -151,6 +157,7 @@ type SyntheticsTestState struct {
 	DeviceIds interface{}
 	Locations interface{}
 	Message interface{}
+	MonitorId interface{}
 	Name interface{}
 	Options interface{}
 	Request interface{}
