@@ -139,7 +139,7 @@ func (r *Monitor) EvaluationDelay() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["evaluationDelay"])
 }
 
-// A boolean indicating whether notifications from this monitor will automatically insert its
+// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 func (r *Monitor) IncludeTags() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["includeTags"])
 }
@@ -173,7 +173,7 @@ func (r *Monitor) NewHostDelay() *pulumi.IntOutput {
 
 // The number of minutes before a monitor will notify when data stops reporting. Must be at
 // least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-// metric alerts, 2 minutes for service checks.
+// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
 func (r *Monitor) NoDataTimeframe() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["noDataTimeframe"])
 }
@@ -209,8 +209,7 @@ func (r *Monitor) RequireFullWindow() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["requireFullWindow"])
 }
 
-// Each scope will be muted until the given POSIX timestamp or forever if the value is 0.
-// To mute the alert completely:
+// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
 func (r *Monitor) Silenced() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["silenced"])
 }
@@ -261,7 +260,7 @@ func (r *Monitor) TimeoutH() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["timeoutH"])
 }
 
-// The type of the monitor, chosen from:
+// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
 // * `metric alert`
 // * `service check`
 // * `event alert`
@@ -281,7 +280,7 @@ type MonitorState struct {
 	// notification allowed elsewhere.
 	EscalationMessage interface{}
 	EvaluationDelay interface{}
-	// A boolean indicating whether notifications from this monitor will automatically insert its
+	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags interface{}
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
 	Locked interface{}
@@ -300,7 +299,7 @@ type MonitorState struct {
 	NewHostDelay interface{}
 	// The number of minutes before a monitor will notify when data stops reporting. Must be at
 	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-	// metric alerts, 2 minutes for service checks.
+	// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
 	NoDataTimeframe interface{}
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	// Defaults to false.
@@ -318,8 +317,7 @@ type MonitorState struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow interface{}
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0.
-	// To mute the alert completely:
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}
@@ -355,7 +353,7 @@ type MonitorState struct {
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	// from a triggered state. Defaults to false.
 	TimeoutH interface{}
-	// The type of the monitor, chosen from:
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
 	// * `metric alert`
 	// * `service check`
 	// * `event alert`
@@ -374,7 +372,7 @@ type MonitorArgs struct {
 	// notification allowed elsewhere.
 	EscalationMessage interface{}
 	EvaluationDelay interface{}
-	// A boolean indicating whether notifications from this monitor will automatically insert its
+	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags interface{}
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
 	Locked interface{}
@@ -393,7 +391,7 @@ type MonitorArgs struct {
 	NewHostDelay interface{}
 	// The number of minutes before a monitor will notify when data stops reporting. Must be at
 	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-	// metric alerts, 2 minutes for service checks.
+	// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
 	NoDataTimeframe interface{}
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	// Defaults to false.
@@ -411,8 +409,7 @@ type MonitorArgs struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow interface{}
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0.
-	// To mute the alert completely:
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}
@@ -448,7 +445,7 @@ type MonitorArgs struct {
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	// from a triggered state. Defaults to false.
 	TimeoutH interface{}
-	// The type of the monitor, chosen from:
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
 	// * `metric alert`
 	// * `service check`
 	// * `event alert`

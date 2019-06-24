@@ -32,6 +32,7 @@ func NewDowntime(ctx *pulumi.Context,
 		inputs["scopes"] = nil
 		inputs["start"] = nil
 		inputs["startDate"] = nil
+		inputs["timezone"] = nil
 	} else {
 		inputs["active"] = args.Active
 		inputs["disabled"] = args.Disabled
@@ -44,6 +45,7 @@ func NewDowntime(ctx *pulumi.Context,
 		inputs["scopes"] = args.Scopes
 		inputs["start"] = args.Start
 		inputs["startDate"] = args.StartDate
+		inputs["timezone"] = args.Timezone
 	}
 	s, err := ctx.RegisterResource("datadog:index/downtime:Downtime", name, true, inputs, opts...)
 	if err != nil {
@@ -69,6 +71,7 @@ func GetDowntime(ctx *pulumi.Context,
 		inputs["scopes"] = state.Scopes
 		inputs["start"] = state.Start
 		inputs["startDate"] = state.StartDate
+		inputs["timezone"] = state.Timezone
 	}
 	s, err := ctx.ReadResource("datadog:index/downtime:Downtime", name, id, inputs, opts...)
 	if err != nil {
@@ -112,11 +115,12 @@ func (r *Downtime) Message() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["message"])
 }
 
-// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
 func (r *Downtime) MonitorId() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["monitorId"])
 }
 
+// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
 func (r *Downtime) MonitorTags() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["monitorTags"])
 }
@@ -141,6 +145,11 @@ func (r *Downtime) StartDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["startDate"])
 }
 
+// The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+func (r *Downtime) Timezone() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["timezone"])
+}
+
 // Input properties used for looking up and filtering Downtime resources.
 type DowntimeState struct {
 	// A flag indicating if the downtime is active now.
@@ -153,8 +162,9 @@ type DowntimeState struct {
 	EndDate interface{}
 	// A message to include with notifications for this downtime.
 	Message interface{}
-	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
 	MonitorId interface{}
+	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
 	MonitorTags interface{}
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence interface{}
@@ -164,6 +174,8 @@ type DowntimeState struct {
 	Start interface{}
 	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate interface{}
+	// The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+	Timezone interface{}
 }
 
 // The set of arguments for constructing a Downtime resource.
@@ -178,8 +190,9 @@ type DowntimeArgs struct {
 	EndDate interface{}
 	// A message to include with notifications for this downtime.
 	Message interface{}
-	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
 	MonitorId interface{}
+	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
 	MonitorTags interface{}
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence interface{}
@@ -189,4 +202,6 @@ type DowntimeArgs struct {
 	Start interface{}
 	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate interface{}
+	// The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+	Timezone interface{}
 }

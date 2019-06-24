@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Update to version 2.0.1 of the datadog Terraform provider
 
 ---
 

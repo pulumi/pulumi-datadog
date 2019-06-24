@@ -73,9 +73,12 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
+    /**
+     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+     */
     public readonly monitorTags!: pulumi.Output<string[] | undefined>;
     /**
      * A dictionary to configure the downtime to be recurring.
@@ -93,6 +96,10 @@ export class Downtime extends pulumi.CustomResource {
      * String representing date and time to start the downtime in RFC3339 format.
      */
     public readonly startDate!: pulumi.Output<string | undefined>;
+    /**
+     * The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+     */
+    public readonly timezone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Downtime resource with the given unique name, arguments, and options.
@@ -117,6 +124,7 @@ export class Downtime extends pulumi.CustomResource {
             inputs["scopes"] = state ? state.scopes : undefined;
             inputs["start"] = state ? state.start : undefined;
             inputs["startDate"] = state ? state.startDate : undefined;
+            inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as DowntimeArgs | undefined;
             if (!args || args.scopes === undefined) {
@@ -133,6 +141,7 @@ export class Downtime extends pulumi.CustomResource {
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["start"] = args ? args.start : undefined;
             inputs["startDate"] = args ? args.startDate : undefined;
+            inputs["timezone"] = args ? args.timezone : undefined;
         }
         super(Downtime.__pulumiType, name, inputs, opts);
     }
@@ -163,9 +172,12 @@ export interface DowntimeState {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
      */
     readonly monitorId?: pulumi.Input<number>;
+    /**
+     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+     */
     readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A dictionary to configure the downtime to be recurring.
@@ -183,6 +195,10 @@ export interface DowntimeState {
      * String representing date and time to start the downtime in RFC3339 format.
      */
     readonly startDate?: pulumi.Input<string>;
+    /**
+     * The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+     */
+    readonly timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -210,9 +226,12 @@ export interface DowntimeArgs {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor  to match the `end` POSIX timestamp.
+     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
      */
     readonly monitorId?: pulumi.Input<number>;
+    /**
+     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+     */
     readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A dictionary to configure the downtime to be recurring.
@@ -230,4 +249,8 @@ export interface DowntimeArgs {
      * String representing date and time to start the downtime in RFC3339 format.
      */
     readonly startDate?: pulumi.Input<string>;
+    /**
+     * The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+     */
+    readonly timezone?: pulumi.Input<string>;
 }

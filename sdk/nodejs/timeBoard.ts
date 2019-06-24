@@ -6,57 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- * 
- * // Create a new Datadog timeboard
- * const redis = new datadog.TimeBoard("redis", {
- *     description: "created using the Datadog provider in Terraform",
- *     graphs: [
- *         {
- *             requests: [{
- *                 q: "avg:redis.info.latency_ms{$host}",
- *                 type: "bars",
- *             }],
- *             title: "Redis latency (ms)",
- *             viz: "timeseries",
- *         },
- *         {
- *             requests: [
- *                 {
- *                     q: "avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}",
- *                     stacked: true,
- *                 },
- *                 {
- *                     q: "avg:redis.mem.rss{$host}",
- *                     style: {
- *                         palette: "warm",
- *                     },
- *                 },
- *             ],
- *             title: "Redis memory usage",
- *             viz: "timeseries",
- *         },
- *         {
- *             requests: [{
- *                 q: "top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
- *             }],
- *             title: "Top System CPU by Docker container",
- *             viz: "toplist",
- *         },
- *     ],
- *     readOnly: true,
- *     templateVariables: [{
- *         name: "host",
- *         prefix: "host",
- *     }],
- *     title: "Redis Timeboard (created via Terraform)",
- * });
- * ```
  */
 export class TimeBoard extends pulumi.CustomResource {
     /**
@@ -92,7 +41,7 @@ export class TimeBoard extends pulumi.CustomResource {
     /**
      * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog_timeboard resource.
      */
-    public readonly graphs!: pulumi.Output<{ autoscale?: boolean, customUnit?: string, events?: string[], groups?: string[], includeNoMetricHosts?: boolean, includeUngroupedHosts?: boolean, markers?: { label?: string, type: string, value: string }[], nodeType?: string, precision?: string, requests: { aggregator?: string, changeType?: string, compareTo?: string, conditionalFormats?: { comparator: string, customBgColor?: string, customFgColor?: string, palette?: string, value?: string }[], extraCol?: string, increaseGood?: boolean, orderBy?: string, orderDirection?: string, q: string, stacked?: boolean, style?: {[key: string]: any}, type?: string }[], scopes?: string[], style?: {[key: string]: any}, textAlign?: string, title: string, viz: string, yaxis?: {[key: string]: any} }[]>;
+    public readonly graphs!: pulumi.Output<{ autoscale?: boolean, customUnit?: string, events?: string[], groups?: string[], includeNoMetricHosts?: boolean, includeUngroupedHosts?: boolean, markers?: { label?: string, type: string, value: string }[], nodeType?: string, precision?: string, requests: { aggregator?: string, changeType?: string, compareTo?: string, conditionalFormats?: { comparator: string, customBgColor?: string, customFgColor?: string, palette?: string, value?: string }[], extraCol?: string, increaseGood?: boolean, metadataJson?: string, orderBy?: string, orderDirection?: string, q: string, stacked?: boolean, style?: {[key: string]: any}, type?: string }[], scopes?: string[], style?: {[key: string]: any}, textAlign?: string, title: string, viz: string, yaxis?: {[key: string]: any} }[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */
@@ -155,7 +104,7 @@ export interface TimeBoardState {
     /**
      * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog_timeboard resource.
      */
-    readonly graphs?: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<string>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, includeNoMetricHosts?: pulumi.Input<boolean>, includeUngroupedHosts?: pulumi.Input<boolean>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, customFgColor?: pulumi.Input<string>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, orderBy?: pulumi.Input<string>, orderDirection?: pulumi.Input<string>, q: pulumi.Input<string>, stacked?: pulumi.Input<boolean>, style?: pulumi.Input<{[key: string]: any}>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, title: pulumi.Input<string>, viz: pulumi.Input<string>, yaxis?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly graphs?: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<string>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, includeNoMetricHosts?: pulumi.Input<boolean>, includeUngroupedHosts?: pulumi.Input<boolean>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, customFgColor?: pulumi.Input<string>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, metadataJson?: pulumi.Input<string>, orderBy?: pulumi.Input<string>, orderDirection?: pulumi.Input<string>, q: pulumi.Input<string>, stacked?: pulumi.Input<boolean>, style?: pulumi.Input<{[key: string]: any}>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, title: pulumi.Input<string>, viz: pulumi.Input<string>, yaxis?: pulumi.Input<{[key: string]: any}> }>[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */
@@ -181,7 +130,7 @@ export interface TimeBoardArgs {
     /**
      * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog_timeboard resource.
      */
-    readonly graphs: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<string>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, includeNoMetricHosts?: pulumi.Input<boolean>, includeUngroupedHosts?: pulumi.Input<boolean>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, customFgColor?: pulumi.Input<string>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, orderBy?: pulumi.Input<string>, orderDirection?: pulumi.Input<string>, q: pulumi.Input<string>, stacked?: pulumi.Input<boolean>, style?: pulumi.Input<{[key: string]: any}>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, title: pulumi.Input<string>, viz: pulumi.Input<string>, yaxis?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly graphs: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<string>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, includeNoMetricHosts?: pulumi.Input<boolean>, includeUngroupedHosts?: pulumi.Input<boolean>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, customFgColor?: pulumi.Input<string>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, metadataJson?: pulumi.Input<string>, orderBy?: pulumi.Input<string>, orderDirection?: pulumi.Input<string>, q: pulumi.Input<string>, stacked?: pulumi.Input<boolean>, style?: pulumi.Input<{[key: string]: any}>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, title: pulumi.Input<string>, viz: pulumi.Input<string>, yaxis?: pulumi.Input<{[key: string]: any}> }>[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */

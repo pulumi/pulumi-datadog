@@ -41,6 +41,41 @@ import * as utilities from "./utilities";
  *     type: "metric alert",
  * });
  * ```
+ * 
+ * ## Silencing by Hand and by Downtimes
+ * 
+ * There are two ways how to silence a single monitor:
+ * 
+ * * Mute it by hand
+ * * Create a Downtime
+ * 
+ * Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your Terraform, as they would be removed on next `terraform apply` invocation. In order to prevent that from happening, you can add following to your monitor:
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * 
+ * The above will make sure that any changes to the `silenced` attribute are ignored.
+ * 
+ * This issue doesn't apply to multi-monitor downtimes (those that don't contain `monitor_id`), as these don't influence contents of the `silenced` attribute.
+ * 
+ * ## Composite Monitors
+ * 
+ * You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)).
+ * You just need to reuse the ID of your `datadog_monitor` resources.
+ * You can also compose any monitor with a `datadog_synthetics_test` by passing the computed `monitor_id` attribute in the query.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ * 
+ * const bar = new datadog.Monitor("bar", {
+ *     message: "This is a message",
+ *     name: "Composite Monitor",
+ *     query: pulumi.interpolate`${datadog_monitor_foo.id} || ${datadog_synthetics_test_foo.monitorId}`,
+ *     type: "composite",
+ * });
+ * ```
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -81,7 +116,7 @@ export class Monitor extends pulumi.CustomResource {
     public readonly escalationMessage!: pulumi.Output<string | undefined>;
     public readonly evaluationDelay!: pulumi.Output<number>;
     /**
-     * A boolean indicating whether notifications from this monitor will automatically insert its
+     * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
      */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
     /**
@@ -110,7 +145,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The number of minutes before a monitor will notify when data stops reporting. Must be at
      * least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-     * metric alerts, 2 minutes for service checks.
+     * metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
      */
     public readonly noDataTimeframe!: pulumi.Output<number | undefined>;
     /**
@@ -140,8 +175,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0.
-     * To mute the alert completely:
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
      */
     public readonly silenced!: pulumi.Output<{[key: string]: number} | undefined>;
     /**
@@ -187,7 +221,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly timeoutH!: pulumi.Output<number | undefined>;
     /**
-     * The type of the monitor, chosen from:
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
      * * `metric alert`
      * * `service check`
      * * `event alert`
@@ -284,7 +318,7 @@ export interface MonitorState {
     readonly escalationMessage?: pulumi.Input<string>;
     readonly evaluationDelay?: pulumi.Input<number>;
     /**
-     * A boolean indicating whether notifications from this monitor will automatically insert its
+     * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
      */
     readonly includeTags?: pulumi.Input<boolean>;
     /**
@@ -313,7 +347,7 @@ export interface MonitorState {
     /**
      * The number of minutes before a monitor will notify when data stops reporting. Must be at
      * least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-     * metric alerts, 2 minutes for service checks.
+     * metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
      */
     readonly noDataTimeframe?: pulumi.Input<number>;
     /**
@@ -343,8 +377,7 @@ export interface MonitorState {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0.
-     * To mute the alert completely:
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
      */
     readonly silenced?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
     /**
@@ -390,7 +423,7 @@ export interface MonitorState {
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**
-     * The type of the monitor, chosen from:
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
      * * `metric alert`
      * * `service check`
      * * `event alert`
@@ -417,7 +450,7 @@ export interface MonitorArgs {
     readonly escalationMessage?: pulumi.Input<string>;
     readonly evaluationDelay?: pulumi.Input<number>;
     /**
-     * A boolean indicating whether notifications from this monitor will automatically insert its
+     * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
      */
     readonly includeTags?: pulumi.Input<boolean>;
     /**
@@ -446,7 +479,7 @@ export interface MonitorArgs {
     /**
      * The number of minutes before a monitor will notify when data stops reporting. Must be at
      * least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-     * metric alerts, 2 minutes for service checks.
+     * metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
      */
     readonly noDataTimeframe?: pulumi.Input<number>;
     /**
@@ -476,8 +509,7 @@ export interface MonitorArgs {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0.
-     * To mute the alert completely:
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
      */
     readonly silenced?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
     /**
@@ -523,7 +555,7 @@ export interface MonitorArgs {
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**
-     * The type of the monitor, chosen from:
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
      * * `metric alert`
      * * `service check`
      * * `event alert`

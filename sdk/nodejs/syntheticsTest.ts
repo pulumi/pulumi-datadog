@@ -35,6 +35,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
     public readonly locations!: pulumi.Output<string[]>;
     public readonly message!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly monitorId!: pulumi.Output<number>;
     public readonly name!: pulumi.Output<string>;
     public readonly options!: pulumi.Output<{ followRedirects?: boolean, minFailureDuration?: number, minLocationFailed?: number, tickEvery: number } | undefined>;
     public readonly request!: pulumi.Output<{ body?: string, method: string, timeout?: number, url: string }>;
@@ -59,6 +60,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["deviceIds"] = state ? state.deviceIds : undefined;
             inputs["locations"] = state ? state.locations : undefined;
             inputs["message"] = state ? state.message : undefined;
+            inputs["monitorId"] = state ? state.monitorId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["options"] = state ? state.options : undefined;
             inputs["request"] = state ? state.request : undefined;
@@ -97,6 +99,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["monitorId"] = undefined /*out*/;
         }
         super(SyntheticsTest.__pulumiType, name, inputs, opts);
     }
@@ -110,6 +113,7 @@ export interface SyntheticsTestState {
     readonly deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     readonly locations?: pulumi.Input<pulumi.Input<string>[]>;
     readonly message?: pulumi.Input<string>;
+    readonly monitorId?: pulumi.Input<number>;
     readonly name?: pulumi.Input<string>;
     readonly options?: pulumi.Input<{ followRedirects?: pulumi.Input<boolean>, minFailureDuration?: pulumi.Input<number>, minLocationFailed?: pulumi.Input<number>, tickEvery: pulumi.Input<number> }>;
     readonly request?: pulumi.Input<{ body?: pulumi.Input<string>, method: pulumi.Input<string>, timeout?: pulumi.Input<number>, url: pulumi.Input<string> }>;
