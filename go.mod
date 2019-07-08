@@ -21,9 +21,9 @@ require (
 	github.com/jen20/awspolicyequivalence v0.0.0-20170831201602-3d48364a137a // indirect
 	github.com/masterzen/azure-sdk-for-go v0.0.0-20161014135628-ee4f0065d00c // indirect
 	github.com/miekg/dns v1.0.14 // indirect
-	github.com/pkg/errors v0.8.0
-	github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0
-	github.com/pulumi/pulumi-terraform v0.18.3-0.20190604214533-7ace3e9b5f2d
+	github.com/pkg/errors v0.8.1
+	github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190703150544-a9a9ca8157ca
 	github.com/pulumi/scripts v0.0.0-20190620135643-99f9df821a86 // indirect
 	github.com/ryanuber/columnize v0.0.0-20161220214920-0fbbb3f0e3fb // indirect
 	github.com/satori/uuid v0.0.0-20160927100844-b061729afc07 // indirect
