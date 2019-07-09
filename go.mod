@@ -23,7 +23,7 @@ require (
 	github.com/miekg/dns v1.0.14 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190703150544-a9a9ca8157ca
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190709052202-629f7c54269d
 	github.com/pulumi/scripts v0.0.0-20190620135643-99f9df821a86 // indirect
 	github.com/ryanuber/columnize v0.0.0-20161220214920-0fbbb3f0e3fb // indirect
 	github.com/satori/uuid v0.0.0-20160927100844-b061729afc07 // indirect
