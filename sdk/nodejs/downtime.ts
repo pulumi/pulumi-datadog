@@ -24,6 +24,8 @@ import * as utilities from "./utilities";
  *     start: 1483308000,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/downtime.html.markdown.
  */
 export class Downtime extends pulumi.CustomResource {
     /**
@@ -73,7 +75,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+     * When specified, this downtime will only apply to this monitor
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
     /**
@@ -172,7 +174,7 @@ export interface DowntimeState {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+     * When specified, this downtime will only apply to this monitor
      */
     readonly monitorId?: pulumi.Input<number>;
     /**
@@ -226,7 +228,7 @@ export interface DowntimeArgs {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+     * When specified, this downtime will only apply to this monitor
      */
     readonly monitorId?: pulumi.Input<number>;
     /**

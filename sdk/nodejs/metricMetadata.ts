@@ -22,6 +22,8 @@ import * as utilities from "./utilities";
  *     unit: "millisecond",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/metric_metadata.html.markdown.
  */
 export class MetricMetadata extends pulumi.CustomResource {
     /**

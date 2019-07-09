@@ -35,6 +35,8 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[list] schedules: Array of your schedule URLs.
         :param pulumi.Input[list] services: Array of PagerDuty service objects.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

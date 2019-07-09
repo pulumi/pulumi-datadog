@@ -19,13 +19,13 @@ To use from JavaScript or TypeScript in Node.js, install using either
 
 ::
 
-   $ npm install @pulumi/datadog
+    $ npm install @pulumi/datadog
 
 or ``yarn``:
 
 ::
 
-   $ yarn add @pulumi/datadog
+    $ yarn add @pulumi/datadog
 
 Python
 ~~~~~~
@@ -34,7 +34,7 @@ To use from Python, install using ``pip``:
 
 ::
 
-   $ pip install pulumi_datadog
+    $ pip install pulumi_datadog
 
 Go
 ~~
@@ -43,7 +43,7 @@ To use from Go, use ``go get`` to grab the latest version of the library
 
 ::
 
-   $ go get github.com/pulumi/pulumi-datadog/sdk/go/datadog/...
+    $ go get github.com/pulumi/pulumi-datadog/sdk/go/datadog/...
 
 A module definition is provided as part of the Datadog package.
 

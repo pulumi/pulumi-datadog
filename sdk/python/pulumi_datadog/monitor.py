@@ -64,10 +64,6 @@ class Monitor(pulumi.CustomResource):
     to false.
     """
     query: pulumi.Output[str]
-    """
-    The monitor query to notify on. Note this is not the same query you see in the UI and
-    the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
-    """
     renotify_interval: pulumi.Output[float]
     """
     The number of minutes after the last notification before a monitor will re-notify
@@ -80,9 +76,6 @@ class Monitor(pulumi.CustomResource):
     Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
     """
     silenced: pulumi.Output[dict]
-    """
-    Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
-    """
     tags: pulumi.Output[list]
     """
     A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -164,14 +157,11 @@ class Monitor(pulumi.CustomResource):
                Defaults to false.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults
                to false.
-        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and
-               the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
         :param pulumi.Input[float] renotify_interval: The number of minutes after the last notification before a monitor will re-notify
                on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated.
                We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
                Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
-        :param pulumi.Input[dict] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
         :param pulumi.Input[list] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[dict] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
                * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
@@ -209,6 +199,8 @@ class Monitor(pulumi.CustomResource):
                * `query alert`
                * `composite`
                * `log alert`
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

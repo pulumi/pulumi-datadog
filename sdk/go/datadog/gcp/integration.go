@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_gcp.html.markdown.
 type Integration struct {
 	s *pulumi.ResourceState
 }

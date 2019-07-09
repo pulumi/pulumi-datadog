@@ -40,6 +40,8 @@ class TimeBoard(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
         :param pulumi.Input[list] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog_timeboard resource.
         :param pulumi.Input[str] title: The name of the dashboard.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/timeboard.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

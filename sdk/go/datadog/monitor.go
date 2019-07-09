@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
 type Monitor struct {
 	s *pulumi.ResourceState
 }
@@ -190,8 +192,6 @@ func (r *Monitor) NotifyNoData() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["notifyNoData"])
 }
 
-// The monitor query to notify on. Note this is not the same query you see in the UI and
-// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
 func (r *Monitor) Query() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["query"])
 }
@@ -209,7 +209,6 @@ func (r *Monitor) RequireFullWindow() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["requireFullWindow"])
 }
 
-// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
 func (r *Monitor) Silenced() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["silenced"])
 }
@@ -307,8 +306,6 @@ type MonitorState struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData interface{}
-	// The monitor query to notify on. Note this is not the same query you see in the UI and
-	// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
 	Query interface{}
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
@@ -317,7 +314,6 @@ type MonitorState struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow interface{}
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}
@@ -399,8 +395,6 @@ type MonitorArgs struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData interface{}
-	// The monitor query to notify on. Note this is not the same query you see in the UI and
-	// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
 	Query interface{}
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
@@ -409,7 +403,6 @@ type MonitorArgs struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow interface{}
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}

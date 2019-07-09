@@ -4,79 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- * 
- * // Create a new Datadog monitor
- * const foo = new datadog.Monitor("foo", {
- *     escalationMessage: "Escalation message @pagerduty",
- *     includeTags: true,
- *     message: "Monitor triggered. Notify: @hipchat-channel",
- *     name: "Name for monitor foo",
- *     notifyAudit: false,
- *     notifyNoData: false,
- *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
- *     renotifyInterval: 60,
- *     silenced: {
- *         "*": 0,
- *     },
- *     tags: [
- *         "foo:bar",
- *         "baz",
- *     ],
- *     thresholds: {
- *         critical: 4,
- *         critical_recovery: 3,
- *         ok: 0,
- *         warning: 2,
- *         warning_recovery: 1,
- *     },
- *     timeoutH: 60,
- *     type: "metric alert",
- * });
- * ```
- * 
- * ## Silencing by Hand and by Downtimes
- * 
- * There are two ways how to silence a single monitor:
- * 
- * * Mute it by hand
- * * Create a Downtime
- * 
- * Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your Terraform, as they would be removed on next `terraform apply` invocation. In order to prevent that from happening, you can add following to your monitor:
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- * 
- * The above will make sure that any changes to the `silenced` attribute are ignored.
- * 
- * This issue doesn't apply to multi-monitor downtimes (those that don't contain `monitor_id`), as these don't influence contents of the `silenced` attribute.
- * 
- * ## Composite Monitors
- * 
- * You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)).
- * You just need to reuse the ID of your `datadog_monitor` resources.
- * You can also compose any monitor with a `datadog_synthetics_test` by passing the computed `monitor_id` attribute in the query.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- * 
- * const bar = new datadog.Monitor("bar", {
- *     message: "This is a message",
- *     name: "Composite Monitor",
- *     query: pulumi.interpolate`${datadog_monitor_foo.id} || ${datadog_synthetics_test_foo.monitorId}`,
- *     type: "composite",
- * });
- * ```
- */
 export class Monitor extends pulumi.CustomResource {
     /**
      * Get an existing Monitor resource's state with the given name, ID, and optional extra
@@ -158,10 +85,6 @@ export class Monitor extends pulumi.CustomResource {
      * to false.
      */
     public readonly notifyNoData!: pulumi.Output<boolean | undefined>;
-    /**
-     * The monitor query to notify on. Note this is not the same query you see in the UI and
-     * the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
-     */
     public readonly query!: pulumi.Output<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -174,9 +97,6 @@ export class Monitor extends pulumi.CustomResource {
      * Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
-    /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
-     */
     public readonly silenced!: pulumi.Output<{[key: string]: number} | undefined>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -360,10 +280,6 @@ export interface MonitorState {
      * to false.
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
-    /**
-     * The monitor query to notify on. Note this is not the same query you see in the UI and
-     * the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
-     */
     readonly query?: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -376,9 +292,6 @@ export interface MonitorState {
      * Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
-    /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
-     */
     readonly silenced?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -492,10 +405,6 @@ export interface MonitorArgs {
      * to false.
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
-    /**
-     * The monitor query to notify on. Note this is not the same query you see in the UI and
-     * the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) for details. **Warning:** `terraform plan` won't perform any validation of the query contents.
-     */
     readonly query: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -508,9 +417,6 @@ export interface MonitorArgs {
      * Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
-    /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the Terraform Provider.
-     */
     readonly silenced?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
