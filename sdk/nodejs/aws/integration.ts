@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     roleName: "DatadogAWSIntegrationRole",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
  */
 export class Integration extends pulumi.CustomResource {
     /**

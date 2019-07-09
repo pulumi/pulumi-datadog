@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration.
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty.html.markdown.
  */
 export class Integration extends pulumi.CustomResource {
     /**

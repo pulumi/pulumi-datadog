@@ -11,6 +11,8 @@ import (
 // Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
 // 
 // Update operations are currently not supported with datadog API so any change forces a new resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
 type Integration struct {
 	s *pulumi.ResourceState
 }

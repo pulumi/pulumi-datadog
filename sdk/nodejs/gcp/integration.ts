@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
  *     projectId: "awesome-project-id",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_gcp.html.markdown.
  */
 export class Integration extends pulumi.CustomResource {
     /**

@@ -46,6 +46,8 @@ class MetricMetadata(pulumi.CustomResource):
         :param pulumi.Input[str] short_name: A short name of the metric.
         :param pulumi.Input[float] statsd_interval: If applicable, stasd flush interval in seconds for the metric.
         :param pulumi.Input[str] unit: Primary unit of the metric such as 'byte' or 'operation'.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/metric_metadata.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

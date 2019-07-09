@@ -9,6 +9,8 @@ import (
 )
 
 // Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/downtime.html.markdown.
 type Downtime struct {
 	s *pulumi.ResourceState
 }
@@ -115,7 +117,7 @@ func (r *Downtime) Message() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["message"])
 }
 
-// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+// When specified, this downtime will only apply to this monitor
 func (r *Downtime) MonitorId() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["monitorId"])
 }
@@ -162,7 +164,7 @@ type DowntimeState struct {
 	EndDate interface{}
 	// A message to include with notifications for this downtime.
 	Message interface{}
-	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+	// When specified, this downtime will only apply to this monitor
 	MonitorId interface{}
 	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
 	MonitorTags interface{}
@@ -190,7 +192,7 @@ type DowntimeArgs struct {
 	EndDate interface{}
 	// A message to include with notifications for this downtime.
 	Message interface{}
-	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by Terraform and you don't want it to be unmuted on the next `terraform apply`, see [details](https://www.terraform.io/docs/providers/datadog/r/monitor.html#silencing-by-hand-and-by-downtimes) in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+	// When specified, this downtime will only apply to this monitor
 	MonitorId interface{}
 	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
 	MonitorTags interface{}
