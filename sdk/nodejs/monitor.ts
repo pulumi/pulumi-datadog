@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
+ */
 export class Monitor extends pulumi.CustomResource {
     /**
      * Get an existing Monitor resource's state with the given name, ID, and optional extra
