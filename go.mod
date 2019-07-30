@@ -17,13 +17,13 @@ require (
 	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.0 // indirect
 	github.com/hashicorp/serf v0.8.2-0.20171022020050-c20a0b1b1ea9 // indirect
-	github.com/hashicorp/terraform v0.12.0
+	github.com/hashicorp/terraform v0.12.5
 	github.com/jen20/awspolicyequivalence v0.0.0-20170831201602-3d48364a137a // indirect
 	github.com/masterzen/azure-sdk-for-go v0.0.0-20161014135628-ee4f0065d00c // indirect
 	github.com/miekg/dns v1.0.14 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v0.17.23-0.20190715212628-02ffff88409f
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190716112909-08d502e9b427
+	github.com/pulumi/pulumi v0.17.26-0.20190723034217-ed5b8437d126
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190730181123-6bcafb609db7
 	github.com/pulumi/scripts v0.0.0-20190620135643-99f9df821a86 // indirect
 	github.com/ryanuber/columnize v0.0.0-20161220214920-0fbbb3f0e3fb // indirect
 	github.com/satori/uuid v0.0.0-20160927100844-b061729afc07 // indirect
