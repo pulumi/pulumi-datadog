@@ -82,6 +82,13 @@ export class Integration extends pulumi.CustomResource {
             inputs["services"] = args ? args.services : undefined;
             inputs["subdomain"] = args ? args.subdomain : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Integration.__pulumiType, name, inputs, opts);
     }
 }

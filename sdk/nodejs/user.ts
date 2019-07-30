@@ -123,6 +123,13 @@ export class User extends pulumi.CustomResource {
             inputs["role"] = args ? args.role : undefined;
             inputs["verified"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(User.__pulumiType, name, inputs, opts);
     }
 }

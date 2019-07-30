@@ -91,6 +91,13 @@ export class TimeBoard extends pulumi.CustomResource {
             inputs["templateVariables"] = args ? args.templateVariables : undefined;
             inputs["title"] = args ? args.title : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(TimeBoard.__pulumiType, name, inputs, opts);
     }
 }

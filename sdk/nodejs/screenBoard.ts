@@ -97,6 +97,13 @@ export class ScreenBoard extends pulumi.CustomResource {
             inputs["widgets"] = args ? args.widgets : undefined;
             inputs["width"] = args ? args.width : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ScreenBoard.__pulumiType, name, inputs, opts);
     }
 }

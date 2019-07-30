@@ -145,6 +145,13 @@ export class Downtime extends pulumi.CustomResource {
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Downtime.__pulumiType, name, inputs, opts);
     }
 }

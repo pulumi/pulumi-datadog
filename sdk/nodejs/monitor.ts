@@ -221,6 +221,13 @@ export class Monitor extends pulumi.CustomResource {
             inputs["timeoutH"] = args ? args.timeoutH : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Monitor.__pulumiType, name, inputs, opts);
     }
 }
