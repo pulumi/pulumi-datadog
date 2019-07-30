@@ -69,7 +69,7 @@ export class User extends pulumi.CustomResource {
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
      */
-    public readonly isAdmin!: pulumi.Output<boolean | undefined>;
+    public readonly isAdmin!: pulumi.Output<boolean>;
     /**
      * Name for user
      */

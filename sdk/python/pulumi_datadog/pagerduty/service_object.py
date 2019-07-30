@@ -6,26 +6,23 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
-from . import utilities, tables
+from .. import utilities, tables
 
-class ScreenBoard(pulumi.CustomResource):
-    height: pulumi.Output[str]
-    read_only: pulumi.Output[bool]
-    shared: pulumi.Output[bool]
-    template_variables: pulumi.Output[list]
-    title: pulumi.Output[str]
-    widgets: pulumi.Output[list]
-    width: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, height=None, read_only=None, shared=None, template_variables=None, title=None, widgets=None, width=None, __name__=None, __opts__=None):
+class ServiceObject(pulumi.CustomResource):
+    service_key: pulumi.Output[str]
+    service_name: pulumi.Output[str]
+    """
+    Your Service name in PagerDuty.
+    """
+    def __init__(__self__, resource_name, opts=None, service_key=None, service_name=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
-        
-        > **Note:**This resource is outdated. Use the new `datadog_dashboard` resource instead.
+        Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [datadog_integration_pagerduty](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/screenboard.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty_service_object.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -42,26 +39,16 @@ class ScreenBoard(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['height'] = height
+        if service_key is None:
+            raise TypeError("Missing required property 'service_key'")
+        __props__['service_key'] = service_key
 
-        __props__['read_only'] = read_only
+        if service_name is None:
+            raise TypeError("Missing required property 'service_name'")
+        __props__['service_name'] = service_name
 
-        __props__['shared'] = shared
-
-        __props__['template_variables'] = template_variables
-
-        if title is None:
-            raise TypeError("Missing required property 'title'")
-        __props__['title'] = title
-
-        if widgets is None:
-            raise TypeError("Missing required property 'widgets'")
-        __props__['widgets'] = widgets
-
-        __props__['width'] = width
-
-        super(ScreenBoard, __self__).__init__(
-            'datadog:index/screenBoard:ScreenBoard',
+        super(ServiceObject, __self__).__init__(
+            'datadog:pagerduty/serviceObject:ServiceObject',
             resource_name,
             __props__,
             opts)

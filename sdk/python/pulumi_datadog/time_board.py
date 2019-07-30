@@ -33,6 +33,8 @@ class TimeBoard(pulumi.CustomResource):
         """
         Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
         
+        > **Note:**This resource is outdated. Use the new `datadog_dashboard` resource instead.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.

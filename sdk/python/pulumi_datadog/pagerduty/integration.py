@@ -13,27 +13,32 @@ class Integration(pulumi.CustomResource):
     """
     Your PagerDuty API token.
     """
+    individual_services: pulumi.Output[bool]
+    """
+    Boolean to specify whether or not individual service objects specified by [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+    """
     schedules: pulumi.Output[list]
     """
     Array of your schedule URLs.
     """
     services: pulumi.Output[list]
     """
-    Array of PagerDuty service objects.
+    Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
     """
     subdomain: pulumi.Output[str]
     """
     Your PagerDuty account’s personalized subdomain name.
     """
-    def __init__(__self__, resource_name, opts=None, api_token=None, schedules=None, services=None, subdomain=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_token=None, individual_services=None, schedules=None, services=None, subdomain=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration.
+        Create a Integration resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
+        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
         :param pulumi.Input[list] schedules: Array of your schedule URLs.
-        :param pulumi.Input[list] services: Array of PagerDuty service objects.
+        :param pulumi.Input[list] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty.html.markdown.
@@ -55,10 +60,10 @@ class Integration(pulumi.CustomResource):
 
         __props__['api_token'] = api_token
 
+        __props__['individual_services'] = individual_services
+
         __props__['schedules'] = schedules
 
-        if services is None:
-            raise TypeError("Missing required property 'services'")
         __props__['services'] = services
 
         if subdomain is None:

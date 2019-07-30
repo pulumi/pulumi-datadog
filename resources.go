@@ -65,6 +65,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
+			"datadog_dashboard": {
+				Tok: makeResource(datadogMod, "Dashboard"),
+			},
 			"datadog_downtime": {
 				Tok: makeResource(datadogMod, "Downtime"),
 			},
@@ -94,6 +97,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"datadog_integration_pagerduty": {
 				Tok: makeResource(pdMod, "Integration"),
+			},
+			"datadog_integration_pagerduty_service_object": {
+				Tok: makeResource(pdMod, "ServiceObject"),
 			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{

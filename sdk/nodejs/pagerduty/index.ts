@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./integration";
+export * from "./serviceObject";

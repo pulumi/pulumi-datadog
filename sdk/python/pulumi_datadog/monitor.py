@@ -82,7 +82,7 @@ class Monitor(pulumi.CustomResource):
     """
     threshold_windows: pulumi.Output[dict]
     """
-    A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+    A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
     * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
     """
     thresholds: pulumi.Output[dict]
@@ -163,7 +163,7 @@ class Monitor(pulumi.CustomResource):
                We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
                Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
         :param pulumi.Input[list] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[dict] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+        :param pulumi.Input[dict] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
                * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
         :param pulumi.Input[dict] thresholds: 
                * Metric alerts:
