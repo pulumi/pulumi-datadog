@@ -106,7 +106,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
      * * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
      */
     public readonly thresholdWindows!: pulumi.Output<{ recoveryWindow?: string, triggerWindow?: string } | undefined>;
@@ -221,6 +221,13 @@ export class Monitor extends pulumi.CustomResource {
             inputs["timeoutH"] = args ? args.timeoutH : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Monitor.__pulumiType, name, inputs, opts);
     }
 }
@@ -301,7 +308,7 @@ export interface MonitorState {
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
      * * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
      */
     readonly thresholdWindows?: pulumi.Input<{ recoveryWindow?: pulumi.Input<string>, triggerWindow?: pulumi.Input<string> }>;
@@ -426,7 +433,7 @@ export interface MonitorArgs {
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
      * * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
      */
     readonly thresholdWindows?: pulumi.Input<{ recoveryWindow?: pulumi.Input<string>, triggerWindow?: pulumi.Input<string> }>;

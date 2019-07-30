@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Upgrade to pulumi-terraform 6bcafb609d
+* Upgrade to v2.1.0 of the datadog Terraform provider.
 
 ---
 

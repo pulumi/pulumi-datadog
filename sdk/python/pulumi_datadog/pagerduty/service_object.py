@@ -6,20 +6,23 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
-from . import utilities, tables
+from .. import utilities, tables
 
-class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, app_key=None, __name__=None, __opts__=None):
+class ServiceObject(pulumi.CustomResource):
+    service_key: pulumi.Output[str]
+    service_name: pulumi.Output[str]
+    """
+    Your Service name in PagerDuty.
+    """
+    def __init__(__self__, resource_name, opts=None, service_key=None, service_name=None, __name__=None, __opts__=None):
         """
-        The provider type for the datadog package. By default, resources use package-wide configuration
-        settings, however an explicit `Provider` instance may be created and passed during resource
-        construction to achieve fine-grained programmatic control over provider settings. See the
-        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+        Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [datadog_integration_pagerduty](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/index.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty_service_object.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -36,20 +39,16 @@ class Provider(pulumi.ProviderResource):
 
         __props__ = dict()
 
-        if api_key is None:
-            api_key = utilities.get_env('DATADOG_API_KEY')
-        __props__['api_key'] = api_key
+        if service_key is None:
+            raise TypeError("Missing required property 'service_key'")
+        __props__['service_key'] = service_key
 
-        if api_url is None:
-            api_url = utilities.get_env('DATADOG_HOST')
-        __props__['api_url'] = api_url
+        if service_name is None:
+            raise TypeError("Missing required property 'service_name'")
+        __props__['service_name'] = service_name
 
-        if app_key is None:
-            app_key = utilities.get_env('DATADOG_APP_KEY')
-        __props__['app_key'] = app_key
-
-        super(Provider, __self__).__init__(
-            'datadog',
+        super(ServiceObject, __self__).__init__(
+            'datadog:pagerduty/serviceObject:ServiceObject',
             resource_name,
             __props__,
             opts)

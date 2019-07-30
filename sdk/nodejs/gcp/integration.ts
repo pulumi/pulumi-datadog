@@ -123,6 +123,13 @@ export class Integration extends pulumi.CustomResource {
             inputs["privateKeyId"] = args ? args.privateKeyId : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Integration.__pulumiType, name, inputs, opts);
     }
 }

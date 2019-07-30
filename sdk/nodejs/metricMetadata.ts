@@ -110,6 +110,13 @@ export class MetricMetadata extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["unit"] = args ? args.unit : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MetricMetadata.__pulumiType, name, inputs, opts);
     }
 }

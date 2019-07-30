@@ -10,6 +10,7 @@ for pkg in __all__:
         importlib.import_module(f'{__name__}.{pkg}')
 
 # Export this package's modules as members:
+from .dashboard import *
 from .downtime import *
 from .metric_metadata import *
 from .monitor import *

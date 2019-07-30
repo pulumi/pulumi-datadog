@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
+ * 
+ * > **Note:**This resource is outdated. Use the new `datadog_dashboard` resource instead.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/screenboard.html.markdown.
  */
@@ -96,6 +98,13 @@ export class ScreenBoard extends pulumi.CustomResource {
             inputs["title"] = args ? args.title : undefined;
             inputs["widgets"] = args ? args.widgets : undefined;
             inputs["width"] = args ? args.width : undefined;
+        }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
         }
         super(ScreenBoard.__pulumiType, name, inputs, opts);
     }

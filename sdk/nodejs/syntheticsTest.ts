@@ -101,6 +101,13 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["monitorId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SyntheticsTest.__pulumiType, name, inputs, opts);
     }
 }

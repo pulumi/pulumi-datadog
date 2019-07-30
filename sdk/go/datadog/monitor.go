@@ -218,7 +218,7 @@ func (r *Monitor) Tags() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tags"])
 }
 
-// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
 // * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
 func (r *Monitor) ThresholdWindows() *pulumi.Output {
 	return r.s.State["thresholdWindows"]
@@ -317,7 +317,7 @@ type MonitorState struct {
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
 	// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows interface{}
 	// 
@@ -406,7 +406,7 @@ type MonitorArgs struct {
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for anomaly monitors.
+	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
 	// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows interface{}
 	// 
