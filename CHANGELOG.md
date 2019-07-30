@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform 6bcafb609d
-* Upgrade to v2.1.0 of the datadog Terraform provider.
+___NULL___
 
 ---
+
+## 0.18.4 (2019-07-30)
+* Upgrade to pulumi-terraform 6bcafb609d
+* Upgrade to v2.1.0 of the datadog Terraform provider.
 
 ## 0.18.3 (2019-07-09)
 * Fix detailed diffs with nested computed values.
