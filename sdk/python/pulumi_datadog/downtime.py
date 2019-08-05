@@ -115,6 +115,10 @@ class Downtime(pulumi.CustomResource):
 
         __props__['timezone'] = timezone
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Downtime, __self__).__init__(
             'datadog:index/downtime:Downtime',
             resource_name,

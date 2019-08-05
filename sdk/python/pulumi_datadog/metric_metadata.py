@@ -80,6 +80,10 @@ class MetricMetadata(pulumi.CustomResource):
 
         __props__['unit'] = unit
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MetricMetadata, __self__).__init__(
             'datadog:index/metricMetadata:MetricMetadata',
             resource_name,

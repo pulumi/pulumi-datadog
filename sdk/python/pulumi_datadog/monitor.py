@@ -265,6 +265,10 @@ class Monitor(pulumi.CustomResource):
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Monitor, __self__).__init__(
             'datadog:index/monitor:Monitor',
             resource_name,

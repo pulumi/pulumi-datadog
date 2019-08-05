@@ -47,6 +47,10 @@ class ServiceObject(pulumi.CustomResource):
             raise TypeError("Missing required property 'service_name'")
         __props__['service_name'] = service_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ServiceObject, __self__).__init__(
             'datadog:pagerduty/serviceObject:ServiceObject',
             resource_name,

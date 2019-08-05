@@ -94,6 +94,10 @@ class User(pulumi.CustomResource):
 
         __props__['verified'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(User, __self__).__init__(
             'datadog:index/user:User',
             resource_name,
