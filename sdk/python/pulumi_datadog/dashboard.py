@@ -62,6 +62,10 @@ class Dashboard(pulumi.CustomResource):
             raise TypeError("Missing required property 'widgets'")
         __props__['widgets'] = widgets
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Dashboard, __self__).__init__(
             'datadog:index/dashboard:Dashboard',
             resource_name,

@@ -85,6 +85,10 @@ class Integration(pulumi.CustomResource):
             raise TypeError("Missing required property 'project_id'")
         __props__['project_id'] = project_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Integration, __self__).__init__(
             'datadog:gcp/integration:Integration',
             resource_name,

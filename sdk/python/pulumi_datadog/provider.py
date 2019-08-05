@@ -48,6 +48,10 @@ class Provider(pulumi.ProviderResource):
             app_key = utilities.get_env('DATADOG_APP_KEY')
         __props__['app_key'] = app_key
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Provider, __self__).__init__(
             'datadog',
             resource_name,

@@ -70,6 +70,10 @@ class Integration(pulumi.CustomResource):
             raise TypeError("Missing required property 'subdomain'")
         __props__['subdomain'] = subdomain
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Integration, __self__).__init__(
             'datadog:pagerduty/integration:Integration',
             resource_name,
