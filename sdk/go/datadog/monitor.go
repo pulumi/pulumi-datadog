@@ -165,8 +165,8 @@ func (r *Monitor) Name() *pulumi.StringOutput {
 // Time (in seconds) to allow a host to boot and
 // applications to fully start before starting the evaluation of monitor
 // results. Should be a non negative integer. Defaults to 300.
-// * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
 // the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 // metrics to ensure the monitor will always have data during evaluation.
 func (r *Monitor) NewHostDelay() *pulumi.IntOutput {
@@ -218,8 +218,8 @@ func (r *Monitor) Tags() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tags"])
 }
 
-// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
+// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
+// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 func (r *Monitor) ThresholdWindows() *pulumi.Output {
 	return r.s.State["thresholdWindows"]
 }
@@ -231,9 +231,9 @@ func (r *Monitor) ThresholdWindows() *pulumi.Output {
 // ```
 // thresholds = {
 // critical          = 90
-// critical_recovery = 85
+// criticalRecovery = 85
 // warning           = 80
-// warning_recovery  = 75
+// warningRecovery  = 75
 // }
 // ```
 // **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
@@ -291,8 +291,8 @@ type MonitorState struct {
 	// Time (in seconds) to allow a host to boot and
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
-	// * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-	// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+	// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
 	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 	// metrics to ensure the monitor will always have data during evaluation.
 	NewHostDelay interface{}
@@ -317,8 +317,8 @@ type MonitorState struct {
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-	// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
+	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
+	// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows interface{}
 	// 
 	// * Metric alerts:
@@ -327,9 +327,9 @@ type MonitorState struct {
 	// ```
 	// thresholds = {
 	// critical          = 90
-	// critical_recovery = 85
+	// criticalRecovery = 85
 	// warning           = 80
-	// warning_recovery  = 75
+	// warningRecovery  = 75
 	// }
 	// ```
 	// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
@@ -380,8 +380,8 @@ type MonitorArgs struct {
 	// Time (in seconds) to allow a host to boot and
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
-	// * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-	// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+	// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
 	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 	// metrics to ensure the monitor will always have data during evaluation.
 	NewHostDelay interface{}
@@ -406,8 +406,8 @@ type MonitorArgs struct {
 	Silenced interface{}
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags interface{}
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-	// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
+	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
+	// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows interface{}
 	// 
 	// * Metric alerts:
@@ -416,9 +416,9 @@ type MonitorArgs struct {
 	// ```
 	// thresholds = {
 	// critical          = 90
-	// critical_recovery = 85
+	// criticalRecovery = 85
 	// warning           = 80
-	// warning_recovery  = 75
+	// warningRecovery  = 75
 	// }
 	// ```
 	// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but

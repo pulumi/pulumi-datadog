@@ -39,7 +39,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly apiToken!: pulumi.Output<string | undefined>;
     /**
-     * Boolean to specify whether or not individual service objects specified by [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+     * Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
      */
     public readonly individualServices!: pulumi.Output<boolean | undefined>;
     /**
@@ -47,7 +47,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly schedules!: pulumi.Output<string[] | undefined>;
     /**
-     * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+     * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
      */
     public readonly services!: pulumi.Output<{ serviceKey: string, serviceName: string }[] | undefined>;
     /**
@@ -103,7 +103,7 @@ export interface IntegrationState {
      */
     readonly apiToken?: pulumi.Input<string>;
     /**
-     * Boolean to specify whether or not individual service objects specified by [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+     * Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
      */
     readonly individualServices?: pulumi.Input<boolean>;
     /**
@@ -111,7 +111,7 @@ export interface IntegrationState {
      */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+     * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
      */
     readonly services?: pulumi.Input<pulumi.Input<{ serviceKey: pulumi.Input<string>, serviceName: pulumi.Input<string> }>[]>;
     /**
@@ -129,7 +129,7 @@ export interface IntegrationArgs {
      */
     readonly apiToken?: pulumi.Input<string>;
     /**
-     * Boolean to specify whether or not individual service objects specified by [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+     * Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
      */
     readonly individualServices?: pulumi.Input<boolean>;
     /**
@@ -137,7 +137,7 @@ export interface IntegrationArgs {
      */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog_integration_pagerduty_service_object](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+     * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
      */
     readonly services?: pulumi.Input<pulumi.Input<{ serviceKey: pulumi.Input<string>, serviceName: pulumi.Input<string> }>[]>;
     /**

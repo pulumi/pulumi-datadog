@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [datadog_integration_pagerduty](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
+ * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [datadog.pagerduty.Integration](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
  * 
  * ## Example Usage
  * 
@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *     ],
  *     subdomain: "ddog",
  * });
- * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
+ * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
  *     serviceKey: "54321098765432109876",
- *     serviceName: "testing_bar",
+ *     serviceName: "testingBar",
  * }, {dependsOn: [pd]});
- * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
+ * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
  *     serviceKey: "9876543210123456789",
- *     serviceName: "testing_foo",
+ *     serviceName: "testingFoo",
  * }, {dependsOn: [pd]});
  * ```
  *

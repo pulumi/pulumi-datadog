@@ -66,8 +66,8 @@ export class Monitor extends pulumi.CustomResource {
      * Time (in seconds) to allow a host to boot and
      * applications to fully start before starting the evaluation of monitor
      * results. Should be a non negative integer. Defaults to 300.
-     * * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-     * For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+     * * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
      * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
      * metrics to ensure the monitor will always have data during evaluation.
      */
@@ -106,8 +106,8 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-     * * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
+     * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
+     * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
     public readonly thresholdWindows!: pulumi.Output<{ recoveryWindow?: string, triggerWindow?: string } | undefined>;
     /**
@@ -118,9 +118,9 @@ export class Monitor extends pulumi.CustomResource {
      * ```
      * thresholds = {
      * critical          = 90
-     * critical_recovery = 85
+     * criticalRecovery = 85
      * warning           = 80
-     * warning_recovery  = 75
+     * warningRecovery  = 75
      * }
      * ```
      * **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
@@ -268,8 +268,8 @@ export interface MonitorState {
      * Time (in seconds) to allow a host to boot and
      * applications to fully start before starting the evaluation of monitor
      * results. Should be a non negative integer. Defaults to 300.
-     * * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-     * For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+     * * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
      * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
      * metrics to ensure the monitor will always have data during evaluation.
      */
@@ -308,8 +308,8 @@ export interface MonitorState {
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-     * * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
+     * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
+     * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
     readonly thresholdWindows?: pulumi.Input<{ recoveryWindow?: pulumi.Input<string>, triggerWindow?: pulumi.Input<string> }>;
     /**
@@ -320,9 +320,9 @@ export interface MonitorState {
      * ```
      * thresholds = {
      * critical          = 90
-     * critical_recovery = 85
+     * criticalRecovery = 85
      * warning           = 80
-     * warning_recovery  = 75
+     * warningRecovery  = 75
      * }
      * ```
      * **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
@@ -393,8 +393,8 @@ export interface MonitorArgs {
      * Time (in seconds) to allow a host to boot and
      * applications to fully start before starting the evaluation of monitor
      * results. Should be a non negative integer. Defaults to 300.
-     * * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-     * For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+     * * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
+     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
      * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
      * metrics to ensure the monitor will always have data during evaluation.
      */
@@ -433,8 +433,8 @@ export interface MonitorArgs {
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-     * * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
+     * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
+     * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
     readonly thresholdWindows?: pulumi.Input<{ recoveryWindow?: pulumi.Input<string>, triggerWindow?: pulumi.Input<string> }>;
     /**
@@ -445,9 +445,9 @@ export interface MonitorArgs {
      * ```
      * thresholds = {
      * critical          = 90
-     * critical_recovery = 85
+     * criticalRecovery = 85
      * warning           = 80
-     * warning_recovery  = 75
+     * warningRecovery  = 75
      * }
      * ```
      * **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but

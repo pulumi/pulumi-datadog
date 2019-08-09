@@ -122,7 +122,7 @@ func (r *Downtime) MonitorId() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["monitorId"])
 }
 
-// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 func (r *Downtime) MonitorTags() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["monitorTags"])
 }
@@ -166,7 +166,7 @@ type DowntimeState struct {
 	Message interface{}
 	// When specified, this downtime will only apply to this monitor
 	MonitorId interface{}
-	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 	MonitorTags interface{}
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence interface{}
@@ -194,7 +194,7 @@ type DowntimeArgs struct {
 	Message interface{}
 	// When specified, this downtime will only apply to this monitor
 	MonitorId interface{}
-	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 	MonitorTags interface{}
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence interface{}

@@ -10,7 +10,7 @@ import (
 
 // Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
 // 
-// > **Note:**This resource is outdated. Use the new `datadog_dashboard` resource instead.
+// > **Note:**This resource is outdated. Use the new `.Dashboard` resource instead.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/timeboard.html.markdown.
 type TimeBoard struct {
@@ -84,7 +84,7 @@ func (r *TimeBoard) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog_timeboard resource.
+// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
 func (r *TimeBoard) Graphs() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["graphs"])
 }
@@ -94,7 +94,7 @@ func (r *TimeBoard) ReadOnly() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["readOnly"])
 }
 
-// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog_timeboard resource.
+// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a .TimeBoard resource.
 func (r *TimeBoard) TemplateVariables() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["templateVariables"])
 }
@@ -108,11 +108,11 @@ func (r *TimeBoard) Title() *pulumi.StringOutput {
 type TimeBoardState struct {
 	// A description of the dashboard's content.
 	Description interface{}
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog_timeboard resource.
+	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
 	Graphs interface{}
 	// The read-only status of the timeboard. Default is false.
 	ReadOnly interface{}
-	// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog_timeboard resource.
+	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a .TimeBoard resource.
 	TemplateVariables interface{}
 	// The name of the dashboard.
 	Title interface{}
@@ -122,11 +122,11 @@ type TimeBoardState struct {
 type TimeBoardArgs struct {
 	// A description of the dashboard's content.
 	Description interface{}
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog_timeboard resource.
+	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
 	Graphs interface{}
 	// The read-only status of the timeboard. Default is false.
 	ReadOnly interface{}
-	// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog_timeboard resource.
+	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a .TimeBoard resource.
 	TemplateVariables interface{}
 	// The name of the dashboard.
 	Title interface{}

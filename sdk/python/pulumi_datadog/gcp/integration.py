@@ -33,7 +33,7 @@ class Integration(pulumi.CustomResource):
     """
     Your Google Cloud project ID found in your JSON service account key.
     """
-    def __init__(__self__, resource_name, opts=None, client_email=None, client_id=None, host_filters=None, private_key=None, private_key_id=None, project_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_email=None, client_id=None, host_filters=None, private_key=None, private_key_id=None, project_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
         
@@ -54,48 +54,66 @@ class Integration(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if client_email is None:
-            raise TypeError("Missing required property 'client_email'")
-        __props__['client_email'] = client_email
-
-        if client_id is None:
-            raise TypeError("Missing required property 'client_id'")
-        __props__['client_id'] = client_id
-
-        __props__['host_filters'] = host_filters
-
-        if private_key is None:
-            raise TypeError("Missing required property 'private_key'")
-        __props__['private_key'] = private_key
-
-        if private_key_id is None:
-            raise TypeError("Missing required property 'private_key_id'")
-        __props__['private_key_id'] = private_key_id
-
-        if project_id is None:
-            raise TypeError("Missing required property 'project_id'")
-        __props__['project_id'] = project_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if client_email is None:
+                raise TypeError("Missing required property 'client_email'")
+            __props__['client_email'] = client_email
+            if client_id is None:
+                raise TypeError("Missing required property 'client_id'")
+            __props__['client_id'] = client_id
+            __props__['host_filters'] = host_filters
+            if private_key is None:
+                raise TypeError("Missing required property 'private_key'")
+            __props__['private_key'] = private_key
+            if private_key_id is None:
+                raise TypeError("Missing required property 'private_key_id'")
+            __props__['private_key_id'] = private_key_id
+            if project_id is None:
+                raise TypeError("Missing required property 'project_id'")
+            __props__['project_id'] = project_id
         super(Integration, __self__).__init__(
             'datadog:gcp/integration:Integration',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, client_email=None, client_id=None, host_filters=None, private_key=None, private_key_id=None, project_id=None):
+        """
+        Get an existing Integration resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
+        :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
+        :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
+        :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_gcp.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["client_email"] = client_email
+        __props__["client_id"] = client_id
+        __props__["host_filters"] = host_filters
+        __props__["private_key"] = private_key
+        __props__["private_key_id"] = private_key_id
+        __props__["project_id"] = project_id
+        return Integration(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

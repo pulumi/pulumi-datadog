@@ -16,11 +16,11 @@ class Dashboard(pulumi.CustomResource):
     template_variables: pulumi.Output[list]
     title: pulumi.Output[str]
     widgets: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variables=None, title=None, widgets=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variables=None, title=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
         
-        > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/#dashboards) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `datadog_timeboard` and `datadog_screenboard` resources to allow you to manage all of your dashboards using a single format.
+        > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/#dashboards) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `.TimeBoard` and `.ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -33,46 +33,58 @@ class Dashboard(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['description'] = description
-
-        __props__['is_read_only'] = is_read_only
-
-        if layout_type is None:
-            raise TypeError("Missing required property 'layout_type'")
-        __props__['layout_type'] = layout_type
-
-        __props__['notify_lists'] = notify_lists
-
-        __props__['template_variables'] = template_variables
-
-        if title is None:
-            raise TypeError("Missing required property 'title'")
-        __props__['title'] = title
-
-        if widgets is None:
-            raise TypeError("Missing required property 'widgets'")
-        __props__['widgets'] = widgets
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['description'] = description
+            __props__['is_read_only'] = is_read_only
+            if layout_type is None:
+                raise TypeError("Missing required property 'layout_type'")
+            __props__['layout_type'] = layout_type
+            __props__['notify_lists'] = notify_lists
+            __props__['template_variables'] = template_variables
+            if title is None:
+                raise TypeError("Missing required property 'title'")
+            __props__['title'] = title
+            if widgets is None:
+                raise TypeError("Missing required property 'widgets'")
+            __props__['widgets'] = widgets
         super(Dashboard, __self__).__init__(
             'datadog:index/dashboard:Dashboard',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variables=None, title=None, widgets=None):
+        """
+        Get an existing Dashboard resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["description"] = description
+        __props__["is_read_only"] = is_read_only
+        __props__["layout_type"] = layout_type
+        __props__["notify_lists"] = notify_lists
+        __props__["template_variables"] = template_variables
+        __props__["title"] = title
+        __props__["widgets"] = widgets
+        return Dashboard(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
