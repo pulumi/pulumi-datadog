@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
+ * Provides a Datadog metricMetadata resource. This can be used to manage a metric's metadata.
  * 
  * ## Example Usage
  * 
@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  * 
  * // Manage a Datadog metric's metadata
- * const requestTime = new datadog.MetricMetadata("request_time", {
+ * const requestTime = new datadog.MetricMetadata("requestTime", {
  *     description: "99th percentile request time in millseconds",
  *     metric: "request.time",
  *     shortName: "Request time",

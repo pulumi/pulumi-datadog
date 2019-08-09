@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as datadog from "@pulumi/datadog";
  * 
  * // Create a new Datadog - Google Cloud Platform integration
- * const awesomeGcpProjectIntegration = new datadog.gcp.Integration("awesome_gcp_project_integration", {
+ * const awesomeGcpProjectIntegration = new datadog.gcp.Integration("awesomeGcpProjectIntegration", {
  *     clientEmail: "awesome-service-account@awesome-project-id.iam.gserviceaccount.com",
  *     clientId: "123456789012345678901",
  *     hostFilters: "foo:bar,buzz:lightyear",

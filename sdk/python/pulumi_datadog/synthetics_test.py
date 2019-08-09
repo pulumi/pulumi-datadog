@@ -21,7 +21,7 @@ class SyntheticsTest(pulumi.CustomResource):
     status: pulumi.Output[str]
     tags: pulumi.Output[list]
     type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_headers=None, status=None, tags=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_headers=None, status=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SyntheticsTest resource with the given unique name, props, and options.
         
@@ -34,62 +34,72 @@ class SyntheticsTest(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['assertions'] = assertions
-
-        __props__['device_ids'] = device_ids
-
-        if locations is None:
-            raise TypeError("Missing required property 'locations'")
-        __props__['locations'] = locations
-
-        __props__['message'] = message
-
-        if name is None:
-            raise TypeError("Missing required property 'name'")
-        __props__['name'] = name
-
-        __props__['options'] = options
-
-        if request is None:
-            raise TypeError("Missing required property 'request'")
-        __props__['request'] = request
-
-        __props__['request_headers'] = request_headers
-
-        if status is None:
-            raise TypeError("Missing required property 'status'")
-        __props__['status'] = status
-
-        if tags is None:
-            raise TypeError("Missing required property 'tags'")
-        __props__['tags'] = tags
-
-        if type is None:
-            raise TypeError("Missing required property 'type'")
-        __props__['type'] = type
-
-        __props__['monitor_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['assertions'] = assertions
+            __props__['device_ids'] = device_ids
+            if locations is None:
+                raise TypeError("Missing required property 'locations'")
+            __props__['locations'] = locations
+            __props__['message'] = message
+            if name is None:
+                raise TypeError("Missing required property 'name'")
+            __props__['name'] = name
+            __props__['options'] = options
+            if request is None:
+                raise TypeError("Missing required property 'request'")
+            __props__['request'] = request
+            __props__['request_headers'] = request_headers
+            if status is None:
+                raise TypeError("Missing required property 'status'")
+            __props__['status'] = status
+            if tags is None:
+                raise TypeError("Missing required property 'tags'")
+            __props__['tags'] = tags
+            if type is None:
+                raise TypeError("Missing required property 'type'")
+            __props__['type'] = type
+            __props__['monitor_id'] = None
         super(SyntheticsTest, __self__).__init__(
             'datadog:index/syntheticsTest:SyntheticsTest',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, assertions=None, device_ids=None, locations=None, message=None, monitor_id=None, name=None, options=None, request=None, request_headers=None, status=None, tags=None, type=None):
+        """
+        Get an existing SyntheticsTest resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 
+        __props__ = dict()
+        __props__["assertions"] = assertions
+        __props__["device_ids"] = device_ids
+        __props__["locations"] = locations
+        __props__["message"] = message
+        __props__["monitor_id"] = monitor_id
+        __props__["name"] = name
+        __props__["options"] = options
+        __props__["request"] = request
+        __props__["request_headers"] = request_headers
+        __props__["status"] = status
+        __props__["tags"] = tags
+        __props__["type"] = type
+        return SyntheticsTest(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

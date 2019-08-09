@@ -33,7 +33,7 @@ class Integration(pulumi.CustomResource):
     """
     Your Datadog role delegation name.
     """
-    def __init__(__self__, resource_name, opts=None, account_id=None, account_specific_namespace_rules=None, filter_tags=None, host_tags=None, role_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_id=None, account_specific_namespace_rules=None, filter_tags=None, host_tags=None, role_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
         
@@ -55,42 +55,60 @@ class Integration(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if account_id is None:
-            raise TypeError("Missing required property 'account_id'")
-        __props__['account_id'] = account_id
-
-        __props__['account_specific_namespace_rules'] = account_specific_namespace_rules
-
-        __props__['filter_tags'] = filter_tags
-
-        __props__['host_tags'] = host_tags
-
-        if role_name is None:
-            raise TypeError("Missing required property 'role_name'")
-        __props__['role_name'] = role_name
-
-        __props__['external_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if account_id is None:
+                raise TypeError("Missing required property 'account_id'")
+            __props__['account_id'] = account_id
+            __props__['account_specific_namespace_rules'] = account_specific_namespace_rules
+            __props__['filter_tags'] = filter_tags
+            __props__['host_tags'] = host_tags
+            if role_name is None:
+                raise TypeError("Missing required property 'role_name'")
+            __props__['role_name'] = role_name
+            __props__['external_id'] = None
         super(Integration, __self__).__init__(
             'datadog:aws/integration:Integration',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, account_id=None, account_specific_namespace_rules=None, external_id=None, filter_tags=None, host_tags=None, role_name=None):
+        """
+        Get an existing Integration resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
+        :param pulumi.Input[dict] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+        :param pulumi.Input[str] external_id: AWS External ID
+        :param pulumi.Input[list] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
+        :param pulumi.Input[list] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[str] role_name: Your Datadog role delegation name.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["account_id"] = account_id
+        __props__["account_specific_namespace_rules"] = account_specific_namespace_rules
+        __props__["external_id"] = external_id
+        __props__["filter_tags"] = filter_tags
+        __props__["host_tags"] = host_tags
+        __props__["role_name"] = role_name
+        return Integration(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

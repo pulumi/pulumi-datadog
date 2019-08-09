@@ -79,7 +79,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
     /**
-     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
      */
     public readonly monitorTags!: pulumi.Output<string[] | undefined>;
     /**
@@ -185,7 +185,7 @@ export interface DowntimeState {
      */
     readonly monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
      */
     readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -239,7 +239,7 @@ export interface DowntimeArgs {
      */
     readonly monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
      */
     readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

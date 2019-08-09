@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
+// Provides a Datadog metricMetadata resource. This can be used to manage a metric's metadata.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/metric_metadata.html.markdown.
 type MetricMetadata struct {

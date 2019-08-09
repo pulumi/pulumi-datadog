@@ -10,7 +10,7 @@ import (
 
 // Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
 // 
-// > **Note:**This resource is outdated. Use the new `datadog_dashboard` resource instead.
+// > **Note:**This resource is outdated. Use the new `.Dashboard` resource instead.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/screenboard.html.markdown.
 type ScreenBoard struct {
