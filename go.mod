@@ -34,7 +34,7 @@ require (
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709
 	github.com/terraform-providers/terraform-provider-aws v1.29.0 // indirect
-	github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190724170355-dbe8a5c51fc5
+	github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190819150108-66f6beae2607
 	github.com/terraform-providers/terraform-provider-template v1.0.0 // indirect
 	github.com/terraform-providers/terraform-provider-tls v1.2.0 // indirect
 	golang.org/x/build v0.0.0-20190314133821-5284462c4bec // indirect
