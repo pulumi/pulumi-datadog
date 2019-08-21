@@ -15,6 +15,7 @@ from .downtime import *
 from .metric_metadata import *
 from .monitor import *
 from .screen_board import *
+from .service_level_objective import *
 from .synthetics_test import *
 from .time_board import *
 from .user import *

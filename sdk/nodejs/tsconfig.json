@@ -29,6 +29,7 @@
         "pagerduty/serviceObject.ts",
         "provider.ts",
         "screenBoard.ts",
+        "serviceLevelObjective.ts",
         "syntheticsTest.ts",
         "timeBoard.ts",
         "user.ts",

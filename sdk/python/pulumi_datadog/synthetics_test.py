@@ -19,9 +19,10 @@ class SyntheticsTest(pulumi.CustomResource):
     request: pulumi.Output[dict]
     request_headers: pulumi.Output[dict]
     status: pulumi.Output[str]
+    subtype: pulumi.Output[str]
     tags: pulumi.Output[list]
     type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_headers=None, status=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_headers=None, status=None, subtype=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SyntheticsTest resource with the given unique name, props, and options.
         
@@ -62,6 +63,7 @@ class SyntheticsTest(pulumi.CustomResource):
             if status is None:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
+            __props__['subtype'] = subtype
             if tags is None:
                 raise TypeError("Missing required property 'tags'")
             __props__['tags'] = tags
@@ -76,7 +78,7 @@ class SyntheticsTest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, assertions=None, device_ids=None, locations=None, message=None, monitor_id=None, name=None, options=None, request=None, request_headers=None, status=None, tags=None, type=None):
+    def get(resource_name, id, opts=None, assertions=None, device_ids=None, locations=None, message=None, monitor_id=None, name=None, options=None, request=None, request_headers=None, status=None, subtype=None, tags=None, type=None):
         """
         Get an existing SyntheticsTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -97,6 +99,7 @@ class SyntheticsTest(pulumi.CustomResource):
         __props__["request"] = request
         __props__["request_headers"] = request_headers
         __props__["status"] = status
+        __props__["subtype"] = subtype
         __props__["tags"] = tags
         __props__["type"] = type
         return SyntheticsTest(resource_name, opts=opts, __props__=__props__)

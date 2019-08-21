@@ -89,6 +89,9 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_synthetics_test": {
 				Tok: makeResource(datadogMod, "SyntheticsTest"),
 			},
+			"datadog_service_level_objective": {
+				Tok: makeResource(datadogMod, "ServiceLevelObjective"),
+			},
 			"datadog_integration_gcp": {
 				Tok: makeResource(gcpMod, "Integration"),
 			},

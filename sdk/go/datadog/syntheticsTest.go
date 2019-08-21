@@ -44,6 +44,7 @@ func NewSyntheticsTest(ctx *pulumi.Context,
 		inputs["request"] = nil
 		inputs["requestHeaders"] = nil
 		inputs["status"] = nil
+		inputs["subtype"] = nil
 		inputs["tags"] = nil
 		inputs["type"] = nil
 	} else {
@@ -56,6 +57,7 @@ func NewSyntheticsTest(ctx *pulumi.Context,
 		inputs["request"] = args.Request
 		inputs["requestHeaders"] = args.RequestHeaders
 		inputs["status"] = args.Status
+		inputs["subtype"] = args.Subtype
 		inputs["tags"] = args.Tags
 		inputs["type"] = args.Type
 	}
@@ -83,6 +85,7 @@ func GetSyntheticsTest(ctx *pulumi.Context,
 		inputs["request"] = state.Request
 		inputs["requestHeaders"] = state.RequestHeaders
 		inputs["status"] = state.Status
+		inputs["subtype"] = state.Subtype
 		inputs["tags"] = state.Tags
 		inputs["type"] = state.Type
 	}
@@ -143,6 +146,10 @@ func (r *SyntheticsTest) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+func (r *SyntheticsTest) Subtype() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["subtype"])
+}
+
 func (r *SyntheticsTest) Tags() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["tags"])
 }
@@ -163,6 +170,7 @@ type SyntheticsTestState struct {
 	Request interface{}
 	RequestHeaders interface{}
 	Status interface{}
+	Subtype interface{}
 	Tags interface{}
 	Type interface{}
 }
@@ -178,6 +186,7 @@ type SyntheticsTestArgs struct {
 	Request interface{}
 	RequestHeaders interface{}
 	Status interface{}
+	Subtype interface{}
 	Tags interface{}
 	Type interface{}
 }
