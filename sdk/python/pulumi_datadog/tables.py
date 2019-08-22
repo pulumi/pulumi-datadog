@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 _SNAKE_TO_CAMEL_CASE_TABLE = {
+    "accept_self_signed": "acceptSelfSigned",
     "access_role": "accessRole",
     "account_id": "accountId",
     "account_specific_namespace_rules": "accountSpecificNamespaceRules",
@@ -31,6 +32,8 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
     "min_failure_duration": "minFailureDuration",
     "min_location_failed": "minLocationFailed",
     "monitor_id": "monitorId",
+    "monitor_ids": "monitorIds",
+    "monitor_search": "monitorSearch",
     "monitor_tags": "monitorTags",
     "new_host_delay": "newHostDelay",
     "no_data_timeframe": "noDataTimeframe",
@@ -61,6 +64,7 @@ _SNAKE_TO_CAMEL_CASE_TABLE = {
 }
 
 _CAMEL_TO_SNAKE_CASE_TABLE = {
+    "acceptSelfSigned": "accept_self_signed",
     "accessRole": "access_role",
     "accountId": "account_id",
     "accountSpecificNamespaceRules": "account_specific_namespace_rules",
@@ -89,6 +93,8 @@ _CAMEL_TO_SNAKE_CASE_TABLE = {
     "minFailureDuration": "min_failure_duration",
     "minLocationFailed": "min_location_failed",
     "monitorId": "monitor_id",
+    "monitorIds": "monitor_ids",
+    "monitorSearch": "monitor_search",
     "monitorTags": "monitor_tags",
     "newHostDelay": "new_host_delay",
     "noDataTimeframe": "no_data_timeframe",

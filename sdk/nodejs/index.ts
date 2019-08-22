@@ -8,6 +8,7 @@ export * from "./metricMetadata";
 export * from "./monitor";
 export * from "./provider";
 export * from "./screenBoard";
+export * from "./serviceLevelObjective";
 export * from "./syntheticsTest";
 export * from "./timeBoard";
 export * from "./user";
