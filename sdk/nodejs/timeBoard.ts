@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -45,7 +47,7 @@ export class TimeBoard extends pulumi.CustomResource {
     /**
      * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog..TimeBoard resource.
      */
-    public readonly graphs!: pulumi.Output<{ autoscale?: boolean, customUnit?: string, events?: string[], groups?: string[], includeNoMetricHosts?: boolean, includeUngroupedHosts?: boolean, markers?: { label?: string, type: string, value: string }[], nodeType?: string, precision?: string, requests: { aggregator?: string, changeType?: string, compareTo?: string, conditionalFormats?: { comparator: string, customBgColor?: string, customFgColor?: string, palette?: string, value?: string }[], extraCol?: string, increaseGood?: boolean, metadataJson?: string, orderBy?: string, orderDirection?: string, q: string, stacked?: boolean, style?: {[key: string]: any}, type?: string }[], scopes?: string[], style?: {[key: string]: any}, textAlign?: string, title: string, viz: string, yaxis?: {[key: string]: any} }[]>;
+    public readonly graphs!: pulumi.Output<outputs.TimeBoardGraph[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */
@@ -53,7 +55,7 @@ export class TimeBoard extends pulumi.CustomResource {
     /**
      * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog..TimeBoard resource.
      */
-    public readonly templateVariables!: pulumi.Output<{ default?: string, name: string, prefix?: string }[] | undefined>;
+    public readonly templateVariables!: pulumi.Output<outputs.TimeBoardTemplateVariable[] | undefined>;
     /**
      * The name of the dashboard.
      */
@@ -115,7 +117,7 @@ export interface TimeBoardState {
     /**
      * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog..TimeBoard resource.
      */
-    readonly graphs?: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<string>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, includeNoMetricHosts?: pulumi.Input<boolean>, includeUngroupedHosts?: pulumi.Input<boolean>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, customFgColor?: pulumi.Input<string>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, metadataJson?: pulumi.Input<string>, orderBy?: pulumi.Input<string>, orderDirection?: pulumi.Input<string>, q: pulumi.Input<string>, stacked?: pulumi.Input<boolean>, style?: pulumi.Input<{[key: string]: any}>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, title: pulumi.Input<string>, viz: pulumi.Input<string>, yaxis?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly graphs?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */
@@ -123,7 +125,7 @@ export interface TimeBoardState {
     /**
      * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog..TimeBoard resource.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<{ default?: pulumi.Input<string>, name: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
+    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**
      * The name of the dashboard.
      */
@@ -141,7 +143,7 @@ export interface TimeBoardArgs {
     /**
      * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog..TimeBoard resource.
      */
-    readonly graphs: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<string>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, includeNoMetricHosts?: pulumi.Input<boolean>, includeUngroupedHosts?: pulumi.Input<boolean>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, customFgColor?: pulumi.Input<string>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, metadataJson?: pulumi.Input<string>, orderBy?: pulumi.Input<string>, orderDirection?: pulumi.Input<string>, q: pulumi.Input<string>, stacked?: pulumi.Input<boolean>, style?: pulumi.Input<{[key: string]: any}>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, title: pulumi.Input<string>, viz: pulumi.Input<string>, yaxis?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly graphs: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */
@@ -149,7 +151,7 @@ export interface TimeBoardArgs {
     /**
      * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog..TimeBoard resource.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<{ default?: pulumi.Input<string>, name: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
+    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**
      * The name of the dashboard.
      */

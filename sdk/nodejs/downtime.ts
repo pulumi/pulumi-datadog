@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -85,7 +87,7 @@ export class Downtime extends pulumi.CustomResource {
     /**
      * A dictionary to configure the downtime to be recurring.
      */
-    public readonly recurrence!: pulumi.Output<{ period: number, type: string, untilDate?: number, untilOccurrences?: number, weekDays?: string[] } | undefined>;
+    public readonly recurrence!: pulumi.Output<outputs.DowntimeRecurrence | undefined>;
     /**
      * A list of items to apply the downtime to, e.g. host:X
      */
@@ -191,7 +193,7 @@ export interface DowntimeState {
     /**
      * A dictionary to configure the downtime to be recurring.
      */
-    readonly recurrence?: pulumi.Input<{ period: pulumi.Input<number>, type: pulumi.Input<string>, untilDate?: pulumi.Input<number>, untilOccurrences?: pulumi.Input<number>, weekDays?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
      * A list of items to apply the downtime to, e.g. host:X
      */
@@ -245,7 +247,7 @@ export interface DowntimeArgs {
     /**
      * A dictionary to configure the downtime to be recurring.
      */
-    readonly recurrence?: pulumi.Input<{ period: pulumi.Input<number>, type: pulumi.Input<string>, untilDate?: pulumi.Input<number>, untilOccurrences?: pulumi.Input<number>, weekDays?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
      * A list of items to apply the downtime to, e.g. host:X
      */

@@ -18,4 +18,5 @@ import * as aws from "./aws/index";
 import * as config from "./config/index";
 import * as gcp from "./gcp/index";
 import * as pagerduty from "./pagerduty/index";
-export {aws, config, gcp, pagerduty};
+import * as types from "./types/index";
+export {aws, config, gcp, pagerduty, types};

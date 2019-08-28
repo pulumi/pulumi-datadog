@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class TimeBoard(pulumi.CustomResource):
@@ -16,6 +17,50 @@ class TimeBoard(pulumi.CustomResource):
     graphs: pulumi.Output[list]
     """
     Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
+    
+      * `autoscale` (`bool`)
+      * `customUnit` (`str`)
+      * `events` (`list`)
+      * `groups` (`list`)
+      * `includeNoMetricHosts` (`bool`)
+      * `includeUngroupedHosts` (`bool`)
+      * `markers` (`list`)
+    
+        * `label` (`str`)
+        * `type` (`str`)
+        * `value` (`str`)
+    
+      * `nodeType` (`str`)
+      * `precision` (`str`)
+      * `requests` (`list`)
+    
+        * `aggregator` (`str`)
+        * `changeType` (`str`)
+        * `compareTo` (`str`)
+        * `conditionalFormats` (`list`)
+    
+          * `comparator` (`str`)
+          * `customBgColor` (`str`)
+          * `customFgColor` (`str`)
+          * `palette` (`str`) - Spectrum of colors to use when styling a hostmap. For example: "green_to_orange", "yellow_to_green", "YlOrRd", or "hostmap_blues". Default: "green_to_orange".
+          * `value` (`str`)
+    
+        * `extraCol` (`str`)
+        * `increaseGood` (`bool`)
+        * `metadataJson` (`str`)
+        * `orderBy` (`str`)
+        * `orderDirection` (`str`)
+        * `q` (`str`)
+        * `stacked` (`bool`)
+        * `style` (`dict`)
+        * `type` (`str`)
+    
+      * `scopes` (`list`)
+      * `style` (`dict`)
+      * `textAlign` (`str`)
+      * `title` (`str`) - The name of the dashboard.
+      * `viz` (`str`)
+      * `yaxis` (`dict`)
     """
     read_only: pulumi.Output[bool]
     """
@@ -24,6 +69,10 @@ class TimeBoard(pulumi.CustomResource):
     template_variables: pulumi.Output[list]
     """
     Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a .TimeBoard resource.
+    
+      * `default` (`str`)
+      * `name` (`str`)
+      * `prefix` (`str`)
     """
     title: pulumi.Output[str]
     """
@@ -42,6 +91,58 @@ class TimeBoard(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
         :param pulumi.Input[list] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a .TimeBoard resource.
         :param pulumi.Input[str] title: The name of the dashboard.
+        
+        The **graphs** object supports the following:
+        
+          * `autoscale` (`pulumi.Input[bool]`)
+          * `customUnit` (`pulumi.Input[str]`)
+          * `events` (`pulumi.Input[list]`)
+          * `groups` (`pulumi.Input[list]`)
+          * `includeNoMetricHosts` (`pulumi.Input[bool]`)
+          * `includeUngroupedHosts` (`pulumi.Input[bool]`)
+          * `markers` (`pulumi.Input[list]`)
+        
+            * `label` (`pulumi.Input[str]`)
+            * `type` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `nodeType` (`pulumi.Input[str]`)
+          * `precision` (`pulumi.Input[str]`)
+          * `requests` (`pulumi.Input[list]`)
+        
+            * `aggregator` (`pulumi.Input[str]`)
+            * `changeType` (`pulumi.Input[str]`)
+            * `compareTo` (`pulumi.Input[str]`)
+            * `conditionalFormats` (`pulumi.Input[list]`)
+        
+              * `comparator` (`pulumi.Input[str]`)
+              * `customBgColor` (`pulumi.Input[str]`)
+              * `customFgColor` (`pulumi.Input[str]`)
+              * `palette` (`pulumi.Input[str]`) - Spectrum of colors to use when styling a hostmap. For example: "green_to_orange", "yellow_to_green", "YlOrRd", or "hostmap_blues". Default: "green_to_orange".
+              * `value` (`pulumi.Input[str]`)
+        
+            * `extraCol` (`pulumi.Input[str]`)
+            * `increaseGood` (`pulumi.Input[bool]`)
+            * `metadataJson` (`pulumi.Input[str]`)
+            * `orderBy` (`pulumi.Input[str]`)
+            * `orderDirection` (`pulumi.Input[str]`)
+            * `q` (`pulumi.Input[str]`)
+            * `stacked` (`pulumi.Input[bool]`)
+            * `style` (`pulumi.Input[dict]`)
+            * `type` (`pulumi.Input[str]`)
+        
+          * `scopes` (`pulumi.Input[list]`)
+          * `style` (`pulumi.Input[dict]`)
+          * `textAlign` (`pulumi.Input[str]`)
+          * `title` (`pulumi.Input[str]`) - The name of the dashboard.
+          * `viz` (`pulumi.Input[str]`)
+          * `yaxis` (`pulumi.Input[dict]`)
+        
+        The **template_variables** object supports the following:
+        
+          * `default` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`)
+          * `prefix` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/timeboard.html.markdown.
         """
@@ -84,6 +185,7 @@ class TimeBoard(pulumi.CustomResource):
         """
         Get an existing TimeBoard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,10 +194,62 @@ class TimeBoard(pulumi.CustomResource):
         :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
         :param pulumi.Input[list] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a .TimeBoard resource.
         :param pulumi.Input[str] title: The name of the dashboard.
+        
+        The **graphs** object supports the following:
+        
+          * `autoscale` (`pulumi.Input[bool]`)
+          * `customUnit` (`pulumi.Input[str]`)
+          * `events` (`pulumi.Input[list]`)
+          * `groups` (`pulumi.Input[list]`)
+          * `includeNoMetricHosts` (`pulumi.Input[bool]`)
+          * `includeUngroupedHosts` (`pulumi.Input[bool]`)
+          * `markers` (`pulumi.Input[list]`)
+        
+            * `label` (`pulumi.Input[str]`)
+            * `type` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `nodeType` (`pulumi.Input[str]`)
+          * `precision` (`pulumi.Input[str]`)
+          * `requests` (`pulumi.Input[list]`)
+        
+            * `aggregator` (`pulumi.Input[str]`)
+            * `changeType` (`pulumi.Input[str]`)
+            * `compareTo` (`pulumi.Input[str]`)
+            * `conditionalFormats` (`pulumi.Input[list]`)
+        
+              * `comparator` (`pulumi.Input[str]`)
+              * `customBgColor` (`pulumi.Input[str]`)
+              * `customFgColor` (`pulumi.Input[str]`)
+              * `palette` (`pulumi.Input[str]`) - Spectrum of colors to use when styling a hostmap. For example: "green_to_orange", "yellow_to_green", "YlOrRd", or "hostmap_blues". Default: "green_to_orange".
+              * `value` (`pulumi.Input[str]`)
+        
+            * `extraCol` (`pulumi.Input[str]`)
+            * `increaseGood` (`pulumi.Input[bool]`)
+            * `metadataJson` (`pulumi.Input[str]`)
+            * `orderBy` (`pulumi.Input[str]`)
+            * `orderDirection` (`pulumi.Input[str]`)
+            * `q` (`pulumi.Input[str]`)
+            * `stacked` (`pulumi.Input[bool]`)
+            * `style` (`pulumi.Input[dict]`)
+            * `type` (`pulumi.Input[str]`)
+        
+          * `scopes` (`pulumi.Input[list]`)
+          * `style` (`pulumi.Input[dict]`)
+          * `textAlign` (`pulumi.Input[str]`)
+          * `title` (`pulumi.Input[str]`) - The name of the dashboard.
+          * `viz` (`pulumi.Input[str]`)
+          * `yaxis` (`pulumi.Input[dict]`)
+        
+        The **template_variables** object supports the following:
+        
+          * `default` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`)
+          * `prefix` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/timeboard.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["description"] = description

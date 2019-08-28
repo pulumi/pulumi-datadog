@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -50,7 +52,7 @@ export class ScreenBoard extends pulumi.CustomResource {
     /**
      * A list of template variables for using Dashboard templating.
      */
-    public readonly templateVariables!: pulumi.Output<{ default?: string, name: string, prefix?: string }[] | undefined>;
+    public readonly templateVariables!: pulumi.Output<outputs.ScreenBoardTemplateVariable[] | undefined>;
     /**
      * Name of the screenboard
      */
@@ -58,7 +60,7 @@ export class ScreenBoard extends pulumi.CustomResource {
     /**
      * A list of widget definitions.
      */
-    public readonly widgets!: pulumi.Output<{ alertId?: number, autoRefresh?: boolean, bgcolor?: string, check?: string, color?: string, colorPreference?: string, columns?: string, displayFormat?: string, env?: string, eventSize?: string, fontSize?: string, group?: string, groupBies?: string[], grouping?: string, height?: number, hideZeroCounts?: boolean, html?: string, layoutVersion?: string, legend?: boolean, legendSize?: string, logset?: string, manageStatusShowTitle?: boolean, manageStatusTitleAlign?: string, manageStatusTitleSize?: string, manageStatusTitleText?: string, margin?: string, monitor?: {[key: string]: string}, mustShowBreakdown?: boolean, mustShowDistribution?: boolean, mustShowErrors?: boolean, mustShowHits?: boolean, mustShowLatency?: boolean, mustShowResourceList?: boolean, params?: {[key: string]: string}, precision?: string, query?: string, rules?: { color?: string, threshold?: number, timeframe?: string }[], serviceName?: string, serviceService?: string, sizeVersion?: string, sizing?: string, tags?: string[], text?: string, textAlign?: string, textSize?: string, tick?: boolean, tickEdge?: string, tickPos?: string, tileDeves?: { autoscale?: boolean, customUnit?: string, events?: { q: string }[], groups?: string[], markers?: { label?: string, type: string, value: string }[], noGroupHosts?: boolean, noMetricHosts?: boolean, nodeType?: string, precision?: string, requests: { aggregator?: string, changeType?: string, compareTo?: string, conditionalFormats?: { color?: string, comparator: string, customBgColor?: string, invert?: boolean, palette?: string, value?: string }[], extraCol?: string, increaseGood?: boolean, limit?: number, metadataJson?: string, metric?: string, orderBy?: string, orderDir?: string, q?: string, queryType?: string, style?: {[key: string]: any}, tagFilters?: string[], textFilter?: string, type?: string }[], scopes?: string[], style?: {[key: string]: any}, textAlign?: string, viz: string }[], time?: {[key: string]: string}, timeframes?: string[], title?: string, titleAlign?: string, titleSize?: number, type: string, unit?: string, url?: string, vizType?: string, width?: number, x: number, y: number }[]>;
+    public readonly widgets!: pulumi.Output<outputs.ScreenBoardWidget[]>;
     /**
      * Width of the screenboard
      */
@@ -126,7 +128,7 @@ export interface ScreenBoardState {
     /**
      * A list of template variables for using Dashboard templating.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<{ default?: pulumi.Input<string>, name: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
+    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
      * Name of the screenboard
      */
@@ -134,7 +136,7 @@ export interface ScreenBoardState {
     /**
      * A list of widget definitions.
      */
-    readonly widgets?: pulumi.Input<pulumi.Input<{ alertId?: pulumi.Input<number>, autoRefresh?: pulumi.Input<boolean>, bgcolor?: pulumi.Input<string>, check?: pulumi.Input<string>, color?: pulumi.Input<string>, colorPreference?: pulumi.Input<string>, columns?: pulumi.Input<string>, displayFormat?: pulumi.Input<string>, env?: pulumi.Input<string>, eventSize?: pulumi.Input<string>, fontSize?: pulumi.Input<string>, group?: pulumi.Input<string>, groupBies?: pulumi.Input<pulumi.Input<string>[]>, grouping?: pulumi.Input<string>, height?: pulumi.Input<number>, hideZeroCounts?: pulumi.Input<boolean>, html?: pulumi.Input<string>, layoutVersion?: pulumi.Input<string>, legend?: pulumi.Input<boolean>, legendSize?: pulumi.Input<string>, logset?: pulumi.Input<string>, manageStatusShowTitle?: pulumi.Input<boolean>, manageStatusTitleAlign?: pulumi.Input<string>, manageStatusTitleSize?: pulumi.Input<string>, manageStatusTitleText?: pulumi.Input<string>, margin?: pulumi.Input<string>, monitor?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, mustShowBreakdown?: pulumi.Input<boolean>, mustShowDistribution?: pulumi.Input<boolean>, mustShowErrors?: pulumi.Input<boolean>, mustShowHits?: pulumi.Input<boolean>, mustShowLatency?: pulumi.Input<boolean>, mustShowResourceList?: pulumi.Input<boolean>, params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, precision?: pulumi.Input<string>, query?: pulumi.Input<string>, rules?: pulumi.Input<pulumi.Input<{ color?: pulumi.Input<string>, threshold?: pulumi.Input<number>, timeframe?: pulumi.Input<string> }>[]>, serviceName?: pulumi.Input<string>, serviceService?: pulumi.Input<string>, sizeVersion?: pulumi.Input<string>, sizing?: pulumi.Input<string>, tags?: pulumi.Input<pulumi.Input<string>[]>, text?: pulumi.Input<string>, textAlign?: pulumi.Input<string>, textSize?: pulumi.Input<string>, tick?: pulumi.Input<boolean>, tickEdge?: pulumi.Input<string>, tickPos?: pulumi.Input<string>, tileDeves?: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<{ q: pulumi.Input<string> }>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, noGroupHosts?: pulumi.Input<boolean>, noMetricHosts?: pulumi.Input<boolean>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ color?: pulumi.Input<string>, comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, invert?: pulumi.Input<boolean>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, limit?: pulumi.Input<number>, metadataJson?: pulumi.Input<string>, metric?: pulumi.Input<string>, orderBy?: pulumi.Input<string>, orderDir?: pulumi.Input<string>, q?: pulumi.Input<string>, queryType?: pulumi.Input<string>, style?: pulumi.Input<{[key: string]: any}>, tagFilters?: pulumi.Input<pulumi.Input<string>[]>, textFilter?: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, viz: pulumi.Input<string> }>[]>, time?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, timeframes?: pulumi.Input<pulumi.Input<string>[]>, title?: pulumi.Input<string>, titleAlign?: pulumi.Input<string>, titleSize?: pulumi.Input<number>, type: pulumi.Input<string>, unit?: pulumi.Input<string>, url?: pulumi.Input<string>, vizType?: pulumi.Input<string>, width?: pulumi.Input<number>, x: pulumi.Input<number>, y: pulumi.Input<number> }>[]>;
+    readonly widgets?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
      * Width of the screenboard
      */
@@ -157,7 +159,7 @@ export interface ScreenBoardArgs {
     /**
      * A list of template variables for using Dashboard templating.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<{ default?: pulumi.Input<string>, name: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
+    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
      * Name of the screenboard
      */
@@ -165,7 +167,7 @@ export interface ScreenBoardArgs {
     /**
      * A list of widget definitions.
      */
-    readonly widgets: pulumi.Input<pulumi.Input<{ alertId?: pulumi.Input<number>, autoRefresh?: pulumi.Input<boolean>, bgcolor?: pulumi.Input<string>, check?: pulumi.Input<string>, color?: pulumi.Input<string>, colorPreference?: pulumi.Input<string>, columns?: pulumi.Input<string>, displayFormat?: pulumi.Input<string>, env?: pulumi.Input<string>, eventSize?: pulumi.Input<string>, fontSize?: pulumi.Input<string>, group?: pulumi.Input<string>, groupBies?: pulumi.Input<pulumi.Input<string>[]>, grouping?: pulumi.Input<string>, height?: pulumi.Input<number>, hideZeroCounts?: pulumi.Input<boolean>, html?: pulumi.Input<string>, layoutVersion?: pulumi.Input<string>, legend?: pulumi.Input<boolean>, legendSize?: pulumi.Input<string>, logset?: pulumi.Input<string>, manageStatusShowTitle?: pulumi.Input<boolean>, manageStatusTitleAlign?: pulumi.Input<string>, manageStatusTitleSize?: pulumi.Input<string>, manageStatusTitleText?: pulumi.Input<string>, margin?: pulumi.Input<string>, monitor?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, mustShowBreakdown?: pulumi.Input<boolean>, mustShowDistribution?: pulumi.Input<boolean>, mustShowErrors?: pulumi.Input<boolean>, mustShowHits?: pulumi.Input<boolean>, mustShowLatency?: pulumi.Input<boolean>, mustShowResourceList?: pulumi.Input<boolean>, params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, precision?: pulumi.Input<string>, query?: pulumi.Input<string>, rules?: pulumi.Input<pulumi.Input<{ color?: pulumi.Input<string>, threshold?: pulumi.Input<number>, timeframe?: pulumi.Input<string> }>[]>, serviceName?: pulumi.Input<string>, serviceService?: pulumi.Input<string>, sizeVersion?: pulumi.Input<string>, sizing?: pulumi.Input<string>, tags?: pulumi.Input<pulumi.Input<string>[]>, text?: pulumi.Input<string>, textAlign?: pulumi.Input<string>, textSize?: pulumi.Input<string>, tick?: pulumi.Input<boolean>, tickEdge?: pulumi.Input<string>, tickPos?: pulumi.Input<string>, tileDeves?: pulumi.Input<pulumi.Input<{ autoscale?: pulumi.Input<boolean>, customUnit?: pulumi.Input<string>, events?: pulumi.Input<pulumi.Input<{ q: pulumi.Input<string> }>[]>, groups?: pulumi.Input<pulumi.Input<string>[]>, markers?: pulumi.Input<pulumi.Input<{ label?: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>, noGroupHosts?: pulumi.Input<boolean>, noMetricHosts?: pulumi.Input<boolean>, nodeType?: pulumi.Input<string>, precision?: pulumi.Input<string>, requests: pulumi.Input<pulumi.Input<{ aggregator?: pulumi.Input<string>, changeType?: pulumi.Input<string>, compareTo?: pulumi.Input<string>, conditionalFormats?: pulumi.Input<pulumi.Input<{ color?: pulumi.Input<string>, comparator: pulumi.Input<string>, customBgColor?: pulumi.Input<string>, invert?: pulumi.Input<boolean>, palette?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>, extraCol?: pulumi.Input<string>, increaseGood?: pulumi.Input<boolean>, limit?: pulumi.Input<number>, metadataJson?: pulumi.Input<string>, metric?: pulumi.Input<string>, orderBy?: pulumi.Input<string>, orderDir?: pulumi.Input<string>, q?: pulumi.Input<string>, queryType?: pulumi.Input<string>, style?: pulumi.Input<{[key: string]: any}>, tagFilters?: pulumi.Input<pulumi.Input<string>[]>, textFilter?: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>, scopes?: pulumi.Input<pulumi.Input<string>[]>, style?: pulumi.Input<{[key: string]: any}>, textAlign?: pulumi.Input<string>, viz: pulumi.Input<string> }>[]>, time?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, timeframes?: pulumi.Input<pulumi.Input<string>[]>, title?: pulumi.Input<string>, titleAlign?: pulumi.Input<string>, titleSize?: pulumi.Input<number>, type: pulumi.Input<string>, unit?: pulumi.Input<string>, url?: pulumi.Input<string>, vizType?: pulumi.Input<string>, width?: pulumi.Input<number>, x: pulumi.Input<number>, y: pulumi.Input<number> }>[]>;
+    readonly widgets: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
      * Width of the screenboard
      */

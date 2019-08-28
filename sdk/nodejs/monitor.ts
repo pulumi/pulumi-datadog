@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -109,7 +111,7 @@ export class Monitor extends pulumi.CustomResource {
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
      * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
-    public readonly thresholdWindows!: pulumi.Output<{ recoveryWindow?: string, triggerWindow?: string } | undefined>;
+    public readonly thresholdWindows!: pulumi.Output<outputs.MonitorThresholdWindows | undefined>;
     /**
      * 
      * * Metric alerts:
@@ -137,7 +139,7 @@ export class Monitor extends pulumi.CustomResource {
      * }
      * ```
      */
-    public readonly thresholds!: pulumi.Output<{ critical?: number, criticalRecovery?: number, ok?: number, unknown?: number, warning?: number, warningRecovery?: number } | undefined>;
+    public readonly thresholds!: pulumi.Output<outputs.MonitorThresholds | undefined>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve
      * from a triggered state. Defaults to false.
@@ -311,7 +313,7 @@ export interface MonitorState {
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
      * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
-    readonly thresholdWindows?: pulumi.Input<{ recoveryWindow?: pulumi.Input<string>, triggerWindow?: pulumi.Input<string> }>;
+    readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**
      * 
      * * Metric alerts:
@@ -339,7 +341,7 @@ export interface MonitorState {
      * }
      * ```
      */
-    readonly thresholds?: pulumi.Input<{ critical?: pulumi.Input<number>, criticalRecovery?: pulumi.Input<number>, ok?: pulumi.Input<number>, unknown?: pulumi.Input<number>, warning?: pulumi.Input<number>, warningRecovery?: pulumi.Input<number> }>;
+    readonly thresholds?: pulumi.Input<inputs.MonitorThresholds>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve
      * from a triggered state. Defaults to false.
@@ -436,7 +438,7 @@ export interface MonitorArgs {
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
      * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
-    readonly thresholdWindows?: pulumi.Input<{ recoveryWindow?: pulumi.Input<string>, triggerWindow?: pulumi.Input<string> }>;
+    readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**
      * 
      * * Metric alerts:
@@ -464,7 +466,7 @@ export interface MonitorArgs {
      * }
      * ```
      */
-    readonly thresholds?: pulumi.Input<{ critical?: pulumi.Input<number>, criticalRecovery?: pulumi.Input<number>, ok?: pulumi.Input<number>, unknown?: pulumi.Input<number>, warning?: pulumi.Input<number>, warningRecovery?: pulumi.Input<number> }>;
+    readonly thresholds?: pulumi.Input<inputs.MonitorThresholds>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve
      * from a triggered state. Defaults to false.

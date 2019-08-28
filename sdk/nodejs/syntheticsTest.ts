@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export class SyntheticsTest extends pulumi.CustomResource {
@@ -37,8 +39,8 @@ export class SyntheticsTest extends pulumi.CustomResource {
     public readonly message!: pulumi.Output<string | undefined>;
     public /*out*/ readonly monitorId!: pulumi.Output<number>;
     public readonly name!: pulumi.Output<string>;
-    public readonly options!: pulumi.Output<{ acceptSelfSigned?: boolean, followRedirects?: boolean, minFailureDuration?: number, minLocationFailed?: number, tickEvery: number } | undefined>;
-    public readonly request!: pulumi.Output<{ body?: string, host?: string, method?: string, port?: number, timeout?: number, url?: string }>;
+    public readonly options!: pulumi.Output<outputs.SyntheticsTestOptions | undefined>;
+    public readonly request!: pulumi.Output<outputs.SyntheticsTestRequest>;
     public readonly requestHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
     public readonly status!: pulumi.Output<string>;
     public readonly subtype!: pulumi.Output<string | undefined>;
@@ -125,8 +127,8 @@ export interface SyntheticsTestState {
     readonly message?: pulumi.Input<string>;
     readonly monitorId?: pulumi.Input<number>;
     readonly name?: pulumi.Input<string>;
-    readonly options?: pulumi.Input<{ acceptSelfSigned?: pulumi.Input<boolean>, followRedirects?: pulumi.Input<boolean>, minFailureDuration?: pulumi.Input<number>, minLocationFailed?: pulumi.Input<number>, tickEvery: pulumi.Input<number> }>;
-    readonly request?: pulumi.Input<{ body?: pulumi.Input<string>, host?: pulumi.Input<string>, method?: pulumi.Input<string>, port?: pulumi.Input<number>, timeout?: pulumi.Input<number>, url?: pulumi.Input<string> }>;
+    readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
+    readonly request?: pulumi.Input<inputs.SyntheticsTestRequest>;
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
     readonly status?: pulumi.Input<string>;
     readonly subtype?: pulumi.Input<string>;
@@ -143,8 +145,8 @@ export interface SyntheticsTestArgs {
     readonly locations: pulumi.Input<pulumi.Input<string>[]>;
     readonly message?: pulumi.Input<string>;
     readonly name: pulumi.Input<string>;
-    readonly options?: pulumi.Input<{ acceptSelfSigned?: pulumi.Input<boolean>, followRedirects?: pulumi.Input<boolean>, minFailureDuration?: pulumi.Input<number>, minLocationFailed?: pulumi.Input<number>, tickEvery: pulumi.Input<number> }>;
-    readonly request: pulumi.Input<{ body?: pulumi.Input<string>, host?: pulumi.Input<string>, method?: pulumi.Input<string>, port?: pulumi.Input<number>, timeout?: pulumi.Input<number>, url?: pulumi.Input<string> }>;
+    readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
+    readonly request: pulumi.Input<inputs.SyntheticsTestRequest>;
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
     readonly status: pulumi.Input<string>;
     readonly subtype?: pulumi.Input<string>;
