@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.2.0 of the datadog Terraform provider.
-* Upgrade pulumi-terraform to 3f206601e7
+_(none)_
 
 ---
+
+## 0.18.8 (2019-08-29)
+* Upgrade to v2.2.0 of the datadog Terraform provider.
+* Upgrade pulumi-terraform to 3f206601e7
 
 ## 0.18.7 (2019-08-20)
 * Depend on latest pulumi package
@@ -31,5 +34,3 @@ CHANGELOG
 
 ## 0.18.0 (2019-06-24)
 * Initial release of the provider against 1.9.0 of the Terraform provider
-
-
