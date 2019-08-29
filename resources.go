@@ -88,6 +88,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"datadog_synthetics_test": {
 				Tok: makeResource(datadogMod, "SyntheticsTest"),
+				Docs: &tfbridge.DocInfo{
+					Source: "synthetics.html.markdown",
+				},
 			},
 			"datadog_service_level_objective": {
 				Tok: makeResource(datadogMod, "ServiceLevelObjective"),

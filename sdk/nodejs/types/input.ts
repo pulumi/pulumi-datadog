@@ -2378,22 +2378,57 @@ export interface ScreenBoardWidgetTileDefMarker {
 
 export interface ScreenBoardWidgetTileDefRequest {
     aggregator?: pulumi.Input<string>;
+    apmQuery?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQuery>;
     changeType?: pulumi.Input<string>;
     compareTo?: pulumi.Input<string>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestConditionalFormat>[]>;
     extraCol?: pulumi.Input<string>;
     increaseGood?: pulumi.Input<boolean>;
     limit?: pulumi.Input<number>;
+    logQuery?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQuery>;
+    /**
+     * <elided>
+     */
     metadataJson?: pulumi.Input<string>;
     metric?: pulumi.Input<string>;
     orderBy?: pulumi.Input<string>;
     orderDir?: pulumi.Input<string>;
+    processQuery?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestProcessQuery>;
     q?: pulumi.Input<string>;
     queryType?: pulumi.Input<string>;
     style?: pulumi.Input<{[key: string]: any}>;
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
     textFilter?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQuery {
+    compute: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQuerySearch>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<string>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQuerySearch {
+    query: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefRequestConditionalFormat {
@@ -2403,6 +2438,42 @@ export interface ScreenBoardWidgetTileDefRequestConditionalFormat {
     invert?: pulumi.Input<boolean>;
     palette?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQuery {
+    compute: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQuerySearch>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<string>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface ScreenBoardWidgetTileDefRequestProcessQuery {
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    searchBy?: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjectiveQuery {
@@ -2478,9 +2549,6 @@ export interface TimeBoardGraph {
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     style?: pulumi.Input<{[key: string]: any}>;
     textAlign?: pulumi.Input<string>;
-    /**
-     * The name of the dashboard.
-     */
     title: pulumi.Input<string>;
     viz: pulumi.Input<string>;
     yaxis?: pulumi.Input<{[key: string]: any}>;
@@ -2494,29 +2562,94 @@ export interface TimeBoardGraphMarker {
 
 export interface TimeBoardGraphRequest {
     aggregator?: pulumi.Input<string>;
+    apmQuery?: pulumi.Input<inputs.TimeBoardGraphRequestApmQuery>;
     changeType?: pulumi.Input<string>;
     compareTo?: pulumi.Input<string>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphRequestConditionalFormat>[]>;
     extraCol?: pulumi.Input<string>;
     increaseGood?: pulumi.Input<boolean>;
+    logQuery?: pulumi.Input<inputs.TimeBoardGraphRequestLogQuery>;
     metadataJson?: pulumi.Input<string>;
     orderBy?: pulumi.Input<string>;
     orderDirection?: pulumi.Input<string>;
-    q: pulumi.Input<string>;
+    processQuery?: pulumi.Input<inputs.TimeBoardGraphRequestProcessQuery>;
+    q?: pulumi.Input<string>;
     stacked?: pulumi.Input<boolean>;
     style?: pulumi.Input<{[key: string]: any}>;
     type?: pulumi.Input<string>;
+}
+
+export interface TimeBoardGraphRequestApmQuery {
+    compute: pulumi.Input<inputs.TimeBoardGraphRequestApmQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphRequestApmQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.TimeBoardGraphRequestApmQuerySearch>;
+}
+
+export interface TimeBoardGraphRequestApmQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface TimeBoardGraphRequestApmQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.TimeBoardGraphRequestApmQueryGroupBySort>;
+}
+
+export interface TimeBoardGraphRequestApmQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface TimeBoardGraphRequestApmQuerySearch {
+    query: pulumi.Input<string>;
 }
 
 export interface TimeBoardGraphRequestConditionalFormat {
     comparator: pulumi.Input<string>;
     customBgColor?: pulumi.Input<string>;
     customFgColor?: pulumi.Input<string>;
-    /**
-     * Spectrum of colors to use when styling a hostmap. For example: "greenToOrange", "yellowToGreen", "YlOrRd", or "hostmapBlues". Default: "greenToOrange".
-     */
     palette?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
+}
+
+export interface TimeBoardGraphRequestLogQuery {
+    compute: pulumi.Input<inputs.TimeBoardGraphRequestLogQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphRequestLogQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.TimeBoardGraphRequestLogQuerySearch>;
+}
+
+export interface TimeBoardGraphRequestLogQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface TimeBoardGraphRequestLogQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.TimeBoardGraphRequestLogQueryGroupBySort>;
+}
+
+export interface TimeBoardGraphRequestLogQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface TimeBoardGraphRequestLogQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface TimeBoardGraphRequestProcessQuery {
+    filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    searchBy?: pulumi.Input<string>;
 }
 
 export interface TimeBoardTemplateVariable {

@@ -2378,22 +2378,57 @@ export interface ScreenBoardWidgetTileDefMarker {
 
 export interface ScreenBoardWidgetTileDefRequest {
     aggregator?: string;
+    apmQuery?: outputs.ScreenBoardWidgetTileDefRequestApmQuery;
     changeType?: string;
     compareTo?: string;
     conditionalFormats?: outputs.ScreenBoardWidgetTileDefRequestConditionalFormat[];
     extraCol?: string;
     increaseGood?: boolean;
     limit?: number;
+    logQuery?: outputs.ScreenBoardWidgetTileDefRequestLogQuery;
+    /**
+     * <elided>
+     */
     metadataJson?: string;
     metric?: string;
     orderBy?: string;
     orderDir?: string;
+    processQuery?: outputs.ScreenBoardWidgetTileDefRequestProcessQuery;
     q?: string;
     queryType?: string;
     style?: {[key: string]: any};
     tagFilters?: string[];
     textFilter?: string;
     type?: string;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQuery {
+    compute: outputs.ScreenBoardWidgetTileDefRequestApmQueryCompute;
+    groupBies?: outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy[];
+    index: string;
+    search?: outputs.ScreenBoardWidgetTileDefRequestApmQuerySearch;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: string;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface ScreenBoardWidgetTileDefRequestApmQuerySearch {
+    query: string;
 }
 
 export interface ScreenBoardWidgetTileDefRequestConditionalFormat {
@@ -2403,6 +2438,42 @@ export interface ScreenBoardWidgetTileDefRequestConditionalFormat {
     invert?: boolean;
     palette?: string;
     value?: string;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQuery {
+    compute: outputs.ScreenBoardWidgetTileDefRequestLogQueryCompute;
+    groupBies?: outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy[];
+    index: string;
+    search?: outputs.ScreenBoardWidgetTileDefRequestLogQuerySearch;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: string;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface ScreenBoardWidgetTileDefRequestLogQuerySearch {
+    query: string;
+}
+
+export interface ScreenBoardWidgetTileDefRequestProcessQuery {
+    filterBies?: string[];
+    limit?: number;
+    metric: string;
+    searchBy?: string;
 }
 
 export interface ServiceLevelObjectiveQuery {
@@ -2478,9 +2549,6 @@ export interface TimeBoardGraph {
     scopes?: string[];
     style?: {[key: string]: any};
     textAlign?: string;
-    /**
-     * The name of the dashboard.
-     */
     title: string;
     viz: string;
     yaxis?: {[key: string]: any};
@@ -2494,29 +2562,94 @@ export interface TimeBoardGraphMarker {
 
 export interface TimeBoardGraphRequest {
     aggregator?: string;
+    apmQuery?: outputs.TimeBoardGraphRequestApmQuery;
     changeType?: string;
     compareTo?: string;
     conditionalFormats?: outputs.TimeBoardGraphRequestConditionalFormat[];
     extraCol?: string;
     increaseGood?: boolean;
+    logQuery?: outputs.TimeBoardGraphRequestLogQuery;
     metadataJson?: string;
     orderBy?: string;
     orderDirection?: string;
-    q: string;
+    processQuery?: outputs.TimeBoardGraphRequestProcessQuery;
+    q?: string;
     stacked?: boolean;
     style?: {[key: string]: any};
     type?: string;
+}
+
+export interface TimeBoardGraphRequestApmQuery {
+    compute: outputs.TimeBoardGraphRequestApmQueryCompute;
+    groupBies?: outputs.TimeBoardGraphRequestApmQueryGroupBy[];
+    index: string;
+    search?: outputs.TimeBoardGraphRequestApmQuerySearch;
+}
+
+export interface TimeBoardGraphRequestApmQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface TimeBoardGraphRequestApmQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.TimeBoardGraphRequestApmQueryGroupBySort;
+}
+
+export interface TimeBoardGraphRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface TimeBoardGraphRequestApmQuerySearch {
+    query: string;
 }
 
 export interface TimeBoardGraphRequestConditionalFormat {
     comparator: string;
     customBgColor?: string;
     customFgColor?: string;
-    /**
-     * Spectrum of colors to use when styling a hostmap. For example: "greenToOrange", "yellowToGreen", "YlOrRd", or "hostmapBlues". Default: "greenToOrange".
-     */
     palette?: string;
     value?: string;
+}
+
+export interface TimeBoardGraphRequestLogQuery {
+    compute: outputs.TimeBoardGraphRequestLogQueryCompute;
+    groupBies?: outputs.TimeBoardGraphRequestLogQueryGroupBy[];
+    index: string;
+    search?: outputs.TimeBoardGraphRequestLogQuerySearch;
+}
+
+export interface TimeBoardGraphRequestLogQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface TimeBoardGraphRequestLogQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.TimeBoardGraphRequestLogQueryGroupBySort;
+}
+
+export interface TimeBoardGraphRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface TimeBoardGraphRequestLogQuerySearch {
+    query: string;
+}
+
+export interface TimeBoardGraphRequestProcessQuery {
+    filterBies?: string[];
+    limit?: number;
+    metric: string;
+    searchBy?: string;
 }
 
 export interface TimeBoardTemplateVariable {
