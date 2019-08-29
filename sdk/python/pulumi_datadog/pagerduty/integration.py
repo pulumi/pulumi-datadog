@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class Integration(pulumi.CustomResource):
@@ -24,6 +25,9 @@ class Integration(pulumi.CustomResource):
     services: pulumi.Output[list]
     """
     Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+    
+      * `service_key` (`str`) - Your Service name associated service key in Pagerduty.
+      * `service_name` (`str`) - Your Service name in PagerDuty.
     """
     subdomain: pulumi.Output[str]
     """
@@ -40,6 +44,11 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[list] schedules: Array of your schedule URLs.
         :param pulumi.Input[list] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
+        
+        The **services** object supports the following:
+        
+          * `service_key` (`pulumi.Input[str]`) - Your Service name associated service key in Pagerduty.
+          * `service_name` (`pulumi.Input[str]`) - Your Service name in PagerDuty.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty.html.markdown.
         """
@@ -78,6 +87,7 @@ class Integration(pulumi.CustomResource):
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,10 +96,15 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[list] schedules: Array of your schedule URLs.
         :param pulumi.Input[list] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
+        
+        The **services** object supports the following:
+        
+          * `service_key` (`pulumi.Input[str]`) - Your Service name associated service key in Pagerduty.
+          * `service_name` (`pulumi.Input[str]`) - Your Service name in PagerDuty.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["api_token"] = api_token

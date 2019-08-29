@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -132,7 +134,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     /**
      * The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
      */
-    public readonly query!: pulumi.Output<{ denominator: string, numerator: string } | undefined>;
+    public readonly query!: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -140,7 +142,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     /**
      * - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
-    public readonly thresholds!: pulumi.Output<{ target: number, targetDisplay?: string, timeframe: string, warning?: number, warningDisplay?: string }[]>;
+    public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
      * * `metric`
@@ -228,7 +230,7 @@ export interface ServiceLevelObjectiveState {
     /**
      * The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
      */
-    readonly query?: pulumi.Input<{ denominator: pulumi.Input<string>, numerator: pulumi.Input<string> }>;
+    readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -236,7 +238,7 @@ export interface ServiceLevelObjectiveState {
     /**
      * - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
-    readonly thresholds?: pulumi.Input<pulumi.Input<{ target: pulumi.Input<number>, targetDisplay?: pulumi.Input<string>, timeframe: pulumi.Input<string>, warning?: pulumi.Input<number>, warningDisplay?: pulumi.Input<string> }>[]>;
+    readonly thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
      * * `metric`
@@ -272,7 +274,7 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
      */
-    readonly query?: pulumi.Input<{ denominator: pulumi.Input<string>, numerator: pulumi.Input<string> }>;
+    readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -280,7 +282,7 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
-    readonly thresholds: pulumi.Input<pulumi.Input<{ target: pulumi.Input<number>, targetDisplay?: pulumi.Input<string>, timeframe: pulumi.Input<string>, warning?: pulumi.Input<number>, warningDisplay?: pulumi.Input<string> }>[]>;
+    readonly thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
      * * `metric`

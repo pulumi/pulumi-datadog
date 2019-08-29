@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v2.2.0 of the datadog Terraform provider.
+* Upgrade pulumi-terraform to 3f206601e7
 
 ---
 

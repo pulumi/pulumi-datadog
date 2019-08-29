@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class SyntheticsTest(pulumi.CustomResource):
@@ -28,6 +29,23 @@ class SyntheticsTest(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        
+        The **options** object supports the following:
+        
+          * `accept_self_signed` (`pulumi.Input[bool]`)
+          * `follow_redirects` (`pulumi.Input[bool]`)
+          * `min_failure_duration` (`pulumi.Input[float]`)
+          * `min_location_failed` (`pulumi.Input[float]`)
+          * `tick_every` (`pulumi.Input[float]`)
+        
+        The **request** object supports the following:
+        
+          * `body` (`pulumi.Input[str]`)
+          * `host` (`pulumi.Input[str]`)
+          * `method` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`)
+          * `timeout` (`pulumi.Input[float]`)
+          * `url` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,11 +100,29 @@ class SyntheticsTest(pulumi.CustomResource):
         """
         Get an existing SyntheticsTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        
+        The **options** object supports the following:
+        
+          * `accept_self_signed` (`pulumi.Input[bool]`)
+          * `follow_redirects` (`pulumi.Input[bool]`)
+          * `min_failure_duration` (`pulumi.Input[float]`)
+          * `min_location_failed` (`pulumi.Input[float]`)
+          * `tick_every` (`pulumi.Input[float]`)
+        
+        The **request** object supports the following:
+        
+          * `body` (`pulumi.Input[str]`)
+          * `host` (`pulumi.Input[str]`)
+          * `method` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`)
+          * `timeout` (`pulumi.Input[float]`)
+          * `url` (`pulumi.Input[str]`)
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["assertions"] = assertions

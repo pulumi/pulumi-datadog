@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from . import utilities, tables
 
 class Downtime(pulumi.CustomResource):
@@ -37,6 +38,12 @@ class Downtime(pulumi.CustomResource):
     recurrence: pulumi.Output[dict]
     """
     A dictionary to configure the downtime to be recurring.
+    
+      * `period` (`float`) - How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
+      * `type` (`str`) - days, weeks, months, or years
+      * `untilDate` (`float`) - The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+      * `untilOccurrences` (`float`) - How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+      * `weekDays` (`list`) - A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
     """
     scopes: pulumi.Output[list]
     """
@@ -71,6 +78,14 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[float] start: POSIX timestamp to start the downtime.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+        
+        The **recurrence** object supports the following:
+        
+          * `period` (`pulumi.Input[float]`) - How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
+          * `type` (`pulumi.Input[str]`) - days, weeks, months, or years
+          * `untilDate` (`pulumi.Input[float]`) - The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+          * `untilOccurrences` (`pulumi.Input[float]`) - How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+          * `weekDays` (`pulumi.Input[list]`) - A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/downtime.html.markdown.
         """
@@ -116,6 +131,7 @@ class Downtime(pulumi.CustomResource):
         """
         Get an existing Downtime resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,10 +146,18 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[float] start: POSIX timestamp to start the downtime.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+        
+        The **recurrence** object supports the following:
+        
+          * `period` (`pulumi.Input[float]`) - How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
+          * `type` (`pulumi.Input[str]`) - days, weeks, months, or years
+          * `untilDate` (`pulumi.Input[float]`) - The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+          * `untilOccurrences` (`pulumi.Input[float]`) - How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+          * `weekDays` (`pulumi.Input[list]`) - A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/downtime.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["active"] = active

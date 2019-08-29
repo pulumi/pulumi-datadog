@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +51,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
      */
-    public readonly services!: pulumi.Output<{ serviceKey: string, serviceName: string }[] | undefined>;
+    public readonly services!: pulumi.Output<outputs.pagerduty.IntegrationService[] | undefined>;
     /**
      * Your PagerDuty account’s personalized subdomain name.
      */
@@ -113,7 +115,7 @@ export interface IntegrationState {
     /**
      * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
      */
-    readonly services?: pulumi.Input<pulumi.Input<{ serviceKey: pulumi.Input<string>, serviceName: pulumi.Input<string> }>[]>;
+    readonly services?: pulumi.Input<pulumi.Input<inputs.pagerduty.IntegrationService>[]>;
     /**
      * Your PagerDuty account’s personalized subdomain name.
      */
@@ -139,7 +141,7 @@ export interface IntegrationArgs {
     /**
      * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
      */
-    readonly services?: pulumi.Input<pulumi.Input<{ serviceKey: pulumi.Input<string>, serviceName: pulumi.Input<string> }>[]>;
+    readonly services?: pulumi.Input<pulumi.Input<inputs.pagerduty.IntegrationService>[]>;
     /**
      * Your PagerDuty account’s personalized subdomain name.
      */
