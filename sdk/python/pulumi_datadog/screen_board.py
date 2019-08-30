@@ -21,7 +21,7 @@ class ScreenBoard(pulumi.CustomResource):
         """
         Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
         
-        > **Note:**This resource is outdated. Use the new `.Dashboard` resource instead.
+        > **Note:** This resource is outdated. Use the new `.Dashboard` resource instead.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,6 +109,29 @@ class ScreenBoard(pulumi.CustomResource):
             * `requests` (`pulumi.Input[list]`)
         
               * `aggregator` (`pulumi.Input[str]`)
+              * `apmQuery` (`pulumi.Input[dict]`)
+        
+                * `compute` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[str]`)
+        
+                * `groupBies` (`pulumi.Input[list]`)
+        
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+        
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+        
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+        
+                  * `query` (`pulumi.Input[str]`)
+        
               * `changeType` (`pulumi.Input[str]`)
               * `compareTo` (`pulumi.Input[str]`)
               * `conditionalFormats` (`pulumi.Input[list]`)
@@ -123,10 +146,40 @@ class ScreenBoard(pulumi.CustomResource):
               * `extraCol` (`pulumi.Input[str]`)
               * `increaseGood` (`pulumi.Input[bool]`)
               * `limit` (`pulumi.Input[float]`)
-              * `metadataJson` (`pulumi.Input[str]`)
+              * `logQuery` (`pulumi.Input[dict]`)
+        
+                * `compute` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[str]`)
+        
+                * `groupBies` (`pulumi.Input[list]`)
+        
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+        
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+        
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+        
+                  * `query` (`pulumi.Input[str]`)
+        
+              * `metadataJson` (`pulumi.Input[str]`) - <elided>
               * `metric` (`pulumi.Input[str]`)
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)
+              * `processQuery` (`pulumi.Input[dict]`)
+        
+                * `filterBies` (`pulumi.Input[list]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `metric` (`pulumi.Input[str]`)
+                * `searchBy` (`pulumi.Input[str]`)
+        
               * `q` (`pulumi.Input[str]`)
               * `queryType` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
@@ -281,6 +334,29 @@ class ScreenBoard(pulumi.CustomResource):
             * `requests` (`pulumi.Input[list]`)
         
               * `aggregator` (`pulumi.Input[str]`)
+              * `apmQuery` (`pulumi.Input[dict]`)
+        
+                * `compute` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[str]`)
+        
+                * `groupBies` (`pulumi.Input[list]`)
+        
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+        
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+        
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+        
+                  * `query` (`pulumi.Input[str]`)
+        
               * `changeType` (`pulumi.Input[str]`)
               * `compareTo` (`pulumi.Input[str]`)
               * `conditionalFormats` (`pulumi.Input[list]`)
@@ -295,10 +371,40 @@ class ScreenBoard(pulumi.CustomResource):
               * `extraCol` (`pulumi.Input[str]`)
               * `increaseGood` (`pulumi.Input[bool]`)
               * `limit` (`pulumi.Input[float]`)
-              * `metadataJson` (`pulumi.Input[str]`)
+              * `logQuery` (`pulumi.Input[dict]`)
+        
+                * `compute` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[str]`)
+        
+                * `groupBies` (`pulumi.Input[list]`)
+        
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+        
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+        
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+        
+                  * `query` (`pulumi.Input[str]`)
+        
+              * `metadataJson` (`pulumi.Input[str]`) - <elided>
               * `metric` (`pulumi.Input[str]`)
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)
+              * `processQuery` (`pulumi.Input[dict]`)
+        
+                * `filterBies` (`pulumi.Input[list]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `metric` (`pulumi.Input[str]`)
+                * `searchBy` (`pulumi.Input[str]`)
+        
               * `q` (`pulumi.Input[str]`)
               * `queryType` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)

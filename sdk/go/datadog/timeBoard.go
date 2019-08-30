@@ -84,17 +84,16 @@ func (r *TimeBoard) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
+// A list of graph definitions.
 func (r *TimeBoard) Graphs() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["graphs"])
 }
 
-// The read-only status of the timeboard. Default is false.
 func (r *TimeBoard) ReadOnly() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["readOnly"])
 }
 
-// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a .TimeBoard resource.
+// A list of template variables for using Dashboard templating.
 func (r *TimeBoard) TemplateVariables() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["templateVariables"])
 }
@@ -108,11 +107,10 @@ func (r *TimeBoard) Title() *pulumi.StringOutput {
 type TimeBoardState struct {
 	// A description of the dashboard's content.
 	Description interface{}
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
+	// A list of graph definitions.
 	Graphs interface{}
-	// The read-only status of the timeboard. Default is false.
 	ReadOnly interface{}
-	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a .TimeBoard resource.
+	// A list of template variables for using Dashboard templating.
 	TemplateVariables interface{}
 	// The name of the dashboard.
 	Title interface{}
@@ -122,11 +120,10 @@ type TimeBoardState struct {
 type TimeBoardArgs struct {
 	// A description of the dashboard's content.
 	Description interface{}
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
+	// A list of graph definitions.
 	Graphs interface{}
-	// The read-only status of the timeboard. Default is false.
 	ReadOnly interface{}
-	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a .TimeBoard resource.
+	// A list of template variables for using Dashboard templating.
 	TemplateVariables interface{}
 	// The name of the dashboard.
 	Title interface{}

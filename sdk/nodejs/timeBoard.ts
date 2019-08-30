@@ -45,15 +45,12 @@ export class TimeBoard extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog..TimeBoard resource.
+     * A list of graph definitions.
      */
     public readonly graphs!: pulumi.Output<outputs.TimeBoardGraph[]>;
-    /**
-     * The read-only status of the timeboard. Default is false.
-     */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog..TimeBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     public readonly templateVariables!: pulumi.Output<outputs.TimeBoardTemplateVariable[] | undefined>;
     /**
@@ -115,15 +112,12 @@ export interface TimeBoardState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog..TimeBoard resource.
+     * A list of graph definitions.
      */
     readonly graphs?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
-    /**
-     * The read-only status of the timeboard. Default is false.
-     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog..TimeBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**
@@ -141,15 +135,12 @@ export interface TimeBoardArgs {
      */
     readonly description: pulumi.Input<string>;
     /**
-     * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog..TimeBoard resource.
+     * A list of graph definitions.
      */
     readonly graphs: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
-    /**
-     * The read-only status of the timeboard. Default is false.
-     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog..TimeBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**

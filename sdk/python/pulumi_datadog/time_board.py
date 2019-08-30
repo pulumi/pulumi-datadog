@@ -11,73 +11,10 @@ from . import utilities, tables
 
 class TimeBoard(pulumi.CustomResource):
     description: pulumi.Output[str]
-    """
-    A description of the dashboard's content.
-    """
     graphs: pulumi.Output[list]
-    """
-    Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
-    
-      * `autoscale` (`bool`)
-      * `customUnit` (`str`)
-      * `events` (`list`)
-      * `groups` (`list`)
-      * `includeNoMetricHosts` (`bool`)
-      * `includeUngroupedHosts` (`bool`)
-      * `markers` (`list`)
-    
-        * `label` (`str`)
-        * `type` (`str`)
-        * `value` (`str`)
-    
-      * `nodeType` (`str`)
-      * `precision` (`str`)
-      * `requests` (`list`)
-    
-        * `aggregator` (`str`)
-        * `changeType` (`str`)
-        * `compareTo` (`str`)
-        * `conditionalFormats` (`list`)
-    
-          * `comparator` (`str`)
-          * `customBgColor` (`str`)
-          * `customFgColor` (`str`)
-          * `palette` (`str`) - Spectrum of colors to use when styling a hostmap. For example: "green_to_orange", "yellow_to_green", "YlOrRd", or "hostmap_blues". Default: "green_to_orange".
-          * `value` (`str`)
-    
-        * `extraCol` (`str`)
-        * `increaseGood` (`bool`)
-        * `metadataJson` (`str`)
-        * `orderBy` (`str`)
-        * `orderDirection` (`str`)
-        * `q` (`str`)
-        * `stacked` (`bool`)
-        * `style` (`dict`)
-        * `type` (`str`)
-    
-      * `scopes` (`list`)
-      * `style` (`dict`)
-      * `textAlign` (`str`)
-      * `title` (`str`) - The name of the dashboard.
-      * `viz` (`str`)
-      * `yaxis` (`dict`)
-    """
     read_only: pulumi.Output[bool]
-    """
-    The read-only status of the timeboard. Default is false.
-    """
     template_variables: pulumi.Output[list]
-    """
-    Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a .TimeBoard resource.
-    
-      * `default` (`str`)
-      * `name` (`str`)
-      * `prefix` (`str`)
-    """
     title: pulumi.Output[str]
-    """
-    The name of the dashboard.
-    """
     def __init__(__self__, resource_name, opts=None, description=None, graphs=None, read_only=None, template_variables=None, title=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
@@ -86,11 +23,6 @@ class TimeBoard(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[list] graphs: Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
-        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
-        :param pulumi.Input[list] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a .TimeBoard resource.
-        :param pulumi.Input[str] title: The name of the dashboard.
         
         The **graphs** object supports the following:
         
@@ -111,6 +43,29 @@ class TimeBoard(pulumi.CustomResource):
           * `requests` (`pulumi.Input[list]`)
         
             * `aggregator` (`pulumi.Input[str]`)
+            * `apmQuery` (`pulumi.Input[dict]`)
+        
+              * `compute` (`pulumi.Input[dict]`)
+        
+                * `aggregation` (`pulumi.Input[str]`)
+                * `facet` (`pulumi.Input[str]`)
+                * `interval` (`pulumi.Input[float]`)
+        
+              * `groupBies` (`pulumi.Input[list]`)
+        
+                * `facet` (`pulumi.Input[str]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `sort` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `order` (`pulumi.Input[str]`)
+        
+              * `index` (`pulumi.Input[str]`)
+              * `search` (`pulumi.Input[dict]`)
+        
+                * `query` (`pulumi.Input[str]`)
+        
             * `changeType` (`pulumi.Input[str]`)
             * `compareTo` (`pulumi.Input[str]`)
             * `conditionalFormats` (`pulumi.Input[list]`)
@@ -118,14 +73,44 @@ class TimeBoard(pulumi.CustomResource):
               * `comparator` (`pulumi.Input[str]`)
               * `customBgColor` (`pulumi.Input[str]`)
               * `customFgColor` (`pulumi.Input[str]`)
-              * `palette` (`pulumi.Input[str]`) - Spectrum of colors to use when styling a hostmap. For example: "green_to_orange", "yellow_to_green", "YlOrRd", or "hostmap_blues". Default: "green_to_orange".
+              * `palette` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[str]`)
         
             * `extraCol` (`pulumi.Input[str]`)
             * `increaseGood` (`pulumi.Input[bool]`)
+            * `logQuery` (`pulumi.Input[dict]`)
+        
+              * `compute` (`pulumi.Input[dict]`)
+        
+                * `aggregation` (`pulumi.Input[str]`)
+                * `facet` (`pulumi.Input[str]`)
+                * `interval` (`pulumi.Input[float]`)
+        
+              * `groupBies` (`pulumi.Input[list]`)
+        
+                * `facet` (`pulumi.Input[str]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `sort` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `order` (`pulumi.Input[str]`)
+        
+              * `index` (`pulumi.Input[str]`)
+              * `search` (`pulumi.Input[dict]`)
+        
+                * `query` (`pulumi.Input[str]`)
+        
             * `metadataJson` (`pulumi.Input[str]`)
             * `orderBy` (`pulumi.Input[str]`)
             * `orderDirection` (`pulumi.Input[str]`)
+            * `processQuery` (`pulumi.Input[dict]`)
+        
+              * `filterBies` (`pulumi.Input[list]`)
+              * `limit` (`pulumi.Input[float]`)
+              * `metric` (`pulumi.Input[str]`)
+              * `searchBy` (`pulumi.Input[str]`)
+        
             * `q` (`pulumi.Input[str]`)
             * `stacked` (`pulumi.Input[bool]`)
             * `style` (`pulumi.Input[dict]`)
@@ -134,7 +119,7 @@ class TimeBoard(pulumi.CustomResource):
           * `scopes` (`pulumi.Input[list]`)
           * `style` (`pulumi.Input[dict]`)
           * `textAlign` (`pulumi.Input[str]`)
-          * `title` (`pulumi.Input[str]`) - The name of the dashboard.
+          * `title` (`pulumi.Input[str]`)
           * `viz` (`pulumi.Input[str]`)
           * `yaxis` (`pulumi.Input[dict]`)
         
@@ -189,11 +174,6 @@ class TimeBoard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[list] graphs: Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a .TimeBoard resource.
-        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
-        :param pulumi.Input[list] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a .TimeBoard resource.
-        :param pulumi.Input[str] title: The name of the dashboard.
         
         The **graphs** object supports the following:
         
@@ -214,6 +194,29 @@ class TimeBoard(pulumi.CustomResource):
           * `requests` (`pulumi.Input[list]`)
         
             * `aggregator` (`pulumi.Input[str]`)
+            * `apmQuery` (`pulumi.Input[dict]`)
+        
+              * `compute` (`pulumi.Input[dict]`)
+        
+                * `aggregation` (`pulumi.Input[str]`)
+                * `facet` (`pulumi.Input[str]`)
+                * `interval` (`pulumi.Input[float]`)
+        
+              * `groupBies` (`pulumi.Input[list]`)
+        
+                * `facet` (`pulumi.Input[str]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `sort` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `order` (`pulumi.Input[str]`)
+        
+              * `index` (`pulumi.Input[str]`)
+              * `search` (`pulumi.Input[dict]`)
+        
+                * `query` (`pulumi.Input[str]`)
+        
             * `changeType` (`pulumi.Input[str]`)
             * `compareTo` (`pulumi.Input[str]`)
             * `conditionalFormats` (`pulumi.Input[list]`)
@@ -221,14 +224,44 @@ class TimeBoard(pulumi.CustomResource):
               * `comparator` (`pulumi.Input[str]`)
               * `customBgColor` (`pulumi.Input[str]`)
               * `customFgColor` (`pulumi.Input[str]`)
-              * `palette` (`pulumi.Input[str]`) - Spectrum of colors to use when styling a hostmap. For example: "green_to_orange", "yellow_to_green", "YlOrRd", or "hostmap_blues". Default: "green_to_orange".
+              * `palette` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[str]`)
         
             * `extraCol` (`pulumi.Input[str]`)
             * `increaseGood` (`pulumi.Input[bool]`)
+            * `logQuery` (`pulumi.Input[dict]`)
+        
+              * `compute` (`pulumi.Input[dict]`)
+        
+                * `aggregation` (`pulumi.Input[str]`)
+                * `facet` (`pulumi.Input[str]`)
+                * `interval` (`pulumi.Input[float]`)
+        
+              * `groupBies` (`pulumi.Input[list]`)
+        
+                * `facet` (`pulumi.Input[str]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `sort` (`pulumi.Input[dict]`)
+        
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `order` (`pulumi.Input[str]`)
+        
+              * `index` (`pulumi.Input[str]`)
+              * `search` (`pulumi.Input[dict]`)
+        
+                * `query` (`pulumi.Input[str]`)
+        
             * `metadataJson` (`pulumi.Input[str]`)
             * `orderBy` (`pulumi.Input[str]`)
             * `orderDirection` (`pulumi.Input[str]`)
+            * `processQuery` (`pulumi.Input[dict]`)
+        
+              * `filterBies` (`pulumi.Input[list]`)
+              * `limit` (`pulumi.Input[float]`)
+              * `metric` (`pulumi.Input[str]`)
+              * `searchBy` (`pulumi.Input[str]`)
+        
             * `q` (`pulumi.Input[str]`)
             * `stacked` (`pulumi.Input[bool]`)
             * `style` (`pulumi.Input[dict]`)
@@ -237,7 +270,7 @@ class TimeBoard(pulumi.CustomResource):
           * `scopes` (`pulumi.Input[list]`)
           * `style` (`pulumi.Input[dict]`)
           * `textAlign` (`pulumi.Input[str]`)
-          * `title` (`pulumi.Input[str]`) - The name of the dashboard.
+          * `title` (`pulumi.Input[str]`)
           * `viz` (`pulumi.Input[str]`)
           * `yaxis` (`pulumi.Input[dict]`)
         

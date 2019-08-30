@@ -46,6 +46,8 @@ class SyntheticsTest(pulumi.CustomResource):
           * `port` (`pulumi.Input[float]`)
           * `timeout` (`pulumi.Input[float]`)
           * `url` (`pulumi.Input[str]`)
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/synthetics_test.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -121,6 +123,8 @@ class SyntheticsTest(pulumi.CustomResource):
           * `port` (`pulumi.Input[float]`)
           * `timeout` (`pulumi.Input[float]`)
           * `url` (`pulumi.Input[str]`)
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/synthetics_test.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

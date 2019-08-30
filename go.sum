@@ -554,6 +554,8 @@ github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190724170355-
 github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190724170355-dbe8a5c51fc5/go.mod h1:K9xmEA1IGjA502FZRiDP8BuMjYfjDEOmrVcz18rwE+E=
 github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190819150108-66f6beae2607 h1:RvjsnmmzV2LM1M46BxLE2susS/4td1xb6ZoSqkuyO7g=
 github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190819150108-66f6beae2607/go.mod h1:0cjWWVFZIlbrto9RskyliXOHpaJacmQId153bWaMKf8=
+github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190829171813-577856b85594 h1:gkasg2pIZ88r2FuAkcWnPuyrvM88gVq0yJWusM+6oZ4=
+github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190829171813-577856b85594/go.mod h1:cz7FRWTw1yX2tNBCETG7z9yPiOOqh3Qfj6O5eZXjuHo=
 github.com/terraform-providers/terraform-provider-datadog v1.9.0 h1:XjhOu/4Evpz6Cc9q1txYuoznfilah7OjRdzwyarriUM=
 github.com/terraform-providers/terraform-provider-datadog v1.9.0/go.mod h1:u7Ql33GRsQsIHMz79/kL8JqK0c7l3k72BgVROPZgAOw=
 github.com/terraform-providers/terraform-provider-openstack v1.15.0/go.mod h1:2aQ6n/BtChAl1y2S60vebhyJyZXBsuAI5G4+lHrT1Ew=
@@ -602,6 +604,8 @@ github.com/zorkian/go-datadog-api v2.21.1-0.20190614114659-c9f7769f06da+incompat
 github.com/zorkian/go-datadog-api v2.21.1-0.20190614114659-c9f7769f06da+incompatible/go.mod h1:PkXwHX9CUQa/FpB9ZwAD45N1uhCW4MT/Wj7m36PbKss=
 github.com/zorkian/go-datadog-api v2.22.1-0.20190805090016-93f907f168dd+incompatible h1:lU4218buh13RHFo0nMnpEHD3kgGfI49ETM7HhzxOuYE=
 github.com/zorkian/go-datadog-api v2.22.1-0.20190805090016-93f907f168dd+incompatible/go.mod h1:PkXwHX9CUQa/FpB9ZwAD45N1uhCW4MT/Wj7m36PbKss=
+github.com/zorkian/go-datadog-api v2.23.0+incompatible h1:IWIf7fOJBnRAkkbnt8v4/eH2905iVki9XVyOGYvulgA=
+github.com/zorkian/go-datadog-api v2.23.0+incompatible/go.mod h1:PkXwHX9CUQa/FpB9ZwAD45N1uhCW4MT/Wj7m36PbKss=
 go.mongodb.org/mongo-driver v1.0.1/go.mod h1:u7ryQJ+DOzQmeO7zB6MHyr8jkEQvC8vH7qLUO4lqsUM=
 go.opencensus.io v0.15.0/go.mod h1:UffZAU+4sDEINUGP/B7UfBBkq4fqLu9zXAX7ke6CHW0=
 go.opencensus.io v0.18.0/go.mod h1:vKdFvxhtzZ9onBp9VKHK8z/sRpBMnKAsufL7wlDrCOA=
