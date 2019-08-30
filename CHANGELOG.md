@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.3.0 of the datadog Terraform provider.
+_(none)_
 
 ---
+
+## 0.18.9 (2019-08-30)
+* Upgrade to v2.3.0 of the datadog Terraform provider.
 
 ## 0.18.8 (2019-08-29)
 * Upgrade to v2.2.0 of the datadog Terraform provider.
