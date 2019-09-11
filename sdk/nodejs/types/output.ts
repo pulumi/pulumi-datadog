@@ -4,6 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as outputs from "../types/output";
 
+export interface DashboardListDashItem {
+    /**
+     * The ID of this dashboard.
+     */
+    dashId: string;
+    /**
+     * The type of this dashboard. Available options are: `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, and `hostTimeboard`
+     */
+    type: string;
+}
+
 export interface DashboardTemplateVariable {
     default?: string;
     name: string;
@@ -1170,6 +1181,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis 
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
+    events?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
     markers?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest[];
@@ -1178,6 +1190,11 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+    yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
+    q: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
@@ -1274,6 +1291,14 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime {
     liveSpan?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis {
+    includeZero?: boolean;
+    label?: string;
+    max?: string;
+    min?: string;
+    scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
@@ -2004,6 +2029,7 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
 }
 
 export interface DashboardWidgetTimeseriesDefinition {
+    events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
     markers?: outputs.DashboardWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetTimeseriesDefinitionRequest[];
@@ -2012,6 +2038,11 @@ export interface DashboardWidgetTimeseriesDefinition {
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+    yaxis?: outputs.DashboardWidgetTimeseriesDefinitionYaxis;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionEvent {
+    q: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionMarker {
@@ -2108,6 +2139,14 @@ export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
 
 export interface DashboardWidgetTimeseriesDefinitionTime {
     liveSpan?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionYaxis {
+    includeZero?: boolean;
+    label?: string;
+    max?: string;
+    min?: string;
+    scale?: string;
 }
 
 export interface DashboardWidgetToplistDefinition {

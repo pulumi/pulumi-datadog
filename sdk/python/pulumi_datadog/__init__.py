@@ -11,6 +11,7 @@ for pkg in __all__:
 
 # Export this package's modules as members:
 from .dashboard import *
+from .dashboard_list import *
 from .downtime import *
 from .metric_metadata import *
 from .monitor import *

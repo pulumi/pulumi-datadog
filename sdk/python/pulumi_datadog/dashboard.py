@@ -953,6 +953,10 @@ class Dashboard(pulumi.CustomResource):
         
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
+                * `events` (`pulumi.Input[list]`)
+        
+                  * `q` (`pulumi.Input[str]`)
+        
                 * `legendSize` (`pulumi.Input[str]`)
                 * `markers` (`pulumi.Input[list]`)
         
@@ -1036,6 +1040,13 @@ class Dashboard(pulumi.CustomResource):
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
+                * `yaxis` (`pulumi.Input[dict]`)
+        
+                  * `includeZero` (`pulumi.Input[bool]`)
+                  * `label` (`pulumi.Input[str]`)
+                  * `max` (`pulumi.Input[str]`)
+                  * `min` (`pulumi.Input[str]`)
+                  * `scale` (`pulumi.Input[str]`)
         
               * `toplistDefinition` (`pulumi.Input[dict]`)
         
@@ -1632,6 +1643,10 @@ class Dashboard(pulumi.CustomResource):
         
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
+            * `events` (`pulumi.Input[list]`)
+        
+              * `q` (`pulumi.Input[str]`)
+        
             * `legendSize` (`pulumi.Input[str]`)
             * `markers` (`pulumi.Input[list]`)
         
@@ -1715,6 +1730,13 @@ class Dashboard(pulumi.CustomResource):
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
+            * `yaxis` (`pulumi.Input[dict]`)
+        
+              * `includeZero` (`pulumi.Input[bool]`)
+              * `label` (`pulumi.Input[str]`)
+              * `max` (`pulumi.Input[str]`)
+              * `min` (`pulumi.Input[str]`)
+              * `scale` (`pulumi.Input[str]`)
         
           * `toplistDefinition` (`pulumi.Input[dict]`)
         
@@ -2793,6 +2815,10 @@ class Dashboard(pulumi.CustomResource):
         
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
+                * `events` (`pulumi.Input[list]`)
+        
+                  * `q` (`pulumi.Input[str]`)
+        
                 * `legendSize` (`pulumi.Input[str]`)
                 * `markers` (`pulumi.Input[list]`)
         
@@ -2876,6 +2902,13 @@ class Dashboard(pulumi.CustomResource):
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
+                * `yaxis` (`pulumi.Input[dict]`)
+        
+                  * `includeZero` (`pulumi.Input[bool]`)
+                  * `label` (`pulumi.Input[str]`)
+                  * `max` (`pulumi.Input[str]`)
+                  * `min` (`pulumi.Input[str]`)
+                  * `scale` (`pulumi.Input[str]`)
         
               * `toplistDefinition` (`pulumi.Input[dict]`)
         
@@ -3472,6 +3505,10 @@ class Dashboard(pulumi.CustomResource):
         
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
+            * `events` (`pulumi.Input[list]`)
+        
+              * `q` (`pulumi.Input[str]`)
+        
             * `legendSize` (`pulumi.Input[str]`)
             * `markers` (`pulumi.Input[list]`)
         
@@ -3555,6 +3592,13 @@ class Dashboard(pulumi.CustomResource):
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
+            * `yaxis` (`pulumi.Input[dict]`)
+        
+              * `includeZero` (`pulumi.Input[bool]`)
+              * `label` (`pulumi.Input[str]`)
+              * `max` (`pulumi.Input[str]`)
+              * `min` (`pulumi.Input[str]`)
+              * `scale` (`pulumi.Input[str]`)
         
           * `toplistDefinition` (`pulumi.Input[dict]`)
         

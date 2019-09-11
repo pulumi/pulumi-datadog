@@ -18,6 +18,7 @@
         "config/index.ts",
         "config/vars.ts",
         "dashboard.ts",
+        "dashboardList.ts",
         "downtime.ts",
         "gcp/index.ts",
         "gcp/integration.ts",

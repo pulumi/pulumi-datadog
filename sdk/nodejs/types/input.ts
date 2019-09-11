@@ -4,6 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 
+export interface DashboardListDashItem {
+    /**
+     * The ID of this dashboard.
+     */
+    dashId: pulumi.Input<string>;
+    /**
+     * The type of this dashboard. Available options are: `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, and `hostTimeboard`
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface DashboardTemplateVariable {
     default?: pulumi.Input<string>;
     name: pulumi.Input<string>;
@@ -1170,6 +1181,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis 
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
+    events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
     markers?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker>[]>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest>[]>;
@@ -1178,6 +1190,11 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
+    yaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
+    q: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
@@ -1274,6 +1291,14 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime {
     liveSpan?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis {
+    includeZero?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    max?: pulumi.Input<string>;
+    min?: pulumi.Input<string>;
+    scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
@@ -2004,6 +2029,7 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
 }
 
 export interface DashboardWidgetTimeseriesDefinition {
+    events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
     markers?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionMarker>[]>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequest>[]>;
@@ -2012,6 +2038,11 @@ export interface DashboardWidgetTimeseriesDefinition {
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
+    yaxis?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionYaxis>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionEvent {
+    q: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionMarker {
@@ -2108,6 +2139,14 @@ export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
 
 export interface DashboardWidgetTimeseriesDefinitionTime {
     liveSpan?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionYaxis {
+    includeZero?: pulumi.Input<boolean>;
+    label?: pulumi.Input<string>;
+    max?: pulumi.Input<string>;
+    min?: pulumi.Input<string>;
+    scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinition {
