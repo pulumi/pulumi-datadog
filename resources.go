@@ -92,6 +92,9 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "synthetics.html.markdown",
 				},
 			},
+			"datadog_dashboard_list": {
+				Tok: makeResource(datadogMod, "DashboardList"),
+			},
 			"datadog_service_level_objective": {
 				Tok: makeResource(datadogMod, "ServiceLevelObjective"),
 			},

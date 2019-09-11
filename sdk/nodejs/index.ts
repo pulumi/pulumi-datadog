@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./dashboard";
+export * from "./dashboardList";
 export * from "./downtime";
 export * from "./metricMetadata";
 export * from "./monitor";
