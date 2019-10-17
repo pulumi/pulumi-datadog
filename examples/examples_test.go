@@ -1,5 +1,3 @@
-// Copyright 2016-2018, Pulumi Corporation.(
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -20,10 +18,27 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
-	"github.com/stretchr/testify/assert"
 )
 
-func TestProvider(t *testing.T) {
+func TestAccUser(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: path.Join(getCwd(t), "user"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func getCwd(t *testing.T) string {
+	cwd, err := os.Getwd()
+	if err != nil {
+		t.FailNow()
+	}
+
+	return cwd
+}
+
+func checkProviderCredentials(t *testing.T) {
 	apiKey := os.Getenv("DATADOG_API_KEY")
 	if apiKey == "" {
 		t.Skipf("Skipping test due to missing DATADOG_API_KEY environment variable")
@@ -33,31 +48,22 @@ func TestProvider(t *testing.T) {
 	if appKey == "" {
 		t.Skipf("Skipping test due to missing DATADOG_APP_KEY environment variable")
 	}
+}
 
-	cwd, err := os.Getwd()
-	if !assert.NoError(t, err) {
-		t.FailNow()
-	}
-
-	var base = integration.ProgramTestOptions{
+func getBaseOptions() integration.ProgramTestOptions {
+	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
-		Config: map[string]string{},
 	}
+}
 
+func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	checkProviderCredentials(t)
+	base := getBaseOptions()
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
 			"@pulumi/datadog",
 		},
 	})
 
-	tests := []integration.ProgramTestOptions{
-		baseJS.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "user")}),
-	}
-
-	for _, ex := range tests {
-		example := ex
-		t.Run(example.Dir, func(t *testing.T) {
-			integration.ProgramTest(t, &example)
-		})
-	}
+	return baseJS
 }
