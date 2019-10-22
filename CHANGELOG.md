@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Regenerate SDK based on tf2pulumi 0.6.0
+* Upgrade to v2.5.0 of the datadog Terraform provider.
 
 ---
 
