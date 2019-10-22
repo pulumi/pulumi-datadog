@@ -37,6 +37,11 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
+func makeDataSource(mod string, res string) tokens.ModuleMember {
+	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
+	return makeMember(mod+"/"+fn, res)
+}
+
 func Provider() tfbridge.ProviderInfo {
 	p := datadog.Provider().(*schema.Provider)
 	prov := tfbridge.ProviderInfo{
@@ -98,6 +103,21 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_service_level_objective": {
 				Tok: makeResource(datadogMod, "ServiceLevelObjective"),
 			},
+			"datadog_logs_custom_pipeline": {
+				Tok: makeResource(datadogMod, "LogsCustomPipeline"),
+			},
+			"datadog_logs_index": {
+				Tok: makeResource(datadogMod, "LogsIndex"),
+			},
+			"datadog_logs_index_order": {
+				Tok: makeResource(datadogMod, "LogsIndexOrder"),
+			},
+			"datadog_logs_integration_pipeline": {
+				Tok: makeResource(datadogMod, "LogsIntegrationPipeline"),
+			},
+			"datadog_logs_pipeline_order": {
+				Tok: makeResource(datadogMod, "LogsPipelineOrder"),
+			},
 			"datadog_integration_gcp": {
 				Tok: makeResource(gcpMod, "Integration"),
 			},
@@ -109,6 +129,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"datadog_integration_pagerduty_service_object": {
 				Tok: makeResource(pdMod, "ServiceObject"),
+			},
+		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"datadog_ip_ranges": {
+				Tok: makeDataSource(datadogMod, "getIpRanges"),
 			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{

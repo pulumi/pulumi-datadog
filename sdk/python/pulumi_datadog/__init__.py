@@ -13,6 +13,11 @@ for pkg in __all__:
 from .dashboard import *
 from .dashboard_list import *
 from .downtime import *
+from .logs_custom_pipeline import *
+from .logs_index import *
+from .logs_index_order import *
+from .logs_integration_pipeline import *
+from .logs_pipeline_order import *
 from .metric_metadata import *
 from .monitor import *
 from .screen_board import *
@@ -20,4 +25,5 @@ from .service_level_objective import *
 from .synthetics_test import *
 from .time_board import *
 from .user import *
+from .get_ip_ranges import *
 from .provider import *

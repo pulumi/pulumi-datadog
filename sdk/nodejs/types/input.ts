@@ -104,7 +104,7 @@ export interface DashboardWidgetChangeDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort>;
 }
@@ -133,7 +133,7 @@ export interface DashboardWidgetChangeDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort>;
 }
@@ -205,7 +205,7 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort>;
 }
@@ -234,7 +234,7 @@ export interface DashboardWidgetDistributionDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort>;
 }
@@ -384,7 +384,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort>;
 }
@@ -413,7 +413,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort>;
 }
@@ -485,7 +485,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort>;
 }
@@ -514,7 +514,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort>;
 }
@@ -607,7 +607,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort>;
 }
@@ -636,7 +636,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLog
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort>;
 }
@@ -713,7 +713,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort>;
 }
@@ -742,7 +742,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort>;
 }
@@ -785,7 +785,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort>;
 }
@@ -814,7 +814,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort>;
 }
@@ -932,7 +932,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort>;
 }
@@ -972,7 +972,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort>;
 }
@@ -1036,7 +1036,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort>;
 }
@@ -1065,7 +1065,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort>;
 }
@@ -1109,7 +1109,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort>;
 }
@@ -1138,7 +1138,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort>;
 }
@@ -1227,7 +1227,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort>;
 }
@@ -1256,7 +1256,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort>;
 }
@@ -1332,7 +1332,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort>;
 }
@@ -1372,7 +1372,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLog
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort>;
 }
@@ -1455,7 +1455,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort>;
 }
@@ -1484,7 +1484,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort>;
 }
@@ -1561,7 +1561,7 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort>;
 }
@@ -1590,7 +1590,7 @@ export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort>;
 }
@@ -1633,7 +1633,7 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort>;
 }
@@ -1662,7 +1662,7 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort>;
 }
@@ -1780,7 +1780,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort>;
 }
@@ -1820,7 +1820,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort>;
 }
@@ -1884,7 +1884,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort>;
 }
@@ -1913,7 +1913,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort>;
 }
@@ -1957,7 +1957,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort>;
 }
@@ -1986,7 +1986,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort>;
 }
@@ -2075,7 +2075,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort>;
 }
@@ -2104,7 +2104,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort>;
 }
@@ -2180,7 +2180,7 @@ export interface DashboardWidgetToplistDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort>;
 }
@@ -2220,7 +2220,7 @@ export interface DashboardWidgetToplistDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
-    facet: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
     sort?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort>;
 }
@@ -2293,6 +2293,574 @@ export interface DowntimeRecurrence {
      * A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
      */
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineFilter {
+    query: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessor {
+    arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorArithmeticProcessor>;
+    attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorAttributeRemapper>;
+    categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorCategoryProcessor>;
+    dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorDateRemapper>;
+    grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGrokParser>;
+    messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorMessageRemapper>;
+    pipeline?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipeline>;
+    serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorServiceRemapper>;
+    statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorStatusRemapper>;
+    traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorTraceIdRemapper>;
+    urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUrlParser>;
+    userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUserAgentParser>;
+}
+
+export interface LogsCustomPipelineProcessorArithmeticProcessor {
+    /**
+     * Arithmetic operation between one or more log attributes.
+     */
+    expression: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
+    isReplaceMissing?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorAttributeRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Override the target element if already set.
+     */
+    overrideOnConflict?: pulumi.Input<boolean>;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: pulumi.Input<boolean>;
+    /**
+     * Defines where the sources are from (log `attribute` or `tag`). 
+     */
+    sourceType: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * Defines if the target is a log `attribute` or `tag`.
+     */
+    targetType: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorCategoryProcessor {
+    /**
+     * List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     */
+    categories: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorCategoryProcessorCategory>[]>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorCategoryProcessorCategory {
+    /**
+     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+     */
+    filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryFilter>[]>;
+    /**
+     * Name of the processor
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
+    query: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorDateRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorGrokParser {
+    grok: pulumi.Input<inputs.LogsCustomPipelineProcessorGrokParserGrok>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the log attribute to parse.
+     * * `grok`
+     */
+    source: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorGrokParserGrok {
+    /**
+     * Match rules for your grok parser.
+     */
+    matchRules: pulumi.Input<string>;
+    /**
+     * Support rules for your grok parser.
+     */
+    supportRules: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorMessageRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipeline {
+    /**
+     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+     */
+    filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineFilter>[]>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Processors. Nested pipeline can't take any other nested pipeline as its processor.
+     */
+    processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessor>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineFilter {
+    query: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessor {
+    arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor>;
+    attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper>;
+    categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor>;
+    dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper>;
+    grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser>;
+    messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper>;
+    serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
+    statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper>;
+    traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper>;
+    urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser>;
+    userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor {
+    /**
+     * Arithmetic operation between one or more log attributes.
+     */
+    expression: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
+    isReplaceMissing?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Override the target element if already set.
+     */
+    overrideOnConflict?: pulumi.Input<boolean>;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: pulumi.Input<boolean>;
+    /**
+     * Defines where the sources are from (log `attribute` or `tag`). 
+     */
+    sourceType: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * Defines if the target is a log `attribute` or `tag`.
+     */
+    targetType: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor {
+    /**
+     * List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     */
+    categories: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory>[]>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory {
+    /**
+     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+     */
+    filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter>[]>;
+    /**
+     * Name of the processor
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter {
+    query: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
+    grok: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the log attribute to parse.
+     * * `grok`
+     */
+    source: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok {
+    /**
+     * Match rules for your grok parser.
+     */
+    matchRules: pulumi.Input<string>;
+    /**
+     * Support rules for your grok parser.
+     */
+    supportRules: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorStatusRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorUrlParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Normalize the ending slashes or not.
+     */
+    normalizeEndingSlashes?: pulumi.Input<boolean>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * If the source attribute is URL encoded or not.
+     */
+    isEncoded?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorServiceRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorStatusRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorTraceIdRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorUrlParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Normalize the ending slashes or not.
+     */
+    normalizeEndingSlashes?: pulumi.Input<boolean>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorUserAgentParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * If the source attribute is URL encoded or not.
+     */
+    isEncoded?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
+export interface LogsIndexExclusionFilter {
+    filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilterFilter>[]>;
+    /**
+     * A boolean stating if the exclusion is active or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the exclusion filter.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface LogsIndexExclusionFilterFilter {
+    /**
+     * Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+     */
+    query?: pulumi.Input<string>;
+    /**
+     * The fraction of logs excluded by the exclusion filter, when active.
+     */
+    sampleRate?: pulumi.Input<number>;
+}
+
+export interface LogsIndexFilter {
+    /**
+     * Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+     */
+    query: pulumi.Input<string>;
 }
 
 export interface MonitorThresholdWindows {
@@ -2519,10 +3087,6 @@ export interface ServiceLevelObjectiveQuery {
     /**
      * the sum of the `total` events
      * * Example Usage:
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * * `monitor` type SLOs:
      */
     denominator: pulumi.Input<string>;
     /**
