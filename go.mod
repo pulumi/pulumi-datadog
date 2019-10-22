@@ -19,5 +19,5 @@ require (
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.0.0
 	github.com/pulumi/pulumi-terraform v0.18.4-0.20190828172748-3f206601e7a1
-	github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190911161219-bad12c31895c
+	github.com/terraform-providers/terraform-provider-datadog v0.0.0-20191022152756-c56e67b97445
 )

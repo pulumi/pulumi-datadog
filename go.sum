@@ -704,6 +704,8 @@ github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190829171813-
 github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190829171813-577856b85594/go.mod h1:cz7FRWTw1yX2tNBCETG7z9yPiOOqh3Qfj6O5eZXjuHo=
 github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190911161219-bad12c31895c h1:QiMoqLsiT6WEUtbDQLreXqzXRqRfX7wYNdua+LPmZiw=
 github.com/terraform-providers/terraform-provider-datadog v0.0.0-20190911161219-bad12c31895c/go.mod h1:cz7FRWTw1yX2tNBCETG7z9yPiOOqh3Qfj6O5eZXjuHo=
+github.com/terraform-providers/terraform-provider-datadog v0.0.0-20191022152756-c56e67b97445 h1:cHr6RiYPKdJ8Mt7e6wTnMZtvR6M35qFOnJgP7EGE75w=
+github.com/terraform-providers/terraform-provider-datadog v0.0.0-20191022152756-c56e67b97445/go.mod h1:dpa41QDGksd/pPFf5RNiB+Sbhgy2BafKHX7hIh3zvQ0=
 github.com/terraform-providers/terraform-provider-openstack v1.15.0/go.mod h1:2aQ6n/BtChAl1y2S60vebhyJyZXBsuAI5G4+lHrT1Ew=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e h1:T5PdfK/M1xyrHwynxMIVMWLS7f/qHwfslZphxtGnw7s=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
@@ -745,6 +747,8 @@ github.com/zclconf/go-cty-yaml v1.0.1 h1:up11wlgAaDvlAGENcFDnZgkn0qUJurso7k6EpUR
 github.com/zclconf/go-cty-yaml v1.0.1/go.mod h1:IP3Ylp0wQpYm50IHK8OZWKMu6sPJIUgKa8XhiVHura0=
 github.com/zorkian/go-datadog-api v2.23.0+incompatible h1:IWIf7fOJBnRAkkbnt8v4/eH2905iVki9XVyOGYvulgA=
 github.com/zorkian/go-datadog-api v2.23.0+incompatible/go.mod h1:PkXwHX9CUQa/FpB9ZwAD45N1uhCW4MT/Wj7m36PbKss=
+github.com/zorkian/go-datadog-api v2.24.0+incompatible h1:conz6t5Vu0nIVigLpinYudl6uYc+xhajR6WuX+tD21I=
+github.com/zorkian/go-datadog-api v2.24.0+incompatible/go.mod h1:PkXwHX9CUQa/FpB9ZwAD45N1uhCW4MT/Wj7m36PbKss=
 go.etcd.io/bbolt v1.3.2/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
 go.etcd.io/etcd v0.0.0-20190412021913-f29b1ada1971/go.mod h1:KSGwdbiFchh5KIC9My2+ZVl5/3ANcwohw50dpPwa2cw=
 go.mongodb.org/mongo-driver v1.0.1/go.mod h1:u7ryQJ+DOzQmeO7zB6MHyr8jkEQvC8vH7qLUO4lqsUM=
