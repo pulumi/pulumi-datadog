@@ -36,7 +36,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
     
       * `denominator` (`str`) - the sum of the `total` events
         * Example Usage:
-        * `monitor` type SLOs:
       * `numerator` (`str`) - the sum of all the `good` events
     """
     tags: pulumi.Output[list]
@@ -84,7 +83,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
         
           * `denominator` (`pulumi.Input[str]`) - the sum of the `total` events
             * Example Usage:
-            * `monitor` type SLOs:
           * `numerator` (`pulumi.Input[str]`) - the sum of all the `good` events
         
         The **thresholds** object supports the following:
@@ -163,7 +161,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
         
           * `denominator` (`pulumi.Input[str]`) - the sum of the `total` events
             * Example Usage:
-            * `monitor` type SLOs:
           * `numerator` (`pulumi.Input[str]`) - the sum of all the `good` events
         
         The **thresholds** object supports the following:

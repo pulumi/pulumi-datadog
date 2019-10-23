@@ -104,7 +104,7 @@ export interface DashboardWidgetChangeDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort;
 }
@@ -133,7 +133,7 @@ export interface DashboardWidgetChangeDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort;
 }
@@ -205,7 +205,7 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort;
 }
@@ -234,7 +234,7 @@ export interface DashboardWidgetDistributionDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort;
 }
@@ -384,7 +384,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort;
 }
@@ -413,7 +413,7 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort;
 }
@@ -485,7 +485,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort;
 }
@@ -514,7 +514,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort;
 }
@@ -607,7 +607,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort;
 }
@@ -636,7 +636,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLog
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort;
 }
@@ -713,7 +713,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort;
 }
@@ -742,7 +742,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort;
 }
@@ -785,7 +785,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort;
 }
@@ -814,7 +814,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort;
 }
@@ -932,7 +932,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort;
 }
@@ -972,7 +972,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort;
 }
@@ -1036,7 +1036,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort;
 }
@@ -1065,7 +1065,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort;
 }
@@ -1109,7 +1109,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort;
 }
@@ -1138,7 +1138,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort;
 }
@@ -1227,7 +1227,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort;
 }
@@ -1256,7 +1256,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort;
 }
@@ -1332,7 +1332,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort;
 }
@@ -1372,7 +1372,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLog
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort;
 }
@@ -1455,7 +1455,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort;
 }
@@ -1484,7 +1484,7 @@ export interface DashboardWidgetHeatmapDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort;
 }
@@ -1561,7 +1561,7 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort;
 }
@@ -1590,7 +1590,7 @@ export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort;
 }
@@ -1633,7 +1633,7 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort;
 }
@@ -1662,7 +1662,7 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort;
 }
@@ -1780,7 +1780,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort;
 }
@@ -1820,7 +1820,7 @@ export interface DashboardWidgetQueryValueDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort;
 }
@@ -1884,7 +1884,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort;
 }
@@ -1913,7 +1913,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort;
 }
@@ -1957,7 +1957,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort;
 }
@@ -1986,7 +1986,7 @@ export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort;
 }
@@ -2075,7 +2075,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort;
 }
@@ -2104,7 +2104,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort;
 }
@@ -2180,7 +2180,7 @@ export interface DashboardWidgetToplistDefinitionRequestApmQueryCompute {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort;
 }
@@ -2220,7 +2220,7 @@ export interface DashboardWidgetToplistDefinitionRequestLogQueryCompute {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
-    facet: string;
+    facet?: string;
     limit?: number;
     sort?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort;
 }
@@ -2293,6 +2293,574 @@ export interface DowntimeRecurrence {
      * A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
      */
     weekDays?: string[];
+}
+
+export interface LogsCustomPipelineFilter {
+    query: string;
+}
+
+export interface LogsCustomPipelineProcessor {
+    arithmeticProcessor?: outputs.LogsCustomPipelineProcessorArithmeticProcessor;
+    attributeRemapper?: outputs.LogsCustomPipelineProcessorAttributeRemapper;
+    categoryProcessor?: outputs.LogsCustomPipelineProcessorCategoryProcessor;
+    dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
+    grokParser?: outputs.LogsCustomPipelineProcessorGrokParser;
+    messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
+    pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
+    serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
+    statusRemapper?: outputs.LogsCustomPipelineProcessorStatusRemapper;
+    traceIdRemapper?: outputs.LogsCustomPipelineProcessorTraceIdRemapper;
+    urlParser?: outputs.LogsCustomPipelineProcessorUrlParser;
+    userAgentParser?: outputs.LogsCustomPipelineProcessorUserAgentParser;
+}
+
+export interface LogsCustomPipelineProcessorArithmeticProcessor {
+    /**
+     * Arithmetic operation between one or more log attributes.
+     */
+    expression: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
+    isReplaceMissing?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorAttributeRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Override the target element if already set.
+     */
+    overrideOnConflict?: boolean;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: boolean;
+    /**
+     * Defines where the sources are from (log `attribute` or `tag`). 
+     */
+    sourceType: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+    /**
+     * Defines if the target is a log `attribute` or `tag`.
+     */
+    targetType: string;
+}
+
+export interface LogsCustomPipelineProcessorCategoryProcessor {
+    /**
+     * List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     */
+    categories: outputs.LogsCustomPipelineProcessorCategoryProcessorCategory[];
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorCategoryProcessorCategory {
+    /**
+     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+     */
+    filters: outputs.LogsCustomPipelineProcessorCategoryProcessorCategoryFilter[];
+    /**
+     * Name of the processor
+     */
+    name: string;
+}
+
+export interface LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
+    query: string;
+}
+
+export interface LogsCustomPipelineProcessorDateRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorGrokParser {
+    grok: outputs.LogsCustomPipelineProcessorGrokParserGrok;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the log attribute to parse.
+     * * `grok`
+     */
+    source: string;
+}
+
+export interface LogsCustomPipelineProcessorGrokParserGrok {
+    /**
+     * Match rules for your grok parser.
+     */
+    matchRules: string;
+    /**
+     * Support rules for your grok parser.
+     */
+    supportRules: string;
+}
+
+export interface LogsCustomPipelineProcessorMessageRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipeline {
+    /**
+     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+     */
+    filters: outputs.LogsCustomPipelineProcessorPipelineFilter[];
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name: string;
+    /**
+     * Processors. Nested pipeline can't take any other nested pipeline as its processor.
+     */
+    processors?: outputs.LogsCustomPipelineProcessorPipelineProcessor[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineFilter {
+    query: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessor {
+    arithmeticProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor;
+    attributeRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
+    categoryProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
+    dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
+    grokParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
+    messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
+    serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
+    statusRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
+    traceIdRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper;
+    urlParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser;
+    userAgentParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor {
+    /**
+     * Arithmetic operation between one or more log attributes.
+     */
+    expression: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     */
+    isReplaceMissing?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Override the target element if already set.
+     */
+    overrideOnConflict?: boolean;
+    /**
+     * Remove or preserve the remapped source element.
+     */
+    preserveSource?: boolean;
+    /**
+     * Defines where the sources are from (log `attribute` or `tag`). 
+     */
+    sourceType: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+    /**
+     * Defines if the target is a log `attribute` or `tag`.
+     */
+    targetType: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor {
+    /**
+     * List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
+     */
+    categories: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory[];
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory {
+    /**
+     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+     */
+    filters: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter[];
+    /**
+     * Name of the processor
+     */
+    name: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter {
+    query: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
+    grok: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the log attribute to parse.
+     * * `grok`
+     */
+    source: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok {
+    /**
+     * Match rules for your grok parser.
+     */
+    matchRules: string;
+    /**
+     * Support rules for your grok parser.
+     */
+    supportRules: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorServiceRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorStatusRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorUrlParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Normalize the ending slashes or not.
+     */
+    normalizeEndingSlashes?: boolean;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorUserAgentParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * If the source attribute is URL encoded or not.
+     */
+    isEncoded?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorServiceRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorStatusRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorTraceIdRemapper {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorUrlParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Normalize the ending slashes or not.
+     */
+    normalizeEndingSlashes?: boolean;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsCustomPipelineProcessorUserAgentParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * If the source attribute is URL encoded or not.
+     */
+    isEncoded?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
+export interface LogsIndexExclusionFilter {
+    filters?: outputs.LogsIndexExclusionFilterFilter[];
+    /**
+     * A boolean stating if the exclusion is active or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * The name of the exclusion filter.
+     */
+    name?: string;
+}
+
+export interface LogsIndexExclusionFilterFilter {
+    /**
+     * Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+     */
+    query?: string;
+    /**
+     * The fraction of logs excluded by the exclusion filter, when active.
+     */
+    sampleRate?: number;
+}
+
+export interface LogsIndexFilter {
+    /**
+     * Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
+     */
+    query: string;
 }
 
 export interface MonitorThresholdWindows {
@@ -2519,10 +3087,6 @@ export interface ServiceLevelObjectiveQuery {
     /**
      * the sum of the `total` events
      * * Example Usage:
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     * * `monitor` type SLOs:
      */
     denominator: string;
     /**
