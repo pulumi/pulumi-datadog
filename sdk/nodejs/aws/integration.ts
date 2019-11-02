@@ -67,7 +67,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
      */
-    public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: boolean} | undefined>;
+    public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * AWS External ID
      */
@@ -140,7 +140,7 @@ export interface IntegrationState {
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
      */
-    readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
     /**
      * AWS External ID
      */
@@ -170,7 +170,7 @@ export interface IntegrationArgs {
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
      */
-    readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
     /**
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
      */

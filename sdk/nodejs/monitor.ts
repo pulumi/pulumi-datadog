@@ -102,7 +102,7 @@ export class Monitor extends pulumi.CustomResource {
      * Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
-    public readonly silenced!: pulumi.Output<{[key: string]: number} | undefined>;
+    public readonly silenced!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -304,7 +304,7 @@ export interface MonitorState {
      * Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
-    readonly silenced?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+    readonly silenced?: pulumi.Input<{[key: string]: any}>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
@@ -429,7 +429,7 @@ export interface MonitorArgs {
      * Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
-    readonly silenced?: pulumi.Input<{[key: string]: pulumi.Input<number>}>;
+    readonly silenced?: pulumi.Input<{[key: string]: any}>;
     /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
