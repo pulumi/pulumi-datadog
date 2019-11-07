@@ -141,7 +141,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@pulumi/pulumi": "^1.0.0",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^8.0.25",
+				"@types/node": "^8.0.0",
 			},
 		},
 		Python: &tfbridge.PythonInfo{
