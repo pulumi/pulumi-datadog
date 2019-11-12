@@ -15,9 +15,9 @@ require (
 	github.com/Azure/go-autorest/autorest/azure/auth v0.3.0 // indirect
 	github.com/Azure/go-autorest/autorest/to v0.3.0 // indirect
 	github.com/Azure/go-autorest/autorest/validation v0.2.0 // indirect
-	github.com/hashicorp/terraform v0.12.6
+	github.com/hashicorp/terraform v0.12.7
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.0.0
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190828172748-3f206601e7a1
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20191030013051-eccdb58dc332
 	github.com/terraform-providers/terraform-provider-datadog v0.0.0-20191022152756-c56e67b97445
 )
