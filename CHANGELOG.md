@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for DotNet SDK Generation
+_(none)_
 
 ---
+
+## 1.1.0 (2019-11-15)
+* Add support for DotNet SDK Generation
 
 ## 1.0.0 (2019-10-23)
 * Regenerate SDK based on tf2pulumi 0.6.0
