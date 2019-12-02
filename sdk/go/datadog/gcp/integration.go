@@ -77,43 +77,43 @@ func GetIntegration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Integration) URN() *pulumi.URNOutput {
+func (r *Integration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Integration) ID() *pulumi.IDOutput {
+func (r *Integration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Your email found in your JSON service account key.
-func (r *Integration) ClientEmail() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientEmail"])
+func (r *Integration) ClientEmail() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientEmail"])
 }
 
 // Your ID found in your JSON service account key.
-func (r *Integration) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *Integration) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-func (r *Integration) HostFilters() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostFilters"])
+func (r *Integration) HostFilters() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostFilters"])
 }
 
 // Your private key name found in your JSON service account key.
-func (r *Integration) PrivateKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateKey"])
+func (r *Integration) PrivateKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateKey"])
 }
 
 // Your private key ID found in your JSON service account key.
-func (r *Integration) PrivateKeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateKeyId"])
+func (r *Integration) PrivateKeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateKeyId"])
 }
 
 // Your Google Cloud project ID found in your JSON service account key.
-func (r *Integration) ProjectId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["projectId"])
+func (r *Integration) ProjectId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["projectId"])
 }
 
 // Input properties used for looking up and filtering Integration resources.

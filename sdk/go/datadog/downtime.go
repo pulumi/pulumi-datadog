@@ -83,73 +83,73 @@ func GetDowntime(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Downtime) URN() *pulumi.URNOutput {
+func (r *Downtime) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Downtime) ID() *pulumi.IDOutput {
+func (r *Downtime) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A flag indicating if the downtime is active now.
-func (r *Downtime) Active() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["active"])
+func (r *Downtime) Active() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["active"])
 }
 
 // A flag indicating if the downtime was disabled.
-func (r *Downtime) Disabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disabled"])
+func (r *Downtime) Disabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disabled"])
 }
 
 // POSIX timestamp to end the downtime.
-func (r *Downtime) End() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["end"])
+func (r *Downtime) End() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["end"])
 }
 
 // String representing date and time to end the downtime in RFC3339 format.
-func (r *Downtime) EndDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endDate"])
+func (r *Downtime) EndDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endDate"])
 }
 
 // A message to include with notifications for this downtime.
-func (r *Downtime) Message() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["message"])
+func (r *Downtime) Message() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["message"])
 }
 
 // When specified, this downtime will only apply to this monitor
-func (r *Downtime) MonitorId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["monitorId"])
+func (r *Downtime) MonitorId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["monitorId"])
 }
 
 // A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
-func (r *Downtime) MonitorTags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["monitorTags"])
+func (r *Downtime) MonitorTags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["monitorTags"])
 }
 
 // A dictionary to configure the downtime to be recurring.
-func (r *Downtime) Recurrence() *pulumi.Output {
+func (r *Downtime) Recurrence() pulumi.Output {
 	return r.s.State["recurrence"]
 }
 
 // A list of items to apply the downtime to, e.g. host:X
-func (r *Downtime) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+func (r *Downtime) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
 // POSIX timestamp to start the downtime.
-func (r *Downtime) Start() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["start"])
+func (r *Downtime) Start() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["start"])
 }
 
 // String representing date and time to start the downtime in RFC3339 format.
-func (r *Downtime) StartDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startDate"])
+func (r *Downtime) StartDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startDate"])
 }
 
 // The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
-func (r *Downtime) Timezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timezone"])
+func (r *Downtime) Timezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timezone"])
 }
 
 // Input properties used for looking up and filtering Downtime resources.

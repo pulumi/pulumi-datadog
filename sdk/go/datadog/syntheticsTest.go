@@ -98,65 +98,65 @@ func GetSyntheticsTest(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SyntheticsTest) URN() *pulumi.URNOutput {
+func (r *SyntheticsTest) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SyntheticsTest) ID() *pulumi.IDOutput {
+func (r *SyntheticsTest) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *SyntheticsTest) Assertions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["assertions"])
+func (r *SyntheticsTest) Assertions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["assertions"])
 }
 
-func (r *SyntheticsTest) DeviceIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["deviceIds"])
+func (r *SyntheticsTest) DeviceIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["deviceIds"])
 }
 
-func (r *SyntheticsTest) Locations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["locations"])
+func (r *SyntheticsTest) Locations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["locations"])
 }
 
-func (r *SyntheticsTest) Message() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["message"])
+func (r *SyntheticsTest) Message() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["message"])
 }
 
-func (r *SyntheticsTest) MonitorId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["monitorId"])
+func (r *SyntheticsTest) MonitorId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["monitorId"])
 }
 
-func (r *SyntheticsTest) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SyntheticsTest) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *SyntheticsTest) Options() *pulumi.Output {
+func (r *SyntheticsTest) Options() pulumi.Output {
 	return r.s.State["options"]
 }
 
-func (r *SyntheticsTest) Request() *pulumi.Output {
+func (r *SyntheticsTest) Request() pulumi.Output {
 	return r.s.State["request"]
 }
 
-func (r *SyntheticsTest) RequestHeaders() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["requestHeaders"])
+func (r *SyntheticsTest) RequestHeaders() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["requestHeaders"])
 }
 
-func (r *SyntheticsTest) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *SyntheticsTest) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
-func (r *SyntheticsTest) Subtype() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subtype"])
+func (r *SyntheticsTest) Subtype() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subtype"])
 }
 
-func (r *SyntheticsTest) Tags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tags"])
+func (r *SyntheticsTest) Tags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tags"])
 }
 
-func (r *SyntheticsTest) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *SyntheticsTest) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering SyntheticsTest resources.

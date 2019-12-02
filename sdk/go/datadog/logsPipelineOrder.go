@@ -56,24 +56,24 @@ func GetLogsPipelineOrder(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogsPipelineOrder) URN() *pulumi.URNOutput {
+func (r *LogsPipelineOrder) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogsPipelineOrder) ID() *pulumi.IDOutput {
+func (r *LogsPipelineOrder) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
 // No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
-func (r *LogsPipelineOrder) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogsPipelineOrder) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
-func (r *LogsPipelineOrder) Pipelines() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["pipelines"])
+func (r *LogsPipelineOrder) Pipelines() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["pipelines"])
 }
 
 // Input properties used for looking up and filtering LogsPipelineOrder resources.

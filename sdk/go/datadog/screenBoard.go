@@ -73,47 +73,47 @@ func GetScreenBoard(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ScreenBoard) URN() *pulumi.URNOutput {
+func (r *ScreenBoard) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ScreenBoard) ID() *pulumi.IDOutput {
+func (r *ScreenBoard) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Height of the screenboard
-func (r *ScreenBoard) Height() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["height"])
+func (r *ScreenBoard) Height() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["height"])
 }
 
-func (r *ScreenBoard) ReadOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["readOnly"])
+func (r *ScreenBoard) ReadOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["readOnly"])
 }
 
 // Whether the screenboard is shared or not
-func (r *ScreenBoard) Shared() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["shared"])
+func (r *ScreenBoard) Shared() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["shared"])
 }
 
 // A list of template variables for using Dashboard templating.
-func (r *ScreenBoard) TemplateVariables() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["templateVariables"])
+func (r *ScreenBoard) TemplateVariables() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["templateVariables"])
 }
 
 // Name of the screenboard
-func (r *ScreenBoard) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *ScreenBoard) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // A list of widget definitions.
-func (r *ScreenBoard) Widgets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["widgets"])
+func (r *ScreenBoard) Widgets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["widgets"])
 }
 
 // Width of the screenboard
-func (r *ScreenBoard) Width() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["width"])
+func (r *ScreenBoard) Width() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["width"])
 }
 
 // Input properties used for looking up and filtering ScreenBoard resources.

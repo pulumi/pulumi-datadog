@@ -56,22 +56,22 @@ func GetServiceObject(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServiceObject) URN() *pulumi.URNOutput {
+func (r *ServiceObject) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServiceObject) ID() *pulumi.IDOutput {
+func (r *ServiceObject) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *ServiceObject) ServiceKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceKey"])
+func (r *ServiceObject) ServiceKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceKey"])
 }
 
 // Your Service name in PagerDuty.
-func (r *ServiceObject) ServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceName"])
+func (r *ServiceObject) ServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceName"])
 }
 
 // Input properties used for looking up and filtering ServiceObject resources.

@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Pagerduty
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceObject(string name, ServiceObjectArgs args, CustomResourceOptions? options = null)
-            : base("datadog:pagerduty/serviceObject:ServiceObject", name, args, MakeResourceOptions(options, ""))
+            : base("datadog:pagerduty/serviceObject:ServiceObject", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
