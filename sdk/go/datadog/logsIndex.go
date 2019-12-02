@@ -63,27 +63,27 @@ func GetLogsIndex(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogsIndex) URN() *pulumi.URNOutput {
+func (r *LogsIndex) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogsIndex) ID() *pulumi.IDOutput {
+func (r *LogsIndex) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of exclusion filters.
-func (r *LogsIndex) ExclusionFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["exclusionFilters"])
+func (r *LogsIndex) ExclusionFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["exclusionFilters"])
 }
 
-func (r *LogsIndex) Filters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["filters"])
+func (r *LogsIndex) Filters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["filters"])
 }
 
 // The name of the exclusion filter.
-func (r *LogsIndex) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogsIndex) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering LogsIndex resources.

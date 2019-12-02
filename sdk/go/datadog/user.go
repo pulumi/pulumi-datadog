@@ -76,53 +76,53 @@ func GetUser(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *User) URN() *pulumi.URNOutput {
+func (r *User) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *User) ID() *pulumi.IDOutput {
+func (r *User) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user).  Default is `st`.
-func (r *User) AccessRole() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessRole"])
+func (r *User) AccessRole() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessRole"])
 }
 
 // Whether the user is disabled
-func (r *User) Disabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disabled"])
+func (r *User) Disabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disabled"])
 }
 
 // Email address for user
-func (r *User) Email() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["email"])
+func (r *User) Email() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["email"])
 }
 
 // The user handle, must be a valid email.
-func (r *User) Handle() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["handle"])
+func (r *User) Handle() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["handle"])
 }
 
 // (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-func (r *User) IsAdmin() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isAdmin"])
+func (r *User) IsAdmin() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isAdmin"])
 }
 
 // Name for user
-func (r *User) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *User) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-func (r *User) Role() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["role"])
+func (r *User) Role() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["role"])
 }
 
 // Returns true if Datadog user is verified
-func (r *User) Verified() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["verified"])
+func (r *User) Verified() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["verified"])
 }
 
 // Input properties used for looking up and filtering User resources.

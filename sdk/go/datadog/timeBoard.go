@@ -70,37 +70,37 @@ func GetTimeBoard(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TimeBoard) URN() *pulumi.URNOutput {
+func (r *TimeBoard) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TimeBoard) ID() *pulumi.IDOutput {
+func (r *TimeBoard) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A description of the dashboard's content.
-func (r *TimeBoard) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *TimeBoard) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A list of graph definitions.
-func (r *TimeBoard) Graphs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["graphs"])
+func (r *TimeBoard) Graphs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["graphs"])
 }
 
-func (r *TimeBoard) ReadOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["readOnly"])
+func (r *TimeBoard) ReadOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["readOnly"])
 }
 
 // A list of template variables for using Dashboard templating.
-func (r *TimeBoard) TemplateVariables() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["templateVariables"])
+func (r *TimeBoard) TemplateVariables() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["templateVariables"])
 }
 
 // The name of the dashboard.
-func (r *TimeBoard) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *TimeBoard) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // Input properties used for looking up and filtering TimeBoard resources.

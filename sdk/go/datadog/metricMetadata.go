@@ -68,47 +68,47 @@ func GetMetricMetadata(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MetricMetadata) URN() *pulumi.URNOutput {
+func (r *MetricMetadata) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MetricMetadata) ID() *pulumi.IDOutput {
+func (r *MetricMetadata) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A description of the metric.
-func (r *MetricMetadata) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *MetricMetadata) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the metric.
-func (r *MetricMetadata) Metric() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metric"])
+func (r *MetricMetadata) Metric() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metric"])
 }
 
 // 'Per' unit of the metric such as 'second' in 'bytes per second'.
-func (r *MetricMetadata) PerUnit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["perUnit"])
+func (r *MetricMetadata) PerUnit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["perUnit"])
 }
 
 // A short name of the metric.
-func (r *MetricMetadata) ShortName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shortName"])
+func (r *MetricMetadata) ShortName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shortName"])
 }
 
 // If applicable, stasd flush interval in seconds for the metric.
-func (r *MetricMetadata) StatsdInterval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["statsdInterval"])
+func (r *MetricMetadata) StatsdInterval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["statsdInterval"])
 }
 
-func (r *MetricMetadata) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *MetricMetadata) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Primary unit of the metric such as 'byte' or 'operation'.
-func (r *MetricMetadata) Unit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["unit"])
+func (r *MetricMetadata) Unit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["unit"])
 }
 
 // Input properties used for looking up and filtering MetricMetadata resources.

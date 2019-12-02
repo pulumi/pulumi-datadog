@@ -53,18 +53,18 @@ func GetLogsIntegrationPipeline(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogsIntegrationPipeline) URN() *pulumi.URNOutput {
+func (r *LogsIntegrationPipeline) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogsIntegrationPipeline) ID() *pulumi.IDOutput {
+func (r *LogsIntegrationPipeline) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Boolean value to enable your pipeline.
-func (r *LogsIntegrationPipeline) IsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isEnabled"])
+func (r *LogsIntegrationPipeline) IsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isEnabled"])
 }
 
 // Input properties used for looking up and filtering LogsIntegrationPipeline resources.

@@ -53,23 +53,23 @@ func GetDashboardList(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DashboardList) URN() *pulumi.URNOutput {
+func (r *DashboardList) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DashboardList) ID() *pulumi.IDOutput {
+func (r *DashboardList) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An individual dashboard object to add to this Dashboard List. If present, must contain the following:
-func (r *DashboardList) DashItems() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dashItems"])
+func (r *DashboardList) DashItems() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dashItems"])
 }
 
 // The name of this Dashbaord List.
-func (r *DashboardList) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DashboardList) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering DashboardList resources.

@@ -60,38 +60,38 @@ func GetIntegration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Integration) URN() *pulumi.URNOutput {
+func (r *Integration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Integration) ID() *pulumi.IDOutput {
+func (r *Integration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Your PagerDuty API token.
-func (r *Integration) ApiToken() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiToken"])
+func (r *Integration) ApiToken() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiToken"])
 }
 
 // Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
-func (r *Integration) IndividualServices() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["individualServices"])
+func (r *Integration) IndividualServices() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["individualServices"])
 }
 
 // Array of your schedule URLs.
-func (r *Integration) Schedules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["schedules"])
+func (r *Integration) Schedules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["schedules"])
 }
 
 // Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
-func (r *Integration) Services() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["services"])
+func (r *Integration) Services() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["services"])
 }
 
 // Your PagerDuty account’s personalized subdomain name.
-func (r *Integration) Subdomain() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subdomain"])
+func (r *Integration) Subdomain() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subdomain"])
 }
 
 // Input properties used for looking up and filtering Integration resources.

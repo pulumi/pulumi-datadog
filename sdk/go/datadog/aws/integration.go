@@ -69,43 +69,43 @@ func GetIntegration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Integration) URN() *pulumi.URNOutput {
+func (r *Integration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Integration) ID() *pulumi.IDOutput {
+func (r *Integration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Your AWS Account ID without dashes.
-func (r *Integration) AccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountId"])
+func (r *Integration) AccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountId"])
 }
 
 // Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
-func (r *Integration) AccountSpecificNamespaceRules() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["accountSpecificNamespaceRules"])
+func (r *Integration) AccountSpecificNamespaceRules() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["accountSpecificNamespaceRules"])
 }
 
 // AWS External ID
-func (r *Integration) ExternalId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["externalId"])
+func (r *Integration) ExternalId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["externalId"])
 }
 
 // Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
-func (r *Integration) FilterTags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["filterTags"])
+func (r *Integration) FilterTags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["filterTags"])
 }
 
 // Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
-func (r *Integration) HostTags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["hostTags"])
+func (r *Integration) HostTags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["hostTags"])
 }
 
 // Your Datadog role delegation name.
-func (r *Integration) RoleName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleName"])
+func (r *Integration) RoleName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleName"])
 }
 
 // Input properties used for looking up and filtering Integration resources.

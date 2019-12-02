@@ -56,23 +56,23 @@ func GetLogsIndexOrder(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogsIndexOrder) URN() *pulumi.URNOutput {
+func (r *LogsIndexOrder) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogsIndexOrder) ID() *pulumi.IDOutput {
+func (r *LogsIndexOrder) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
-func (r *LogsIndexOrder) Indexes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["indexes"])
+func (r *LogsIndexOrder) Indexes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["indexes"])
 }
 
 // The unique name of the index order resource. 
-func (r *LogsIndexOrder) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogsIndexOrder) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering LogsIndexOrder resources.

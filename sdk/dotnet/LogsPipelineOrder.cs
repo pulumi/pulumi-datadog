@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogsPipelineOrder(string name, LogsPipelineOrderArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/logsPipelineOrder:LogsPipelineOrder", name, args, MakeResourceOptions(options, ""))
+            : base("datadog:index/logsPipelineOrder:LogsPipelineOrder", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

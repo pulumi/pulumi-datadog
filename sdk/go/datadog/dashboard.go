@@ -76,48 +76,48 @@ func GetDashboard(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Dashboard) URN() *pulumi.URNOutput {
+func (r *Dashboard) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Dashboard) ID() *pulumi.IDOutput {
+func (r *Dashboard) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the dashboard.
-func (r *Dashboard) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Dashboard) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Whether this dashboard is read-only.
-func (r *Dashboard) IsReadOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isReadOnly"])
+func (r *Dashboard) IsReadOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isReadOnly"])
 }
 
 // The layout type of the dashboard, either 'free' or 'ordered'.
-func (r *Dashboard) LayoutType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["layoutType"])
+func (r *Dashboard) LayoutType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["layoutType"])
 }
 
 // The list of handles of users to notify when changes are made to this dashboard.
-func (r *Dashboard) NotifyLists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["notifyLists"])
+func (r *Dashboard) NotifyLists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["notifyLists"])
 }
 
 // The list of template variables for this dashboard.
-func (r *Dashboard) TemplateVariables() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["templateVariables"])
+func (r *Dashboard) TemplateVariables() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["templateVariables"])
 }
 
 // The title of the dashboard.
-func (r *Dashboard) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *Dashboard) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // The list of widgets to display on the dashboard.
-func (r *Dashboard) Widgets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["widgets"])
+func (r *Dashboard) Widgets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["widgets"])
 }
 
 // Input properties used for looking up and filtering Dashboard resources.

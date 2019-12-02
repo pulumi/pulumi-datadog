@@ -62,7 +62,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricMetadata(string name, MetricMetadataArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/metricMetadata:MetricMetadata", name, args, MakeResourceOptions(options, ""))
+            : base("datadog:index/metricMetadata:MetricMetadata", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

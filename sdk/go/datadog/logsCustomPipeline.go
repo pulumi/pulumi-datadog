@@ -71,33 +71,33 @@ func GetLogsCustomPipeline(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogsCustomPipeline) URN() *pulumi.URNOutput {
+func (r *LogsCustomPipeline) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogsCustomPipeline) ID() *pulumi.IDOutput {
+func (r *LogsCustomPipeline) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-func (r *LogsCustomPipeline) Filters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["filters"])
+func (r *LogsCustomPipeline) Filters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["filters"])
 }
 
 // If the processor is enabled or not.
-func (r *LogsCustomPipeline) IsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isEnabled"])
+func (r *LogsCustomPipeline) IsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isEnabled"])
 }
 
 // Name of the processor
-func (r *LogsCustomPipeline) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogsCustomPipeline) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Processors. Nested pipeline can't take any other nested pipeline as its processor.
-func (r *LogsCustomPipeline) Processors() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["processors"])
+func (r *LogsCustomPipeline) Processors() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["processors"])
 }
 
 // Input properties used for looking up and filtering LogsCustomPipeline resources.

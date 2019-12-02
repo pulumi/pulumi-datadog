@@ -3,7 +3,7 @@
 
 using System.Collections.Immutable;
 
-namespace Pulumi.Datadog.Config
+namespace Pulumi.Datadog
 {
     public static class Config
     {

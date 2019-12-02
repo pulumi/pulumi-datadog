@@ -116,50 +116,50 @@ func GetMonitor(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Monitor) URN() *pulumi.URNOutput {
+func (r *Monitor) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Monitor) ID() *pulumi.IDOutput {
+func (r *Monitor) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
 // triggering tags into the title. Defaults to true.
-func (r *Monitor) EnableLogsSample() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableLogsSample"])
+func (r *Monitor) EnableLogsSample() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableLogsSample"])
 }
 
 // A message to include with a re-notification. Supports the '@username'
 // notification allowed elsewhere.
-func (r *Monitor) EscalationMessage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["escalationMessage"])
+func (r *Monitor) EscalationMessage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["escalationMessage"])
 }
 
-func (r *Monitor) EvaluationDelay() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["evaluationDelay"])
+func (r *Monitor) EvaluationDelay() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["evaluationDelay"])
 }
 
 // A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
-func (r *Monitor) IncludeTags() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["includeTags"])
+func (r *Monitor) IncludeTags() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["includeTags"])
 }
 
 // A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-func (r *Monitor) Locked() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["locked"])
+func (r *Monitor) Locked() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["locked"])
 }
 
 // A message to include with notifications for this monitor.
 // Email notifications can be sent to specific users by using the same '@username' notation as events.
-func (r *Monitor) Message() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["message"])
+func (r *Monitor) Message() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["message"])
 }
 
 // Name of Datadog monitor
-func (r *Monitor) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Monitor) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Time (in seconds) to allow a host to boot and
@@ -169,58 +169,58 @@ func (r *Monitor) Name() *pulumi.StringOutput {
 // For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
 // the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 // metrics to ensure the monitor will always have data during evaluation.
-func (r *Monitor) NewHostDelay() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["newHostDelay"])
+func (r *Monitor) NewHostDelay() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["newHostDelay"])
 }
 
 // The number of minutes before a monitor will notify when data stops reporting. Must be at
 // least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
 // metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
-func (r *Monitor) NoDataTimeframe() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["noDataTimeframe"])
+func (r *Monitor) NoDataTimeframe() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["noDataTimeframe"])
 }
 
 // A boolean indicating whether tagged users will be notified on changes to this monitor.
 // Defaults to false.
-func (r *Monitor) NotifyAudit() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["notifyAudit"])
+func (r *Monitor) NotifyAudit() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["notifyAudit"])
 }
 
 // A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 // to false.
-func (r *Monitor) NotifyNoData() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["notifyNoData"])
+func (r *Monitor) NotifyNoData() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["notifyNoData"])
 }
 
-func (r *Monitor) Query() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["query"])
+func (r *Monitor) Query() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["query"])
 }
 
 // The number of minutes after the last notification before a monitor will re-notify
 // on the current status. It will only re-notify if it's not resolved.
-func (r *Monitor) RenotifyInterval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["renotifyInterval"])
+func (r *Monitor) RenotifyInterval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["renotifyInterval"])
 }
 
 // A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 // We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 // Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
-func (r *Monitor) RequireFullWindow() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requireFullWindow"])
+func (r *Monitor) RequireFullWindow() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requireFullWindow"])
 }
 
-func (r *Monitor) Silenced() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["silenced"])
+func (r *Monitor) Silenced() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["silenced"])
 }
 
 // A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-func (r *Monitor) Tags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tags"])
+func (r *Monitor) Tags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tags"])
 }
 
 // A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
 // * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
-func (r *Monitor) ThresholdWindows() *pulumi.Output {
+func (r *Monitor) ThresholdWindows() pulumi.Output {
 	return r.s.State["thresholdWindows"]
 }
 
@@ -249,14 +249,14 @@ func (r *Monitor) ThresholdWindows() *pulumi.Output {
 // unknown  = 1
 // }
 // ```
-func (r *Monitor) Thresholds() *pulumi.Output {
+func (r *Monitor) Thresholds() pulumi.Output {
 	return r.s.State["thresholds"]
 }
 
 // The number of hours of the monitor not reporting data before it will automatically resolve
 // from a triggered state. Defaults to false.
-func (r *Monitor) TimeoutH() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeoutH"])
+func (r *Monitor) TimeoutH() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeoutH"])
 }
 
 // The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
@@ -266,8 +266,8 @@ func (r *Monitor) TimeoutH() *pulumi.IntOutput {
 // * `query alert`
 // * `composite`
 // * `log alert`
-func (r *Monitor) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Monitor) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Monitor resources.

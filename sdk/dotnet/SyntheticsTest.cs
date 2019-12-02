@@ -60,7 +60,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SyntheticsTest(string name, SyntheticsTestArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/syntheticsTest:SyntheticsTest", name, args, MakeResourceOptions(options, ""))
+            : base("datadog:index/syntheticsTest:SyntheticsTest", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -80,60 +80,60 @@ func GetServiceLevelObjective(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServiceLevelObjective) URN() *pulumi.URNOutput {
+func (r *ServiceLevelObjective) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServiceLevelObjective) ID() *pulumi.IDOutput {
+func (r *ServiceLevelObjective) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A description of this service level objective.
-func (r *ServiceLevelObjective) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ServiceLevelObjective) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
-func (r *ServiceLevelObjective) Groups() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["groups"])
+func (r *ServiceLevelObjective) Groups() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
 // A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-func (r *ServiceLevelObjective) MonitorIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["monitorIds"])
+func (r *ServiceLevelObjective) MonitorIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["monitorIds"])
 }
 
 // The monitor query search used on the monitor search API to add monitorIds by searching. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-func (r *ServiceLevelObjective) MonitorSearch() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["monitorSearch"])
+func (r *ServiceLevelObjective) MonitorSearch() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["monitorSearch"])
 }
 
 // Name of Datadog service level objective
-func (r *ServiceLevelObjective) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ServiceLevelObjective) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
-func (r *ServiceLevelObjective) Query() *pulumi.Output {
+func (r *ServiceLevelObjective) Query() pulumi.Output {
 	return r.s.State["query"]
 }
 
 // A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-func (r *ServiceLevelObjective) Tags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tags"])
+func (r *ServiceLevelObjective) Tags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tags"])
 }
 
 // - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-func (r *ServiceLevelObjective) Thresholds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["thresholds"])
+func (r *ServiceLevelObjective) Thresholds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["thresholds"])
 }
 
 // The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
 // * `metric`
 // * `monitor`
-func (r *ServiceLevelObjective) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *ServiceLevelObjective) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering ServiceLevelObjective resources.
