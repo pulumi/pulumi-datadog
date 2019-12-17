@@ -1,6 +1,7 @@
 package datadog
 
 import (
+	"strings"
 	"unicode"
 
 	"github.com/hashicorp/terraform/helper/schema"
@@ -14,14 +15,23 @@ const (
 	datadogPkg = "datadog"
 	// modules:
 	datadogMod = "index"
-	gcpMod     = "gcp"
-	awsMod     = "aws"
-	pdMod      = "pagerduty"
+	gcpMod     = "Gcp"
+	awsMod     = "Aws"
+	pdMod      = "PagerDuty"
 )
 
-// makeMember manufactures a type token for the package and the given module and type.
-func makeMember(mod string, mem string) tokens.ModuleMember {
-	return tokens.ModuleMember(datadogPkg + ":" + mod + ":" + mem)
+var namespaceMap = map[string]string{
+	datadogPkg: "Datadog",
+}
+
+// makeMember manufactures a type token for the package and the given module and type.  It automatically
+// uses the Datadog package and names the file by simply lower casing the resource's first character.
+func makeMember(moduleTitle string, mem string) tokens.ModuleMember {
+	moduleName := strings.ToLower(moduleTitle)
+	namespaceMap[moduleName] = moduleTitle
+	fn := string(unicode.ToLower(rune(mem[0]))) + mem[1:]
+	token := moduleName + "/" + fn
+	return tokens.ModuleMember(datadogPkg + ":" + token + ":" + mem)
 }
 
 // makeType manufactures a type token for the package and the given module and type.
@@ -29,17 +39,13 @@ func makeType(mod string, typ string) tokens.Type {
 	return tokens.Type(makeMember(mod, typ))
 }
 
-// makeResource manufactures a standard resource token given a module and resource name.  It
-// automatically uses the main package and names the file by simply lower casing the resource's
-// first character.
+// makeResource manufactures a standard resource token given a module and resource name.
 func makeResource(mod string, res string) tokens.Type {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeType(mod+"/"+fn, res)
+	return makeType(mod, res)
 }
 
 func makeDataSource(mod string, res string) tokens.ModuleMember {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeMember(mod+"/"+fn, res)
+	return makeMember(mod, res)
 }
 
 func Provider() tfbridge.ProviderInfo {
@@ -154,6 +160,7 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi":                       "1.5.0-*",
 				"System.Collections.Immutable": "1.6.0",
 			},
+			Namespaces: namespaceMap,
 		},
 	}
 
