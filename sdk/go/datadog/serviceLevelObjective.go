@@ -32,7 +32,6 @@ func NewServiceLevelObjective(ctx *pulumi.Context,
 		inputs["description"] = nil
 		inputs["groups"] = nil
 		inputs["monitorIds"] = nil
-		inputs["monitorSearch"] = nil
 		inputs["name"] = nil
 		inputs["query"] = nil
 		inputs["tags"] = nil
@@ -42,7 +41,6 @@ func NewServiceLevelObjective(ctx *pulumi.Context,
 		inputs["description"] = args.Description
 		inputs["groups"] = args.Groups
 		inputs["monitorIds"] = args.MonitorIds
-		inputs["monitorSearch"] = args.MonitorSearch
 		inputs["name"] = args.Name
 		inputs["query"] = args.Query
 		inputs["tags"] = args.Tags
@@ -65,7 +63,6 @@ func GetServiceLevelObjective(ctx *pulumi.Context,
 		inputs["description"] = state.Description
 		inputs["groups"] = state.Groups
 		inputs["monitorIds"] = state.MonitorIds
-		inputs["monitorSearch"] = state.MonitorSearch
 		inputs["name"] = state.Name
 		inputs["query"] = state.Query
 		inputs["tags"] = state.Tags
@@ -99,14 +96,9 @@ func (r *ServiceLevelObjective) Groups() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["groups"])
 }
 
-// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
+// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
 func (r *ServiceLevelObjective) MonitorIds() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["monitorIds"])
-}
-
-// The monitor query search used on the monitor search API to add monitorIds by searching. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-func (r *ServiceLevelObjective) MonitorSearch() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["monitorSearch"])
 }
 
 // Name of Datadog service level objective
@@ -142,10 +134,8 @@ type ServiceLevelObjectiveState struct {
 	Description interface{}
 	// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
 	Groups interface{}
-	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
+	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
 	MonitorIds interface{}
-	// The monitor query search used on the monitor search API to add monitorIds by searching. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-	MonitorSearch interface{}
 	// Name of Datadog service level objective
 	Name interface{}
 	// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
@@ -166,10 +156,8 @@ type ServiceLevelObjectiveArgs struct {
 	Description interface{}
 	// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
 	Groups interface{}
-	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
+	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
 	MonitorIds interface{}
-	// The monitor query search used on the monitor search API to add monitorIds by searching. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-	MonitorSearch interface{}
 	// Name of Datadog service level objective
 	Name interface{}
 	// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.

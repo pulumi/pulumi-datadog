@@ -41,6 +41,7 @@ export interface DashboardWidget {
     noteDefinition?: outputs.DashboardWidgetNoteDefinition;
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
     scatterplotDefinition?: outputs.DashboardWidgetScatterplotDefinition;
+    serviceLevelObjectiveDefinition?: outputs.DashboardWidgetServiceLevelObjectiveDefinition;
     timeseriesDefinition?: outputs.DashboardWidgetTimeseriesDefinition;
     toplistDefinition?: outputs.DashboardWidgetToplistDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetTraceServiceDefinition;
@@ -321,6 +322,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     noteDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
     scatterplotDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition;
+    serviceLevelObjectiveDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
     timeseriesDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
     toplistDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition;
@@ -1180,6 +1182,17 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis 
     scale?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition {
+    showErrorBudget?: boolean;
+    sloId: string;
+    timeWindows: string[];
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+    viewMode: string;
+    viewType: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     events?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
@@ -2028,6 +2041,17 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
     scale?: string;
 }
 
+export interface DashboardWidgetServiceLevelObjectiveDefinition {
+    showErrorBudget?: boolean;
+    sloId: string;
+    timeWindows: string[];
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+    viewMode: string;
+    viewType: string;
+}
+
 export interface DashboardWidgetTimeseriesDefinition {
     events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
@@ -2304,11 +2328,13 @@ export interface LogsCustomPipelineProcessor {
     attributeRemapper?: outputs.LogsCustomPipelineProcessorAttributeRemapper;
     categoryProcessor?: outputs.LogsCustomPipelineProcessorCategoryProcessor;
     dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
+    geoIpParser?: outputs.LogsCustomPipelineProcessorGeoIpParser;
     grokParser?: outputs.LogsCustomPipelineProcessorGrokParser;
     messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
     pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
     statusRemapper?: outputs.LogsCustomPipelineProcessorStatusRemapper;
+    stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorStringBuilderProcessor;
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorTraceIdRemapper;
     urlParser?: outputs.LogsCustomPipelineProcessorUrlParser;
     userAgentParser?: outputs.LogsCustomPipelineProcessorUserAgentParser;
@@ -2324,7 +2350,8 @@ export interface LogsCustomPipelineProcessorArithmeticProcessor {
      */
     isEnabled?: boolean;
     /**
-     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
      */
     isReplaceMissing?: boolean;
     /**
@@ -2421,6 +2448,25 @@ export interface LogsCustomPipelineProcessorDateRemapper {
     sources: string[];
 }
 
+export interface LogsCustomPipelineProcessorGeoIpParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
 export interface LogsCustomPipelineProcessorGrokParser {
     grok: outputs.LogsCustomPipelineProcessorGrokParserGrok;
     /**
@@ -2431,6 +2477,10 @@ export interface LogsCustomPipelineProcessorGrokParser {
      * Name of the processor
      */
     name?: string;
+    /**
+     * List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     */
+    samples?: string[];
     /**
      * Name of the log attribute to parse.
      * * `grok`
@@ -2492,10 +2542,12 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
     attributeRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
     categoryProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
     dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
+    geoIpParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser;
     grokParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
     messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
     statusRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
+    stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor;
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper;
     urlParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser;
     userAgentParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser;
@@ -2511,7 +2563,8 @@ export interface LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor
      */
     isEnabled?: boolean;
     /**
-     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
      */
     isReplaceMissing?: boolean;
     /**
@@ -2608,6 +2661,25 @@ export interface LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
     sources: string[];
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * List of source attributes.
+     */
+    sources: string[];
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
     grok: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok;
     /**
@@ -2618,6 +2690,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
      * Name of the processor
      */
     name?: string;
+    /**
+     * List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     */
+    samples?: string[];
     /**
      * Name of the log attribute to parse.
      * * `grok`
@@ -2679,6 +2755,30 @@ export interface LogsCustomPipelineProcessorPipelineProcessorStatusRemapper {
      * List of source attributes.
      */
     sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
+     */
+    isReplaceMissing?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+    /**
+     * The formula with one or more attributes and raw text.
+     */
+    template: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper {
@@ -2770,6 +2870,30 @@ export interface LogsCustomPipelineProcessorStatusRemapper {
      * List of source attributes.
      */
     sources: string[];
+}
+
+export interface LogsCustomPipelineProcessorStringBuilderProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
+     */
+    isReplaceMissing?: boolean;
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
+    /**
+     * The formula with one or more attributes and raw text.
+     */
+    template: string;
 }
 
 export interface LogsCustomPipelineProcessorTraceIdRemapper {

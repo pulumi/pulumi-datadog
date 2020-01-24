@@ -20,11 +20,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     """
     monitor_ids: pulumi.Output[list]
     """
-    A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
-    """
-    monitor_search: pulumi.Output[str]
-    """
-    The monitor query search used on the monitor search API to add monitor_ids by searching. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
+    A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
     """
     name: pulumi.Output[str]
     """
@@ -61,7 +57,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     * `metric`
     * `monitor`
     """
-    def __init__(__self__, resource_name, opts=None, description=None, groups=None, monitor_ids=None, monitor_search=None, name=None, query=None, tags=None, thresholds=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, groups=None, monitor_ids=None, name=None, query=None, tags=None, thresholds=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
         
@@ -69,8 +65,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this service level objective.
         :param pulumi.Input[list] groups: A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
-        :param pulumi.Input[list] monitor_ids: A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
-        :param pulumi.Input[str] monitor_search: The monitor query search used on the monitor search API to add monitor_ids by searching. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
+        :param pulumi.Input[list] monitor_ids: A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
         :param pulumi.Input[str] name: Name of Datadog service level objective
         :param pulumi.Input[dict] query: The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
         :param pulumi.Input[list] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -118,7 +113,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
             __props__['description'] = description
             __props__['groups'] = groups
             __props__['monitor_ids'] = monitor_ids
-            __props__['monitor_search'] = monitor_search
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
@@ -137,7 +131,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, groups=None, monitor_ids=None, monitor_search=None, name=None, query=None, tags=None, thresholds=None, type=None):
+    def get(resource_name, id, opts=None, description=None, groups=None, monitor_ids=None, name=None, query=None, tags=None, thresholds=None, type=None):
         """
         Get an existing ServiceLevelObjective resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -147,8 +141,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this service level objective.
         :param pulumi.Input[list] groups: A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
-        :param pulumi.Input[list] monitor_ids: A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
-        :param pulumi.Input[str] monitor_search: The monitor query search used on the monitor search API to add monitor_ids by searching. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
+        :param pulumi.Input[list] monitor_ids: A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
         :param pulumi.Input[str] name: Name of Datadog service level objective
         :param pulumi.Input[dict] query: The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
         :param pulumi.Input[list] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -182,7 +175,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
         __props__["description"] = description
         __props__["groups"] = groups
         __props__["monitor_ids"] = monitor_ids
-        __props__["monitor_search"] = monitor_search
         __props__["name"] = name
         __props__["query"] = query
         __props__["tags"] = tags

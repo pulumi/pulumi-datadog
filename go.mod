@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-datadog
 
-go 1.12
+go 1.13
 
 replace (
 	github.com/Azure/azure-sdk-for-go => github.com/Azure/azure-sdk-for-go v31.1.0+incompatible
@@ -15,5 +15,5 @@ require (
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.6.0
 	github.com/pulumi/pulumi-terraform v0.18.4-0.20191202134852-87cfb4dc8ae1
-	github.com/terraform-providers/terraform-provider-datadog v0.0.0-20191022152756-c56e67b97445
+	github.com/terraform-providers/terraform-provider-datadog v1.9.1-0.20200121205624-f258e14a2210
 )

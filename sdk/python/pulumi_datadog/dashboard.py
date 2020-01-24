@@ -951,6 +951,17 @@ class Dashboard(pulumi.CustomResource):
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
         
+              * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
+        
+                * `showErrorBudget` (`pulumi.Input[bool]`)
+                * `sloId` (`pulumi.Input[str]`)
+                * `timeWindows` (`pulumi.Input[list]`)
+                * `title` (`pulumi.Input[str]`)
+                * `titleAlign` (`pulumi.Input[str]`)
+                * `titleSize` (`pulumi.Input[str]`)
+                * `viewMode` (`pulumi.Input[str]`)
+                * `viewType` (`pulumi.Input[str]`)
+        
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
                 * `events` (`pulumi.Input[list]`)
@@ -1640,6 +1651,17 @@ class Dashboard(pulumi.CustomResource):
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
+        
+          * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
+        
+            * `showErrorBudget` (`pulumi.Input[bool]`)
+            * `sloId` (`pulumi.Input[str]`)
+            * `timeWindows` (`pulumi.Input[list]`)
+            * `title` (`pulumi.Input[str]`)
+            * `titleAlign` (`pulumi.Input[str]`)
+            * `titleSize` (`pulumi.Input[str]`)
+            * `viewMode` (`pulumi.Input[str]`)
+            * `viewType` (`pulumi.Input[str]`)
         
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
@@ -2813,6 +2835,17 @@ class Dashboard(pulumi.CustomResource):
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
         
+              * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
+        
+                * `showErrorBudget` (`pulumi.Input[bool]`)
+                * `sloId` (`pulumi.Input[str]`)
+                * `timeWindows` (`pulumi.Input[list]`)
+                * `title` (`pulumi.Input[str]`)
+                * `titleAlign` (`pulumi.Input[str]`)
+                * `titleSize` (`pulumi.Input[str]`)
+                * `viewMode` (`pulumi.Input[str]`)
+                * `viewType` (`pulumi.Input[str]`)
+        
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
                 * `events` (`pulumi.Input[list]`)
@@ -3502,6 +3535,17 @@ class Dashboard(pulumi.CustomResource):
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
+        
+          * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
+        
+            * `showErrorBudget` (`pulumi.Input[bool]`)
+            * `sloId` (`pulumi.Input[str]`)
+            * `timeWindows` (`pulumi.Input[list]`)
+            * `title` (`pulumi.Input[str]`)
+            * `titleAlign` (`pulumi.Input[str]`)
+            * `titleSize` (`pulumi.Input[str]`)
+            * `viewMode` (`pulumi.Input[str]`)
+            * `viewType` (`pulumi.Input[str]`)
         
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
         
