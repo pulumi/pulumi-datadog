@@ -146,7 +146,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly timeoutH!: pulumi.Output<number | undefined>;
     /**
-     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
      * * `metric alert`
      * * `service check`
      * * `event alert`
@@ -348,7 +348,7 @@ export interface MonitorState {
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**
-     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
      * * `metric alert`
      * * `service check`
      * * `event alert`
@@ -473,7 +473,7 @@ export interface MonitorArgs {
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**
-     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. Available options to choose from are:
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
      * * `metric alert`
      * * `service check`
      * * `event alert`

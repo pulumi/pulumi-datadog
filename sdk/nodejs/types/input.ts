@@ -41,6 +41,7 @@ export interface DashboardWidget {
     noteDefinition?: pulumi.Input<inputs.DashboardWidgetNoteDefinition>;
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinition>;
     scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinition>;
+    serviceLevelObjectiveDefinition?: pulumi.Input<inputs.DashboardWidgetServiceLevelObjectiveDefinition>;
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinition>;
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetToplistDefinition>;
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetTraceServiceDefinition>;
@@ -321,6 +322,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     noteDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition>;
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition>;
     scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition>;
+    serviceLevelObjectiveDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition>;
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition>;
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition>;
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition>;
@@ -1180,6 +1182,17 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis 
     scale?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition {
+    showErrorBudget?: pulumi.Input<boolean>;
+    sloId: pulumi.Input<string>;
+    timeWindows: pulumi.Input<pulumi.Input<string>[]>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+    viewMode: pulumi.Input<string>;
+    viewType: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
@@ -2028,6 +2041,17 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
     scale?: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetServiceLevelObjectiveDefinition {
+    showErrorBudget?: pulumi.Input<boolean>;
+    sloId: pulumi.Input<string>;
+    timeWindows: pulumi.Input<pulumi.Input<string>[]>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+    viewMode: pulumi.Input<string>;
+    viewType: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetTimeseriesDefinition {
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
@@ -2304,11 +2328,13 @@ export interface LogsCustomPipelineProcessor {
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorAttributeRemapper>;
     categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorCategoryProcessor>;
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorDateRemapper>;
+    geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGeoIpParser>;
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGrokParser>;
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorMessageRemapper>;
     pipeline?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipeline>;
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorServiceRemapper>;
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorStatusRemapper>;
+    stringBuilderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorStringBuilderProcessor>;
     traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorTraceIdRemapper>;
     urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUrlParser>;
     userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUserAgentParser>;
@@ -2324,7 +2350,8 @@ export interface LogsCustomPipelineProcessorArithmeticProcessor {
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
-     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
      */
     isReplaceMissing?: pulumi.Input<boolean>;
     /**
@@ -2421,6 +2448,25 @@ export interface LogsCustomPipelineProcessorDateRemapper {
     sources: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface LogsCustomPipelineProcessorGeoIpParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
 export interface LogsCustomPipelineProcessorGrokParser {
     grok: pulumi.Input<inputs.LogsCustomPipelineProcessorGrokParserGrok>;
     /**
@@ -2431,6 +2477,10 @@ export interface LogsCustomPipelineProcessorGrokParser {
      * Name of the processor
      */
     name?: pulumi.Input<string>;
+    /**
+     * List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     */
+    samples?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the log attribute to parse.
      * * `grok`
@@ -2492,10 +2542,12 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper>;
     categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor>;
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper>;
+    geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser>;
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser>;
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper>;
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper>;
+    stringBuilderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor>;
     traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper>;
     urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser>;
     userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser>;
@@ -2511,7 +2563,8 @@ export interface LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor
      */
     isEnabled?: pulumi.Input<boolean>;
     /**
-     * If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
      */
     isReplaceMissing?: pulumi.Input<boolean>;
     /**
@@ -2608,6 +2661,25 @@ export interface LogsCustomPipelineProcessorPipelineProcessorDateRemapper {
     sources: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface LogsCustomPipelineProcessorPipelineProcessorGeoIpParser {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * List of source attributes.
+     */
+    sources: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+}
+
 export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
     grok: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok>;
     /**
@@ -2618,6 +2690,10 @@ export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
      * Name of the processor
      */
     name?: pulumi.Input<string>;
+    /**
+     * List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+     */
+    samples?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the log attribute to parse.
      * * `grok`
@@ -2679,6 +2755,30 @@ export interface LogsCustomPipelineProcessorPipelineProcessorStatusRemapper {
      * List of source attributes.
      */
     sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
+     */
+    isReplaceMissing?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * The formula with one or more attributes and raw text.
+     */
+    template: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper {
@@ -2770,6 +2870,30 @@ export interface LogsCustomPipelineProcessorStatusRemapper {
      * List of source attributes.
      */
     sources: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LogsCustomPipelineProcessorStringBuilderProcessor {
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * If it replaces all missing attributes of `template` by an empty string.
+     * * trace_id_remapper
+     */
+    isReplaceMissing?: pulumi.Input<boolean>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * The formula with one or more attributes and raw text.
+     */
+    template: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorTraceIdRemapper {

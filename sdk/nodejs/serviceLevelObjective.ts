@@ -120,13 +120,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
+     * A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
      */
     public readonly monitorIds!: pulumi.Output<number[] | undefined>;
-    /**
-     * The monitor query search used on the monitor search API to add monitorIds by searching. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-     */
-    public readonly monitorSearch!: pulumi.Output<string | undefined>;
     /**
      * Name of Datadog service level objective
      */
@@ -165,7 +161,6 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["monitorIds"] = state ? state.monitorIds : undefined;
-            inputs["monitorSearch"] = state ? state.monitorSearch : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["query"] = state ? state.query : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -185,7 +180,6 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["monitorIds"] = args ? args.monitorIds : undefined;
-            inputs["monitorSearch"] = args ? args.monitorSearch : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -216,13 +210,9 @@ export interface ServiceLevelObjectiveState {
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
+     * A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
      */
     readonly monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * The monitor query search used on the monitor search API to add monitorIds by searching. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-     */
-    readonly monitorSearch?: pulumi.Input<string>;
     /**
      * Name of Datadog service level objective
      */
@@ -260,13 +250,9 @@ export interface ServiceLevelObjectiveArgs {
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
+     * A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
      */
     readonly monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * The monitor query search used on the monitor search API to add monitorIds by searching. Their tags will be auto-imported into `monitorTags` field in the API resource. At least 1 of `monitorIds` or `monitorSearch` must be provided.
-     */
-    readonly monitorSearch?: pulumi.Input<string>;
     /**
      * Name of Datadog service level objective
      */

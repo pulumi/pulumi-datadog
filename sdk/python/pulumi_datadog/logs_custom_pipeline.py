@@ -32,7 +32,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
     
         * `expression` (`str`) - Arithmetic operation between one or more log attributes.
         * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `isReplaceMissing` (`bool`) - If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
+          * trace_id_remapper
         * `name` (`str`) - Name of the processor
         * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
     
@@ -67,6 +68,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
         * `name` (`str`) - Name of the processor
         * `sources` (`list`) - List of source attributes.
     
+      * `geoIpParser` (`dict`)
+    
+        * `is_enabled` (`bool`) - If the processor is enabled or not.
+        * `name` (`str`) - Name of the processor
+        * `sources` (`list`) - List of source attributes.
+        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
+    
       * `grokParser` (`dict`)
     
         * `grok` (`dict`)
@@ -76,6 +84,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
     
         * `is_enabled` (`bool`) - If the processor is enabled or not.
         * `name` (`str`) - Name of the processor
+        * `samples` (`list`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
         * `source` (`str`) - Name of the log attribute to parse.
           * `grok`
     
@@ -99,7 +108,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
     
             * `expression` (`str`) - Arithmetic operation between one or more log attributes.
             * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`bool`) - If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+            * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
+              * trace_id_remapper
             * `name` (`str`) - Name of the processor
             * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
     
@@ -134,6 +144,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `name` (`str`) - Name of the processor
             * `sources` (`list`) - List of source attributes.
     
+          * `geoIpParser` (`dict`)
+    
+            * `is_enabled` (`bool`) - If the processor is enabled or not.
+            * `name` (`str`) - Name of the processor
+            * `sources` (`list`) - List of source attributes.
+            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
+    
           * `grokParser` (`dict`)
     
             * `grok` (`dict`)
@@ -143,6 +160,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
     
             * `is_enabled` (`bool`) - If the processor is enabled or not.
             * `name` (`str`) - Name of the processor
+            * `samples` (`list`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
             * `source` (`str`) - Name of the log attribute to parse.
               * `grok`
     
@@ -163,6 +181,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `is_enabled` (`bool`) - If the processor is enabled or not.
             * `name` (`str`) - Name of the processor
             * `sources` (`list`) - List of source attributes.
+    
+          * `stringBuilderProcessor` (`dict`)
+    
+            * `is_enabled` (`bool`) - If the processor is enabled or not.
+            * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
+              * trace_id_remapper
+            * `name` (`str`) - Name of the processor
+            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
+            * `template` (`str`) - The formula with one or more attributes and raw text.
     
           * `traceIdRemapper` (`dict`)
     
@@ -197,6 +224,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
         * `is_enabled` (`bool`) - If the processor is enabled or not.
         * `name` (`str`) - Name of the processor
         * `sources` (`list`) - List of source attributes.
+    
+      * `stringBuilderProcessor` (`dict`)
+    
+        * `is_enabled` (`bool`) - If the processor is enabled or not.
+        * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
+          * trace_id_remapper
+        * `name` (`str`) - Name of the processor
+        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
+        * `template` (`str`) - The formula with one or more attributes and raw text.
     
       * `traceIdRemapper` (`dict`)
     
@@ -250,7 +286,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
             * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`pulumi.Input[bool]`) - If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+              * trace_id_remapper
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
         
@@ -285,6 +322,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `sources` (`pulumi.Input[list]`) - List of source attributes.
         
+          * `geoIpParser` (`pulumi.Input[dict]`)
+        
+            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+            * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `sources` (`pulumi.Input[list]`) - List of source attributes.
+            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+        
           * `grokParser` (`pulumi.Input[dict]`)
         
             * `grok` (`pulumi.Input[dict]`)
@@ -294,6 +338,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
             * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
             * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
               * `grok`
         
@@ -317,7 +362,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
                 * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isReplaceMissing` (`pulumi.Input[bool]`) - If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+                  * trace_id_remapper
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
         
@@ -352,6 +398,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `sources` (`pulumi.Input[list]`) - List of source attributes.
         
+              * `geoIpParser` (`pulumi.Input[dict]`)
+        
+                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+                * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `sources` (`pulumi.Input[list]`) - List of source attributes.
+                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+        
               * `grokParser` (`pulumi.Input[dict]`)
         
                 * `grok` (`pulumi.Input[dict]`)
@@ -361,6 +414,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
                 * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
                 * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
                   * `grok`
         
@@ -381,6 +435,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `sources` (`pulumi.Input[list]`) - List of source attributes.
+        
+              * `stringBuilderProcessor` (`pulumi.Input[dict]`)
+        
+                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+                  * trace_id_remapper
+                * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+                * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
         
               * `traceIdRemapper` (`pulumi.Input[dict]`)
         
@@ -415,6 +478,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `sources` (`pulumi.Input[list]`) - List of source attributes.
+        
+          * `stringBuilderProcessor` (`pulumi.Input[dict]`)
+        
+            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+              * trace_id_remapper
+            * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+            * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
         
           * `traceIdRemapper` (`pulumi.Input[dict]`)
         
@@ -495,7 +567,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
             * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`pulumi.Input[bool]`) - If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+              * trace_id_remapper
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
         
@@ -530,6 +603,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `sources` (`pulumi.Input[list]`) - List of source attributes.
         
+          * `geoIpParser` (`pulumi.Input[dict]`)
+        
+            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+            * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `sources` (`pulumi.Input[list]`) - List of source attributes.
+            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+        
           * `grokParser` (`pulumi.Input[dict]`)
         
             * `grok` (`pulumi.Input[dict]`)
@@ -539,6 +619,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
             * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
             * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
               * `grok`
         
@@ -562,7 +643,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
                 * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isReplaceMissing` (`pulumi.Input[bool]`) - If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+                  * trace_id_remapper
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
         
@@ -597,6 +679,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `sources` (`pulumi.Input[list]`) - List of source attributes.
         
+              * `geoIpParser` (`pulumi.Input[dict]`)
+        
+                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+                * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `sources` (`pulumi.Input[list]`) - List of source attributes.
+                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+        
               * `grokParser` (`pulumi.Input[dict]`)
         
                 * `grok` (`pulumi.Input[dict]`)
@@ -606,6 +695,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
                 * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
                 * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
                   * `grok`
         
@@ -626,6 +716,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `sources` (`pulumi.Input[list]`) - List of source attributes.
+        
+              * `stringBuilderProcessor` (`pulumi.Input[dict]`)
+        
+                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+                  * trace_id_remapper
+                * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+                * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
         
               * `traceIdRemapper` (`pulumi.Input[dict]`)
         
@@ -660,6 +759,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `sources` (`pulumi.Input[list]`) - List of source attributes.
+        
+          * `stringBuilderProcessor` (`pulumi.Input[dict]`)
+        
+            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
+              * trace_id_remapper
+            * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+            * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
         
           * `traceIdRemapper` (`pulumi.Input[dict]`)
         

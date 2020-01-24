@@ -27,16 +27,10 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
+        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
         /// </summary>
         [Output("monitorIds")]
         public Output<ImmutableArray<int>> MonitorIds { get; private set; } = null!;
-
-        /// <summary>
-        /// The monitor query search used on the monitor search API to add monitor_ids by searching. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
-        /// </summary>
-        [Output("monitorSearch")]
-        public Output<string?> MonitorSearch { get; private set; } = null!;
 
         /// <summary>
         /// Name of Datadog service level objective
@@ -138,19 +132,13 @@ namespace Pulumi.Datadog
         private InputList<int>? _monitorIds;
 
         /// <summary>
-        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
+        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
         /// </summary>
         public InputList<int> MonitorIds
         {
             get => _monitorIds ?? (_monitorIds = new InputList<int>());
             set => _monitorIds = value;
         }
-
-        /// <summary>
-        /// The monitor query search used on the monitor search API to add monitor_ids by searching. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
-        /// </summary>
-        [Input("monitorSearch")]
-        public Input<string>? MonitorSearch { get; set; }
 
         /// <summary>
         /// Name of Datadog service level objective
@@ -225,19 +213,13 @@ namespace Pulumi.Datadog
         private InputList<int>? _monitorIds;
 
         /// <summary>
-        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
+        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
         /// </summary>
         public InputList<int> MonitorIds
         {
             get => _monitorIds ?? (_monitorIds = new InputList<int>());
             set => _monitorIds = value;
         }
-
-        /// <summary>
-        /// The monitor query search used on the monitor search API to add monitor_ids by searching. Their tags will be auto-imported into `monitor_tags` field in the API resource. At least 1 of `monitor_ids` or `monitor_search` must be provided.
-        /// </summary>
-        [Input("monitorSearch")]
-        public Input<string>? MonitorSearch { get; set; }
 
         /// <summary>
         /// Name of Datadog service level objective

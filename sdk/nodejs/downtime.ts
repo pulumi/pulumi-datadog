@@ -9,13 +9,32 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
  * 
- * ## Example Usage
+ * ## Example: downtime for a specific monitor
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  * 
- * // Create a new daily 1700-0900 Datadog downtime
+ * // Create a new daily 1700-0900 Datadog downtime for a specific monitor id
+ * const foo = new datadog.Downtime("foo", {
+ *     end: 1483365600,
+ *     monitorId: 12345,
+ *     recurrence: {
+ *         period: 1,
+ *         type: "days",
+ *     },
+ *     scopes: ["*"],
+ *     start: 1483308000,
+ * });
+ * ```
+ * 
+ * ## Example: downtime for all monitors
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ * 
+ * // Create a new daily 1700-0900 Datadog downtime for all monitors
  * const foo = new datadog.Downtime("foo", {
  *     end: 1483365600,
  *     recurrence: {

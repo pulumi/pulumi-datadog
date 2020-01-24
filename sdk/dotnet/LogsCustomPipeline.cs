@@ -214,6 +214,9 @@ namespace Pulumi.Datadog
         [Input("dateRemapper")]
         public Input<LogsCustomPipelineProcessorsDateRemapperArgs>? DateRemapper { get; set; }
 
+        [Input("geoIpParser")]
+        public Input<LogsCustomPipelineProcessorsGeoIpParserArgs>? GeoIpParser { get; set; }
+
         [Input("grokParser")]
         public Input<LogsCustomPipelineProcessorsGrokParserArgs>? GrokParser { get; set; }
 
@@ -228,6 +231,9 @@ namespace Pulumi.Datadog
 
         [Input("statusRemapper")]
         public Input<LogsCustomPipelineProcessorsStatusRemapperArgs>? StatusRemapper { get; set; }
+
+        [Input("stringBuilderProcessor")]
+        public Input<LogsCustomPipelineProcessorsStringBuilderProcessorArgs>? StringBuilderProcessor { get; set; }
 
         [Input("traceIdRemapper")]
         public Input<LogsCustomPipelineProcessorsTraceIdRemapperArgs>? TraceIdRemapper { get; set; }
@@ -258,7 +264,8 @@ namespace Pulumi.Datadog
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
         /// </summary>
         [Input("isReplaceMissing")]
         public Input<bool>? IsReplaceMissing { get; set; }
@@ -295,7 +302,8 @@ namespace Pulumi.Datadog
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
         /// </summary>
         [Input("isReplaceMissing")]
         public Input<bool>? IsReplaceMissing { get; set; }
@@ -645,6 +653,80 @@ namespace Pulumi.Datadog
         }
     }
 
+    public sealed class LogsCustomPipelineProcessorsGeoIpParserArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("sources", required: true)]
+        private InputList<string>? _sources;
+
+        /// <summary>
+        /// List of source attributes.
+        /// </summary>
+        public InputList<string> Sources
+        {
+            get => _sources ?? (_sources = new InputList<string>());
+            set => _sources = value;
+        }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsGeoIpParserArgs()
+        {
+        }
+    }
+
+    public sealed class LogsCustomPipelineProcessorsGeoIpParserGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("sources", required: true)]
+        private InputList<string>? _sources;
+
+        /// <summary>
+        /// List of source attributes.
+        /// </summary>
+        public InputList<string> Sources
+        {
+            get => _sources ?? (_sources = new InputList<string>());
+            set => _sources = value;
+        }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsGeoIpParserGetArgs()
+        {
+        }
+    }
+
     public sealed class LogsCustomPipelineProcessorsGetArgs : Pulumi.ResourceArgs
     {
         [Input("arithmeticProcessor")]
@@ -658,6 +740,9 @@ namespace Pulumi.Datadog
 
         [Input("dateRemapper")]
         public Input<LogsCustomPipelineProcessorsDateRemapperGetArgs>? DateRemapper { get; set; }
+
+        [Input("geoIpParser")]
+        public Input<LogsCustomPipelineProcessorsGeoIpParserGetArgs>? GeoIpParser { get; set; }
 
         [Input("grokParser")]
         public Input<LogsCustomPipelineProcessorsGrokParserGetArgs>? GrokParser { get; set; }
@@ -673,6 +758,9 @@ namespace Pulumi.Datadog
 
         [Input("statusRemapper")]
         public Input<LogsCustomPipelineProcessorsStatusRemapperGetArgs>? StatusRemapper { get; set; }
+
+        [Input("stringBuilderProcessor")]
+        public Input<LogsCustomPipelineProcessorsStringBuilderProcessorGetArgs>? StringBuilderProcessor { get; set; }
 
         [Input("traceIdRemapper")]
         public Input<LogsCustomPipelineProcessorsTraceIdRemapperGetArgs>? TraceIdRemapper { get; set; }
@@ -705,6 +793,18 @@ namespace Pulumi.Datadog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("samples")]
+        private InputList<string>? _samples;
+
+        /// <summary>
+        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+        /// </summary>
+        public InputList<string> Samples
+        {
+            get => _samples ?? (_samples = new InputList<string>());
+            set => _samples = value;
+        }
+
         /// <summary>
         /// Name of the log attribute to parse.
         /// * `grok`
@@ -733,6 +833,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("samples")]
+        private InputList<string>? _samples;
+
+        /// <summary>
+        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+        /// </summary>
+        public InputList<string> Samples
+        {
+            get => _samples ?? (_samples = new InputList<string>());
+            set => _samples = value;
+        }
 
         /// <summary>
         /// Name of the log attribute to parse.
@@ -966,6 +1078,9 @@ namespace Pulumi.Datadog
         [Input("dateRemapper")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsDateRemapperArgs>? DateRemapper { get; set; }
 
+        [Input("geoIpParser")]
+        public Input<LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParserArgs>? GeoIpParser { get; set; }
+
         [Input("grokParser")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsGrokParserArgs>? GrokParser { get; set; }
 
@@ -977,6 +1092,9 @@ namespace Pulumi.Datadog
 
         [Input("statusRemapper")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsStatusRemapperArgs>? StatusRemapper { get; set; }
+
+        [Input("stringBuilderProcessor")]
+        public Input<LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessorArgs>? StringBuilderProcessor { get; set; }
 
         [Input("traceIdRemapper")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsTraceIdRemapperArgs>? TraceIdRemapper { get; set; }
@@ -1007,7 +1125,8 @@ namespace Pulumi.Datadog
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
         /// </summary>
         [Input("isReplaceMissing")]
         public Input<bool>? IsReplaceMissing { get; set; }
@@ -1044,7 +1163,8 @@ namespace Pulumi.Datadog
         public Input<bool>? IsEnabled { get; set; }
 
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
         /// </summary>
         [Input("isReplaceMissing")]
         public Input<bool>? IsReplaceMissing { get; set; }
@@ -1394,6 +1514,80 @@ namespace Pulumi.Datadog
         }
     }
 
+    public sealed class LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParserArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("sources", required: true)]
+        private InputList<string>? _sources;
+
+        /// <summary>
+        /// List of source attributes.
+        /// </summary>
+        public InputList<string> Sources
+        {
+            get => _sources ?? (_sources = new InputList<string>());
+            set => _sources = value;
+        }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParserArgs()
+        {
+        }
+    }
+
+    public sealed class LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParserGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("sources", required: true)]
+        private InputList<string>? _sources;
+
+        /// <summary>
+        /// List of source attributes.
+        /// </summary>
+        public InputList<string> Sources
+        {
+            get => _sources ?? (_sources = new InputList<string>());
+            set => _sources = value;
+        }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParserGetArgs()
+        {
+        }
+    }
+
     public sealed class LogsCustomPipelineProcessorsPipelineProcessorsGetArgs : Pulumi.ResourceArgs
     {
         [Input("arithmeticProcessor")]
@@ -1408,6 +1602,9 @@ namespace Pulumi.Datadog
         [Input("dateRemapper")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsDateRemapperGetArgs>? DateRemapper { get; set; }
 
+        [Input("geoIpParser")]
+        public Input<LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParserGetArgs>? GeoIpParser { get; set; }
+
         [Input("grokParser")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsGrokParserGetArgs>? GrokParser { get; set; }
 
@@ -1419,6 +1616,9 @@ namespace Pulumi.Datadog
 
         [Input("statusRemapper")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsStatusRemapperGetArgs>? StatusRemapper { get; set; }
+
+        [Input("stringBuilderProcessor")]
+        public Input<LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessorGetArgs>? StringBuilderProcessor { get; set; }
 
         [Input("traceIdRemapper")]
         public Input<LogsCustomPipelineProcessorsPipelineProcessorsTraceIdRemapperGetArgs>? TraceIdRemapper { get; set; }
@@ -1451,6 +1651,18 @@ namespace Pulumi.Datadog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("samples")]
+        private InputList<string>? _samples;
+
+        /// <summary>
+        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+        /// </summary>
+        public InputList<string> Samples
+        {
+            get => _samples ?? (_samples = new InputList<string>());
+            set => _samples = value;
+        }
+
         /// <summary>
         /// Name of the log attribute to parse.
         /// * `grok`
@@ -1479,6 +1691,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("samples")]
+        private InputList<string>? _samples;
+
+        /// <summary>
+        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+        /// </summary>
+        public InputList<string> Samples
+        {
+            get => _samples ?? (_samples = new InputList<string>());
+            set => _samples = value;
+        }
 
         /// <summary>
         /// Name of the log attribute to parse.
@@ -1712,6 +1936,82 @@ namespace Pulumi.Datadog
         }
 
         public LogsCustomPipelineProcessorsPipelineProcessorsStatusRemapperGetArgs()
+        {
+        }
+    }
+
+    public sealed class LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessorArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
+        /// </summary>
+        [Input("isReplaceMissing")]
+        public Input<bool>? IsReplaceMissing { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        /// <summary>
+        /// The formula with one or more attributes and raw text.
+        /// </summary>
+        [Input("template", required: true)]
+        public Input<string> Template { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessorArgs()
+        {
+        }
+    }
+
+    public sealed class LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessorGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
+        /// </summary>
+        [Input("isReplaceMissing")]
+        public Input<bool>? IsReplaceMissing { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        /// <summary>
+        /// The formula with one or more attributes and raw text.
+        /// </summary>
+        [Input("template", required: true)]
+        public Input<string> Template { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessorGetArgs()
         {
         }
     }
@@ -2074,6 +2374,82 @@ namespace Pulumi.Datadog
         }
     }
 
+    public sealed class LogsCustomPipelineProcessorsStringBuilderProcessorArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
+        /// </summary>
+        [Input("isReplaceMissing")]
+        public Input<bool>? IsReplaceMissing { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        /// <summary>
+        /// The formula with one or more attributes and raw text.
+        /// </summary>
+        [Input("template", required: true)]
+        public Input<string> Template { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsStringBuilderProcessorArgs()
+        {
+        }
+    }
+
+    public sealed class LogsCustomPipelineProcessorsStringBuilderProcessorGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
+        /// </summary>
+        [Input("isReplaceMissing")]
+        public Input<bool>? IsReplaceMissing { get; set; }
+
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        /// <summary>
+        /// The formula with one or more attributes and raw text.
+        /// </summary>
+        [Input("template", required: true)]
+        public Input<string> Template { get; set; } = null!;
+
+        public LogsCustomPipelineProcessorsStringBuilderProcessorGetArgs()
+        {
+        }
+    }
+
     public sealed class LogsCustomPipelineProcessorsTraceIdRemapperArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -2331,11 +2707,13 @@ namespace Pulumi.Datadog
         public readonly LogsCustomPipelineProcessorsAttributeRemapper? AttributeRemapper;
         public readonly LogsCustomPipelineProcessorsCategoryProcessor? CategoryProcessor;
         public readonly LogsCustomPipelineProcessorsDateRemapper? DateRemapper;
+        public readonly LogsCustomPipelineProcessorsGeoIpParser? GeoIpParser;
         public readonly LogsCustomPipelineProcessorsGrokParser? GrokParser;
         public readonly LogsCustomPipelineProcessorsMessageRemapper? MessageRemapper;
         public readonly LogsCustomPipelineProcessorsPipeline? Pipeline;
         public readonly LogsCustomPipelineProcessorsServiceRemapper? ServiceRemapper;
         public readonly LogsCustomPipelineProcessorsStatusRemapper? StatusRemapper;
+        public readonly LogsCustomPipelineProcessorsStringBuilderProcessor? StringBuilderProcessor;
         public readonly LogsCustomPipelineProcessorsTraceIdRemapper? TraceIdRemapper;
         public readonly LogsCustomPipelineProcessorsUrlParser? UrlParser;
         public readonly LogsCustomPipelineProcessorsUserAgentParser? UserAgentParser;
@@ -2346,11 +2724,13 @@ namespace Pulumi.Datadog
             LogsCustomPipelineProcessorsAttributeRemapper? attributeRemapper,
             LogsCustomPipelineProcessorsCategoryProcessor? categoryProcessor,
             LogsCustomPipelineProcessorsDateRemapper? dateRemapper,
+            LogsCustomPipelineProcessorsGeoIpParser? geoIpParser,
             LogsCustomPipelineProcessorsGrokParser? grokParser,
             LogsCustomPipelineProcessorsMessageRemapper? messageRemapper,
             LogsCustomPipelineProcessorsPipeline? pipeline,
             LogsCustomPipelineProcessorsServiceRemapper? serviceRemapper,
             LogsCustomPipelineProcessorsStatusRemapper? statusRemapper,
+            LogsCustomPipelineProcessorsStringBuilderProcessor? stringBuilderProcessor,
             LogsCustomPipelineProcessorsTraceIdRemapper? traceIdRemapper,
             LogsCustomPipelineProcessorsUrlParser? urlParser,
             LogsCustomPipelineProcessorsUserAgentParser? userAgentParser)
@@ -2359,11 +2739,13 @@ namespace Pulumi.Datadog
             AttributeRemapper = attributeRemapper;
             CategoryProcessor = categoryProcessor;
             DateRemapper = dateRemapper;
+            GeoIpParser = geoIpParser;
             GrokParser = grokParser;
             MessageRemapper = messageRemapper;
             Pipeline = pipeline;
             ServiceRemapper = serviceRemapper;
             StatusRemapper = statusRemapper;
+            StringBuilderProcessor = stringBuilderProcessor;
             TraceIdRemapper = traceIdRemapper;
             UrlParser = urlParser;
             UserAgentParser = userAgentParser;
@@ -2382,7 +2764,8 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
         /// </summary>
         public readonly bool? IsReplaceMissing;
         /// <summary>
@@ -2565,6 +2948,40 @@ namespace Pulumi.Datadog
     }
 
     [OutputType]
+    public sealed class LogsCustomPipelineProcessorsGeoIpParser
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        public readonly bool? IsEnabled;
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
+        /// List of source attributes.
+        /// </summary>
+        public readonly ImmutableArray<string> Sources;
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        public readonly string Target;
+
+        [OutputConstructor]
+        private LogsCustomPipelineProcessorsGeoIpParser(
+            bool? isEnabled,
+            string? name,
+            ImmutableArray<string> sources,
+            string target)
+        {
+            IsEnabled = isEnabled;
+            Name = name;
+            Sources = sources;
+            Target = target;
+        }
+    }
+
+    [OutputType]
     public sealed class LogsCustomPipelineProcessorsGrokParser
     {
         public readonly LogsCustomPipelineProcessorsGrokParserGrok Grok;
@@ -2577,6 +2994,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+        /// </summary>
+        public readonly ImmutableArray<string> Samples;
+        /// <summary>
         /// Name of the log attribute to parse.
         /// * `grok`
         /// </summary>
@@ -2587,11 +3008,13 @@ namespace Pulumi.Datadog
             LogsCustomPipelineProcessorsGrokParserGrok grok,
             bool? isEnabled,
             string? name,
+            ImmutableArray<string> samples,
             string source)
         {
             Grok = grok;
             IsEnabled = isEnabled;
             Name = name;
+            Samples = samples;
             Source = source;
         }
     }
@@ -2699,10 +3122,12 @@ namespace Pulumi.Datadog
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsAttributeRemapper? AttributeRemapper;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsCategoryProcessor? CategoryProcessor;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsDateRemapper? DateRemapper;
+        public readonly LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParser? GeoIpParser;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsGrokParser? GrokParser;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsMessageRemapper? MessageRemapper;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsServiceRemapper? ServiceRemapper;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsStatusRemapper? StatusRemapper;
+        public readonly LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessor? StringBuilderProcessor;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsTraceIdRemapper? TraceIdRemapper;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsUrlParser? UrlParser;
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsUserAgentParser? UserAgentParser;
@@ -2713,10 +3138,12 @@ namespace Pulumi.Datadog
             LogsCustomPipelineProcessorsPipelineProcessorsAttributeRemapper? attributeRemapper,
             LogsCustomPipelineProcessorsPipelineProcessorsCategoryProcessor? categoryProcessor,
             LogsCustomPipelineProcessorsPipelineProcessorsDateRemapper? dateRemapper,
+            LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParser? geoIpParser,
             LogsCustomPipelineProcessorsPipelineProcessorsGrokParser? grokParser,
             LogsCustomPipelineProcessorsPipelineProcessorsMessageRemapper? messageRemapper,
             LogsCustomPipelineProcessorsPipelineProcessorsServiceRemapper? serviceRemapper,
             LogsCustomPipelineProcessorsPipelineProcessorsStatusRemapper? statusRemapper,
+            LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessor? stringBuilderProcessor,
             LogsCustomPipelineProcessorsPipelineProcessorsTraceIdRemapper? traceIdRemapper,
             LogsCustomPipelineProcessorsPipelineProcessorsUrlParser? urlParser,
             LogsCustomPipelineProcessorsPipelineProcessorsUserAgentParser? userAgentParser)
@@ -2725,10 +3152,12 @@ namespace Pulumi.Datadog
             AttributeRemapper = attributeRemapper;
             CategoryProcessor = categoryProcessor;
             DateRemapper = dateRemapper;
+            GeoIpParser = geoIpParser;
             GrokParser = grokParser;
             MessageRemapper = messageRemapper;
             ServiceRemapper = serviceRemapper;
             StatusRemapper = statusRemapper;
+            StringBuilderProcessor = stringBuilderProcessor;
             TraceIdRemapper = traceIdRemapper;
             UrlParser = urlParser;
             UserAgentParser = userAgentParser;
@@ -2747,7 +3176,8 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool? IsEnabled;
         /// <summary>
-        /// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
         /// </summary>
         public readonly bool? IsReplaceMissing;
         /// <summary>
@@ -2930,6 +3360,40 @@ namespace Pulumi.Datadog
     }
 
     [OutputType]
+    public sealed class LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParser
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        public readonly bool? IsEnabled;
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
+        /// List of source attributes.
+        /// </summary>
+        public readonly ImmutableArray<string> Sources;
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        public readonly string Target;
+
+        [OutputConstructor]
+        private LogsCustomPipelineProcessorsPipelineProcessorsGeoIpParser(
+            bool? isEnabled,
+            string? name,
+            ImmutableArray<string> sources,
+            string target)
+        {
+            IsEnabled = isEnabled;
+            Name = name;
+            Sources = sources;
+            Target = target;
+        }
+    }
+
+    [OutputType]
     public sealed class LogsCustomPipelineProcessorsPipelineProcessorsGrokParser
     {
         public readonly LogsCustomPipelineProcessorsPipelineProcessorsGrokParserGrok Grok;
@@ -2942,6 +3406,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
+        /// </summary>
+        public readonly ImmutableArray<string> Samples;
+        /// <summary>
         /// Name of the log attribute to parse.
         /// * `grok`
         /// </summary>
@@ -2952,11 +3420,13 @@ namespace Pulumi.Datadog
             LogsCustomPipelineProcessorsPipelineProcessorsGrokParserGrok grok,
             bool? isEnabled,
             string? name,
+            ImmutableArray<string> samples,
             string source)
         {
             Grok = grok;
             IsEnabled = isEnabled;
             Name = name;
+            Samples = samples;
             Source = source;
         }
     }
@@ -3064,6 +3534,47 @@ namespace Pulumi.Datadog
             IsEnabled = isEnabled;
             Name = name;
             Sources = sources;
+        }
+    }
+
+    [OutputType]
+    public sealed class LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessor
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        public readonly bool? IsEnabled;
+        /// <summary>
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
+        /// </summary>
+        public readonly bool? IsReplaceMissing;
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        public readonly string Target;
+        /// <summary>
+        /// The formula with one or more attributes and raw text.
+        /// </summary>
+        public readonly string Template;
+
+        [OutputConstructor]
+        private LogsCustomPipelineProcessorsPipelineProcessorsStringBuilderProcessor(
+            bool? isEnabled,
+            bool? isReplaceMissing,
+            string? name,
+            string target,
+            string template)
+        {
+            IsEnabled = isEnabled;
+            IsReplaceMissing = isReplaceMissing;
+            Name = name;
+            Target = target;
+            Template = template;
         }
     }
 
@@ -3228,6 +3739,47 @@ namespace Pulumi.Datadog
             IsEnabled = isEnabled;
             Name = name;
             Sources = sources;
+        }
+    }
+
+    [OutputType]
+    public sealed class LogsCustomPipelineProcessorsStringBuilderProcessor
+    {
+        /// <summary>
+        /// If the processor is enabled or not.
+        /// </summary>
+        public readonly bool? IsEnabled;
+        /// <summary>
+        /// If it replaces all missing attributes of `template` by an empty string.
+        /// * trace_id_remapper
+        /// </summary>
+        public readonly bool? IsReplaceMissing;
+        /// <summary>
+        /// Name of the processor
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
+        /// Name of the parent attribute that contains all the extracted details from the sources.
+        /// </summary>
+        public readonly string Target;
+        /// <summary>
+        /// The formula with one or more attributes and raw text.
+        /// </summary>
+        public readonly string Template;
+
+        [OutputConstructor]
+        private LogsCustomPipelineProcessorsStringBuilderProcessor(
+            bool? isEnabled,
+            bool? isReplaceMissing,
+            string? name,
+            string target,
+            string template)
+        {
+            IsEnabled = isEnabled;
+            IsReplaceMissing = isReplaceMissing;
+            Name = name;
+            Target = target;
+            Template = template;
         }
     }
 

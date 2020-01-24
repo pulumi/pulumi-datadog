@@ -78,34 +78,11 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
- *             messageRemapper: {
+ *             geoIpParser: {
  *                 isEnabled: true,
- *                 name: "sample message remapper",
- *                 sources: ["msg"],
- *             },
- *         },
- *         {
- *             statusRemapper: {
- *                 isEnabled: true,
- *                 name: "sample status remapper",
- *                 sources: [
- *                     "info",
- *                     "trace",
- *                 ],
- *             },
- *         },
- *         {
- *             traceIdRemapper: {
- *                 isEnabled: true,
- *                 name: "sample trace id remapper",
- *                 sources: ["dd.trace_id"],
- *             },
- *         },
- *         {
- *             serviceRemapper: {
- *                 isEnabled: true,
- *                 name: "sample service remapper",
- *                 sources: ["service"],
+ *                 name: "sample geo ip parser",
+ *                 sources: ["network.client.ip"],
+ *                 target: "network.client.geoip",
  *             },
  *         },
  *         {
@@ -116,7 +93,15 @@ import * as utilities from "./utilities";
  *                 },
  *                 isEnabled: true,
  *                 name: "sample grok parser",
+ *                 samples: ["sample log 1"],
  *                 source: "message",
+ *             },
+ *         },
+ *         {
+ *             messageRemapper: {
+ *                 isEnabled: true,
+ *                 name: "sample message remapper",
+ *                 sources: ["msg"],
  *             },
  *         },
  *         {
@@ -137,6 +122,39 @@ import * as utilities from "./utilities";
  *                         target: "httpUrl",
  *                     },
  *                 }],
+ *             },
+ *         },
+ *         {
+ *             serviceRemapper: {
+ *                 isEnabled: true,
+ *                 name: "sample service remapper",
+ *                 sources: ["service"],
+ *             },
+ *         },
+ *         {
+ *             statusRemapper: {
+ *                 isEnabled: true,
+ *                 name: "sample status remapper",
+ *                 sources: [
+ *                     "info",
+ *                     "trace",
+ *                 ],
+ *             },
+ *         },
+ *         {
+ *             stringBuilderProcessor: {
+ *                 isEnabled: true,
+ *                 isReplaceMissing: false,
+ *                 name: "sample string builder processor",
+ *                 target: "userActivity",
+ *                 template: "%%{user.name} logged in at %%{timestamp}",
+ *             },
+ *         },
+ *         {
+ *             traceIdRemapper: {
+ *                 isEnabled: true,
+ *                 name: "sample trace id remapper",
+ *                 sources: ["dd.trace_id"],
  *             },
  *         },
  *         {

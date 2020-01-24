@@ -456,6 +456,9 @@ namespace Pulumi.Datadog
         [Input("scatterplotDefinition")]
         public Input<DashboardWidgetsScatterplotDefinitionArgs>? ScatterplotDefinition { get; set; }
 
+        [Input("serviceLevelObjectiveDefinition")]
+        public Input<DashboardWidgetsServiceLevelObjectiveDefinitionArgs>? ServiceLevelObjectiveDefinition { get; set; }
+
         [Input("timeseriesDefinition")]
         public Input<DashboardWidgetsTimeseriesDefinitionArgs>? TimeseriesDefinition { get; set; }
 
@@ -1847,6 +1850,9 @@ namespace Pulumi.Datadog
         [Input("scatterplotDefinition")]
         public Input<DashboardWidgetsScatterplotDefinitionGetArgs>? ScatterplotDefinition { get; set; }
 
+        [Input("serviceLevelObjectiveDefinition")]
+        public Input<DashboardWidgetsServiceLevelObjectiveDefinitionGetArgs>? ServiceLevelObjectiveDefinition { get; set; }
+
         [Input("timeseriesDefinition")]
         public Input<DashboardWidgetsTimeseriesDefinitionGetArgs>? TimeseriesDefinition { get; set; }
 
@@ -2084,6 +2090,9 @@ namespace Pulumi.Datadog
 
         [Input("scatterplotDefinition")]
         public Input<DashboardWidgetsGroupDefinitionWidgetsScatterplotDefinitionArgs>? ScatterplotDefinition { get; set; }
+
+        [Input("serviceLevelObjectiveDefinition")]
+        public Input<DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinitionArgs>? ServiceLevelObjectiveDefinition { get; set; }
 
         [Input("timeseriesDefinition")]
         public Input<DashboardWidgetsGroupDefinitionWidgetsTimeseriesDefinitionArgs>? TimeseriesDefinition { get; set; }
@@ -3472,6 +3481,9 @@ namespace Pulumi.Datadog
 
         [Input("scatterplotDefinition")]
         public Input<DashboardWidgetsGroupDefinitionWidgetsScatterplotDefinitionGetArgs>? ScatterplotDefinition { get; set; }
+
+        [Input("serviceLevelObjectiveDefinition")]
+        public Input<DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinitionGetArgs>? ServiceLevelObjectiveDefinition { get; set; }
 
         [Input("timeseriesDefinition")]
         public Input<DashboardWidgetsGroupDefinitionWidgetsTimeseriesDefinitionGetArgs>? TimeseriesDefinition { get; set; }
@@ -7021,6 +7033,78 @@ namespace Pulumi.Datadog
         public Input<string>? Scale { get; set; }
 
         public DashboardWidgetsGroupDefinitionWidgetsScatterplotDefinitionYaxisGetArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinitionArgs : Pulumi.ResourceArgs
+    {
+        [Input("showErrorBudget")]
+        public Input<bool>? ShowErrorBudget { get; set; }
+
+        [Input("sloId", required: true)]
+        public Input<string> SloId { get; set; } = null!;
+
+        [Input("timeWindows", required: true)]
+        private InputList<string>? _timeWindows;
+        public InputList<string> TimeWindows
+        {
+            get => _timeWindows ?? (_timeWindows = new InputList<string>());
+            set => _timeWindows = value;
+        }
+
+        [Input("title")]
+        public Input<string>? Title { get; set; }
+
+        [Input("titleAlign")]
+        public Input<string>? TitleAlign { get; set; }
+
+        [Input("titleSize")]
+        public Input<string>? TitleSize { get; set; }
+
+        [Input("viewMode", required: true)]
+        public Input<string> ViewMode { get; set; } = null!;
+
+        [Input("viewType", required: true)]
+        public Input<string> ViewType { get; set; } = null!;
+
+        public DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinitionGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("showErrorBudget")]
+        public Input<bool>? ShowErrorBudget { get; set; }
+
+        [Input("sloId", required: true)]
+        public Input<string> SloId { get; set; } = null!;
+
+        [Input("timeWindows", required: true)]
+        private InputList<string>? _timeWindows;
+        public InputList<string> TimeWindows
+        {
+            get => _timeWindows ?? (_timeWindows = new InputList<string>());
+            set => _timeWindows = value;
+        }
+
+        [Input("title")]
+        public Input<string>? Title { get; set; }
+
+        [Input("titleAlign")]
+        public Input<string>? TitleAlign { get; set; }
+
+        [Input("titleSize")]
+        public Input<string>? TitleSize { get; set; }
+
+        [Input("viewMode", required: true)]
+        public Input<string> ViewMode { get; set; } = null!;
+
+        [Input("viewType", required: true)]
+        public Input<string> ViewType { get; set; } = null!;
+
+        public DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinitionGetArgs()
         {
         }
     }
@@ -11999,6 +12083,78 @@ namespace Pulumi.Datadog
         }
     }
 
+    public sealed class DashboardWidgetsServiceLevelObjectiveDefinitionArgs : Pulumi.ResourceArgs
+    {
+        [Input("showErrorBudget")]
+        public Input<bool>? ShowErrorBudget { get; set; }
+
+        [Input("sloId", required: true)]
+        public Input<string> SloId { get; set; } = null!;
+
+        [Input("timeWindows", required: true)]
+        private InputList<string>? _timeWindows;
+        public InputList<string> TimeWindows
+        {
+            get => _timeWindows ?? (_timeWindows = new InputList<string>());
+            set => _timeWindows = value;
+        }
+
+        [Input("title")]
+        public Input<string>? Title { get; set; }
+
+        [Input("titleAlign")]
+        public Input<string>? TitleAlign { get; set; }
+
+        [Input("titleSize")]
+        public Input<string>? TitleSize { get; set; }
+
+        [Input("viewMode", required: true)]
+        public Input<string> ViewMode { get; set; } = null!;
+
+        [Input("viewType", required: true)]
+        public Input<string> ViewType { get; set; } = null!;
+
+        public DashboardWidgetsServiceLevelObjectiveDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class DashboardWidgetsServiceLevelObjectiveDefinitionGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("showErrorBudget")]
+        public Input<bool>? ShowErrorBudget { get; set; }
+
+        [Input("sloId", required: true)]
+        public Input<string> SloId { get; set; } = null!;
+
+        [Input("timeWindows", required: true)]
+        private InputList<string>? _timeWindows;
+        public InputList<string> TimeWindows
+        {
+            get => _timeWindows ?? (_timeWindows = new InputList<string>());
+            set => _timeWindows = value;
+        }
+
+        [Input("title")]
+        public Input<string>? Title { get; set; }
+
+        [Input("titleAlign")]
+        public Input<string>? TitleAlign { get; set; }
+
+        [Input("titleSize")]
+        public Input<string>? TitleSize { get; set; }
+
+        [Input("viewMode", required: true)]
+        public Input<string> ViewMode { get; set; } = null!;
+
+        [Input("viewType", required: true)]
+        public Input<string> ViewType { get; set; } = null!;
+
+        public DashboardWidgetsServiceLevelObjectiveDefinitionGetArgs()
+        {
+        }
+    }
+
     public sealed class DashboardWidgetsTimeseriesDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("events")]
@@ -13480,6 +13636,7 @@ namespace Pulumi.Datadog
         public readonly DashboardWidgetsNoteDefinition? NoteDefinition;
         public readonly DashboardWidgetsQueryValueDefinition? QueryValueDefinition;
         public readonly DashboardWidgetsScatterplotDefinition? ScatterplotDefinition;
+        public readonly DashboardWidgetsServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
         public readonly DashboardWidgetsTimeseriesDefinition? TimeseriesDefinition;
         public readonly DashboardWidgetsToplistDefinition? ToplistDefinition;
         public readonly DashboardWidgetsTraceServiceDefinition? TraceServiceDefinition;
@@ -13505,6 +13662,7 @@ namespace Pulumi.Datadog
             DashboardWidgetsNoteDefinition? noteDefinition,
             DashboardWidgetsQueryValueDefinition? queryValueDefinition,
             DashboardWidgetsScatterplotDefinition? scatterplotDefinition,
+            DashboardWidgetsServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
             DashboardWidgetsTimeseriesDefinition? timeseriesDefinition,
             DashboardWidgetsToplistDefinition? toplistDefinition,
             DashboardWidgetsTraceServiceDefinition? traceServiceDefinition)
@@ -13528,6 +13686,7 @@ namespace Pulumi.Datadog
             NoteDefinition = noteDefinition;
             QueryValueDefinition = queryValueDefinition;
             ScatterplotDefinition = scatterplotDefinition;
+            ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
             TraceServiceDefinition = traceServiceDefinition;
@@ -14352,6 +14511,7 @@ namespace Pulumi.Datadog
         public readonly DashboardWidgetsGroupDefinitionWidgetsNoteDefinition? NoteDefinition;
         public readonly DashboardWidgetsGroupDefinitionWidgetsQueryValueDefinition? QueryValueDefinition;
         public readonly DashboardWidgetsGroupDefinitionWidgetsScatterplotDefinition? ScatterplotDefinition;
+        public readonly DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
         public readonly DashboardWidgetsGroupDefinitionWidgetsTimeseriesDefinition? TimeseriesDefinition;
         public readonly DashboardWidgetsGroupDefinitionWidgetsToplistDefinition? ToplistDefinition;
         public readonly DashboardWidgetsGroupDefinitionWidgetsTraceServiceDefinition? TraceServiceDefinition;
@@ -14376,6 +14536,7 @@ namespace Pulumi.Datadog
             DashboardWidgetsGroupDefinitionWidgetsNoteDefinition? noteDefinition,
             DashboardWidgetsGroupDefinitionWidgetsQueryValueDefinition? queryValueDefinition,
             DashboardWidgetsGroupDefinitionWidgetsScatterplotDefinition? scatterplotDefinition,
+            DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
             DashboardWidgetsGroupDefinitionWidgetsTimeseriesDefinition? timeseriesDefinition,
             DashboardWidgetsGroupDefinitionWidgetsToplistDefinition? toplistDefinition,
             DashboardWidgetsGroupDefinitionWidgetsTraceServiceDefinition? traceServiceDefinition)
@@ -14398,6 +14559,7 @@ namespace Pulumi.Datadog
             NoteDefinition = noteDefinition;
             QueryValueDefinition = queryValueDefinition;
             ScatterplotDefinition = scatterplotDefinition;
+            ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
             TraceServiceDefinition = traceServiceDefinition;
@@ -17071,6 +17233,40 @@ namespace Pulumi.Datadog
     }
 
     [OutputType]
+    public sealed class DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinition
+    {
+        public readonly bool? ShowErrorBudget;
+        public readonly string SloId;
+        public readonly ImmutableArray<string> TimeWindows;
+        public readonly string? Title;
+        public readonly string? TitleAlign;
+        public readonly string? TitleSize;
+        public readonly string ViewMode;
+        public readonly string ViewType;
+
+        [OutputConstructor]
+        private DashboardWidgetsGroupDefinitionWidgetsServiceLevelObjectiveDefinition(
+            bool? showErrorBudget,
+            string sloId,
+            ImmutableArray<string> timeWindows,
+            string? title,
+            string? titleAlign,
+            string? titleSize,
+            string viewMode,
+            string viewType)
+        {
+            ShowErrorBudget = showErrorBudget;
+            SloId = sloId;
+            TimeWindows = timeWindows;
+            Title = title;
+            TitleAlign = titleAlign;
+            TitleSize = titleSize;
+            ViewMode = viewMode;
+            ViewType = viewType;
+        }
+    }
+
+    [OutputType]
     public sealed class DashboardWidgetsGroupDefinitionWidgetsTimeseriesDefinition
     {
         public readonly ImmutableArray<DashboardWidgetsGroupDefinitionWidgetsTimeseriesDefinitionEvents> Events;
@@ -19715,6 +19911,40 @@ namespace Pulumi.Datadog
             Max = max;
             Min = min;
             Scale = scale;
+        }
+    }
+
+    [OutputType]
+    public sealed class DashboardWidgetsServiceLevelObjectiveDefinition
+    {
+        public readonly bool? ShowErrorBudget;
+        public readonly string SloId;
+        public readonly ImmutableArray<string> TimeWindows;
+        public readonly string? Title;
+        public readonly string? TitleAlign;
+        public readonly string? TitleSize;
+        public readonly string ViewMode;
+        public readonly string ViewType;
+
+        [OutputConstructor]
+        private DashboardWidgetsServiceLevelObjectiveDefinition(
+            bool? showErrorBudget,
+            string sloId,
+            ImmutableArray<string> timeWindows,
+            string? title,
+            string? titleAlign,
+            string? titleSize,
+            string viewMode,
+            string viewType)
+        {
+            ShowErrorBudget = showErrorBudget;
+            SloId = sloId;
+            TimeWindows = timeWindows;
+            Title = title;
+            TitleAlign = titleAlign;
+            TitleSize = titleSize;
+            ViewMode = viewMode;
+            ViewType = viewType;
         }
     }
 
