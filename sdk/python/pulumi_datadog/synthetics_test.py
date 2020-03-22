@@ -26,28 +26,25 @@ class SyntheticsTest(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_headers=None, status=None, subtype=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a SyntheticsTest resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+
         The **options** object supports the following:
-        
+
           * `accept_self_signed` (`pulumi.Input[bool]`)
           * `follow_redirects` (`pulumi.Input[bool]`)
           * `min_failure_duration` (`pulumi.Input[float]`)
           * `min_location_failed` (`pulumi.Input[float]`)
           * `tick_every` (`pulumi.Input[float]`)
-        
+
         The **request** object supports the following:
-        
+
           * `body` (`pulumi.Input[str]`)
           * `host` (`pulumi.Input[str]`)
           * `method` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`)
           * `timeout` (`pulumi.Input[float]`)
           * `url` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/synthetics_test.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,33 +99,32 @@ class SyntheticsTest(pulumi.CustomResource):
         """
         Get an existing SyntheticsTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+
         The **options** object supports the following:
-        
+
           * `accept_self_signed` (`pulumi.Input[bool]`)
           * `follow_redirects` (`pulumi.Input[bool]`)
           * `min_failure_duration` (`pulumi.Input[float]`)
           * `min_location_failed` (`pulumi.Input[float]`)
           * `tick_every` (`pulumi.Input[float]`)
-        
+
         The **request** object supports the following:
-        
+
           * `body` (`pulumi.Input[str]`)
           * `host` (`pulumi.Input[str]`)
           * `method` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`)
           * `timeout` (`pulumi.Input[float]`)
           * `url` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/synthetics_test.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["assertions"] = assertions
         __props__["device_ids"] = device_ids
         __props__["locations"] = locations

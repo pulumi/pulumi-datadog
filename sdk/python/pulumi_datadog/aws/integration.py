@@ -37,9 +37,11 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_id=None, account_specific_namespace_rules=None, filter_tags=None, host_tags=None, role_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
-        
+
         Update operations are currently not supported with datadog API so any change forces a new resource.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
@@ -47,8 +49,6 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[list] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
         :param pulumi.Input[list] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,7 +88,7 @@ class Integration(pulumi.CustomResource):
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,12 +98,11 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[list] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
         :param pulumi.Input[list] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["account_id"] = account_id
         __props__["account_specific_namespace_rules"] = account_specific_namespace_rules
         __props__["external_id"] = external_id

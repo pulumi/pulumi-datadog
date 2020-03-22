@@ -25,7 +25,7 @@ class Integration(pulumi.CustomResource):
     services: pulumi.Output[list]
     """
     Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
-    
+
       * `service_key` (`str`) - Your Service name associated service key in Pagerduty.
       * `service_name` (`str`) - Your Service name in PagerDuty.
     """
@@ -36,7 +36,6 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, api_token=None, individual_services=None, schedules=None, services=None, subdomain=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a Integration resource with the given unique name, props, and options.
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
@@ -44,13 +43,11 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[list] schedules: Array of your schedule URLs.
         :param pulumi.Input[list] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
-        
+
         The **services** object supports the following:
-        
+
           * `service_key` (`pulumi.Input[str]`) - Your Service name associated service key in Pagerduty.
           * `service_name` (`pulumi.Input[str]`) - Your Service name in PagerDuty.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +84,7 @@ class Integration(pulumi.CustomResource):
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -96,17 +93,16 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[list] schedules: Array of your schedule URLs.
         :param pulumi.Input[list] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
-        
+
         The **services** object supports the following:
-        
+
           * `service_key` (`pulumi.Input[str]`) - Your Service name associated service key in Pagerduty.
           * `service_name` (`pulumi.Input[str]`) - Your Service name in PagerDuty.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["api_token"] = api_token
         __props__["individual_services"] = individual_services
         __props__["schedules"] = schedules

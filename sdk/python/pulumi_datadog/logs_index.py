@@ -13,12 +13,11 @@ class LogsIndex(pulumi.CustomResource):
     exclusion_filters: pulumi.Output[list]
     """
     List of exclusion filters.
-    
+
       * `filters` (`list`)
-    
         * `query` (`str`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
         * `sampleRate` (`float`) - The fraction of logs excluded by the exclusion filter, when active.
-    
+
       * `is_enabled` (`bool`) - A boolean stating if the exclusion is active or not.
       * `name` (`str`) - The name of the exclusion filter.
     """
@@ -30,31 +29,30 @@ class LogsIndex(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, exclusion_filters=None, filters=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to create and manage Datadog logs indexes.
-        
+
         ## Important Notes
-        
+
         The order of indexes is maintained in the separated resource datadog_logs_index_order. 
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[str] name: The name of the exclusion filter.
-        
+
         The **exclusion_filters** object supports the following:
-        
+
           * `filters` (`pulumi.Input[list]`)
-        
             * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
             * `sampleRate` (`pulumi.Input[float]`) - The fraction of logs excluded by the exclusion filter, when active.
-        
+
           * `is_enabled` (`pulumi.Input[bool]`) - A boolean stating if the exclusion is active or not.
           * `name` (`pulumi.Input[str]`) - The name of the exclusion filter.
-        
-        The **filters** object supports the following:
-        
-          * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index.html.markdown.
+        The **filters** object supports the following:
+
+          * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,32 +89,30 @@ class LogsIndex(pulumi.CustomResource):
         """
         Get an existing LogsIndex resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[str] name: The name of the exclusion filter.
-        
+
         The **exclusion_filters** object supports the following:
-        
+
           * `filters` (`pulumi.Input[list]`)
-        
             * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
             * `sampleRate` (`pulumi.Input[float]`) - The fraction of logs excluded by the exclusion filter, when active.
-        
+
           * `is_enabled` (`pulumi.Input[bool]`) - A boolean stating if the exclusion is active or not.
           * `name` (`pulumi.Input[str]`) - The name of the exclusion filter.
-        
-        The **filters** object supports the following:
-        
-          * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index.html.markdown.
+        The **filters** object supports the following:
+
+          * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["exclusion_filters"] = exclusion_filters
         __props__["filters"] = filters
         __props__["name"] = name

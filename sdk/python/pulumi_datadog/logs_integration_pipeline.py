@@ -18,18 +18,18 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         """
         Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource to manage
         the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
-        
+
         Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with 
         specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, 
         allows you to manage the order of your pipelines by referencing them in your 
         .LogsPipelineOrder resource. If you don't need the
         `pipeline_order` feature, this resource declaration can be omitted.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_integration_pipeline.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_integration_pipeline.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,17 +60,16 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         """
         Get an existing LogsIntegrationPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_integration_pipeline.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["is_enabled"] = is_enabled
         return LogsIntegrationPipeline(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

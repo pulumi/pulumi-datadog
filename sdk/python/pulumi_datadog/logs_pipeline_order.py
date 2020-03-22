@@ -22,14 +22,14 @@ class LogsPipelineOrder(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, name=None, pipelines=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to manage Datadog log pipelines order.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_pipeline_order.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
                No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
         :param pulumi.Input[list] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_pipeline_order.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,19 +65,18 @@ class LogsPipelineOrder(pulumi.CustomResource):
         """
         Get an existing LogsPipelineOrder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
                No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
         :param pulumi.Input[list] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_pipeline_order.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["name"] = name
         __props__["pipelines"] = pipelines
         return LogsPipelineOrder(resource_name, opts=opts, __props__=__props__)

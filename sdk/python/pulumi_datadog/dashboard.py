@@ -11,43 +11,1713 @@ from . import utilities, tables
 
 class Dashboard(pulumi.CustomResource):
     description: pulumi.Output[str]
+    """
+    The description of the dashboard.
+    """
     is_read_only: pulumi.Output[bool]
+    """
+    Whether this dashboard is read-only.
+    """
     layout_type: pulumi.Output[str]
+    """
+    The layout type of the dashboard, either 'free' or 'ordered'.
+    """
     notify_lists: pulumi.Output[list]
+    """
+    The list of handles of users to notify when changes are made to this dashboard.
+    """
+    template_variable_presets: pulumi.Output[list]
+    """
+    The list of selectable template variable presets for this dashboard.
+
+      * `name` (`str`)
+      * `template_variables` (`list`)
+        * `name` (`str`)
+        * `value` (`str`)
+    """
     template_variables: pulumi.Output[list]
+    """
+    The list of template variables for this dashboard.
+
+      * `default` (`str`)
+      * `name` (`str`)
+      * `prefix` (`str`)
+    """
     title: pulumi.Output[str]
+    """
+    The title of the dashboard.
+    """
     widgets: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variables=None, title=None, widgets=None, __props__=None, __name__=None, __opts__=None):
+    """
+    The list of widgets to display on the dashboard.
+
+      * `alertGraphDefinition` (`dict`)
+        * `alertId` (`str`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+        * `vizType` (`str`)
+
+      * `alertValueDefinition` (`dict`)
+        * `alertId` (`str`)
+        * `precision` (`float`)
+        * `textAlign` (`str`)
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+        * `unit` (`str`)
+
+      * `changeDefinition` (`dict`)
+        * `requests` (`list`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `changeType` (`str`)
+          * `compareTo` (`str`)
+          * `increaseGood` (`bool`)
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `orderBy` (`str`)
+          * `orderDir` (`str`)
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+          * `showPresent` (`bool`)
+
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `checkStatusDefinition` (`dict`)
+        * `check` (`str`)
+        * `group` (`str`)
+        * `groupBies` (`list`)
+        * `grouping` (`str`)
+        * `tags` (`list`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `distributionDefinition` (`dict`)
+        * `requests` (`list`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+          * `style` (`dict`)
+            * `palette` (`str`)
+
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `eventStreamDefinition` (`dict`)
+        * `eventSize` (`str`)
+        * `query` (`str`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `eventTimelineDefinition` (`dict`)
+        * `query` (`str`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `freeTextDefinition` (`dict`)
+        * `color` (`str`)
+        * `fontSize` (`str`)
+        * `text` (`str`)
+        * `textAlign` (`str`)
+
+      * `groupDefinition` (`dict`)
+        * `layout_type` (`str`)
+        * `title` (`str`)
+        * `widgets` (`list`)
+          * `alertGraphDefinition` (`dict`)
+            * `alertId` (`str`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+            * `vizType` (`str`)
+
+          * `alertValueDefinition` (`dict`)
+            * `alertId` (`str`)
+            * `precision` (`float`)
+            * `textAlign` (`str`)
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+            * `unit` (`str`)
+
+          * `changeDefinition` (`dict`)
+            * `requests` (`list`)
+              * `apmQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `changeType` (`str`)
+              * `compareTo` (`str`)
+              * `increaseGood` (`bool`)
+              * `logQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `orderBy` (`str`)
+              * `orderDir` (`str`)
+              * `processQuery` (`dict`)
+                * `filterBies` (`list`)
+                * `limit` (`float`)
+                * `metric` (`str`)
+                * `searchBy` (`str`)
+
+              * `q` (`str`)
+              * `showPresent` (`bool`)
+
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `checkStatusDefinition` (`dict`)
+            * `check` (`str`)
+            * `group` (`str`)
+            * `groupBies` (`list`)
+            * `grouping` (`str`)
+            * `tags` (`list`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `distributionDefinition` (`dict`)
+            * `requests` (`list`)
+              * `apmQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `logQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `processQuery` (`dict`)
+                * `filterBies` (`list`)
+                * `limit` (`float`)
+                * `metric` (`str`)
+                * `searchBy` (`str`)
+
+              * `q` (`str`)
+              * `style` (`dict`)
+                * `palette` (`str`)
+
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `eventStreamDefinition` (`dict`)
+            * `eventSize` (`str`)
+            * `query` (`str`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `eventTimelineDefinition` (`dict`)
+            * `query` (`str`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `freeTextDefinition` (`dict`)
+            * `color` (`str`)
+            * `fontSize` (`str`)
+            * `text` (`str`)
+            * `textAlign` (`str`)
+
+          * `heatmapDefinition` (`dict`)
+            * `requests` (`list`)
+              * `apmQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `logQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `processQuery` (`dict`)
+                * `filterBies` (`list`)
+                * `limit` (`float`)
+                * `metric` (`str`)
+                * `searchBy` (`str`)
+
+              * `q` (`str`)
+              * `style` (`dict`)
+                * `palette` (`str`)
+
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+            * `yaxis` (`dict`)
+              * `includeZero` (`bool`)
+              * `label` (`str`)
+              * `max` (`str`)
+              * `min` (`str`)
+              * `scale` (`str`)
+
+          * `hostmapDefinition` (`dict`)
+            * `groups` (`list`)
+            * `noGroupHosts` (`bool`)
+            * `noMetricHosts` (`bool`)
+            * `nodeType` (`str`)
+            * `request` (`dict`)
+              * `fills` (`list`)
+                * `apmQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `logQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `processQuery` (`dict`)
+                  * `filterBies` (`list`)
+                  * `limit` (`float`)
+                  * `metric` (`str`)
+                  * `searchBy` (`str`)
+
+                * `q` (`str`)
+
+              * `sizes` (`list`)
+                * `apmQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `logQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `processQuery` (`dict`)
+                  * `filterBies` (`list`)
+                  * `limit` (`float`)
+                  * `metric` (`str`)
+                  * `searchBy` (`str`)
+
+                * `q` (`str`)
+
+            * `scopes` (`list`)
+            * `style` (`dict`)
+              * `fillMax` (`str`)
+              * `fillMin` (`str`)
+              * `palette` (`str`)
+              * `paletteFlip` (`bool`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `iframeDefinition` (`dict`)
+            * `url` (`str`)
+
+          * `imageDefinition` (`dict`)
+            * `margin` (`str`)
+            * `sizing` (`str`)
+            * `url` (`str`)
+
+          * `layout` (`dict`)
+            * `height` (`float`)
+            * `width` (`float`)
+            * `x` (`float`)
+            * `y` (`float`)
+
+          * `logStreamDefinition` (`dict`)
+            * `columns` (`list`)
+            * `logset` (`str`)
+            * `query` (`str`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `manageStatusDefinition` (`dict`)
+            * `colorPreference` (`str`)
+            * `count` (`float`)
+            * `displayFormat` (`str`)
+            * `hideZeroCounts` (`bool`)
+            * `query` (`str`)
+            * `showLastTriggered` (`bool`)
+            * `sort` (`str`)
+            * `start` (`float`)
+            * `summaryType` (`str`)
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `noteDefinition` (`dict`)
+            * `backgroundColor` (`str`)
+            * `content` (`str`)
+            * `fontSize` (`str`)
+            * `showTick` (`bool`)
+            * `textAlign` (`str`)
+            * `tickEdge` (`str`)
+            * `tickPos` (`str`)
+
+          * `queryTableDefinition` (`dict`)
+            * `requests` (`list`)
+              * `aggregator` (`str`)
+              * `alias` (`str`)
+              * `apmQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `conditionalFormats` (`list`)
+                * `comparator` (`str`)
+                * `customBgColor` (`str`)
+                * `customFgColor` (`str`)
+                * `hideValue` (`bool`)
+                * `imageUrl` (`str`)
+                * `palette` (`str`)
+                * `timeframe` (`str`)
+                * `value` (`float`)
+
+              * `limit` (`float`)
+              * `logQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `order` (`str`)
+              * `processQuery` (`dict`)
+                * `filterBies` (`list`)
+                * `limit` (`float`)
+                * `metric` (`str`)
+                * `searchBy` (`str`)
+
+              * `q` (`str`)
+
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `queryValueDefinition` (`dict`)
+            * `autoscale` (`bool`)
+            * `customUnit` (`str`)
+            * `precision` (`float`)
+            * `requests` (`list`)
+              * `aggregator` (`str`)
+              * `apmQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `conditionalFormats` (`list`)
+                * `comparator` (`str`)
+                * `customBgColor` (`str`)
+                * `customFgColor` (`str`)
+                * `hideValue` (`bool`)
+                * `imageUrl` (`str`)
+                * `palette` (`str`)
+                * `timeframe` (`str`)
+                * `value` (`float`)
+
+              * `logQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `processQuery` (`dict`)
+                * `filterBies` (`list`)
+                * `limit` (`float`)
+                * `metric` (`str`)
+                * `searchBy` (`str`)
+
+              * `q` (`str`)
+
+            * `textAlign` (`str`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `scatterplotDefinition` (`dict`)
+            * `colorByGroups` (`list`)
+            * `request` (`dict`)
+              * `xes` (`list`)
+                * `aggregator` (`str`)
+                * `apmQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `logQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `processQuery` (`dict`)
+                  * `filterBies` (`list`)
+                  * `limit` (`float`)
+                  * `metric` (`str`)
+                  * `searchBy` (`str`)
+
+                * `q` (`str`)
+
+              * `ys` (`list`)
+                * `aggregator` (`str`)
+                * `apmQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `logQuery` (`dict`)
+                  * `compute` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `interval` (`float`)
+
+                  * `groupBies` (`list`)
+                    * `facet` (`str`)
+                    * `limit` (`float`)
+                    * `sort` (`dict`)
+                      * `aggregation` (`str`)
+                      * `facet` (`str`)
+                      * `order` (`str`)
+
+                  * `index` (`str`)
+                  * `search` (`dict`)
+                    * `query` (`str`)
+
+                * `processQuery` (`dict`)
+                  * `filterBies` (`list`)
+                  * `limit` (`float`)
+                  * `metric` (`str`)
+                  * `searchBy` (`str`)
+
+                * `q` (`str`)
+
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+            * `xaxis` (`dict`)
+              * `includeZero` (`bool`)
+              * `label` (`str`)
+              * `max` (`str`)
+              * `min` (`str`)
+              * `scale` (`str`)
+
+            * `yaxis` (`dict`)
+              * `includeZero` (`bool`)
+              * `label` (`str`)
+              * `max` (`str`)
+              * `min` (`str`)
+              * `scale` (`str`)
+
+          * `serviceLevelObjectiveDefinition` (`dict`)
+            * `showErrorBudget` (`bool`)
+            * `sloId` (`str`)
+            * `timeWindows` (`list`)
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+            * `viewMode` (`str`)
+            * `viewType` (`str`)
+
+          * `timeseriesDefinition` (`dict`)
+            * `events` (`list`)
+              * `q` (`str`)
+
+            * `legendSize` (`str`)
+            * `markers` (`list`)
+              * `displayType` (`str`)
+              * `label` (`str`)
+              * `value` (`str`)
+
+            * `requests` (`list`)
+              * `apmQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `displayType` (`str`)
+              * `logQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `metadatas` (`list`)
+                * `aliasName` (`str`)
+                * `expression` (`str`)
+
+              * `processQuery` (`dict`)
+                * `filterBies` (`list`)
+                * `limit` (`float`)
+                * `metric` (`str`)
+                * `searchBy` (`str`)
+
+              * `q` (`str`)
+              * `style` (`dict`)
+                * `lineType` (`str`)
+                * `lineWidth` (`str`)
+                * `palette` (`str`)
+
+            * `showLegend` (`bool`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+            * `yaxis` (`dict`)
+              * `includeZero` (`bool`)
+              * `label` (`str`)
+              * `max` (`str`)
+              * `min` (`str`)
+              * `scale` (`str`)
+
+          * `toplistDefinition` (`dict`)
+            * `requests` (`list`)
+              * `apmQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `conditionalFormats` (`list`)
+                * `comparator` (`str`)
+                * `customBgColor` (`str`)
+                * `customFgColor` (`str`)
+                * `hideValue` (`bool`)
+                * `imageUrl` (`str`)
+                * `palette` (`str`)
+                * `timeframe` (`str`)
+                * `value` (`float`)
+
+              * `logQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
+              * `processQuery` (`dict`)
+                * `filterBies` (`list`)
+                * `limit` (`float`)
+                * `metric` (`str`)
+                * `searchBy` (`str`)
+
+              * `q` (`str`)
+              * `style` (`dict`)
+                * `palette` (`str`)
+
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+          * `traceServiceDefinition` (`dict`)
+            * `displayFormat` (`str`)
+            * `env` (`str`)
+            * `service` (`str`)
+            * `showBreakdown` (`bool`)
+            * `showDistribution` (`bool`)
+            * `showErrors` (`bool`)
+            * `showHits` (`bool`)
+            * `showLatency` (`bool`)
+            * `showResourceList` (`bool`)
+            * `sizeFormat` (`str`)
+            * `spanName` (`str`)
+            * `time` (`dict`)
+              * `liveSpan` (`str`)
+
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
+      * `heatmapDefinition` (`dict`)
+        * `requests` (`list`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+          * `style` (`dict`)
+            * `palette` (`str`)
+
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+        * `yaxis` (`dict`)
+          * `includeZero` (`bool`)
+          * `label` (`str`)
+          * `max` (`str`)
+          * `min` (`str`)
+          * `scale` (`str`)
+
+      * `hostmapDefinition` (`dict`)
+        * `groups` (`list`)
+        * `noGroupHosts` (`bool`)
+        * `noMetricHosts` (`bool`)
+        * `nodeType` (`str`)
+        * `request` (`dict`)
+          * `fills` (`list`)
+            * `apmQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `logQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `processQuery` (`dict`)
+              * `filterBies` (`list`)
+              * `limit` (`float`)
+              * `metric` (`str`)
+              * `searchBy` (`str`)
+
+            * `q` (`str`)
+
+          * `sizes` (`list`)
+            * `apmQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `logQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `processQuery` (`dict`)
+              * `filterBies` (`list`)
+              * `limit` (`float`)
+              * `metric` (`str`)
+              * `searchBy` (`str`)
+
+            * `q` (`str`)
+
+        * `scopes` (`list`)
+        * `style` (`dict`)
+          * `fillMax` (`str`)
+          * `fillMin` (`str`)
+          * `palette` (`str`)
+          * `paletteFlip` (`bool`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `iframeDefinition` (`dict`)
+        * `url` (`str`)
+
+      * `imageDefinition` (`dict`)
+        * `margin` (`str`)
+        * `sizing` (`str`)
+        * `url` (`str`)
+
+      * `layout` (`dict`)
+        * `height` (`float`)
+        * `width` (`float`)
+        * `x` (`float`)
+        * `y` (`float`)
+
+      * `logStreamDefinition` (`dict`)
+        * `columns` (`list`)
+        * `logset` (`str`)
+        * `query` (`str`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `manageStatusDefinition` (`dict`)
+        * `colorPreference` (`str`)
+        * `count` (`float`)
+        * `displayFormat` (`str`)
+        * `hideZeroCounts` (`bool`)
+        * `query` (`str`)
+        * `showLastTriggered` (`bool`)
+        * `sort` (`str`)
+        * `start` (`float`)
+        * `summaryType` (`str`)
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `noteDefinition` (`dict`)
+        * `backgroundColor` (`str`)
+        * `content` (`str`)
+        * `fontSize` (`str`)
+        * `showTick` (`bool`)
+        * `textAlign` (`str`)
+        * `tickEdge` (`str`)
+        * `tickPos` (`str`)
+
+      * `queryTableDefinition` (`dict`)
+        * `requests` (`list`)
+          * `aggregator` (`str`)
+          * `alias` (`str`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `conditionalFormats` (`list`)
+            * `comparator` (`str`)
+            * `customBgColor` (`str`)
+            * `customFgColor` (`str`)
+            * `hideValue` (`bool`)
+            * `imageUrl` (`str`)
+            * `palette` (`str`)
+            * `timeframe` (`str`)
+            * `value` (`float`)
+
+          * `limit` (`float`)
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `order` (`str`)
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `queryValueDefinition` (`dict`)
+        * `autoscale` (`bool`)
+        * `customUnit` (`str`)
+        * `precision` (`float`)
+        * `requests` (`list`)
+          * `aggregator` (`str`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `conditionalFormats` (`list`)
+            * `comparator` (`str`)
+            * `customBgColor` (`str`)
+            * `customFgColor` (`str`)
+            * `hideValue` (`bool`)
+            * `imageUrl` (`str`)
+            * `palette` (`str`)
+            * `timeframe` (`str`)
+            * `value` (`float`)
+
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+
+        * `textAlign` (`str`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `scatterplotDefinition` (`dict`)
+        * `colorByGroups` (`list`)
+        * `request` (`dict`)
+          * `xes` (`list`)
+            * `aggregator` (`str`)
+            * `apmQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `logQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `processQuery` (`dict`)
+              * `filterBies` (`list`)
+              * `limit` (`float`)
+              * `metric` (`str`)
+              * `searchBy` (`str`)
+
+            * `q` (`str`)
+
+          * `ys` (`list`)
+            * `aggregator` (`str`)
+            * `apmQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `logQuery` (`dict`)
+              * `compute` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `interval` (`float`)
+
+              * `groupBies` (`list`)
+                * `facet` (`str`)
+                * `limit` (`float`)
+                * `sort` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `order` (`str`)
+
+              * `index` (`str`)
+              * `search` (`dict`)
+                * `query` (`str`)
+
+            * `processQuery` (`dict`)
+              * `filterBies` (`list`)
+              * `limit` (`float`)
+              * `metric` (`str`)
+              * `searchBy` (`str`)
+
+            * `q` (`str`)
+
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+        * `xaxis` (`dict`)
+          * `includeZero` (`bool`)
+          * `label` (`str`)
+          * `max` (`str`)
+          * `min` (`str`)
+          * `scale` (`str`)
+
+        * `yaxis` (`dict`)
+          * `includeZero` (`bool`)
+          * `label` (`str`)
+          * `max` (`str`)
+          * `min` (`str`)
+          * `scale` (`str`)
+
+      * `serviceLevelObjectiveDefinition` (`dict`)
+        * `showErrorBudget` (`bool`)
+        * `sloId` (`str`)
+        * `timeWindows` (`list`)
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+        * `viewMode` (`str`)
+        * `viewType` (`str`)
+
+      * `timeseriesDefinition` (`dict`)
+        * `events` (`list`)
+          * `q` (`str`)
+
+        * `legendSize` (`str`)
+        * `markers` (`list`)
+          * `displayType` (`str`)
+          * `label` (`str`)
+          * `value` (`str`)
+
+        * `requests` (`list`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `displayType` (`str`)
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `metadatas` (`list`)
+            * `aliasName` (`str`)
+            * `expression` (`str`)
+
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+          * `style` (`dict`)
+            * `lineType` (`str`)
+            * `lineWidth` (`str`)
+            * `palette` (`str`)
+
+        * `showLegend` (`bool`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+        * `yaxis` (`dict`)
+          * `includeZero` (`bool`)
+          * `label` (`str`)
+          * `max` (`str`)
+          * `min` (`str`)
+          * `scale` (`str`)
+
+      * `toplistDefinition` (`dict`)
+        * `requests` (`list`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `conditionalFormats` (`list`)
+            * `comparator` (`str`)
+            * `customBgColor` (`str`)
+            * `customFgColor` (`str`)
+            * `hideValue` (`bool`)
+            * `imageUrl` (`str`)
+            * `palette` (`str`)
+            * `timeframe` (`str`)
+            * `value` (`float`)
+
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+          * `style` (`dict`)
+            * `palette` (`str`)
+
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
+      * `traceServiceDefinition` (`dict`)
+        * `displayFormat` (`str`)
+        * `env` (`str`)
+        * `service` (`str`)
+        * `showBreakdown` (`bool`)
+        * `showDistribution` (`bool`)
+        * `showErrors` (`bool`)
+        * `showHits` (`bool`)
+        * `showLatency` (`bool`)
+        * `showResourceList` (`bool`)
+        * `sizeFormat` (`str`)
+        * `spanName` (`str`)
+        * `time` (`dict`)
+          * `liveSpan` (`str`)
+
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+    """
+    def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
-        
+
         > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/#dashboards) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `.TimeBoard` and `.ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] description: The description of the dashboard.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[list] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[list] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[list] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[list] widgets: The list of widgets to display on the dashboard.
+
+        The **template_variable_presets** object supports the following:
+
+          * `name` (`pulumi.Input[str]`)
+          * `template_variables` (`pulumi.Input[list]`)
+            * `name` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+
         The **template_variables** object supports the following:
-        
+
           * `default` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
-        
+
         The **widgets** object supports the following:
-        
+
           * `alertGraphDefinition` (`pulumi.Input[dict]`)
-        
             * `alertId` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `vizType` (`pulumi.Input[str]`)
-        
+
           * `alertValueDefinition` (`pulumi.Input[dict]`)
-        
             * `alertId` (`pulumi.Input[str]`)
             * `precision` (`pulumi.Input[float]`)
             * `textAlign` (`pulumi.Input[str]`)
@@ -55,215 +1725,174 @@ class Dashboard(pulumi.CustomResource):
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `unit` (`pulumi.Input[str]`)
-        
+
           * `changeDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `changeType` (`pulumi.Input[str]`)
               * `compareTo` (`pulumi.Input[str]`)
               * `increaseGood` (`pulumi.Input[bool]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `showPresent` (`pulumi.Input[bool]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `checkStatusDefinition` (`pulumi.Input[dict]`)
-        
             * `check` (`pulumi.Input[str]`)
             * `group` (`pulumi.Input[str]`)
             * `groupBies` (`pulumi.Input[list]`)
             * `grouping` (`pulumi.Input[str]`)
             * `tags` (`pulumi.Input[list]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `distributionDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `eventStreamDefinition` (`pulumi.Input[dict]`)
-        
             * `eventSize` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `eventTimelineDefinition` (`pulumi.Input[dict]`)
-        
             * `query` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `freeTextDefinition` (`pulumi.Input[dict]`)
-        
             * `color` (`pulumi.Input[str]`)
             * `fontSize` (`pulumi.Input[str]`)
             * `text` (`pulumi.Input[str]`)
             * `textAlign` (`pulumi.Input[str]`)
-        
+
           * `groupDefinition` (`pulumi.Input[dict]`)
-        
             * `layout_type` (`pulumi.Input[str]`)
             * `title` (`pulumi.Input[str]`)
             * `widgets` (`pulumi.Input[list]`)
-        
               * `alertGraphDefinition` (`pulumi.Input[dict]`)
-        
                 * `alertId` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `vizType` (`pulumi.Input[str]`)
-        
+
               * `alertValueDefinition` (`pulumi.Input[dict]`)
-        
                 * `alertId` (`pulumi.Input[str]`)
                 * `precision` (`pulumi.Input[float]`)
                 * `textAlign` (`pulumi.Input[str]`)
@@ -271,451 +1900,367 @@ class Dashboard(pulumi.CustomResource):
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `unit` (`pulumi.Input[str]`)
-        
+
               * `changeDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `changeType` (`pulumi.Input[str]`)
                   * `compareTo` (`pulumi.Input[str]`)
                   * `increaseGood` (`pulumi.Input[bool]`)
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `orderBy` (`pulumi.Input[str]`)
                   * `orderDir` (`pulumi.Input[str]`)
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `showPresent` (`pulumi.Input[bool]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `checkStatusDefinition` (`pulumi.Input[dict]`)
-        
                 * `check` (`pulumi.Input[str]`)
                 * `group` (`pulumi.Input[str]`)
                 * `groupBies` (`pulumi.Input[list]`)
                 * `grouping` (`pulumi.Input[str]`)
                 * `tags` (`pulumi.Input[list]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `distributionDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `eventStreamDefinition` (`pulumi.Input[dict]`)
-        
                 * `eventSize` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `eventTimelineDefinition` (`pulumi.Input[dict]`)
-        
                 * `query` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `freeTextDefinition` (`pulumi.Input[dict]`)
-        
                 * `color` (`pulumi.Input[str]`)
                 * `fontSize` (`pulumi.Input[str]`)
                 * `text` (`pulumi.Input[str]`)
                 * `textAlign` (`pulumi.Input[str]`)
-        
+
               * `heatmapDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `yaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
               * `hostmapDefinition` (`pulumi.Input[dict]`)
-        
                 * `groups` (`pulumi.Input[list]`)
                 * `noGroupHosts` (`pulumi.Input[bool]`)
                 * `noMetricHosts` (`pulumi.Input[bool]`)
                 * `nodeType` (`pulumi.Input[str]`)
                 * `request` (`pulumi.Input[dict]`)
-        
                   * `fills` (`pulumi.Input[list]`)
-        
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                   * `sizes` (`pulumi.Input[list]`)
-        
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                 * `scopes` (`pulumi.Input[list]`)
                 * `style` (`pulumi.Input[dict]`)
-        
                   * `fillMax` (`pulumi.Input[str]`)
                   * `fillMin` (`pulumi.Input[str]`)
                   * `palette` (`pulumi.Input[str]`)
                   * `paletteFlip` (`pulumi.Input[bool]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `iframeDefinition` (`pulumi.Input[dict]`)
-        
                 * `url` (`pulumi.Input[str]`)
-        
+
               * `imageDefinition` (`pulumi.Input[dict]`)
-        
                 * `margin` (`pulumi.Input[str]`)
                 * `sizing` (`pulumi.Input[str]`)
                 * `url` (`pulumi.Input[str]`)
-        
+
               * `layout` (`pulumi.Input[dict]`)
-        
                 * `height` (`pulumi.Input[float]`)
                 * `width` (`pulumi.Input[float]`)
                 * `x` (`pulumi.Input[float]`)
                 * `y` (`pulumi.Input[float]`)
-        
+
               * `logStreamDefinition` (`pulumi.Input[dict]`)
-        
                 * `columns` (`pulumi.Input[list]`)
                 * `logset` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `manageStatusDefinition` (`pulumi.Input[dict]`)
-        
                 * `colorPreference` (`pulumi.Input[str]`)
                 * `count` (`pulumi.Input[float]`)
                 * `displayFormat` (`pulumi.Input[str]`)
                 * `hideZeroCounts` (`pulumi.Input[bool]`)
                 * `query` (`pulumi.Input[str]`)
+                * `showLastTriggered` (`pulumi.Input[bool]`)
                 * `sort` (`pulumi.Input[str]`)
                 * `start` (`pulumi.Input[float]`)
+                * `summaryType` (`pulumi.Input[str]`)
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `noteDefinition` (`pulumi.Input[dict]`)
-        
                 * `backgroundColor` (`pulumi.Input[str]`)
                 * `content` (`pulumi.Input[str]`)
                 * `fontSize` (`pulumi.Input[str]`)
@@ -723,40 +2268,30 @@ class Dashboard(pulumi.CustomResource):
                 * `textAlign` (`pulumi.Input[str]`)
                 * `tickEdge` (`pulumi.Input[str]`)
                 * `tickPos` (`pulumi.Input[str]`)
-        
-              * `queryValueDefinition` (`pulumi.Input[dict]`)
-        
-                * `autoscale` (`pulumi.Input[bool]`)
-                * `customUnit` (`pulumi.Input[str]`)
-                * `precision` (`pulumi.Input[float]`)
+
+              * `queryTableDefinition` (`pulumi.Input[dict]`)
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `aggregator` (`pulumi.Input[str]`)
+                  * `alias` (`pulumi.Input[str]`)
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `conditionalFormats` (`pulumi.Input[list]`)
-        
                     * `comparator` (`pulumi.Input[str]`)
                     * `customBgColor` (`pulumi.Input[str]`)
                     * `customFgColor` (`pulumi.Input[str]`)
@@ -765,194 +2300,226 @@ class Dashboard(pulumi.CustomResource):
                     * `palette` (`pulumi.Input[str]`)
                     * `timeframe` (`pulumi.Input[str]`)
                     * `value` (`pulumi.Input[float]`)
-        
+
+                  * `limit` (`pulumi.Input[float]`)
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
+                  * `order` (`pulumi.Input[str]`)
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
-        
-                * `textAlign` (`pulumi.Input[str]`)
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
+              * `queryValueDefinition` (`pulumi.Input[dict]`)
+                * `autoscale` (`pulumi.Input[bool]`)
+                * `customUnit` (`pulumi.Input[str]`)
+                * `precision` (`pulumi.Input[float]`)
+                * `requests` (`pulumi.Input[list]`)
+                  * `aggregator` (`pulumi.Input[str]`)
+                  * `apmQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
+                  * `conditionalFormats` (`pulumi.Input[list]`)
+                    * `comparator` (`pulumi.Input[str]`)
+                    * `customBgColor` (`pulumi.Input[str]`)
+                    * `customFgColor` (`pulumi.Input[str]`)
+                    * `hideValue` (`pulumi.Input[bool]`)
+                    * `imageUrl` (`pulumi.Input[str]`)
+                    * `palette` (`pulumi.Input[str]`)
+                    * `timeframe` (`pulumi.Input[str]`)
+                    * `value` (`pulumi.Input[float]`)
+
+                  * `logQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
+                  * `processQuery` (`pulumi.Input[dict]`)
+                    * `filterBies` (`pulumi.Input[list]`)
+                    * `limit` (`pulumi.Input[float]`)
+                    * `metric` (`pulumi.Input[str]`)
+                    * `searchBy` (`pulumi.Input[str]`)
+
+                  * `q` (`pulumi.Input[str]`)
+
+                * `textAlign` (`pulumi.Input[str]`)
+                * `time` (`pulumi.Input[dict]`)
+                  * `liveSpan` (`pulumi.Input[str]`)
+
+                * `title` (`pulumi.Input[str]`)
+                * `titleAlign` (`pulumi.Input[str]`)
+                * `titleSize` (`pulumi.Input[str]`)
+
               * `scatterplotDefinition` (`pulumi.Input[dict]`)
-        
                 * `colorByGroups` (`pulumi.Input[list]`)
                 * `request` (`pulumi.Input[dict]`)
-        
                   * `xes` (`pulumi.Input[list]`)
-        
                     * `aggregator` (`pulumi.Input[str]`)
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                   * `ys` (`pulumi.Input[list]`)
-        
                     * `aggregator` (`pulumi.Input[str]`)
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `xaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
                 * `yaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
               * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
-        
                 * `showErrorBudget` (`pulumi.Input[bool]`)
                 * `sloId` (`pulumi.Input[str]`)
                 * `timeWindows` (`pulumi.Input[list]`)
@@ -961,133 +2528,106 @@ class Dashboard(pulumi.CustomResource):
                 * `titleSize` (`pulumi.Input[str]`)
                 * `viewMode` (`pulumi.Input[str]`)
                 * `viewType` (`pulumi.Input[str]`)
-        
+
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
-        
                 * `events` (`pulumi.Input[list]`)
-        
                   * `q` (`pulumi.Input[str]`)
-        
+
                 * `legendSize` (`pulumi.Input[str]`)
                 * `markers` (`pulumi.Input[list]`)
-        
                   * `displayType` (`pulumi.Input[str]`)
                   * `label` (`pulumi.Input[str]`)
                   * `value` (`pulumi.Input[str]`)
-        
+
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `displayType` (`pulumi.Input[str]`)
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `metadatas` (`pulumi.Input[list]`)
-        
                     * `aliasName` (`pulumi.Input[str]`)
                     * `expression` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `lineType` (`pulumi.Input[str]`)
                     * `lineWidth` (`pulumi.Input[str]`)
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `showLegend` (`pulumi.Input[bool]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `yaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
               * `toplistDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `conditionalFormats` (`pulumi.Input[list]`)
-        
                     * `comparator` (`pulumi.Input[str]`)
                     * `customBgColor` (`pulumi.Input[str]`)
                     * `customFgColor` (`pulumi.Input[str]`)
@@ -1096,52 +2636,43 @@ class Dashboard(pulumi.CustomResource):
                     * `palette` (`pulumi.Input[str]`)
                     * `timeframe` (`pulumi.Input[str]`)
                     * `value` (`pulumi.Input[float]`)
-        
+
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `traceServiceDefinition` (`pulumi.Input[dict]`)
-        
                 * `displayFormat` (`pulumi.Input[str]`)
                 * `env` (`pulumi.Input[str]`)
                 * `service` (`pulumi.Input[str]`)
@@ -1154,269 +2685,220 @@ class Dashboard(pulumi.CustomResource):
                 * `sizeFormat` (`pulumi.Input[str]`)
                 * `spanName` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `heatmapDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `yaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
           * `hostmapDefinition` (`pulumi.Input[dict]`)
-        
             * `groups` (`pulumi.Input[list]`)
             * `noGroupHosts` (`pulumi.Input[bool]`)
             * `noMetricHosts` (`pulumi.Input[bool]`)
             * `nodeType` (`pulumi.Input[str]`)
             * `request` (`pulumi.Input[dict]`)
-        
               * `fills` (`pulumi.Input[list]`)
-        
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
               * `sizes` (`pulumi.Input[list]`)
-        
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
             * `scopes` (`pulumi.Input[list]`)
             * `style` (`pulumi.Input[dict]`)
-        
               * `fillMax` (`pulumi.Input[str]`)
               * `fillMin` (`pulumi.Input[str]`)
               * `palette` (`pulumi.Input[str]`)
               * `paletteFlip` (`pulumi.Input[bool]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `iframeDefinition` (`pulumi.Input[dict]`)
-        
             * `url` (`pulumi.Input[str]`)
-        
+
           * `imageDefinition` (`pulumi.Input[dict]`)
-        
             * `margin` (`pulumi.Input[str]`)
             * `sizing` (`pulumi.Input[str]`)
             * `url` (`pulumi.Input[str]`)
-        
+
           * `layout` (`pulumi.Input[dict]`)
-        
             * `height` (`pulumi.Input[float]`)
             * `width` (`pulumi.Input[float]`)
             * `x` (`pulumi.Input[float]`)
             * `y` (`pulumi.Input[float]`)
-        
+
           * `logStreamDefinition` (`pulumi.Input[dict]`)
-        
             * `columns` (`pulumi.Input[list]`)
             * `logset` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `manageStatusDefinition` (`pulumi.Input[dict]`)
-        
             * `colorPreference` (`pulumi.Input[str]`)
             * `count` (`pulumi.Input[float]`)
             * `displayFormat` (`pulumi.Input[str]`)
             * `hideZeroCounts` (`pulumi.Input[bool]`)
             * `query` (`pulumi.Input[str]`)
+            * `showLastTriggered` (`pulumi.Input[bool]`)
             * `sort` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[float]`)
+            * `summaryType` (`pulumi.Input[str]`)
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `noteDefinition` (`pulumi.Input[dict]`)
-        
             * `backgroundColor` (`pulumi.Input[str]`)
             * `content` (`pulumi.Input[str]`)
             * `fontSize` (`pulumi.Input[str]`)
@@ -1424,40 +2906,30 @@ class Dashboard(pulumi.CustomResource):
             * `textAlign` (`pulumi.Input[str]`)
             * `tickEdge` (`pulumi.Input[str]`)
             * `tickPos` (`pulumi.Input[str]`)
-        
-          * `queryValueDefinition` (`pulumi.Input[dict]`)
-        
-            * `autoscale` (`pulumi.Input[bool]`)
-            * `customUnit` (`pulumi.Input[str]`)
-            * `precision` (`pulumi.Input[float]`)
+
+          * `queryTableDefinition` (`pulumi.Input[dict]`)
             * `requests` (`pulumi.Input[list]`)
-        
               * `aggregator` (`pulumi.Input[str]`)
+              * `alias` (`pulumi.Input[str]`)
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `conditionalFormats` (`pulumi.Input[list]`)
-        
                 * `comparator` (`pulumi.Input[str]`)
                 * `customBgColor` (`pulumi.Input[str]`)
                 * `customFgColor` (`pulumi.Input[str]`)
@@ -1466,194 +2938,226 @@ class Dashboard(pulumi.CustomResource):
                 * `palette` (`pulumi.Input[str]`)
                 * `timeframe` (`pulumi.Input[str]`)
                 * `value` (`pulumi.Input[float]`)
-        
+
+              * `limit` (`pulumi.Input[float]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
+              * `order` (`pulumi.Input[str]`)
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
-        
-            * `textAlign` (`pulumi.Input[str]`)
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
+          * `queryValueDefinition` (`pulumi.Input[dict]`)
+            * `autoscale` (`pulumi.Input[bool]`)
+            * `customUnit` (`pulumi.Input[str]`)
+            * `precision` (`pulumi.Input[float]`)
+            * `requests` (`pulumi.Input[list]`)
+              * `aggregator` (`pulumi.Input[str]`)
+              * `apmQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
+              * `conditionalFormats` (`pulumi.Input[list]`)
+                * `comparator` (`pulumi.Input[str]`)
+                * `customBgColor` (`pulumi.Input[str]`)
+                * `customFgColor` (`pulumi.Input[str]`)
+                * `hideValue` (`pulumi.Input[bool]`)
+                * `imageUrl` (`pulumi.Input[str]`)
+                * `palette` (`pulumi.Input[str]`)
+                * `timeframe` (`pulumi.Input[str]`)
+                * `value` (`pulumi.Input[float]`)
+
+              * `logQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
+              * `processQuery` (`pulumi.Input[dict]`)
+                * `filterBies` (`pulumi.Input[list]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `metric` (`pulumi.Input[str]`)
+                * `searchBy` (`pulumi.Input[str]`)
+
+              * `q` (`pulumi.Input[str]`)
+
+            * `textAlign` (`pulumi.Input[str]`)
+            * `time` (`pulumi.Input[dict]`)
+              * `liveSpan` (`pulumi.Input[str]`)
+
+            * `title` (`pulumi.Input[str]`)
+            * `titleAlign` (`pulumi.Input[str]`)
+            * `titleSize` (`pulumi.Input[str]`)
+
           * `scatterplotDefinition` (`pulumi.Input[dict]`)
-        
             * `colorByGroups` (`pulumi.Input[list]`)
             * `request` (`pulumi.Input[dict]`)
-        
               * `xes` (`pulumi.Input[list]`)
-        
                 * `aggregator` (`pulumi.Input[str]`)
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
               * `ys` (`pulumi.Input[list]`)
-        
                 * `aggregator` (`pulumi.Input[str]`)
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `xaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
             * `yaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
           * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
-        
             * `showErrorBudget` (`pulumi.Input[bool]`)
             * `sloId` (`pulumi.Input[str]`)
             * `timeWindows` (`pulumi.Input[list]`)
@@ -1662,133 +3166,106 @@ class Dashboard(pulumi.CustomResource):
             * `titleSize` (`pulumi.Input[str]`)
             * `viewMode` (`pulumi.Input[str]`)
             * `viewType` (`pulumi.Input[str]`)
-        
+
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
-        
             * `events` (`pulumi.Input[list]`)
-        
               * `q` (`pulumi.Input[str]`)
-        
+
             * `legendSize` (`pulumi.Input[str]`)
             * `markers` (`pulumi.Input[list]`)
-        
               * `displayType` (`pulumi.Input[str]`)
               * `label` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[str]`)
-        
+
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `displayType` (`pulumi.Input[str]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `metadatas` (`pulumi.Input[list]`)
-        
                 * `aliasName` (`pulumi.Input[str]`)
                 * `expression` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `lineType` (`pulumi.Input[str]`)
                 * `lineWidth` (`pulumi.Input[str]`)
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `showLegend` (`pulumi.Input[bool]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `yaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
           * `toplistDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `conditionalFormats` (`pulumi.Input[list]`)
-        
                 * `comparator` (`pulumi.Input[str]`)
                 * `customBgColor` (`pulumi.Input[str]`)
                 * `customFgColor` (`pulumi.Input[str]`)
@@ -1797,52 +3274,43 @@ class Dashboard(pulumi.CustomResource):
                 * `palette` (`pulumi.Input[str]`)
                 * `timeframe` (`pulumi.Input[str]`)
                 * `value` (`pulumi.Input[float]`)
-        
+
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `traceServiceDefinition` (`pulumi.Input[dict]`)
-        
             * `displayFormat` (`pulumi.Input[str]`)
             * `env` (`pulumi.Input[str]`)
             * `service` (`pulumi.Input[str]`)
@@ -1855,14 +3323,11 @@ class Dashboard(pulumi.CustomResource):
             * `sizeFormat` (`pulumi.Input[str]`)
             * `spanName` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -1887,6 +3352,7 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'layout_type'")
             __props__['layout_type'] = layout_type
             __props__['notify_lists'] = notify_lists
+            __props__['template_variable_presets'] = template_variable_presets
             __props__['template_variables'] = template_variables
             if title is None:
                 raise TypeError("Missing required property 'title'")
@@ -1901,37 +3367,49 @@ class Dashboard(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variables=None, title=None, widgets=None):
+    def get(resource_name, id, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, widgets=None):
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] description: The description of the dashboard.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[list] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[list] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[list] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[list] widgets: The list of widgets to display on the dashboard.
+
+        The **template_variable_presets** object supports the following:
+
+          * `name` (`pulumi.Input[str]`)
+          * `template_variables` (`pulumi.Input[list]`)
+            * `name` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+
         The **template_variables** object supports the following:
-        
+
           * `default` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
-        
+
         The **widgets** object supports the following:
-        
+
           * `alertGraphDefinition` (`pulumi.Input[dict]`)
-        
             * `alertId` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `vizType` (`pulumi.Input[str]`)
-        
+
           * `alertValueDefinition` (`pulumi.Input[dict]`)
-        
             * `alertId` (`pulumi.Input[str]`)
             * `precision` (`pulumi.Input[float]`)
             * `textAlign` (`pulumi.Input[str]`)
@@ -1939,215 +3417,174 @@ class Dashboard(pulumi.CustomResource):
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `unit` (`pulumi.Input[str]`)
-        
+
           * `changeDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `changeType` (`pulumi.Input[str]`)
               * `compareTo` (`pulumi.Input[str]`)
               * `increaseGood` (`pulumi.Input[bool]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `showPresent` (`pulumi.Input[bool]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `checkStatusDefinition` (`pulumi.Input[dict]`)
-        
             * `check` (`pulumi.Input[str]`)
             * `group` (`pulumi.Input[str]`)
             * `groupBies` (`pulumi.Input[list]`)
             * `grouping` (`pulumi.Input[str]`)
             * `tags` (`pulumi.Input[list]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `distributionDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `eventStreamDefinition` (`pulumi.Input[dict]`)
-        
             * `eventSize` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `eventTimelineDefinition` (`pulumi.Input[dict]`)
-        
             * `query` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `freeTextDefinition` (`pulumi.Input[dict]`)
-        
             * `color` (`pulumi.Input[str]`)
             * `fontSize` (`pulumi.Input[str]`)
             * `text` (`pulumi.Input[str]`)
             * `textAlign` (`pulumi.Input[str]`)
-        
+
           * `groupDefinition` (`pulumi.Input[dict]`)
-        
             * `layout_type` (`pulumi.Input[str]`)
             * `title` (`pulumi.Input[str]`)
             * `widgets` (`pulumi.Input[list]`)
-        
               * `alertGraphDefinition` (`pulumi.Input[dict]`)
-        
                 * `alertId` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `vizType` (`pulumi.Input[str]`)
-        
+
               * `alertValueDefinition` (`pulumi.Input[dict]`)
-        
                 * `alertId` (`pulumi.Input[str]`)
                 * `precision` (`pulumi.Input[float]`)
                 * `textAlign` (`pulumi.Input[str]`)
@@ -2155,451 +3592,367 @@ class Dashboard(pulumi.CustomResource):
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `unit` (`pulumi.Input[str]`)
-        
+
               * `changeDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `changeType` (`pulumi.Input[str]`)
                   * `compareTo` (`pulumi.Input[str]`)
                   * `increaseGood` (`pulumi.Input[bool]`)
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `orderBy` (`pulumi.Input[str]`)
                   * `orderDir` (`pulumi.Input[str]`)
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `showPresent` (`pulumi.Input[bool]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `checkStatusDefinition` (`pulumi.Input[dict]`)
-        
                 * `check` (`pulumi.Input[str]`)
                 * `group` (`pulumi.Input[str]`)
                 * `groupBies` (`pulumi.Input[list]`)
                 * `grouping` (`pulumi.Input[str]`)
                 * `tags` (`pulumi.Input[list]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `distributionDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `eventStreamDefinition` (`pulumi.Input[dict]`)
-        
                 * `eventSize` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `eventTimelineDefinition` (`pulumi.Input[dict]`)
-        
                 * `query` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `freeTextDefinition` (`pulumi.Input[dict]`)
-        
                 * `color` (`pulumi.Input[str]`)
                 * `fontSize` (`pulumi.Input[str]`)
                 * `text` (`pulumi.Input[str]`)
                 * `textAlign` (`pulumi.Input[str]`)
-        
+
               * `heatmapDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `yaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
               * `hostmapDefinition` (`pulumi.Input[dict]`)
-        
                 * `groups` (`pulumi.Input[list]`)
                 * `noGroupHosts` (`pulumi.Input[bool]`)
                 * `noMetricHosts` (`pulumi.Input[bool]`)
                 * `nodeType` (`pulumi.Input[str]`)
                 * `request` (`pulumi.Input[dict]`)
-        
                   * `fills` (`pulumi.Input[list]`)
-        
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                   * `sizes` (`pulumi.Input[list]`)
-        
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                 * `scopes` (`pulumi.Input[list]`)
                 * `style` (`pulumi.Input[dict]`)
-        
                   * `fillMax` (`pulumi.Input[str]`)
                   * `fillMin` (`pulumi.Input[str]`)
                   * `palette` (`pulumi.Input[str]`)
                   * `paletteFlip` (`pulumi.Input[bool]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `iframeDefinition` (`pulumi.Input[dict]`)
-        
                 * `url` (`pulumi.Input[str]`)
-        
+
               * `imageDefinition` (`pulumi.Input[dict]`)
-        
                 * `margin` (`pulumi.Input[str]`)
                 * `sizing` (`pulumi.Input[str]`)
                 * `url` (`pulumi.Input[str]`)
-        
+
               * `layout` (`pulumi.Input[dict]`)
-        
                 * `height` (`pulumi.Input[float]`)
                 * `width` (`pulumi.Input[float]`)
                 * `x` (`pulumi.Input[float]`)
                 * `y` (`pulumi.Input[float]`)
-        
+
               * `logStreamDefinition` (`pulumi.Input[dict]`)
-        
                 * `columns` (`pulumi.Input[list]`)
                 * `logset` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `manageStatusDefinition` (`pulumi.Input[dict]`)
-        
                 * `colorPreference` (`pulumi.Input[str]`)
                 * `count` (`pulumi.Input[float]`)
                 * `displayFormat` (`pulumi.Input[str]`)
                 * `hideZeroCounts` (`pulumi.Input[bool]`)
                 * `query` (`pulumi.Input[str]`)
+                * `showLastTriggered` (`pulumi.Input[bool]`)
                 * `sort` (`pulumi.Input[str]`)
                 * `start` (`pulumi.Input[float]`)
+                * `summaryType` (`pulumi.Input[str]`)
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `noteDefinition` (`pulumi.Input[dict]`)
-        
                 * `backgroundColor` (`pulumi.Input[str]`)
                 * `content` (`pulumi.Input[str]`)
                 * `fontSize` (`pulumi.Input[str]`)
@@ -2607,40 +3960,30 @@ class Dashboard(pulumi.CustomResource):
                 * `textAlign` (`pulumi.Input[str]`)
                 * `tickEdge` (`pulumi.Input[str]`)
                 * `tickPos` (`pulumi.Input[str]`)
-        
-              * `queryValueDefinition` (`pulumi.Input[dict]`)
-        
-                * `autoscale` (`pulumi.Input[bool]`)
-                * `customUnit` (`pulumi.Input[str]`)
-                * `precision` (`pulumi.Input[float]`)
+
+              * `queryTableDefinition` (`pulumi.Input[dict]`)
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `aggregator` (`pulumi.Input[str]`)
+                  * `alias` (`pulumi.Input[str]`)
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `conditionalFormats` (`pulumi.Input[list]`)
-        
                     * `comparator` (`pulumi.Input[str]`)
                     * `customBgColor` (`pulumi.Input[str]`)
                     * `customFgColor` (`pulumi.Input[str]`)
@@ -2649,194 +3992,226 @@ class Dashboard(pulumi.CustomResource):
                     * `palette` (`pulumi.Input[str]`)
                     * `timeframe` (`pulumi.Input[str]`)
                     * `value` (`pulumi.Input[float]`)
-        
+
+                  * `limit` (`pulumi.Input[float]`)
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
+                  * `order` (`pulumi.Input[str]`)
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
-        
-                * `textAlign` (`pulumi.Input[str]`)
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
+              * `queryValueDefinition` (`pulumi.Input[dict]`)
+                * `autoscale` (`pulumi.Input[bool]`)
+                * `customUnit` (`pulumi.Input[str]`)
+                * `precision` (`pulumi.Input[float]`)
+                * `requests` (`pulumi.Input[list]`)
+                  * `aggregator` (`pulumi.Input[str]`)
+                  * `apmQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
+                  * `conditionalFormats` (`pulumi.Input[list]`)
+                    * `comparator` (`pulumi.Input[str]`)
+                    * `customBgColor` (`pulumi.Input[str]`)
+                    * `customFgColor` (`pulumi.Input[str]`)
+                    * `hideValue` (`pulumi.Input[bool]`)
+                    * `imageUrl` (`pulumi.Input[str]`)
+                    * `palette` (`pulumi.Input[str]`)
+                    * `timeframe` (`pulumi.Input[str]`)
+                    * `value` (`pulumi.Input[float]`)
+
+                  * `logQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
+                  * `processQuery` (`pulumi.Input[dict]`)
+                    * `filterBies` (`pulumi.Input[list]`)
+                    * `limit` (`pulumi.Input[float]`)
+                    * `metric` (`pulumi.Input[str]`)
+                    * `searchBy` (`pulumi.Input[str]`)
+
+                  * `q` (`pulumi.Input[str]`)
+
+                * `textAlign` (`pulumi.Input[str]`)
+                * `time` (`pulumi.Input[dict]`)
+                  * `liveSpan` (`pulumi.Input[str]`)
+
+                * `title` (`pulumi.Input[str]`)
+                * `titleAlign` (`pulumi.Input[str]`)
+                * `titleSize` (`pulumi.Input[str]`)
+
               * `scatterplotDefinition` (`pulumi.Input[dict]`)
-        
                 * `colorByGroups` (`pulumi.Input[list]`)
                 * `request` (`pulumi.Input[dict]`)
-        
                   * `xes` (`pulumi.Input[list]`)
-        
                     * `aggregator` (`pulumi.Input[str]`)
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                   * `ys` (`pulumi.Input[list]`)
-        
                     * `aggregator` (`pulumi.Input[str]`)
                     * `apmQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `logQuery` (`pulumi.Input[dict]`)
-        
                       * `compute` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `interval` (`pulumi.Input[float]`)
-        
+
                       * `groupBies` (`pulumi.Input[list]`)
-        
                         * `facet` (`pulumi.Input[str]`)
                         * `limit` (`pulumi.Input[float]`)
                         * `sort` (`pulumi.Input[dict]`)
-        
                           * `aggregation` (`pulumi.Input[str]`)
                           * `facet` (`pulumi.Input[str]`)
                           * `order` (`pulumi.Input[str]`)
-        
+
                       * `index` (`pulumi.Input[str]`)
                       * `search` (`pulumi.Input[dict]`)
-        
                         * `query` (`pulumi.Input[str]`)
-        
+
                     * `processQuery` (`pulumi.Input[dict]`)
-        
                       * `filterBies` (`pulumi.Input[list]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `metric` (`pulumi.Input[str]`)
                       * `searchBy` (`pulumi.Input[str]`)
-        
+
                     * `q` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `xaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
                 * `yaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
               * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
-        
                 * `showErrorBudget` (`pulumi.Input[bool]`)
                 * `sloId` (`pulumi.Input[str]`)
                 * `timeWindows` (`pulumi.Input[list]`)
@@ -2845,133 +4220,106 @@ class Dashboard(pulumi.CustomResource):
                 * `titleSize` (`pulumi.Input[str]`)
                 * `viewMode` (`pulumi.Input[str]`)
                 * `viewType` (`pulumi.Input[str]`)
-        
+
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
-        
                 * `events` (`pulumi.Input[list]`)
-        
                   * `q` (`pulumi.Input[str]`)
-        
+
                 * `legendSize` (`pulumi.Input[str]`)
                 * `markers` (`pulumi.Input[list]`)
-        
                   * `displayType` (`pulumi.Input[str]`)
                   * `label` (`pulumi.Input[str]`)
                   * `value` (`pulumi.Input[str]`)
-        
+
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `displayType` (`pulumi.Input[str]`)
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `metadatas` (`pulumi.Input[list]`)
-        
                     * `aliasName` (`pulumi.Input[str]`)
                     * `expression` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `lineType` (`pulumi.Input[str]`)
                     * `lineWidth` (`pulumi.Input[str]`)
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `showLegend` (`pulumi.Input[bool]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
                 * `yaxis` (`pulumi.Input[dict]`)
-        
                   * `includeZero` (`pulumi.Input[bool]`)
                   * `label` (`pulumi.Input[str]`)
                   * `max` (`pulumi.Input[str]`)
                   * `min` (`pulumi.Input[str]`)
                   * `scale` (`pulumi.Input[str]`)
-        
+
               * `toplistDefinition` (`pulumi.Input[dict]`)
-        
                 * `requests` (`pulumi.Input[list]`)
-        
                   * `apmQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `conditionalFormats` (`pulumi.Input[list]`)
-        
                     * `comparator` (`pulumi.Input[str]`)
                     * `customBgColor` (`pulumi.Input[str]`)
                     * `customFgColor` (`pulumi.Input[str]`)
@@ -2980,52 +4328,43 @@ class Dashboard(pulumi.CustomResource):
                     * `palette` (`pulumi.Input[str]`)
                     * `timeframe` (`pulumi.Input[str]`)
                     * `value` (`pulumi.Input[float]`)
-        
+
                   * `logQuery` (`pulumi.Input[dict]`)
-        
                     * `compute` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `interval` (`pulumi.Input[float]`)
-        
+
                     * `groupBies` (`pulumi.Input[list]`)
-        
                       * `facet` (`pulumi.Input[str]`)
                       * `limit` (`pulumi.Input[float]`)
                       * `sort` (`pulumi.Input[dict]`)
-        
                         * `aggregation` (`pulumi.Input[str]`)
                         * `facet` (`pulumi.Input[str]`)
                         * `order` (`pulumi.Input[str]`)
-        
+
                     * `index` (`pulumi.Input[str]`)
                     * `search` (`pulumi.Input[dict]`)
-        
                       * `query` (`pulumi.Input[str]`)
-        
+
                   * `processQuery` (`pulumi.Input[dict]`)
-        
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `metric` (`pulumi.Input[str]`)
                     * `searchBy` (`pulumi.Input[str]`)
-        
+
                   * `q` (`pulumi.Input[str]`)
                   * `style` (`pulumi.Input[dict]`)
-        
                     * `palette` (`pulumi.Input[str]`)
-        
+
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
               * `traceServiceDefinition` (`pulumi.Input[dict]`)
-        
                 * `displayFormat` (`pulumi.Input[str]`)
                 * `env` (`pulumi.Input[str]`)
                 * `service` (`pulumi.Input[str]`)
@@ -3038,269 +4377,220 @@ class Dashboard(pulumi.CustomResource):
                 * `sizeFormat` (`pulumi.Input[str]`)
                 * `spanName` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
-        
                   * `liveSpan` (`pulumi.Input[str]`)
-        
+
                 * `title` (`pulumi.Input[str]`)
                 * `titleAlign` (`pulumi.Input[str]`)
                 * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `heatmapDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `yaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
           * `hostmapDefinition` (`pulumi.Input[dict]`)
-        
             * `groups` (`pulumi.Input[list]`)
             * `noGroupHosts` (`pulumi.Input[bool]`)
             * `noMetricHosts` (`pulumi.Input[bool]`)
             * `nodeType` (`pulumi.Input[str]`)
             * `request` (`pulumi.Input[dict]`)
-        
               * `fills` (`pulumi.Input[list]`)
-        
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
               * `sizes` (`pulumi.Input[list]`)
-        
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
             * `scopes` (`pulumi.Input[list]`)
             * `style` (`pulumi.Input[dict]`)
-        
               * `fillMax` (`pulumi.Input[str]`)
               * `fillMin` (`pulumi.Input[str]`)
               * `palette` (`pulumi.Input[str]`)
               * `paletteFlip` (`pulumi.Input[bool]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `iframeDefinition` (`pulumi.Input[dict]`)
-        
             * `url` (`pulumi.Input[str]`)
-        
+
           * `imageDefinition` (`pulumi.Input[dict]`)
-        
             * `margin` (`pulumi.Input[str]`)
             * `sizing` (`pulumi.Input[str]`)
             * `url` (`pulumi.Input[str]`)
-        
+
           * `layout` (`pulumi.Input[dict]`)
-        
             * `height` (`pulumi.Input[float]`)
             * `width` (`pulumi.Input[float]`)
             * `x` (`pulumi.Input[float]`)
             * `y` (`pulumi.Input[float]`)
-        
+
           * `logStreamDefinition` (`pulumi.Input[dict]`)
-        
             * `columns` (`pulumi.Input[list]`)
             * `logset` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `manageStatusDefinition` (`pulumi.Input[dict]`)
-        
             * `colorPreference` (`pulumi.Input[str]`)
             * `count` (`pulumi.Input[float]`)
             * `displayFormat` (`pulumi.Input[str]`)
             * `hideZeroCounts` (`pulumi.Input[bool]`)
             * `query` (`pulumi.Input[str]`)
+            * `showLastTriggered` (`pulumi.Input[bool]`)
             * `sort` (`pulumi.Input[str]`)
             * `start` (`pulumi.Input[float]`)
+            * `summaryType` (`pulumi.Input[str]`)
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `noteDefinition` (`pulumi.Input[dict]`)
-        
             * `backgroundColor` (`pulumi.Input[str]`)
             * `content` (`pulumi.Input[str]`)
             * `fontSize` (`pulumi.Input[str]`)
@@ -3308,40 +4598,30 @@ class Dashboard(pulumi.CustomResource):
             * `textAlign` (`pulumi.Input[str]`)
             * `tickEdge` (`pulumi.Input[str]`)
             * `tickPos` (`pulumi.Input[str]`)
-        
-          * `queryValueDefinition` (`pulumi.Input[dict]`)
-        
-            * `autoscale` (`pulumi.Input[bool]`)
-            * `customUnit` (`pulumi.Input[str]`)
-            * `precision` (`pulumi.Input[float]`)
+
+          * `queryTableDefinition` (`pulumi.Input[dict]`)
             * `requests` (`pulumi.Input[list]`)
-        
               * `aggregator` (`pulumi.Input[str]`)
+              * `alias` (`pulumi.Input[str]`)
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `conditionalFormats` (`pulumi.Input[list]`)
-        
                 * `comparator` (`pulumi.Input[str]`)
                 * `customBgColor` (`pulumi.Input[str]`)
                 * `customFgColor` (`pulumi.Input[str]`)
@@ -3350,194 +4630,226 @@ class Dashboard(pulumi.CustomResource):
                 * `palette` (`pulumi.Input[str]`)
                 * `timeframe` (`pulumi.Input[str]`)
                 * `value` (`pulumi.Input[float]`)
-        
+
+              * `limit` (`pulumi.Input[float]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
+              * `order` (`pulumi.Input[str]`)
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
-        
-            * `textAlign` (`pulumi.Input[str]`)
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
+          * `queryValueDefinition` (`pulumi.Input[dict]`)
+            * `autoscale` (`pulumi.Input[bool]`)
+            * `customUnit` (`pulumi.Input[str]`)
+            * `precision` (`pulumi.Input[float]`)
+            * `requests` (`pulumi.Input[list]`)
+              * `aggregator` (`pulumi.Input[str]`)
+              * `apmQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
+              * `conditionalFormats` (`pulumi.Input[list]`)
+                * `comparator` (`pulumi.Input[str]`)
+                * `customBgColor` (`pulumi.Input[str]`)
+                * `customFgColor` (`pulumi.Input[str]`)
+                * `hideValue` (`pulumi.Input[bool]`)
+                * `imageUrl` (`pulumi.Input[str]`)
+                * `palette` (`pulumi.Input[str]`)
+                * `timeframe` (`pulumi.Input[str]`)
+                * `value` (`pulumi.Input[float]`)
+
+              * `logQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
+              * `processQuery` (`pulumi.Input[dict]`)
+                * `filterBies` (`pulumi.Input[list]`)
+                * `limit` (`pulumi.Input[float]`)
+                * `metric` (`pulumi.Input[str]`)
+                * `searchBy` (`pulumi.Input[str]`)
+
+              * `q` (`pulumi.Input[str]`)
+
+            * `textAlign` (`pulumi.Input[str]`)
+            * `time` (`pulumi.Input[dict]`)
+              * `liveSpan` (`pulumi.Input[str]`)
+
+            * `title` (`pulumi.Input[str]`)
+            * `titleAlign` (`pulumi.Input[str]`)
+            * `titleSize` (`pulumi.Input[str]`)
+
           * `scatterplotDefinition` (`pulumi.Input[dict]`)
-        
             * `colorByGroups` (`pulumi.Input[list]`)
             * `request` (`pulumi.Input[dict]`)
-        
               * `xes` (`pulumi.Input[list]`)
-        
                 * `aggregator` (`pulumi.Input[str]`)
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
               * `ys` (`pulumi.Input[list]`)
-        
                 * `aggregator` (`pulumi.Input[str]`)
                 * `apmQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `logQuery` (`pulumi.Input[dict]`)
-        
                   * `compute` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `interval` (`pulumi.Input[float]`)
-        
+
                   * `groupBies` (`pulumi.Input[list]`)
-        
                     * `facet` (`pulumi.Input[str]`)
                     * `limit` (`pulumi.Input[float]`)
                     * `sort` (`pulumi.Input[dict]`)
-        
                       * `aggregation` (`pulumi.Input[str]`)
                       * `facet` (`pulumi.Input[str]`)
                       * `order` (`pulumi.Input[str]`)
-        
+
                   * `index` (`pulumi.Input[str]`)
                   * `search` (`pulumi.Input[dict]`)
-        
                     * `query` (`pulumi.Input[str]`)
-        
+
                 * `processQuery` (`pulumi.Input[dict]`)
-        
                   * `filterBies` (`pulumi.Input[list]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `metric` (`pulumi.Input[str]`)
                   * `searchBy` (`pulumi.Input[str]`)
-        
+
                 * `q` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `xaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
             * `yaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
           * `serviceLevelObjectiveDefinition` (`pulumi.Input[dict]`)
-        
             * `showErrorBudget` (`pulumi.Input[bool]`)
             * `sloId` (`pulumi.Input[str]`)
             * `timeWindows` (`pulumi.Input[list]`)
@@ -3546,133 +4858,106 @@ class Dashboard(pulumi.CustomResource):
             * `titleSize` (`pulumi.Input[str]`)
             * `viewMode` (`pulumi.Input[str]`)
             * `viewType` (`pulumi.Input[str]`)
-        
+
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
-        
             * `events` (`pulumi.Input[list]`)
-        
               * `q` (`pulumi.Input[str]`)
-        
+
             * `legendSize` (`pulumi.Input[str]`)
             * `markers` (`pulumi.Input[list]`)
-        
               * `displayType` (`pulumi.Input[str]`)
               * `label` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[str]`)
-        
+
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `displayType` (`pulumi.Input[str]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `metadatas` (`pulumi.Input[list]`)
-        
                 * `aliasName` (`pulumi.Input[str]`)
                 * `expression` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `lineType` (`pulumi.Input[str]`)
                 * `lineWidth` (`pulumi.Input[str]`)
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `showLegend` (`pulumi.Input[bool]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
             * `yaxis` (`pulumi.Input[dict]`)
-        
               * `includeZero` (`pulumi.Input[bool]`)
               * `label` (`pulumi.Input[str]`)
               * `max` (`pulumi.Input[str]`)
               * `min` (`pulumi.Input[str]`)
               * `scale` (`pulumi.Input[str]`)
-        
+
           * `toplistDefinition` (`pulumi.Input[dict]`)
-        
             * `requests` (`pulumi.Input[list]`)
-        
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `conditionalFormats` (`pulumi.Input[list]`)
-        
                 * `comparator` (`pulumi.Input[str]`)
                 * `customBgColor` (`pulumi.Input[str]`)
                 * `customFgColor` (`pulumi.Input[str]`)
@@ -3681,52 +4966,43 @@ class Dashboard(pulumi.CustomResource):
                 * `palette` (`pulumi.Input[str]`)
                 * `timeframe` (`pulumi.Input[str]`)
                 * `value` (`pulumi.Input[float]`)
-        
+
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[float]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
-        
                 * `palette` (`pulumi.Input[str]`)
-        
+
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-        
+
           * `traceServiceDefinition` (`pulumi.Input[dict]`)
-        
             * `displayFormat` (`pulumi.Input[str]`)
             * `env` (`pulumi.Input[str]`)
             * `service` (`pulumi.Input[str]`)
@@ -3739,22 +5015,21 @@ class Dashboard(pulumi.CustomResource):
             * `sizeFormat` (`pulumi.Input[str]`)
             * `spanName` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
-        
               * `liveSpan` (`pulumi.Input[str]`)
-        
+
             * `title` (`pulumi.Input[str]`)
             * `titleAlign` (`pulumi.Input[str]`)
             * `titleSize` (`pulumi.Input[str]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["is_read_only"] = is_read_only
         __props__["layout_type"] = layout_type
         __props__["notify_lists"] = notify_lists
+        __props__["template_variable_presets"] = template_variable_presets
         __props__["template_variables"] = template_variables
         __props__["title"] = title
         __props__["widgets"] = widgets

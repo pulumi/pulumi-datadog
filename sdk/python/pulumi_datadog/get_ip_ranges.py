@@ -13,7 +13,7 @@ class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, agents_ipv4s=None, agents_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apm_ipv4s=None, apm_ipv6s=None, logs_ipv4s=None, logs_ipv6s=None, process_ipv4s=None, process_ipv6s=None, synthetics_ipv4s=None, synthetics_ipv6s=None, webhooks_ipv4s=None, webhooks_ipv6s=None, id=None):
+    def __init__(__self__, agents_ipv4s=None, agents_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apm_ipv4s=None, apm_ipv6s=None, id=None, logs_ipv4s=None, logs_ipv6s=None, process_ipv4s=None, process_ipv6s=None, synthetics_ipv4s=None, synthetics_ipv6s=None, webhooks_ipv4s=None, webhooks_ipv6s=None):
         if agents_ipv4s and not isinstance(agents_ipv4s, list):
             raise TypeError("Expected argument 'agents_ipv4s' to be a list")
         __self__.agents_ipv4s = agents_ipv4s
@@ -49,6 +49,12 @@ class GetIpRangesResult:
         __self__.apm_ipv6s = apm_ipv6s
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the apm endpoint.
+        """
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
         if logs_ipv4s and not isinstance(logs_ipv4s, list):
             raise TypeError("Expected argument 'logs_ipv4s' to be a list")
@@ -98,12 +104,6 @@ class GetIpRangesResult:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the webhooks endpoint.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        id is the provider-assigned unique ID for this managed resource.
-        """
 class AwaitableGetIpRangesResult(GetIpRangesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -116,6 +116,7 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             api_ipv6s=self.api_ipv6s,
             apm_ipv4s=self.apm_ipv4s,
             apm_ipv6s=self.apm_ipv6s,
+            id=self.id,
             logs_ipv4s=self.logs_ipv4s,
             logs_ipv6s=self.logs_ipv6s,
             process_ipv4s=self.process_ipv4s,
@@ -123,8 +124,7 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             synthetics_ipv4s=self.synthetics_ipv4s,
             synthetics_ipv6s=self.synthetics_ipv6s,
             webhooks_ipv4s=self.webhooks_ipv4s,
-            webhooks_ipv6s=self.webhooks_ipv6s,
-            id=self.id)
+            webhooks_ipv6s=self.webhooks_ipv6s)
 
 def get_ip_ranges(opts=None):
     """
@@ -133,6 +133,7 @@ def get_ip_ranges(opts=None):
     > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
     """
     __args__ = dict()
+
 
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -147,6 +148,7 @@ def get_ip_ranges(opts=None):
         api_ipv6s=__ret__.get('apiIpv6s'),
         apm_ipv4s=__ret__.get('apmIpv4s'),
         apm_ipv6s=__ret__.get('apmIpv6s'),
+        id=__ret__.get('id'),
         logs_ipv4s=__ret__.get('logsIpv4s'),
         logs_ipv6s=__ret__.get('logsIpv6s'),
         process_ipv4s=__ret__.get('processIpv4s'),
@@ -154,5 +156,4 @@ def get_ip_ranges(opts=None):
         synthetics_ipv4s=__ret__.get('syntheticsIpv4s'),
         synthetics_ipv6s=__ret__.get('syntheticsIpv6s'),
         webhooks_ipv4s=__ret__.get('webhooksIpv4s'),
-        webhooks_ipv6s=__ret__.get('webhooksIpv6s'),
-        id=__ret__.get('id'))
+        webhooks_ipv6s=__ret__.get('webhooksIpv6s'))

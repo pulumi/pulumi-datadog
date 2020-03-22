@@ -21,13 +21,13 @@ class LogsIndexOrder(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, indexes=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index_order.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource. 
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index_order.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,18 +63,17 @@ class LogsIndexOrder(pulumi.CustomResource):
         """
         Get an existing LogsIndexOrder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource. 
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index_order.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["indexes"] = indexes
         __props__["name"] = name
         return LogsIndexOrder(resource_name, opts=opts, __props__=__props__)

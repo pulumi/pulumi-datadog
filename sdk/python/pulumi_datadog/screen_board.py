@@ -11,29 +11,215 @@ from . import utilities, tables
 
 class ScreenBoard(pulumi.CustomResource):
     height: pulumi.Output[str]
+    """
+    Height of the screenboard
+    """
     read_only: pulumi.Output[bool]
     shared: pulumi.Output[bool]
+    """
+    Whether the screenboard is shared or not
+    """
     template_variables: pulumi.Output[list]
+    """
+    A list of template variables for using Dashboard templating.
+
+      * `default` (`str`)
+      * `name` (`str`)
+      * `prefix` (`str`)
+    """
     title: pulumi.Output[str]
+    """
+    Name of the screenboard
+    """
     widgets: pulumi.Output[list]
+    """
+    A list of widget definitions.
+
+      * `alertId` (`float`)
+      * `autoRefresh` (`bool`)
+      * `bgcolor` (`str`)
+      * `check` (`str`)
+      * `color` (`str`)
+      * `colorPreference` (`str`)
+      * `columns` (`str`)
+      * `displayFormat` (`str`)
+      * `env` (`str`)
+      * `eventSize` (`str`)
+      * `fontSize` (`str`)
+      * `group` (`str`)
+      * `groupBies` (`list`)
+      * `grouping` (`str`)
+      * `height` (`float`)
+      * `hideZeroCounts` (`bool`)
+      * `html` (`str`)
+      * `layoutVersion` (`str`)
+      * `legend` (`bool`)
+      * `legendSize` (`str`)
+      * `logset` (`str`)
+      * `manageStatusShowTitle` (`bool`)
+      * `manageStatusTitleAlign` (`str`)
+      * `manageStatusTitleSize` (`str`)
+      * `manageStatusTitleText` (`str`)
+      * `margin` (`str`)
+      * `monitor` (`dict`)
+      * `mustShowBreakdown` (`bool`)
+      * `mustShowDistribution` (`bool`)
+      * `mustShowErrors` (`bool`)
+      * `mustShowHits` (`bool`)
+      * `mustShowLatency` (`bool`)
+      * `mustShowResourceList` (`bool`)
+      * `params` (`dict`)
+      * `precision` (`str`)
+      * `query` (`str`)
+      * `rules` (`list`)
+        * `color` (`str`)
+        * `threshold` (`float`)
+        * `timeframe` (`str`)
+
+      * `service_name` (`str`)
+      * `serviceService` (`str`)
+      * `showLastTriggered` (`bool`)
+      * `sizeVersion` (`str`)
+      * `sizing` (`str`)
+      * `summaryType` (`str`)
+      * `tags` (`list`)
+      * `text` (`str`)
+      * `textAlign` (`str`)
+      * `textSize` (`str`)
+      * `tick` (`bool`)
+      * `tickEdge` (`str`)
+      * `tickPos` (`str`)
+      * `tileDeves` (`list`)
+        * `autoscale` (`bool`)
+        * `customUnit` (`str`)
+        * `events` (`list`)
+          * `q` (`str`)
+
+        * `groups` (`list`)
+        * `markers` (`list`)
+          * `label` (`str`)
+          * `type` (`str`)
+          * `value` (`str`)
+
+        * `noGroupHosts` (`bool`)
+        * `noMetricHosts` (`bool`)
+        * `nodeType` (`str`)
+        * `precision` (`str`)
+        * `requests` (`list`)
+          * `aggregator` (`str`)
+          * `apmQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`str`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `changeType` (`str`)
+          * `compareTo` (`str`)
+          * `conditionalFormats` (`list`)
+            * `color` (`str`)
+            * `comparator` (`str`)
+            * `customBgColor` (`str`)
+            * `invert` (`bool`)
+            * `palette` (`str`)
+            * `value` (`str`)
+
+          * `extraCol` (`str`)
+          * `increaseGood` (`bool`)
+          * `limit` (`float`)
+          * `logQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`str`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
+          * `metadataJson` (`str`)
+          * `metric` (`str`)
+          * `orderBy` (`str`)
+          * `orderDir` (`str`)
+          * `processQuery` (`dict`)
+            * `filterBies` (`list`)
+            * `limit` (`float`)
+            * `metric` (`str`)
+            * `searchBy` (`str`)
+
+          * `q` (`str`)
+          * `queryType` (`str`)
+          * `style` (`dict`)
+          * `tagFilters` (`list`)
+          * `textFilter` (`str`)
+          * `type` (`str`)
+
+        * `scopes` (`list`)
+        * `style` (`dict`)
+        * `textAlign` (`str`)
+        * `viz` (`str`)
+
+      * `time` (`dict`)
+      * `timeframes` (`list`)
+      * `title` (`str`)
+      * `titleAlign` (`str`)
+      * `titleSize` (`float`)
+      * `type` (`str`)
+      * `unit` (`str`)
+      * `url` (`str`)
+      * `vizType` (`str`)
+      * `width` (`float`)
+      * `x` (`float`)
+      * `y` (`float`)
+    """
     width: pulumi.Output[str]
+    """
+    Width of the screenboard
+    """
     def __init__(__self__, resource_name, opts=None, height=None, read_only=None, shared=None, template_variables=None, title=None, widgets=None, width=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
-        
+
         > **Note:** This resource is outdated. Use the new `.Dashboard` resource instead.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/screenboard.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] height: Height of the screenboard
+        :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
+        :param pulumi.Input[list] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[str] title: Name of the screenboard
+        :param pulumi.Input[list] widgets: A list of widget definitions.
+        :param pulumi.Input[str] width: Width of the screenboard
+
         The **template_variables** object supports the following:
-        
+
           * `default` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
-        
+
         The **widgets** object supports the following:
-        
+
           * `alertId` (`pulumi.Input[float]`)
           * `autoRefresh` (`pulumi.Input[bool]`)
           * `bgcolor` (`pulumi.Input[str]`)
@@ -71,15 +257,16 @@ class ScreenBoard(pulumi.CustomResource):
           * `precision` (`pulumi.Input[str]`)
           * `query` (`pulumi.Input[str]`)
           * `rules` (`pulumi.Input[list]`)
-        
             * `color` (`pulumi.Input[str]`)
             * `threshold` (`pulumi.Input[float]`)
             * `timeframe` (`pulumi.Input[str]`)
-        
+
           * `service_name` (`pulumi.Input[str]`)
           * `serviceService` (`pulumi.Input[str]`)
+          * `showLastTriggered` (`pulumi.Input[bool]`)
           * `sizeVersion` (`pulumi.Input[str]`)
           * `sizing` (`pulumi.Input[str]`)
+          * `summaryType` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[list]`)
           * `text` (`pulumi.Input[str]`)
           * `textAlign` (`pulumi.Input[str]`)
@@ -88,110 +275,94 @@ class ScreenBoard(pulumi.CustomResource):
           * `tickEdge` (`pulumi.Input[str]`)
           * `tickPos` (`pulumi.Input[str]`)
           * `tileDeves` (`pulumi.Input[list]`)
-        
             * `autoscale` (`pulumi.Input[bool]`)
             * `customUnit` (`pulumi.Input[str]`)
             * `events` (`pulumi.Input[list]`)
-        
               * `q` (`pulumi.Input[str]`)
-        
+
             * `groups` (`pulumi.Input[list]`)
             * `markers` (`pulumi.Input[list]`)
-        
               * `label` (`pulumi.Input[str]`)
               * `type` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[str]`)
-        
+
             * `noGroupHosts` (`pulumi.Input[bool]`)
             * `noMetricHosts` (`pulumi.Input[bool]`)
             * `nodeType` (`pulumi.Input[str]`)
             * `precision` (`pulumi.Input[str]`)
             * `requests` (`pulumi.Input[list]`)
-        
               * `aggregator` (`pulumi.Input[str]`)
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[str]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `changeType` (`pulumi.Input[str]`)
               * `compareTo` (`pulumi.Input[str]`)
               * `conditionalFormats` (`pulumi.Input[list]`)
-        
                 * `color` (`pulumi.Input[str]`)
                 * `comparator` (`pulumi.Input[str]`)
                 * `customBgColor` (`pulumi.Input[str]`)
                 * `invert` (`pulumi.Input[bool]`)
                 * `palette` (`pulumi.Input[str]`)
                 * `value` (`pulumi.Input[str]`)
-        
+
               * `extraCol` (`pulumi.Input[str]`)
               * `increaseGood` (`pulumi.Input[bool]`)
               * `limit` (`pulumi.Input[float]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[str]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
-              * `metadataJson` (`pulumi.Input[str]`) - <elided>
+
+              * `metadataJson` (`pulumi.Input[str]`)
               * `metric` (`pulumi.Input[str]`)
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `queryType` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
               * `tagFilters` (`pulumi.Input[list]`)
               * `textFilter` (`pulumi.Input[str]`)
               * `type` (`pulumi.Input[str]`)
-        
+
             * `scopes` (`pulumi.Input[list]`)
             * `style` (`pulumi.Input[dict]`)
             * `textAlign` (`pulumi.Input[str]`)
             * `viz` (`pulumi.Input[str]`)
-        
+
           * `time` (`pulumi.Input[dict]`)
           * `timeframes` (`pulumi.Input[list]`)
           * `title` (`pulumi.Input[str]`)
@@ -204,8 +375,6 @@ class ScreenBoard(pulumi.CustomResource):
           * `width` (`pulumi.Input[float]`)
           * `x` (`pulumi.Input[float]`)
           * `y` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/screenboard.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -246,19 +415,25 @@ class ScreenBoard(pulumi.CustomResource):
         """
         Get an existing ScreenBoard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        
+        :param pulumi.Input[str] height: Height of the screenboard
+        :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
+        :param pulumi.Input[list] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[str] title: Name of the screenboard
+        :param pulumi.Input[list] widgets: A list of widget definitions.
+        :param pulumi.Input[str] width: Width of the screenboard
+
         The **template_variables** object supports the following:
-        
+
           * `default` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`)
           * `prefix` (`pulumi.Input[str]`)
-        
+
         The **widgets** object supports the following:
-        
+
           * `alertId` (`pulumi.Input[float]`)
           * `autoRefresh` (`pulumi.Input[bool]`)
           * `bgcolor` (`pulumi.Input[str]`)
@@ -296,15 +471,16 @@ class ScreenBoard(pulumi.CustomResource):
           * `precision` (`pulumi.Input[str]`)
           * `query` (`pulumi.Input[str]`)
           * `rules` (`pulumi.Input[list]`)
-        
             * `color` (`pulumi.Input[str]`)
             * `threshold` (`pulumi.Input[float]`)
             * `timeframe` (`pulumi.Input[str]`)
-        
+
           * `service_name` (`pulumi.Input[str]`)
           * `serviceService` (`pulumi.Input[str]`)
+          * `showLastTriggered` (`pulumi.Input[bool]`)
           * `sizeVersion` (`pulumi.Input[str]`)
           * `sizing` (`pulumi.Input[str]`)
+          * `summaryType` (`pulumi.Input[str]`)
           * `tags` (`pulumi.Input[list]`)
           * `text` (`pulumi.Input[str]`)
           * `textAlign` (`pulumi.Input[str]`)
@@ -313,110 +489,94 @@ class ScreenBoard(pulumi.CustomResource):
           * `tickEdge` (`pulumi.Input[str]`)
           * `tickPos` (`pulumi.Input[str]`)
           * `tileDeves` (`pulumi.Input[list]`)
-        
             * `autoscale` (`pulumi.Input[bool]`)
             * `customUnit` (`pulumi.Input[str]`)
             * `events` (`pulumi.Input[list]`)
-        
               * `q` (`pulumi.Input[str]`)
-        
+
             * `groups` (`pulumi.Input[list]`)
             * `markers` (`pulumi.Input[list]`)
-        
               * `label` (`pulumi.Input[str]`)
               * `type` (`pulumi.Input[str]`)
               * `value` (`pulumi.Input[str]`)
-        
+
             * `noGroupHosts` (`pulumi.Input[bool]`)
             * `noMetricHosts` (`pulumi.Input[bool]`)
             * `nodeType` (`pulumi.Input[str]`)
             * `precision` (`pulumi.Input[str]`)
             * `requests` (`pulumi.Input[list]`)
-        
               * `aggregator` (`pulumi.Input[str]`)
               * `apmQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[str]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
+
               * `changeType` (`pulumi.Input[str]`)
               * `compareTo` (`pulumi.Input[str]`)
               * `conditionalFormats` (`pulumi.Input[list]`)
-        
                 * `color` (`pulumi.Input[str]`)
                 * `comparator` (`pulumi.Input[str]`)
                 * `customBgColor` (`pulumi.Input[str]`)
                 * `invert` (`pulumi.Input[bool]`)
                 * `palette` (`pulumi.Input[str]`)
                 * `value` (`pulumi.Input[str]`)
-        
+
               * `extraCol` (`pulumi.Input[str]`)
               * `increaseGood` (`pulumi.Input[bool]`)
               * `limit` (`pulumi.Input[float]`)
               * `logQuery` (`pulumi.Input[dict]`)
-        
                 * `compute` (`pulumi.Input[dict]`)
-        
                   * `aggregation` (`pulumi.Input[str]`)
                   * `facet` (`pulumi.Input[str]`)
                   * `interval` (`pulumi.Input[str]`)
-        
+
                 * `groupBies` (`pulumi.Input[list]`)
-        
                   * `facet` (`pulumi.Input[str]`)
                   * `limit` (`pulumi.Input[float]`)
                   * `sort` (`pulumi.Input[dict]`)
-        
                     * `aggregation` (`pulumi.Input[str]`)
                     * `facet` (`pulumi.Input[str]`)
                     * `order` (`pulumi.Input[str]`)
-        
+
                 * `index` (`pulumi.Input[str]`)
                 * `search` (`pulumi.Input[dict]`)
-        
                   * `query` (`pulumi.Input[str]`)
-        
-              * `metadataJson` (`pulumi.Input[str]`) - <elided>
+
+              * `metadataJson` (`pulumi.Input[str]`)
               * `metric` (`pulumi.Input[str]`)
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)
               * `processQuery` (`pulumi.Input[dict]`)
-        
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
                 * `metric` (`pulumi.Input[str]`)
                 * `searchBy` (`pulumi.Input[str]`)
-        
+
               * `q` (`pulumi.Input[str]`)
               * `queryType` (`pulumi.Input[str]`)
               * `style` (`pulumi.Input[dict]`)
               * `tagFilters` (`pulumi.Input[list]`)
               * `textFilter` (`pulumi.Input[str]`)
               * `type` (`pulumi.Input[str]`)
-        
+
             * `scopes` (`pulumi.Input[list]`)
             * `style` (`pulumi.Input[dict]`)
             * `textAlign` (`pulumi.Input[str]`)
             * `viz` (`pulumi.Input[str]`)
-        
+
           * `time` (`pulumi.Input[dict]`)
           * `timeframes` (`pulumi.Input[list]`)
           * `title` (`pulumi.Input[str]`)
@@ -429,12 +589,11 @@ class ScreenBoard(pulumi.CustomResource):
           * `width` (`pulumi.Input[float]`)
           * `x` (`pulumi.Input[float]`)
           * `y` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/screenboard.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["height"] = height
         __props__["read_only"] = read_only
         __props__["shared"] = shared

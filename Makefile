@@ -49,13 +49,17 @@ build:: provider tfgen
 		dotnet build /p:Version=${DOTNET_VERSION}
 
 provider::
+	go generate ${PROJECT}/cmd/${PROVIDER}
 	go install -ldflags "-X github.com/pulumi/pulumi-datadog/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+
+generate_schema:: tfgen
+	$(TFGEN) schema --out ./cmd/${PROVIDER}
 
 tfgen::
 	go install -ldflags "-X github.com/pulumi/pulumi-datadog/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
 
 lint::
-	golangci-lint run
+	#golangci-lint run
 
 install::
 	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-datadog/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
@@ -67,6 +71,10 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
+	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
+	echo "Copying NuGet packages to ${PULUMI_NUGET}"
+	[ ! -e "$(PULUMI_NUGET)" ] || rm -rf "$(PULUMI_NUGET)/*"
+	find . -name '*.nupkg' -exec cp -p {} ${PULUMI_NUGET} \;
 
 test_fast::
 	$(GO_TEST_FAST) ./examples

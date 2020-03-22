@@ -21,6 +21,16 @@ export interface DashboardTemplateVariable {
     prefix?: string;
 }
 
+export interface DashboardTemplateVariablePreset {
+    name: string;
+    templateVariables: outputs.DashboardTemplateVariablePresetTemplateVariable[];
+}
+
+export interface DashboardTemplateVariablePresetTemplateVariable {
+    name: string;
+    value: string;
+}
+
 export interface DashboardWidget {
     alertGraphDefinition?: outputs.DashboardWidgetAlertGraphDefinition;
     alertValueDefinition?: outputs.DashboardWidgetAlertValueDefinition;
@@ -39,6 +49,7 @@ export interface DashboardWidget {
     logStreamDefinition?: outputs.DashboardWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetManageStatusDefinition;
     noteDefinition?: outputs.DashboardWidgetNoteDefinition;
+    queryTableDefinition?: outputs.DashboardWidgetQueryTableDefinition;
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
     scatterplotDefinition?: outputs.DashboardWidgetScatterplotDefinition;
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetServiceLevelObjectiveDefinition;
@@ -320,6 +331,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     logStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition;
     noteDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
+    queryTableDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition;
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
     scatterplotDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition;
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
@@ -882,8 +894,10 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     displayFormat?: string;
     hideZeroCounts?: boolean;
     query: string;
+    showLastTriggered?: boolean;
     sort?: string;
     start?: number;
+    summaryType?: string;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -897,6 +911,106 @@ export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
     textAlign?: string;
     tickEdge?: string;
     tickPos?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
+    requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest[];
+    time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime;
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest {
+    aggregator?: string;
+    alias?: string;
+    apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat[];
+    limit?: number;
+    logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery;
+    order?: string;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery;
+    q?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery {
+    compute: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
+    compute: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery {
+    filterBies?: string[];
+    limit?: number;
+    metric: string;
+    searchBy?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime {
+    liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
@@ -1741,8 +1855,10 @@ export interface DashboardWidgetManageStatusDefinition {
     displayFormat?: string;
     hideZeroCounts?: boolean;
     query: string;
+    showLastTriggered?: boolean;
     sort?: string;
     start?: number;
+    summaryType?: string;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1756,6 +1872,106 @@ export interface DashboardWidgetNoteDefinition {
     textAlign?: string;
     tickEdge?: string;
     tickPos?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinition {
+    requests?: outputs.DashboardWidgetQueryTableDefinitionRequest[];
+    time?: outputs.DashboardWidgetQueryTableDefinitionTime;
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequest {
+    aggregator?: string;
+    alias?: string;
+    apmQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery;
+    conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat[];
+    limit?: number;
+    logQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery;
+    order?: string;
+    processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery;
+    q?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmQuery {
+    compute: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute;
+    groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
+    compute: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute;
+    groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestLogQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestLogQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
+    filterBies?: string[];
+    limit?: number;
+    metric: string;
+    searchBy?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionTime {
+    liveSpan?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinition {
@@ -3050,8 +3266,10 @@ export interface ScreenBoardWidget {
     rules?: outputs.ScreenBoardWidgetRule[];
     serviceName?: string;
     serviceService?: string;
+    showLastTriggered?: boolean;
     sizeVersion?: string;
     sizing?: string;
+    summaryType?: string;
     tags?: string[];
     text?: string;
     textAlign?: string;
@@ -3117,9 +3335,6 @@ export interface ScreenBoardWidgetTileDefRequest {
     increaseGood?: boolean;
     limit?: number;
     logQuery?: outputs.ScreenBoardWidgetTileDefRequestLogQuery;
-    /**
-     * <elided>
-     */
     metadataJson?: string;
     metric?: string;
     orderBy?: string;
