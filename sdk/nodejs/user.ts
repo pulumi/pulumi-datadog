@@ -158,6 +158,8 @@ export interface UserState {
     readonly handle?: pulumi.Input<string>;
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     * 
+     * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
     /**
@@ -166,6 +168,8 @@ export interface UserState {
     readonly name?: pulumi.Input<string>;
     /**
      * Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     * 
+     * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
     /**
@@ -196,6 +200,8 @@ export interface UserArgs {
     readonly handle: pulumi.Input<string>;
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     * 
+     * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
     /**
@@ -204,6 +210,8 @@ export interface UserArgs {
     readonly name: pulumi.Input<string>;
     /**
      * Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     * 
+     * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
 }

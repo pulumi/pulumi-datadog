@@ -85,13 +85,13 @@ class Monitor(pulumi.CustomResource):
     """
     A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
     * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
-    
+
       * `recovery_window` (`str`)
       * `trigger_window` (`str`) - describes how long a metric must be anomalous before an alert triggers.
     """
     thresholds: pulumi.Output[dict]
     """
-    
+
     * Metric alerts:
     A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
     Example usage:
@@ -116,7 +116,7 @@ class Monitor(pulumi.CustomResource):
     unknown  = 1
     }
     ```
-    
+
       * `critical` (`float`)
       * `critical_recovery` (`float`)
       * `ok` (`float`)
@@ -142,7 +142,9 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, include_tags=None, locked=None, message=None, name=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, silenced=None, tags=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
@@ -210,22 +212,20 @@ class Monitor(pulumi.CustomResource):
                * `query alert`
                * `composite`
                * `log alert`
-        
+
         The **threshold_windows** object supports the following:
-        
+
           * `recovery_window` (`pulumi.Input[str]`)
           * `trigger_window` (`pulumi.Input[str]`) - describes how long a metric must be anomalous before an alert triggers.
-        
+
         The **thresholds** object supports the following:
-        
+
           * `critical` (`pulumi.Input[float]`)
           * `critical_recovery` (`pulumi.Input[float]`)
           * `ok` (`pulumi.Input[float]`)
           * `unknown` (`pulumi.Input[float]`)
           * `warning` (`pulumi.Input[float]`)
           * `warning_recovery` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -283,7 +283,7 @@ class Monitor(pulumi.CustomResource):
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,26 +352,25 @@ class Monitor(pulumi.CustomResource):
                * `query alert`
                * `composite`
                * `log alert`
-        
+
         The **threshold_windows** object supports the following:
-        
+
           * `recovery_window` (`pulumi.Input[str]`)
           * `trigger_window` (`pulumi.Input[str]`) - describes how long a metric must be anomalous before an alert triggers.
-        
+
         The **thresholds** object supports the following:
-        
+
           * `critical` (`pulumi.Input[float]`)
           * `critical_recovery` (`pulumi.Input[float]`)
           * `ok` (`pulumi.Input[float]`)
           * `unknown` (`pulumi.Input[float]`)
           * `warning` (`pulumi.Input[float]`)
           * `warning_recovery` (`pulumi.Input[float]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["enable_logs_sample"] = enable_logs_sample
         __props__["escalation_message"] = escalation_message
         __props__["evaluation_delay"] = evaluation_delay

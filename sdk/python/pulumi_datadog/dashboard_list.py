@@ -13,7 +13,7 @@ class DashboardList(pulumi.CustomResource):
     dash_items: pulumi.Output[list]
     """
     An individual dashboard object to add to this Dashboard List. If present, must contain the following:
-    
+
       * `dashId` (`str`) - The ID of this dashboard.
       * `type` (`str`) - The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
     """
@@ -24,18 +24,18 @@ class DashboardList(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, dash_items=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard_list.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         :param pulumi.Input[str] name: The name of this Dashbaord List.
-        
+
         The **dash_items** object supports the following:
-        
+
           * `dashId` (`pulumi.Input[str]`) - The ID of this dashboard.
           * `type` (`pulumi.Input[str]`) - The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard_list.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,23 +69,22 @@ class DashboardList(pulumi.CustomResource):
         """
         Get an existing DashboardList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         :param pulumi.Input[str] name: The name of this Dashbaord List.
-        
+
         The **dash_items** object supports the following:
-        
+
           * `dashId` (`pulumi.Input[str]`) - The ID of this dashboard.
           * `type` (`pulumi.Input[str]`) - The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard_list.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["dash_items"] = dash_items
         __props__["name"] = name
         return DashboardList(resource_name, opts=opts, __props__=__props__)

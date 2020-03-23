@@ -37,7 +37,9 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, client_email=None, client_id=None, host_filters=None, private_key=None, private_key_id=None, project_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_gcp.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
@@ -46,8 +48,6 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_gcp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,7 +93,7 @@ class Integration(pulumi.CustomResource):
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,12 +103,11 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_gcp.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["client_email"] = client_email
         __props__["client_id"] = client_id
         __props__["host_filters"] = host_filters

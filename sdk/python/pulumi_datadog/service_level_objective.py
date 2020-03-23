@@ -29,7 +29,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     query: pulumi.Output[dict]
     """
     The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
-    
+
       * `denominator` (`str`) - the sum of the `total` events
         * Example Usage:
       * `numerator` (`str`) - the sum of all the `good` events
@@ -41,7 +41,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     thresholds: pulumi.Output[list]
     """
     - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-    
+
       * `target` (`float`) - the objective's target `[0,100]`
       * `targetDisplay` (`str`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
       * `timeframe` (`str`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
@@ -60,7 +60,9 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, groups=None, monitor_ids=None, name=None, query=None, tags=None, thresholds=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/service_level_objective.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this service level objective.
@@ -73,15 +75,15 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
                * `metric`
                * `monitor`
-        
+
         The **query** object supports the following:
-        
+
           * `denominator` (`pulumi.Input[str]`) - the sum of the `total` events
             * Example Usage:
           * `numerator` (`pulumi.Input[str]`) - the sum of all the `good` events
-        
+
         The **thresholds** object supports the following:
-        
+
           * `target` (`pulumi.Input[float]`) - the objective's target `[0,100]`
           * `targetDisplay` (`pulumi.Input[str]`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
           * `timeframe` (`pulumi.Input[str]`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
@@ -90,8 +92,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
             * `90d`
           * `warning` (`pulumi.Input[float]`) - the objective's warning value `[0,100]`. This must be `> target` value.
           * `warningDisplay` (`pulumi.Input[str]`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/service_level_objective.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,7 +135,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         Get an existing ServiceLevelObjective resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,15 +149,15 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
                * `metric`
                * `monitor`
-        
+
         The **query** object supports the following:
-        
+
           * `denominator` (`pulumi.Input[str]`) - the sum of the `total` events
             * Example Usage:
           * `numerator` (`pulumi.Input[str]`) - the sum of all the `good` events
-        
+
         The **thresholds** object supports the following:
-        
+
           * `target` (`pulumi.Input[float]`) - the objective's target `[0,100]`
           * `targetDisplay` (`pulumi.Input[str]`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
           * `timeframe` (`pulumi.Input[str]`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
@@ -166,12 +166,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
             * `90d`
           * `warning` (`pulumi.Input[float]`) - the objective's warning value `[0,100]`. This must be `> target` value.
           * `warningDisplay` (`pulumi.Input[str]`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/service_level_objective.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["groups"] = groups
         __props__["monitor_ids"] = monitor_ids

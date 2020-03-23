@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard.html.markdown.
- */
 export class Dashboard extends pulumi.CustomResource {
     /**
      * Get an existing Dashboard resource's state with the given name, ID, and optional extra
@@ -57,6 +54,10 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly templateVariables!: pulumi.Output<outputs.DashboardTemplateVariable[] | undefined>;
     /**
+     * The list of selectable template variable presets for this dashboard.
+     */
+    public readonly templateVariablePresets!: pulumi.Output<outputs.DashboardTemplateVariablePreset[] | undefined>;
+    /**
      * The title of the dashboard.
      */
     public readonly title!: pulumi.Output<string>;
@@ -82,6 +83,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["layoutType"] = state ? state.layoutType : undefined;
             inputs["notifyLists"] = state ? state.notifyLists : undefined;
             inputs["templateVariables"] = state ? state.templateVariables : undefined;
+            inputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
             inputs["title"] = state ? state.title : undefined;
             inputs["widgets"] = state ? state.widgets : undefined;
         } else {
@@ -100,6 +102,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["layoutType"] = args ? args.layoutType : undefined;
             inputs["notifyLists"] = args ? args.notifyLists : undefined;
             inputs["templateVariables"] = args ? args.templateVariables : undefined;
+            inputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["widgets"] = args ? args.widgets : undefined;
         }
@@ -139,6 +142,10 @@ export interface DashboardState {
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
+     * The list of selectable template variable presets for this dashboard.
+     */
+    readonly templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
+    /**
      * The title of the dashboard.
      */
     readonly title?: pulumi.Input<string>;
@@ -172,6 +179,10 @@ export interface DashboardArgs {
      * The list of template variables for this dashboard.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
+    /**
+     * The list of selectable template variable presets for this dashboard.
+     */
+    readonly templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
     /**
      * The title of the dashboard.
      */
