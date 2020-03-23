@@ -2,13 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.3.0 (2020-03-23)
 * Namespace names in .NET SDK are adjusted to PascalCase
 ([#33](https://github.com/pulumi/pulumi-datadog/pull/33)).
 * Upgrade to v2.7.0 of the datadog Terraform provider.
 * Upgrade to Pulumi v1.12.1
 * Upgrade to pulumi-terraform-bridge v1.8.2
-
----
 
 ## 1.2.0 (2019-12-04)
 * Upgrade to support go 1.13.x
