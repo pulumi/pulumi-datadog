@@ -189,4 +189,3 @@ type DowntimeArgs struct {
 func (DowntimeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*downtimeArgs)(nil)).Elem()
 }
-

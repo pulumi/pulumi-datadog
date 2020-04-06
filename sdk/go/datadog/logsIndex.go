@@ -15,7 +15,7 @@ import (
 //
 // ## Important Notes
 //
-// The order of indexes is maintained in the separated resource datadog_logs_index_order. 
+// The order of indexes is maintained in the separated resource datadog_logs_index_order.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index.html.markdown.
 type LogsIndex struct {
@@ -23,7 +23,7 @@ type LogsIndex struct {
 
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
-	Filters LogsIndexFilterArrayOutput `pulumi:"filters"`
+	Filters          LogsIndexFilterArrayOutput          `pulumi:"filters"`
 	// The name of the exclusion filter.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
@@ -64,7 +64,7 @@ func GetLogsIndex(ctx *pulumi.Context,
 type logsIndexState struct {
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
-	Filters []LogsIndexFilter `pulumi:"filters"`
+	Filters          []LogsIndexFilter          `pulumi:"filters"`
 	// The name of the exclusion filter.
 	Name *string `pulumi:"name"`
 }
@@ -72,7 +72,7 @@ type logsIndexState struct {
 type LogsIndexState struct {
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
-	Filters LogsIndexFilterArrayInput
+	Filters          LogsIndexFilterArrayInput
 	// The name of the exclusion filter.
 	Name pulumi.StringPtrInput
 }
@@ -84,7 +84,7 @@ func (LogsIndexState) ElementType() reflect.Type {
 type logsIndexArgs struct {
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
-	Filters []LogsIndexFilter `pulumi:"filters"`
+	Filters          []LogsIndexFilter          `pulumi:"filters"`
 	// The name of the exclusion filter.
 	Name string `pulumi:"name"`
 }
@@ -93,7 +93,7 @@ type logsIndexArgs struct {
 type LogsIndexArgs struct {
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
-	Filters LogsIndexFilterArrayInput
+	Filters          LogsIndexFilterArrayInput
 	// The name of the exclusion filter.
 	Name pulumi.StringInput
 }
@@ -101,4 +101,3 @@ type LogsIndexArgs struct {
 func (LogsIndexArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIndexArgs)(nil)).Elem()
 }
-

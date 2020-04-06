@@ -16,7 +16,18 @@ namespace Pulumi.Datadog
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
         /// </summary>
+        [Obsolete("Use GetIpRanges.InvokeAsync() instead")]
         public static Task<GetIpRangesResult> GetIpRanges(InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("datadog:index/getIpRanges:getIpRanges", InvokeArgs.Empty, options.WithVersion());
+    }
+    public static class GetIpRanges
+    {
+        /// <summary>
+        /// Use this data source to retrieve information about Datadog's IP addresses.
+        /// 
+        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
+        /// </summary>
+        public static Task<GetIpRangesResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("datadog:index/getIpRanges:getIpRanges", InvokeArgs.Empty, options.WithVersion());
     }
 

@@ -65,7 +65,7 @@ func (i IntegrationServiceArray) ToIntegrationServiceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceArrayOutput)
 }
 
-type IntegrationServiceOutput struct { *pulumi.OutputState }
+type IntegrationServiceOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationService)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o IntegrationServiceOutput) ToIntegrationServiceOutputWithContext(ctx cont
 
 // Your Service name associated service key in Pagerduty.
 func (o IntegrationServiceOutput) ServiceKey() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationService) string { return v.ServiceKey }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationService) string { return v.ServiceKey }).(pulumi.StringOutput)
 }
 
 // Your Service name in PagerDuty.
 func (o IntegrationServiceOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func (v IntegrationService) string { return v.ServiceName }).(pulumi.StringOutput)
+	return o.ApplyT(func(v IntegrationService) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-type IntegrationServiceArrayOutput struct { *pulumi.OutputState}
+type IntegrationServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]IntegrationService)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o IntegrationServiceArrayOutput) ToIntegrationServiceArrayOutputWithContex
 }
 
 func (o IntegrationServiceArrayOutput) Index(i pulumi.IntInput) IntegrationServiceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) IntegrationService {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationService {
 		return vs[0].([]IntegrationService)[vs[1].(int)]
 	}).(IntegrationServiceOutput)
 }

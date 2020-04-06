@@ -53,4 +53,3 @@ type GetIpRangesResult struct {
 	// An Array of IPv6 addresses in CIDR format specifying the A records for the webhooks endpoint.
 	WebhooksIpv6s []string `pulumi:"webhooksIpv6s"`
 }
-

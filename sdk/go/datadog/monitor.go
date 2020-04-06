@@ -23,7 +23,7 @@ type Monitor struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrOutput `pulumi:"escalationMessage"`
-	EvaluationDelay pulumi.IntOutput `pulumi:"evaluationDelay"`
+	EvaluationDelay   pulumi.IntOutput       `pulumi:"evaluationDelay"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -51,7 +51,7 @@ type Monitor struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
-	Query pulumi.StringOutput `pulumi:"query"`
+	Query        pulumi.StringOutput  `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
@@ -59,7 +59,7 @@ type Monitor struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
-	Silenced pulumi.MapOutput `pulumi:"silenced"`
+	Silenced          pulumi.MapOutput     `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -150,7 +150,7 @@ type monitorState struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
-	EvaluationDelay *int `pulumi:"evaluationDelay"`
+	EvaluationDelay   *int    `pulumi:"evaluationDelay"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -177,16 +177,16 @@ type monitorState struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
-	NotifyNoData *bool `pulumi:"notifyNoData"`
-	Query *string `pulumi:"query"`
+	NotifyNoData *bool   `pulumi:"notifyNoData"`
+	Query        *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
-	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	Silenced map[string]interface{} `pulumi:"silenced"`
+	RequireFullWindow *bool                  `pulumi:"requireFullWindow"`
+	Silenced          map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -238,7 +238,7 @@ type MonitorState struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
-	EvaluationDelay pulumi.IntPtrInput
+	EvaluationDelay   pulumi.IntPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -266,7 +266,7 @@ type MonitorState struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData pulumi.BoolPtrInput
-	Query pulumi.StringPtrInput
+	Query        pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
@@ -274,7 +274,7 @@ type MonitorState struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
-	Silenced pulumi.MapInput
+	Silenced          pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -330,7 +330,7 @@ type monitorArgs struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
-	EvaluationDelay *int `pulumi:"evaluationDelay"`
+	EvaluationDelay   *int    `pulumi:"evaluationDelay"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -357,16 +357,16 @@ type monitorArgs struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
-	NotifyNoData *bool `pulumi:"notifyNoData"`
-	Query string `pulumi:"query"`
+	NotifyNoData *bool  `pulumi:"notifyNoData"`
+	Query        string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
-	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	Silenced map[string]interface{} `pulumi:"silenced"`
+	RequireFullWindow *bool                  `pulumi:"requireFullWindow"`
+	Silenced          map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -419,7 +419,7 @@ type MonitorArgs struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
-	EvaluationDelay pulumi.IntPtrInput
+	EvaluationDelay   pulumi.IntPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -447,7 +447,7 @@ type MonitorArgs struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData pulumi.BoolPtrInput
-	Query pulumi.StringInput
+	Query        pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
@@ -455,7 +455,7 @@ type MonitorArgs struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
-	Silenced pulumi.MapInput
+	Silenced          pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -503,4 +503,3 @@ type MonitorArgs struct {
 func (MonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorArgs)(nil)).Elem()
 }
-
