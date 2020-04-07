@@ -20,8 +20,8 @@ type ScreenBoard struct {
 	pulumi.CustomResourceState
 
 	// Height of the screenboard
-	Height pulumi.StringPtrOutput `pulumi:"height"`
-	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
+	Height   pulumi.StringPtrOutput `pulumi:"height"`
+	ReadOnly pulumi.BoolPtrOutput   `pulumi:"readOnly"`
 	// Whether the screenboard is shared or not
 	Shared pulumi.BoolPtrOutput `pulumi:"shared"`
 	// A list of template variables for using Dashboard templating.
@@ -69,8 +69,8 @@ func GetScreenBoard(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ScreenBoard resources.
 type screenBoardState struct {
 	// Height of the screenboard
-	Height *string `pulumi:"height"`
-	ReadOnly *bool `pulumi:"readOnly"`
+	Height   *string `pulumi:"height"`
+	ReadOnly *bool   `pulumi:"readOnly"`
 	// Whether the screenboard is shared or not
 	Shared *bool `pulumi:"shared"`
 	// A list of template variables for using Dashboard templating.
@@ -85,7 +85,7 @@ type screenBoardState struct {
 
 type ScreenBoardState struct {
 	// Height of the screenboard
-	Height pulumi.StringPtrInput
+	Height   pulumi.StringPtrInput
 	ReadOnly pulumi.BoolPtrInput
 	// Whether the screenboard is shared or not
 	Shared pulumi.BoolPtrInput
@@ -105,8 +105,8 @@ func (ScreenBoardState) ElementType() reflect.Type {
 
 type screenBoardArgs struct {
 	// Height of the screenboard
-	Height *string `pulumi:"height"`
-	ReadOnly *bool `pulumi:"readOnly"`
+	Height   *string `pulumi:"height"`
+	ReadOnly *bool   `pulumi:"readOnly"`
 	// Whether the screenboard is shared or not
 	Shared *bool `pulumi:"shared"`
 	// A list of template variables for using Dashboard templating.
@@ -122,7 +122,7 @@ type screenBoardArgs struct {
 // The set of arguments for constructing a ScreenBoard resource.
 type ScreenBoardArgs struct {
 	// Height of the screenboard
-	Height pulumi.StringPtrInput
+	Height   pulumi.StringPtrInput
 	ReadOnly pulumi.BoolPtrInput
 	// Whether the screenboard is shared or not
 	Shared pulumi.BoolPtrInput
@@ -139,4 +139,3 @@ type ScreenBoardArgs struct {
 func (ScreenBoardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*screenBoardArgs)(nil)).Elem()
 }
-

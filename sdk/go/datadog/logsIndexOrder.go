@@ -19,7 +19,7 @@ type LogsIndexOrder struct {
 
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes pulumi.StringArrayOutput `pulumi:"indexes"`
-	// The unique name of the index order resource. 
+	// The unique name of the index order resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -59,14 +59,14 @@ func GetLogsIndexOrder(ctx *pulumi.Context,
 type logsIndexOrderState struct {
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes []string `pulumi:"indexes"`
-	// The unique name of the index order resource. 
+	// The unique name of the index order resource.
 	Name *string `pulumi:"name"`
 }
 
 type LogsIndexOrderState struct {
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes pulumi.StringArrayInput
-	// The unique name of the index order resource. 
+	// The unique name of the index order resource.
 	Name pulumi.StringPtrInput
 }
 
@@ -77,7 +77,7 @@ func (LogsIndexOrderState) ElementType() reflect.Type {
 type logsIndexOrderArgs struct {
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes []string `pulumi:"indexes"`
-	// The unique name of the index order resource. 
+	// The unique name of the index order resource.
 	Name string `pulumi:"name"`
 }
 
@@ -85,11 +85,10 @@ type logsIndexOrderArgs struct {
 type LogsIndexOrderArgs struct {
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes pulumi.StringArrayInput
-	// The unique name of the index order resource. 
+	// The unique name of the index order resource.
 	Name pulumi.StringInput
 }
 
 func (LogsIndexOrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIndexOrderArgs)(nil)).Elem()
 }
-

@@ -165,4 +165,3 @@ type ServiceLevelObjectiveArgs struct {
 func (ServiceLevelObjectiveArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLevelObjectiveArgs)(nil)).Elem()
 }
-

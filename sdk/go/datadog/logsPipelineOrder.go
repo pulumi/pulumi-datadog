@@ -17,7 +17,7 @@ import (
 type LogsPipelineOrder struct {
 	pulumi.CustomResourceState
 
-	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
+	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
 	// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
@@ -58,7 +58,7 @@ func GetLogsPipelineOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsPipelineOrder resources.
 type logsPipelineOrderState struct {
-	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
+	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
 	// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
 	Name *string `pulumi:"name"`
 	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
@@ -66,7 +66,7 @@ type logsPipelineOrderState struct {
 }
 
 type LogsPipelineOrderState struct {
-	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
+	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
 	// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
 	Name pulumi.StringPtrInput
 	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
@@ -78,7 +78,7 @@ func (LogsPipelineOrderState) ElementType() reflect.Type {
 }
 
 type logsPipelineOrderArgs struct {
-	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
+	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
 	// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
 	Name string `pulumi:"name"`
 	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
@@ -87,7 +87,7 @@ type logsPipelineOrderArgs struct {
 
 // The set of arguments for constructing a LogsPipelineOrder resource.
 type LogsPipelineOrderArgs struct {
-	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
+	// The name attribute in the resource `.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
 	// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
 	Name pulumi.StringInput
 	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
@@ -97,4 +97,3 @@ type LogsPipelineOrderArgs struct {
 func (LogsPipelineOrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsPipelineOrderArgs)(nil)).Elem()
 }
-

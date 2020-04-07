@@ -89,4 +89,3 @@ type DashboardListArgs struct {
 func (DashboardListArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardListArgs)(nil)).Elem()
 }
-

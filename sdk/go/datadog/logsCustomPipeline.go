@@ -18,8 +18,8 @@ import (
 //
 // Each `.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
 // a different resource datadog_logs_pipeline_order.
-// When creating a new pipeline, you need to **explicitly** add this pipeline to the `.LogsPipelineOrder` 
-// resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the 
+// When creating a new pipeline, you need to **explicitly** add this pipeline to the `.LogsPipelineOrder`
+// resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
 // `.LogsPipelineOrder` resource.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_custom_pipeline.html.markdown.
@@ -121,4 +121,3 @@ type LogsCustomPipelineArgs struct {
 func (LogsCustomPipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsCustomPipelineArgs)(nil)).Elem()
 }
-

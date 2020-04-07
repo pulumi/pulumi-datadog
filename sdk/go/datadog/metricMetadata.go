@@ -26,8 +26,8 @@ type MetricMetadata struct {
 	// A short name of the metric.
 	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
 	// If applicable, stasd flush interval in seconds for the metric.
-	StatsdInterval pulumi.IntPtrOutput `pulumi:"statsdInterval"`
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	StatsdInterval pulumi.IntPtrOutput    `pulumi:"statsdInterval"`
+	Type           pulumi.StringPtrOutput `pulumi:"type"`
 	// Primary unit of the metric such as 'byte' or 'operation'.
 	Unit pulumi.StringPtrOutput `pulumi:"unit"`
 }
@@ -72,8 +72,8 @@ type metricMetadataState struct {
 	// A short name of the metric.
 	ShortName *string `pulumi:"shortName"`
 	// If applicable, stasd flush interval in seconds for the metric.
-	StatsdInterval *int `pulumi:"statsdInterval"`
-	Type *string `pulumi:"type"`
+	StatsdInterval *int    `pulumi:"statsdInterval"`
+	Type           *string `pulumi:"type"`
 	// Primary unit of the metric such as 'byte' or 'operation'.
 	Unit *string `pulumi:"unit"`
 }
@@ -89,7 +89,7 @@ type MetricMetadataState struct {
 	ShortName pulumi.StringPtrInput
 	// If applicable, stasd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrInput
-	Type pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
 	// Primary unit of the metric such as 'byte' or 'operation'.
 	Unit pulumi.StringPtrInput
 }
@@ -108,8 +108,8 @@ type metricMetadataArgs struct {
 	// A short name of the metric.
 	ShortName *string `pulumi:"shortName"`
 	// If applicable, stasd flush interval in seconds for the metric.
-	StatsdInterval *int `pulumi:"statsdInterval"`
-	Type *string `pulumi:"type"`
+	StatsdInterval *int    `pulumi:"statsdInterval"`
+	Type           *string `pulumi:"type"`
 	// Primary unit of the metric such as 'byte' or 'operation'.
 	Unit *string `pulumi:"unit"`
 }
@@ -126,7 +126,7 @@ type MetricMetadataArgs struct {
 	ShortName pulumi.StringPtrInput
 	// If applicable, stasd flush interval in seconds for the metric.
 	StatsdInterval pulumi.IntPtrInput
-	Type pulumi.StringPtrInput
+	Type           pulumi.StringPtrInput
 	// Primary unit of the metric such as 'byte' or 'operation'.
 	Unit pulumi.StringPtrInput
 }
@@ -134,4 +134,3 @@ type MetricMetadataArgs struct {
 func (MetricMetadataArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricMetadataArgs)(nil)).Elem()
 }
-
