@@ -12,6 +12,8 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource

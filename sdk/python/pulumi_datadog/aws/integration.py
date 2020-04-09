@@ -40,6 +40,8 @@ class Integration(pulumi.CustomResource):
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
 
         :param str resource_name: The name of the resource.

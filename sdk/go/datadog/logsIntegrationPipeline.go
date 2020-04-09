@@ -7,7 +7,7 @@ package datadog
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource to manage
@@ -18,6 +18,8 @@ import (
 // allows you to manage the order of your pipelines by referencing them in your
 // .LogsPipelineOrder resource. If you don't need the
 // `pipelineOrder` feature, this resource declaration can be omitted.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_integration_pipeline.html.markdown.
 type LogsIntegrationPipeline struct {

@@ -25,6 +25,8 @@ class DashboardList(pulumi.CustomResource):
         """
         Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard_list.markdown.
 
         :param str resource_name: The name of the resource.

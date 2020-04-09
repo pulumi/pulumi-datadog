@@ -13,6 +13,7 @@ namespace Pulumi.Datadog
     /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to create and manage Datadog logs custom pipelines.
     /// 
     /// 
+    /// 
     /// ## Important Notes
     /// 
     /// Each `datadog..LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in

@@ -14,6 +14,8 @@ namespace Pulumi.Datadog.Aws
     /// 
     /// Update operations are currently not supported with datadog API so any change forces a new resource.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
     /// </summary>
     public partial class Integration : Pulumi.CustomResource

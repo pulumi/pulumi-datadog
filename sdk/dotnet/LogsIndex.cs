@@ -12,6 +12,7 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to create and manage Datadog logs indexes.
     /// 
+    /// 
     /// ## Important Notes
     /// 
     /// The order of indexes is maintained in the separated resource datadog_logs_index_order. 

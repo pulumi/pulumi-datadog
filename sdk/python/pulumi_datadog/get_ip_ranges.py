@@ -130,6 +130,7 @@ def get_ip_ranges(opts=None):
     """
     Use this data source to retrieve information about Datadog's IP addresses.
 
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
     """
     __args__ = dict()

@@ -8,12 +8,14 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
 //
 // > **Note:** This resource is outdated. Use the new `.Dashboard` resource instead.
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/screenboard.html.markdown.
 type ScreenBoard struct {

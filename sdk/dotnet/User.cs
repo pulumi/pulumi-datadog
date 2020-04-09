@@ -12,6 +12,8 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog user resource. This can be used to create and manage Datadog users.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/user.html.markdown.
     /// </summary>
     public partial class User : Pulumi.CustomResource

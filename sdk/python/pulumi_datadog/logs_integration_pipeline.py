@@ -25,6 +25,8 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         .LogsPipelineOrder resource. If you don't need the
         `pipeline_order` feature, this resource declaration can be omitted.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_integration_pipeline.html.markdown.
 
         :param str resource_name: The name of the resource.

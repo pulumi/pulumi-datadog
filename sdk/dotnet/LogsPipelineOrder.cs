@@ -12,6 +12,9 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to manage Datadog log pipelines order.
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_pipeline_order.html.markdown.
     /// </summary>
     public partial class LogsPipelineOrder : Pulumi.CustomResource

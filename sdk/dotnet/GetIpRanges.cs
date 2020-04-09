@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Use this data source to retrieve information about Datadog's IP addresses.
         /// 
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
         /// </summary>
         [Obsolete("Use GetIpRanges.InvokeAsync() instead")]
@@ -24,6 +25,7 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about Datadog's IP addresses.
+        /// 
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
         /// </summary>

@@ -19,6 +19,8 @@ namespace Pulumi.Datadog
     /// datadog..LogsPipelineOrder resource. If you don't need the
     /// `pipeline_order` feature, this resource declaration can be omitted.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_integration_pipeline.html.markdown.
     /// </summary>
     public partial class LogsIntegrationPipeline : Pulumi.CustomResource

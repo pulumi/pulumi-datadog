@@ -143,6 +143,8 @@ class Monitor(pulumi.CustomResource):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,8 @@ namespace Pulumi.Datadog
     /// 
     /// &gt; **Note:**This resource is outdated. Use the new `datadog..Dashboard` resource instead.
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/timeboard.html.markdown.
     /// </summary>
     public partial class TimeBoard : Pulumi.CustomResource
