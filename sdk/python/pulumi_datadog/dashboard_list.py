@@ -27,8 +27,6 @@ class DashboardList(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard_list.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:

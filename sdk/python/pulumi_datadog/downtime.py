@@ -68,8 +68,6 @@ class Downtime(pulumi.CustomResource):
         """
         Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/downtime.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: A flag indicating if the downtime is active now.

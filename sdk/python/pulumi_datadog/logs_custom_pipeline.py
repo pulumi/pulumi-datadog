@@ -235,8 +235,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
         resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the 
         `.LogsPipelineOrder` resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_custom_pipeline.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] filters: Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
