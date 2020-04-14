@@ -4,8 +4,8 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/go/pulumi/config"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 )
 
 func GetApiKey(ctx *pulumi.Context) string {
@@ -13,30 +13,19 @@ func GetApiKey(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "DATADOG_API_KEY").(string); ok {
-		return dv
-	}
-	return v
+	return getEnvOrDefault("", nil, "DATADOG_API_KEY").(string)
 }
-
 func GetApiUrl(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "datadog:apiUrl")
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "DATADOG_HOST").(string); ok {
-		return dv
-	}
-	return v
+	return getEnvOrDefault("", nil, "DATADOG_HOST").(string)
 }
-
 func GetAppKey(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "datadog:appKey")
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "DATADOG_APP_KEY").(string); ok {
-		return dv
-	}
-	return v
+	return getEnvOrDefault("", nil, "DATADOG_APP_KEY").(string)
 }

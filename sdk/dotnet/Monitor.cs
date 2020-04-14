@@ -11,8 +11,6 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/monitor.html.markdown.
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {
@@ -184,7 +182,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Monitor(string name, MonitorArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/monitor:Monitor", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:index/monitor:Monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -573,142 +571,5 @@ namespace Pulumi.Datadog
         public MonitorState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MonitorThresholdWindowsArgs : Pulumi.ResourceArgs
-    {
-        [Input("recoveryWindow")]
-        public Input<string>? RecoveryWindow { get; set; }
-
-        /// <summary>
-        /// describes how long a metric must be anomalous before an alert triggers.
-        /// </summary>
-        [Input("triggerWindow")]
-        public Input<string>? TriggerWindow { get; set; }
-
-        public MonitorThresholdWindowsArgs()
-        {
-        }
-    }
-
-    public sealed class MonitorThresholdWindowsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("recoveryWindow")]
-        public Input<string>? RecoveryWindow { get; set; }
-
-        /// <summary>
-        /// describes how long a metric must be anomalous before an alert triggers.
-        /// </summary>
-        [Input("triggerWindow")]
-        public Input<string>? TriggerWindow { get; set; }
-
-        public MonitorThresholdWindowsGetArgs()
-        {
-        }
-    }
-
-    public sealed class MonitorThresholdsArgs : Pulumi.ResourceArgs
-    {
-        [Input("critical")]
-        public Input<double>? Critical { get; set; }
-
-        [Input("criticalRecovery")]
-        public Input<double>? CriticalRecovery { get; set; }
-
-        [Input("ok")]
-        public Input<double>? Ok { get; set; }
-
-        [Input("unknown")]
-        public Input<double>? Unknown { get; set; }
-
-        [Input("warning")]
-        public Input<double>? Warning { get; set; }
-
-        [Input("warningRecovery")]
-        public Input<double>? WarningRecovery { get; set; }
-
-        public MonitorThresholdsArgs()
-        {
-        }
-    }
-
-    public sealed class MonitorThresholdsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("critical")]
-        public Input<double>? Critical { get; set; }
-
-        [Input("criticalRecovery")]
-        public Input<double>? CriticalRecovery { get; set; }
-
-        [Input("ok")]
-        public Input<double>? Ok { get; set; }
-
-        [Input("unknown")]
-        public Input<double>? Unknown { get; set; }
-
-        [Input("warning")]
-        public Input<double>? Warning { get; set; }
-
-        [Input("warningRecovery")]
-        public Input<double>? WarningRecovery { get; set; }
-
-        public MonitorThresholdsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MonitorThresholdWindows
-    {
-        public readonly string? RecoveryWindow;
-        /// <summary>
-        /// describes how long a metric must be anomalous before an alert triggers.
-        /// </summary>
-        public readonly string? TriggerWindow;
-
-        [OutputConstructor]
-        private MonitorThresholdWindows(
-            string? recoveryWindow,
-            string? triggerWindow)
-        {
-            RecoveryWindow = recoveryWindow;
-            TriggerWindow = triggerWindow;
-        }
-    }
-
-    [OutputType]
-    public sealed class MonitorThresholds
-    {
-        public readonly double? Critical;
-        public readonly double? CriticalRecovery;
-        public readonly double? Ok;
-        public readonly double? Unknown;
-        public readonly double? Warning;
-        public readonly double? WarningRecovery;
-
-        [OutputConstructor]
-        private MonitorThresholds(
-            double? critical,
-            double? criticalRecovery,
-            double? ok,
-            double? unknown,
-            double? warning,
-            double? warningRecovery)
-        {
-            Critical = critical;
-            CriticalRecovery = criticalRecovery;
-            Ok = ok;
-            Unknown = unknown;
-            Warning = warning;
-            WarningRecovery = warningRecovery;
-        }
-    }
     }
 }

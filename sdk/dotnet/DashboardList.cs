@@ -11,8 +11,6 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/dashboard_list.markdown.
     /// </summary>
     public partial class DashboardList : Pulumi.CustomResource
     {
@@ -20,7 +18,7 @@ namespace Pulumi.Datadog
         /// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         /// </summary>
         [Output("dashItems")]
-        public Output<ImmutableArray<Outputs.DashboardListDashItems>> DashItems { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DashboardListDashItem>> DashItems { get; private set; } = null!;
 
         /// <summary>
         /// The name of this Dashbaord List.
@@ -37,7 +35,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DashboardList(string name, DashboardListArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/dashboardList:DashboardList", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:index/dashboardList:DashboardList", name, args ?? new DashboardListArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -75,14 +73,14 @@ namespace Pulumi.Datadog
     public sealed class DashboardListArgs : Pulumi.ResourceArgs
     {
         [Input("dashItems")]
-        private InputList<Inputs.DashboardListDashItemsArgs>? _dashItems;
+        private InputList<Inputs.DashboardListDashItemArgs>? _dashItems;
 
         /// <summary>
         /// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         /// </summary>
-        public InputList<Inputs.DashboardListDashItemsArgs> DashItems
+        public InputList<Inputs.DashboardListDashItemArgs> DashItems
         {
-            get => _dashItems ?? (_dashItems = new InputList<Inputs.DashboardListDashItemsArgs>());
+            get => _dashItems ?? (_dashItems = new InputList<Inputs.DashboardListDashItemArgs>());
             set => _dashItems = value;
         }
 
@@ -100,14 +98,14 @@ namespace Pulumi.Datadog
     public sealed class DashboardListState : Pulumi.ResourceArgs
     {
         [Input("dashItems")]
-        private InputList<Inputs.DashboardListDashItemsGetArgs>? _dashItems;
+        private InputList<Inputs.DashboardListDashItemGetArgs>? _dashItems;
 
         /// <summary>
         /// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         /// </summary>
-        public InputList<Inputs.DashboardListDashItemsGetArgs> DashItems
+        public InputList<Inputs.DashboardListDashItemGetArgs> DashItems
         {
-            get => _dashItems ?? (_dashItems = new InputList<Inputs.DashboardListDashItemsGetArgs>());
+            get => _dashItems ?? (_dashItems = new InputList<Inputs.DashboardListDashItemGetArgs>());
             set => _dashItems = value;
         }
 
@@ -120,73 +118,5 @@ namespace Pulumi.Datadog
         public DashboardListState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DashboardListDashItemsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of this dashboard.
-        /// </summary>
-        [Input("dashId", required: true)]
-        public Input<string> DashId { get; set; } = null!;
-
-        /// <summary>
-        /// The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DashboardListDashItemsArgs()
-        {
-        }
-    }
-
-    public sealed class DashboardListDashItemsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// The ID of this dashboard.
-        /// </summary>
-        [Input("dashId", required: true)]
-        public Input<string> DashId { get; set; } = null!;
-
-        /// <summary>
-        /// The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        public DashboardListDashItemsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DashboardListDashItems
-    {
-        /// <summary>
-        /// The ID of this dashboard.
-        /// </summary>
-        public readonly string DashId;
-        /// <summary>
-        /// The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
-        /// </summary>
-        public readonly string Type;
-
-        [OutputConstructor]
-        private DashboardListDashItems(
-            string dashId,
-            string type)
-        {
-            DashId = dashId;
-            Type = type;
-        }
-    }
     }
 }

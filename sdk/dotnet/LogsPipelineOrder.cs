@@ -11,8 +11,6 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to manage Datadog log pipelines order.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_pipeline_order.html.markdown.
     /// </summary>
     public partial class LogsPipelineOrder : Pulumi.CustomResource
     {
@@ -38,7 +36,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogsPipelineOrder(string name, LogsPipelineOrderArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/logsPipelineOrder:LogsPipelineOrder", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:index/logsPipelineOrder:LogsPipelineOrder", name, args ?? new LogsPipelineOrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

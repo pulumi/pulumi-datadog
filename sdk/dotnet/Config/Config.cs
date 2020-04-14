@@ -8,15 +8,11 @@ namespace Pulumi.Datadog
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("datadog");
-
         public static string? ApiKey { get; set; } = __config.Get("apiKey") ?? Utilities.GetEnv("DATADOG_API_KEY");
 
         public static string? ApiUrl { get; set; } = __config.Get("apiUrl") ?? Utilities.GetEnv("DATADOG_HOST");
 
         public static string? AppKey { get; set; } = __config.Get("appKey") ?? Utilities.GetEnv("DATADOG_APP_KEY");
 
-    }
-    namespace ConfigTypes
-    {
     }
 }

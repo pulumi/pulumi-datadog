@@ -9,27 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
-    public static partial class Invokes
-    {
-        /// <summary>
-        /// Use this data source to retrieve information about Datadog's IP addresses.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
-        /// </summary>
-        [Obsolete("Use GetIpRanges.InvokeAsync() instead")]
-        public static Task<GetIpRangesResult> GetIpRanges(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("datadog:index/getIpRanges:getIpRanges", InvokeArgs.Empty, options.WithVersion());
-    }
     public static class GetIpRanges
     {
         /// <summary>
         /// Use this data source to retrieve information about Datadog's IP addresses.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
+        /// {{% examples %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpRangesResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpRangesResult>("datadog:index/getIpRanges:getIpRanges", InvokeArgs.Empty, options.WithVersion());
     }
+
 
     [OutputType]
     public sealed class GetIpRangesResult
@@ -58,6 +48,10 @@ namespace Pulumi.Datadog
         /// An Array of IPv6 addresses in CIDR format specifying the A records for the apm endpoint.
         /// </summary>
         public readonly ImmutableArray<string> ApmIpv6s;
+        /// <summary>
+        /// id is the provider-assigned unique ID for this managed resource.
+        /// </summary>
+        public readonly string Id;
         /// <summary>
         /// An Array of IPv4 addresses in CIDR format specifying the A records for the logs endpoint.
         /// </summary>
@@ -90,28 +84,38 @@ namespace Pulumi.Datadog
         /// An Array of IPv6 addresses in CIDR format specifying the A records for the webhooks endpoint.
         /// </summary>
         public readonly ImmutableArray<string> WebhooksIpv6s;
-        /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetIpRangesResult(
             ImmutableArray<string> agentsIpv4s,
+
             ImmutableArray<string> agentsIpv6s,
+
             ImmutableArray<string> apiIpv4s,
+
             ImmutableArray<string> apiIpv6s,
+
             ImmutableArray<string> apmIpv4s,
+
             ImmutableArray<string> apmIpv6s,
+
+            string id,
+
             ImmutableArray<string> logsIpv4s,
+
             ImmutableArray<string> logsIpv6s,
+
             ImmutableArray<string> processIpv4s,
+
             ImmutableArray<string> processIpv6s,
+
             ImmutableArray<string> syntheticsIpv4s,
+
             ImmutableArray<string> syntheticsIpv6s,
+
             ImmutableArray<string> webhooksIpv4s,
-            ImmutableArray<string> webhooksIpv6s,
-            string id)
+
+            ImmutableArray<string> webhooksIpv6s)
         {
             AgentsIpv4s = agentsIpv4s;
             AgentsIpv6s = agentsIpv6s;
@@ -119,6 +123,7 @@ namespace Pulumi.Datadog
             ApiIpv6s = apiIpv6s;
             ApmIpv4s = apmIpv4s;
             ApmIpv6s = apmIpv6s;
+            Id = id;
             LogsIpv4s = logsIpv4s;
             LogsIpv6s = logsIpv6s;
             ProcessIpv4s = processIpv4s;
@@ -127,7 +132,6 @@ namespace Pulumi.Datadog
             SyntheticsIpv6s = syntheticsIpv6s;
             WebhooksIpv4s = webhooksIpv4s;
             WebhooksIpv6s = webhooksIpv6s;
-            Id = id;
         }
     }
 }

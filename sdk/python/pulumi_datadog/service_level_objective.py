@@ -61,7 +61,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/service_level_objective.html.markdown.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -12,11 +12,10 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to create and manage Datadog logs indexes.
     /// 
+    /// 
     /// ## Important Notes
     /// 
     /// The order of indexes is maintained in the separated resource datadog_logs_index_order. 
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index.html.markdown.
     /// </summary>
     public partial class LogsIndex : Pulumi.CustomResource
     {
@@ -24,10 +23,10 @@ namespace Pulumi.Datadog
         /// List of exclusion filters.
         /// </summary>
         [Output("exclusionFilters")]
-        public Output<ImmutableArray<Outputs.LogsIndexExclusionFilters>> ExclusionFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LogsIndexExclusionFilter>> ExclusionFilters { get; private set; } = null!;
 
         [Output("filters")]
-        public Output<ImmutableArray<Outputs.LogsIndexFilters>> Filters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LogsIndexFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
         /// The name of the exclusion filter.
@@ -44,7 +43,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogsIndex(string name, LogsIndexArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/logsIndex:LogsIndex", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:index/logsIndex:LogsIndex", name, args ?? new LogsIndexArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -82,22 +81,22 @@ namespace Pulumi.Datadog
     public sealed class LogsIndexArgs : Pulumi.ResourceArgs
     {
         [Input("exclusionFilters")]
-        private InputList<Inputs.LogsIndexExclusionFiltersArgs>? _exclusionFilters;
+        private InputList<Inputs.LogsIndexExclusionFilterArgs>? _exclusionFilters;
 
         /// <summary>
         /// List of exclusion filters.
         /// </summary>
-        public InputList<Inputs.LogsIndexExclusionFiltersArgs> ExclusionFilters
+        public InputList<Inputs.LogsIndexExclusionFilterArgs> ExclusionFilters
         {
-            get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFiltersArgs>());
+            get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFilterArgs>());
             set => _exclusionFilters = value;
         }
 
         [Input("filters", required: true)]
-        private InputList<Inputs.LogsIndexFiltersArgs>? _filters;
-        public InputList<Inputs.LogsIndexFiltersArgs> Filters
+        private InputList<Inputs.LogsIndexFilterArgs>? _filters;
+        public InputList<Inputs.LogsIndexFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new InputList<Inputs.LogsIndexFiltersArgs>());
+            get => _filters ?? (_filters = new InputList<Inputs.LogsIndexFilterArgs>());
             set => _filters = value;
         }
 
@@ -115,22 +114,22 @@ namespace Pulumi.Datadog
     public sealed class LogsIndexState : Pulumi.ResourceArgs
     {
         [Input("exclusionFilters")]
-        private InputList<Inputs.LogsIndexExclusionFiltersGetArgs>? _exclusionFilters;
+        private InputList<Inputs.LogsIndexExclusionFilterGetArgs>? _exclusionFilters;
 
         /// <summary>
         /// List of exclusion filters.
         /// </summary>
-        public InputList<Inputs.LogsIndexExclusionFiltersGetArgs> ExclusionFilters
+        public InputList<Inputs.LogsIndexExclusionFilterGetArgs> ExclusionFilters
         {
-            get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFiltersGetArgs>());
+            get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFilterGetArgs>());
             set => _exclusionFilters = value;
         }
 
         [Input("filters")]
-        private InputList<Inputs.LogsIndexFiltersGetArgs>? _filters;
-        public InputList<Inputs.LogsIndexFiltersGetArgs> Filters
+        private InputList<Inputs.LogsIndexFilterGetArgs>? _filters;
+        public InputList<Inputs.LogsIndexFilterGetArgs> Filters
         {
-            get => _filters ?? (_filters = new InputList<Inputs.LogsIndexFiltersGetArgs>());
+            get => _filters ?? (_filters = new InputList<Inputs.LogsIndexFilterGetArgs>());
             set => _filters = value;
         }
 
@@ -143,193 +142,5 @@ namespace Pulumi.Datadog
         public LogsIndexState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class LogsIndexExclusionFiltersArgs : Pulumi.ResourceArgs
-    {
-        [Input("filters")]
-        private InputList<LogsIndexExclusionFiltersFiltersArgs>? _filters;
-        public InputList<LogsIndexExclusionFiltersFiltersArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<LogsIndexExclusionFiltersFiltersArgs>());
-            set => _filters = value;
-        }
-
-        /// <summary>
-        /// A boolean stating if the exclusion is active or not.
-        /// </summary>
-        [Input("isEnabled")]
-        public Input<bool>? IsEnabled { get; set; }
-
-        /// <summary>
-        /// The name of the exclusion filter.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public LogsIndexExclusionFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class LogsIndexExclusionFiltersFiltersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-        /// </summary>
-        [Input("query")]
-        public Input<string>? Query { get; set; }
-
-        /// <summary>
-        /// The fraction of logs excluded by the exclusion filter, when active.
-        /// </summary>
-        [Input("sampleRate")]
-        public Input<double>? SampleRate { get; set; }
-
-        public LogsIndexExclusionFiltersFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class LogsIndexExclusionFiltersFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-        /// </summary>
-        [Input("query")]
-        public Input<string>? Query { get; set; }
-
-        /// <summary>
-        /// The fraction of logs excluded by the exclusion filter, when active.
-        /// </summary>
-        [Input("sampleRate")]
-        public Input<double>? SampleRate { get; set; }
-
-        public LogsIndexExclusionFiltersFiltersGetArgs()
-        {
-        }
-    }
-
-    public sealed class LogsIndexExclusionFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("filters")]
-        private InputList<LogsIndexExclusionFiltersFiltersGetArgs>? _filters;
-        public InputList<LogsIndexExclusionFiltersFiltersGetArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<LogsIndexExclusionFiltersFiltersGetArgs>());
-            set => _filters = value;
-        }
-
-        /// <summary>
-        /// A boolean stating if the exclusion is active or not.
-        /// </summary>
-        [Input("isEnabled")]
-        public Input<bool>? IsEnabled { get; set; }
-
-        /// <summary>
-        /// The name of the exclusion filter.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public LogsIndexExclusionFiltersGetArgs()
-        {
-        }
-    }
-
-    public sealed class LogsIndexFiltersArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-        /// </summary>
-        [Input("query", required: true)]
-        public Input<string> Query { get; set; } = null!;
-
-        public LogsIndexFiltersArgs()
-        {
-        }
-    }
-
-    public sealed class LogsIndexFiltersGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-        /// </summary>
-        [Input("query", required: true)]
-        public Input<string> Query { get; set; } = null!;
-
-        public LogsIndexFiltersGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class LogsIndexExclusionFilters
-    {
-        public readonly ImmutableArray<LogsIndexExclusionFiltersFilters> Filters;
-        /// <summary>
-        /// A boolean stating if the exclusion is active or not.
-        /// </summary>
-        public readonly bool? IsEnabled;
-        /// <summary>
-        /// The name of the exclusion filter.
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private LogsIndexExclusionFilters(
-            ImmutableArray<LogsIndexExclusionFiltersFilters> filters,
-            bool? isEnabled,
-            string? name)
-        {
-            Filters = filters;
-            IsEnabled = isEnabled;
-            Name = name;
-        }
-    }
-
-    [OutputType]
-    public sealed class LogsIndexExclusionFiltersFilters
-    {
-        /// <summary>
-        /// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-        /// </summary>
-        public readonly string? Query;
-        /// <summary>
-        /// The fraction of logs excluded by the exclusion filter, when active.
-        /// </summary>
-        public readonly double? SampleRate;
-
-        [OutputConstructor]
-        private LogsIndexExclusionFiltersFilters(
-            string? query,
-            double? sampleRate)
-        {
-            Query = query;
-            SampleRate = sampleRate;
-        }
-    }
-
-    [OutputType]
-    public sealed class LogsIndexFilters
-    {
-        /// <summary>
-        /// Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-        /// </summary>
-        public readonly string Query;
-
-        [OutputConstructor]
-        private LogsIndexFilters(string query)
-        {
-            Query = query;
-        }
-    }
     }
 }

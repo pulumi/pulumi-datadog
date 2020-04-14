@@ -11,8 +11,6 @@ namespace Pulumi.Datadog.Gcp
 {
     /// <summary>
     /// Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_gcp.html.markdown.
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
@@ -61,7 +59,7 @@ namespace Pulumi.Datadog.Gcp
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Integration(string name, IntegrationArgs args, CustomResourceOptions? options = null)
-            : base("datadog:gcp/integration:Integration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:gcp/integration:Integration", name, args ?? new IntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 

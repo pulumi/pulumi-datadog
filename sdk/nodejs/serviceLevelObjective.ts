@@ -12,6 +12,7 @@ import * as utilities from "./utilities";
  * ## Example Usage
  * 
  * ### Metric-Based SLO
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -49,6 +50,7 @@ import * as utilities from "./utilities";
  * ```
  * 
  * ### Monitor-Based SLO
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";

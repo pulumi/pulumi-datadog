@@ -11,8 +11,6 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/service_level_objective.html.markdown.
     /// </summary>
     public partial class ServiceLevelObjective : Pulumi.CustomResource
     {
@@ -56,7 +54,7 @@ namespace Pulumi.Datadog
         /// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Output("thresholds")]
-        public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThresholds>> Thresholds { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
         /// <summary>
         /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
@@ -75,7 +73,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceLevelObjective(string name, ServiceLevelObjectiveArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/serviceLevelObjective:ServiceLevelObjective", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:index/serviceLevelObjective:ServiceLevelObjective", name, args ?? new ServiceLevelObjectiveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -167,14 +165,14 @@ namespace Pulumi.Datadog
         }
 
         [Input("thresholds", required: true)]
-        private InputList<Inputs.ServiceLevelObjectiveThresholdsArgs>? _thresholds;
+        private InputList<Inputs.ServiceLevelObjectiveThresholdArgs>? _thresholds;
 
         /// <summary>
         /// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
-        public InputList<Inputs.ServiceLevelObjectiveThresholdsArgs> Thresholds
+        public InputList<Inputs.ServiceLevelObjectiveThresholdArgs> Thresholds
         {
-            get => _thresholds ?? (_thresholds = new InputList<Inputs.ServiceLevelObjectiveThresholdsArgs>());
+            get => _thresholds ?? (_thresholds = new InputList<Inputs.ServiceLevelObjectiveThresholdArgs>());
             set => _thresholds = value;
         }
 
@@ -248,14 +246,14 @@ namespace Pulumi.Datadog
         }
 
         [Input("thresholds")]
-        private InputList<Inputs.ServiceLevelObjectiveThresholdsGetArgs>? _thresholds;
+        private InputList<Inputs.ServiceLevelObjectiveThresholdGetArgs>? _thresholds;
 
         /// <summary>
         /// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
-        public InputList<Inputs.ServiceLevelObjectiveThresholdsGetArgs> Thresholds
+        public InputList<Inputs.ServiceLevelObjectiveThresholdGetArgs> Thresholds
         {
-            get => _thresholds ?? (_thresholds = new InputList<Inputs.ServiceLevelObjectiveThresholdsGetArgs>());
+            get => _thresholds ?? (_thresholds = new InputList<Inputs.ServiceLevelObjectiveThresholdGetArgs>());
             set => _thresholds = value;
         }
 
@@ -270,199 +268,5 @@ namespace Pulumi.Datadog
         public ServiceLevelObjectiveState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ServiceLevelObjectiveQueryArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// the sum of the `total` events
-        /// * Example Usage:
-        /// </summary>
-        [Input("denominator", required: true)]
-        public Input<string> Denominator { get; set; } = null!;
-
-        /// <summary>
-        /// the sum of all the `good` events
-        /// </summary>
-        [Input("numerator", required: true)]
-        public Input<string> Numerator { get; set; } = null!;
-
-        public ServiceLevelObjectiveQueryArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceLevelObjectiveQueryGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// the sum of the `total` events
-        /// * Example Usage:
-        /// </summary>
-        [Input("denominator", required: true)]
-        public Input<string> Denominator { get; set; } = null!;
-
-        /// <summary>
-        /// the sum of all the `good` events
-        /// </summary>
-        [Input("numerator", required: true)]
-        public Input<string> Numerator { get; set; } = null!;
-
-        public ServiceLevelObjectiveQueryGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceLevelObjectiveThresholdsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// the objective's target `[0,100]`
-        /// </summary>
-        [Input("target", required: true)]
-        public Input<double> Target { get; set; } = null!;
-
-        /// <summary>
-        /// the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-        /// </summary>
-        [Input("targetDisplay")]
-        public Input<string>? TargetDisplay { get; set; }
-
-        /// <summary>
-        /// the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
-        /// * `7d`
-        /// * `30d`
-        /// * `90d`
-        /// </summary>
-        [Input("timeframe", required: true)]
-        public Input<string> Timeframe { get; set; } = null!;
-
-        /// <summary>
-        /// the objective's warning value `[0,100]`. This must be `&gt; target` value.
-        /// </summary>
-        [Input("warning")]
-        public Input<double>? Warning { get; set; }
-
-        /// <summary>
-        /// the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-        /// </summary>
-        [Input("warningDisplay")]
-        public Input<string>? WarningDisplay { get; set; }
-
-        public ServiceLevelObjectiveThresholdsArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceLevelObjectiveThresholdsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// the objective's target `[0,100]`
-        /// </summary>
-        [Input("target", required: true)]
-        public Input<double> Target { get; set; } = null!;
-
-        /// <summary>
-        /// the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-        /// </summary>
-        [Input("targetDisplay")]
-        public Input<string>? TargetDisplay { get; set; }
-
-        /// <summary>
-        /// the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
-        /// * `7d`
-        /// * `30d`
-        /// * `90d`
-        /// </summary>
-        [Input("timeframe", required: true)]
-        public Input<string> Timeframe { get; set; } = null!;
-
-        /// <summary>
-        /// the objective's warning value `[0,100]`. This must be `&gt; target` value.
-        /// </summary>
-        [Input("warning")]
-        public Input<double>? Warning { get; set; }
-
-        /// <summary>
-        /// the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-        /// </summary>
-        [Input("warningDisplay")]
-        public Input<string>? WarningDisplay { get; set; }
-
-        public ServiceLevelObjectiveThresholdsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ServiceLevelObjectiveQuery
-    {
-        /// <summary>
-        /// the sum of the `total` events
-        /// * Example Usage:
-        /// </summary>
-        public readonly string Denominator;
-        /// <summary>
-        /// the sum of all the `good` events
-        /// </summary>
-        public readonly string Numerator;
-
-        [OutputConstructor]
-        private ServiceLevelObjectiveQuery(
-            string denominator,
-            string numerator)
-        {
-            Denominator = denominator;
-            Numerator = numerator;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceLevelObjectiveThresholds
-    {
-        /// <summary>
-        /// the objective's target `[0,100]`
-        /// </summary>
-        public readonly double Target;
-        /// <summary>
-        /// the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-        /// </summary>
-        public readonly string? TargetDisplay;
-        /// <summary>
-        /// the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
-        /// * `7d`
-        /// * `30d`
-        /// * `90d`
-        /// </summary>
-        public readonly string Timeframe;
-        /// <summary>
-        /// the objective's warning value `[0,100]`. This must be `&gt; target` value.
-        /// </summary>
-        public readonly double? Warning;
-        /// <summary>
-        /// the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-        /// </summary>
-        public readonly string? WarningDisplay;
-
-        [OutputConstructor]
-        private ServiceLevelObjectiveThresholds(
-            double target,
-            string? targetDisplay,
-            string timeframe,
-            double? warning,
-            string? warningDisplay)
-        {
-            Target = target;
-            TargetDisplay = targetDisplay;
-            Timeframe = timeframe;
-            Warning = warning;
-            WarningDisplay = warningDisplay;
-        }
-    }
     }
 }

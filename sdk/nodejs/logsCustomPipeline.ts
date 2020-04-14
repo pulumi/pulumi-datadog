@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * 
  * ## Example Usage
  * 
- * Create a Datadog logs pipeline:
+ * 
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

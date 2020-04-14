@@ -11,8 +11,6 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/downtime.html.markdown.
     /// </summary>
     public partial class Downtime : Pulumi.CustomResource
     {
@@ -97,7 +95,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Downtime(string name, DowntimeArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/downtime:Downtime", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:index/downtime:Downtime", name, args ?? new DowntimeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -312,139 +310,5 @@ namespace Pulumi.Datadog
         public DowntimeState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DowntimeRecurrenceArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-        /// </summary>
-        [Input("period", required: true)]
-        public Input<int> Period { get; set; } = null!;
-
-        /// <summary>
-        /// days, weeks, months, or years
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
-        [Input("untilDate")]
-        public Input<int>? UntilDate { get; set; }
-
-        /// <summary>
-        /// How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
-        [Input("untilOccurrences")]
-        public Input<int>? UntilOccurrences { get; set; }
-
-        [Input("weekDays")]
-        private InputList<string>? _weekDays;
-
-        /// <summary>
-        /// A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
-        /// </summary>
-        public InputList<string> WeekDays
-        {
-            get => _weekDays ?? (_weekDays = new InputList<string>());
-            set => _weekDays = value;
-        }
-
-        public DowntimeRecurrenceArgs()
-        {
-        }
-    }
-
-    public sealed class DowntimeRecurrenceGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-        /// </summary>
-        [Input("period", required: true)]
-        public Input<int> Period { get; set; } = null!;
-
-        /// <summary>
-        /// days, weeks, months, or years
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
-
-        /// <summary>
-        /// The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
-        [Input("untilDate")]
-        public Input<int>? UntilDate { get; set; }
-
-        /// <summary>
-        /// How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
-        [Input("untilOccurrences")]
-        public Input<int>? UntilOccurrences { get; set; }
-
-        [Input("weekDays")]
-        private InputList<string>? _weekDays;
-
-        /// <summary>
-        /// A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
-        /// </summary>
-        public InputList<string> WeekDays
-        {
-            get => _weekDays ?? (_weekDays = new InputList<string>());
-            set => _weekDays = value;
-        }
-
-        public DowntimeRecurrenceGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DowntimeRecurrence
-    {
-        /// <summary>
-        /// How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-        /// </summary>
-        public readonly int Period;
-        /// <summary>
-        /// days, weeks, months, or years
-        /// </summary>
-        public readonly string Type;
-        /// <summary>
-        /// The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
-        public readonly int? UntilDate;
-        /// <summary>
-        /// How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
-        public readonly int? UntilOccurrences;
-        /// <summary>
-        /// A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
-        /// </summary>
-        public readonly ImmutableArray<string> WeekDays;
-
-        [OutputConstructor]
-        private DowntimeRecurrence(
-            int period,
-            string type,
-            int? untilDate,
-            int? untilOccurrences,
-            ImmutableArray<string> weekDays)
-        {
-            Period = period;
-            Type = type;
-            UntilDate = untilDate;
-            UntilOccurrences = untilOccurrences;
-            WeekDays = weekDays;
-        }
-    }
     }
 }

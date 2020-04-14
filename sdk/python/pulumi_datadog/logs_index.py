@@ -30,11 +30,10 @@ class LogsIndex(pulumi.CustomResource):
         """
         Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to create and manage Datadog logs indexes.
 
+
         ## Important Notes
 
         The order of indexes is maintained in the separated resource datadog_logs_index_order. 
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

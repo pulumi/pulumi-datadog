@@ -11,8 +11,6 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index_order.html.markdown.
     /// </summary>
     public partial class LogsIndexOrder : Pulumi.CustomResource
     {
@@ -37,7 +35,7 @@ namespace Pulumi.Datadog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogsIndexOrder(string name, LogsIndexOrderArgs args, CustomResourceOptions? options = null)
-            : base("datadog:index/logsIndexOrder:LogsIndexOrder", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:index/logsIndexOrder:LogsIndexOrder", name, args ?? new LogsIndexOrderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

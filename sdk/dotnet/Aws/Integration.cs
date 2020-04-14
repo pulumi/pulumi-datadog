@@ -13,8 +13,6 @@ namespace Pulumi.Datadog.Aws
     /// Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
     /// 
     /// Update operations are currently not supported with datadog API so any change forces a new resource.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
@@ -63,7 +61,7 @@ namespace Pulumi.Datadog.Aws
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Integration(string name, IntegrationArgs args, CustomResourceOptions? options = null)
-            : base("datadog:aws/integration:Integration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("datadog:aws/integration:Integration", name, args ?? new IntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
