@@ -2,12 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to Pulumi v1.13.1
-* Upgrade to pulumi-terraform-bridge v1.8.4
-* Refactor layout to support Go modules* Upgrade to Pulumi v1.13.1
-* Upgrade to pulumi-terraform-bridge v1.8.4
+_(none)_
 
 ---
+
+## 1.4.0 (2020-04-14)
+* Upgrade to Pulumi v1.13.1
+* Upgrade to pulumi-terraform-bridge v1.8.4
+* Refactor layout to support Go modules
+* Upgrade to Pulumi v1.13.1
+* Upgrade to pulumi-terraform-bridge v1.8.4
 
 ## 1.3.0 (2020-03-23)
 * Namespace names in .NET SDK are adjusted to PascalCase
