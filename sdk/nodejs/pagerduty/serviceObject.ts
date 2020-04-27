@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
  *     serviceKey: "9876543210123456789",
  *     serviceName: "testingFoo",
- * }, {dependsOn: [pd]});
+ * }, { dependsOn: [pd] });
  * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
  *     serviceKey: "54321098765432109876",
  *     serviceName: "testingBar",
- * }, {dependsOn: [pd]});
+ * }, { dependsOn: [pd] });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty_service_object.html.markdown.
