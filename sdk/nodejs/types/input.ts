@@ -3204,6 +3204,9 @@ export interface LogsIndexFilter {
 }
 
 export interface MonitorThresholdWindows {
+    /**
+     * describes how long an anomalous metric must be normal before the alert recovers.
+     */
     recoveryWindow?: pulumi.Input<string>;
     /**
      * describes how long a metric must be anomalous before an alert triggers.

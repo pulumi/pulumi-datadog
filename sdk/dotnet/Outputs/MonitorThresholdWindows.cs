@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class MonitorThresholdWindows
     {
+        /// <summary>
+        /// describes how long an anomalous metric must be normal before the alert recovers.
+        /// </summary>
         public readonly string? RecoveryWindow;
         /// <summary>
         /// describes how long a metric must be anomalous before an alert triggers.

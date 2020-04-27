@@ -21,6 +21,12 @@ class Monitor(pulumi.CustomResource):
     notification allowed elsewhere.
     """
     evaluation_delay: pulumi.Output[float]
+    """
+    Time (in seconds) to delay evaluation, as a non-negative integer.
+    For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+    the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+    metrics to ensure the monitor will always have data during evaluation.
+    """
     include_tags: pulumi.Output[bool]
     """
     A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
@@ -43,10 +49,6 @@ class Monitor(pulumi.CustomResource):
     Time (in seconds) to allow a host to boot and
     applications to fully start before starting the evaluation of monitor
     results. Should be a non negative integer. Defaults to 300.
-    * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-    For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-    the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-    metrics to ensure the monitor will always have data during evaluation.
     """
     no_data_timeframe: pulumi.Output[float]
     """
@@ -84,9 +86,8 @@ class Monitor(pulumi.CustomResource):
     threshold_windows: pulumi.Output[dict]
     """
     A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-    * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
 
-      * `recovery_window` (`str`)
+      * `recovery_window` (`str`) - describes how long an anomalous metric must be normal before the alert recovers.
       * `trigger_window` (`str`) - describes how long a metric must be anomalous before an alert triggers.
     """
     thresholds: pulumi.Output[dict]
@@ -151,6 +152,10 @@ class Monitor(pulumi.CustomResource):
                triggering tags into the title. Defaults to true.
         :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the '@username'
                notification allowed elsewhere.
+        :param pulumi.Input[float] evaluation_delay: Time (in seconds) to delay evaluation, as a non-negative integer.
+               For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+               the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+               metrics to ensure the monitor will always have data during evaluation.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
@@ -159,10 +164,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[float] new_host_delay: Time (in seconds) to allow a host to boot and
                applications to fully start before starting the evaluation of monitor
                results. Should be a non negative integer. Defaults to 300.
-               * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-               For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-               the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-               metrics to ensure the monitor will always have data during evaluation.
         :param pulumi.Input[float] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Must be at
                least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
                metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
@@ -177,7 +178,6 @@ class Monitor(pulumi.CustomResource):
                Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
         :param pulumi.Input[list] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[dict] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-               * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
         :param pulumi.Input[dict] thresholds: 
                * Metric alerts:
                A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
@@ -215,7 +215,7 @@ class Monitor(pulumi.CustomResource):
 
         The **threshold_windows** object supports the following:
 
-          * `recovery_window` (`pulumi.Input[str]`)
+          * `recovery_window` (`pulumi.Input[str]`) - describes how long an anomalous metric must be normal before the alert recovers.
           * `trigger_window` (`pulumi.Input[str]`) - describes how long a metric must be anomalous before an alert triggers.
 
         The **thresholds** object supports the following:
@@ -291,6 +291,10 @@ class Monitor(pulumi.CustomResource):
                triggering tags into the title. Defaults to true.
         :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the '@username'
                notification allowed elsewhere.
+        :param pulumi.Input[float] evaluation_delay: Time (in seconds) to delay evaluation, as a non-negative integer.
+               For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+               the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+               metrics to ensure the monitor will always have data during evaluation.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
@@ -299,10 +303,6 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[float] new_host_delay: Time (in seconds) to allow a host to boot and
                applications to fully start before starting the evaluation of monitor
                results. Should be a non negative integer. Defaults to 300.
-               * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-               For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-               the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-               metrics to ensure the monitor will always have data during evaluation.
         :param pulumi.Input[float] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Must be at
                least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
                metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
@@ -317,7 +317,6 @@ class Monitor(pulumi.CustomResource):
                Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
         :param pulumi.Input[list] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[dict] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-               * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
         :param pulumi.Input[dict] thresholds: 
                * Metric alerts:
                A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
@@ -355,7 +354,7 @@ class Monitor(pulumi.CustomResource):
 
         The **threshold_windows** object supports the following:
 
-          * `recovery_window` (`pulumi.Input[str]`)
+          * `recovery_window` (`pulumi.Input[str]`) - describes how long an anomalous metric must be normal before the alert recovers.
           * `trigger_window` (`pulumi.Input[str]`) - describes how long a metric must be anomalous before an alert triggers.
 
         The **thresholds** object supports the following:

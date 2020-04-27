@@ -54,7 +54,7 @@ class GetIpRangesResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if logs_ipv4s and not isinstance(logs_ipv4s, list):
             raise TypeError("Expected argument 'logs_ipv4s' to be a list")
