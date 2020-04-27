@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class MonitorThresholdWindowsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// describes how long an anomalous metric must be normal before the alert recovers.
+        /// </summary>
         [Input("recoveryWindow")]
         public Input<string>? RecoveryWindow { get; set; }
 

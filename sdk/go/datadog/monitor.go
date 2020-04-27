@@ -20,7 +20,11 @@ type Monitor struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrOutput `pulumi:"escalationMessage"`
-	EvaluationDelay   pulumi.IntOutput       `pulumi:"evaluationDelay"`
+	// Time (in seconds) to delay evaluation, as a non-negative integer.
+	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+	// metrics to ensure the monitor will always have data during evaluation.
+	EvaluationDelay pulumi.IntOutput `pulumi:"evaluationDelay"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -33,10 +37,6 @@ type Monitor struct {
 	// Time (in seconds) to allow a host to boot and
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
-	// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-	// metrics to ensure the monitor will always have data during evaluation.
 	NewHostDelay pulumi.IntPtrOutput `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Must be at
 	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
@@ -60,7 +60,6 @@ type Monitor struct {
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-	// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows MonitorThresholdWindowsPtrOutput `pulumi:"thresholdWindows"`
 	//
 	// * Metric alerts:
@@ -147,7 +146,11 @@ type monitorState struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
-	EvaluationDelay   *int    `pulumi:"evaluationDelay"`
+	// Time (in seconds) to delay evaluation, as a non-negative integer.
+	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+	// metrics to ensure the monitor will always have data during evaluation.
+	EvaluationDelay *int `pulumi:"evaluationDelay"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -160,10 +163,6 @@ type monitorState struct {
 	// Time (in seconds) to allow a host to boot and
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
-	// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-	// metrics to ensure the monitor will always have data during evaluation.
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Must be at
 	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
@@ -187,7 +186,6 @@ type monitorState struct {
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-	// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
 	//
 	// * Metric alerts:
@@ -235,7 +233,11 @@ type MonitorState struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
-	EvaluationDelay   pulumi.IntPtrInput
+	// Time (in seconds) to delay evaluation, as a non-negative integer.
+	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+	// metrics to ensure the monitor will always have data during evaluation.
+	EvaluationDelay pulumi.IntPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -248,10 +250,6 @@ type MonitorState struct {
 	// Time (in seconds) to allow a host to boot and
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
-	// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-	// metrics to ensure the monitor will always have data during evaluation.
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. Must be at
 	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
@@ -275,7 +273,6 @@ type MonitorState struct {
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-	// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows MonitorThresholdWindowsPtrInput
 	//
 	// * Metric alerts:
@@ -327,7 +324,11 @@ type monitorArgs struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
-	EvaluationDelay   *int    `pulumi:"evaluationDelay"`
+	// Time (in seconds) to delay evaluation, as a non-negative integer.
+	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+	// metrics to ensure the monitor will always have data during evaluation.
+	EvaluationDelay *int `pulumi:"evaluationDelay"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -340,10 +341,6 @@ type monitorArgs struct {
 	// Time (in seconds) to allow a host to boot and
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
-	// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-	// metrics to ensure the monitor will always have data during evaluation.
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Must be at
 	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
@@ -367,7 +364,6 @@ type monitorArgs struct {
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-	// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
 	//
 	// * Metric alerts:
@@ -416,7 +412,11 @@ type MonitorArgs struct {
 	// A message to include with a re-notification. Supports the '@username'
 	// notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
-	EvaluationDelay   pulumi.IntPtrInput
+	// Time (in seconds) to delay evaluation, as a non-negative integer.
+	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+	// metrics to ensure the monitor will always have data during evaluation.
+	EvaluationDelay pulumi.IntPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -429,10 +429,6 @@ type MonitorArgs struct {
 	// Time (in seconds) to allow a host to boot and
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
-	// * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-	// For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-	// metrics to ensure the monitor will always have data during evaluation.
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. Must be at
 	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
@@ -456,7 +452,6 @@ type MonitorArgs struct {
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-	// * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
 	ThresholdWindows MonitorThresholdWindowsPtrInput
 	//
 	// * Metric alerts:

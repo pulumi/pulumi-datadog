@@ -43,6 +43,12 @@ export class Monitor extends pulumi.CustomResource {
      * notification allowed elsewhere.
      */
     public readonly escalationMessage!: pulumi.Output<string | undefined>;
+    /**
+     * Time (in seconds) to delay evaluation, as a non-negative integer.
+     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+     * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+     * metrics to ensure the monitor will always have data during evaluation.
+     */
     public readonly evaluationDelay!: pulumi.Output<number>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
@@ -65,10 +71,6 @@ export class Monitor extends pulumi.CustomResource {
      * Time (in seconds) to allow a host to boot and
      * applications to fully start before starting the evaluation of monitor
      * results. Should be a non negative integer. Defaults to 300.
-     * * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-     * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-     * metrics to ensure the monitor will always have data during evaluation.
      */
     public readonly newHostDelay!: pulumi.Output<number | undefined>;
     /**
@@ -106,7 +108,6 @@ export class Monitor extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-     * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
     public readonly thresholdWindows!: pulumi.Output<outputs.MonitorThresholdWindows | undefined>;
     /**
@@ -245,6 +246,12 @@ export interface MonitorState {
      * notification allowed elsewhere.
      */
     readonly escalationMessage?: pulumi.Input<string>;
+    /**
+     * Time (in seconds) to delay evaluation, as a non-negative integer.
+     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+     * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+     * metrics to ensure the monitor will always have data during evaluation.
+     */
     readonly evaluationDelay?: pulumi.Input<number>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
@@ -267,10 +274,6 @@ export interface MonitorState {
      * Time (in seconds) to allow a host to boot and
      * applications to fully start before starting the evaluation of monitor
      * results. Should be a non negative integer. Defaults to 300.
-     * * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-     * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-     * metrics to ensure the monitor will always have data during evaluation.
      */
     readonly newHostDelay?: pulumi.Input<number>;
     /**
@@ -308,7 +311,6 @@ export interface MonitorState {
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-     * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
     readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**
@@ -370,6 +372,12 @@ export interface MonitorArgs {
      * notification allowed elsewhere.
      */
     readonly escalationMessage?: pulumi.Input<string>;
+    /**
+     * Time (in seconds) to delay evaluation, as a non-negative integer.
+     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
+     * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+     * metrics to ensure the monitor will always have data during evaluation.
+     */
     readonly evaluationDelay?: pulumi.Input<number>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
@@ -392,10 +400,6 @@ export interface MonitorArgs {
      * Time (in seconds) to allow a host to boot and
      * applications to fully start before starting the evaluation of monitor
      * results. Should be a non negative integer. Defaults to 300.
-     * * `evaluationDelay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-     * For example, if the value is set to 300 (5min), the timeframe is set to last5m and the time is 7:00,
-     * the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-     * metrics to ensure the monitor will always have data during evaluation.
      */
     readonly newHostDelay?: pulumi.Input<number>;
     /**
@@ -433,7 +437,6 @@ export interface MonitorArgs {
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
-     * * `recoveryWindow` describes how long an anomalous metric must be normal before the alert recovers.
      */
     readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**

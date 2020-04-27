@@ -31,7 +31,7 @@ type GetIpRangesResult struct {
 	ApmIpv4s []string `pulumi:"apmIpv4s"`
 	// An Array of IPv6 addresses in CIDR format specifying the A records for the apm endpoint.
 	ApmIpv6s []string `pulumi:"apmIpv6s"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An Array of IPv4 addresses in CIDR format specifying the A records for the logs endpoint.
 	LogsIpv4s []string `pulumi:"logsIpv4s"`

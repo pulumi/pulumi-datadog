@@ -28,6 +28,12 @@ namespace Pulumi.Datadog
         [Output("escalationMessage")]
         public Output<string?> EscalationMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// Time (in seconds) to delay evaluation, as a non-negative integer.
+        /// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+        /// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+        /// metrics to ensure the monitor will always have data during evaluation.
+        /// </summary>
         [Output("evaluationDelay")]
         public Output<int> EvaluationDelay { get; private set; } = null!;
 
@@ -60,10 +66,6 @@ namespace Pulumi.Datadog
         /// Time (in seconds) to allow a host to boot and
         /// applications to fully start before starting the evaluation of monitor
         /// results. Should be a non negative integer. Defaults to 300.
-        /// * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-        /// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-        /// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-        /// metrics to ensure the monitor will always have data during evaluation.
         /// </summary>
         [Output("newHostDelay")]
         public Output<int?> NewHostDelay { get; private set; } = null!;
@@ -119,7 +121,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-        /// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
         /// </summary>
         [Output("thresholdWindows")]
         public Output<Outputs.MonitorThresholdWindows?> ThresholdWindows { get; private set; } = null!;
@@ -233,6 +234,12 @@ namespace Pulumi.Datadog
         [Input("escalationMessage")]
         public Input<string>? EscalationMessage { get; set; }
 
+        /// <summary>
+        /// Time (in seconds) to delay evaluation, as a non-negative integer.
+        /// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+        /// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+        /// metrics to ensure the monitor will always have data during evaluation.
+        /// </summary>
         [Input("evaluationDelay")]
         public Input<int>? EvaluationDelay { get; set; }
 
@@ -265,10 +272,6 @@ namespace Pulumi.Datadog
         /// Time (in seconds) to allow a host to boot and
         /// applications to fully start before starting the evaluation of monitor
         /// results. Should be a non negative integer. Defaults to 300.
-        /// * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-        /// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-        /// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-        /// metrics to ensure the monitor will always have data during evaluation.
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }
@@ -336,7 +339,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-        /// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
         /// </summary>
         [Input("thresholdWindows")]
         public Input<Inputs.MonitorThresholdWindowsArgs>? ThresholdWindows { get; set; }
@@ -411,6 +413,12 @@ namespace Pulumi.Datadog
         [Input("escalationMessage")]
         public Input<string>? EscalationMessage { get; set; }
 
+        /// <summary>
+        /// Time (in seconds) to delay evaluation, as a non-negative integer.
+        /// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
+        /// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
+        /// metrics to ensure the monitor will always have data during evaluation.
+        /// </summary>
         [Input("evaluationDelay")]
         public Input<int>? EvaluationDelay { get; set; }
 
@@ -443,10 +451,6 @@ namespace Pulumi.Datadog
         /// Time (in seconds) to allow a host to boot and
         /// applications to fully start before starting the evaluation of monitor
         /// results. Should be a non negative integer. Defaults to 300.
-        /// * `evaluation_delay` (Optional, only applies to metric alert) Time (in seconds) to delay evaluation, as a non-negative integer.
-        /// For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-        /// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-        /// metrics to ensure the monitor will always have data during evaluation.
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }
@@ -514,7 +518,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-        /// * `recovery_window` describes how long an anomalous metric must be normal before the alert recovers.
         /// </summary>
         [Input("thresholdWindows")]
         public Input<Inputs.MonitorThresholdWindowsGetArgs>? ThresholdWindows { get; set; }
