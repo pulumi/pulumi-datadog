@@ -46,6 +46,20 @@ class User(pulumi.CustomResource):
         """
         Provides a Datadog user resource. This can be used to create and manage Datadog users.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog user
+        foo = datadog.User("foo",
+            email="new@example.com",
+            handle="new@example.com",
+            name="New User")
+        ```
 
 
         :param str resource_name: The name of the resource.

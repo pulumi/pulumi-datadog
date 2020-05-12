@@ -39,6 +39,22 @@ class MetricMetadata(pulumi.CustomResource):
         """
         Provides a Datadog metric_metadata resource. This can be used to manage a metric's metadata.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Manage a Datadog metric's metadata
+        request_time = datadog.MetricMetadata("requestTime",
+            description="99th percentile request time in millseconds",
+            metric="request.time",
+            short_name="Request time",
+            type="gauge",
+            unit="millisecond")
+        ```
 
 
         :param str resource_name: The name of the resource.

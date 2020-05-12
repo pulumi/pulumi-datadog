@@ -22,6 +22,18 @@ class LogsIndexOrder(pulumi.CustomResource):
         """
         Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        sample_index_order = datadog.LogsIndexOrder("sampleIndexOrder",
+            name="sample_index_order",
+            indexes=[datadog_logs_index["sample_index"]["id"]])
+        ```
 
 
         :param str resource_name: The name of the resource.

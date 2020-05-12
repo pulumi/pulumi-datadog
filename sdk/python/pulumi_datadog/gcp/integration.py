@@ -38,6 +38,27 @@ class Integration(pulumi.CustomResource):
         """
         Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Google Cloud Platform integration
+        awesome_gcp_project_integration = datadog.gcp.Integration("awesomeGcpProjectIntegration",
+            client_email="awesome-service-account@awesome-project-id.iam.gserviceaccount.com",
+            client_id="123456789012345678901",
+            host_filters="foo:bar,buzz:lightyear",
+            private_key=\"\"\"-----BEGIN PRIVATE KEY-----
+        ...
+        -----END PRIVATE KEY-----
+
+        \"\"\",
+            private_key_id="1234567890123456789012345678901234567890",
+            project_id="awesome-project-id")
+        ```
 
 
         :param str resource_name: The name of the resource.

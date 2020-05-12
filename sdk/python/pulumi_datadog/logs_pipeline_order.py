@@ -24,6 +24,21 @@ class LogsPipelineOrder(pulumi.CustomResource):
         Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to manage Datadog log pipelines order.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        sample_pipeline_order = datadog.LogsPipelineOrder("samplePipelineOrder",
+            name="sample_pipeline_order",
+            pipelines=[
+                datadog_logs_custom_pipeline["sample_pipeline"]["id"],
+                datadog_logs_integration_pipeline["python"]["id"],
+            ])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -23,10 +23,7 @@ class DashboardList(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, dash_items=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
-
-
-
+        Create a DashboardList resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:

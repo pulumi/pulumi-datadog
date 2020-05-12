@@ -61,6 +61,78 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 
+        ## Example Usage
+
+        ### Metric-Based SLO
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog service level objective
+        foo = datadog.ServiceLevelObjective("foo",
+            description="My custom metric SLO",
+            name="Example Metric SLO",
+            query={
+                "denominator": "sum:my.custom.count.metric{*}.as_count()",
+                "numerator": "sum:my.custom.count.metric{type:good_events}.as_count()",
+            },
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            thresholds=[
+                {
+                    "target": 99.9,
+                    "targetDisplay": "99.900",
+                    "timeframe": "7d",
+                    "warning": 99.99,
+                    "warningDisplay": "99.990",
+                },
+                {
+                    "target": 99.9,
+                    "targetDisplay": "99.900",
+                    "timeframe": "30d",
+                    "warning": 99.99,
+                    "warningDisplay": "99.990",
+                },
+            ],
+            type="metric")
+        ```
+
+        ### Monitor-Based SLO
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog service level objective
+        bar = datadog.ServiceLevelObjective("bar",
+            description="My custom monitor SLO",
+            monitor_ids=[
+                1,
+                2,
+                3,
+            ],
+            name="Example Monitor SLO",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            thresholds=[
+                {
+                    "target": 99.9,
+                    "timeframe": "7d",
+                    "warning": 99.99,
+                },
+                {
+                    "target": 99.9,
+                    "timeframe": "30d",
+                    "warning": 99.99,
+                },
+            ],
+            type="monitor")
+        ```
 
 
         :param str resource_name: The name of the resource.

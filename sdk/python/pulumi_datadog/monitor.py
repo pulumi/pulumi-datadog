@@ -142,10 +142,7 @@ class Monitor(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, include_tags=None, locked=None, message=None, name=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, silenced=None, tags=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
-
-
-
+        Create a Monitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.

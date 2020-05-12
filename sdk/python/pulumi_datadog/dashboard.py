@@ -1675,10 +1675,7 @@ class Dashboard(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
-
-        > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/#dashboards) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `.TimeBoard` and `.ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
-
+        Create a Dashboard resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the dashboard.
