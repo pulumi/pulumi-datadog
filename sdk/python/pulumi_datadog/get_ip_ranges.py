@@ -129,6 +129,16 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
 def get_ip_ranges(opts=None):
     """
     Use this data source to retrieve information about Datadog's IP addresses.
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_ip_ranges()
+    ```
     """
     __args__ = dict()
 

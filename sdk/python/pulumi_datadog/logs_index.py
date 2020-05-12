@@ -28,13 +28,7 @@ class LogsIndex(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, exclusion_filters=None, filters=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to create and manage Datadog logs indexes.
-
-
-        ## Important Notes
-
-        The order of indexes is maintained in the separated resource datadog_logs_index_order. 
-
+        Create a LogsIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] exclusion_filters: List of exclusion filters.

@@ -25,6 +25,16 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         .LogsPipelineOrder resource. If you don't need the
         `pipeline_order` feature, this resource declaration can be omitted.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

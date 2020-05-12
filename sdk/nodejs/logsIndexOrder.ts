@@ -9,6 +9,19 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
  * 
+ * ## Example Usage
+ * 
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ * 
+ * const sampleIndexOrder = new datadog.LogsIndexOrder("sampleIndexOrder", {
+ *     name: "sampleIndexOrder",
+ *     indexes: [datadog_logs_index.sample_index.id],
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_index_order.html.markdown.
  */

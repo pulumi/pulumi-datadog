@@ -68,6 +68,41 @@ class Downtime(pulumi.CustomResource):
         """
         Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
+        ## Example: downtime for a specific monitor
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new daily 1700-0900 Datadog downtime for a specific monitor id
+        foo = datadog.Downtime("foo",
+            end=1483365600,
+            monitor_id=12345,
+            recurrence={
+                "period": 1,
+                "type": "days",
+            },
+            scopes=["*"],
+            start=1483308000)
+        ```
+
+        ## Example: downtime for all monitors
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new daily 1700-0900 Datadog downtime for all monitors
+        foo = datadog.Downtime("foo",
+            end=1483365600,
+            recurrence={
+                "period": 1,
+                "type": "days",
+            },
+            scopes=["*"],
+            start=1483308000)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: A flag indicating if the downtime is active now.

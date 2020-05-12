@@ -116,12 +116,7 @@ class TimeBoard(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, graphs=None, read_only=None, template_variables=None, title=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
-
-        > **Note:**This resource is outdated. Use the new `.Dashboard` resource instead.
-
-
-
+        Create a TimeBoard resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.

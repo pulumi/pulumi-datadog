@@ -6,14 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
- * 
- * > **Note:**This resource is outdated. Use the new `datadog..Dashboard` resource instead.
- * 
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/timeboard.html.markdown.
- */
 export class TimeBoard extends pulumi.CustomResource {
     /**
      * Get an existing TimeBoard resource's state with the given name, ID, and optional extra

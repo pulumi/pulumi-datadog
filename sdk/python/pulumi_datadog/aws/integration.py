@@ -40,6 +40,28 @@ class Integration(pulumi.CustomResource):
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Amazon Web Services integration
+        sandbox = datadog.aws.Integration("sandbox",
+            account_id="1234567890",
+            account_specific_namespace_rules={
+                "auto_scaling": False,
+                "opsworks": False,
+            },
+            filter_tags=["key:value"],
+            host_tags=[
+                "key:value",
+                "key2:value2",
+            ],
+            role_name="DatadogAWSIntegrationRole")
+        ```
 
 
         :param str resource_name: The name of the resource.
