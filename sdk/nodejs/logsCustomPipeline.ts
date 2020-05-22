@@ -8,16 +8,16 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to create and manage Datadog logs custom pipelines.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * const samplePipeline = new datadog.LogsCustomPipeline("samplePipeline", {
  *     filters: [{
  *         query: "source:foo",
@@ -172,16 +172,14 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * 
+ *
  * ## Important Notes
- * 
+ *
  * Each `datadog..LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
  * a different resource datadog_logs_pipeline_order.
  * When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog..LogsPipelineOrder` 
  * resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the 
  * `datadog..LogsPipelineOrder` resource.
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_custom_pipeline.html.markdown.
  */
 export class LogsCustomPipeline extends pulumi.CustomResource {
     /**

@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog user resource. This can be used to create and manage Datadog users.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * // Create a new Datadog user
  * const foo = new datadog.User("foo", {
  *     email: "new@example.com",
@@ -24,8 +24,6 @@ import * as utilities from "./utilities";
  *     name: "New User",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -160,7 +158,6 @@ export interface UserState {
     readonly handle?: pulumi.Input<string>;
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-     * 
      * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
@@ -170,7 +167,6 @@ export interface UserState {
     readonly name?: pulumi.Input<string>;
     /**
      * Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-     * 
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
@@ -202,7 +198,6 @@ export interface UserArgs {
     readonly handle: pulumi.Input<string>;
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-     * 
      * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
@@ -212,7 +207,6 @@ export interface UserArgs {
     readonly name: pulumi.Input<string>;
     /**
      * Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-     * 
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;

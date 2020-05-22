@@ -8,16 +8,16 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to manage Datadog log pipelines order.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * const samplePipelineOrder = new datadog.LogsPipelineOrder("samplePipelineOrder", {
  *     name: "samplePipelineOrder",
  *     pipelines: [
@@ -26,8 +26,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_pipeline_order.html.markdown.
  */
 export class LogsPipelineOrder extends pulumi.CustomResource {
     /**

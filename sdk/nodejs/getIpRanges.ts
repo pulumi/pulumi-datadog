@@ -9,17 +9,15 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to retrieve information about Datadog's IP addresses.
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * const test = pulumi.output(datadog.getIpRanges({ async: true }));
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/d/ip_ranges.html.markdown.
  */
 export function getIpRanges(opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
     if (!opts) {

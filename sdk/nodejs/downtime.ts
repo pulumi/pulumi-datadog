@@ -8,13 +8,13 @@ import * as utilities from "./utilities";
 
 /**
  * Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
- * 
+ *
  * ## Example: downtime for a specific monitor
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * // Create a new daily 1700-0900 Datadog downtime for a specific monitor id
  * const foo = new datadog.Downtime("foo", {
  *     end: 1483365600,
@@ -27,13 +27,13 @@ import * as utilities from "./utilities";
  *     start: 1483308000,
  * });
  * ```
- * 
+ *
  * ## Example: downtime for all monitors
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * // Create a new daily 1700-0900 Datadog downtime for all monitors
  * const foo = new datadog.Downtime("foo", {
  *     end: 1483365600,
@@ -45,8 +45,6 @@ import * as utilities from "./utilities";
  *     start: 1483308000,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/downtime.html.markdown.
  */
 export class Downtime extends pulumi.CustomResource {
     /**

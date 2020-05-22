@@ -111,7 +111,6 @@ export interface IntegrationState {
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
-     * 
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
     readonly services?: pulumi.Input<pulumi.Input<inputs.pagerduty.IntegrationService>[]>;
@@ -139,7 +138,6 @@ export interface IntegrationArgs {
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
-     * 
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
     readonly services?: pulumi.Input<pulumi.Input<inputs.pagerduty.IntegrationService>[]>;
