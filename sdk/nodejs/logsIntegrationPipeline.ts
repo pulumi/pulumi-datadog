@@ -9,27 +9,25 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource to manage
  * the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
- * 
+ *
  * Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with 
  * specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, 
  * allows you to manage the order of your pipelines by referencing them in your 
  * datadog..LogsPipelineOrder resource. If you don't need the
  * `pipelineOrder` feature, this resource declaration can be omitted.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * const python = new datadog.LogsIntegrationPipeline("python", {
  *     isEnabled: true,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/logs_integration_pipeline.html.markdown.
  */
 export class LogsIntegrationPipeline extends pulumi.CustomResource {
     /**

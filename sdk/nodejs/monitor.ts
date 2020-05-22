@@ -111,7 +111,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly thresholdWindows!: pulumi.Output<outputs.MonitorThresholdWindows | undefined>;
     /**
-     * 
+     *
      * * Metric alerts:
      * A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
      * Example usage:
@@ -314,7 +314,7 @@ export interface MonitorState {
      */
     readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**
-     * 
+     *
      * * Metric alerts:
      * A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
      * Example usage:
@@ -440,7 +440,7 @@ export interface MonitorArgs {
      */
     readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**
-     * 
+     *
      * * Metric alerts:
      * A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
      * Example usage:

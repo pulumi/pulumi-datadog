@@ -8,15 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [datadog.pagerduty.Integration](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * const pd = new datadog.pagerduty.Integration("pd", {
  *     apiToken: "38457822378273432587234242874",
  *     individualServices: true,
@@ -35,8 +35,6 @@ import * as utilities from "../utilities";
  *     serviceName: "testingBar",
  * }, { dependsOn: [pd] });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_pagerduty_service_object.html.markdown.
  */
 export class ServiceObject extends pulumi.CustomResource {
     /**

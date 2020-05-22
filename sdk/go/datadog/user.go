@@ -23,10 +23,14 @@ type User struct {
 	// The user handle, must be a valid email.
 	Handle pulumi.StringOutput `pulumi:"handle"`
 	// (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
 	IsAdmin pulumi.BoolOutput `pulumi:"isAdmin"`
 	// Name for user
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter was removed from the API and has no effect
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// Returns true if Datadog user is verified
 	Verified pulumi.BoolOutput `pulumi:"verified"`
@@ -78,10 +82,14 @@ type userState struct {
 	// The user handle, must be a valid email.
 	Handle *string `pulumi:"handle"`
 	// (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
 	IsAdmin *bool `pulumi:"isAdmin"`
 	// Name for user
 	Name *string `pulumi:"name"`
 	// Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter was removed from the API and has no effect
 	Role *string `pulumi:"role"`
 	// Returns true if Datadog user is verified
 	Verified *bool `pulumi:"verified"`
@@ -97,10 +105,14 @@ type UserState struct {
 	// The user handle, must be a valid email.
 	Handle pulumi.StringPtrInput
 	// (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
 	IsAdmin pulumi.BoolPtrInput
 	// Name for user
 	Name pulumi.StringPtrInput
 	// Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter was removed from the API and has no effect
 	Role pulumi.StringPtrInput
 	// Returns true if Datadog user is verified
 	Verified pulumi.BoolPtrInput
@@ -120,10 +132,14 @@ type userArgs struct {
 	// The user handle, must be a valid email.
 	Handle string `pulumi:"handle"`
 	// (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
 	IsAdmin *bool `pulumi:"isAdmin"`
 	// Name for user
 	Name string `pulumi:"name"`
 	// Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter was removed from the API and has no effect
 	Role *string `pulumi:"role"`
 }
 
@@ -138,10 +154,14 @@ type UserArgs struct {
 	// The user handle, must be a valid email.
 	Handle pulumi.StringInput
 	// (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
 	IsAdmin pulumi.BoolPtrInput
 	// Name for user
 	Name pulumi.StringInput
 	// Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+	//
+	// Deprecated: This parameter was removed from the API and has no effect
 	Role pulumi.StringPtrInput
 }
 

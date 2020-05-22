@@ -56,7 +56,8 @@ type Monitor struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
-	Silenced          pulumi.MapOutput     `pulumi:"silenced"`
+	// Deprecated: use Downtime Resource instead
+	Silenced pulumi.MapOutput `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -181,8 +182,9 @@ type monitorState struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
-	RequireFullWindow *bool                  `pulumi:"requireFullWindow"`
-	Silenced          map[string]interface{} `pulumi:"silenced"`
+	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// Deprecated: use Downtime Resource instead
+	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -269,7 +271,8 @@ type MonitorState struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
-	Silenced          pulumi.MapInput
+	// Deprecated: use Downtime Resource instead
+	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -359,8 +362,9 @@ type monitorArgs struct {
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
-	RequireFullWindow *bool                  `pulumi:"requireFullWindow"`
-	Silenced          map[string]interface{} `pulumi:"silenced"`
+	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// Deprecated: use Downtime Resource instead
+	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
@@ -448,7 +452,8 @@ type MonitorArgs struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
-	Silenced          pulumi.MapInput
+	// Deprecated: use Downtime Resource instead
+	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.

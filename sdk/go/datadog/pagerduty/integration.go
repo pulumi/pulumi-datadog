@@ -20,6 +20,8 @@ type Integration struct {
 	// Array of your schedule URLs.
 	Schedules pulumi.StringArrayOutput `pulumi:"schedules"`
 	// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	//
+	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services IntegrationServiceArrayOutput `pulumi:"services"`
 	// Your PagerDuty account’s personalized subdomain name.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
@@ -63,6 +65,8 @@ type integrationState struct {
 	// Array of your schedule URLs.
 	Schedules []string `pulumi:"schedules"`
 	// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	//
+	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services []IntegrationService `pulumi:"services"`
 	// Your PagerDuty account’s personalized subdomain name.
 	Subdomain *string `pulumi:"subdomain"`
@@ -76,6 +80,8 @@ type IntegrationState struct {
 	// Array of your schedule URLs.
 	Schedules pulumi.StringArrayInput
 	// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	//
+	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services IntegrationServiceArrayInput
 	// Your PagerDuty account’s personalized subdomain name.
 	Subdomain pulumi.StringPtrInput
@@ -93,6 +99,8 @@ type integrationArgs struct {
 	// Array of your schedule URLs.
 	Schedules []string `pulumi:"schedules"`
 	// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	//
+	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services []IntegrationService `pulumi:"services"`
 	// Your PagerDuty account’s personalized subdomain name.
 	Subdomain string `pulumi:"subdomain"`
@@ -107,6 +115,8 @@ type IntegrationArgs struct {
 	// Array of your schedule URLs.
 	Schedules pulumi.StringArrayInput
 	// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	//
+	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services IntegrationServiceArrayInput
 	// Your PagerDuty account’s personalized subdomain name.
 	Subdomain pulumi.StringInput

@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
- * 
+ *
  * Update operations are currently not supported with datadog API so any change forces a new resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
- * 
+ *
  * // Create a new Datadog - Amazon Web Services integration
  * const sandbox = new datadog.aws.Integration("sandbox", {
  *     accountId: "1234567890",
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     roleName: "DatadogAWSIntegrationRole",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-datadog/blob/master/website/docs/r/integration_aws.html.markdown.
  */
 export class Integration extends pulumi.CustomResource {
     /**
