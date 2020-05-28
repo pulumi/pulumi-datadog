@@ -9,9 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
-    /// <summary>
-    /// Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
-    /// </summary>
     public partial class DashboardList : Pulumi.CustomResource
     {
         /// <summary>

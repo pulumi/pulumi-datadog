@@ -11,6 +11,107 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Metric-Based SLO
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog service level objective
+    ///         var foo = new Datadog.ServiceLevelObjective("foo", new Datadog.ServiceLevelObjectiveArgs
+    ///         {
+    ///             Description = "My custom metric SLO",
+    ///             Name = "Example Metric SLO",
+    ///             Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs
+    ///             {
+    ///                 Denominator = "sum:my.custom.count.metric{*}.as_count()",
+    ///                 Numerator = "sum:my.custom.count.metric{type:good_events}.as_count()",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 "foo:bar",
+    ///                 "baz",
+    ///             },
+    ///             Thresholds = 
+    ///             {
+    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///                 {
+    ///                     Target = 99.9,
+    ///                     TargetDisplay = "99.900",
+    ///                     Timeframe = "7d",
+    ///                     Warning = 99.99,
+    ///                     WarningDisplay = "99.990",
+    ///                 },
+    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///                 {
+    ///                     Target = 99.9,
+    ///                     TargetDisplay = "99.900",
+    ///                     Timeframe = "30d",
+    ///                     Warning = 99.99,
+    ///                     WarningDisplay = "99.990",
+    ///                 },
+    ///             },
+    ///             Type = "metric",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ### Monitor-Based SLO
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog service level objective
+    ///         var bar = new Datadog.ServiceLevelObjective("bar", new Datadog.ServiceLevelObjectiveArgs
+    ///         {
+    ///             Description = "My custom monitor SLO",
+    ///             MonitorIds = 
+    ///             {
+    ///                 1,
+    ///                 2,
+    ///                 3,
+    ///             },
+    ///             Name = "Example Monitor SLO",
+    ///             Tags = 
+    ///             {
+    ///                 "foo:bar",
+    ///                 "baz",
+    ///             },
+    ///             Thresholds = 
+    ///             {
+    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///                 {
+    ///                     Target = 99.9,
+    ///                     Timeframe = "7d",
+    ///                     Warning = 99.99,
+    ///                 },
+    ///                 new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs
+    ///                 {
+    ///                     Target = 99.9,
+    ///                     Timeframe = "30d",
+    ///                     Warning = 99.99,
+    ///                 },
+    ///             },
+    ///             Type = "monitor",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ServiceLevelObjective : Pulumi.CustomResource
     {

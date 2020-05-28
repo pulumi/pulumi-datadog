@@ -18,6 +18,27 @@ namespace Pulumi.Datadog
     /// allows you to manage the order of your pipelines by referencing them in your 
     /// datadog..LogsPipelineOrder resource. If you don't need the
     /// `pipeline_order` feature, this resource declaration can be omitted.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var python = new Datadog.LogsIntegrationPipeline("python", new Datadog.LogsIntegrationPipelineArgs
+    ///         {
+    ///             IsEnabled = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LogsIntegrationPipeline : Pulumi.CustomResource
     {

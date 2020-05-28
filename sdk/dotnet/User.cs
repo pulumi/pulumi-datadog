@@ -11,6 +11,30 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog user resource. This can be used to create and manage Datadog users.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog user
+    ///         var foo = new Datadog.User("foo", new Datadog.UserArgs
+    ///         {
+    ///             Email = "new@example.com",
+    ///             Handle = "new@example.com",
+    ///             Name = "New User",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

@@ -13,6 +13,43 @@ namespace Pulumi.Datadog.Aws
     /// Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
     /// 
     /// Update operations are currently not supported with datadog API so any change forces a new resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog - Amazon Web Services integration
+    ///         var sandbox = new Datadog.Aws.Integration("sandbox", new Datadog.Aws.IntegrationArgs
+    ///         {
+    ///             AccountId = "1234567890",
+    ///             AccountSpecificNamespaceRules = 
+    ///             {
+    ///                 { "auto_scaling", false },
+    ///                 { "opsworks", false },
+    ///             },
+    ///             FilterTags = 
+    ///             {
+    ///                 "key:value",
+    ///             },
+    ///             HostTags = 
+    ///             {
+    ///                 "key:value",
+    ///                 "key2:value2",
+    ///             },
+    ///             RoleName = "DatadogAWSIntegrationRole",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
