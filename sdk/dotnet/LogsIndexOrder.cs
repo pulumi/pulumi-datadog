@@ -11,6 +11,31 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sampleIndexOrder = new Datadog.LogsIndexOrder("sampleIndexOrder", new Datadog.LogsIndexOrderArgs
+    ///         {
+    ///             Name = "sample_index_order",
+    ///             Indexes = 
+    ///             {
+    ///                 datadog_logs_index.Sample_index.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LogsIndexOrder : Pulumi.CustomResource
     {

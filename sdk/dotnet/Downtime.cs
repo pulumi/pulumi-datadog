@@ -11,6 +11,67 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
+    /// 
+    /// ## Example: downtime for a specific monitor
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new daily 1700-0900 Datadog downtime for a specific monitor id
+    ///         var foo = new Datadog.Downtime("foo", new Datadog.DowntimeArgs
+    ///         {
+    ///             End = 1483365600,
+    ///             MonitorId = 12345,
+    ///             Recurrence = new Datadog.Inputs.DowntimeRecurrenceArgs
+    ///             {
+    ///                 Period = 1,
+    ///                 Type = "days",
+    ///             },
+    ///             Scopes = 
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             Start = 1483308000,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example: downtime for all monitors
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new daily 1700-0900 Datadog downtime for all monitors
+    ///         var foo = new Datadog.Downtime("foo", new Datadog.DowntimeArgs
+    ///         {
+    ///             End = 1483365600,
+    ///             Recurrence = new Datadog.Inputs.DowntimeRecurrenceArgs
+    ///             {
+    ///                 Period = 1,
+    ///                 Type = "days",
+    ///             },
+    ///             Scopes = 
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             Start = 1483308000,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Downtime : Pulumi.CustomResource
     {

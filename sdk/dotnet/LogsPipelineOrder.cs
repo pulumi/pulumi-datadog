@@ -11,6 +11,33 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to manage Datadog log pipelines order.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var samplePipelineOrder = new Datadog.LogsPipelineOrder("samplePipelineOrder", new Datadog.LogsPipelineOrderArgs
+    ///         {
+    ///             Name = "sample_pipeline_order",
+    ///             Pipelines = 
+    ///             {
+    ///                 datadog_logs_custom_pipeline.Sample_pipeline.Id,
+    ///                 datadog_logs_integration_pipeline.Python.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LogsPipelineOrder : Pulumi.CustomResource
     {

@@ -11,6 +11,37 @@ namespace Pulumi.Datadog.Gcp
 {
     /// <summary>
     /// Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog - Google Cloud Platform integration
+    ///         var awesomeGcpProjectIntegration = new Datadog.Gcp.Integration("awesomeGcpProjectIntegration", new Datadog.Gcp.IntegrationArgs
+    ///         {
+    ///             ClientEmail = "awesome-service-account@awesome-project-id.iam.gserviceaccount.com",
+    ///             ClientId = "123456789012345678901",
+    ///             HostFilters = "foo:bar,buzz:lightyear",
+    ///             PrivateKey = @"-----BEGIN PRIVATE KEY-----
+    /// ...
+    /// -----END PRIVATE KEY-----
+    /// 
+    /// ",
+    ///             PrivateKeyId = "1234567890123456789012345678901234567890",
+    ///             ProjectId = "awesome-project-id",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {

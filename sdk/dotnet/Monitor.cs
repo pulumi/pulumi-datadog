@@ -9,9 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
-    /// <summary>
-    /// Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
-    /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {
         /// <summary>
