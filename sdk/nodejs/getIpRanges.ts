@@ -60,6 +60,10 @@ export interface GetIpRangesResult {
      */
     readonly apmIpv6s: string[];
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * An Array of IPv4 addresses in CIDR format specifying the A records for the logs endpoint.
      */
     readonly logsIpv4s: string[];
@@ -91,8 +95,4 @@ export interface GetIpRangesResult {
      * An Array of IPv6 addresses in CIDR format specifying the A records for the webhooks endpoint.
      */
     readonly webhooksIpv6s: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

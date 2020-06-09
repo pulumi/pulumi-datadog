@@ -261,6 +261,9 @@ class Monitor(pulumi.CustomResource):
             __props__['query'] = query
             __props__['renotify_interval'] = renotify_interval
             __props__['require_full_window'] = require_full_window
+            if silenced is not None:
+                warnings.warn("use Downtime Resource instead", DeprecationWarning)
+                pulumi.log.warn("silenced is deprecated: use Downtime Resource instead")
             __props__['silenced'] = silenced
             __props__['tags'] = tags
             __props__['threshold_windows'] = threshold_windows
