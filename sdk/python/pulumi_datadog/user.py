@@ -97,10 +97,16 @@ class User(pulumi.CustomResource):
             if handle is None:
                 raise TypeError("Missing required property 'handle'")
             __props__['handle'] = handle
+            if is_admin is not None:
+                warnings.warn("This parameter will be replaced by `access_role` and will be removed from the next Major version", DeprecationWarning)
+                pulumi.log.warn("is_admin is deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version")
             __props__['is_admin'] = is_admin
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if role is not None:
+                warnings.warn("This parameter was removed from the API and has no effect", DeprecationWarning)
+                pulumi.log.warn("role is deprecated: This parameter was removed from the API and has no effect")
             __props__['role'] = role
             __props__['verified'] = None
         super(User, __self__).__init__(

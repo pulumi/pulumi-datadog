@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface DashboardListDashItem {
@@ -890,12 +891,18 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
 
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     colorPreference?: string;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     count?: number;
     displayFormat?: string;
     hideZeroCounts?: boolean;
     query: string;
     showLastTriggered?: boolean;
     sort?: string;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     start?: number;
     summaryType?: string;
     title?: string;
@@ -1851,12 +1858,18 @@ export interface DashboardWidgetLogStreamDefinitionTime {
 
 export interface DashboardWidgetManageStatusDefinition {
     colorPreference?: string;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     count?: number;
     displayFormat?: string;
     hideZeroCounts?: boolean;
     query: string;
     showLastTriggered?: boolean;
     sort?: string;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     start?: number;
     summaryType?: string;
     title?: string;
@@ -3602,7 +3615,6 @@ export interface TimeBoardTemplateVariable {
     name: string;
     prefix?: string;
 }
-
 export namespace pagerduty {
     export interface IntegrationService {
         /**
@@ -3615,3 +3627,4 @@ export namespace pagerduty {
         serviceName: string;
     }
 }
+

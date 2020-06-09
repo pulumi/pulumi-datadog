@@ -3,6 +3,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface DashboardListDashItem {
     /**
@@ -890,12 +891,18 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
 
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     colorPreference?: pulumi.Input<string>;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     count?: pulumi.Input<number>;
     displayFormat?: pulumi.Input<string>;
     hideZeroCounts?: pulumi.Input<boolean>;
     query: pulumi.Input<string>;
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
     title?: pulumi.Input<string>;
@@ -1851,12 +1858,18 @@ export interface DashboardWidgetLogStreamDefinitionTime {
 
 export interface DashboardWidgetManageStatusDefinition {
     colorPreference?: pulumi.Input<string>;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     count?: pulumi.Input<number>;
     displayFormat?: pulumi.Input<string>;
     hideZeroCounts?: pulumi.Input<boolean>;
     query: pulumi.Input<string>;
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
+    /**
+     * @deprecated This parameter may be removed from the dashboard API in the future
+     */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
     title?: pulumi.Input<string>;
@@ -3602,7 +3615,6 @@ export interface TimeBoardTemplateVariable {
     name: pulumi.Input<string>;
     prefix?: pulumi.Input<string>;
 }
-
 export namespace pagerduty {
     export interface IntegrationService {
         /**
@@ -3615,3 +3627,4 @@ export namespace pagerduty {
         serviceName: pulumi.Input<string>;
     }
 }
+

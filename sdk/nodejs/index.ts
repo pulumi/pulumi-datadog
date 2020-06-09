@@ -21,9 +21,9 @@ export * from "./timeBoard";
 export * from "./user";
 
 // Export sub-modules:
-import * as aws from "./aws/index";
-import * as config from "./config/index";
-import * as gcp from "./gcp/index";
-import * as pagerduty from "./pagerduty/index";
-import * as types from "./types/index";
+import * as aws from "./aws";
+import * as config from "./config";
+import * as gcp from "./gcp";
+import * as pagerduty from "./pagerduty";
+import * as types from "./types";
 export {aws, config, gcp, pagerduty, types};

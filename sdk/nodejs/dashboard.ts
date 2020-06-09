@@ -14,6 +14,7 @@ export class Dashboard extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DashboardState, opts?: pulumi.CustomResourceOptions): Dashboard {
         return new Dashboard(name, <any>state, { ...opts, id: id });
@@ -50,13 +51,13 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly notifyLists!: pulumi.Output<string[] | undefined>;
     /**
-     * The list of template variables for this dashboard.
-     */
-    public readonly templateVariables!: pulumi.Output<outputs.DashboardTemplateVariable[] | undefined>;
-    /**
      * The list of selectable template variable presets for this dashboard.
      */
     public readonly templateVariablePresets!: pulumi.Output<outputs.DashboardTemplateVariablePreset[] | undefined>;
+    /**
+     * The list of template variables for this dashboard.
+     */
+    public readonly templateVariables!: pulumi.Output<outputs.DashboardTemplateVariable[] | undefined>;
     /**
      * The title of the dashboard.
      */
@@ -82,8 +83,8 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["isReadOnly"] = state ? state.isReadOnly : undefined;
             inputs["layoutType"] = state ? state.layoutType : undefined;
             inputs["notifyLists"] = state ? state.notifyLists : undefined;
-            inputs["templateVariables"] = state ? state.templateVariables : undefined;
             inputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
+            inputs["templateVariables"] = state ? state.templateVariables : undefined;
             inputs["title"] = state ? state.title : undefined;
             inputs["widgets"] = state ? state.widgets : undefined;
         } else {
@@ -101,8 +102,8 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["isReadOnly"] = args ? args.isReadOnly : undefined;
             inputs["layoutType"] = args ? args.layoutType : undefined;
             inputs["notifyLists"] = args ? args.notifyLists : undefined;
-            inputs["templateVariables"] = args ? args.templateVariables : undefined;
             inputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
+            inputs["templateVariables"] = args ? args.templateVariables : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["widgets"] = args ? args.widgets : undefined;
         }
@@ -138,13 +139,13 @@ export interface DashboardState {
      */
     readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of template variables for this dashboard.
-     */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
-    /**
      * The list of selectable template variable presets for this dashboard.
      */
     readonly templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
+    /**
+     * The list of template variables for this dashboard.
+     */
+    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
      * The title of the dashboard.
      */
@@ -176,13 +177,13 @@ export interface DashboardArgs {
      */
     readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of template variables for this dashboard.
-     */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
-    /**
      * The list of selectable template variable presets for this dashboard.
      */
     readonly templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
+    /**
+     * The list of template variables for this dashboard.
+     */
+    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
      * The title of the dashboard.
      */

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -33,6 +31,7 @@ export class User extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserState, opts?: pulumi.CustomResourceOptions): User {
         return new User(name, <any>state, { ...opts, id: id });
@@ -70,6 +69,8 @@ export class User extends pulumi.CustomResource {
     public readonly handle!: pulumi.Output<string>;
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     *
+     * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
      */
     public readonly isAdmin!: pulumi.Output<boolean>;
     /**
@@ -78,6 +79,8 @@ export class User extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     *
+     * @deprecated This parameter was removed from the API and has no effect
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
@@ -158,6 +161,7 @@ export interface UserState {
     readonly handle?: pulumi.Input<string>;
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     *
      * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
@@ -167,6 +171,7 @@ export interface UserState {
     readonly name?: pulumi.Input<string>;
     /**
      * Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     *
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
@@ -198,6 +203,7 @@ export interface UserArgs {
     readonly handle: pulumi.Input<string>;
     /**
      * (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     *
      * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
@@ -207,6 +213,7 @@ export interface UserArgs {
     readonly name: pulumi.Input<string>;
     /**
      * Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+     *
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
