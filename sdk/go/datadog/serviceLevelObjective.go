@@ -28,7 +28,7 @@ type ServiceLevelObjective struct {
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
 	// * `metric`
 	// * `monitor`
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -85,7 +85,7 @@ type serviceLevelObjectiveState struct {
 	Tags []string `pulumi:"tags"`
 	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
 	// * `metric`
 	// * `monitor`
 	Type *string `pulumi:"type"`
@@ -106,7 +106,7 @@ type ServiceLevelObjectiveState struct {
 	Tags pulumi.StringArrayInput
 	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
 	// * `metric`
 	// * `monitor`
 	Type pulumi.StringPtrInput
@@ -131,7 +131,7 @@ type serviceLevelObjectiveArgs struct {
 	Tags []string `pulumi:"tags"`
 	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
 	// * `metric`
 	// * `monitor`
 	Type string `pulumi:"type"`
@@ -153,7 +153,7 @@ type ServiceLevelObjectiveArgs struct {
 	Tags pulumi.StringArrayInput
 	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
 	// * `metric`
 	// * `monitor`
 	Type pulumi.StringInput

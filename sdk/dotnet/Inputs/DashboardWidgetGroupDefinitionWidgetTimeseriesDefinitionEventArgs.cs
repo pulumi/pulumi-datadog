@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("q", required: true)]
         public Input<string> Q { get; set; } = null!;
 
+        [Input("tagsExecution")]
+        public Input<string>? TagsExecution { get; set; }
+
         public DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs()
         {
         }

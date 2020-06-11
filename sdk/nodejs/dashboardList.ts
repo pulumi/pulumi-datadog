@@ -6,6 +6,72 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Datadog dashboardList resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const time = new datadog.Dashboard("time", {
+ *     description: "Created using the Datadog provider in TF",
+ *     isReadOnly: true,
+ *     layoutType: "ordered",
+ *     title: "TF Test Layout Dashboard",
+ *     widgets: [{
+ *         alertGraphDefinition: {
+ *             alertId: "1234",
+ *             time: {
+ *                 live_span: "1h",
+ *             },
+ *             title: "Widget Title",
+ *             vizType: "timeseries",
+ *         },
+ *     }],
+ * });
+ * const screen = new datadog.Dashboard("screen", {
+ *     description: "Created using the Datadog provider in TF",
+ *     isReadOnly: false,
+ *     layoutType: "free",
+ *     title: "TF Test Free Layout Dashboard",
+ *     widgets: [{
+ *         eventStreamDefinition: {
+ *             eventSize: "l",
+ *             query: "*",
+ *             time: {
+ *                 live_span: "1h",
+ *             },
+ *             title: "Widget Title",
+ *             titleAlign: "left",
+ *             titleSize: "16",
+ *         },
+ *         layout: {
+ *             height: 43,
+ *             width: 32,
+ *             x: 5,
+ *             y: 5,
+ *         },
+ *     }],
+ * });
+ * const newList = new datadog.DashboardList("newList", {
+ *     dashItems: [
+ *         {
+ *             dashId: time.id,
+ *             type: "customTimeboard",
+ *         },
+ *         {
+ *             dashId: screen.id,
+ *             type: "customScreenboard",
+ *         },
+ *     ],
+ *     name: "TF Created List",
+ * }, { dependsOn: [screen, time] });
+ * ```
+ */
 export class DashboardList extends pulumi.CustomResource {
     /**
      * Get an existing DashboardList resource's state with the given name, ID, and optional extra

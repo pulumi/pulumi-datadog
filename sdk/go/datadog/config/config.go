@@ -29,3 +29,6 @@ func GetAppKey(ctx *pulumi.Context) string {
 	}
 	return getEnvOrDefault("", nil, "DATADOG_APP_KEY").(string)
 }
+func GetValidate(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "datadog:validate")
+}

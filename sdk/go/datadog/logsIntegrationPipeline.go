@@ -9,7 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource to manage
+// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource to manage
 // the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
 //
 // Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with

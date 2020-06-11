@@ -4,3 +4,5 @@
 
 # Export this package's modules as members:
 from .integration import *
+from .integration_lambda_arn import *
+from .integration_log_collection import *

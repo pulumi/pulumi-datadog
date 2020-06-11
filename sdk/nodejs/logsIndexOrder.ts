@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
+ * Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
  *
  * ## Example Usage
  *
@@ -54,7 +54,7 @@ export class LogsIndexOrder extends pulumi.CustomResource {
      */
     public readonly indexes!: pulumi.Output<string[]>;
     /**
-     * The unique name of the index order resource. 
+     * The unique name of the index order resource.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -103,7 +103,7 @@ export interface LogsIndexOrderState {
      */
     readonly indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The unique name of the index order resource. 
+     * The unique name of the index order resource.
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -117,7 +117,7 @@ export interface LogsIndexOrderArgs {
      */
     readonly indexes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The unique name of the index order resource. 
+     * The unique name of the index order resource.
      */
     readonly name: pulumi.Input<string>;
 }

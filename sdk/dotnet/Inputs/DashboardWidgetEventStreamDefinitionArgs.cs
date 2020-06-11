@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        [Input("tagsExecution")]
+        public Input<string>? TagsExecution { get; set; }
+
         [Input("time")]
         public Input<Inputs.DashboardWidgetEventStreamDefinitionTimeArgs>? Time { get; set; }
 

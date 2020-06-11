@@ -6,6 +6,78 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog monitor
+ * const foo = new datadog.Monitor("foo", {
+ *     name: "Name for monitor foo",
+ *     type: "metric alert",
+ *     message: "Monitor triggered. Notify: @hipchat-channel",
+ *     escalationMessage: "Escalation message @pagerduty",
+ *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+ *     thresholds: {
+ *         ok: 0,
+ *         warning: 2,
+ *         warning_recovery: 1,
+ *         critical: 4,
+ *         critical_recovery: 3,
+ *     },
+ *     notifyNoData: false,
+ *     renotifyInterval: 60,
+ *     notifyAudit: false,
+ *     timeoutH: 60,
+ *     includeTags: true,
+ *     tags: [
+ *         "foo:bar",
+ *         "baz",
+ *     ],
+ * });
+ * ```
+ *
+ * ## Silencing by Hand and by Downtimes
+ *
+ * There are two ways how to silence a single monitor:
+ *
+ * * Mute it by hand
+ * * Create a Downtime
+ *
+ * Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your application, as they would be removed on next `pulumi up` invocation. In order to prevent that from happening, you can add following to your monitor:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ *
+ * The above will make sure that any changes to the `silenced` attribute are ignored.
+ *
+ * This issue doesn't apply to multi-monitor downtimes (those that don't contain `monitorId`), as these don't influence contents of the `silenced` attribute.
+ *
+ * ## Composite Monitors
+ *
+ * You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)).
+ * You just need to reuse the ID of your `datadog..Monitor` resources.
+ * You can also compose any monitor with a `datadog..SyntheticsTest` by passing the computed `monitorId` attribute in the query.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const bar = new datadog.Monitor("bar", {
+ *     message: "This is a message",
+ *     name: "Composite Monitor",
+ *     query: pulumi.interpolate`${datadog_monitor_foo.id} || ${datadog_synthetics_test_foo.monitorId}`,
+ *     type: "composite",
+ * });
+ * ```
+ */
 export class Monitor extends pulumi.CustomResource {
     /**
      * Get an existing Monitor resource's state with the given name, ID, and optional extra
@@ -75,9 +147,8 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly newHostDelay!: pulumi.Output<number | undefined>;
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. Must be at
-     * least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-     * metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+     * The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+     * We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      */
     public readonly noDataTimeframe!: pulumi.Output<number | undefined>;
     /**
@@ -90,6 +161,10 @@ export class Monitor extends pulumi.CustomResource {
      * to false.
      */
     public readonly notifyNoData!: pulumi.Output<boolean | undefined>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and
+     * the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+     */
     public readonly query!: pulumi.Output<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -103,6 +178,8 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
     /**
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+     *
      * @deprecated use Downtime Resource instead
      */
     public readonly silenced!: pulumi.Output<{[key: string]: any} | undefined>;
@@ -148,7 +225,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly timeoutH!: pulumi.Output<number | undefined>;
     /**
-     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
      * * `metric alert`
      * * `service check`
      * * `event alert`
@@ -281,9 +358,8 @@ export interface MonitorState {
      */
     readonly newHostDelay?: pulumi.Input<number>;
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. Must be at
-     * least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-     * metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+     * The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+     * We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      */
     readonly noDataTimeframe?: pulumi.Input<number>;
     /**
@@ -296,6 +372,10 @@ export interface MonitorState {
      * to false.
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and
+     * the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+     */
     readonly query?: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -309,6 +389,8 @@ export interface MonitorState {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+     *
      * @deprecated use Downtime Resource instead
      */
     readonly silenced?: pulumi.Input<{[key: string]: any}>;
@@ -354,7 +436,7 @@ export interface MonitorState {
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**
-     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
      * * `metric alert`
      * * `service check`
      * * `event alert`
@@ -410,9 +492,8 @@ export interface MonitorArgs {
      */
     readonly newHostDelay?: pulumi.Input<number>;
     /**
-     * The number of minutes before a monitor will notify when data stops reporting. Must be at
-     * least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-     * metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+     * The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+     * We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
      */
     readonly noDataTimeframe?: pulumi.Input<number>;
     /**
@@ -425,6 +506,10 @@ export interface MonitorArgs {
      * to false.
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and
+     * the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+     */
     readonly query: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -438,6 +523,8 @@ export interface MonitorArgs {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+     *
      * @deprecated use Downtime Resource instead
      */
     readonly silenced?: pulumi.Input<{[key: string]: any}>;
@@ -483,7 +570,7 @@ export interface MonitorArgs {
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**
-     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
      * * `metric alert`
      * * `service check`
      * * `event alert`

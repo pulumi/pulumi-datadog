@@ -156,7 +156,14 @@ class ScreenBoard(pulumi.CustomResource):
             * `search` (`dict`)
               * `query` (`str`)
 
-          * `metadataJson` (`str`)
+          * `metadataJson` (`str`) - A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadata_json` will be ignored if they're not present in the query. For example:
+            ```
+            metadata_json = jsonencode({
+            "avg:redis.info.latency_ms{$host}": {
+            "alias": "Redis latency"
+            }
+            })
+            ```
           * `metric` (`str`)
           * `orderBy` (`str`)
           * `orderDir` (`str`)
@@ -197,7 +204,402 @@ class ScreenBoard(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, height=None, read_only=None, shared=None, template_variables=None, title=None, widgets=None, width=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a ScreenBoard resource with the given unique name, props, and options.
+        Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
+
+        > **Note:** This resource is outdated. Use the new `.Dashboard` resource instead.
+
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog screenboard
+        acceptance_test = datadog.ScreenBoard("acceptanceTest",
+            title="Test Screenboard",
+            read_only=True,
+            template_variable=[
+                {
+                    "name": "varname 1",
+                    "prefix": "pod_name",
+                    "default": "*",
+                },
+                {
+                    "name": "varname 2",
+                    "prefix": "service_name",
+                    "default": "autoscaling",
+                },
+            ],
+            widget=[
+                {
+                    "type": "free_text",
+                    "x": 5,
+                    "y": 5,
+                    "text": "test text",
+                    "textAlign": "right",
+                    "fontSize": "36",
+                    "color": "#ffc0cb",
+                },
+                {
+                    "type": "timeseries",
+                    "x": 25,
+                    "y": 5,
+                    "title": "graph title tf",
+                    "titleSize": 16,
+                    "titleAlign": "right",
+                    "legend": True,
+                    "legendSize": 16,
+                    "time": {
+                        "live_span": "1d",
+                    },
+                    "tile_def": [{
+                        "viz": "timeseries",
+                        "request": [
+                            {
+                                "q": "avg:system.cpu.user{*}",
+                                "type": "line",
+                                "style": {
+                                    "palette": "purple",
+                                    "type": "dashed",
+                                    "width": "thin",
+                                },
+                                "metadataJson": json.dumps({
+                                    "avg:system.cpu.user{*}": {
+                                        "alias": "CPU Usage",
+                                    },
+                                }),
+                            },
+                            {
+                                "log_query": {
+                                    "index": "mcnulty",
+                                    "compute": {
+                                        "aggregation": "avg",
+                                        "facet": "@duration",
+                                        "interval": 5000,
+                                    },
+                                    "search": {
+                                        "query": "status:info",
+                                    },
+                                    "group_by": [{
+                                        "facet": "host",
+                                        "limit": 10,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "order": "desc",
+                                            "facet": "@duration",
+                                        },
+                                    }],
+                                },
+                                "type": "area",
+                            },
+                            {
+                                "apm_query": {
+                                    "index": "apm-search",
+                                    "compute": {
+                                        "aggregation": "avg",
+                                        "facet": "@duration",
+                                        "interval": 5000,
+                                    },
+                                    "search": {
+                                        "query": "type:web",
+                                    },
+                                    "group_by": [{
+                                        "facet": "resource_name",
+                                        "limit": 50,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "order": "desc",
+                                            "facet": "@string_query.interval",
+                                        },
+                                    }],
+                                },
+                                "type": "bars",
+                            },
+                            {
+                                "process_query": {
+                                    "metric": "process.stat.cpu.total_pct",
+                                    "searchBy": "error",
+                                    "filterBies": ["active"],
+                                    "limit": 50,
+                                },
+                                "type": "area",
+                            },
+                        ],
+                        "marker": [{
+                            "label": "test marker",
+                            "type": "error dashed",
+                            "value": "y < 6",
+                        }],
+                        "event": [{
+                            "q": "test event",
+                        }],
+                    }],
+                },
+                {
+                    "type": "query_value",
+                    "x": 45,
+                    "y": 25,
+                    "title": "query value title tf",
+                    "titleSize": 20,
+                    "titleAlign": "center",
+                    "legend": True,
+                    "legendSize": 16,
+                    "tile_def": [{
+                        "viz": "query_value",
+                        "request": [{
+                            "q": "avg:system.cpu.user{*}",
+                            "type": "line",
+                            "style": {
+                                "palette": "purple",
+                                "type": "dashed",
+                                "width": "thin",
+                            },
+                            "conditional_format": [
+                                {
+                                    "comparator": ">",
+                                    "value": "1",
+                                    "palette": "white_on_red",
+                                },
+                                {
+                                    "comparator": ">=",
+                                    "value": "2",
+                                    "palette": "white_on_yellow",
+                                },
+                            ],
+                            "aggregator": "max",
+                        }],
+                        "customUnit": "%",
+                        "autoscale": False,
+                        "precision": "6",
+                        "textAlign": "right",
+                    }],
+                },
+                {
+                    "type": "toplist",
+                    "x": 65,
+                    "y": 5,
+                    "title": "toplist title tf",
+                    "legend": True,
+                    "legendSize": "auto",
+                    "time": {
+                        "live_span": "1d",
+                    },
+                    "tile_def": [{
+                        "viz": "toplist",
+                        "request": [{
+                            "q": "top(avg:system.load.1{*} by {host}, 10, 'mean', 'desc')",
+                            "style": {
+                                "palette": "purple",
+                                "type": "dashed",
+                                "width": "thin",
+                            },
+                            "conditional_format": [{
+                                "comparator": ">",
+                                "value": "4",
+                                "palette": "white_on_green",
+                            }],
+                        }],
+                    }],
+                },
+                {
+                    "type": "change",
+                    "x": 85,
+                    "y": 5,
+                    "title": "change title tf",
+                    "tile_def": [{
+                        "viz": "change",
+                        "request": [{
+                            "q": "min:system.load.1{*} by {host}",
+                            "compareTo": "week_before",
+                            "changeType": "relative",
+                            "orderBy": "present",
+                            "orderDir": "asc",
+                            "extraCol": "",
+                            "increaseGood": False,
+                        }],
+                    }],
+                },
+                {
+                    "type": "event_timeline",
+                    "x": 105,
+                    "y": 5,
+                    "title": "event_timeline title tf",
+                    "query": "status:error",
+                    "time": {
+                        "live_span": "1d",
+                    },
+                },
+                {
+                    "type": "event_stream",
+                    "x": 115,
+                    "y": 5,
+                    "title": "event_stream title tf",
+                    "query": "*",
+                    "eventSize": "l",
+                    "time": {
+                        "live_span": "4h",
+                    },
+                },
+                {
+                    "type": "image",
+                    "x": 145,
+                    "y": 5,
+                    "title": "image title tf",
+                    "sizing": "fit",
+                    "margin": "large",
+                    "url": "https://datadog-prod.imgix.net/img/dd_logo_70x75.png",
+                },
+                {
+                    "type": "note",
+                    "x": 165,
+                    "y": 5,
+                    "bgcolor": "pink",
+                    "textAlign": "right",
+                    "fontSize": "36",
+                    "tick": True,
+                    "tickEdge": "bottom",
+                    "tickPos": "50%",
+                    "html": "<b>test note</b>",
+                },
+                {
+                    "type": "alert_graph",
+                    "x": 185,
+                    "y": 5,
+                    "title": "alert graph title tf",
+                    "alertId": "123456",
+                    "vizType": "toplist",
+                    "time": {
+                        "live_span": "15m",
+                    },
+                },
+                {
+                    "type": "alert_value",
+                    "x": 205,
+                    "y": 5,
+                    "title": "alert value title tf",
+                    "alertId": "123456",
+                    "textSize": "fill_height",
+                    "textAlign": "right",
+                    "precision": "*",
+                    "unit": "b",
+                },
+                {
+                    "type": "iframe",
+                    "x": 225,
+                    "y": 5,
+                    "url": "https://www.datadoghq.org",
+                },
+                {
+                    "type": "check_status",
+                    "x": 245,
+                    "y": 5,
+                    "title": "test title",
+                    "titleAlign": "left",
+                    "grouping": "check",
+                    "check": "aws.ecs.agent_connected",
+                    "tags": ["*"],
+                    "group": "cluster:test",
+                    "time": {
+                        "live_span": "30m",
+                    },
+                },
+                {
+                    "type": "trace_service",
+                    "x": 265,
+                    "y": 5,
+                    "env": "testEnv",
+                    "serviceService": "",
+                    "service_name": "",
+                    "sizeVersion": "large",
+                    "layoutVersion": "three_column",
+                    "mustShowHits": True,
+                    "mustShowErrors": True,
+                    "mustShowLatency": True,
+                    "mustShowBreakdown": True,
+                    "mustShowDistribution": True,
+                    "mustShowResourceList": True,
+                    "time": {
+                        "live_span": "30m",
+                    },
+                },
+                {
+                    "type": "hostmap",
+                    "x": 285,
+                    "y": 5,
+                    "query": "avg:system.load.1{*} by {host}",
+                    "tile_def": [{
+                        "viz": "hostmap",
+                        "nodeType": "container",
+                        "scopes": ["datacenter:test"],
+                        "groups": ["pod_name"],
+                        "noGroupHosts": False,
+                        "noMetricHosts": False,
+                        "request": [{
+                            "q": "max:process.stat.container.io.wbps{datacenter:test} by {host}",
+                            "type": "fill",
+                        }],
+                        "style": {
+                            "palette": "hostmap_blues",
+                            "palette_flip": True,
+                            "fill_min": 20,
+                            "fill_max": 300,
+                        },
+                    }],
+                },
+                {
+                    "type": "manage_status",
+                    "x": 305,
+                    "y": 5,
+                    "summaryType": "monitors",
+                    "displayFormat": "countsAndList",
+                    "colorPreference": "background",
+                    "hideZeroCounts": True,
+                    "showLastTriggered": False,
+                    "manageStatusShowTitle": False,
+                    "manageStatusTitleText": "test title",
+                    "manageStatusTitleSize": "20",
+                    "manageStatusTitleAlign": "right",
+                    "params": {
+                        "sort": "status,asc",
+                        "text": "status:alert",
+                    },
+                },
+                {
+                    "type": "log_stream",
+                    "x": 325,
+                    "y": 5,
+                    "query": "source:kubernetes",
+                    "columns": "[\"column1\",\"column2\",\"column3\"]",
+                    "logset": "1234",
+                    "time": {
+                        "live_span": "1h",
+                    },
+                },
+                {
+                    "type": "process",
+                    "x": 365,
+                    "y": 5,
+                    "tile_def": [{
+                        "viz": "process",
+                        "request": [{
+                            "queryType": "process",
+                            "metric": "process.stat.cpu.total_pct",
+                            "textFilter": "",
+                            "tagFilters": [],
+                            "limit": 200,
+                            "style": {
+                                "palette": "dog_classic_area",
+                            },
+                        }],
+                    }],
+                },
+            ])
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] height: Height of the screenboard
@@ -336,7 +738,14 @@ class ScreenBoard(pulumi.CustomResource):
                 * `search` (`pulumi.Input[dict]`)
                   * `query` (`pulumi.Input[str]`)
 
-              * `metadataJson` (`pulumi.Input[str]`)
+              * `metadataJson` (`pulumi.Input[str]`) - A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadata_json` will be ignored if they're not present in the query. For example:
+                ```
+                metadata_json = jsonencode({
+                "avg:redis.info.latency_ms{$host}": {
+                "alias": "Redis latency"
+                }
+                })
+                ```
               * `metric` (`pulumi.Input[str]`)
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)
@@ -550,7 +959,14 @@ class ScreenBoard(pulumi.CustomResource):
                 * `search` (`pulumi.Input[dict]`)
                   * `query` (`pulumi.Input[str]`)
 
-              * `metadataJson` (`pulumi.Input[str]`)
+              * `metadataJson` (`pulumi.Input[str]`) - A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadata_json` will be ignored if they're not present in the query. For example:
+                ```
+                metadata_json = jsonencode({
+                "avg:redis.info.latency_ms{$host}": {
+                "alias": "Redis latency"
+                }
+                })
+                ```
               * `metric` (`pulumi.Input[str]`)
               * `orderBy` (`pulumi.Input[str]`)
               * `orderDir` (`pulumi.Input[str]`)

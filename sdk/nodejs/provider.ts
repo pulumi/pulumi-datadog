@@ -38,6 +38,7 @@ export class Provider extends pulumi.ProviderResource {
         inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("DATADOG_API_KEY");
         inputs["apiUrl"] = (args ? args.apiUrl : undefined) || utilities.getEnv("DATADOG_HOST");
         inputs["appKey"] = (args ? args.appKey : undefined) || utilities.getEnv("DATADOG_APP_KEY");
+        inputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
         if (!opts) {
             opts = {}
         }
@@ -56,4 +57,5 @@ export interface ProviderArgs {
     readonly apiKey?: pulumi.Input<string>;
     readonly apiUrl?: pulumi.Input<string>;
     readonly appKey?: pulumi.Input<string>;
+    readonly validate?: pulumi.Input<boolean>;
 }

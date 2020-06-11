@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestOptions
     {
         public readonly bool? AcceptSelfSigned;
+        public readonly bool? AllowInsecure;
         public readonly bool? FollowRedirects;
         public readonly int? MinFailureDuration;
         public readonly int? MinLocationFailed;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private SyntheticsTestOptions(
             bool? acceptSelfSigned,
+
+            bool? allowInsecure,
 
             bool? followRedirects,
 
@@ -32,6 +35,7 @@ namespace Pulumi.Datadog.Outputs
             int tickEvery)
         {
             AcceptSelfSigned = acceptSelfSigned;
+            AllowInsecure = allowInsecure;
             FollowRedirects = followRedirects;
             MinFailureDuration = minFailureDuration;
             MinLocationFailed = minLocationFailed;

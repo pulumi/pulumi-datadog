@@ -11,14 +11,12 @@ import (
 )
 
 // Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
-//
-// Update operations are currently not supported with datadog API so any change forces a new resource.
 type Integration struct {
 	pulumi.CustomResourceState
 
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapOutput `pulumi:"accountSpecificNamespaceRules"`
 	// AWS External ID
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
@@ -66,7 +64,7 @@ func GetIntegration(ctx *pulumi.Context,
 type integrationState struct {
 	// Your AWS Account ID without dashes.
 	AccountId *string `pulumi:"accountId"`
-	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules map[string]interface{} `pulumi:"accountSpecificNamespaceRules"`
 	// AWS External ID
 	ExternalId *string `pulumi:"externalId"`
@@ -81,7 +79,7 @@ type integrationState struct {
 type IntegrationState struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrInput
-	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapInput
 	// AWS External ID
 	ExternalId pulumi.StringPtrInput
@@ -100,7 +98,7 @@ func (IntegrationState) ElementType() reflect.Type {
 type integrationArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId string `pulumi:"accountId"`
-	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules map[string]interface{} `pulumi:"accountSpecificNamespaceRules"`
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
 	FilterTags []string `pulumi:"filterTags"`
@@ -114,7 +112,7 @@ type integrationArgs struct {
 type IntegrationArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringInput
-	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapInput
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
 	FilterTags pulumi.StringArrayInput

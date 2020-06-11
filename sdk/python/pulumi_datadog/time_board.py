@@ -116,7 +116,126 @@ class TimeBoard(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, graphs=None, read_only=None, template_variables=None, title=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a TimeBoard resource with the given unique name, props, and options.
+        Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
+
+        > **Note:**This resource is outdated. Use the new `.Dashboard` resource instead.
+
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog timeboard
+        redis = datadog.TimeBoard("redis",
+            title="Redis Timeboard (created via TF)",
+            description="created using the Datadog provider in TF",
+            read_only=True,
+            graph=[
+                {
+                    "title": "Redis latency (ms)",
+                    "viz": "timeseries",
+                    "request": [
+                        {
+                            "q": "avg:redis.info.latency_ms{$host}",
+                            "type": "bars",
+                            "metadataJson": json.dumps({
+                                "avg:redis.info.latency_ms{$host}": {
+                                    "alias": "Redis latency",
+                                },
+                            }),
+                        },
+                        {
+                            "log_query": {
+                                "index": "mcnulty",
+                                "compute": {
+                                    "aggregation": "avg",
+                                    "facet": "@duration",
+                                    "interval": 5000,
+                                },
+                                "search": {
+                                    "query": "status:info",
+                                },
+                                "group_by": [{
+                                    "facet": "host",
+                                    "limit": 10,
+                                    "sort": {
+                                        "aggregation": "avg",
+                                        "order": "desc",
+                                        "facet": "@duration",
+                                    },
+                                }],
+                            },
+                            "type": "area",
+                        },
+                        {
+                            "apm_query": {
+                                "index": "apm-search",
+                                "compute": {
+                                    "aggregation": "avg",
+                                    "facet": "@duration",
+                                    "interval": 5000,
+                                },
+                                "search": {
+                                    "query": "type:web",
+                                },
+                                "group_by": [{
+                                    "facet": "resource_name",
+                                    "limit": 50,
+                                    "sort": {
+                                        "aggregation": "avg",
+                                        "order": "desc",
+                                        "facet": "@string_query.interval",
+                                    },
+                                }],
+                            },
+                            "type": "bars",
+                        },
+                        {
+                            "process_query": {
+                                "metric": "process.stat.cpu.total_pct",
+                                "searchBy": "error",
+                                "filterBies": ["active"],
+                                "limit": 50,
+                            },
+                            "type": "area",
+                        },
+                    ],
+                },
+                {
+                    "title": "Redis memory usage",
+                    "viz": "timeseries",
+                    "request": [
+                        {
+                            "q": "avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}",
+                            "stacked": True,
+                        },
+                        {
+                            "q": "avg:redis.mem.rss{$host}",
+                            "style": {
+                                "palette": "warm",
+                            },
+                        },
+                    ],
+                },
+                {
+                    "title": "Top System CPU by Docker container",
+                    "viz": "toplist",
+                    "request": [{
+                        "q": "top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
+                    }],
+                },
+            ],
+            template_variable=[{
+                "name": "host",
+                "prefix": "host",
+            }])
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.

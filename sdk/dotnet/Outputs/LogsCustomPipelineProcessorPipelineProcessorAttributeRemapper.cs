@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? PreserveSource;
         /// <summary>
-        /// Defines where the sources are from (log `attribute` or `tag`). 
+        /// Defines where the sources are from (log `attribute` or `tag`).
         /// </summary>
         public readonly string SourceType;
         /// <summary>

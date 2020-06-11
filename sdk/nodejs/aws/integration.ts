@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
  *
- * Update operations are currently not supported with datadog API so any change forces a new resource.
- *
  * ## Example Usage
  *
  *
@@ -66,7 +64,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
     public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -139,7 +137,7 @@ export interface IntegrationState {
      */
     readonly accountId?: pulumi.Input<string>;
     /**
-     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
     readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -169,7 +167,7 @@ export interface IntegrationArgs {
      */
     readonly accountId: pulumi.Input<string>;
     /**
-     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
     readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
     /**

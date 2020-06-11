@@ -10,6 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
+//
+// ## Synthetics Browser test
+//
+// Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)
+//
+// You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
+//
+// We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
 type SyntheticsTest struct {
 	pulumi.CustomResourceState
 

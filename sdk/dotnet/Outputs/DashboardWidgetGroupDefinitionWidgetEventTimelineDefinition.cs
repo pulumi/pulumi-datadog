@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition
     {
         public readonly string Query;
+        public readonly string? TagsExecution;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime? Time;
         public readonly string? Title;
         public readonly string? TitleAlign;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(
             string query,
+
+            string? tagsExecution,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime? time,
 
@@ -32,6 +35,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             Query = query;
+            TagsExecution = tagsExecution;
             Time = time;
             Title = title;
             TitleAlign = titleAlign;

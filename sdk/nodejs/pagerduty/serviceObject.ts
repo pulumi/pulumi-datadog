@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [datadog.pagerduty.Integration](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
+ * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using `datadog.pagerduty.Integration`) in order for this resource to be usable.
  *
  * ## Example Usage
  *
@@ -62,6 +62,9 @@ export class ServiceObject extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceObject.__pulumiType;
     }
 
+    /**
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+     */
     public readonly serviceKey!: pulumi.Output<string>;
     /**
      * Your Service name in PagerDuty.
@@ -108,6 +111,9 @@ export class ServiceObject extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceObject resources.
  */
 export interface ServiceObjectState {
+    /**
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+     */
     readonly serviceKey?: pulumi.Input<string>;
     /**
      * Your Service name in PagerDuty.
@@ -119,6 +125,9 @@ export interface ServiceObjectState {
  * The set of arguments for constructing a ServiceObject resource.
  */
 export interface ServiceObjectArgs {
+    /**
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+     */
     readonly serviceKey: pulumi.Input<string>;
     /**
      * Your Service name in PagerDuty.

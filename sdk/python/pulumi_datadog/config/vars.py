@@ -17,3 +17,5 @@ api_url = __config__.get('apiUrl') or utilities.get_env('DATADOG_HOST')
 
 app_key = __config__.get('appKey') or utilities.get_env('DATADOG_APP_KEY')
 
+validate = __config__.get('validate')
+

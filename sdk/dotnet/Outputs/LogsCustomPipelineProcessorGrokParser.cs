@@ -27,8 +27,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Samples;
         /// <summary>
-        /// Name of the log attribute to parse.
-        /// * `grok`
+        /// Name of the source attribute used to do the lookup.
         /// </summary>
         public readonly string Source;
 

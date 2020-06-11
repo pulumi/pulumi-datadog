@@ -9,6 +9,172 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
+    /// <summary>
+    /// Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
+    /// 
+    /// ## Example Usage (Synthetics API test)
+    /// 
+    /// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testApi = new Datadog.SyntheticsTest("testApi", new Datadog.SyntheticsTestArgs
+    ///         {
+    ///             Assertions = 
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "operator", "is" },
+    ///                     { "target", "200" },
+    ///                     { "type", "statusCode" },
+    ///                 },
+    ///             },
+    ///             Locations = 
+    ///             {
+    ///                 "aws:eu-central-1",
+    ///             },
+    ///             Message = "Notify @pagerduty",
+    ///             Name = "An API test on example.org",
+    ///             Options = new Datadog.Inputs.SyntheticsTestOptionsArgs
+    ///             {
+    ///                 Tick_every = 900,
+    ///             },
+    ///             Request = new Datadog.Inputs.SyntheticsTestRequestArgs
+    ///             {
+    ///                 Method = "GET",
+    ///                 Url = "https://www.example.org",
+    ///             },
+    ///             RequestHeaders = 
+    ///             {
+    ///                 { "Authentication", "Token: 1234566789" },
+    ///                 { "Content-Type", "application/json" },
+    ///             },
+    ///             Status = "live",
+    ///             Subtype = "http",
+    ///             Tags = 
+    ///             {
+    ///                 "foo:bar",
+    ///                 "foo",
+    ///                 "env:test",
+    ///             },
+    ///             Type = "api",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example Usage (Synthetics SSL test)
+    /// 
+    /// Create a new Datadog Synthetics API/SSL test on example.org
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testSsl = new Datadog.SyntheticsTest("testSsl", new Datadog.SyntheticsTestArgs
+    ///         {
+    ///             Assertions = 
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "operator", "isInMoreThan" },
+    ///                     { "target", 30 },
+    ///                     { "type", "certificate" },
+    ///                 },
+    ///             },
+    ///             Locations = 
+    ///             {
+    ///                 "aws:eu-central-1",
+    ///             },
+    ///             Message = "Notify @pagerduty",
+    ///             Name = "An API test on example.org",
+    ///             Options = new Datadog.Inputs.SyntheticsTestOptionsArgs
+    ///             {
+    ///                 Accept_self_signed = true,
+    ///                 Tick_every = 900,
+    ///             },
+    ///             Request = new Datadog.Inputs.SyntheticsTestRequestArgs
+    ///             {
+    ///                 Host = "example.org",
+    ///                 Port = 443,
+    ///             },
+    ///             Status = "live",
+    ///             Subtype = "ssl",
+    ///             Tags = 
+    ///             {
+    ///                 "foo:bar",
+    ///                 "foo",
+    ///                 "env:test",
+    ///             },
+    ///             Type = "api",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Example Usage (Synthetics Browser test)
+    /// 
+    /// Support for Synthetics Browser test is limited (see below)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog Synthetics Browser test starting on https://www.example.org
+    ///         var testBrowser = new Datadog.SyntheticsTest("testBrowser", new Datadog.SyntheticsTestArgs
+    ///         {
+    ///             DeviceIds = 
+    ///             {
+    ///                 "laptop_large",
+    ///             },
+    ///             Locations = 
+    ///             {
+    ///                 "aws:eu-central-1",
+    ///             },
+    ///             Message = "Notify @qa",
+    ///             Name = "A Browser test on example.org",
+    ///             Options = new Datadog.Inputs.SyntheticsTestOptionsArgs
+    ///             {
+    ///                 Tick_every = 3600,
+    ///             },
+    ///             Request = new Datadog.Inputs.SyntheticsTestRequestArgs
+    ///             {
+    ///                 Method = "GET",
+    ///                 Url = "https://app.datadoghq.com",
+    ///             },
+    ///             Status = "paused",
+    ///             Tags = {},
+    ///             Type = "browser",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Synthetics Browser test
+    /// 
+    /// Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)
+    /// 
+    /// You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
+    /// 
+    /// We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
+    /// </summary>
     public partial class SyntheticsTest : Pulumi.CustomResource
     {
         [Output("assertions")]

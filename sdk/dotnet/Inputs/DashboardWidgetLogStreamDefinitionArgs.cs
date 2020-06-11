@@ -20,11 +20,31 @@ namespace Pulumi.Datadog.Inputs
             set => _columns = value;
         }
 
-        [Input("logset", required: true)]
-        public Input<string> Logset { get; set; } = null!;
+        [Input("indexes")]
+        private InputList<string>? _indexes;
+        public InputList<string> Indexes
+        {
+            get => _indexes ?? (_indexes = new InputList<string>());
+            set => _indexes = value;
+        }
+
+        [Input("logset")]
+        public Input<string>? Logset { get; set; }
+
+        [Input("messageDisplay")]
+        public Input<string>? MessageDisplay { get; set; }
 
         [Input("query")]
         public Input<string>? Query { get; set; }
+
+        [Input("showDateColumn")]
+        public Input<bool>? ShowDateColumn { get; set; }
+
+        [Input("showMessageColumn")]
+        public Input<bool>? ShowMessageColumn { get; set; }
+
+        [Input("sort")]
+        public Input<Inputs.DashboardWidgetLogStreamDefinitionSortArgs>? Sort { get; set; }
 
         [Input("time")]
         public Input<Inputs.DashboardWidgetLogStreamDefinitionTimeArgs>? Time { get; set; }

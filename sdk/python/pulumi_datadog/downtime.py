@@ -32,7 +32,7 @@ class Downtime(pulumi.CustomResource):
     """
     monitor_id: pulumi.Output[float]
     """
-    When specified, this downtime will only apply to this monitor
+    Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
     """
     monitor_tags: pulumi.Output[list]
     """
@@ -50,7 +50,7 @@ class Downtime(pulumi.CustomResource):
     """
     scopes: pulumi.Output[list]
     """
-    A list of items to apply the downtime to, e.g. host:X
+    The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
     """
     start: pulumi.Output[float]
     """
@@ -110,10 +110,10 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[float] end: POSIX timestamp to end the downtime.
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: A message to include with notifications for this downtime.
-        :param pulumi.Input[float] monitor_id: When specified, this downtime will only apply to this monitor
+        :param pulumi.Input[float] monitor_id: Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
         :param pulumi.Input[list] monitor_tags: A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
         :param pulumi.Input[dict] recurrence: A dictionary to configure the downtime to be recurring.
-        :param pulumi.Input[list] scopes: A list of items to apply the downtime to, e.g. host:X
+        :param pulumi.Input[list] scopes: The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
         :param pulumi.Input[float] start: POSIX timestamp to start the downtime.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
@@ -177,10 +177,10 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[float] end: POSIX timestamp to end the downtime.
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: A message to include with notifications for this downtime.
-        :param pulumi.Input[float] monitor_id: When specified, this downtime will only apply to this monitor
+        :param pulumi.Input[float] monitor_id: Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
         :param pulumi.Input[list] monitor_tags: A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
         :param pulumi.Input[dict] recurrence: A dictionary to configure the downtime to be recurring.
-        :param pulumi.Input[list] scopes: A list of items to apply the downtime to, e.g. host:X
+        :param pulumi.Input[list] scopes: The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
         :param pulumi.Input[float] start: POSIX timestamp to start the downtime.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.

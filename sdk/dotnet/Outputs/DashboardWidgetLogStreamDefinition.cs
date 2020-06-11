@@ -14,8 +14,13 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetLogStreamDefinition
     {
         public readonly ImmutableArray<string> Columns;
-        public readonly string Logset;
+        public readonly ImmutableArray<string> Indexes;
+        public readonly string? Logset;
+        public readonly string? MessageDisplay;
         public readonly string? Query;
+        public readonly bool? ShowDateColumn;
+        public readonly bool? ShowMessageColumn;
+        public readonly Outputs.DashboardWidgetLogStreamDefinitionSort? Sort;
         public readonly Outputs.DashboardWidgetLogStreamDefinitionTime? Time;
         public readonly string? Title;
         public readonly string? TitleAlign;
@@ -25,9 +30,19 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetLogStreamDefinition(
             ImmutableArray<string> columns,
 
-            string logset,
+            ImmutableArray<string> indexes,
+
+            string? logset,
+
+            string? messageDisplay,
 
             string? query,
+
+            bool? showDateColumn,
+
+            bool? showMessageColumn,
+
+            Outputs.DashboardWidgetLogStreamDefinitionSort? sort,
 
             Outputs.DashboardWidgetLogStreamDefinitionTime? time,
 
@@ -38,8 +53,13 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             Columns = columns;
+            Indexes = indexes;
             Logset = logset;
+            MessageDisplay = messageDisplay;
             Query = query;
+            ShowDateColumn = showDateColumn;
+            ShowMessageColumn = showMessageColumn;
+            Sort = sort;
             Time = time;
             Title = title;
             TitleAlign = titleAlign;

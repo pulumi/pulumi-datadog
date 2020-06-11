@@ -124,12 +124,24 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_logs_pipeline_order": {
 				Tok: makeResource(datadogMod, "LogsPipelineOrder"),
 			},
+
+			// GCP Integrations
 			"datadog_integration_gcp": {
 				Tok: makeResource(gcpMod, "Integration"),
 			},
+
+			// AWS Integrations
 			"datadog_integration_aws": {
 				Tok: makeResource(awsMod, "Integration"),
 			},
+			"datadog_integration_aws_lambda_arn": {
+				Tok: makeResource(awsMod, "IntegrationLambdaArn"),
+			},
+			"datadog_integration_aws_log_collection": {
+				Tok: makeResource(awsMod, "IntegrationLogCollection"),
+			},
+
+			// PagerDuty Integrations
 			"datadog_integration_pagerduty": {
 				Tok: makeResource(pdMod, "Integration"),
 			},

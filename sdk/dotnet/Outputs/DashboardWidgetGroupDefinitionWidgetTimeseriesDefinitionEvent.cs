@@ -14,11 +14,16 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent
     {
         public readonly string Q;
+        public readonly string? TagsExecution;
 
         [OutputConstructor]
-        private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent(string q)
+        private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent(
+            string q,
+
+            string? tagsExecution)
         {
             Q = q;
+            TagsExecution = tagsExecution;
         }
     }
 }

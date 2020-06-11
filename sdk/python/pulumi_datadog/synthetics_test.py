@@ -25,13 +25,122 @@ class SyntheticsTest(pulumi.CustomResource):
     type: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_headers=None, status=None, subtype=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a SyntheticsTest resource with the given unique name, props, and options.
+        Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
+
+        ## Example Usage (Synthetics API test)
+
+        Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_api = datadog.SyntheticsTest("testApi",
+            assertions=[{
+                "operator": "is",
+                "target": "200",
+                "type": "statusCode",
+            }],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options={
+                "tick_every": 900,
+            },
+            request={
+                "method": "GET",
+                "url": "https://www.example.org",
+            },
+            request_headers={
+                "Authentication": "Token: 1234566789",
+                "Content-Type": "application/json",
+            },
+            status="live",
+            subtype="http",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        ```
+
+        ## Example Usage (Synthetics SSL test)
+
+        Create a new Datadog Synthetics API/SSL test on example.org
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_ssl = datadog.SyntheticsTest("testSsl",
+            assertions=[{
+                "operator": "isInMoreThan",
+                "target": 30,
+                "type": "certificate",
+            }],
+            locations=["aws:eu-central-1"],
+            message="Notify @pagerduty",
+            name="An API test on example.org",
+            options={
+                "accept_self_signed": True,
+                "tick_every": 900,
+            },
+            request={
+                "host": "example.org",
+                "port": 443,
+            },
+            status="live",
+            subtype="ssl",
+            tags=[
+                "foo:bar",
+                "foo",
+                "env:test",
+            ],
+            type="api")
+        ```
+
+        ## Example Usage (Synthetics Browser test)
+
+        Support for Synthetics Browser test is limited (see below)
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog Synthetics Browser test starting on https://www.example.org
+        test_browser = datadog.SyntheticsTest("testBrowser",
+            device_ids=["laptop_large"],
+            locations=["aws:eu-central-1"],
+            message="Notify @qa",
+            name="A Browser test on example.org",
+            options={
+                "tick_every": 3600,
+            },
+            request={
+                "method": "GET",
+                "url": "https://app.datadoghq.com",
+            },
+            status="paused",
+            tags=[],
+            type="browser")
+        ```
+
+        ## Synthetics Browser test
+
+        Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)
+
+        You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
+
+        We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
 
         The **options** object supports the following:
 
           * `accept_self_signed` (`pulumi.Input[bool]`)
+          * `allow_insecure` (`pulumi.Input[bool]`)
           * `follow_redirects` (`pulumi.Input[bool]`)
           * `min_failure_duration` (`pulumi.Input[float]`)
           * `min_location_failed` (`pulumi.Input[float]`)
@@ -107,6 +216,7 @@ class SyntheticsTest(pulumi.CustomResource):
         The **options** object supports the following:
 
           * `accept_self_signed` (`pulumi.Input[bool]`)
+          * `allow_insecure` (`pulumi.Input[bool]`)
           * `follow_redirects` (`pulumi.Input[bool]`)
           * `min_failure_duration` (`pulumi.Input[float]`)
           * `min_location_failed` (`pulumi.Input[float]`)

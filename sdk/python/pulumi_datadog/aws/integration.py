@@ -16,7 +16,7 @@ class Integration(pulumi.CustomResource):
     """
     account_specific_namespace_rules: pulumi.Output[dict]
     """
-    Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+    Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
     """
     external_id: pulumi.Output[str]
     """
@@ -37,8 +37,6 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, account_id=None, account_specific_namespace_rules=None, filter_tags=None, host_tags=None, role_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
-
-        Update operations are currently not supported with datadog API so any change forces a new resource.
 
         ## Example Usage
 
@@ -67,7 +65,7 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[dict] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+        :param pulumi.Input[dict] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[list] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
         :param pulumi.Input[list] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
@@ -115,7 +113,7 @@ class Integration(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[dict] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+        :param pulumi.Input[dict] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[str] external_id: AWS External ID
         :param pulumi.Input[list] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
         :param pulumi.Input[list] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
+    /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
     /// 
     /// ## Example Usage
     /// 
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Indexes { get; private set; } = null!;
 
         /// <summary>
-        /// The unique name of the index order resource. 
+        /// The unique name of the index order resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The unique name of the index order resource. 
+        /// The unique name of the index order resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The unique name of the index order resource. 
+        /// The unique name of the index order resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

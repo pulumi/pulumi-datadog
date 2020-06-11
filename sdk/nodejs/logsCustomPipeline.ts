@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to create and manage Datadog logs custom pipelines.
+ * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
  *
  *
  * ## Example Usage
@@ -98,6 +98,16 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
+ *             lookupProcessor: {
+ *                 defaultLookup: "unknown service",
+ *                 isEnabled: true,
+ *                 lookupTables: ["1,my service"],
+ *                 name: "sample lookup processor",
+ *                 source: "serviceId",
+ *                 target: "serviceName",
+ *             },
+ *         },
+ *         {
  *             messageRemapper: {
  *                 isEnabled: true,
  *                 name: "sample message remapper",
@@ -177,8 +187,8 @@ import * as utilities from "./utilities";
  *
  * Each `datadog..LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
  * a different resource datadog_logs_pipeline_order.
- * When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog..LogsPipelineOrder` 
- * resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the 
+ * When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog..LogsPipelineOrder`
+ * resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
  * `datadog..LogsPipelineOrder` resource.
  */
 export class LogsCustomPipeline extends pulumi.CustomResource {

@@ -280,6 +280,7 @@ export interface DashboardWidgetDistributionDefinitionTime {
 export interface DashboardWidgetEventStreamDefinition {
     eventSize?: pulumi.Input<string>;
     query: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetEventStreamDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
@@ -292,6 +293,7 @@ export interface DashboardWidgetEventStreamDefinitionTime {
 
 export interface DashboardWidgetEventTimelineDefinition {
     query: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetEventTimelineDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
@@ -562,6 +564,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
     eventSize?: pulumi.Input<string>;
     query: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
@@ -574,6 +577,7 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime {
 
 export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
     query: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
@@ -877,12 +881,25 @@ export interface DashboardWidgetGroupDefinitionWidgetLayout {
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     columns?: pulumi.Input<pulumi.Input<string>[]>;
-    logset: pulumi.Input<string>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     */
+    logset?: pulumi.Input<string>;
+    messageDisplay?: pulumi.Input<string>;
     query?: pulumi.Input<string>;
+    showDateColumn?: pulumi.Input<boolean>;
+    showMessageColumn?: pulumi.Input<boolean>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort {
+    column: pulumi.Input<string>;
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
@@ -892,7 +909,7 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     colorPreference?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     count?: pulumi.Input<number>;
     displayFormat?: pulumi.Input<string>;
@@ -901,7 +918,7 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
@@ -1329,6 +1346,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
     q: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
@@ -1844,12 +1862,25 @@ export interface DashboardWidgetLayout {
 
 export interface DashboardWidgetLogStreamDefinition {
     columns?: pulumi.Input<pulumi.Input<string>[]>;
-    logset: pulumi.Input<string>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     */
+    logset?: pulumi.Input<string>;
+    messageDisplay?: pulumi.Input<string>;
     query?: pulumi.Input<string>;
+    showDateColumn?: pulumi.Input<boolean>;
+    showMessageColumn?: pulumi.Input<boolean>;
+    sort?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinitionSort>;
     time?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetLogStreamDefinitionSort {
+    column: pulumi.Input<string>;
+    order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetLogStreamDefinitionTime {
@@ -1859,7 +1890,7 @@ export interface DashboardWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetManageStatusDefinition {
     colorPreference?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     count?: pulumi.Input<number>;
     displayFormat?: pulumi.Input<string>;
@@ -1868,7 +1899,7 @@ export interface DashboardWidgetManageStatusDefinition {
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
@@ -2296,6 +2327,7 @@ export interface DashboardWidgetTimeseriesDefinition {
 
 export interface DashboardWidgetTimeseriesDefinitionEvent {
     q: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionMarker {
@@ -2559,6 +2591,7 @@ export interface LogsCustomPipelineProcessor {
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorDateRemapper>;
     geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGeoIpParser>;
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGrokParser>;
+    lookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorLookupProcessor>;
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorMessageRemapper>;
     pipeline?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipeline>;
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorServiceRemapper>;
@@ -2611,7 +2644,7 @@ export interface LogsCustomPipelineProcessorAttributeRemapper {
      */
     preserveSource?: pulumi.Input<boolean>;
     /**
-     * Defines where the sources are from (log `attribute` or `tag`). 
+     * Defines where the sources are from (log `attribute` or `tag`).
      */
     sourceType: pulumi.Input<string>;
     /**
@@ -2711,8 +2744,7 @@ export interface LogsCustomPipelineProcessorGrokParser {
      */
     samples?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the log attribute to parse.
-     * * `grok`
+     * Name of the source attribute used to do the lookup.
      */
     source: pulumi.Input<string>;
 }
@@ -2726,6 +2758,33 @@ export interface LogsCustomPipelineProcessorGrokParserGrok {
      * Support rules for your grok parser.
      */
     supportRules: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorLookupProcessor {
+    /**
+     * Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     */
+    defaultLookup?: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * List of entries of the lookup table using `"key,value"` format.
+     */
+    lookupTables: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the source attribute used to do the lookup.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorMessageRemapper {
@@ -2773,6 +2832,7 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper>;
     geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser>;
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser>;
+    lookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor>;
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper>;
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper>;
@@ -2824,7 +2884,7 @@ export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
      */
     preserveSource?: pulumi.Input<boolean>;
     /**
-     * Defines where the sources are from (log `attribute` or `tag`). 
+     * Defines where the sources are from (log `attribute` or `tag`).
      */
     sourceType: pulumi.Input<string>;
     /**
@@ -2924,8 +2984,7 @@ export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
      */
     samples?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the log attribute to parse.
-     * * `grok`
+     * Name of the source attribute used to do the lookup.
      */
     source: pulumi.Input<string>;
 }
@@ -2939,6 +2998,33 @@ export interface LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok {
      * Support rules for your grok parser.
      */
     supportRules: pulumi.Input<string>;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
+    /**
+     * Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     */
+    defaultLookup?: pulumi.Input<string>;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: pulumi.Input<boolean>;
+    /**
+     * List of entries of the lookup table using `"key,value"` format.
+     */
+    lookupTables: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the processor
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Name of the source attribute used to do the lookup.
+     */
+    source: pulumi.Input<string>;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: pulumi.Input<string>;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
@@ -3351,6 +3437,16 @@ export interface ScreenBoardWidgetTileDefRequest {
     increaseGood?: pulumi.Input<boolean>;
     limit?: pulumi.Input<number>;
     logQuery?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQuery>;
+    /**
+     * A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadataJson` will be ignored if they're not present in the query. For example:
+     * ```
+     * metadataJson = jsonencode({
+     * "avg:redis.info.latency_ms{$host}": {
+     * "alias": "Redis latency"
+     * }
+     * })
+     * ```
+     */
     metadataJson?: pulumi.Input<string>;
     metric?: pulumi.Input<string>;
     orderBy?: pulumi.Input<string>;
@@ -3460,7 +3556,7 @@ export interface ServiceLevelObjectiveThreshold {
      */
     targetDisplay?: pulumi.Input<string>;
     /**
-     * the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+     * the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
      * * `7d`
      * * `30d`
      * * `90d`
@@ -3478,6 +3574,7 @@ export interface ServiceLevelObjectiveThreshold {
 
 export interface SyntheticsTestOptions {
     acceptSelfSigned?: pulumi.Input<boolean>;
+    allowInsecure?: pulumi.Input<boolean>;
     followRedirects?: pulumi.Input<boolean>;
     minFailureDuration?: pulumi.Input<number>;
     minLocationFailed?: pulumi.Input<number>;

@@ -44,7 +44,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
       * `target` (`float`) - the objective's target `[0,100]`
       * `targetDisplay` (`str`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-      * `timeframe` (`str`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+      * `timeframe` (`str`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
         * `7d`
         * `30d`
         * `90d`
@@ -53,7 +53,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     """
     type: pulumi.Output[str]
     """
-    The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+    The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
     * `metric`
     * `monitor`
     """
@@ -144,7 +144,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[dict] query: The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
         :param pulumi.Input[list] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[list] thresholds: - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
                * `metric`
                * `monitor`
 
@@ -158,7 +158,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
           * `target` (`pulumi.Input[float]`) - the objective's target `[0,100]`
           * `targetDisplay` (`pulumi.Input[str]`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-          * `timeframe` (`pulumi.Input[str]`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+          * `timeframe` (`pulumi.Input[str]`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
             * `7d`
             * `30d`
             * `90d`
@@ -218,7 +218,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[dict] query: The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
         :param pulumi.Input[list] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[list] thresholds: - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
                * `metric`
                * `monitor`
 
@@ -232,7 +232,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
           * `target` (`pulumi.Input[float]`) - the objective's target `[0,100]`
           * `targetDisplay` (`pulumi.Input[str]`) - the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-          * `timeframe` (`pulumi.Input[str]`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+          * `timeframe` (`pulumi.Input[str]`) - the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
             * `7d`
             * `30d`
             * `90d`
