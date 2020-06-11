@@ -9,6 +9,98 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
+    /// <summary>
+    /// Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var time = new Datadog.Dashboard("time", new Datadog.DashboardArgs
+    ///         {
+    ///             Description = "Created using the Datadog provider in TF",
+    ///             IsReadOnly = true,
+    ///             LayoutType = "ordered",
+    ///             Title = "TF Test Layout Dashboard",
+    ///             Widgets = 
+    ///             {
+    ///                 new Datadog.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
+    ///                     {
+    ///                         AlertId = "1234",
+    ///                         Time = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionTimeArgs
+    ///                         {
+    ///                             LiveSpan = "1h",
+    ///                         },
+    ///                         Title = "Widget Title",
+    ///                         VizType = "timeseries",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var screen = new Datadog.Dashboard("screen", new Datadog.DashboardArgs
+    ///         {
+    ///             Description = "Created using the Datadog provider in TF",
+    ///             IsReadOnly = false,
+    ///             LayoutType = "free",
+    ///             Title = "TF Test Free Layout Dashboard",
+    ///             Widgets = 
+    ///             {
+    ///                 new Datadog.Inputs.DashboardWidgetArgs
+    ///                 {
+    ///                     EventStreamDefinition = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionArgs
+    ///                     {
+    ///                         EventSize = "l",
+    ///                         Query = "*",
+    ///                         Time = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionTimeArgs
+    ///                         {
+    ///                             LiveSpan = "1h",
+    ///                         },
+    ///                         Title = "Widget Title",
+    ///                         TitleAlign = "left",
+    ///                         TitleSize = "16",
+    ///                     },
+    ///                     Layout = new Datadog.Inputs.DashboardWidgetLayoutArgs
+    ///                     {
+    ///                         Height = 43,
+    ///                         Width = 32,
+    ///                         X = 5,
+    ///                         Y = 5,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var newList = new Datadog.DashboardList("newList", new Datadog.DashboardListArgs
+    ///         {
+    ///             DashItems = 
+    ///             {
+    ///                 new Datadog.Inputs.DashboardListDashItemArgs
+    ///                 {
+    ///                     DashId = time.Id,
+    ///                     Type = "custom_timeboard",
+    ///                 },
+    ///                 new Datadog.Inputs.DashboardListDashItemArgs
+    ///                 {
+    ///                     DashId = screen.Id,
+    ///                     Type = "custom_screenboard",
+    ///                 },
+    ///             },
+    ///             Name = "TF Created List",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class DashboardList : Pulumi.CustomResource
     {
         /// <summary>

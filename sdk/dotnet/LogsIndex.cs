@@ -9,6 +9,70 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
+    /// <summary>
+    /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to create and manage Datadog logs indexes.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sampleIndex = new Datadog.LogsIndex("sampleIndex", new Datadog.LogsIndexArgs
+    ///         {
+    ///             ExclusionFilters = 
+    ///             {
+    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///                 {
+    ///                     Filter = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "query", "app:coredns" },
+    ///                             { "sampleRate", 0.97 },
+    ///                         },
+    ///                     },
+    ///                     IsEnabled = true,
+    ///                     Name = "Filter coredns logs",
+    ///                 },
+    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///                 {
+    ///                     Filter = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "query", "service:kube_apiserver" },
+    ///                             { "sampleRate", 1 },
+    ///                         },
+    ///                     },
+    ///                     IsEnabled = true,
+    ///                     Name = "Kubernetes apiserver",
+    ///                 },
+    ///             },
+    ///             Filters = 
+    ///             {
+    ///                 new Datadog.Inputs.LogsIndexFilterArgs
+    ///                 {
+    ///                     Query = "*",
+    ///                 },
+    ///             },
+    ///             Name = "your index",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Important Notes
+    /// 
+    /// The order of indexes is maintained in the separated resource datadog_logs_index_order.
+    /// </summary>
     public partial class LogsIndex : Pulumi.CustomResource
     {
         /// <summary>

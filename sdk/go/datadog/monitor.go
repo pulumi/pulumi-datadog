@@ -38,9 +38,8 @@ type Monitor struct {
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
 	NewHostDelay pulumi.IntPtrOutput `pulumi:"newHostDelay"`
-	// The number of minutes before a monitor will notify when data stops reporting. Must be at
-	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-	// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+	// We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrOutput `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	// Defaults to false.
@@ -48,7 +47,9 @@ type Monitor struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
-	Query        pulumi.StringOutput  `pulumi:"query"`
+	// The monitor query to notify on. Note this is not the same query you see in the UI and
+	// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+	Query pulumi.StringOutput `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
@@ -56,6 +57,8 @@ type Monitor struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapOutput `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -91,7 +94,7 @@ type Monitor struct {
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	// from a triggered state. Defaults to false.
 	TimeoutH pulumi.IntPtrOutput `pulumi:"timeoutH"`
-	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
 	// * `metric alert`
 	// * `service check`
 	// * `event alert`
@@ -165,17 +168,18 @@ type monitorState struct {
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
 	NewHostDelay *int `pulumi:"newHostDelay"`
-	// The number of minutes before a monitor will notify when data stops reporting. Must be at
-	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-	// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+	// We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	// Defaults to false.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
-	NotifyNoData *bool   `pulumi:"notifyNoData"`
-	Query        *string `pulumi:"query"`
+	NotifyNoData *bool `pulumi:"notifyNoData"`
+	// The monitor query to notify on. Note this is not the same query you see in the UI and
+	// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+	Query *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
@@ -183,6 +187,8 @@ type monitorState struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	//
 	// Deprecated: use Downtime Resource instead
 	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -218,7 +224,7 @@ type monitorState struct {
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	// from a triggered state. Defaults to false.
 	TimeoutH *int `pulumi:"timeoutH"`
-	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
 	// * `metric alert`
 	// * `service check`
 	// * `event alert`
@@ -253,9 +259,8 @@ type MonitorState struct {
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
 	NewHostDelay pulumi.IntPtrInput
-	// The number of minutes before a monitor will notify when data stops reporting. Must be at
-	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-	// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+	// We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	// Defaults to false.
@@ -263,7 +268,9 @@ type MonitorState struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData pulumi.BoolPtrInput
-	Query        pulumi.StringPtrInput
+	// The monitor query to notify on. Note this is not the same query you see in the UI and
+	// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+	Query pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
@@ -271,6 +278,8 @@ type MonitorState struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -306,7 +315,7 @@ type MonitorState struct {
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	// from a triggered state. Defaults to false.
 	TimeoutH pulumi.IntPtrInput
-	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
 	// * `metric alert`
 	// * `service check`
 	// * `event alert`
@@ -345,17 +354,18 @@ type monitorArgs struct {
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
 	NewHostDelay *int `pulumi:"newHostDelay"`
-	// The number of minutes before a monitor will notify when data stops reporting. Must be at
-	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-	// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+	// We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	// Defaults to false.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
-	NotifyNoData *bool  `pulumi:"notifyNoData"`
-	Query        string `pulumi:"query"`
+	NotifyNoData *bool `pulumi:"notifyNoData"`
+	// The monitor query to notify on. Note this is not the same query you see in the UI and
+	// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+	Query string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
@@ -363,6 +373,8 @@ type monitorArgs struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	//
 	// Deprecated: use Downtime Resource instead
 	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -398,7 +410,7 @@ type monitorArgs struct {
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	// from a triggered state. Defaults to false.
 	TimeoutH *int `pulumi:"timeoutH"`
-	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
 	// * `metric alert`
 	// * `service check`
 	// * `event alert`
@@ -434,9 +446,8 @@ type MonitorArgs struct {
 	// applications to fully start before starting the evaluation of monitor
 	// results. Should be a non negative integer. Defaults to 300.
 	NewHostDelay pulumi.IntPtrInput
-	// The number of minutes before a monitor will notify when data stops reporting. Must be at
-	// least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. Default: 2x timeframe for
-	// metric alerts, 2 minutes for service checks. Defaults to 10 minutes.
+	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
+	// We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
 	NoDataTimeframe pulumi.IntPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	// Defaults to false.
@@ -444,7 +455,9 @@ type MonitorArgs struct {
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	// to false.
 	NotifyNoData pulumi.BoolPtrInput
-	Query        pulumi.StringInput
+	// The monitor query to notify on. Note this is not the same query you see in the UI and
+	// the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
+	Query pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	// on the current status. It will only re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
@@ -452,6 +465,8 @@ type MonitorArgs struct {
 	// We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
 	// Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -487,7 +502,7 @@ type MonitorArgs struct {
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	// from a triggered state. Defaults to false.
 	TimeoutH pulumi.IntPtrInput
-	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
 	// * `metric alert`
 	// * `service check`
 	// * `event alert`

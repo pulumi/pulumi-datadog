@@ -24,13 +24,13 @@ type Downtime struct {
 	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
 	// A message to include with notifications for this downtime.
 	Message pulumi.StringPtrOutput `pulumi:"message"`
-	// When specified, this downtime will only apply to this monitor
+	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
 	MonitorId pulumi.IntPtrOutput `pulumi:"monitorId"`
 	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 	MonitorTags pulumi.StringArrayOutput `pulumi:"monitorTags"`
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence DowntimeRecurrencePtrOutput `pulumi:"recurrence"`
-	// A list of items to apply the downtime to, e.g. host:X
+	// The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// POSIX timestamp to start the downtime.
 	Start pulumi.IntPtrOutput `pulumi:"start"`
@@ -81,13 +81,13 @@ type downtimeState struct {
 	EndDate *string `pulumi:"endDate"`
 	// A message to include with notifications for this downtime.
 	Message *string `pulumi:"message"`
-	// When specified, this downtime will only apply to this monitor
+	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
 	MonitorId *int `pulumi:"monitorId"`
 	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 	MonitorTags []string `pulumi:"monitorTags"`
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
-	// A list of items to apply the downtime to, e.g. host:X
+	// The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
 	Scopes []string `pulumi:"scopes"`
 	// POSIX timestamp to start the downtime.
 	Start *int `pulumi:"start"`
@@ -108,13 +108,13 @@ type DowntimeState struct {
 	EndDate pulumi.StringPtrInput
 	// A message to include with notifications for this downtime.
 	Message pulumi.StringPtrInput
-	// When specified, this downtime will only apply to this monitor
+	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
 	MonitorId pulumi.IntPtrInput
 	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 	MonitorTags pulumi.StringArrayInput
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence DowntimeRecurrencePtrInput
-	// A list of items to apply the downtime to, e.g. host:X
+	// The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
 	Scopes pulumi.StringArrayInput
 	// POSIX timestamp to start the downtime.
 	Start pulumi.IntPtrInput
@@ -139,13 +139,13 @@ type downtimeArgs struct {
 	EndDate *string `pulumi:"endDate"`
 	// A message to include with notifications for this downtime.
 	Message *string `pulumi:"message"`
-	// When specified, this downtime will only apply to this monitor
+	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
 	MonitorId *int `pulumi:"monitorId"`
 	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 	MonitorTags []string `pulumi:"monitorTags"`
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
-	// A list of items to apply the downtime to, e.g. host:X
+	// The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
 	Scopes []string `pulumi:"scopes"`
 	// POSIX timestamp to start the downtime.
 	Start *int `pulumi:"start"`
@@ -167,13 +167,13 @@ type DowntimeArgs struct {
 	EndDate pulumi.StringPtrInput
 	// A message to include with notifications for this downtime.
 	Message pulumi.StringPtrInput
-	// When specified, this downtime will only apply to this monitor
+	// Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
 	MonitorId pulumi.IntPtrInput
 	// A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
 	MonitorTags pulumi.StringArrayInput
 	// A dictionary to configure the downtime to be recurring.
 	Recurrence DowntimeRecurrencePtrInput
-	// A list of items to apply the downtime to, e.g. host:X
+	// The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
 	Scopes pulumi.StringArrayInput
 	// POSIX timestamp to start the downtime.
 	Start pulumi.IntPtrInput

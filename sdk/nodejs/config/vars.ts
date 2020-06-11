@@ -11,3 +11,4 @@ let __config = new pulumi.Config("datadog");
 export let apiKey: string | undefined = __config.get("apiKey") || utilities.getEnv("DATADOG_API_KEY");
 export let apiUrl: string | undefined = __config.get("apiUrl") || utilities.getEnv("DATADOG_HOST");
 export let appKey: string | undefined = __config.get("appKey") || utilities.getEnv("DATADOG_APP_KEY");
+export let validate: boolean | undefined = __config.getObject<boolean>("validate");

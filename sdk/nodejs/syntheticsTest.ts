@@ -6,6 +6,119 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
+ *
+ * ## Example Usage (Synthetics API test)
+ *
+ * Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testApi = new datadog.SyntheticsTest("testApi", {
+ *     assertions: [{
+ *         operator: "is",
+ *         target: "200",
+ *         type: "statusCode",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     options: {
+ *         tick_every: 900,
+ *     },
+ *     request: {
+ *         method: "GET",
+ *         url: "https://www.example.org",
+ *     },
+ *     requestHeaders: {
+ *         Authentication: "Token: 1234566789",
+ *         "Content-Type": "application/json",
+ *     },
+ *     status: "live",
+ *     subtype: "http",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     type: "api",
+ * });
+ * ```
+ *
+ * ## Example Usage (Synthetics SSL test)
+ *
+ * Create a new Datadog Synthetics API/SSL test on example.org
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testSsl = new datadog.SyntheticsTest("testSsl", {
+ *     assertions: [{
+ *         operator: "isInMoreThan",
+ *         target: 30,
+ *         type: "certificate",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     options: {
+ *         accept_self_signed: true,
+ *         tick_every: 900,
+ *     },
+ *     request: {
+ *         host: "example.org",
+ *         port: 443,
+ *     },
+ *     status: "live",
+ *     subtype: "ssl",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     type: "api",
+ * });
+ * ```
+ *
+ * ## Example Usage (Synthetics Browser test)
+ *
+ * Support for Synthetics Browser test is limited (see below)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
+ * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
+ *     deviceIds: ["laptopLarge"],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @qa",
+ *     name: "A Browser test on example.org",
+ *     options: {
+ *         tick_every: 3600,
+ *     },
+ *     request: {
+ *         method: "GET",
+ *         url: "https://app.datadoghq.com",
+ *     },
+ *     status: "paused",
+ *     tags: [],
+ *     type: "browser",
+ * });
+ * ```
+ *
+ * ## Synthetics Browser test
+ *
+ * Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)
+ *
+ * You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
+ *
+ * We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
+ */
 export class SyntheticsTest extends pulumi.CustomResource {
     /**
      * Get an existing SyntheticsTest resource's state with the given name, ID, and optional extra

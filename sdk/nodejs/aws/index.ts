@@ -3,3 +3,5 @@
 
 // Export members:
 export * from "./integration";
+export * from "./integrationLambdaArn";
+export * from "./integrationLogCollection";

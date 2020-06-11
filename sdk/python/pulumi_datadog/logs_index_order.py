@@ -16,11 +16,11 @@ class LogsIndexOrder(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The unique name of the index order resource. 
+    The unique name of the index order resource.
     """
     def __init__(__self__, resource_name, opts=None, indexes=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/?lang=python#logs-indexes) resource. This can be used to manage the order of Datadog logs indexes.
+        Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
 
         ## Example Usage
 
@@ -39,7 +39,7 @@ class LogsIndexOrder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
-        :param pulumi.Input[str] name: The unique name of the index order resource. 
+        :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,7 +80,7 @@ class LogsIndexOrder(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
-        :param pulumi.Input[str] name: The unique name of the index order resource. 
+        :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

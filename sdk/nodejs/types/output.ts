@@ -280,6 +280,7 @@ export interface DashboardWidgetDistributionDefinitionTime {
 export interface DashboardWidgetEventStreamDefinition {
     eventSize?: string;
     query: string;
+    tagsExecution?: string;
     time?: outputs.DashboardWidgetEventStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -292,6 +293,7 @@ export interface DashboardWidgetEventStreamDefinitionTime {
 
 export interface DashboardWidgetEventTimelineDefinition {
     query: string;
+    tagsExecution?: string;
     time?: outputs.DashboardWidgetEventTimelineDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -562,6 +564,7 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
     eventSize?: string;
     query: string;
+    tagsExecution?: string;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -574,6 +577,7 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime {
 
 export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
     query: string;
+    tagsExecution?: string;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -877,12 +881,25 @@ export interface DashboardWidgetGroupDefinitionWidgetLayout {
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     columns?: string[];
-    logset: string;
+    indexes?: string[];
+    /**
+     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     */
+    logset?: string;
+    messageDisplay?: string;
     query?: string;
+    showDateColumn?: boolean;
+    showMessageColumn?: boolean;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort {
+    column: string;
+    order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
@@ -892,7 +909,7 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     colorPreference?: string;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     count?: number;
     displayFormat?: string;
@@ -901,7 +918,7 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     showLastTriggered?: boolean;
     sort?: string;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     start?: number;
     summaryType?: string;
@@ -1329,6 +1346,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
     q: string;
+    tagsExecution?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
@@ -1844,12 +1862,25 @@ export interface DashboardWidgetLayout {
 
 export interface DashboardWidgetLogStreamDefinition {
     columns?: string[];
-    logset: string;
+    indexes?: string[];
+    /**
+     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     */
+    logset?: string;
+    messageDisplay?: string;
     query?: string;
+    showDateColumn?: boolean;
+    showMessageColumn?: boolean;
+    sort?: outputs.DashboardWidgetLogStreamDefinitionSort;
     time?: outputs.DashboardWidgetLogStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetLogStreamDefinitionSort {
+    column: string;
+    order: string;
 }
 
 export interface DashboardWidgetLogStreamDefinitionTime {
@@ -1859,7 +1890,7 @@ export interface DashboardWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetManageStatusDefinition {
     colorPreference?: string;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     count?: number;
     displayFormat?: string;
@@ -1868,7 +1899,7 @@ export interface DashboardWidgetManageStatusDefinition {
     showLastTriggered?: boolean;
     sort?: string;
     /**
-     * @deprecated This parameter may be removed from the dashboard API in the future
+     * @deprecated This parameter has been deprecated
      */
     start?: number;
     summaryType?: string;
@@ -2296,6 +2327,7 @@ export interface DashboardWidgetTimeseriesDefinition {
 
 export interface DashboardWidgetTimeseriesDefinitionEvent {
     q: string;
+    tagsExecution?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionMarker {
@@ -2559,6 +2591,7 @@ export interface LogsCustomPipelineProcessor {
     dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
     geoIpParser?: outputs.LogsCustomPipelineProcessorGeoIpParser;
     grokParser?: outputs.LogsCustomPipelineProcessorGrokParser;
+    lookupProcessor?: outputs.LogsCustomPipelineProcessorLookupProcessor;
     messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
     pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
@@ -2611,7 +2644,7 @@ export interface LogsCustomPipelineProcessorAttributeRemapper {
      */
     preserveSource?: boolean;
     /**
-     * Defines where the sources are from (log `attribute` or `tag`). 
+     * Defines where the sources are from (log `attribute` or `tag`).
      */
     sourceType: string;
     /**
@@ -2711,8 +2744,7 @@ export interface LogsCustomPipelineProcessorGrokParser {
      */
     samples?: string[];
     /**
-     * Name of the log attribute to parse.
-     * * `grok`
+     * Name of the source attribute used to do the lookup.
      */
     source: string;
 }
@@ -2726,6 +2758,33 @@ export interface LogsCustomPipelineProcessorGrokParserGrok {
      * Support rules for your grok parser.
      */
     supportRules: string;
+}
+
+export interface LogsCustomPipelineProcessorLookupProcessor {
+    /**
+     * Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     */
+    defaultLookup?: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * List of entries of the lookup table using `"key,value"` format.
+     */
+    lookupTables: string[];
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the source attribute used to do the lookup.
+     */
+    source: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
 }
 
 export interface LogsCustomPipelineProcessorMessageRemapper {
@@ -2773,6 +2832,7 @@ export interface LogsCustomPipelineProcessorPipelineProcessor {
     dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
     geoIpParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser;
     grokParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
+    lookupProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor;
     messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
     statusRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
@@ -2824,7 +2884,7 @@ export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
      */
     preserveSource?: boolean;
     /**
-     * Defines where the sources are from (log `attribute` or `tag`). 
+     * Defines where the sources are from (log `attribute` or `tag`).
      */
     sourceType: string;
     /**
@@ -2924,8 +2984,7 @@ export interface LogsCustomPipelineProcessorPipelineProcessorGrokParser {
      */
     samples?: string[];
     /**
-     * Name of the log attribute to parse.
-     * * `grok`
+     * Name of the source attribute used to do the lookup.
      */
     source: string;
 }
@@ -2939,6 +2998,33 @@ export interface LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok {
      * Support rules for your grok parser.
      */
     supportRules: string;
+}
+
+export interface LogsCustomPipelineProcessorPipelineProcessorLookupProcessor {
+    /**
+     * Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+     */
+    defaultLookup?: string;
+    /**
+     * If the processor is enabled or not.
+     */
+    isEnabled?: boolean;
+    /**
+     * List of entries of the lookup table using `"key,value"` format.
+     */
+    lookupTables: string[];
+    /**
+     * Name of the processor
+     */
+    name?: string;
+    /**
+     * Name of the source attribute used to do the lookup.
+     */
+    source: string;
+    /**
+     * Name of the parent attribute that contains all the extracted details from the sources.
+     */
+    target: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorMessageRemapper {
@@ -3351,6 +3437,16 @@ export interface ScreenBoardWidgetTileDefRequest {
     increaseGood?: boolean;
     limit?: number;
     logQuery?: outputs.ScreenBoardWidgetTileDefRequestLogQuery;
+    /**
+     * A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadataJson` will be ignored if they're not present in the query. For example:
+     * ```
+     * metadataJson = jsonencode({
+     * "avg:redis.info.latency_ms{$host}": {
+     * "alias": "Redis latency"
+     * }
+     * })
+     * ```
+     */
     metadataJson?: string;
     metric?: string;
     orderBy?: string;
@@ -3460,7 +3556,7 @@ export interface ServiceLevelObjectiveThreshold {
      */
     targetDisplay?: string;
     /**
-     * the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+     * the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
      * * `7d`
      * * `30d`
      * * `90d`
@@ -3478,6 +3574,7 @@ export interface ServiceLevelObjectiveThreshold {
 
 export interface SyntheticsTestOptions {
     acceptSelfSigned?: boolean;
+    allowInsecure?: boolean;
     followRedirects?: boolean;
     minFailureDuration?: number;
     minLocationFailed?: number;

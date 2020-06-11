@@ -14,5 +14,7 @@ namespace Pulumi.Datadog
 
         public static string? AppKey { get; set; } = __config.Get("appKey") ?? Utilities.GetEnv("DATADOG_APP_KEY");
 
+        public static bool? Validate { get; set; } = __config.GetBoolean("validate");
+
     }
 }

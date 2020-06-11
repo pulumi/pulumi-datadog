@@ -6,6 +6,126 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
+ *
+ * > **Note:**This resource is outdated. Use the new `datadog..Dashboard` resource instead.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog timeboard
+ * const redis = new datadog.TimeBoard("redis", {
+ *     title: "Redis Timeboard (created via TF)",
+ *     description: "created using the Datadog provider in TF",
+ *     readOnly: true,
+ *     graph: [
+ *         {
+ *             title: "Redis latency (ms)",
+ *             viz: "timeseries",
+ *             request: [
+ *                 {
+ *                     q: `avg:redis.info.latency_ms{$host}`,
+ *                     type: "bars",
+ *                     metadataJson: JSON.stringify({
+ *                         `avg:redis.info.latency_ms{$host}`: {
+ *                             alias: "Redis latency",
+ *                         },
+ *                     }),
+ *                 },
+ *                 {
+ *                     log_query: {
+ *                         index: "mcnulty",
+ *                         compute: {
+ *                             aggregation: "avg",
+ *                             facet: "@duration",
+ *                             interval: 5000,
+ *                         },
+ *                         search: {
+ *                             query: "status:info",
+ *                         },
+ *                         group_by: [{
+ *                             facet: "host",
+ *                             limit: 10,
+ *                             sort: {
+ *                                 aggregation: "avg",
+ *                                 order: "desc",
+ *                                 facet: "@duration",
+ *                             },
+ *                         }],
+ *                     },
+ *                     type: "area",
+ *                 },
+ *                 {
+ *                     apm_query: {
+ *                         index: "apm-search",
+ *                         compute: {
+ *                             aggregation: "avg",
+ *                             facet: "@duration",
+ *                             interval: 5000,
+ *                         },
+ *                         search: {
+ *                             query: "type:web",
+ *                         },
+ *                         group_by: [{
+ *                             facet: "resourceName",
+ *                             limit: 50,
+ *                             sort: {
+ *                                 aggregation: "avg",
+ *                                 order: "desc",
+ *                                 facet: "@string_query.interval",
+ *                             },
+ *                         }],
+ *                     },
+ *                     type: "bars",
+ *                 },
+ *                 {
+ *                     process_query: {
+ *                         metric: "process.stat.cpu.total_pct",
+ *                         searchBy: "error",
+ *                         filterBies: ["active"],
+ *                         limit: 50,
+ *                     },
+ *                     type: "area",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             title: "Redis memory usage",
+ *             viz: "timeseries",
+ *             request: [
+ *                 {
+ *                     q: `avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}`,
+ *                     stacked: true,
+ *                 },
+ *                 {
+ *                     q: `avg:redis.mem.rss{$host}`,
+ *                     style: {
+ *                         palette: "warm",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             title: "Top System CPU by Docker container",
+ *             viz: "toplist",
+ *             request: [{
+ *                 q: "top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
+ *             }],
+ *         },
+ *     ],
+ *     template_variable: [{
+ *         name: "host",
+ *         prefix: "host",
+ *     }],
+ * });
+ * ```
+ */
 export class TimeBoard extends pulumi.CustomResource {
     /**
      * Get an existing TimeBoard resource's state with the given name, ID, and optional extra

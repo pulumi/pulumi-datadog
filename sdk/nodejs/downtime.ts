@@ -95,7 +95,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
-     * When specified, this downtime will only apply to this monitor
+     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
     /**
@@ -107,7 +107,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly recurrence!: pulumi.Output<outputs.DowntimeRecurrence | undefined>;
     /**
-     * A list of items to apply the downtime to, e.g. host:X
+     * The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
      */
     public readonly scopes!: pulumi.Output<string[]>;
     /**
@@ -201,7 +201,7 @@ export interface DowntimeState {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * When specified, this downtime will only apply to this monitor
+     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
      */
     readonly monitorId?: pulumi.Input<number>;
     /**
@@ -213,7 +213,7 @@ export interface DowntimeState {
      */
     readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
-     * A list of items to apply the downtime to, e.g. host:X
+     * The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
      */
     readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -255,7 +255,7 @@ export interface DowntimeArgs {
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * When specified, this downtime will only apply to this monitor
+     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
      */
     readonly monitorId?: pulumi.Input<number>;
     /**
@@ -267,7 +267,7 @@ export interface DowntimeArgs {
      */
     readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
-     * A list of items to apply the downtime to, e.g. host:X
+     * The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
      */
     readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**

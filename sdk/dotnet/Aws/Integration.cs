@@ -12,8 +12,6 @@ namespace Pulumi.Datadog.Aws
     /// <summary>
     /// Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
     /// 
-    /// Update operations are currently not supported with datadog API so any change forces a new resource.
-    /// 
     /// ## Example Usage
     /// 
     /// 
@@ -60,7 +58,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         /// </summary>
         [Output("accountSpecificNamespaceRules")]
         public Output<ImmutableDictionary<string, object>?> AccountSpecificNamespaceRules { get; private set; } = null!;
@@ -145,7 +143,7 @@ namespace Pulumi.Datadog.Aws
         private InputMap<object>? _accountSpecificNamespaceRules;
 
         /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         /// </summary>
         public InputMap<object> AccountSpecificNamespaceRules
         {
@@ -200,7 +198,7 @@ namespace Pulumi.Datadog.Aws
         private InputMap<object>? _accountSpecificNamespaceRules;
 
         /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://api.datadoghq.com/api/v1/integration/aws/available_namespace_rules).
+        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         /// </summary>
         public InputMap<object> AccountSpecificNamespaceRules
         {

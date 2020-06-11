@@ -10,10 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [pagerduty.Integration](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
+// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using `pagerduty.Integration`) in order for this resource to be usable.
 type ServiceObject struct {
 	pulumi.CustomResourceState
 
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
@@ -53,12 +54,14 @@ func GetServiceObject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceObject resources.
 type serviceObjectState struct {
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey *string `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName *string `pulumi:"serviceName"`
 }
 
 type ServiceObjectState struct {
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey pulumi.StringPtrInput
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringPtrInput
@@ -69,6 +72,7 @@ func (ServiceObjectState) ElementType() reflect.Type {
 }
 
 type serviceObjectArgs struct {
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey string `pulumi:"serviceKey"`
 	// Your Service name in PagerDuty.
 	ServiceName string `pulumi:"serviceName"`
@@ -76,6 +80,7 @@ type serviceObjectArgs struct {
 
 // The set of arguments for constructing a ServiceObject resource.
 type ServiceObjectArgs struct {
+	// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
 	ServiceKey pulumi.StringInput
 	// Your Service name in PagerDuty.
 	ServiceName pulumi.StringInput

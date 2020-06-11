@@ -53,6 +53,9 @@ namespace Pulumi.Datadog
         [Input("appKey")]
         public Input<string>? AppKey { get; set; }
 
+        [Input("validate", json: true)]
+        public Input<bool>? Validate { get; set; }
+
         public ProviderArgs()
         {
             ApiKey = Utilities.GetEnv("DATADOG_API_KEY");

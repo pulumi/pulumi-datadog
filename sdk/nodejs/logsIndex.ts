@@ -6,6 +6,47 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to create and manage Datadog logs indexes.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const sampleIndex = new datadog.LogsIndex("sampleIndex", {
+ *     exclusionFilters: [
+ *         {
+ *             filters: [{
+ *                 query: "app:coredns",
+ *                 sampleRate: 0.97,
+ *             }],
+ *             isEnabled: true,
+ *             name: "Filter coredns logs",
+ *         },
+ *         {
+ *             filters: [{
+ *                 query: "service:kube_apiserver",
+ *                 sampleRate: 1,
+ *             }],
+ *             isEnabled: true,
+ *             name: "Kubernetes apiserver",
+ *         },
+ *     ],
+ *     filters: [{
+ *         query: "*",
+ *     }],
+ *     name: "your index",
+ * });
+ * ```
+ *
+ * ## Important Notes
+ *
+ * The order of indexes is maintained in the separated resource datadog_logs_index_order.
+ */
 export class LogsIndex extends pulumi.CustomResource {
     /**
      * Get an existing LogsIndex resource's state with the given name, ID, and optional extra

@@ -41,16 +41,18 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey *string `pulumi:"apiKey"`
-	ApiUrl *string `pulumi:"apiUrl"`
-	AppKey *string `pulumi:"appKey"`
+	ApiKey   *string `pulumi:"apiKey"`
+	ApiUrl   *string `pulumi:"apiUrl"`
+	AppKey   *string `pulumi:"appKey"`
+	Validate *bool   `pulumi:"validate"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey pulumi.StringPtrInput
-	ApiUrl pulumi.StringPtrInput
-	AppKey pulumi.StringPtrInput
+	ApiKey   pulumi.StringPtrInput
+	ApiUrl   pulumi.StringPtrInput
+	AppKey   pulumi.StringPtrInput
+	Validate pulumi.BoolPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

@@ -19,6 +19,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper? DateRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser? GeoIpParser;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser? GrokParser;
+        public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor? LookupProcessor;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper? MessageRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper? ServiceRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper? StatusRemapper;
@@ -41,6 +42,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser? grokParser,
 
+            Outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor? lookupProcessor,
+
             Outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper? messageRemapper,
 
             Outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper? serviceRemapper,
@@ -61,6 +64,7 @@ namespace Pulumi.Datadog.Outputs
             DateRemapper = dateRemapper;
             GeoIpParser = geoIpParser;
             GrokParser = grokParser;
+            LookupProcessor = lookupProcessor;
             MessageRemapper = messageRemapper;
             ServiceRemapper = serviceRemapper;
             StatusRemapper = statusRemapper;

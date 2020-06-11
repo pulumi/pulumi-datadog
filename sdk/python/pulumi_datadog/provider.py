@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, app_key=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_key=None, api_url=None, app_key=None, validate=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the datadog package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -46,6 +46,7 @@ class Provider(pulumi.ProviderResource):
             if app_key is None:
                 app_key = utilities.get_env('DATADOG_APP_KEY')
             __props__['app_key'] = app_key
+            __props__['validate'] = pulumi.Output.from_input(validate).apply(json.dumps) if validate is not None else None
         super(Provider, __self__).__init__(
             'datadog',
             resource_name,

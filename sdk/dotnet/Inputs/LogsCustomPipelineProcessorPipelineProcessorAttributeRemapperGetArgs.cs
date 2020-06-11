@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? PreserveSource { get; set; }
 
         /// <summary>
-        /// Defines where the sources are from (log `attribute` or `tag`). 
+        /// Defines where the sources are from (log `attribute` or `tag`).
         /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;

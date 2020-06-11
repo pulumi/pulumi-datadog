@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to create and manage Datadog logs custom pipelines.
+    /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
     /// 
     /// 
     /// 
@@ -18,8 +18,8 @@ namespace Pulumi.Datadog
     /// 
     /// Each `datadog..LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
     /// a different resource datadog_logs_pipeline_order.
-    /// When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog..LogsPipelineOrder` 
-    /// resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the 
+    /// When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog..LogsPipelineOrder`
+    /// resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
     /// `datadog..LogsPipelineOrder` resource.
     /// </summary>
     public partial class LogsCustomPipeline : Pulumi.CustomResource

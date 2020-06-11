@@ -6,6 +6,402 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
+ *
+ * > **Note:** This resource is outdated. Use the new `datadog..Dashboard` resource instead.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog screenboard
+ * const acceptanceTest = new datadog.ScreenBoard("acceptanceTest", {
+ *     title: "Test Screenboard",
+ *     readOnly: true,
+ *     template_variable: [
+ *         {
+ *             name: "varname 1",
+ *             prefix: "podName",
+ *             "default": "*",
+ *         },
+ *         {
+ *             name: "varname 2",
+ *             prefix: "serviceName",
+ *             "default": "autoscaling",
+ *         },
+ *     ],
+ *     widget: [
+ *         {
+ *             type: "freeText",
+ *             x: 5,
+ *             y: 5,
+ *             text: "test text",
+ *             textAlign: "right",
+ *             fontSize: "36",
+ *             color: "#ffc0cb",
+ *         },
+ *         {
+ *             type: "timeseries",
+ *             x: 25,
+ *             y: 5,
+ *             title: "graph title tf",
+ *             titleSize: 16,
+ *             titleAlign: "right",
+ *             legend: true,
+ *             legendSize: 16,
+ *             time: {
+ *                 live_span: "1d",
+ *             },
+ *             tile_def: [{
+ *                 viz: "timeseries",
+ *                 request: [
+ *                     {
+ *                         q: "avg:system.cpu.user{*}",
+ *                         type: "line",
+ *                         style: {
+ *                             palette: "purple",
+ *                             type: "dashed",
+ *                             width: "thin",
+ *                         },
+ *                         metadataJson: JSON.stringify({
+ *                             "avg:system.cpu.user{*}": {
+ *                                 alias: "CPU Usage",
+ *                             },
+ *                         }),
+ *                     },
+ *                     {
+ *                         log_query: {
+ *                             index: "mcnulty",
+ *                             compute: {
+ *                                 aggregation: "avg",
+ *                                 facet: "@duration",
+ *                                 interval: 5000,
+ *                             },
+ *                             search: {
+ *                                 query: "status:info",
+ *                             },
+ *                             group_by: [{
+ *                                 facet: "host",
+ *                                 limit: 10,
+ *                                 sort: {
+ *                                     aggregation: "avg",
+ *                                     order: "desc",
+ *                                     facet: "@duration",
+ *                                 },
+ *                             }],
+ *                         },
+ *                         type: "area",
+ *                     },
+ *                     {
+ *                         apm_query: {
+ *                             index: "apm-search",
+ *                             compute: {
+ *                                 aggregation: "avg",
+ *                                 facet: "@duration",
+ *                                 interval: 5000,
+ *                             },
+ *                             search: {
+ *                                 query: "type:web",
+ *                             },
+ *                             group_by: [{
+ *                                 facet: "resourceName",
+ *                                 limit: 50,
+ *                                 sort: {
+ *                                     aggregation: "avg",
+ *                                     order: "desc",
+ *                                     facet: "@string_query.interval",
+ *                                 },
+ *                             }],
+ *                         },
+ *                         type: "bars",
+ *                     },
+ *                     {
+ *                         process_query: {
+ *                             metric: "process.stat.cpu.total_pct",
+ *                             searchBy: "error",
+ *                             filterBies: ["active"],
+ *                             limit: 50,
+ *                         },
+ *                         type: "area",
+ *                     },
+ *                 ],
+ *                 marker: [{
+ *                     label: "test marker",
+ *                     type: "error dashed",
+ *                     value: "y < 6",
+ *                 }],
+ *                 event: [{
+ *                     q: "test event",
+ *                 }],
+ *             }],
+ *         },
+ *         {
+ *             type: "queryValue",
+ *             x: 45,
+ *             y: 25,
+ *             title: "query value title tf",
+ *             titleSize: 20,
+ *             titleAlign: "center",
+ *             legend: true,
+ *             legendSize: 16,
+ *             tile_def: [{
+ *                 viz: "queryValue",
+ *                 request: [{
+ *                     q: "avg:system.cpu.user{*}",
+ *                     type: "line",
+ *                     style: {
+ *                         palette: "purple",
+ *                         type: "dashed",
+ *                         width: "thin",
+ *                     },
+ *                     conditional_format: [
+ *                         {
+ *                             comparator: ">",
+ *                             value: "1",
+ *                             palette: "whiteOnRed",
+ *                         },
+ *                         {
+ *                             comparator: ">=",
+ *                             value: "2",
+ *                             palette: "whiteOnYellow",
+ *                         },
+ *                     ],
+ *                     aggregator: "max",
+ *                 }],
+ *                 customUnit: "%",
+ *                 autoscale: false,
+ *                 precision: "6",
+ *                 textAlign: "right",
+ *             }],
+ *         },
+ *         {
+ *             type: "toplist",
+ *             x: 65,
+ *             y: 5,
+ *             title: "toplist title tf",
+ *             legend: true,
+ *             legendSize: "auto",
+ *             time: {
+ *                 live_span: "1d",
+ *             },
+ *             tile_def: [{
+ *                 viz: "toplist",
+ *                 request: [{
+ *                     q: "top(avg:system.load.1{*} by {host}, 10, 'mean', 'desc')",
+ *                     style: {
+ *                         palette: "purple",
+ *                         type: "dashed",
+ *                         width: "thin",
+ *                     },
+ *                     conditional_format: [{
+ *                         comparator: ">",
+ *                         value: "4",
+ *                         palette: "whiteOnGreen",
+ *                     }],
+ *                 }],
+ *             }],
+ *         },
+ *         {
+ *             type: "change",
+ *             x: 85,
+ *             y: 5,
+ *             title: "change title tf",
+ *             tile_def: [{
+ *                 viz: "change",
+ *                 request: [{
+ *                     q: "min:system.load.1{*} by {host}",
+ *                     compareTo: "weekBefore",
+ *                     changeType: "relative",
+ *                     orderBy: "present",
+ *                     orderDir: "asc",
+ *                     extraCol: "",
+ *                     increaseGood: false,
+ *                 }],
+ *             }],
+ *         },
+ *         {
+ *             type: "eventTimeline",
+ *             x: 105,
+ *             y: 5,
+ *             title: "eventTimeline title tf",
+ *             query: "status:error",
+ *             time: {
+ *                 live_span: "1d",
+ *             },
+ *         },
+ *         {
+ *             type: "eventStream",
+ *             x: 115,
+ *             y: 5,
+ *             title: "eventStream title tf",
+ *             query: "*",
+ *             eventSize: "l",
+ *             time: {
+ *                 live_span: "4h",
+ *             },
+ *         },
+ *         {
+ *             type: "image",
+ *             x: 145,
+ *             y: 5,
+ *             title: "image title tf",
+ *             sizing: "fit",
+ *             margin: "large",
+ *             url: "https://datadog-prod.imgix.net/img/dd_logo_70x75.png",
+ *         },
+ *         {
+ *             type: "note",
+ *             x: 165,
+ *             y: 5,
+ *             bgcolor: "pink",
+ *             textAlign: "right",
+ *             fontSize: "36",
+ *             tick: true,
+ *             tickEdge: "bottom",
+ *             tickPos: `50%`,
+ *             html: "<b>test note</b>",
+ *         },
+ *         {
+ *             type: "alertGraph",
+ *             x: 185,
+ *             y: 5,
+ *             title: "alert graph title tf",
+ *             alertId: "123456",
+ *             vizType: "toplist",
+ *             time: {
+ *                 live_span: "15m",
+ *             },
+ *         },
+ *         {
+ *             type: "alertValue",
+ *             x: 205,
+ *             y: 5,
+ *             title: "alert value title tf",
+ *             alertId: "123456",
+ *             textSize: "fillHeight",
+ *             textAlign: "right",
+ *             precision: "*",
+ *             unit: "b",
+ *         },
+ *         {
+ *             type: "iframe",
+ *             x: 225,
+ *             y: 5,
+ *             url: "https://www.datadoghq.org",
+ *         },
+ *         {
+ *             type: "checkStatus",
+ *             x: 245,
+ *             y: 5,
+ *             title: "test title",
+ *             titleAlign: "left",
+ *             grouping: "check",
+ *             check: "aws.ecs.agent_connected",
+ *             tags: ["*"],
+ *             group: "cluster:test",
+ *             time: {
+ *                 live_span: "30m",
+ *             },
+ *         },
+ *         {
+ *             type: "traceService",
+ *             x: 265,
+ *             y: 5,
+ *             env: "testEnv",
+ *             serviceService: "",
+ *             serviceName: "",
+ *             sizeVersion: "large",
+ *             layoutVersion: "threeColumn",
+ *             mustShowHits: true,
+ *             mustShowErrors: true,
+ *             mustShowLatency: true,
+ *             mustShowBreakdown: true,
+ *             mustShowDistribution: true,
+ *             mustShowResourceList: true,
+ *             time: {
+ *                 live_span: "30m",
+ *             },
+ *         },
+ *         {
+ *             type: "hostmap",
+ *             x: 285,
+ *             y: 5,
+ *             query: "avg:system.load.1{*} by {host}",
+ *             tile_def: [{
+ *                 viz: "hostmap",
+ *                 nodeType: "container",
+ *                 scopes: ["datacenter:test"],
+ *                 groups: ["podName"],
+ *                 noGroupHosts: false,
+ *                 noMetricHosts: false,
+ *                 request: [{
+ *                     q: "max:process.stat.container.io.wbps{datacenter:test} by {host}",
+ *                     type: "fill",
+ *                 }],
+ *                 style: {
+ *                     palette: "hostmapBlues",
+ *                     palette_flip: true,
+ *                     fill_min: 20,
+ *                     fill_max: 300,
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             type: "manageStatus",
+ *             x: 305,
+ *             y: 5,
+ *             summaryType: "monitors",
+ *             displayFormat: "countsAndList",
+ *             colorPreference: "background",
+ *             hideZeroCounts: true,
+ *             showLastTriggered: false,
+ *             manageStatusShowTitle: false,
+ *             manageStatusTitleText: "test title",
+ *             manageStatusTitleSize: "20",
+ *             manageStatusTitleAlign: "right",
+ *             params: {
+ *                 sort: "status,asc",
+ *                 text: "status:alert",
+ *             },
+ *         },
+ *         {
+ *             type: "logStream",
+ *             x: 325,
+ *             y: 5,
+ *             query: "source:kubernetes",
+ *             columns: "[\"column1\",\"column2\",\"column3\"]",
+ *             logset: "1234",
+ *             time: {
+ *                 live_span: "1h",
+ *             },
+ *         },
+ *         {
+ *             type: "process",
+ *             x: 365,
+ *             y: 5,
+ *             tile_def: [{
+ *                 viz: "process",
+ *                 request: [{
+ *                     queryType: "process",
+ *                     metric: "process.stat.cpu.total_pct",
+ *                     textFilter: "",
+ *                     tagFilters: [],
+ *                     limit: 200,
+ *                     style: {
+ *                         palette: "dogClassicArea",
+ *                     },
+ *                 }],
+ *             }],
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export class ScreenBoard extends pulumi.CustomResource {
     /**
      * Get an existing ScreenBoard resource's state with the given name, ID, and optional extra

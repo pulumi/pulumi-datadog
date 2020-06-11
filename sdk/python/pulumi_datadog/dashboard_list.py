@@ -23,7 +23,69 @@ class DashboardList(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, dash_items=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a DashboardList resource with the given unique name, props, and options.
+        Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
+
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        time = datadog.Dashboard("time",
+            description="Created using the Datadog provider in TF",
+            is_read_only=True,
+            layout_type="ordered",
+            title="TF Test Layout Dashboard",
+            widgets=[{
+                "alertGraphDefinition": {
+                    "alertId": "1234",
+                    "time": {
+                        "liveSpan": "1h",
+                    },
+                    "title": "Widget Title",
+                    "vizType": "timeseries",
+                },
+            }])
+        screen = datadog.Dashboard("screen",
+            description="Created using the Datadog provider in TF",
+            is_read_only=False,
+            layout_type="free",
+            title="TF Test Free Layout Dashboard",
+            widgets=[{
+                "eventStreamDefinition": {
+                    "eventSize": "l",
+                    "query": "*",
+                    "time": {
+                        "liveSpan": "1h",
+                    },
+                    "title": "Widget Title",
+                    "titleAlign": "left",
+                    "titleSize": 16,
+                },
+                "layout": {
+                    "height": 43,
+                    "width": 32,
+                    "x": 5,
+                    "y": 5,
+                },
+            }])
+        new_list = datadog.DashboardList("newList",
+            dash_items=[
+                {
+                    "dashId": time.id,
+                    "type": "custom_timeboard",
+                },
+                {
+                    "dashId": screen.id,
+                    "type": "custom_screenboard",
+                },
+            ],
+            name="TF Created List")
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:

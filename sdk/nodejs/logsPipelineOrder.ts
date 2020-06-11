@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to manage Datadog log pipelines order.
+ * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to manage Datadog log pipelines order.
  *
  *
  * ## Example Usage
@@ -54,8 +54,8 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
     }
 
     /**
-     * The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
-     * No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
+     * The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
+     * No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -104,8 +104,8 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
  */
 export interface LogsPipelineOrderState {
     /**
-     * The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
-     * No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
+     * The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
+     * No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -119,8 +119,8 @@ export interface LogsPipelineOrderState {
  */
 export interface LogsPipelineOrderArgs {
     /**
-     * The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`. 
-     * No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#get-pipeline-order).
+     * The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
+     * No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
      */
     readonly name: pulumi.Input<string>;
     /**

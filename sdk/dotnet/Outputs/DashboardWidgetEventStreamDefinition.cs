@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? EventSize;
         public readonly string Query;
+        public readonly string? TagsExecution;
         public readonly Outputs.DashboardWidgetEventStreamDefinitionTime? Time;
         public readonly string? Title;
         public readonly string? TitleAlign;
@@ -26,6 +27,8 @@ namespace Pulumi.Datadog.Outputs
 
             string query,
 
+            string? tagsExecution,
+
             Outputs.DashboardWidgetEventStreamDefinitionTime? time,
 
             string? title,
@@ -36,6 +39,7 @@ namespace Pulumi.Datadog.Outputs
         {
             EventSize = eventSize;
             Query = query;
+            TagsExecution = tagsExecution;
             Time = time;
             Title = title;
             TitleAlign = titleAlign;

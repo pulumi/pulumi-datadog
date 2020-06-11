@@ -9,6 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.PagerDuty
 {
+    /// <summary>
+    /// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Services as Individual Resources
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pd = new Datadog.PagerDuty.Integration("pd", new Datadog.PagerDuty.IntegrationArgs
+    ///         {
+    ///             ApiToken = "38457822378273432587234242874",
+    ///             IndividualServices = true,
+    ///             Schedules = 
+    ///             {
+    ///                 "https://ddog.pagerduty.com/schedules/X123VF",
+    ///                 "https://ddog.pagerduty.com/schedules/X321XX",
+    ///             },
+    ///             Subdomain = "ddog",
+    ///         });
+    ///         var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new Datadog.PagerDuty.ServiceObjectArgs
+    ///         {
+    ///             ServiceKey = "9876543210123456789",
+    ///             ServiceName = "testing_foo",
+    ///         });
+    ///         var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new Datadog.PagerDuty.ServiceObjectArgs
+    ///         {
+    ///             ServiceKey = "54321098765432109876",
+    ///             ServiceName = "testing_bar",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>
@@ -18,7 +59,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Output<string?> ApiToken { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+        /// Boolean to specify whether or not individual service objects specified by `datadog.pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
         /// </summary>
         [Output("individualServices")]
         public Output<bool?> IndividualServices { get; private set; } = null!;
@@ -30,7 +71,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Output<ImmutableArray<string>> Schedules { get; private set; } = null!;
 
         /// <summary>
-        /// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+        /// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `datadog.pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<Outputs.IntegrationService>> Services { get; private set; } = null!;
@@ -94,7 +135,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Input<string>? ApiToken { get; set; }
 
         /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+        /// Boolean to specify whether or not individual service objects specified by `datadog.pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
         /// </summary>
         [Input("individualServices")]
         public Input<bool>? IndividualServices { get; set; }
@@ -115,7 +156,7 @@ namespace Pulumi.Datadog.PagerDuty
         private InputList<Inputs.IntegrationServiceArgs>? _services;
 
         /// <summary>
-        /// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+        /// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `datadog.pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         /// </summary>
         [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
         public InputList<Inputs.IntegrationServiceArgs> Services
@@ -144,7 +185,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Input<string>? ApiToken { get; set; }
 
         /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+        /// Boolean to specify whether or not individual service objects specified by `datadog.pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
         /// </summary>
         [Input("individualServices")]
         public Input<bool>? IndividualServices { get; set; }
@@ -165,7 +206,7 @@ namespace Pulumi.Datadog.PagerDuty
         private InputList<Inputs.IntegrationServiceGetArgs>? _services;
 
         /// <summary>
-        /// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+        /// Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `datadog.pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         /// </summary>
         [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
         public InputList<Inputs.IntegrationServiceGetArgs> Services

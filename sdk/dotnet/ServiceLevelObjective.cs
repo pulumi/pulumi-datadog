@@ -158,7 +158,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
         /// * `metric`
         /// * `monitor`
         /// </summary>
@@ -278,7 +278,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
         /// * `metric`
         /// * `monitor`
         /// </summary>
@@ -359,7 +359,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/?lang=python#create-a-service-level-objective) page. Available options to choose from are:
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
         /// * `metric`
         /// * `monitor`
         /// </summary>

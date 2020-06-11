@@ -200,6 +200,7 @@ class Dashboard(pulumi.CustomResource):
       * `eventStreamDefinition` (`dict`)
         * `eventSize` (`str`)
         * `query` (`str`)
+        * `tagsExecution` (`str`)
         * `time` (`dict`)
           * `liveSpan` (`str`)
 
@@ -209,6 +210,7 @@ class Dashboard(pulumi.CustomResource):
 
       * `eventTimelineDefinition` (`dict`)
         * `query` (`str`)
+        * `tagsExecution` (`str`)
         * `time` (`dict`)
           * `liveSpan` (`str`)
 
@@ -375,6 +377,7 @@ class Dashboard(pulumi.CustomResource):
           * `eventStreamDefinition` (`dict`)
             * `eventSize` (`str`)
             * `query` (`str`)
+            * `tagsExecution` (`str`)
             * `time` (`dict`)
               * `liveSpan` (`str`)
 
@@ -384,6 +387,7 @@ class Dashboard(pulumi.CustomResource):
 
           * `eventTimelineDefinition` (`dict`)
             * `query` (`str`)
+            * `tagsExecution` (`str`)
             * `time` (`dict`)
               * `liveSpan` (`str`)
 
@@ -581,8 +585,16 @@ class Dashboard(pulumi.CustomResource):
 
           * `logStreamDefinition` (`dict`)
             * `columns` (`list`)
+            * `indexes` (`list`)
             * `logset` (`str`)
+            * `messageDisplay` (`str`)
             * `query` (`str`)
+            * `showDateColumn` (`bool`)
+            * `showMessageColumn` (`bool`)
+            * `sort` (`dict`)
+              * `column` (`str`)
+              * `order` (`str`)
+
             * `time` (`dict`)
               * `liveSpan` (`str`)
 
@@ -876,6 +888,7 @@ class Dashboard(pulumi.CustomResource):
           * `timeseriesDefinition` (`dict`)
             * `events` (`list`)
               * `q` (`str`)
+              * `tagsExecution` (`str`)
 
             * `legendSize` (`str`)
             * `markers` (`list`)
@@ -1219,8 +1232,16 @@ class Dashboard(pulumi.CustomResource):
 
       * `logStreamDefinition` (`dict`)
         * `columns` (`list`)
+        * `indexes` (`list`)
         * `logset` (`str`)
+        * `messageDisplay` (`str`)
         * `query` (`str`)
+        * `showDateColumn` (`bool`)
+        * `showMessageColumn` (`bool`)
+        * `sort` (`dict`)
+          * `column` (`str`)
+          * `order` (`str`)
+
         * `time` (`dict`)
           * `liveSpan` (`str`)
 
@@ -1514,6 +1535,7 @@ class Dashboard(pulumi.CustomResource):
       * `timeseriesDefinition` (`dict`)
         * `events` (`list`)
           * `q` (`str`)
+          * `tagsExecution` (`str`)
 
         * `legendSize` (`str`)
         * `markers` (`list`)
@@ -1675,7 +1697,628 @@ class Dashboard(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a Dashboard resource with the given unique name, props, and options.
+        Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
+
+        > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `.TimeBoard` and `.ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
+
+
+        ## Example Usage: Create a new Datadog dashboard - Ordered layout
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ordered_dashboard = datadog.Dashboard("orderedDashboard",
+            description="Created using the Datadog provider in TF",
+            is_read_only=True,
+            layout_type="ordered",
+            template_variables=[
+                {
+                    "default": "aws",
+                    "name": "var_1",
+                    "prefix": "host",
+                },
+                {
+                    "default": "autoscaling",
+                    "name": "var_2",
+                    "prefix": "service_name",
+                },
+            ],
+            template_variable_presets=[{
+                "name": "preset_1",
+                "templateVariable": [
+                    {
+                        "name": "var_1",
+                        "value": "host.dc",
+                    },
+                    {
+                        "name": "var_2",
+                        "value": "my_service",
+                    },
+                ],
+            }],
+            title="Ordered Layout Dashboard",
+            widgets=[
+                {
+                    "alertGraphDefinition": {
+                        "alertId": "895605",
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                        "vizType": "timeseries",
+                    },
+                },
+                {
+                    "alertValueDefinition": {
+                        "alertId": "895605",
+                        "precision": 3,
+                        "textAlign": "center",
+                        "title": "Widget Title",
+                        "unit": "b",
+                    },
+                },
+                {
+                    "alertValueDefinition": {
+                        "alertId": "895605",
+                        "precision": 3,
+                        "textAlign": "center",
+                        "title": "Widget Title",
+                        "unit": "b",
+                    },
+                },
+                {
+                    "changeDefinition": {
+                        "request": [{
+                            "changeType": "absolute",
+                            "compareTo": "week_before",
+                            "increaseGood": True,
+                            "orderBy": "name",
+                            "orderDir": "desc",
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                            "showPresent": True,
+                        }],
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                    },
+                },
+                {
+                    "distributionDefinition": {
+                        "request": [{
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                            "style": {
+                                "palette": "warm",
+                            },
+                        }],
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                    },
+                },
+                {
+                    "checkStatusDefinition": {
+                        "check": "aws.ecs.agent_connected",
+                        "groupBy": [
+                            "account",
+                            "cluster",
+                        ],
+                        "grouping": "cluster",
+                        "tags": [
+                            "account:demo",
+                            "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk",
+                        ],
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                    },
+                },
+                {
+                    "heatmapDefinition": {
+                        "request": [{
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                            "style": {
+                                "palette": "warm",
+                            },
+                        }],
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                        "yaxis": {
+                            "includeZero": True,
+                            "max": 2,
+                            "min": 1,
+                            "scale": "sqrt",
+                        },
+                    },
+                },
+                {
+                    "hostmapDefinition": {
+                        "group": [
+                            "host",
+                            "region",
+                        ],
+                        "noGroupHosts": True,
+                        "noMetricHosts": True,
+                        "nodeType": "container",
+                        "request": {
+                            "fill": [{
+                                "q": "avg:system.load.1{*} by {host}",
+                            }],
+                            "size": [{
+                                "q": "avg:memcache.uptime{*} by {host}",
+                            }],
+                        },
+                        "scope": [
+                            "region:us-east-1",
+                            "aws_account:727006795293",
+                        ],
+                        "style": {
+                            "fillMax": "20",
+                            "fillMin": "10",
+                            "palette": "yellow_to_green",
+                            "paletteFlip": True,
+                        },
+                        "title": "Widget Title",
+                    },
+                },
+                {
+                    "noteDefinition": {
+                        "backgroundColor": "pink",
+                        "content": "note text",
+                        "fontSize": "14",
+                        "showTick": True,
+                        "textAlign": "center",
+                        "tickEdge": "left",
+                        "tickPos": "50%",
+                    },
+                },
+                {
+                    "queryValueDefinition": {
+                        "autoscale": True,
+                        "customUnit": "xx",
+                        "precision": "4",
+                        "request": [{
+                            "aggregator": "sum",
+                            "conditionalFormats": [
+                                {
+                                    "comparator": "<",
+                                    "palette": "white_on_green",
+                                    "value": "2",
+                                },
+                                {
+                                    "comparator": ">",
+                                    "palette": "white_on_red",
+                                    "value": "2.2",
+                                },
+                            ],
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                        }],
+                        "textAlign": "right",
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                    },
+                },
+                {
+                    "queryTableDefinition": {
+                        "request": [{
+                            "aggregator": "sum",
+                            "conditionalFormats": [
+                                {
+                                    "comparator": "<",
+                                    "palette": "white_on_green",
+                                    "value": "2",
+                                },
+                                {
+                                    "comparator": ">",
+                                    "palette": "white_on_red",
+                                    "value": "2.2",
+                                },
+                            ],
+                            "limit": "10",
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                        }],
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                    },
+                },
+                {
+                    "scatterplotDefinition": {
+                        "colorByGroups": [
+                            "account",
+                            "apm-role-group",
+                        ],
+                        "request": {
+                            "x": [{
+                                "aggregator": "max",
+                                "q": "avg:system.cpu.user{*} by {service, account}",
+                            }],
+                            "y": [{
+                                "aggregator": "min",
+                                "q": "avg:system.mem.used{*} by {service, account}",
+                            }],
+                        },
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                        "xaxis": {
+                            "includeZero": True,
+                            "label": "x",
+                            "max": "2000",
+                            "min": "1",
+                            "scale": "pow",
+                        },
+                        "yaxis": {
+                            "includeZero": False,
+                            "label": "y",
+                            "max": "2222",
+                            "min": "5",
+                            "scale": "log",
+                        },
+                    },
+                },
+                {
+                    "timeseriesDefinition": {
+                        "event": [
+                            {
+                                "q": "sources:test tags:1",
+                            },
+                            {
+                                "q": "sources:test tags:2",
+                            },
+                        ],
+                        "legendSize": "2",
+                        "marker": [
+                            {
+                                "displayType": "error dashed",
+                                "label": " z=6 ",
+                                "value": "y = 4",
+                            },
+                            {
+                                "displayType": "ok solid",
+                                "label": " x=8 ",
+                                "value": "10 < y < 999",
+                            },
+                        ],
+                        "request": [
+                            {
+                                "displayType": "line",
+                                "metadata": [{
+                                    "aliasName": "Alpha",
+                                    "expression": "avg:system.cpu.user{app:general} by {env}",
+                                }],
+                                "q": "avg:system.cpu.user{app:general} by {env}",
+                                "style": {
+                                    "lineType": "dashed",
+                                    "lineWidth": "thin",
+                                    "palette": "warm",
+                                },
+                            },
+                            {
+                                "displayType": "area",
+                                "logQuery": {
+                                    "compute": {
+                                        "aggregation": "avg",
+                                        "facet": "@duration",
+                                        "interval": 5000,
+                                    },
+                                    "groupBy": [{
+                                        "facet": "host",
+                                        "limit": 10,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "facet": "@duration",
+                                            "order": "desc",
+                                        },
+                                    }],
+                                    "index": "mcnulty",
+                                    "search": {
+                                        "query": "status:info",
+                                    },
+                                },
+                            },
+                            {
+                                "apmQuery": {
+                                    "compute": {
+                                        "aggregation": "avg",
+                                        "facet": "@duration",
+                                        "interval": 5000,
+                                    },
+                                    "groupBy": [{
+                                        "facet": "resource_name",
+                                        "limit": 50,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "facet": "@string_query.interval",
+                                            "order": "desc",
+                                        },
+                                    }],
+                                    "index": "apm-search",
+                                    "search": {
+                                        "query": "type:web",
+                                    },
+                                },
+                                "displayType": "bars",
+                            },
+                            {
+                                "displayType": "area",
+                                "processQuery": {
+                                    "filterBy": ["active"],
+                                    "limit": 50,
+                                    "metric": "process.stat.cpu.total_pct",
+                                    "searchBy": "error",
+                                },
+                            },
+                        ],
+                        "showLegend": True,
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                        "yaxis": {
+                            "includeZero": False,
+                            "max": 100,
+                            "scale": "log",
+                        },
+                    },
+                },
+                {
+                    "toplistDefinition": {
+                        "request": [{
+                            "conditionalFormats": [
+                                {
+                                    "comparator": "<",
+                                    "palette": "white_on_green",
+                                    "value": "2",
+                                },
+                                {
+                                    "comparator": ">",
+                                    "palette": "white_on_red",
+                                    "value": "2.2",
+                                },
+                            ],
+                            "q": "avg:system.cpu.user{app:general} by {env}",
+                        }],
+                        "title": "Widget Title",
+                    },
+                },
+                {
+                    "groupDefinition": {
+                        "layout_type": "ordered",
+                        "title": "Group Widget",
+                        "widget": [
+                            {
+                                "noteDefinition": {
+                                    "backgroundColor": "pink",
+                                    "content": "cluster note widget",
+                                    "fontSize": "14",
+                                    "showTick": True,
+                                    "textAlign": "center",
+                                    "tickEdge": "left",
+                                    "tickPos": "50%",
+                                },
+                            },
+                            {
+                                "alertGraphDefinition": {
+                                    "alertId": "123",
+                                    "time": {
+                                        "liveSpan": "1h",
+                                    },
+                                    "title": "Alert Graph",
+                                    "vizType": "toplist",
+                                },
+                            },
+                        ],
+                    },
+                },
+                {
+                    "serviceLevelObjectiveDefinition": {
+                        "showErrorBudget": True,
+                        "sloId": "56789",
+                        "timeWindows": [
+                            "7d",
+                            "previous_week",
+                        ],
+                        "title": "Widget Title",
+                        "viewMode": "overall",
+                        "viewType": "detail",
+                    },
+                },
+            ])
+        ```
+        ## Example Usage: Create a new Datadog dashboard - Free layout
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        free_dashboard = datadog.Dashboard("freeDashboard",
+            description="Created using the Datadog provider in TF",
+            is_read_only=False,
+            layout_type="free",
+            template_variables=[
+                {
+                    "default": "aws",
+                    "name": "var_1",
+                    "prefix": "host",
+                },
+                {
+                    "default": "autoscaling",
+                    "name": "var_2",
+                    "prefix": "service_name",
+                },
+            ],
+            template_variable_presets=[{
+                "name": "preset_1",
+                "templateVariable": [
+                    {
+                        "name": "var_1",
+                        "value": "host.dc",
+                    },
+                    {
+                        "name": "var_2",
+                        "value": "my_service",
+                    },
+                ],
+            }],
+            title="Free Layout Dashboard",
+            widgets=[
+                {
+                    "eventStreamDefinition": {
+                        "eventSize": "l",
+                        "query": "*",
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                        "titleAlign": "left",
+                        "titleSize": 16,
+                    },
+                    "layout": {
+                        "height": 43,
+                        "width": 32,
+                        "x": 5,
+                        "y": 5,
+                    },
+                },
+                {
+                    "eventTimelineDefinition": {
+                        "query": "*",
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "Widget Title",
+                        "titleAlign": "left",
+                        "titleSize": 16,
+                    },
+                    "layout": {
+                        "height": 9,
+                        "width": 65,
+                        "x": 42,
+                        "y": 73,
+                    },
+                },
+                {
+                    "freeTextDefinition": {
+                        "color": "#d00",
+                        "fontSize": "88",
+                        "text": "free text content",
+                        "textAlign": "left",
+                    },
+                    "layout": {
+                        "height": 20,
+                        "width": 30,
+                        "x": 42,
+                        "y": 5,
+                    },
+                },
+                {
+                    "iframeDefinition": {
+                        "url": "http://google.com",
+                    },
+                    "layout": {
+                        "height": 46,
+                        "width": 39,
+                        "x": 111,
+                        "y": 8,
+                    },
+                },
+                {
+                    "imageDefinition": {
+                        "margin": "small",
+                        "sizing": "fit",
+                        "url": "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
+                    },
+                    "layout": {
+                        "height": 20,
+                        "width": 30,
+                        "x": 77,
+                        "y": 7,
+                    },
+                },
+                {
+                    "layout": {
+                        "height": 36,
+                        "width": 32,
+                        "x": 5,
+                        "y": 51,
+                    },
+                    "logStreamDefinition": {
+                        "columns": [
+                            "core_host",
+                            "core_service",
+                            "tag_source",
+                        ],
+                        "logset": "19",
+                        "messageDisplay": "expanded-md",
+                        "query": "error",
+                        "showDateColumn": True,
+                        "showMessageColumn": True,
+                        "sort": {
+                            "column": "time",
+                            "order": "desc",
+                        },
+                    },
+                },
+                {
+                    "layout": {
+                        "height": 40,
+                        "width": 30,
+                        "x": 112,
+                        "y": 55,
+                    },
+                    "manageStatusDefinition": {
+                        "colorPreference": "text",
+                        "displayFormat": "countsAndList",
+                        "hideZeroCounts": True,
+                        "query": "type:metric",
+                        "showLastTriggered": False,
+                        "sort": "status,asc",
+                        "summaryType": "monitors",
+                        "title": "Widget Title",
+                        "titleAlign": "left",
+                        "titleSize": 16,
+                    },
+                },
+                {
+                    "layout": {
+                        "height": 38,
+                        "width": 67,
+                        "x": 40,
+                        "y": 28,
+                    },
+                    "traceServiceDefinition": {
+                        "displayFormat": "three_column",
+                        "env": "datad0g.com",
+                        "service": "alerting-cassandra",
+                        "showBreakdown": True,
+                        "showDistribution": True,
+                        "showErrors": True,
+                        "showHits": True,
+                        "showLatency": False,
+                        "showResourceList": False,
+                        "sizeFormat": "large",
+                        "spanName": "cassandra.query",
+                        "time": {
+                            "liveSpan": "1h",
+                        },
+                        "title": "alerting-cassandra #env:datad0g.com",
+                        "titleAlign": "center",
+                        "titleSize": "13",
+                    },
+                },
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the dashboard.
@@ -1851,6 +2494,7 @@ class Dashboard(pulumi.CustomResource):
           * `eventStreamDefinition` (`pulumi.Input[dict]`)
             * `eventSize` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
+            * `tagsExecution` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -1860,6 +2504,7 @@ class Dashboard(pulumi.CustomResource):
 
           * `eventTimelineDefinition` (`pulumi.Input[dict]`)
             * `query` (`pulumi.Input[str]`)
+            * `tagsExecution` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -2026,6 +2671,7 @@ class Dashboard(pulumi.CustomResource):
               * `eventStreamDefinition` (`pulumi.Input[dict]`)
                 * `eventSize` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
+                * `tagsExecution` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -2035,6 +2681,7 @@ class Dashboard(pulumi.CustomResource):
 
               * `eventTimelineDefinition` (`pulumi.Input[dict]`)
                 * `query` (`pulumi.Input[str]`)
+                * `tagsExecution` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -2232,8 +2879,16 @@ class Dashboard(pulumi.CustomResource):
 
               * `logStreamDefinition` (`pulumi.Input[dict]`)
                 * `columns` (`pulumi.Input[list]`)
+                * `indexes` (`pulumi.Input[list]`)
                 * `logset` (`pulumi.Input[str]`)
+                * `messageDisplay` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
+                * `showDateColumn` (`pulumi.Input[bool]`)
+                * `showMessageColumn` (`pulumi.Input[bool]`)
+                * `sort` (`pulumi.Input[dict]`)
+                  * `column` (`pulumi.Input[str]`)
+                  * `order` (`pulumi.Input[str]`)
+
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -2527,6 +3182,7 @@ class Dashboard(pulumi.CustomResource):
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
                 * `events` (`pulumi.Input[list]`)
                   * `q` (`pulumi.Input[str]`)
+                  * `tagsExecution` (`pulumi.Input[str]`)
 
                 * `legendSize` (`pulumi.Input[str]`)
                 * `markers` (`pulumi.Input[list]`)
@@ -2870,8 +3526,16 @@ class Dashboard(pulumi.CustomResource):
 
           * `logStreamDefinition` (`pulumi.Input[dict]`)
             * `columns` (`pulumi.Input[list]`)
+            * `indexes` (`pulumi.Input[list]`)
             * `logset` (`pulumi.Input[str]`)
+            * `messageDisplay` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
+            * `showDateColumn` (`pulumi.Input[bool]`)
+            * `showMessageColumn` (`pulumi.Input[bool]`)
+            * `sort` (`pulumi.Input[dict]`)
+              * `column` (`pulumi.Input[str]`)
+              * `order` (`pulumi.Input[str]`)
+
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -3165,6 +3829,7 @@ class Dashboard(pulumi.CustomResource):
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
             * `events` (`pulumi.Input[list]`)
               * `q` (`pulumi.Input[str]`)
+              * `tagsExecution` (`pulumi.Input[str]`)
 
             * `legendSize` (`pulumi.Input[str]`)
             * `markers` (`pulumi.Input[list]`)
@@ -3543,6 +4208,7 @@ class Dashboard(pulumi.CustomResource):
           * `eventStreamDefinition` (`pulumi.Input[dict]`)
             * `eventSize` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
+            * `tagsExecution` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -3552,6 +4218,7 @@ class Dashboard(pulumi.CustomResource):
 
           * `eventTimelineDefinition` (`pulumi.Input[dict]`)
             * `query` (`pulumi.Input[str]`)
+            * `tagsExecution` (`pulumi.Input[str]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -3718,6 +4385,7 @@ class Dashboard(pulumi.CustomResource):
               * `eventStreamDefinition` (`pulumi.Input[dict]`)
                 * `eventSize` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
+                * `tagsExecution` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -3727,6 +4395,7 @@ class Dashboard(pulumi.CustomResource):
 
               * `eventTimelineDefinition` (`pulumi.Input[dict]`)
                 * `query` (`pulumi.Input[str]`)
+                * `tagsExecution` (`pulumi.Input[str]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -3924,8 +4593,16 @@ class Dashboard(pulumi.CustomResource):
 
               * `logStreamDefinition` (`pulumi.Input[dict]`)
                 * `columns` (`pulumi.Input[list]`)
+                * `indexes` (`pulumi.Input[list]`)
                 * `logset` (`pulumi.Input[str]`)
+                * `messageDisplay` (`pulumi.Input[str]`)
                 * `query` (`pulumi.Input[str]`)
+                * `showDateColumn` (`pulumi.Input[bool]`)
+                * `showMessageColumn` (`pulumi.Input[bool]`)
+                * `sort` (`pulumi.Input[dict]`)
+                  * `column` (`pulumi.Input[str]`)
+                  * `order` (`pulumi.Input[str]`)
+
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -4219,6 +4896,7 @@ class Dashboard(pulumi.CustomResource):
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
                 * `events` (`pulumi.Input[list]`)
                   * `q` (`pulumi.Input[str]`)
+                  * `tagsExecution` (`pulumi.Input[str]`)
 
                 * `legendSize` (`pulumi.Input[str]`)
                 * `markers` (`pulumi.Input[list]`)
@@ -4562,8 +5240,16 @@ class Dashboard(pulumi.CustomResource):
 
           * `logStreamDefinition` (`pulumi.Input[dict]`)
             * `columns` (`pulumi.Input[list]`)
+            * `indexes` (`pulumi.Input[list]`)
             * `logset` (`pulumi.Input[str]`)
+            * `messageDisplay` (`pulumi.Input[str]`)
             * `query` (`pulumi.Input[str]`)
+            * `showDateColumn` (`pulumi.Input[bool]`)
+            * `showMessageColumn` (`pulumi.Input[bool]`)
+            * `sort` (`pulumi.Input[dict]`)
+              * `column` (`pulumi.Input[str]`)
+              * `order` (`pulumi.Input[str]`)
+
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -4857,6 +5543,7 @@ class Dashboard(pulumi.CustomResource):
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
             * `events` (`pulumi.Input[list]`)
               * `q` (`pulumi.Input[str]`)
+              * `tagsExecution` (`pulumi.Input[str]`)
 
             * `legendSize` (`pulumi.Input[str]`)
             * `markers` (`pulumi.Input[list]`)

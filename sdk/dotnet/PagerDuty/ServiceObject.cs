@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.PagerDuty
 {
     /// <summary>
-    /// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using [datadog.pagerduty.Integration](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty.html)) in order for this resource to be usable.
+    /// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using `datadog.pagerduty.Integration`) in order for this resource to be usable.
     /// 
     /// ## Example Usage
     /// 
@@ -52,6 +52,9 @@ namespace Pulumi.Datadog.PagerDuty
     /// </summary>
     public partial class ServiceObject : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        /// </summary>
         [Output("serviceKey")]
         public Output<string> ServiceKey { get; private set; } = null!;
 
@@ -107,6 +110,9 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class ServiceObjectArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        /// </summary>
         [Input("serviceKey", required: true)]
         public Input<string> ServiceKey { get; set; } = null!;
 
@@ -123,6 +129,9 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class ServiceObjectState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
+        /// </summary>
         [Input("serviceKey")]
         public Input<string>? ServiceKey { get; set; }
 

@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("acceptSelfSigned")]
         public Input<bool>? AcceptSelfSigned { get; set; }
 
+        [Input("allowInsecure")]
+        public Input<bool>? AllowInsecure { get; set; }
+
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
 

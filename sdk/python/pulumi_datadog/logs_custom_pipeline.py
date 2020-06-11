@@ -41,7 +41,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         * `name` (`str`) - Name of the processor
         * `overrideOnConflict` (`bool`) - Override the target element if already set.
         * `preserveSource` (`bool`) - Remove or preserve the remapped source element.
-        * `sourceType` (`str`) - Defines where the sources are from (log `attribute` or `tag`). 
+        * `sourceType` (`str`) - Defines where the sources are from (log `attribute` or `tag`).
         * `sources` (`list`) - List of source attributes.
         * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
         * `targetType` (`str`) - Defines if the target is a log `attribute` or `tag`.
@@ -76,8 +76,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
         * `is_enabled` (`bool`) - If the processor is enabled or not.
         * `name` (`str`) - Name of the processor
         * `samples` (`list`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-        * `source` (`str`) - Name of the log attribute to parse.
-          * `grok`
+        * `source` (`str`) - Name of the source attribute used to do the lookup.
+
+      * `lookupProcessor` (`dict`)
+        * `defaultLookup` (`str`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+        * `is_enabled` (`bool`) - If the processor is enabled or not.
+        * `lookupTables` (`list`) - List of entries of the lookup table using `"key,value"` format.
+        * `name` (`str`) - Name of the processor
+        * `source` (`str`) - Name of the source attribute used to do the lookup.
+        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
 
       * `messageRemapper` (`dict`)
         * `is_enabled` (`bool`) - If the processor is enabled or not.
@@ -104,7 +111,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `name` (`str`) - Name of the processor
             * `overrideOnConflict` (`bool`) - Override the target element if already set.
             * `preserveSource` (`bool`) - Remove or preserve the remapped source element.
-            * `sourceType` (`str`) - Defines where the sources are from (log `attribute` or `tag`). 
+            * `sourceType` (`str`) - Defines where the sources are from (log `attribute` or `tag`).
             * `sources` (`list`) - List of source attributes.
             * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
             * `targetType` (`str`) - Defines if the target is a log `attribute` or `tag`.
@@ -139,8 +146,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `is_enabled` (`bool`) - If the processor is enabled or not.
             * `name` (`str`) - Name of the processor
             * `samples` (`list`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-            * `source` (`str`) - Name of the log attribute to parse.
-              * `grok`
+            * `source` (`str`) - Name of the source attribute used to do the lookup.
+
+          * `lookupProcessor` (`dict`)
+            * `defaultLookup` (`str`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+            * `is_enabled` (`bool`) - If the processor is enabled or not.
+            * `lookupTables` (`list`) - List of entries of the lookup table using `"key,value"` format.
+            * `name` (`str`) - Name of the processor
+            * `source` (`str`) - Name of the source attribute used to do the lookup.
+            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
 
           * `messageRemapper` (`dict`)
             * `is_enabled` (`bool`) - If the processor is enabled or not.
@@ -223,7 +237,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, filters=None, is_enabled=None, name=None, processors=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/?lang=python#logs-pipelines) resource, which is used to create and manage Datadog logs custom pipelines.
+        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
 
 
 
@@ -231,8 +245,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         Each `.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
         a different resource datadog_logs_pipeline_order.
-        When creating a new pipeline, you need to **explicitly** add this pipeline to the `.LogsPipelineOrder` 
-        resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the 
+        When creating a new pipeline, you need to **explicitly** add this pipeline to the `.LogsPipelineOrder`
+        resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
         `.LogsPipelineOrder` resource.
 
         :param str resource_name: The name of the resource.
@@ -261,7 +275,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
             * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-            * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`). 
+            * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
             * `sources` (`pulumi.Input[list]`) - List of source attributes.
             * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
             * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
@@ -296,8 +310,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-            * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
-              * `grok`
+            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+
+          * `lookupProcessor` (`pulumi.Input[dict]`)
+            * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+            * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
+            * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
 
           * `messageRemapper` (`pulumi.Input[dict]`)
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
@@ -324,7 +345,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
                 * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-                * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`). 
+                * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
                 * `sources` (`pulumi.Input[list]`) - List of source attributes.
                 * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
                 * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
@@ -359,8 +380,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-                * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
-                  * `grok`
+                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+
+              * `lookupProcessor` (`pulumi.Input[dict]`)
+                * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+                * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
+                * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
 
               * `messageRemapper` (`pulumi.Input[dict]`)
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
@@ -505,7 +533,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
             * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-            * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`). 
+            * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
             * `sources` (`pulumi.Input[list]`) - List of source attributes.
             * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
             * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
@@ -540,8 +568,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
             * `name` (`pulumi.Input[str]`) - Name of the processor
             * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-            * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
-              * `grok`
+            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+
+          * `lookupProcessor` (`pulumi.Input[dict]`)
+            * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+            * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
+            * `name` (`pulumi.Input[str]`) - Name of the processor
+            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
 
           * `messageRemapper` (`pulumi.Input[dict]`)
             * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
@@ -568,7 +603,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
                 * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-                * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`). 
+                * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
                 * `sources` (`pulumi.Input[list]`) - List of source attributes.
                 * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
                 * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
@@ -603,8 +638,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
                 * `name` (`pulumi.Input[str]`) - Name of the processor
                 * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-                * `source` (`pulumi.Input[str]`) - Name of the log attribute to parse.
-                  * `grok`
+                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+
+              * `lookupProcessor` (`pulumi.Input[dict]`)
+                * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
+                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
+                * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
+                * `name` (`pulumi.Input[str]`) - Name of the processor
+                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
+                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
 
               * `messageRemapper` (`pulumi.Input[dict]`)
                 * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.

@@ -30,6 +30,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("grokParser")]
         public Input<Inputs.LogsCustomPipelineProcessorGrokParserArgs>? GrokParser { get; set; }
 
+        [Input("lookupProcessor")]
+        public Input<Inputs.LogsCustomPipelineProcessorLookupProcessorArgs>? LookupProcessor { get; set; }
+
         [Input("messageRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorMessageRemapperArgs>? MessageRemapper { get; set; }
 
