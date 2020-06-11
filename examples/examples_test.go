@@ -14,20 +14,10 @@ package examples
 
 import (
 	"os"
-	"path"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
-
-func TestAccUser(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "user"),
-		})
-
-	integration.ProgramTest(t, &test)
-}
 
 func getCwd(t *testing.T) string {
 	cwd, err := os.Getwd()
@@ -54,16 +44,4 @@ func getBaseOptions() integration.ProgramTestOptions {
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 	}
-}
-
-func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	checkProviderCredentials(t)
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
-		Dependencies: []string{
-			"@pulumi/datadog",
-		},
-	})
-
-	return baseJS
 }

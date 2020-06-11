@@ -1,5 +1,3 @@
-// Copyright 2016-2018, Pulumi Corporation.
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
@@ -11,15 +9,23 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+// +build dotnet all
 
-package main
+package examples
 
 import (
-	datadog "github.com/pulumi/pulumi-datadog/provider/v2"
-	"github.com/pulumi/pulumi-datadog/provider/v2/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfgen"
+	"testing"
+
+	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
-func main() {
-	tfgen.Main("datadog", version.Version, datadog.Provider())
+func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	base := getBaseOptions()
+	baseCsharp := base.With(integration.ProgramTestOptions{
+		Dependencies: []string{
+			"Pulumi.Datadog",
+		},
+	})
+
+	return baseCsharp
 }
