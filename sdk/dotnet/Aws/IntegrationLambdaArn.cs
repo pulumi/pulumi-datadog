@@ -14,28 +14,6 @@ namespace Pulumi.Datadog.Aws
     /// log collection Lambdas for an account.
     /// 
     /// Update operations are currently not supported with datadog API so any change forces a new resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// 
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var mainCollector = new Datadog.Aws.IntegrationLambdaArn("mainCollector", new Datadog.Aws.IntegrationLambdaArnArgs
-    ///         {
-    ///             AccountId = "1234567890",
-    ///             LambdaArn = "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class IntegrationLambdaArn : Pulumi.CustomResource
     {

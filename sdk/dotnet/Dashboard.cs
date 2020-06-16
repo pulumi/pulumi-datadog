@@ -780,10 +780,13 @@ namespace Pulumi.Datadog
     ///                         Query = "error",
     ///                         ShowDateColumn = true,
     ///                         ShowMessageColumn = true,
-    ///                         Sort = new Datadog.Inputs.DashboardWidgetLogStreamDefinitionSortArgs
+    ///                         Sort = 
     ///                         {
-    ///                             Column = "time",
-    ///                             Order = "desc",
+    ///                             
+    ///                             {
+    ///                                 { "column", "time" },
+    ///                                 { "order", "desc" },
+    ///                             },
     ///                         },
     ///                     },
     ///                 },

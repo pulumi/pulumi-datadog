@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog - Amazon Web Services integration lambda arn
- * const main = new datadog.aws.IntegrationLogCollection("main", {
+ * const main = new datadog.IntegrationAwsLogCollection("main", {
  *     accountId: "1234567890",
  *     services: ["lambda"],
  * });
