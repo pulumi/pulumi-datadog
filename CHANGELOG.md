@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.8.0 of the datadog Terraform provider.
+_(none)_
 
 ---
+
+## 2.2.0 (2020-06-16)
+* Upgrade to v2.8.0 of the datadog Terraform provider.
+* Switch to GitHub actions for build
 
 ## 2.1.2 (2020-05-28)
 * Upgrade to Pulumi v2.3.0
