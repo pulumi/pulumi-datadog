@@ -25,6 +25,18 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         Update operations are currently not supported with datadog API so any change forces a new resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
+            account_id="1234567890",
+            lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
+        ```
 
 
         :param str resource_name: The name of the resource.

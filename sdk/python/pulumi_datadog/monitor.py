@@ -27,6 +27,10 @@ class Monitor(pulumi.CustomResource):
     the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
     metrics to ensure the monitor will always have data during evaluation.
     """
+    force_delete: pulumi.Output[bool]
+    """
+    A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+    """
     include_tags: pulumi.Output[bool]
     """
     A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
@@ -146,7 +150,7 @@ class Monitor(pulumi.CustomResource):
     * `composite`
     * `log alert`
     """
-    def __init__(__self__, resource_name, opts=None, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, include_tags=None, locked=None, message=None, name=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, silenced=None, tags=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, force_delete=None, include_tags=None, locked=None, message=None, name=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, silenced=None, tags=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
 
@@ -227,6 +231,7 @@ class Monitor(pulumi.CustomResource):
                For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
                the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
                metrics to ensure the monitor will always have data during evaluation.
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
@@ -320,6 +325,7 @@ class Monitor(pulumi.CustomResource):
             __props__['enable_logs_sample'] = enable_logs_sample
             __props__['escalation_message'] = escalation_message
             __props__['evaluation_delay'] = evaluation_delay
+            __props__['force_delete'] = force_delete
             __props__['include_tags'] = include_tags
             __props__['locked'] = locked
             if message is None:
@@ -355,7 +361,7 @@ class Monitor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, include_tags=None, locked=None, message=None, name=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, silenced=None, tags=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
+    def get(resource_name, id, opts=None, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, force_delete=None, include_tags=None, locked=None, message=None, name=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, silenced=None, tags=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -371,6 +377,7 @@ class Monitor(pulumi.CustomResource):
                For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
                the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
                metrics to ensure the monitor will always have data during evaluation.
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
@@ -451,6 +458,7 @@ class Monitor(pulumi.CustomResource):
         __props__["enable_logs_sample"] = enable_logs_sample
         __props__["escalation_message"] = escalation_message
         __props__["evaluation_delay"] = evaluation_delay
+        __props__["force_delete"] = force_delete
         __props__["include_tags"] = include_tags
         __props__["locked"] = locked
         __props__["message"] = message

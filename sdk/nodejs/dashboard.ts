@@ -574,10 +574,10 @@ import * as utilities from "./utilities";
  *                 query: "error",
  *                 showDateColumn: true,
  *                 showMessageColumn: true,
- *                 sort: [{
+ *                 sort: {
  *                     column: "time",
  *                     order: "desc",
- *                 }],
+ *                 },
  *             },
  *         },
  *         {

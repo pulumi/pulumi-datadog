@@ -124,6 +124,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly evaluationDelay!: pulumi.Output<number>;
     /**
+     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+     */
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
      */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
@@ -250,6 +254,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["enableLogsSample"] = state ? state.enableLogsSample : undefined;
             inputs["escalationMessage"] = state ? state.escalationMessage : undefined;
             inputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
+            inputs["forceDelete"] = state ? state.forceDelete : undefined;
             inputs["includeTags"] = state ? state.includeTags : undefined;
             inputs["locked"] = state ? state.locked : undefined;
             inputs["message"] = state ? state.message : undefined;
@@ -284,6 +289,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["enableLogsSample"] = args ? args.enableLogsSample : undefined;
             inputs["escalationMessage"] = args ? args.escalationMessage : undefined;
             inputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
+            inputs["forceDelete"] = args ? args.forceDelete : undefined;
             inputs["includeTags"] = args ? args.includeTags : undefined;
             inputs["locked"] = args ? args.locked : undefined;
             inputs["message"] = args ? args.message : undefined;
@@ -334,6 +340,10 @@ export interface MonitorState {
      * metrics to ensure the monitor will always have data during evaluation.
      */
     readonly evaluationDelay?: pulumi.Input<number>;
+    /**
+     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+     */
+    readonly forceDelete?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
      */
@@ -468,6 +478,10 @@ export interface MonitorArgs {
      * metrics to ensure the monitor will always have data during evaluation.
      */
     readonly evaluationDelay?: pulumi.Input<number>;
+    /**
+     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+     */
+    readonly forceDelete?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
      */

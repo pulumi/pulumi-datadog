@@ -25,6 +25,8 @@ type Monitor struct {
 	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 	// metrics to ensure the monitor will always have data during evaluation.
 	EvaluationDelay pulumi.IntOutput `pulumi:"evaluationDelay"`
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -155,6 +157,8 @@ type monitorState struct {
 	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 	// metrics to ensure the monitor will always have data during evaluation.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -246,6 +250,8 @@ type MonitorState struct {
 	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 	// metrics to ensure the monitor will always have data during evaluation.
 	EvaluationDelay pulumi.IntPtrInput
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+	ForceDelete pulumi.BoolPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -341,6 +347,8 @@ type monitorArgs struct {
 	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 	// metrics to ensure the monitor will always have data during evaluation.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
@@ -433,6 +441,8 @@ type MonitorArgs struct {
 	// the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
 	// metrics to ensure the monitor will always have data during evaluation.
 	EvaluationDelay pulumi.IntPtrInput
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+	ForceDelete pulumi.BoolPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.

@@ -12,6 +12,32 @@ namespace Pulumi.Datadog.Aws
     /// <summary>
     /// Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which
     /// AWS services logs are collected from for an account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog - Amazon Web Services integration lambda arn
+    ///         var main = new Datadog.Aws.IntegrationLogCollection("main", new Datadog.Aws.IntegrationLogCollectionArgs
+    ///         {
+    ///             AccountId = "1234567890",
+    ///             Services = 
+    ///             {
+    ///                 "lambda",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class IntegrationLogCollection : Pulumi.CustomResource
     {

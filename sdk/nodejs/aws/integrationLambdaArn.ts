@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const mainCollector = new datadog.IntegrationAwsLambdaArn("mainCollector", {
+ * const mainCollector = new datadog.aws.IntegrationLambdaArn("mainCollector", {
  *     accountId: "1234567890",
  *     lambdaArn: "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
  * });
