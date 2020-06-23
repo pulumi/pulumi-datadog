@@ -133,6 +133,12 @@ namespace Pulumi.Datadog
         public Output<int> EvaluationDelay { get; private set; } = null!;
 
         /// <summary>
+        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+        /// </summary>
+        [Output("forceDelete")]
+        public Output<bool?> ForceDelete { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         /// </summary>
         [Output("includeTags")]
@@ -345,6 +351,12 @@ namespace Pulumi.Datadog
         public Input<int>? EvaluationDelay { get; set; }
 
         /// <summary>
+        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+        /// </summary>
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
+
+        /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         /// </summary>
         [Input("includeTags")]
@@ -529,6 +541,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("evaluationDelay")]
         public Input<int>? EvaluationDelay { get; set; }
+
+        /// <summary>
+        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
+        /// </summary>
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.

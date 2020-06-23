@@ -2263,10 +2263,10 @@ class Dashboard(pulumi.CustomResource):
                         "query": "error",
                         "showDateColumn": True,
                         "showMessageColumn": True,
-                        "sort": [{
+                        "sort": {
                             "column": "time",
                             "order": "desc",
-                        }],
+                        },
                     },
                 },
                 {

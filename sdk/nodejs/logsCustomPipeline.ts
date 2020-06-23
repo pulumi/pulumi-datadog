@@ -98,14 +98,14 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
- *             lookupProcessor: [{
+ *             lookupProcessor: {
  *                 defaultLookup: "unknown service",
  *                 isEnabled: true,
- *                 lookupTable: ["1,my service"],
+ *                 lookupTables: ["1,my service"],
  *                 name: "sample lookup processor",
  *                 source: "serviceId",
  *                 target: "serviceName",
- *             }],
+ *             },
  *         },
  *         {
  *             messageRemapper: {
