@@ -54,6 +54,7 @@ export interface DashboardWidget {
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
     scatterplotDefinition?: outputs.DashboardWidgetScatterplotDefinition;
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetServiceLevelObjectiveDefinition;
+    servicemapDefinition?: outputs.DashboardWidgetServicemapDefinition;
     timeseriesDefinition?: outputs.DashboardWidgetTimeseriesDefinition;
     toplistDefinition?: outputs.DashboardWidgetToplistDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetTraceServiceDefinition;
@@ -189,7 +190,9 @@ export interface DashboardWidgetCheckStatusDefinitionTime {
 }
 
 export interface DashboardWidgetDistributionDefinition {
+    legendSize?: string;
     requests?: outputs.DashboardWidgetDistributionDefinitionRequest[];
+    showLegend?: boolean;
     time?: outputs.DashboardWidgetDistributionDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -338,6 +341,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
     scatterplotDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition;
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
+    servicemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
     timeseriesDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
     toplistDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition;
@@ -473,7 +477,9 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
+    legendSize?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest[];
+    showLegend?: boolean;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -596,12 +602,20 @@ export interface DashboardWidgetGroupDefinitionWidgetFreeTextDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
+    events?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent[];
+    legendSize?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest[];
+    showLegend?: boolean;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent {
+    q: string;
+    tagsExecution?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
@@ -1331,6 +1345,14 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     viewType: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
+    filters: string[];
+    service: string;
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     events?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
@@ -1360,8 +1382,10 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     displayType?: string;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery;
     metadatas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata[];
+    networkQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
+    rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery;
     style?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle;
 }
 
@@ -1428,11 +1452,69 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     expression: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery {
+    compute: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch {
+    query: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: string[];
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
+    compute: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch {
+    query: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle {
@@ -1577,12 +1659,20 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime 
 }
 
 export interface DashboardWidgetHeatmapDefinition {
+    events?: outputs.DashboardWidgetHeatmapDefinitionEvent[];
+    legendSize?: string;
     requests?: outputs.DashboardWidgetHeatmapDefinitionRequest[];
+    showLegend?: boolean;
     time?: outputs.DashboardWidgetHeatmapDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
     yaxis?: outputs.DashboardWidgetHeatmapDefinitionYaxis;
+}
+
+export interface DashboardWidgetHeatmapDefinitionEvent {
+    q: string;
+    tagsExecution?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequest {
@@ -2312,6 +2402,14 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     viewType: string;
 }
 
+export interface DashboardWidgetServicemapDefinition {
+    filters: string[];
+    service: string;
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+}
+
 export interface DashboardWidgetTimeseriesDefinition {
     events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
@@ -2341,8 +2439,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     displayType?: string;
     logQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery;
     metadatas?: outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata[];
+    networkQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery;
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
+    rumQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery;
     style?: outputs.DashboardWidgetTimeseriesDefinitionRequestStyle;
 }
 
@@ -2409,11 +2509,69 @@ export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
     expression: string;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuery {
+    compute: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute;
+    groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch {
+    query: string;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: string[];
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
+    compute: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute;
+    groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
+    index: string;
+    search?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch {
+    query: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {

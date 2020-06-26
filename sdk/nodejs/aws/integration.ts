@@ -22,6 +22,10 @@ import * as utilities from "../utilities";
  *         auto_scaling: false,
  *         opsworks: false,
  *     },
+ *     excludedRegions: [
+ *         "us-east-1",
+ *         "us-west-2",
+ *     ],
  *     filterTags: ["key:value"],
  *     hostTags: [
  *         "key:value",
@@ -68,6 +72,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * An array of AWS regions to exclude from metrics collection.
+     */
+    public readonly excludedRegions!: pulumi.Output<string[] | undefined>;
+    /**
      * AWS External ID
      */
     public /*out*/ readonly externalId!: pulumi.Output<string>;
@@ -98,6 +106,7 @@ export class Integration extends pulumi.CustomResource {
             const state = argsOrState as IntegrationState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
+            inputs["excludedRegions"] = state ? state.excludedRegions : undefined;
             inputs["externalId"] = state ? state.externalId : undefined;
             inputs["filterTags"] = state ? state.filterTags : undefined;
             inputs["hostTags"] = state ? state.hostTags : undefined;
@@ -112,6 +121,7 @@ export class Integration extends pulumi.CustomResource {
             }
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["accountSpecificNamespaceRules"] = args ? args.accountSpecificNamespaceRules : undefined;
+            inputs["excludedRegions"] = args ? args.excludedRegions : undefined;
             inputs["filterTags"] = args ? args.filterTags : undefined;
             inputs["hostTags"] = args ? args.hostTags : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
@@ -140,6 +150,10 @@ export interface IntegrationState {
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
     readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * An array of AWS regions to exclude from metrics collection.
+     */
+    readonly excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * AWS External ID
      */
@@ -170,6 +184,10 @@ export interface IntegrationArgs {
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
     readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * An array of AWS regions to exclude from metrics collection.
+     */
+    readonly excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
      */

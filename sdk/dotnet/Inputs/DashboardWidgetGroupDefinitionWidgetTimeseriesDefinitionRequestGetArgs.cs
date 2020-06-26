@@ -29,11 +29,17 @@ namespace Pulumi.Datadog.Inputs
             set => _metadatas = value;
         }
 
+        [Input("networkQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGetArgs>? NetworkQuery { get; set; }
+
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         [Input("q")]
         public Input<string>? Q { get; set; }
+
+        [Input("rumQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
 
         [Input("style")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyleGetArgs>? Style { get; set; }

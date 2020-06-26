@@ -11,43 +11,6 @@ namespace Pulumi.Datadog.Aws
 {
     /// <summary>
     /// Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// 
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new Datadog - Amazon Web Services integration
-    ///         var sandbox = new Datadog.Aws.Integration("sandbox", new Datadog.Aws.IntegrationArgs
-    ///         {
-    ///             AccountId = "1234567890",
-    ///             AccountSpecificNamespaceRules = 
-    ///             {
-    ///                 { "auto_scaling", false },
-    ///                 { "opsworks", false },
-    ///             },
-    ///             FilterTags = 
-    ///             {
-    ///                 "key:value",
-    ///             },
-    ///             HostTags = 
-    ///             {
-    ///                 "key:value",
-    ///                 "key2:value2",
-    ///             },
-    ///             RoleName = "DatadogAWSIntegrationRole",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
@@ -62,6 +25,12 @@ namespace Pulumi.Datadog.Aws
         /// </summary>
         [Output("accountSpecificNamespaceRules")]
         public Output<ImmutableDictionary<string, object>?> AccountSpecificNamespaceRules { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of AWS regions to exclude from metrics collection.
+        /// </summary>
+        [Output("excludedRegions")]
+        public Output<ImmutableArray<string>> ExcludedRegions { get; private set; } = null!;
 
         /// <summary>
         /// AWS External ID
@@ -151,6 +120,18 @@ namespace Pulumi.Datadog.Aws
             set => _accountSpecificNamespaceRules = value;
         }
 
+        [Input("excludedRegions")]
+        private InputList<string>? _excludedRegions;
+
+        /// <summary>
+        /// An array of AWS regions to exclude from metrics collection.
+        /// </summary>
+        public InputList<string> ExcludedRegions
+        {
+            get => _excludedRegions ?? (_excludedRegions = new InputList<string>());
+            set => _excludedRegions = value;
+        }
+
         [Input("filterTags")]
         private InputList<string>? _filterTags;
 
@@ -204,6 +185,18 @@ namespace Pulumi.Datadog.Aws
         {
             get => _accountSpecificNamespaceRules ?? (_accountSpecificNamespaceRules = new InputMap<object>());
             set => _accountSpecificNamespaceRules = value;
+        }
+
+        [Input("excludedRegions")]
+        private InputList<string>? _excludedRegions;
+
+        /// <summary>
+        /// An array of AWS regions to exclude from metrics collection.
+        /// </summary>
+        public InputList<string> ExcludedRegions
+        {
+            get => _excludedRegions ?? (_excludedRegions = new InputList<string>());
+            set => _excludedRegions = value;
         }
 
         /// <summary>

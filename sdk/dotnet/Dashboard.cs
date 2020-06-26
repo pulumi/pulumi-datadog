@@ -384,6 +384,31 @@ namespace Pulumi.Datadog
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
     ///                 {
+    ///                     Layout = new Datadog.Inputs.DashboardWidgetLayoutArgs
+    ///                     {
+    ///                         Height = 43,
+    ///                         Width = 32,
+    ///                         X = 5,
+    ///                         Y = 5,
+    ///                     },
+    ///                     ServicemapDefinition = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "filters", 
+    ///                             {
+    ///                                 "env:prod",
+    ///                                 "datacenter:us1.prod.dog",
+    ///                             } },
+    ///                             { "service", "master-db" },
+    ///                             { "title", "env: prod, datacenter:us1.prod.dog, service: master-db" },
+    ///                             { "titleAlign", "left" },
+    ///                             { "titleSize", "16" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.DashboardWidgetArgs
+    ///                 {
     ///                     TimeseriesDefinition = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionArgs
     ///                     {
     ///                         Event = 
@@ -893,6 +918,12 @@ namespace Pulumi.Datadog
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
+        /// The URL of the dashboard.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
+
+        /// <summary>
         /// The list of widgets to display on the dashboard.
         /// </summary>
         [Output("widgets")]
@@ -1004,6 +1035,12 @@ namespace Pulumi.Datadog
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
+        /// <summary>
+        /// The URL of the dashboard.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
+
         [Input("widgets", required: true)]
         private InputList<Inputs.DashboardWidgetArgs>? _widgets;
 
@@ -1082,6 +1119,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
+
+        /// <summary>
+        /// The URL of the dashboard.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         [Input("widgets")]
         private InputList<Inputs.DashboardWidgetGetArgs>? _widgets;

@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetDistributionDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("legendSize")]
+        public Input<string>? LegendSize { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetDistributionDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetDistributionDefinitionRequestArgs> Requests
@@ -19,6 +22,9 @@ namespace Pulumi.Datadog.Inputs
             get => _requests ?? (_requests = new InputList<Inputs.DashboardWidgetDistributionDefinitionRequestArgs>());
             set => _requests = value;
         }
+
+        [Input("showLegend")]
+        public Input<bool>? ShowLegend { get; set; }
 
         [Input("time")]
         public Input<Inputs.DashboardWidgetDistributionDefinitionTimeArgs>? Time { get; set; }

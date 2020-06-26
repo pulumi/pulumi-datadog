@@ -18,6 +18,8 @@ type Integration struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapOutput `pulumi:"accountSpecificNamespaceRules"`
+	// An array of AWS regions to exclude from metrics collection.
+	ExcludedRegions pulumi.StringArrayOutput `pulumi:"excludedRegions"`
 	// AWS External ID
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
@@ -66,6 +68,8 @@ type integrationState struct {
 	AccountId *string `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules map[string]interface{} `pulumi:"accountSpecificNamespaceRules"`
+	// An array of AWS regions to exclude from metrics collection.
+	ExcludedRegions []string `pulumi:"excludedRegions"`
 	// AWS External ID
 	ExternalId *string `pulumi:"externalId"`
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
@@ -81,6 +85,8 @@ type IntegrationState struct {
 	AccountId pulumi.StringPtrInput
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapInput
+	// An array of AWS regions to exclude from metrics collection.
+	ExcludedRegions pulumi.StringArrayInput
 	// AWS External ID
 	ExternalId pulumi.StringPtrInput
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
@@ -100,6 +106,8 @@ type integrationArgs struct {
 	AccountId string `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules map[string]interface{} `pulumi:"accountSpecificNamespaceRules"`
+	// An array of AWS regions to exclude from metrics collection.
+	ExcludedRegions []string `pulumi:"excludedRegions"`
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
 	FilterTags []string `pulumi:"filterTags"`
 	// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
@@ -114,6 +122,8 @@ type IntegrationArgs struct {
 	AccountId pulumi.StringInput
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapInput
+	// An array of AWS regions to exclude from metrics collection.
+	ExcludedRegions pulumi.StringArrayInput
 	// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
 	FilterTags pulumi.StringArrayInput
 	// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.

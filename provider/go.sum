@@ -473,6 +473,8 @@ github.com/pulumi/terraform-provider-datadog v1.9.1-0.20200611090934-89f54863635
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20200611090934-89f548636355/go.mod h1:Oeh2U5A0L+5qLS6d4Z9Pq2ZhiO+sKeaTHKnLD2V52rs=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20200623102330-0024c5f38565 h1:StdQoBQvkJ1zrfifs81yD67Xakk4vOs8c56fjlNbvPk=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20200623102330-0024c5f38565/go.mod h1:48+IrkJlnxAAW0N+WSzUs7/eP4L07zmepgu9pPQgz50=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20200626113218-b53f8cbc6582 h1:N8iXFgrqk7A1m4ilaJ4L1r1deVYRPVQfAhnfOG6Ue9s=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20200626113218-b53f8cbc6582/go.mod h1:48+IrkJlnxAAW0N+WSzUs7/eP4L07zmepgu9pPQgz50=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d h1:1JtzB9Gx0YX2UgKKkqJwTgBXxfg2cbLUEqTJKwKBK7s=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200519092335-cb56a4dfa88d/go.mod h1:yv9XozKsue9ZELHQbrBGgIaFtE3OX3Q4m7koTzTqgpE=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200528170746-c1234defe2b5 h1:h+pUwgEser1Ole6TMCc66njRPcw7SEVXpeoClG+ihEM=

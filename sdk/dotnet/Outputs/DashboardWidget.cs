@@ -34,6 +34,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetQueryValueDefinition? QueryValueDefinition;
         public readonly Outputs.DashboardWidgetScatterplotDefinition? ScatterplotDefinition;
         public readonly Outputs.DashboardWidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
+        public readonly Outputs.DashboardWidgetServicemapDefinition? ServicemapDefinition;
         public readonly Outputs.DashboardWidgetTimeseriesDefinition? TimeseriesDefinition;
         public readonly Outputs.DashboardWidgetToplistDefinition? ToplistDefinition;
         public readonly Outputs.DashboardWidgetTraceServiceDefinition? TraceServiceDefinition;
@@ -82,6 +83,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
 
+            Outputs.DashboardWidgetServicemapDefinition? servicemapDefinition,
+
             Outputs.DashboardWidgetTimeseriesDefinition? timeseriesDefinition,
 
             Outputs.DashboardWidgetToplistDefinition? toplistDefinition,
@@ -109,6 +112,7 @@ namespace Pulumi.Datadog.Outputs
             QueryValueDefinition = queryValueDefinition;
             ScatterplotDefinition = scatterplotDefinition;
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
+            ServicemapDefinition = servicemapDefinition;
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
             TraceServiceDefinition = traceServiceDefinition;
