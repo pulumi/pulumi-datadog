@@ -30,6 +30,8 @@ type Dashboard struct {
 	TemplateVariables DashboardTemplateVariableArrayOutput `pulumi:"templateVariables"`
 	// The title of the dashboard.
 	Title pulumi.StringOutput `pulumi:"title"`
+	// The URL of the dashboard.
+	Url pulumi.StringOutput `pulumi:"url"`
 	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayOutput `pulumi:"widgets"`
 }
@@ -85,6 +87,8 @@ type dashboardState struct {
 	TemplateVariables []DashboardTemplateVariable `pulumi:"templateVariables"`
 	// The title of the dashboard.
 	Title *string `pulumi:"title"`
+	// The URL of the dashboard.
+	Url *string `pulumi:"url"`
 	// The list of widgets to display on the dashboard.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
@@ -104,6 +108,8 @@ type DashboardState struct {
 	TemplateVariables DashboardTemplateVariableArrayInput
 	// The title of the dashboard.
 	Title pulumi.StringPtrInput
+	// The URL of the dashboard.
+	Url pulumi.StringPtrInput
 	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayInput
 }
@@ -127,6 +133,8 @@ type dashboardArgs struct {
 	TemplateVariables []DashboardTemplateVariable `pulumi:"templateVariables"`
 	// The title of the dashboard.
 	Title string `pulumi:"title"`
+	// The URL of the dashboard.
+	Url *string `pulumi:"url"`
 	// The list of widgets to display on the dashboard.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
@@ -147,6 +155,8 @@ type DashboardArgs struct {
 	TemplateVariables DashboardTemplateVariableArrayInput
 	// The title of the dashboard.
 	Title pulumi.StringInput
+	// The URL of the dashboard.
+	Url pulumi.StringPtrInput
 	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayInput
 }

@@ -13,7 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetDistributionDefinition
     {
+        public readonly string? LegendSize;
         public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequest> Requests;
+        public readonly bool? ShowLegend;
         public readonly Outputs.DashboardWidgetDistributionDefinitionTime? Time;
         public readonly string? Title;
         public readonly string? TitleAlign;
@@ -21,7 +23,11 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetDistributionDefinition(
+            string? legendSize,
+
             ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequest> requests,
+
+            bool? showLegend,
 
             Outputs.DashboardWidgetDistributionDefinitionTime? time,
 
@@ -31,7 +37,9 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            LegendSize = legendSize;
             Requests = requests;
+            ShowLegend = showLegend;
             Time = time;
             Title = title;
             TitleAlign = titleAlign;

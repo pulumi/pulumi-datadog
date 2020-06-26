@@ -54,6 +54,7 @@ export interface DashboardWidget {
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinition>;
     scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinition>;
     serviceLevelObjectiveDefinition?: pulumi.Input<inputs.DashboardWidgetServiceLevelObjectiveDefinition>;
+    servicemapDefinition?: pulumi.Input<inputs.DashboardWidgetServicemapDefinition>;
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinition>;
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetToplistDefinition>;
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetTraceServiceDefinition>;
@@ -189,7 +190,9 @@ export interface DashboardWidgetCheckStatusDefinitionTime {
 }
 
 export interface DashboardWidgetDistributionDefinition {
+    legendSize?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequest>[]>;
+    showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
@@ -338,6 +341,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     queryValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition>;
     scatterplotDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition>;
     serviceLevelObjectiveDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition>;
+    servicemapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition>;
     timeseriesDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition>;
     toplistDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition>;
     traceServiceDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition>;
@@ -473,7 +477,9 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
+    legendSize?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest>[]>;
+    showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
@@ -596,12 +602,20 @@ export interface DashboardWidgetGroupDefinitionWidgetFreeTextDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
+    events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent>[]>;
+    legendSize?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest>[]>;
+    showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
     yaxis?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent {
+    q: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
@@ -1331,6 +1345,14 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     viewType: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
+    filters: pulumi.Input<pulumi.Input<string>[]>;
+    service: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
@@ -1360,8 +1382,10 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     displayType?: pulumi.Input<string>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery>;
     metadatas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata>[]>;
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery>;
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle>;
 }
 
@@ -1428,11 +1452,69 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     expression: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery {
+    compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch {
+    query: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
+    compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch {
+    query: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle {
@@ -1577,12 +1659,20 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime 
 }
 
 export interface DashboardWidgetHeatmapDefinition {
+    events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionEvent>[]>;
+    legendSize?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequest>[]>;
+    showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionTime>;
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
     yaxis?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionYaxis>;
+}
+
+export interface DashboardWidgetHeatmapDefinitionEvent {
+    q: pulumi.Input<string>;
+    tagsExecution?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequest {
@@ -2312,6 +2402,14 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     viewType: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetServicemapDefinition {
+    filters: pulumi.Input<pulumi.Input<string>[]>;
+    service: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
+    titleAlign?: pulumi.Input<string>;
+    titleSize?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetTimeseriesDefinition {
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
@@ -2341,8 +2439,10 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     displayType?: pulumi.Input<string>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery>;
     metadatas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestMetadata>[]>;
+    networkQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    rumQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery>;
     style?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestStyle>;
 }
 
@@ -2409,11 +2509,69 @@ export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
     expression: pulumi.Input<string>;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuery {
+    compute: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch {
+    query: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
+    compute: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch {
+    query: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {

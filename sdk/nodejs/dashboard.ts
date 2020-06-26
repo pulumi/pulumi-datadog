@@ -277,6 +277,24 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
+ *             layout: {
+ *                 height: 43,
+ *                 width: 32,
+ *                 x: 5,
+ *                 y: 5,
+ *             },
+ *             servicemapDefinition: [{
+ *                 filters: [
+ *                     "env:prod",
+ *                     "datacenter:us1.prod.dog",
+ *                 ],
+ *                 service: "master-db",
+ *                 title: "env: prod, datacenter:us1.prod.dog, service: master-db",
+ *                 titleAlign: "left",
+ *                 titleSize: "16",
+ *             }],
+ *         },
+ *         {
  *             timeseriesDefinition: {
  *                 events: [
  *                     {
@@ -688,6 +706,10 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string>;
     /**
+     * The URL of the dashboard.
+     */
+    public readonly url!: pulumi.Output<string>;
+    /**
      * The list of widgets to display on the dashboard.
      */
     public readonly widgets!: pulumi.Output<outputs.DashboardWidget[]>;
@@ -711,6 +733,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
             inputs["templateVariables"] = state ? state.templateVariables : undefined;
             inputs["title"] = state ? state.title : undefined;
+            inputs["url"] = state ? state.url : undefined;
             inputs["widgets"] = state ? state.widgets : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
@@ -730,6 +753,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
             inputs["templateVariables"] = args ? args.templateVariables : undefined;
             inputs["title"] = args ? args.title : undefined;
+            inputs["url"] = args ? args.url : undefined;
             inputs["widgets"] = args ? args.widgets : undefined;
         }
         if (!opts) {
@@ -776,6 +800,10 @@ export interface DashboardState {
      */
     readonly title?: pulumi.Input<string>;
     /**
+     * The URL of the dashboard.
+     */
+    readonly url?: pulumi.Input<string>;
+    /**
      * The list of widgets to display on the dashboard.
      */
     readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
@@ -813,6 +841,10 @@ export interface DashboardArgs {
      * The title of the dashboard.
      */
     readonly title: pulumi.Input<string>;
+    /**
+     * The URL of the dashboard.
+     */
+    readonly url?: pulumi.Input<string>;
     /**
      * The list of widgets to display on the dashboard.
      */

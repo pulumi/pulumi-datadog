@@ -12,6 +12,17 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetHeatmapDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("events")]
+        private InputList<Inputs.DashboardWidgetHeatmapDefinitionEventGetArgs>? _events;
+        public InputList<Inputs.DashboardWidgetHeatmapDefinitionEventGetArgs> Events
+        {
+            get => _events ?? (_events = new InputList<Inputs.DashboardWidgetHeatmapDefinitionEventGetArgs>());
+            set => _events = value;
+        }
+
+        [Input("legendSize")]
+        public Input<string>? LegendSize { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestGetArgs>? _requests;
         public InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestGetArgs> Requests
@@ -19,6 +30,9 @@ namespace Pulumi.Datadog.Inputs
             get => _requests ?? (_requests = new InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestGetArgs>());
             set => _requests = value;
         }
+
+        [Input("showLegend")]
+        public Input<bool>? ShowLegend { get; set; }
 
         [Input("time")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionTimeGetArgs>? Time { get; set; }

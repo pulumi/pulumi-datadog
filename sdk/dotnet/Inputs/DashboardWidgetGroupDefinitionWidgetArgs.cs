@@ -72,6 +72,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("serviceLevelObjectiveDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs>? ServiceLevelObjectiveDefinition { get; set; }
 
+        [Input("servicemapDefinition")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs>? ServicemapDefinition { get; set; }
+
         [Input("timeseriesDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs>? TimeseriesDefinition { get; set; }
 

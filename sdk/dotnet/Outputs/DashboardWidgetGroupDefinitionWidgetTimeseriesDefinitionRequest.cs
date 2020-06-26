@@ -17,8 +17,10 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? DisplayType;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle? Style;
 
         [OutputConstructor]
@@ -31,9 +33,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata> metadatas,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery? networkQuery,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery? rumQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle? style)
         {
@@ -41,8 +47,10 @@ namespace Pulumi.Datadog.Outputs
             DisplayType = displayType;
             LogQuery = logQuery;
             Metadatas = metadatas;
+            NetworkQuery = networkQuery;
             ProcessQuery = processQuery;
             Q = q;
+            RumQuery = rumQuery;
             Style = style;
         }
     }

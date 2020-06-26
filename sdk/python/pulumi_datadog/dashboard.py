@@ -47,6 +47,10 @@ class Dashboard(pulumi.CustomResource):
     """
     The title of the dashboard.
     """
+    url: pulumi.Output[str]
+    """
+    The URL of the dashboard.
+    """
     widgets: pulumi.Output[list]
     """
     The list of widgets to display on the dashboard.
@@ -143,6 +147,7 @@ class Dashboard(pulumi.CustomResource):
         * `titleSize` (`str`)
 
       * `distributionDefinition` (`dict`)
+        * `legendSize` (`str`)
         * `requests` (`list`)
           * `apmQuery` (`dict`)
             * `compute` (`dict`)
@@ -190,6 +195,7 @@ class Dashboard(pulumi.CustomResource):
           * `style` (`dict`)
             * `palette` (`str`)
 
+        * `showLegend` (`bool`)
         * `time` (`dict`)
           * `liveSpan` (`str`)
 
@@ -320,6 +326,7 @@ class Dashboard(pulumi.CustomResource):
             * `titleSize` (`str`)
 
           * `distributionDefinition` (`dict`)
+            * `legendSize` (`str`)
             * `requests` (`list`)
               * `apmQuery` (`dict`)
                 * `compute` (`dict`)
@@ -367,6 +374,7 @@ class Dashboard(pulumi.CustomResource):
               * `style` (`dict`)
                 * `palette` (`str`)
 
+            * `showLegend` (`bool`)
             * `time` (`dict`)
               * `liveSpan` (`str`)
 
@@ -402,6 +410,11 @@ class Dashboard(pulumi.CustomResource):
             * `textAlign` (`str`)
 
           * `heatmapDefinition` (`dict`)
+            * `events` (`list`)
+              * `q` (`str`)
+              * `tagsExecution` (`str`)
+
+            * `legendSize` (`str`)
             * `requests` (`list`)
               * `apmQuery` (`dict`)
                 * `compute` (`dict`)
@@ -449,6 +462,7 @@ class Dashboard(pulumi.CustomResource):
               * `style` (`dict`)
                 * `palette` (`str`)
 
+            * `showLegend` (`bool`)
             * `time` (`dict`)
               * `liveSpan` (`str`)
 
@@ -885,6 +899,13 @@ class Dashboard(pulumi.CustomResource):
             * `viewMode` (`str`)
             * `viewType` (`str`)
 
+          * `servicemapDefinition` (`dict`)
+            * `filters` (`list`)
+            * `service` (`str`)
+            * `title` (`str`)
+            * `titleAlign` (`str`)
+            * `titleSize` (`str`)
+
           * `timeseriesDefinition` (`dict`)
             * `events` (`list`)
               * `q` (`str`)
@@ -938,6 +959,24 @@ class Dashboard(pulumi.CustomResource):
                 * `aliasName` (`str`)
                 * `expression` (`str`)
 
+              * `networkQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
               * `processQuery` (`dict`)
                 * `filterBies` (`list`)
                 * `limit` (`float`)
@@ -945,6 +984,24 @@ class Dashboard(pulumi.CustomResource):
                 * `searchBy` (`str`)
 
               * `q` (`str`)
+              * `rumQuery` (`dict`)
+                * `compute` (`dict`)
+                  * `aggregation` (`str`)
+                  * `facet` (`str`)
+                  * `interval` (`float`)
+
+                * `groupBies` (`list`)
+                  * `facet` (`str`)
+                  * `limit` (`float`)
+                  * `sort` (`dict`)
+                    * `aggregation` (`str`)
+                    * `facet` (`str`)
+                    * `order` (`str`)
+
+                * `index` (`str`)
+                * `search` (`dict`)
+                  * `query` (`str`)
+
               * `style` (`dict`)
                 * `lineType` (`str`)
                 * `lineWidth` (`str`)
@@ -1049,6 +1106,11 @@ class Dashboard(pulumi.CustomResource):
             * `titleSize` (`str`)
 
       * `heatmapDefinition` (`dict`)
+        * `events` (`list`)
+          * `q` (`str`)
+          * `tagsExecution` (`str`)
+
+        * `legendSize` (`str`)
         * `requests` (`list`)
           * `apmQuery` (`dict`)
             * `compute` (`dict`)
@@ -1096,6 +1158,7 @@ class Dashboard(pulumi.CustomResource):
           * `style` (`dict`)
             * `palette` (`str`)
 
+        * `showLegend` (`bool`)
         * `time` (`dict`)
           * `liveSpan` (`str`)
 
@@ -1532,6 +1595,13 @@ class Dashboard(pulumi.CustomResource):
         * `viewMode` (`str`)
         * `viewType` (`str`)
 
+      * `servicemapDefinition` (`dict`)
+        * `filters` (`list`)
+        * `service` (`str`)
+        * `title` (`str`)
+        * `titleAlign` (`str`)
+        * `titleSize` (`str`)
+
       * `timeseriesDefinition` (`dict`)
         * `events` (`list`)
           * `q` (`str`)
@@ -1585,6 +1655,24 @@ class Dashboard(pulumi.CustomResource):
             * `aliasName` (`str`)
             * `expression` (`str`)
 
+          * `networkQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
           * `processQuery` (`dict`)
             * `filterBies` (`list`)
             * `limit` (`float`)
@@ -1592,6 +1680,24 @@ class Dashboard(pulumi.CustomResource):
             * `searchBy` (`str`)
 
           * `q` (`str`)
+          * `rumQuery` (`dict`)
+            * `compute` (`dict`)
+              * `aggregation` (`str`)
+              * `facet` (`str`)
+              * `interval` (`float`)
+
+            * `groupBies` (`list`)
+              * `facet` (`str`)
+              * `limit` (`float`)
+              * `sort` (`dict`)
+                * `aggregation` (`str`)
+                * `facet` (`str`)
+                * `order` (`str`)
+
+            * `index` (`str`)
+            * `search` (`dict`)
+              * `query` (`str`)
+
           * `style` (`dict`)
             * `lineType` (`str`)
             * `lineWidth` (`str`)
@@ -1695,7 +1801,7 @@ class Dashboard(pulumi.CustomResource):
         * `titleAlign` (`str`)
         * `titleSize` (`str`)
     """
-    def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, widgets=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, url=None, widgets=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 
@@ -1965,6 +2071,24 @@ class Dashboard(pulumi.CustomResource):
                             "scale": "log",
                         },
                     },
+                },
+                {
+                    "layout": {
+                        "height": 43,
+                        "width": 32,
+                        "x": 5,
+                        "y": 5,
+                    },
+                    "servicemapDefinition": [{
+                        "filters": [
+                            "env:prod",
+                            "datacenter:us1.prod.dog",
+                        ],
+                        "service": "master-db",
+                        "title": "env: prod, datacenter:us1.prod.dog, service: master-db",
+                        "titleAlign": "left",
+                        "titleSize": "16",
+                    }],
                 },
                 {
                     "timeseriesDefinition": {
@@ -2328,6 +2452,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[list] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[list] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
         :param pulumi.Input[list] widgets: The list of widgets to display on the dashboard.
 
         The **template_variable_presets** object supports the following:
@@ -2437,6 +2562,7 @@ class Dashboard(pulumi.CustomResource):
             * `titleSize` (`pulumi.Input[str]`)
 
           * `distributionDefinition` (`pulumi.Input[dict]`)
+            * `legendSize` (`pulumi.Input[str]`)
             * `requests` (`pulumi.Input[list]`)
               * `apmQuery` (`pulumi.Input[dict]`)
                 * `compute` (`pulumi.Input[dict]`)
@@ -2484,6 +2610,7 @@ class Dashboard(pulumi.CustomResource):
               * `style` (`pulumi.Input[dict]`)
                 * `palette` (`pulumi.Input[str]`)
 
+            * `showLegend` (`pulumi.Input[bool]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -2614,6 +2741,7 @@ class Dashboard(pulumi.CustomResource):
                 * `titleSize` (`pulumi.Input[str]`)
 
               * `distributionDefinition` (`pulumi.Input[dict]`)
+                * `legendSize` (`pulumi.Input[str]`)
                 * `requests` (`pulumi.Input[list]`)
                   * `apmQuery` (`pulumi.Input[dict]`)
                     * `compute` (`pulumi.Input[dict]`)
@@ -2661,6 +2789,7 @@ class Dashboard(pulumi.CustomResource):
                   * `style` (`pulumi.Input[dict]`)
                     * `palette` (`pulumi.Input[str]`)
 
+                * `showLegend` (`pulumi.Input[bool]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -2696,6 +2825,11 @@ class Dashboard(pulumi.CustomResource):
                 * `textAlign` (`pulumi.Input[str]`)
 
               * `heatmapDefinition` (`pulumi.Input[dict]`)
+                * `events` (`pulumi.Input[list]`)
+                  * `q` (`pulumi.Input[str]`)
+                  * `tagsExecution` (`pulumi.Input[str]`)
+
+                * `legendSize` (`pulumi.Input[str]`)
                 * `requests` (`pulumi.Input[list]`)
                   * `apmQuery` (`pulumi.Input[dict]`)
                     * `compute` (`pulumi.Input[dict]`)
@@ -2743,6 +2877,7 @@ class Dashboard(pulumi.CustomResource):
                   * `style` (`pulumi.Input[dict]`)
                     * `palette` (`pulumi.Input[str]`)
 
+                * `showLegend` (`pulumi.Input[bool]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -3179,6 +3314,13 @@ class Dashboard(pulumi.CustomResource):
                 * `viewMode` (`pulumi.Input[str]`)
                 * `viewType` (`pulumi.Input[str]`)
 
+              * `servicemapDefinition` (`pulumi.Input[dict]`)
+                * `filters` (`pulumi.Input[list]`)
+                * `service` (`pulumi.Input[str]`)
+                * `title` (`pulumi.Input[str]`)
+                * `titleAlign` (`pulumi.Input[str]`)
+                * `titleSize` (`pulumi.Input[str]`)
+
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
                 * `events` (`pulumi.Input[list]`)
                   * `q` (`pulumi.Input[str]`)
@@ -3232,6 +3374,24 @@ class Dashboard(pulumi.CustomResource):
                     * `aliasName` (`pulumi.Input[str]`)
                     * `expression` (`pulumi.Input[str]`)
 
+                  * `networkQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
                   * `processQuery` (`pulumi.Input[dict]`)
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
@@ -3239,6 +3399,24 @@ class Dashboard(pulumi.CustomResource):
                     * `searchBy` (`pulumi.Input[str]`)
 
                   * `q` (`pulumi.Input[str]`)
+                  * `rumQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
                   * `style` (`pulumi.Input[dict]`)
                     * `lineType` (`pulumi.Input[str]`)
                     * `lineWidth` (`pulumi.Input[str]`)
@@ -3343,6 +3521,11 @@ class Dashboard(pulumi.CustomResource):
                 * `titleSize` (`pulumi.Input[str]`)
 
           * `heatmapDefinition` (`pulumi.Input[dict]`)
+            * `events` (`pulumi.Input[list]`)
+              * `q` (`pulumi.Input[str]`)
+              * `tagsExecution` (`pulumi.Input[str]`)
+
+            * `legendSize` (`pulumi.Input[str]`)
             * `requests` (`pulumi.Input[list]`)
               * `apmQuery` (`pulumi.Input[dict]`)
                 * `compute` (`pulumi.Input[dict]`)
@@ -3390,6 +3573,7 @@ class Dashboard(pulumi.CustomResource):
               * `style` (`pulumi.Input[dict]`)
                 * `palette` (`pulumi.Input[str]`)
 
+            * `showLegend` (`pulumi.Input[bool]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -3826,6 +4010,13 @@ class Dashboard(pulumi.CustomResource):
             * `viewMode` (`pulumi.Input[str]`)
             * `viewType` (`pulumi.Input[str]`)
 
+          * `servicemapDefinition` (`pulumi.Input[dict]`)
+            * `filters` (`pulumi.Input[list]`)
+            * `service` (`pulumi.Input[str]`)
+            * `title` (`pulumi.Input[str]`)
+            * `titleAlign` (`pulumi.Input[str]`)
+            * `titleSize` (`pulumi.Input[str]`)
+
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
             * `events` (`pulumi.Input[list]`)
               * `q` (`pulumi.Input[str]`)
@@ -3879,6 +4070,24 @@ class Dashboard(pulumi.CustomResource):
                 * `aliasName` (`pulumi.Input[str]`)
                 * `expression` (`pulumi.Input[str]`)
 
+              * `networkQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
               * `processQuery` (`pulumi.Input[dict]`)
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
@@ -3886,6 +4095,24 @@ class Dashboard(pulumi.CustomResource):
                 * `searchBy` (`pulumi.Input[str]`)
 
               * `q` (`pulumi.Input[str]`)
+              * `rumQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
               * `style` (`pulumi.Input[dict]`)
                 * `lineType` (`pulumi.Input[str]`)
                 * `lineWidth` (`pulumi.Input[str]`)
@@ -4017,6 +4244,7 @@ class Dashboard(pulumi.CustomResource):
             if title is None:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
+            __props__['url'] = url
             if widgets is None:
                 raise TypeError("Missing required property 'widgets'")
             __props__['widgets'] = widgets
@@ -4027,7 +4255,7 @@ class Dashboard(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, widgets=None):
+    def get(resource_name, id, opts=None, description=None, is_read_only=None, layout_type=None, notify_lists=None, template_variable_presets=None, template_variables=None, title=None, url=None, widgets=None):
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -4042,6 +4270,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[list] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[list] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
         :param pulumi.Input[list] widgets: The list of widgets to display on the dashboard.
 
         The **template_variable_presets** object supports the following:
@@ -4151,6 +4380,7 @@ class Dashboard(pulumi.CustomResource):
             * `titleSize` (`pulumi.Input[str]`)
 
           * `distributionDefinition` (`pulumi.Input[dict]`)
+            * `legendSize` (`pulumi.Input[str]`)
             * `requests` (`pulumi.Input[list]`)
               * `apmQuery` (`pulumi.Input[dict]`)
                 * `compute` (`pulumi.Input[dict]`)
@@ -4198,6 +4428,7 @@ class Dashboard(pulumi.CustomResource):
               * `style` (`pulumi.Input[dict]`)
                 * `palette` (`pulumi.Input[str]`)
 
+            * `showLegend` (`pulumi.Input[bool]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -4328,6 +4559,7 @@ class Dashboard(pulumi.CustomResource):
                 * `titleSize` (`pulumi.Input[str]`)
 
               * `distributionDefinition` (`pulumi.Input[dict]`)
+                * `legendSize` (`pulumi.Input[str]`)
                 * `requests` (`pulumi.Input[list]`)
                   * `apmQuery` (`pulumi.Input[dict]`)
                     * `compute` (`pulumi.Input[dict]`)
@@ -4375,6 +4607,7 @@ class Dashboard(pulumi.CustomResource):
                   * `style` (`pulumi.Input[dict]`)
                     * `palette` (`pulumi.Input[str]`)
 
+                * `showLegend` (`pulumi.Input[bool]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -4410,6 +4643,11 @@ class Dashboard(pulumi.CustomResource):
                 * `textAlign` (`pulumi.Input[str]`)
 
               * `heatmapDefinition` (`pulumi.Input[dict]`)
+                * `events` (`pulumi.Input[list]`)
+                  * `q` (`pulumi.Input[str]`)
+                  * `tagsExecution` (`pulumi.Input[str]`)
+
+                * `legendSize` (`pulumi.Input[str]`)
                 * `requests` (`pulumi.Input[list]`)
                   * `apmQuery` (`pulumi.Input[dict]`)
                     * `compute` (`pulumi.Input[dict]`)
@@ -4457,6 +4695,7 @@ class Dashboard(pulumi.CustomResource):
                   * `style` (`pulumi.Input[dict]`)
                     * `palette` (`pulumi.Input[str]`)
 
+                * `showLegend` (`pulumi.Input[bool]`)
                 * `time` (`pulumi.Input[dict]`)
                   * `liveSpan` (`pulumi.Input[str]`)
 
@@ -4893,6 +5132,13 @@ class Dashboard(pulumi.CustomResource):
                 * `viewMode` (`pulumi.Input[str]`)
                 * `viewType` (`pulumi.Input[str]`)
 
+              * `servicemapDefinition` (`pulumi.Input[dict]`)
+                * `filters` (`pulumi.Input[list]`)
+                * `service` (`pulumi.Input[str]`)
+                * `title` (`pulumi.Input[str]`)
+                * `titleAlign` (`pulumi.Input[str]`)
+                * `titleSize` (`pulumi.Input[str]`)
+
               * `timeseriesDefinition` (`pulumi.Input[dict]`)
                 * `events` (`pulumi.Input[list]`)
                   * `q` (`pulumi.Input[str]`)
@@ -4946,6 +5192,24 @@ class Dashboard(pulumi.CustomResource):
                     * `aliasName` (`pulumi.Input[str]`)
                     * `expression` (`pulumi.Input[str]`)
 
+                  * `networkQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
                   * `processQuery` (`pulumi.Input[dict]`)
                     * `filterBies` (`pulumi.Input[list]`)
                     * `limit` (`pulumi.Input[float]`)
@@ -4953,6 +5217,24 @@ class Dashboard(pulumi.CustomResource):
                     * `searchBy` (`pulumi.Input[str]`)
 
                   * `q` (`pulumi.Input[str]`)
+                  * `rumQuery` (`pulumi.Input[dict]`)
+                    * `compute` (`pulumi.Input[dict]`)
+                      * `aggregation` (`pulumi.Input[str]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `interval` (`pulumi.Input[float]`)
+
+                    * `groupBies` (`pulumi.Input[list]`)
+                      * `facet` (`pulumi.Input[str]`)
+                      * `limit` (`pulumi.Input[float]`)
+                      * `sort` (`pulumi.Input[dict]`)
+                        * `aggregation` (`pulumi.Input[str]`)
+                        * `facet` (`pulumi.Input[str]`)
+                        * `order` (`pulumi.Input[str]`)
+
+                    * `index` (`pulumi.Input[str]`)
+                    * `search` (`pulumi.Input[dict]`)
+                      * `query` (`pulumi.Input[str]`)
+
                   * `style` (`pulumi.Input[dict]`)
                     * `lineType` (`pulumi.Input[str]`)
                     * `lineWidth` (`pulumi.Input[str]`)
@@ -5057,6 +5339,11 @@ class Dashboard(pulumi.CustomResource):
                 * `titleSize` (`pulumi.Input[str]`)
 
           * `heatmapDefinition` (`pulumi.Input[dict]`)
+            * `events` (`pulumi.Input[list]`)
+              * `q` (`pulumi.Input[str]`)
+              * `tagsExecution` (`pulumi.Input[str]`)
+
+            * `legendSize` (`pulumi.Input[str]`)
             * `requests` (`pulumi.Input[list]`)
               * `apmQuery` (`pulumi.Input[dict]`)
                 * `compute` (`pulumi.Input[dict]`)
@@ -5104,6 +5391,7 @@ class Dashboard(pulumi.CustomResource):
               * `style` (`pulumi.Input[dict]`)
                 * `palette` (`pulumi.Input[str]`)
 
+            * `showLegend` (`pulumi.Input[bool]`)
             * `time` (`pulumi.Input[dict]`)
               * `liveSpan` (`pulumi.Input[str]`)
 
@@ -5540,6 +5828,13 @@ class Dashboard(pulumi.CustomResource):
             * `viewMode` (`pulumi.Input[str]`)
             * `viewType` (`pulumi.Input[str]`)
 
+          * `servicemapDefinition` (`pulumi.Input[dict]`)
+            * `filters` (`pulumi.Input[list]`)
+            * `service` (`pulumi.Input[str]`)
+            * `title` (`pulumi.Input[str]`)
+            * `titleAlign` (`pulumi.Input[str]`)
+            * `titleSize` (`pulumi.Input[str]`)
+
           * `timeseriesDefinition` (`pulumi.Input[dict]`)
             * `events` (`pulumi.Input[list]`)
               * `q` (`pulumi.Input[str]`)
@@ -5593,6 +5888,24 @@ class Dashboard(pulumi.CustomResource):
                 * `aliasName` (`pulumi.Input[str]`)
                 * `expression` (`pulumi.Input[str]`)
 
+              * `networkQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
               * `processQuery` (`pulumi.Input[dict]`)
                 * `filterBies` (`pulumi.Input[list]`)
                 * `limit` (`pulumi.Input[float]`)
@@ -5600,6 +5913,24 @@ class Dashboard(pulumi.CustomResource):
                 * `searchBy` (`pulumi.Input[str]`)
 
               * `q` (`pulumi.Input[str]`)
+              * `rumQuery` (`pulumi.Input[dict]`)
+                * `compute` (`pulumi.Input[dict]`)
+                  * `aggregation` (`pulumi.Input[str]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `interval` (`pulumi.Input[float]`)
+
+                * `groupBies` (`pulumi.Input[list]`)
+                  * `facet` (`pulumi.Input[str]`)
+                  * `limit` (`pulumi.Input[float]`)
+                  * `sort` (`pulumi.Input[dict]`)
+                    * `aggregation` (`pulumi.Input[str]`)
+                    * `facet` (`pulumi.Input[str]`)
+                    * `order` (`pulumi.Input[str]`)
+
+                * `index` (`pulumi.Input[str]`)
+                * `search` (`pulumi.Input[dict]`)
+                  * `query` (`pulumi.Input[str]`)
+
               * `style` (`pulumi.Input[dict]`)
                 * `lineType` (`pulumi.Input[str]`)
                 * `lineWidth` (`pulumi.Input[str]`)
@@ -5714,6 +6045,7 @@ class Dashboard(pulumi.CustomResource):
         __props__["template_variable_presets"] = template_variable_presets
         __props__["template_variables"] = template_variables
         __props__["title"] = title
+        __props__["url"] = url
         __props__["widgets"] = widgets
         return Dashboard(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
