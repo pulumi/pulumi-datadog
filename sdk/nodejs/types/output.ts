@@ -2738,6 +2738,75 @@ export interface DowntimeRecurrence {
     weekDays?: string[];
 }
 
+export interface LogsArchiveAzure {
+    /**
+     * Your client id.
+     */
+    clientId: string;
+    /**
+     * The container where the archive will be stored.
+     */
+    container: string;
+    /**
+     * The path where the archive will be stored.
+     */
+    path?: string;
+    /**
+     * The associated storage account.
+     */
+    storageAccount: string;
+    /**
+     * Your tenant id.
+     */
+    tenantId: string;
+}
+
+export interface LogsArchiveGcs {
+    /**
+     * Name of your gcs bucket.
+     */
+    bucket: string;
+    /**
+     * Your client email.
+     */
+    clientEmail: string;
+    /**
+     * The path where the archive will be stored.
+     */
+    path: string;
+    /**
+     * Your project id.
+     */
+    projectId: string;
+}
+
+export interface LogsArchiveS3 {
+    /**
+     * Your AWS account id.
+     */
+    accountId: string;
+    /**
+     * Name of your gcs bucket.
+     */
+    bucket: string;
+    /**
+     * Your client email.
+     */
+    clientEmail: string;
+    /**
+     * The path where the archive will be stored.
+     */
+    path: string;
+    /**
+     * Your project id.
+     */
+    projectId: string;
+    /**
+     * Your AWS role name.
+     */
+    roleName: string;
+}
+
 export interface LogsCustomPipelineFilter {
     query: string;
 }

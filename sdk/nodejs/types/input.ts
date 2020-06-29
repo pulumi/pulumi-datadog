@@ -2738,6 +2738,75 @@ export interface DowntimeRecurrence {
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface LogsArchiveAzure {
+    /**
+     * Your client id.
+     */
+    clientId: pulumi.Input<string>;
+    /**
+     * The container where the archive will be stored.
+     */
+    container: pulumi.Input<string>;
+    /**
+     * The path where the archive will be stored.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The associated storage account.
+     */
+    storageAccount: pulumi.Input<string>;
+    /**
+     * Your tenant id.
+     */
+    tenantId: pulumi.Input<string>;
+}
+
+export interface LogsArchiveGcs {
+    /**
+     * Name of your gcs bucket.
+     */
+    bucket: pulumi.Input<string>;
+    /**
+     * Your client email.
+     */
+    clientEmail: pulumi.Input<string>;
+    /**
+     * The path where the archive will be stored.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Your project id.
+     */
+    projectId: pulumi.Input<string>;
+}
+
+export interface LogsArchiveS3 {
+    /**
+     * Your AWS account id.
+     */
+    accountId: pulumi.Input<string>;
+    /**
+     * Name of your gcs bucket.
+     */
+    bucket: pulumi.Input<string>;
+    /**
+     * Your client email.
+     */
+    clientEmail: pulumi.Input<string>;
+    /**
+     * The path where the archive will be stored.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Your project id.
+     */
+    projectId: pulumi.Input<string>;
+    /**
+     * Your AWS role name.
+     */
+    roleName: pulumi.Input<string>;
+}
+
 export interface LogsCustomPipelineFilter {
     query: pulumi.Input<string>;
 }

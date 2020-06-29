@@ -2079,7 +2079,7 @@ class Dashboard(pulumi.CustomResource):
                         "x": 5,
                         "y": 5,
                     },
-                    "servicemapDefinition": [{
+                    "servicemapDefinition": {
                         "filters": [
                             "env:prod",
                             "datacenter:us1.prod.dog",
@@ -2088,7 +2088,7 @@ class Dashboard(pulumi.CustomResource):
                         "title": "env: prod, datacenter:us1.prod.dog, service: master-db",
                         "titleAlign": "left",
                         "titleSize": "16",
-                    }],
+                    },
                 },
                 {
                     "timeseriesDefinition": {

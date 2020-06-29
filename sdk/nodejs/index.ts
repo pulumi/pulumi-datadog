@@ -6,6 +6,7 @@ export * from "./dashboard";
 export * from "./dashboardList";
 export * from "./downtime";
 export * from "./getIpRanges";
+export * from "./logsArchive";
 export * from "./logsCustomPipeline";
 export * from "./logsIndex";
 export * from "./logsIndexOrder";
@@ -22,8 +23,9 @@ export * from "./user";
 
 // Export sub-modules:
 import * as aws from "./aws";
+import * as azure from "./azure";
 import * as config from "./config";
 import * as gcp from "./gcp";
 import * as pagerduty from "./pagerduty";
 import * as types from "./types";
-export {aws, config, gcp, pagerduty, types};
+export {aws, azure, config, gcp, pagerduty, types};
