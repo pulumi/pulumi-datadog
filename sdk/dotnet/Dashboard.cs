@@ -391,20 +391,17 @@ namespace Pulumi.Datadog
     ///                         X = 5,
     ///                         Y = 5,
     ///                     },
-    ///                     ServicemapDefinition = 
+    ///                     ServicemapDefinition = new Datadog.Inputs.DashboardWidgetServicemapDefinitionArgs
     ///                     {
-    ///                         
+    ///                         Filters = 
     ///                         {
-    ///                             { "filters", 
-    ///                             {
-    ///                                 "env:prod",
-    ///                                 "datacenter:us1.prod.dog",
-    ///                             } },
-    ///                             { "service", "master-db" },
-    ///                             { "title", "env: prod, datacenter:us1.prod.dog, service: master-db" },
-    ///                             { "titleAlign", "left" },
-    ///                             { "titleSize", "16" },
+    ///                             "env:prod",
+    ///                             "datacenter:us1.prod.dog",
     ///                         },
+    ///                         Service = "master-db",
+    ///                         Title = "env: prod, datacenter:us1.prod.dog, service: master-db",
+    ///                         TitleAlign = "left",
+    ///                         TitleSize = "16",
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs

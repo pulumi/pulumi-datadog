@@ -283,7 +283,7 @@ import * as utilities from "./utilities";
  *                 x: 5,
  *                 y: 5,
  *             },
- *             servicemapDefinition: [{
+ *             servicemapDefinition: {
  *                 filters: [
  *                     "env:prod",
  *                     "datacenter:us1.prod.dog",
@@ -292,7 +292,7 @@ import * as utilities from "./utilities";
  *                 title: "env: prod, datacenter:us1.prod.dog, service: master-db",
  *                 titleAlign: "left",
  *                 titleSize: "16",
- *             }],
+ *             },
  *         },
  *         {
  *             timeseriesDefinition: {

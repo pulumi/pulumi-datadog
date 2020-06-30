@@ -17,6 +17,7 @@ const (
 	datadogMod = "index"
 	gcpMod     = "Gcp"
 	awsMod     = "Aws"
+	azureMod   = "Azure"
 	pdMod      = "PagerDuty"
 )
 
@@ -115,6 +116,9 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_logs_index": {
 				Tok: makeResource(datadogMod, "LogsIndex"),
 			},
+			"datadog_logs_archive": {
+				Tok: makeResource(datadogMod, "LogsArchive"),
+			},
 			"datadog_logs_index_order": {
 				Tok: makeResource(datadogMod, "LogsIndexOrder"),
 			},
@@ -128,6 +132,11 @@ func Provider() tfbridge.ProviderInfo {
 			// GCP Integrations
 			"datadog_integration_gcp": {
 				Tok: makeResource(gcpMod, "Integration"),
+			},
+
+			// Azure Integrations
+			"datadog_integration_azure": {
+				Tok: makeResource(azureMod, "Integration"),
 			},
 
 			// AWS Integrations

@@ -4,7 +4,7 @@
 
 import importlib
 # Make subpackages available:
-__all__ = ['aws', 'config', 'gcp', 'pagerduty']
+__all__ = ['aws', 'azure', 'config', 'gcp', 'pagerduty']
 for pkg in __all__:
     if pkg != 'config':
         importlib.import_module(f'{__name__}.{pkg}')
@@ -14,6 +14,7 @@ from .dashboard import *
 from .dashboard_list import *
 from .downtime import *
 from .get_ip_ranges import *
+from .logs_archive import *
 from .logs_custom_pipeline import *
 from .logs_index import *
 from .logs_index_order import *
