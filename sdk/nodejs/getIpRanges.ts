@@ -10,8 +10,6 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about Datadog's IP addresses.
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";

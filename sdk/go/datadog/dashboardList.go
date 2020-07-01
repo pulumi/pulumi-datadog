@@ -11,6 +11,94 @@ import (
 )
 
 // Provides a Datadog dashboardList resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
+//
+// ## Example Usage
+//
+// Create a new Dashboard list with two dashbaords
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		time, err := datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
+// 			Description: pulumi.String("Created using the Datadog provider in TF"),
+// 			IsReadOnly:  pulumi.Bool(true),
+// 			LayoutType:  pulumi.String("ordered"),
+// 			Title:       pulumi.String("TF Test Layout Dashboard"),
+// 			Widgets: datadog.DashboardWidgetArray{
+// 				&datadog.DashboardWidgetArgs{
+// 					AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
+// 						AlertId: pulumi.String("1234"),
+// 						Time: &datadog.DashboardWidgetAlertGraphDefinitionTimeArgs{
+// 							LiveSpan: pulumi.String("1h"),
+// 						},
+// 						Title:   pulumi.String("Widget Title"),
+// 						VizType: pulumi.String("timeseries"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		screen, err := datadog.NewDashboard(ctx, "screen", &datadog.DashboardArgs{
+// 			Description: pulumi.String("Created using the Datadog provider in TF"),
+// 			IsReadOnly:  pulumi.Bool(false),
+// 			LayoutType:  pulumi.String("free"),
+// 			Title:       pulumi.String("TF Test Free Layout Dashboard"),
+// 			Widgets: datadog.DashboardWidgetArray{
+// 				&datadog.DashboardWidgetArgs{
+// 					EventStreamDefinition: &datadog.DashboardWidgetEventStreamDefinitionArgs{
+// 						EventSize: pulumi.String("l"),
+// 						Query:     pulumi.String("*"),
+// 						Time: &datadog.DashboardWidgetEventStreamDefinitionTimeArgs{
+// 							LiveSpan: pulumi.String("1h"),
+// 						},
+// 						Title:      pulumi.String("Widget Title"),
+// 						TitleAlign: pulumi.String("left"),
+// 						TitleSize:  pulumi.String("16"),
+// 					},
+// 					Layout: &datadog.DashboardWidgetLayoutArgs{
+// 						Height: pulumi.Float64(43),
+// 						Width:  pulumi.Float64(32),
+// 						X:      pulumi.Float64(5),
+// 						Y:      pulumi.Float64(5),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datadog.NewDashboardList(ctx, "newList", &datadog.DashboardListArgs{
+// 			DashItems: datadog.DashboardListDashItemArray{
+// 				&datadog.DashboardListDashItemArgs{
+// 					DashId: time.ID(),
+// 					Type:   pulumi.String("custom_timeboard"),
+// 				},
+// 				&datadog.DashboardListDashItemArgs{
+// 					DashId: screen.ID(),
+// 					Type:   pulumi.String("custom_screenboard"),
+// 				},
+// 			},
+// 			Name: pulumi.String("TF Created List"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"datadog_dashboard.screen",
+// 			"datadog_dashboard.time",
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DashboardList struct {
 	pulumi.CustomResourceState
 

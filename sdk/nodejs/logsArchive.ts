@@ -9,24 +9,23 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to create and manage Datadog logs archives.
  *
- *
  * ## Example Usage
  *
- *
+ * Create a Datadog logs archive:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const myS3Archive = new datadog.LogsArchive("myS3Archive", {
+ * const myS3Archive = new datadog.LogsArchive("my_s3_archive", {
  *     name: "my s3 archive",
  *     query: "service:myservice",
- *     s3: [{
- *         accountId: "001234567888",
+ *     s3: {
+ *         account_id: "001234567888",
  *         bucket: "my-bucket",
  *         path: "/path/foo",
- *         roleName: "my-role-name",
- *     }],
+ *         role_name: "my-role-name",
+ *     },
  * });
  * ```
  */

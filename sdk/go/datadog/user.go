@@ -11,6 +11,31 @@ import (
 )
 
 // Provides a Datadog user resource. This can be used to create and manage Datadog users.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewUser(ctx, "foo", &datadog.UserArgs{
+// 			Email:  pulumi.String("new@example.com"),
+// 			Handle: pulumi.String("new@example.com"),
+// 			Name:   pulumi.String("New User"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type User struct {
 	pulumi.CustomResourceState
 

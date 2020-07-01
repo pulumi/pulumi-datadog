@@ -12,6 +12,32 @@ import (
 
 // Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which
 // AWS services logs are collected from for an account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.NewIntegrationLogCollection(ctx, "main", &aws.IntegrationLogCollectionArgs{
+// 			AccountId: pulumi.String("1234567890"),
+// 			Services: pulumi.StringArray{
+// 				pulumi.String("lambda"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type IntegrationLogCollection struct {
 	pulumi.CustomResourceState
 

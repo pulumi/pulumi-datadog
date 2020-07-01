@@ -17,8 +17,6 @@ namespace Pulumi.Datadog.Aws
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;

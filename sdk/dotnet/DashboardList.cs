@@ -14,7 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// Create a new Dashboard list with two dashbaords
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -95,6 +95,13 @@ namespace Pulumi.Datadog
     ///                 },
     ///             },
     ///             Name = "TF Created List",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "datadog_dashboard.screen",
+    ///                 "datadog_dashboard.time",
+    ///             },
     ///         });
     ///     }
     /// 

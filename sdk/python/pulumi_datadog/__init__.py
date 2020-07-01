@@ -3,12 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import importlib
-# Make subpackages available:
-__all__ = ['aws', 'azure', 'config', 'gcp', 'pagerduty']
-for pkg in __all__:
-    if pkg != 'config':
-        importlib.import_module(f'{__name__}.{pkg}')
-
 # Export this package's modules as members:
 from .dashboard import *
 from .dashboard_list import *
@@ -28,3 +22,15 @@ from .service_level_objective import *
 from .synthetics_test import *
 from .time_board import *
 from .user import *
+
+# Make subpackages available:
+_submodules = [
+    'aws',
+    'azure',
+    'config',
+    'gcp',
+    'pagerduty',
+]
+for pkg in _submodules:
+    if pkg != 'config':
+        importlib.import_module(f'{__name__}.{pkg}')

@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -42,7 +40,6 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- *
  * ## Silencing by Hand and by Downtimes
  *
  * There are two ways how to silence a single monitor:
@@ -63,8 +60,8 @@ import * as utilities from "./utilities";
  * ## Composite Monitors
  *
  * You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)).
- * You just need to reuse the ID of your `datadog..Monitor` resources.
- * You can also compose any monitor with a `datadog..SyntheticsTest` by passing the computed `monitorId` attribute in the query.
+ * You just need to reuse the ID of your `datadog.Monitor` resources.
+ * You can also compose any monitor with a `datadog.SyntheticsTest` by passing the computed `monitorId` attribute in the query.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -196,30 +193,19 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly thresholdWindows!: pulumi.Output<outputs.MonitorThresholdWindows | undefined>;
     /**
-     *
      * * Metric alerts:
      * A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
      * Example usage:
-     * ```
-     * thresholds = {
-     * critical          = 90
-     * criticalRecovery = 85
-     * warning           = 80
-     * warningRecovery  = 75
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      * **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
      * along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
      * * Service checks:
      * A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
      * Default values:
-     * ```
-     * thresholds = {
-     * ok       = 1
-     * critical = 1
-     * warning  = 1
-     * unknown  = 1
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      */
     public readonly thresholds!: pulumi.Output<outputs.MonitorThresholds | undefined>;
@@ -413,30 +399,19 @@ export interface MonitorState {
      */
     readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**
-     *
      * * Metric alerts:
      * A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
      * Example usage:
-     * ```
-     * thresholds = {
-     * critical          = 90
-     * criticalRecovery = 85
-     * warning           = 80
-     * warningRecovery  = 75
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      * **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
      * along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
      * * Service checks:
      * A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
      * Default values:
-     * ```
-     * thresholds = {
-     * ok       = 1
-     * critical = 1
-     * warning  = 1
-     * unknown  = 1
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      */
     readonly thresholds?: pulumi.Input<inputs.MonitorThresholds>;
@@ -551,30 +526,19 @@ export interface MonitorArgs {
      */
     readonly thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
     /**
-     *
      * * Metric alerts:
      * A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
      * Example usage:
-     * ```
-     * thresholds = {
-     * critical          = 90
-     * criticalRecovery = 85
-     * warning           = 80
-     * warningRecovery  = 75
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      * **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
      * along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
      * * Service checks:
      * A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
      * Default values:
-     * ```
-     * thresholds = {
-     * ok       = 1
-     * critical = 1
-     * warning  = 1
-     * unknown  = 1
-     * }
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
      * ```
      */
     readonly thresholds?: pulumi.Input<inputs.MonitorThresholds>;

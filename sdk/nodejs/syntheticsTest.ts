@@ -9,7 +9,8 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
  *
- * ## Example Usage (Synthetics API test)
+ * ## Example Usage
+ * ### Synthetics API Test)
  *
  * Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  *
@@ -17,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testApi = new datadog.SyntheticsTest("testApi", {
+ * const testApi = new datadog.SyntheticsTest("test_api", {
  *     assertions: [{
  *         operator: "is",
  *         target: "200",
@@ -47,8 +48,7 @@ import * as utilities from "./utilities";
  *     type: "api",
  * });
  * ```
- *
- * ## Example Usage (Synthetics SSL test)
+ * ### Synthetics SSL Test)
  *
  * Create a new Datadog Synthetics API/SSL test on example.org
  *
@@ -56,7 +56,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testSsl = new datadog.SyntheticsTest("testSsl", {
+ * const testSsl = new datadog.SyntheticsTest("test_ssl", {
  *     assertions: [{
  *         operator: "isInMoreThan",
  *         target: 30,
@@ -83,8 +83,7 @@ import * as utilities from "./utilities";
  *     type: "api",
  * });
  * ```
- *
- * ## Example Usage (Synthetics Browser test)
+ * ### Synthetics Browser Test)
  *
  * Support for Synthetics Browser test is limited (see below)
  *
@@ -93,8 +92,8 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
- * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
- *     deviceIds: ["laptopLarge"],
+ * const testBrowser = new datadog.SyntheticsTest("test_browser", {
+ *     deviceIds: ["laptop_large"],
  *     locations: ["aws:eu-central-1"],
  *     message: "Notify @qa",
  *     name: "A Browser test on example.org",
@@ -110,7 +109,6 @@ import * as utilities from "./utilities";
  *     type: "browser",
  * });
  * ```
- *
  * ## Synthetics Browser test
  *
  * Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)

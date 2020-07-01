@@ -14,8 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
@@ -55,7 +53,6 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// 
     /// ## Silencing by Hand and by Downtimes
     /// 
     /// There are two ways how to silence a single monitor:
@@ -84,8 +81,8 @@ namespace Pulumi.Datadog
     /// ## Composite Monitors
     /// 
     /// You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)).
-    /// You just need to reuse the ID of your `datadog..Monitor` resources.
-    /// You can also compose any monitor with a `datadog..SyntheticsTest` by passing the computed `monitor_id` attribute in the query.
+    /// You just need to reuse the ID of your `datadog.Monitor` resources.
+    /// You can also compose any monitor with a `datadog.SyntheticsTest` by passing the computed `monitor_id` attribute in the query.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -233,16 +230,18 @@ namespace Pulumi.Datadog
         public Output<Outputs.MonitorThresholdWindows?> ThresholdWindows { get; private set; } = null!;
 
         /// <summary>
-        /// 
         /// * Metric alerts:
         /// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
         /// Example usage:
-        /// ```
-        /// thresholds = {
-        /// critical          = 90
-        /// critical_recovery = 85
-        /// warning           = 80
-        /// warning_recovery  = 75
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
         /// }
         /// ```
         /// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} &gt; 90` but
@@ -250,12 +249,15 @@ namespace Pulumi.Datadog
         /// * Service checks:
         /// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
         /// Default values:
-        /// ```
-        /// thresholds = {
-        /// ok       = 1
-        /// critical = 1
-        /// warning  = 1
-        /// unknown  = 1
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
         /// }
         /// ```
         /// </summary>
@@ -464,16 +466,18 @@ namespace Pulumi.Datadog
         public Input<Inputs.MonitorThresholdWindowsArgs>? ThresholdWindows { get; set; }
 
         /// <summary>
-        /// 
         /// * Metric alerts:
         /// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
         /// Example usage:
-        /// ```
-        /// thresholds = {
-        /// critical          = 90
-        /// critical_recovery = 85
-        /// warning           = 80
-        /// warning_recovery  = 75
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
         /// }
         /// ```
         /// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} &gt; 90` but
@@ -481,12 +485,15 @@ namespace Pulumi.Datadog
         /// * Service checks:
         /// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
         /// Default values:
-        /// ```
-        /// thresholds = {
-        /// ok       = 1
-        /// critical = 1
-        /// warning  = 1
-        /// unknown  = 1
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
         /// }
         /// ```
         /// </summary>
@@ -656,16 +663,18 @@ namespace Pulumi.Datadog
         public Input<Inputs.MonitorThresholdWindowsGetArgs>? ThresholdWindows { get; set; }
 
         /// <summary>
-        /// 
         /// * Metric alerts:
         /// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
         /// Example usage:
-        /// ```
-        /// thresholds = {
-        /// critical          = 90
-        /// critical_recovery = 85
-        /// warning           = 80
-        /// warning_recovery  = 75
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
         /// }
         /// ```
         /// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} &gt; 90` but
@@ -673,12 +682,15 @@ namespace Pulumi.Datadog
         /// * Service checks:
         /// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
         /// Default values:
-        /// ```
-        /// thresholds = {
-        /// ok       = 1
-        /// critical = 1
-        /// warning  = 1
-        /// unknown  = 1
+        /// ```csharp
+        /// using Pulumi;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///     }
+        /// 
         /// }
         /// ```
         /// </summary>

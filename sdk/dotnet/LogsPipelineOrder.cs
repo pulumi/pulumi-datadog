@@ -12,10 +12,7 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to manage Datadog log pipelines order.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -33,6 +30,13 @@ namespace Pulumi.Datadog
     ///                 datadog_logs_custom_pipeline.Sample_pipeline.Id,
     ///                 datadog_logs_integration_pipeline.Python.Id,
     ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "datadog_logs_custom_pipeline.sample_pipeline",
+    ///                 "datadog_logs_integration_pipeline.python",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -42,7 +46,7 @@ namespace Pulumi.Datadog
     public partial class LogsPipelineOrder : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
+        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
         /// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
         /// </summary>
         [Output("name")]
@@ -101,7 +105,7 @@ namespace Pulumi.Datadog
     public sealed class LogsPipelineOrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
+        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
         /// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
         /// </summary>
         [Input("name", required: true)]
@@ -127,7 +131,7 @@ namespace Pulumi.Datadog
     public sealed class LogsPipelineOrderState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name attribute in the resource `datadog..LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
+        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
         /// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
         /// </summary>
         [Input("name")]

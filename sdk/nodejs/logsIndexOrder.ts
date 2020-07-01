@@ -9,15 +9,15 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const sampleIndexOrder = new datadog.LogsIndexOrder("sampleIndexOrder", {
- *     name: "sampleIndexOrder",
+ *     name: "sample_index_order",
  *     indexes: [datadog_logs_index.sample_index.id],
+ * }, {
+ *     dependsOn: ["datadog_logs_index.sample_index"],
  * });
  * ```
  */

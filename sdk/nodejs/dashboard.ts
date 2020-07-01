@@ -9,41 +9,41 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
  *
- * > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `datadog..TimeBoard` and `datadog..ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
+ * > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `datadog.TimeBoard` and `datadog.ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
  *
- *
- * ## Example Usage: Create a new Datadog dashboard - Ordered layout
+ * ## Example Usage
+ * ### Create A New Datadog Dashboard - Ordered Layout
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const orderedDashboard = new datadog.Dashboard("orderedDashboard", {
+ * const orderedDashboard = new datadog.Dashboard("ordered_dashboard", {
  *     description: "Created using the Datadog provider in TF",
  *     isReadOnly: true,
  *     layoutType: "ordered",
  *     templateVariables: [
  *         {
  *             default: "aws",
- *             name: "var1",
+ *             name: "var_1",
  *             prefix: "host",
  *         },
  *         {
  *             default: "autoscaling",
- *             name: "var2",
- *             prefix: "serviceName",
+ *             name: "var_2",
+ *             prefix: "service_name",
  *         },
  *     ],
  *     templateVariablePresets: [{
- *         name: "preset1",
+ *         name: "preset_1",
  *         templateVariables: [
  *             {
- *                 name: "var1",
+ *                 name: "var_1",
  *                 value: "host.dc",
  *             },
  *             {
- *                 name: "var2",
- *                 value: "myService",
+ *                 name: "var_2",
+ *                 value: "my_service",
  *             },
  *         ],
  *     }],
@@ -81,7 +81,7 @@ import * as utilities from "./utilities";
  *             changeDefinition: {
  *                 requests: [{
  *                     changeType: "absolute",
- *                     compareTo: "weekBefore",
+ *                     compareTo: "week_before",
  *                     increaseGood: true,
  *                     orderBy: "name",
  *                     orderDir: "desc",
@@ -170,7 +170,7 @@ import * as utilities from "./utilities";
  *                 style: {
  *                     fillMax: "20",
  *                     fillMin: "10",
- *                     palette: "yellowToGreen",
+ *                     palette: "yellow_to_green",
  *                     paletteFlip: true,
  *                 },
  *                 title: "Widget Title",
@@ -197,12 +197,12 @@ import * as utilities from "./utilities";
  *                     conditionalFormats: [
  *                         {
  *                             comparator: "<",
- *                             palette: "whiteOnGreen",
+ *                             palette: "white_on_green",
  *                             value: 2,
  *                         },
  *                         {
  *                             comparator: ">",
- *                             palette: "whiteOnRed",
+ *                             palette: "white_on_red",
  *                             value: 2.2,
  *                         },
  *                     ],
@@ -222,12 +222,12 @@ import * as utilities from "./utilities";
  *                     conditionalFormats: [
  *                         {
  *                             comparator: "<",
- *                             palette: "whiteOnGreen",
+ *                             palette: "white_on_green",
  *                             value: 2,
  *                         },
  *                         {
  *                             comparator: ">",
- *                             palette: "whiteOnRed",
+ *                             palette: "white_on_red",
  *                             value: 2.2,
  *                         },
  *                     ],
@@ -362,7 +362,7 @@ import * as utilities from "./utilities";
  *                                 interval: 5000,
  *                             },
  *                             groupBies: [{
- *                                 facet: "resourceName",
+ *                                 facet: "resource_name",
  *                                 limit: 50,
  *                                 sort: {
  *                                     aggregation: "avg",
@@ -405,12 +405,12 @@ import * as utilities from "./utilities";
  *                     conditionalFormats: [
  *                         {
  *                             comparator: "<",
- *                             palette: "whiteOnGreen",
+ *                             palette: "white_on_green",
  *                             value: 2,
  *                         },
  *                         {
  *                             comparator: ">",
- *                             palette: "whiteOnRed",
+ *                             palette: "white_on_red",
  *                             value: 2.2,
  *                         },
  *                     ],
@@ -454,7 +454,7 @@ import * as utilities from "./utilities";
  *                 sloId: "56789",
  *                 timeWindows: [
  *                     "7d",
- *                     "previousWeek",
+ *                     "previous_week",
  *                 ],
  *                 title: "Widget Title",
  *                 viewMode: "overall",
@@ -464,38 +464,38 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * ## Example Usage: Create a new Datadog dashboard - Free layout
+ * ### Create A New Datadog Dashboard - Free Layout
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const freeDashboard = new datadog.Dashboard("freeDashboard", {
+ * const freeDashboard = new datadog.Dashboard("free_dashboard", {
  *     description: "Created using the Datadog provider in TF",
  *     isReadOnly: false,
  *     layoutType: "free",
  *     templateVariables: [
  *         {
  *             default: "aws",
- *             name: "var1",
+ *             name: "var_1",
  *             prefix: "host",
  *         },
  *         {
  *             default: "autoscaling",
- *             name: "var2",
- *             prefix: "serviceName",
+ *             name: "var_2",
+ *             prefix: "service_name",
  *         },
  *     ],
  *     templateVariablePresets: [{
- *         name: "preset1",
+ *         name: "preset_1",
  *         templateVariables: [
  *             {
- *                 name: "var1",
+ *                 name: "var_1",
  *                 value: "host.dc",
  *             },
  *             {
- *                 name: "var2",
- *                 value: "myService",
+ *                 name: "var_2",
+ *                 value: "my_service",
  *             },
  *         ],
  *     }],
@@ -583,9 +583,9 @@ import * as utilities from "./utilities";
  *             },
  *             logStreamDefinition: {
  *                 columns: [
- *                     "coreHost",
- *                     "coreService",
- *                     "tagSource",
+ *                     "core_host",
+ *                     "core_service",
+ *                     "tag_source",
  *                 ],
  *                 logset: "19",
  *                 messageDisplay: "expanded-md",
@@ -626,7 +626,7 @@ import * as utilities from "./utilities";
  *                 y: 28,
  *             },
  *             traceServiceDefinition: {
- *                 displayFormat: "threeColumn",
+ *                 displayFormat: "three_column",
  *                 env: "datad0g.com",
  *                 service: "alerting-cassandra",
  *                 showBreakdown: true,

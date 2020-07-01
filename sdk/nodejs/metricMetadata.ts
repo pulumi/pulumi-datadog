@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage a Datadog metric's metadata
- * const requestTime = new datadog.MetricMetadata("requestTime", {
+ * const requestTime = new datadog.MetricMetadata("request_time", {
  *     description: "99th percentile request time in millseconds",
  *     metric: "request.time",
  *     shortName: "Request time",

@@ -12,10 +12,10 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
     /// 
-    /// &gt; **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `datadog..TimeBoard` and `datadog..ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
+    /// &gt; **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/graphing/widgets/group/). Additionally, this resource unifies `datadog.TimeBoard` and `datadog.ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
     /// 
-    /// 
-    /// ## Example Usage: Create a new Datadog dashboard - Ordered layout
+    /// ## Example Usage
+    /// ### Create A New Datadog Dashboard - Ordered Layout
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -50,17 +50,17 @@ namespace Pulumi.Datadog
     ///                 new Datadog.Inputs.DashboardTemplateVariablePresetArgs
     ///                 {
     ///                     Name = "preset_1",
-    ///                     TemplateVariable = 
+    ///                     TemplateVariables = 
     ///                     {
-    ///                         
+    ///                         new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
     ///                         {
-    ///                             { "name", "var_1" },
-    ///                             { "value", "host.dc" },
+    ///                             Name = "var_1",
+    ///                             Value = "host.dc",
     ///                         },
-    ///                         
+    ///                         new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
     ///                         {
-    ///                             { "name", "var_2" },
-    ///                             { "value", "my_service" },
+    ///                             Name = "var_2",
+    ///                             Value = "my_service",
     ///                         },
     ///                     },
     ///                 },
@@ -637,7 +637,7 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// ## Example Usage: Create a new Datadog dashboard - Free layout
+    /// ### Create A New Datadog Dashboard - Free Layout
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -672,17 +672,17 @@ namespace Pulumi.Datadog
     ///                 new Datadog.Inputs.DashboardTemplateVariablePresetArgs
     ///                 {
     ///                     Name = "preset_1",
-    ///                     TemplateVariable = 
+    ///                     TemplateVariables = 
     ///                     {
-    ///                         
+    ///                         new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
     ///                         {
-    ///                             { "name", "var_1" },
-    ///                             { "value", "host.dc" },
+    ///                             Name = "var_1",
+    ///                             Value = "host.dc",
     ///                         },
-    ///                         
+    ///                         new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
     ///                         {
-    ///                             { "name", "var_2" },
-    ///                             { "value", "my_service" },
+    ///                             Name = "var_2",
+    ///                             Value = "my_service",
     ///                         },
     ///                     },
     ///                 },

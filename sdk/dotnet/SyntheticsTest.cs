@@ -12,7 +12,8 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
     /// 
-    /// ## Example Usage (Synthetics API test)
+    /// ## Example Usage
+    /// ### Synthetics API Test)
     /// 
     /// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
     /// 
@@ -69,8 +70,7 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example Usage (Synthetics SSL test)
+    /// ### Synthetics SSL Test)
     /// 
     /// Create a new Datadog Synthetics API/SSL test on example.org
     /// 
@@ -123,8 +123,7 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example Usage (Synthetics Browser test)
+    /// ### Synthetics Browser Test)
     /// 
     /// Support for Synthetics Browser test is limited (see below)
     /// 
@@ -166,7 +165,6 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// 
     /// ## Synthetics Browser test
     /// 
     /// Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)

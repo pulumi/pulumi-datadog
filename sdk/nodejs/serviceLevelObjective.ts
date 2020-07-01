@@ -10,9 +10,7 @@ import * as utilities from "./utilities";
  * Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
  *
  * ## Example Usage
- *
  * ### Metric-Based SLO
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -48,9 +46,7 @@ import * as utilities from "./utilities";
  *     type: "metric",
  * });
  * ```
- *
  * ### Monitor-Based SLO
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";

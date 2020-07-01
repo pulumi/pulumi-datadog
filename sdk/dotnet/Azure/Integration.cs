@@ -11,6 +11,29 @@ namespace Pulumi.Datadog.Azure
 {
     /// <summary>
     /// Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog - Microsoft Azure integration
+    ///         var sandbox = new Datadog.Azure.Integration("sandbox", new Datadog.Azure.IntegrationArgs
+    ///         {
+    ///             ClientId = "&lt;azure_client_id&gt;",
+    ///             ClientSecret = "&lt;azure_client_secret_key&gt;",
+    ///             HostFilters = "examplefilter:true,example:true",
+    ///             TenantName = "&lt;azure_tenant_name&gt;",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {

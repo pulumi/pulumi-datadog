@@ -13,9 +13,7 @@ namespace Pulumi.Datadog
     /// Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Metric-Based SLO
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
@@ -64,9 +62,7 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// 
     /// ### Monitor-Based SLO
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;

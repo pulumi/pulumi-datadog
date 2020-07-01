@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog - Google Cloud Platform integration
- * const awesomeGcpProjectIntegration = new datadog.gcp.Integration("awesomeGcpProjectIntegration", {
+ * const awesomeGcpProjectIntegration = new datadog.gcp.Integration("awesome_gcp_project_integration", {
  *     clientEmail: "awesome-service-account@awesome-project-id.iam.gserviceaccount.com",
  *     clientId: "123456789012345678901",
  *     hostFilters: "foo:bar,buzz:lightyear",

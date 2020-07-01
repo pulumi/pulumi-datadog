@@ -11,6 +11,32 @@ import (
 )
 
 // Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/azure"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azure.NewIntegration(ctx, "sandbox", &azure.IntegrationArgs{
+// 			ClientId:     pulumi.String("<azure_client_id>"),
+// 			ClientSecret: pulumi.String("<azure_client_secret_key>"),
+// 			HostFilters:  pulumi.String("examplefilter:true,example:true"),
+// 			TenantName:   pulumi.String("<azure_tenant_name>"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Integration struct {
 	pulumi.CustomResourceState
 

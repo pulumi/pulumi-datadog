@@ -11,6 +11,107 @@ import (
 )
 
 // Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewMonitor(ctx, "foo", &datadog.MonitorArgs{
+// 			Name:              pulumi.String("Name for monitor foo"),
+// 			Type:              pulumi.String("metric alert"),
+// 			Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
+// 			EscalationMessage: pulumi.String("Escalation message @pagerduty"),
+// 			Query:             pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
+// 			Thresholds: &datadog.MonitorThresholdsArgs{
+// 				Ok:                pulumi.Float64(0),
+// 				Warning:           pulumi.Float64(2),
+// 				Warning_recovery:  pulumi.Float64(1),
+// 				Critical:          pulumi.Float64(4),
+// 				Critical_recovery: pulumi.Float64(3),
+// 			},
+// 			NotifyNoData:     pulumi.Bool(false),
+// 			RenotifyInterval: pulumi.Int(60),
+// 			NotifyAudit:      pulumi.Bool(false),
+// 			TimeoutH:         pulumi.Int(60),
+// 			IncludeTags:      pulumi.Bool(true),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("baz"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Silencing by Hand and by Downtimes
+//
+// There are two ways how to silence a single monitor:
+//
+// * Mute it by hand
+// * Create a Downtime
+//
+// Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your application, as they would be removed on next `pulumi up` invocation. In order to prevent that from happening, you can add following to your monitor:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		return nil
+// 	})
+// }
+// ```
+//
+// The above will make sure that any changes to the `silenced` attribute are ignored.
+//
+// This issue doesn't apply to multi-monitor downtimes (those that don't contain `monitorId`), as these don't influence contents of the `silenced` attribute.
+//
+// ## Composite Monitors
+//
+// You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)).
+// You just need to reuse the ID of your `Monitor` resources.
+// You can also compose any monitor with a `SyntheticsTest` by passing the computed `monitorId` attribute in the query.
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewMonitor(ctx, "bar", &datadog.MonitorArgs{
+// 			Message: pulumi.String("This is a message"),
+// 			Name:    pulumi.String("Composite Monitor"),
+// 			Query:   pulumi.String(fmt.Sprintf("%v%v%v", datadog_monitor.Foo.Id, " || ", datadog_synthetics_test.Foo.Monitor_id)),
+// 			Type:    pulumi.String("composite"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Monitor struct {
 	pulumi.CustomResourceState
 
@@ -67,29 +168,38 @@ type Monitor struct {
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
 	ThresholdWindows MonitorThresholdWindowsPtrOutput `pulumi:"thresholdWindows"`
-	//
 	// * Metric alerts:
-	// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-	// Example usage:
-	// ```
-	// thresholds = {
-	// critical          = 90
-	// criticalRecovery = 85
-	// warning           = 80
-	// warningRecovery  = 75
+	//   A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
+	//   Example usage:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
 	// along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
 	// * Service checks:
-	// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-	// Default values:
-	// ```
-	// thresholds = {
-	// ok       = 1
-	// critical = 1
-	// warning  = 1
-	// unknown  = 1
+	//   A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
+	//   Default values:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	Thresholds MonitorThresholdsPtrOutput `pulumi:"thresholds"`
@@ -199,29 +309,38 @@ type monitorState struct {
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
 	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
-	//
 	// * Metric alerts:
-	// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-	// Example usage:
-	// ```
-	// thresholds = {
-	// critical          = 90
-	// criticalRecovery = 85
-	// warning           = 80
-	// warningRecovery  = 75
+	//   A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
+	//   Example usage:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
 	// along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
 	// * Service checks:
-	// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-	// Default values:
-	// ```
-	// thresholds = {
-	// ok       = 1
-	// critical = 1
-	// warning  = 1
-	// unknown  = 1
+	//   A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
+	//   Default values:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	Thresholds *MonitorThresholds `pulumi:"thresholds"`
@@ -292,29 +411,38 @@ type MonitorState struct {
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
 	ThresholdWindows MonitorThresholdWindowsPtrInput
-	//
 	// * Metric alerts:
-	// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-	// Example usage:
-	// ```
-	// thresholds = {
-	// critical          = 90
-	// criticalRecovery = 85
-	// warning           = 80
-	// warningRecovery  = 75
+	//   A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
+	//   Example usage:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
 	// along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
 	// * Service checks:
-	// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-	// Default values:
-	// ```
-	// thresholds = {
-	// ok       = 1
-	// critical = 1
-	// warning  = 1
-	// unknown  = 1
+	//   A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
+	//   Default values:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	Thresholds MonitorThresholdsPtrInput
@@ -389,29 +517,38 @@ type monitorArgs struct {
 	Tags []string `pulumi:"tags"`
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
 	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
-	//
 	// * Metric alerts:
-	// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-	// Example usage:
-	// ```
-	// thresholds = {
-	// critical          = 90
-	// criticalRecovery = 85
-	// warning           = 80
-	// warningRecovery  = 75
+	//   A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
+	//   Example usage:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
 	// along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
 	// * Service checks:
-	// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-	// Default values:
-	// ```
-	// thresholds = {
-	// ok       = 1
-	// critical = 1
-	// warning  = 1
-	// unknown  = 1
+	//   A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
+	//   Default values:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	Thresholds *MonitorThresholds `pulumi:"thresholds"`
@@ -483,29 +620,38 @@ type MonitorArgs struct {
 	Tags pulumi.StringArrayInput
 	// A mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. Can only be used for, and are required for, anomaly monitors.
 	ThresholdWindows MonitorThresholdWindowsPtrInput
-	//
 	// * Metric alerts:
-	// A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-	// Example usage:
-	// ```
-	// thresholds = {
-	// critical          = 90
-	// criticalRecovery = 85
-	// warning           = 80
-	// warningRecovery  = 75
+	//   A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
+	//   Example usage:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	// **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
 	// along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
 	// * Service checks:
-	// A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-	// Default values:
-	// ```
-	// thresholds = {
-	// ok       = 1
-	// critical = 1
-	// warning  = 1
-	// unknown  = 1
+	//   A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
+	//   Default values:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
 	// }
 	// ```
 	Thresholds MonitorThresholdsPtrInput

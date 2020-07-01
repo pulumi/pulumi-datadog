@@ -14,8 +14,6 @@ namespace Pulumi.Datadog.PagerDuty
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
@@ -39,11 +37,23 @@ namespace Pulumi.Datadog.PagerDuty
     ///         {
     ///             ServiceKey = "9876543210123456789",
     ///             ServiceName = "testing_foo",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "datadog_integration_pagerduty.pd",
+    ///             },
     ///         });
     ///         var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new Datadog.PagerDuty.ServiceObjectArgs
     ///         {
     ///             ServiceKey = "54321098765432109876",
     ///             ServiceName = "testing_bar",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "datadog_integration_pagerduty.pd",
+    ///             },
     ///         });
     ///     }
     /// 

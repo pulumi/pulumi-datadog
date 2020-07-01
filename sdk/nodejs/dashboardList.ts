@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * Create a new Dashboard list with two dashbaords
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -57,15 +57,15 @@ import * as utilities from "./utilities";
  *         },
  *     }],
  * });
- * const newList = new datadog.DashboardList("newList", {
+ * const newList = new datadog.DashboardList("new_list", {
  *     dashItems: [
  *         {
  *             dashId: time.id,
- *             type: "customTimeboard",
+ *             type: "custom_timeboard",
  *         },
  *         {
  *             dashId: screen.id,
- *             type: "customScreenboard",
+ *             type: "custom_screenboard",
  *         },
  *     ],
  *     name: "TF Created List",
