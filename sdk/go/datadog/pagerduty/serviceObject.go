@@ -11,6 +11,53 @@ import (
 )
 
 // Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using `pagerduty.Integration`) in order for this resource to be usable.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := pagerduty.NewIntegration(ctx, "pd", &pagerduty.IntegrationArgs{
+// 			ApiToken:           pulumi.String("38457822378273432587234242874"),
+// 			IndividualServices: pulumi.Bool(true),
+// 			Schedules: pulumi.StringArray{
+// 				pulumi.String("https://ddog.pagerduty.com/schedules/X123VF"),
+// 				pulumi.String("https://ddog.pagerduty.com/schedules/X321XX"),
+// 			},
+// 			Subdomain: pulumi.String("ddog"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceObject(ctx, "testingFoo", &pagerduty.ServiceObjectArgs{
+// 			ServiceKey:  pulumi.String("9876543210123456789"),
+// 			ServiceName: pulumi.String("testing_foo"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"datadog_integration_pagerduty.pd",
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceObject(ctx, "testingBar", &pagerduty.ServiceObjectArgs{
+// 			ServiceKey:  pulumi.String("54321098765432109876"),
+// 			ServiceName: pulumi.String("testing_bar"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"datadog_integration_pagerduty.pd",
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ServiceObject struct {
 	pulumi.CustomResourceState
 

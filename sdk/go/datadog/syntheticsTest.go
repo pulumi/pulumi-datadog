@@ -12,6 +12,153 @@ import (
 
 // Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
 //
+// ## Example Usage
+// ### Synthetics API Test)
+//
+// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.StringMapArray{
+// 				pulumi.StringMap{
+// 					"operator": pulumi.String("is"),
+// 					"target":   pulumi.String("200"),
+// 					"type":     pulumi.String("statusCode"),
+// 				},
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("aws:eu-central-1"),
+// 			},
+// 			Message: pulumi.String("Notify @pagerduty"),
+// 			Name:    pulumi.String("An API test on example.org"),
+// 			Options: &datadog.SyntheticsTestOptionsArgs{
+// 				Tick_every: pulumi.Float64(900),
+// 			},
+// 			Request: &datadog.SyntheticsTestRequestArgs{
+// 				Method: pulumi.String("GET"),
+// 				Url:    pulumi.String("https://www.example.org"),
+// 			},
+// 			RequestHeaders: pulumi.StringMap{
+// 				"Authentication": pulumi.String("Token: 1234566789"),
+// 				"Content-Type":   pulumi.String("application/json"),
+// 			},
+// 			Status:  pulumi.String("live"),
+// 			Subtype: pulumi.String("http"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("foo"),
+// 				pulumi.String("env:test"),
+// 			},
+// 			Type: pulumi.String("api"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Synthetics SSL Test)
+//
+// Create a new Datadog Synthetics API/SSL test on example.org
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testSsl", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.MapArray{
+// 				pulumi.Map{
+// 					"operator": pulumi.String("isInMoreThan"),
+// 					"target":   pulumi.Float64(30),
+// 					"type":     pulumi.String("certificate"),
+// 				},
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("aws:eu-central-1"),
+// 			},
+// 			Message: pulumi.String("Notify @pagerduty"),
+// 			Name:    pulumi.String("An API test on example.org"),
+// 			Options: &datadog.SyntheticsTestOptionsArgs{
+// 				Accept_self_signed: pulumi.Bool(true),
+// 				Tick_every:         pulumi.Float64(900),
+// 			},
+// 			Request: &datadog.SyntheticsTestRequestArgs{
+// 				Host: pulumi.String("example.org"),
+// 				Port: pulumi.Int(443),
+// 			},
+// 			Status:  pulumi.String("live"),
+// 			Subtype: pulumi.String("ssl"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("foo"),
+// 				pulumi.String("env:test"),
+// 			},
+// 			Type: pulumi.String("api"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Synthetics Browser Test)
+//
+// Support for Synthetics Browser test is limited (see below)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testBrowser", &datadog.SyntheticsTestArgs{
+// 			DeviceIds: pulumi.StringArray{
+// 				pulumi.String("laptop_large"),
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("aws:eu-central-1"),
+// 			},
+// 			Message: pulumi.String("Notify @qa"),
+// 			Name:    pulumi.String("A Browser test on example.org"),
+// 			Options: &datadog.SyntheticsTestOptionsArgs{
+// 				Tick_every: pulumi.Float64(3600),
+// 			},
+// 			Request: &datadog.SyntheticsTestRequestArgs{
+// 				Method: pulumi.String("GET"),
+// 				Url:    pulumi.String("https://app.datadoghq.com"),
+// 			},
+// 			Status: pulumi.String("paused"),
+// 			Tags:   []interface{}{},
+// 			Type:   pulumi.String("browser"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Synthetics Browser test
 //
 // Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)

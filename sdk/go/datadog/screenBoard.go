@@ -12,7 +12,7 @@ import (
 
 // Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
 //
-// > **Note:** This resource is outdated. Use the new `.Dashboard` resource instead.
+// > **Note:** This resource is outdated. Use the new `Dashboard` resource instead.
 type ScreenBoard struct {
 	pulumi.CustomResourceState
 

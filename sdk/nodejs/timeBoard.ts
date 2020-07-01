@@ -9,11 +9,9 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
  *
- * > **Note:**This resource is outdated. Use the new `datadog..Dashboard` resource instead.
+ * > **Note:**This resource is outdated. Use the new `datadog.Dashboard` resource instead.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -24,11 +22,11 @@ import * as utilities from "./utilities";
  *     title: "Redis Timeboard (created via TF)",
  *     description: "created using the Datadog provider in TF",
  *     readOnly: true,
- *     graph: [
+ *     graphs: [
  *         {
  *             title: "Redis latency (ms)",
  *             viz: "timeseries",
- *             request: [
+ *             requests: [
  *                 {
  *                     q: `avg:redis.info.latency_ms{$host}`,
  *                     type: "bars",
@@ -39,7 +37,7 @@ import * as utilities from "./utilities";
  *                     }),
  *                 },
  *                 {
- *                     log_query: {
+ *                     logQuery: {
  *                         index: "mcnulty",
  *                         compute: {
  *                             aggregation: "avg",
@@ -49,7 +47,7 @@ import * as utilities from "./utilities";
  *                         search: {
  *                             query: "status:info",
  *                         },
- *                         group_by: [{
+ *                         groupBies: [{
  *                             facet: "host",
  *                             limit: 10,
  *                             sort: {
@@ -62,7 +60,7 @@ import * as utilities from "./utilities";
  *                     type: "area",
  *                 },
  *                 {
- *                     apm_query: {
+ *                     apmQuery: {
  *                         index: "apm-search",
  *                         compute: {
  *                             aggregation: "avg",
@@ -72,8 +70,8 @@ import * as utilities from "./utilities";
  *                         search: {
  *                             query: "type:web",
  *                         },
- *                         group_by: [{
- *                             facet: "resourceName",
+ *                         groupBies: [{
+ *                             facet: "resource_name",
  *                             limit: 50,
  *                             sort: {
  *                                 aggregation: "avg",
@@ -85,7 +83,7 @@ import * as utilities from "./utilities";
  *                     type: "bars",
  *                 },
  *                 {
- *                     process_query: {
+ *                     processQuery: {
  *                         metric: "process.stat.cpu.total_pct",
  *                         searchBy: "error",
  *                         filterBies: ["active"],
@@ -98,7 +96,7 @@ import * as utilities from "./utilities";
  *         {
  *             title: "Redis memory usage",
  *             viz: "timeseries",
- *             request: [
+ *             requests: [
  *                 {
  *                     q: `avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}`,
  *                     stacked: true,
@@ -114,12 +112,12 @@ import * as utilities from "./utilities";
  *         {
  *             title: "Top System CPU by Docker container",
  *             viz: "toplist",
- *             request: [{
+ *             requests: [{
  *                 q: "top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
  *             }],
  *         },
  *     ],
- *     template_variable: [{
+ *     templateVariables: [{
  *         name: "host",
  *         prefix: "host",
  *     }],

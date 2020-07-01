@@ -14,7 +14,9 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// 
+    /// A sample Datadog logs index resource definition. Note that at this point, it is not possible to create new logs indexes
+    /// through this provider, so the `name` field must match a name of an already existing index. If you want to keep the current
+    /// state of the index, we suggest importing it (see below).
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -30,12 +32,12 @@ namespace Pulumi.Datadog
     ///             {
     ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
     ///                 {
-    ///                     Filter = 
+    ///                     Filters = 
     ///                     {
-    ///                         
+    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
     ///                         {
-    ///                             { "query", "app:coredns" },
-    ///                             { "sampleRate", 0.97 },
+    ///                             Query = "app:coredns",
+    ///                             SampleRate = 0.97,
     ///                         },
     ///                     },
     ///                     IsEnabled = true,
@@ -43,12 +45,12 @@ namespace Pulumi.Datadog
     ///                 },
     ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
     ///                 {
-    ///                     Filter = 
+    ///                     Filters = 
     ///                     {
-    ///                         
+    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
     ///                         {
-    ///                             { "query", "service:kube_apiserver" },
-    ///                             { "sampleRate", 1 },
+    ///                             Query = "service:kube_apiserver",
+    ///                             SampleRate = 1,
     ///                         },
     ///                     },
     ///                     IsEnabled = true,
@@ -68,7 +70,6 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// 
     /// ## Important Notes
     /// 
     /// The order of indexes is maintained in the separated resource datadog_logs_index_order.

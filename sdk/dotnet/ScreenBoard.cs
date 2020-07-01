@@ -12,7 +12,537 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
     /// 
-    /// &gt; **Note:** This resource is outdated. Use the new `datadog..Dashboard` resource instead.
+    /// &gt; **Note:** This resource is outdated. Use the new `datadog.Dashboard` resource instead.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Datadog screenboard
+    ///         var acceptanceTest = new Datadog.ScreenBoard("acceptanceTest", new Datadog.ScreenBoardArgs
+    ///         {
+    ///             Title = "Test Screenboard",
+    ///             ReadOnly = true,
+    ///             TemplateVariables = 
+    ///             {
+    ///                 new Datadog.Inputs.ScreenBoardTemplateVariableArgs
+    ///                 {
+    ///                     Name = "varname 1",
+    ///                     Prefix = "pod_name",
+    ///                     Default = "*",
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardTemplateVariableArgs
+    ///                 {
+    ///                     Name = "varname 2",
+    ///                     Prefix = "service_name",
+    ///                     Default = "autoscaling",
+    ///                 },
+    ///             },
+    ///             Widgets = 
+    ///             {
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "free_text",
+    ///                     X = 5,
+    ///                     Y = 5,
+    ///                     Text = "test text",
+    ///                     TextAlign = "right",
+    ///                     FontSize = "36",
+    ///                     Color = "#ffc0cb",
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "timeseries",
+    ///                     X = 25,
+    ///                     Y = 5,
+    ///                     Title = "graph title tf",
+    ///                     TitleSize = 16,
+    ///                     TitleAlign = "right",
+    ///                     Legend = true,
+    ///                     LegendSize = "16",
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "1d" },
+    ///                     },
+    ///                     TileDeves = 
+    ///                     {
+    ///                         new Datadog.Inputs.ScreenBoardWidgetTileDefArgs
+    ///                         {
+    ///                             Viz = "timeseries",
+    ///                             Requests = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     Q = "avg:system.cpu.user{*}",
+    ///                                     Type = "line",
+    ///                                     Style = 
+    ///                                     {
+    ///                                         { "palette", "purple" },
+    ///                                         { "type", "dashed" },
+    ///                                         { "width", "thin" },
+    ///                                     },
+    ///                                     MetadataJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                                     {
+    ///                                         { "avg:system.cpu.user{*}", new Dictionary&lt;string, object?&gt;
+    ///                                         {
+    ///                                             { "alias", "CPU Usage" },
+    ///                                         } },
+    ///                                     }),
+    ///                                 },
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     LogQuery = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestLogQueryArgs
+    ///                                     {
+    ///                                         Index = "mcnulty",
+    ///                                         Compute = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestLogQueryComputeArgs
+    ///                                         {
+    ///                                             Aggregation = "avg",
+    ///                                             Facet = "@duration",
+    ///                                             Interval = "5000",
+    ///                                         },
+    ///                                         Search = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestLogQuerySearchArgs
+    ///                                         {
+    ///                                             Query = "status:info",
+    ///                                         },
+    ///                                         GroupBies = 
+    ///                                         {
+    ///                                             new Datadog.Inputs.ScreenBoardWidgetTileDefRequestLogQueryGroupByArgs
+    ///                                             {
+    ///                                                 Facet = "host",
+    ///                                                 Limit = 10,
+    ///                                                 Sort = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySortArgs
+    ///                                                 {
+    ///                                                     Aggregation = "avg",
+    ///                                                     Order = "desc",
+    ///                                                     Facet = "@duration",
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                     Type = "area",
+    ///                                 },
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     ApmQuery = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestApmQueryArgs
+    ///                                     {
+    ///                                         Index = "apm-search",
+    ///                                         Compute = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestApmQueryComputeArgs
+    ///                                         {
+    ///                                             Aggregation = "avg",
+    ///                                             Facet = "@duration",
+    ///                                             Interval = "5000",
+    ///                                         },
+    ///                                         Search = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestApmQuerySearchArgs
+    ///                                         {
+    ///                                             Query = "type:web",
+    ///                                         },
+    ///                                         GroupBies = 
+    ///                                         {
+    ///                                             new Datadog.Inputs.ScreenBoardWidgetTileDefRequestApmQueryGroupByArgs
+    ///                                             {
+    ///                                                 Facet = "resource_name",
+    ///                                                 Limit = 50,
+    ///                                                 Sort = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySortArgs
+    ///                                                 {
+    ///                                                     Aggregation = "avg",
+    ///                                                     Order = "desc",
+    ///                                                     Facet = "@string_query.interval",
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                     Type = "bars",
+    ///                                 },
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     ProcessQuery = new Datadog.Inputs.ScreenBoardWidgetTileDefRequestProcessQueryArgs
+    ///                                     {
+    ///                                         Metric = "process.stat.cpu.total_pct",
+    ///                                         SearchBy = "error",
+    ///                                         FilterBies = 
+    ///                                         {
+    ///                                             "active",
+    ///                                         },
+    ///                                         Limit = 50,
+    ///                                     },
+    ///                                     Type = "area",
+    ///                                 },
+    ///                             },
+    ///                             Markers = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefMarkerArgs
+    ///                                 {
+    ///                                     Label = "test marker",
+    ///                                     Type = "error dashed",
+    ///                                     Value = "y &lt; 6",
+    ///                                 },
+    ///                             },
+    ///                             Events = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefEventArgs
+    ///                                 {
+    ///                                     Q = "test event",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "query_value",
+    ///                     X = 45,
+    ///                     Y = 25,
+    ///                     Title = "query value title tf",
+    ///                     TitleSize = 20,
+    ///                     TitleAlign = "center",
+    ///                     Legend = true,
+    ///                     LegendSize = "16",
+    ///                     TileDeves = 
+    ///                     {
+    ///                         new Datadog.Inputs.ScreenBoardWidgetTileDefArgs
+    ///                         {
+    ///                             Viz = "query_value",
+    ///                             Requests = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     Q = "avg:system.cpu.user{*}",
+    ///                                     Type = "line",
+    ///                                     Style = 
+    ///                                     {
+    ///                                         { "palette", "purple" },
+    ///                                         { "type", "dashed" },
+    ///                                         { "width", "thin" },
+    ///                                     },
+    ///                                     ConditionalFormats = 
+    ///                                     {
+    ///                                         new Datadog.Inputs.ScreenBoardWidgetTileDefRequestConditionalFormatArgs
+    ///                                         {
+    ///                                             Comparator = "&gt;",
+    ///                                             Value = "1",
+    ///                                             Palette = "white_on_red",
+    ///                                         },
+    ///                                         new Datadog.Inputs.ScreenBoardWidgetTileDefRequestConditionalFormatArgs
+    ///                                         {
+    ///                                             Comparator = "&gt;=",
+    ///                                             Value = "2",
+    ///                                             Palette = "white_on_yellow",
+    ///                                         },
+    ///                                     },
+    ///                                     Aggregator = "max",
+    ///                                 },
+    ///                             },
+    ///                             CustomUnit = "%",
+    ///                             Autoscale = false,
+    ///                             Precision = "6",
+    ///                             TextAlign = "right",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "toplist",
+    ///                     X = 65,
+    ///                     Y = 5,
+    ///                     Title = "toplist title tf",
+    ///                     Legend = true,
+    ///                     LegendSize = "auto",
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "1d" },
+    ///                     },
+    ///                     TileDeves = 
+    ///                     {
+    ///                         new Datadog.Inputs.ScreenBoardWidgetTileDefArgs
+    ///                         {
+    ///                             Viz = "toplist",
+    ///                             Requests = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     Q = "top(avg:system.load.1{*} by {host}, 10, 'mean', 'desc')",
+    ///                                     Style = 
+    ///                                     {
+    ///                                         { "palette", "purple" },
+    ///                                         { "type", "dashed" },
+    ///                                         { "width", "thin" },
+    ///                                     },
+    ///                                     ConditionalFormats = 
+    ///                                     {
+    ///                                         new Datadog.Inputs.ScreenBoardWidgetTileDefRequestConditionalFormatArgs
+    ///                                         {
+    ///                                             Comparator = "&gt;",
+    ///                                             Value = "4",
+    ///                                             Palette = "white_on_green",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "change",
+    ///                     X = 85,
+    ///                     Y = 5,
+    ///                     Title = "change title tf",
+    ///                     TileDeves = 
+    ///                     {
+    ///                         new Datadog.Inputs.ScreenBoardWidgetTileDefArgs
+    ///                         {
+    ///                             Viz = "change",
+    ///                             Requests = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     Q = "min:system.load.1{*} by {host}",
+    ///                                     CompareTo = "week_before",
+    ///                                     ChangeType = "relative",
+    ///                                     OrderBy = "present",
+    ///                                     OrderDir = "asc",
+    ///                                     ExtraCol = "",
+    ///                                     IncreaseGood = false,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "event_timeline",
+    ///                     X = 105,
+    ///                     Y = 5,
+    ///                     Title = "event_timeline title tf",
+    ///                     Query = "status:error",
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "1d" },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "event_stream",
+    ///                     X = 115,
+    ///                     Y = 5,
+    ///                     Title = "event_stream title tf",
+    ///                     Query = "*",
+    ///                     EventSize = "l",
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "4h" },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "image",
+    ///                     X = 145,
+    ///                     Y = 5,
+    ///                     Title = "image title tf",
+    ///                     Sizing = "fit",
+    ///                     Margin = "large",
+    ///                     Url = "https://datadog-prod.imgix.net/img/dd_logo_70x75.png",
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "note",
+    ///                     X = 165,
+    ///                     Y = 5,
+    ///                     Bgcolor = "pink",
+    ///                     TextAlign = "right",
+    ///                     FontSize = "36",
+    ///                     Tick = true,
+    ///                     TickEdge = "bottom",
+    ///                     TickPos = "50%",
+    ///                     Html = "&lt;b&gt;test note&lt;/b&gt;",
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "alert_graph",
+    ///                     X = 185,
+    ///                     Y = 5,
+    ///                     Title = "alert graph title tf",
+    ///                     AlertId = 123456,
+    ///                     VizType = "toplist",
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "15m" },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "alert_value",
+    ///                     X = 205,
+    ///                     Y = 5,
+    ///                     Title = "alert value title tf",
+    ///                     AlertId = 123456,
+    ///                     TextSize = "fill_height",
+    ///                     TextAlign = "right",
+    ///                     Precision = "*",
+    ///                     Unit = "b",
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "iframe",
+    ///                     X = 225,
+    ///                     Y = 5,
+    ///                     Url = "https://www.datadoghq.org",
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "check_status",
+    ///                     X = 245,
+    ///                     Y = 5,
+    ///                     Title = "test title",
+    ///                     TitleAlign = "left",
+    ///                     Grouping = "check",
+    ///                     Check = "aws.ecs.agent_connected",
+    ///                     Tags = 
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     Group = "cluster:test",
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "30m" },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "trace_service",
+    ///                     X = 265,
+    ///                     Y = 5,
+    ///                     Env = "testEnv",
+    ///                     ServiceService = "",
+    ///                     ServiceName = "",
+    ///                     SizeVersion = "large",
+    ///                     LayoutVersion = "three_column",
+    ///                     MustShowHits = true,
+    ///                     MustShowErrors = true,
+    ///                     MustShowLatency = true,
+    ///                     MustShowBreakdown = true,
+    ///                     MustShowDistribution = true,
+    ///                     MustShowResourceList = true,
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "30m" },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "hostmap",
+    ///                     X = 285,
+    ///                     Y = 5,
+    ///                     Query = "avg:system.load.1{*} by {host}",
+    ///                     TileDeves = 
+    ///                     {
+    ///                         new Datadog.Inputs.ScreenBoardWidgetTileDefArgs
+    ///                         {
+    ///                             Viz = "hostmap",
+    ///                             NodeType = "container",
+    ///                             Scopes = 
+    ///                             {
+    ///                                 "datacenter:test",
+    ///                             },
+    ///                             Groups = 
+    ///                             {
+    ///                                 "pod_name",
+    ///                             },
+    ///                             NoGroupHosts = false,
+    ///                             NoMetricHosts = false,
+    ///                             Requests = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     Q = "max:process.stat.container.io.wbps{datacenter:test} by {host}",
+    ///                                     Type = "fill",
+    ///                                 },
+    ///                             },
+    ///                             Style = 
+    ///                             {
+    ///                                 { "palette", "hostmap_blues" },
+    ///                                 { "palette_flip", true },
+    ///                                 { "fill_min", 20 },
+    ///                                 { "fill_max", 300 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "manage_status",
+    ///                     X = 305,
+    ///                     Y = 5,
+    ///                     SummaryType = "monitors",
+    ///                     DisplayFormat = "countsAndList",
+    ///                     ColorPreference = "background",
+    ///                     HideZeroCounts = true,
+    ///                     ShowLastTriggered = false,
+    ///                     ManageStatusShowTitle = false,
+    ///                     ManageStatusTitleText = "test title",
+    ///                     ManageStatusTitleSize = "20",
+    ///                     ManageStatusTitleAlign = "right",
+    ///                     Params = 
+    ///                     {
+    ///                         { "sort", "status,asc" },
+    ///                         { "text", "status:alert" },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "log_stream",
+    ///                     X = 325,
+    ///                     Y = 5,
+    ///                     Query = "source:kubernetes",
+    ///                     Columns = "[\"column1\",\"column2\",\"column3\"]",
+    ///                     Logset = "1234",
+    ///                     Time = 
+    ///                     {
+    ///                         { "live_span", "1h" },
+    ///                     },
+    ///                 },
+    ///                 new Datadog.Inputs.ScreenBoardWidgetArgs
+    ///                 {
+    ///                     Type = "process",
+    ///                     X = 365,
+    ///                     Y = 5,
+    ///                     TileDeves = 
+    ///                     {
+    ///                         new Datadog.Inputs.ScreenBoardWidgetTileDefArgs
+    ///                         {
+    ///                             Viz = "process",
+    ///                             Requests = 
+    ///                             {
+    ///                                 new Datadog.Inputs.ScreenBoardWidgetTileDefRequestArgs
+    ///                                 {
+    ///                                     QueryType = "process",
+    ///                                     Metric = "process.stat.cpu.total_pct",
+    ///                                     TextFilter = "",
+    ///                                     TagFilters = {},
+    ///                                     Limit = 200,
+    ///                                     Style = 
+    ///                                     {
+    ///                                         { "palette", "dog_classic_area" },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ScreenBoard : Pulumi.CustomResource
     {

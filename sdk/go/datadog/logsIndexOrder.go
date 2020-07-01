@@ -11,6 +11,34 @@ import (
 )
 
 // Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewLogsIndexOrder(ctx, "sampleIndexOrder", &datadog.LogsIndexOrderArgs{
+// 			Name: pulumi.String("sample_index_order"),
+// 			Indexes: pulumi.StringArray{
+// 				pulumi.String(datadog_logs_index.Sample_index.Id),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			"datadog_logs_index.sample_index",
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LogsIndexOrder struct {
 	pulumi.CustomResourceState
 

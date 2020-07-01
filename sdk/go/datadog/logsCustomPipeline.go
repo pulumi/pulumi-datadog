@@ -12,15 +12,223 @@ import (
 
 // Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
 //
+// ## Example Usage
 //
+// Create a Datadog logs pipeline:
 //
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewLogsCustomPipeline(ctx, "samplePipeline", &datadog.LogsCustomPipelineArgs{
+// 			Filters: datadog.LogsCustomPipelineFilterArray{
+// 				&datadog.LogsCustomPipelineFilterArgs{
+// 					Query: pulumi.String("source:foo"),
+// 				},
+// 			},
+// 			IsEnabled: pulumi.Bool(true),
+// 			Name:      pulumi.String("sample pipeline"),
+// 			Processors: datadog.LogsCustomPipelineProcessorArray{
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					ArithmeticProcessor: &datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs{
+// 						Expression:       pulumi.String("(time1 - time2)*1000"),
+// 						IsEnabled:        pulumi.Bool(true),
+// 						IsReplaceMissing: pulumi.Bool(true),
+// 						Name:             pulumi.String("sample arithmetic processor"),
+// 						Target:           pulumi.String("my_arithmetic"),
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					AttributeRemapper: &datadog.LogsCustomPipelineProcessorAttributeRemapperArgs{
+// 						IsEnabled:          pulumi.Bool(true),
+// 						Name:               pulumi.String("sample attribute processor"),
+// 						OverrideOnConflict: pulumi.Bool(false),
+// 						PreserveSource:     pulumi.Bool(true),
+// 						SourceType:         pulumi.String("tag"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("db.instance"),
+// 						},
+// 						Target:     pulumi.String("db"),
+// 						TargetType: pulumi.String("tag"),
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					CategoryProcessor: &datadog.LogsCustomPipelineProcessorCategoryProcessorArgs{
+// 						Category: pulumi.MapArray{
+// 							pulumi.Map{
+// 								"filter": pulumi.StringMapArray{
+// 									pulumi.StringMap{
+// 										"query": pulumi.String("@severity: \".\""),
+// 									},
+// 								},
+// 								"name": pulumi.String("debug"),
+// 							},
+// 							pulumi.Map{
+// 								"filter": pulumi.StringMapArray{
+// 									pulumi.StringMap{
+// 										"query": pulumi.String("@severity: \"-\""),
+// 									},
+// 								},
+// 								"name": pulumi.String("verbose"),
+// 							},
+// 						},
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample category processor"),
+// 						Target:    pulumi.String("foo.severity"),
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					DateRemapper: &datadog.LogsCustomPipelineProcessorDateRemapperArgs{
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample date remapper"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("_timestamp"),
+// 							pulumi.String("published_date"),
+// 						},
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					GeoIpParser: &datadog.LogsCustomPipelineProcessorGeoIpParserArgs{
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample geo ip parser"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("network.client.ip"),
+// 						},
+// 						Target: pulumi.String("network.client.geoip"),
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					GrokParser: &datadog.LogsCustomPipelineProcessorGrokParserArgs{
+// 						Grok: &datadog.LogsCustomPipelineProcessorGrokParserGrokArgs{
+// 							MatchRules:   pulumi.String(fmt.Sprintf("%v%v%v%v%v", "Rule ", "%{", "word:my_word2} ", "%{", "number:my_float2}")),
+// 							SupportRules: pulumi.String(""),
+// 						},
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample grok parser"),
+// 						Samples: pulumi.StringArray{
+// 							pulumi.String("sample log 1"),
+// 						},
+// 						Source: pulumi.String("message"),
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					LookupProcessor: &datadog.LogsCustomPipelineProcessorLookupProcessorArgs{
+// 						DefaultLookup: pulumi.String("unknown service"),
+// 						IsEnabled:     pulumi.Bool(true),
+// 						LookupTable: pulumi.StringArray{
+// 							pulumi.String("1,my service"),
+// 						},
+// 						Name:   pulumi.String("sample lookup processor"),
+// 						Source: pulumi.String("service_id"),
+// 						Target: pulumi.String("service_name"),
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					MessageRemapper: &datadog.LogsCustomPipelineProcessorMessageRemapperArgs{
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample message remapper"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("msg"),
+// 						},
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					Pipeline: &datadog.LogsCustomPipelineProcessorPipelineArgs{
+// 						Filter: pulumi.StringMapArray{
+// 							pulumi.StringMap{
+// 								"query": pulumi.String("source:foo"),
+// 							},
+// 						},
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("nested pipeline"),
+// 						Processor: pulumi.MapMapArray{
+// 							pulumi.MapMap{
+// 								"urlParser": pulumi.Map{
+// 									"name":                   pulumi.String("sample url parser"),
+// 									"normalizeEndingSlashes": pulumi.Bool(true),
+// 									"sources": pulumi.StringArray{
+// 										pulumi.String("url"),
+// 										pulumi.String("extra"),
+// 									},
+// 									"target": pulumi.String("http_url"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					ServiceRemapper: &datadog.LogsCustomPipelineProcessorServiceRemapperArgs{
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample service remapper"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("service"),
+// 						},
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					StatusRemapper: &datadog.LogsCustomPipelineProcessorStatusRemapperArgs{
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample status remapper"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("info"),
+// 							pulumi.String("trace"),
+// 						},
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					StringBuilderProcessor: &datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs{
+// 						IsEnabled:        pulumi.Bool(true),
+// 						IsReplaceMissing: pulumi.Bool(false),
+// 						Name:             pulumi.String("sample string builder processor"),
+// 						Target:           pulumi.String("user_activity"),
+// 						Template:         pulumi.String(fmt.Sprintf("%v%v%v%v", "%{", "user.name} logged in at ", "%{", "timestamp}")),
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					TraceIdRemapper: &datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs{
+// 						IsEnabled: pulumi.Bool(true),
+// 						Name:      pulumi.String("sample trace id remapper"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("dd.trace_id"),
+// 						},
+// 					},
+// 				},
+// 				&datadog.LogsCustomPipelineProcessorArgs{
+// 					UserAgentParser: &datadog.LogsCustomPipelineProcessorUserAgentParserArgs{
+// 						IsEnabled: pulumi.Bool(true),
+// 						IsEncoded: pulumi.Bool(false),
+// 						Name:      pulumi.String("sample user agent parser"),
+// 						Sources: pulumi.StringArray{
+// 							pulumi.String("user"),
+// 							pulumi.String("agent"),
+// 						},
+// 						Target: pulumi.String("http_agent"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Important Notes
 //
-// Each `.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
+// Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
 // a different resource datadog_logs_pipeline_order.
-// When creating a new pipeline, you need to **explicitly** add this pipeline to the `.LogsPipelineOrder`
+// When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder`
 // resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
-// `.LogsPipelineOrder` resource.
+// `LogsPipelineOrder` resource.
 type LogsCustomPipeline struct {
 	pulumi.CustomResourceState
 

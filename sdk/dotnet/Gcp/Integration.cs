@@ -14,8 +14,6 @@ namespace Pulumi.Datadog.Gcp
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;

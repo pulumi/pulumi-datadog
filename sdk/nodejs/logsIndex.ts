@@ -11,13 +11,15 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
+ * A sample Datadog logs index resource definition. Note that at this point, it is not possible to create new logs indexes
+ * through this provider, so the `name` field must match a name of an already existing index. If you want to keep the current
+ * state of the index, we suggest importing it (see below).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const sampleIndex = new datadog.LogsIndex("sampleIndex", {
+ * const sampleIndex = new datadog.LogsIndex("sample_index", {
  *     exclusionFilters: [
  *         {
  *             filters: [{
@@ -42,7 +44,6 @@ import * as utilities from "./utilities";
  *     name: "your index",
  * });
  * ```
- *
  * ## Important Notes
  *
  * The order of indexes is maintained in the separated resource datadog_logs_index_order.

@@ -24,13 +24,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.ScreenBoardWidgetTileDefRequestLogQuery? LogQuery;
         /// <summary>
         /// A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadata_json` will be ignored if they're not present in the query. For example:
-        /// ```
-        /// metadata_json = jsonencode({
-        /// "avg:redis.info.latency_ms{$host}": {
-        /// "alias": "Redis latency"
-        /// }
-        /// })
-        /// ```
         /// </summary>
         public readonly string? MetadataJson;
         public readonly string? Metric;

@@ -11,6 +11,45 @@ import (
 )
 
 // Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/aws"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := aws.NewIntegration(ctx, "sandbox", &aws.IntegrationArgs{
+// 			AccountId: pulumi.String("1234567890"),
+// 			AccountSpecificNamespaceRules: pulumi.BoolMap{
+// 				"auto_scaling": pulumi.Bool(false),
+// 				"opsworks":     pulumi.Bool(false),
+// 			},
+// 			ExcludedRegions: pulumi.StringArray{
+// 				pulumi.String("us-east-1"),
+// 				pulumi.String("us-west-2"),
+// 			},
+// 			FilterTags: pulumi.StringArray{
+// 				pulumi.String("key:value"),
+// 			},
+// 			HostTags: pulumi.StringArray{
+// 				pulumi.String("key:value"),
+// 				pulumi.String("key2:value2"),
+// 			},
+// 			RoleName: pulumi.String("DatadogAWSIntegrationRole"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Integration struct {
 	pulumi.CustomResourceState
 

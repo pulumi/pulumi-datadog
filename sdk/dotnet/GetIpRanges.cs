@@ -30,7 +30,6 @@ namespace Pulumi.Datadog
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

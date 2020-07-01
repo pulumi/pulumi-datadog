@@ -11,6 +11,35 @@ namespace Pulumi.Datadog
 {
     /// <summary>
     /// Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to create and manage Datadog logs archives.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// Create a Datadog logs archive:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myS3Archive = new Datadog.LogsArchive("myS3Archive", new Datadog.LogsArchiveArgs
+    ///         {
+    ///             Name = "my s3 archive",
+    ///             Query = "service:myservice",
+    ///             S3 = new Datadog.Inputs.LogsArchiveS3Args
+    ///             {
+    ///                 Account_id = "001234567888",
+    ///                 Bucket = "my-bucket",
+    ///                 Path = "/path/foo",
+    ///                 Role_name = "my-role-name",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LogsArchive : Pulumi.CustomResource
     {

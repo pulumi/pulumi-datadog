@@ -12,13 +12,11 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const mainCollector = new datadog.aws.IntegrationLambdaArn("mainCollector", {
+ * const mainCollector = new datadog.aws.IntegrationLambdaArn("main_collector", {
  *     accountId: "1234567890",
  *     lambdaArn: "arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder",
  * });

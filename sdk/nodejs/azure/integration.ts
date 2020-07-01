@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Create a new Datadog - Microsoft Azure integration
- * const sandbox = new datadog.IntegrationAzure("sandbox", {
+ * const sandbox = new datadog.azure.Integration("sandbox", {
  *     clientId: "<azure_client_id>",
  *     clientSecret: "<azure_client_secret_key>",
  *     hostFilters: "examplefilter:true,example:true",

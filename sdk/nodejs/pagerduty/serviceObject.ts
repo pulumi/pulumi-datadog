@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
@@ -24,13 +22,13 @@ import * as utilities from "../utilities";
  *     ],
  *     subdomain: "ddog",
  * });
- * const testingFoo = new datadog.pagerduty.ServiceObject("testingFoo", {
+ * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
  *     serviceKey: "9876543210123456789",
- *     serviceName: "testingFoo",
+ *     serviceName: "testing_foo",
  * }, { dependsOn: [pd] });
- * const testingBar = new datadog.pagerduty.ServiceObject("testingBar", {
+ * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
  *     serviceKey: "54321098765432109876",
- *     serviceName: "testingBar",
+ *     serviceName: "testing_bar",
  * }, { dependsOn: [pd] });
  * ```
  */

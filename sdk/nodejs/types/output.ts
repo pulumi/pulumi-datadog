@@ -3666,13 +3666,6 @@ export interface ScreenBoardWidgetTileDefRequest {
     logQuery?: outputs.ScreenBoardWidgetTileDefRequestLogQuery;
     /**
      * A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadataJson` will be ignored if they're not present in the query. For example:
-     * ```
-     * metadataJson = jsonencode({
-     * "avg:redis.info.latency_ms{$host}": {
-     * "alias": "Redis latency"
-     * }
-     * })
-     * ```
      */
     metadataJson?: string;
     metric?: string;

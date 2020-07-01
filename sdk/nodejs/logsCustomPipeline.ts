@@ -9,16 +9,15 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
  *
- *
  * ## Example Usage
  *
- *
+ * Create a Datadog logs pipeline:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const samplePipeline = new datadog.LogsCustomPipeline("samplePipeline", {
+ * const samplePipeline = new datadog.LogsCustomPipeline("sample_pipeline", {
  *     filters: [{
  *         query: "source:foo",
  *     }],
@@ -31,7 +30,7 @@ import * as utilities from "./utilities";
  *                 isEnabled: true,
  *                 isReplaceMissing: true,
  *                 name: "sample arithmetic processor",
- *                 target: "myArithmetic",
+ *                 target: "my_arithmetic",
  *             },
  *         },
  *         {
@@ -73,7 +72,7 @@ import * as utilities from "./utilities";
  *                 name: "sample date remapper",
  *                 sources: [
  *                     "_timestamp",
- *                     "publishedDate",
+ *                     "published_date",
  *                 ],
  *             },
  *         },
@@ -103,8 +102,8 @@ import * as utilities from "./utilities";
  *                 isEnabled: true,
  *                 lookupTables: ["1,my service"],
  *                 name: "sample lookup processor",
- *                 source: "serviceId",
- *                 target: "serviceName",
+ *                 source: "service_id",
+ *                 target: "service_name",
  *             },
  *         },
  *         {
@@ -129,7 +128,7 @@ import * as utilities from "./utilities";
  *                             "url",
  *                             "extra",
  *                         ],
- *                         target: "httpUrl",
+ *                         target: "http_url",
  *                     },
  *                 }],
  *             },
@@ -156,7 +155,7 @@ import * as utilities from "./utilities";
  *                 isEnabled: true,
  *                 isReplaceMissing: false,
  *                 name: "sample string builder processor",
- *                 target: "userActivity",
+ *                 target: "user_activity",
  *                 template: "%%{user.name} logged in at %%{timestamp}",
  *             },
  *         },
@@ -176,20 +175,19 @@ import * as utilities from "./utilities";
  *                     "user",
  *                     "agent",
  *                 ],
- *                 target: "httpAgent",
+ *                 target: "http_agent",
  *             },
  *         },
  *     ],
  * });
  * ```
- *
  * ## Important Notes
  *
- * Each `datadog..LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
+ * Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
  * a different resource datadog_logs_pipeline_order.
- * When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog..LogsPipelineOrder`
+ * When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder`
  * resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
- * `datadog..LogsPipelineOrder` resource.
+ * `datadog.LogsPipelineOrder` resource.
  */
 export class LogsCustomPipeline extends pulumi.CustomResource {
     /**

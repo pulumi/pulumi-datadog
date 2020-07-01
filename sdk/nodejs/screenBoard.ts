@@ -9,11 +9,9 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
  *
- * > **Note:** This resource is outdated. Use the new `datadog..Dashboard` resource instead.
+ * > **Note:** This resource is outdated. Use the new `datadog.Dashboard` resource instead.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,21 +21,21 @@ import * as utilities from "./utilities";
  * const acceptanceTest = new datadog.ScreenBoard("acceptanceTest", {
  *     title: "Test Screenboard",
  *     readOnly: true,
- *     template_variable: [
+ *     templateVariables: [
  *         {
  *             name: "varname 1",
- *             prefix: "podName",
+ *             prefix: "pod_name",
  *             "default": "*",
  *         },
  *         {
  *             name: "varname 2",
- *             prefix: "serviceName",
+ *             prefix: "service_name",
  *             "default": "autoscaling",
  *         },
  *     ],
- *     widget: [
+ *     widgets: [
  *         {
- *             type: "freeText",
+ *             type: "free_text",
  *             x: 5,
  *             y: 5,
  *             text: "test text",
@@ -57,9 +55,9 @@ import * as utilities from "./utilities";
  *             time: {
  *                 live_span: "1d",
  *             },
- *             tile_def: [{
+ *             tileDeves: [{
  *                 viz: "timeseries",
- *                 request: [
+ *                 requests: [
  *                     {
  *                         q: "avg:system.cpu.user{*}",
  *                         type: "line",
@@ -75,7 +73,7 @@ import * as utilities from "./utilities";
  *                         }),
  *                     },
  *                     {
- *                         log_query: {
+ *                         logQuery: {
  *                             index: "mcnulty",
  *                             compute: {
  *                                 aggregation: "avg",
@@ -85,7 +83,7 @@ import * as utilities from "./utilities";
  *                             search: {
  *                                 query: "status:info",
  *                             },
- *                             group_by: [{
+ *                             groupBies: [{
  *                                 facet: "host",
  *                                 limit: 10,
  *                                 sort: {
@@ -98,7 +96,7 @@ import * as utilities from "./utilities";
  *                         type: "area",
  *                     },
  *                     {
- *                         apm_query: {
+ *                         apmQuery: {
  *                             index: "apm-search",
  *                             compute: {
  *                                 aggregation: "avg",
@@ -108,8 +106,8 @@ import * as utilities from "./utilities";
  *                             search: {
  *                                 query: "type:web",
  *                             },
- *                             group_by: [{
- *                                 facet: "resourceName",
+ *                             groupBies: [{
+ *                                 facet: "resource_name",
  *                                 limit: 50,
  *                                 sort: {
  *                                     aggregation: "avg",
@@ -121,7 +119,7 @@ import * as utilities from "./utilities";
  *                         type: "bars",
  *                     },
  *                     {
- *                         process_query: {
+ *                         processQuery: {
  *                             metric: "process.stat.cpu.total_pct",
  *                             searchBy: "error",
  *                             filterBies: ["active"],
@@ -130,18 +128,18 @@ import * as utilities from "./utilities";
  *                         type: "area",
  *                     },
  *                 ],
- *                 marker: [{
+ *                 markers: [{
  *                     label: "test marker",
  *                     type: "error dashed",
  *                     value: "y < 6",
  *                 }],
- *                 event: [{
+ *                 events: [{
  *                     q: "test event",
  *                 }],
  *             }],
  *         },
  *         {
- *             type: "queryValue",
+ *             type: "query_value",
  *             x: 45,
  *             y: 25,
  *             title: "query value title tf",
@@ -149,9 +147,9 @@ import * as utilities from "./utilities";
  *             titleAlign: "center",
  *             legend: true,
  *             legendSize: 16,
- *             tile_def: [{
- *                 viz: "queryValue",
- *                 request: [{
+ *             tileDeves: [{
+ *                 viz: "query_value",
+ *                 requests: [{
  *                     q: "avg:system.cpu.user{*}",
  *                     type: "line",
  *                     style: {
@@ -159,16 +157,16 @@ import * as utilities from "./utilities";
  *                         type: "dashed",
  *                         width: "thin",
  *                     },
- *                     conditional_format: [
+ *                     conditionalFormats: [
  *                         {
  *                             comparator: ">",
  *                             value: "1",
- *                             palette: "whiteOnRed",
+ *                             palette: "white_on_red",
  *                         },
  *                         {
  *                             comparator: ">=",
  *                             value: "2",
- *                             palette: "whiteOnYellow",
+ *                             palette: "white_on_yellow",
  *                         },
  *                     ],
  *                     aggregator: "max",
@@ -189,19 +187,19 @@ import * as utilities from "./utilities";
  *             time: {
  *                 live_span: "1d",
  *             },
- *             tile_def: [{
+ *             tileDeves: [{
  *                 viz: "toplist",
- *                 request: [{
+ *                 requests: [{
  *                     q: "top(avg:system.load.1{*} by {host}, 10, 'mean', 'desc')",
  *                     style: {
  *                         palette: "purple",
  *                         type: "dashed",
  *                         width: "thin",
  *                     },
- *                     conditional_format: [{
+ *                     conditionalFormats: [{
  *                         comparator: ">",
  *                         value: "4",
- *                         palette: "whiteOnGreen",
+ *                         palette: "white_on_green",
  *                     }],
  *                 }],
  *             }],
@@ -211,11 +209,11 @@ import * as utilities from "./utilities";
  *             x: 85,
  *             y: 5,
  *             title: "change title tf",
- *             tile_def: [{
+ *             tileDeves: [{
  *                 viz: "change",
- *                 request: [{
+ *                 requests: [{
  *                     q: "min:system.load.1{*} by {host}",
- *                     compareTo: "weekBefore",
+ *                     compareTo: "week_before",
  *                     changeType: "relative",
  *                     orderBy: "present",
  *                     orderDir: "asc",
@@ -225,20 +223,20 @@ import * as utilities from "./utilities";
  *             }],
  *         },
  *         {
- *             type: "eventTimeline",
+ *             type: "event_timeline",
  *             x: 105,
  *             y: 5,
- *             title: "eventTimeline title tf",
+ *             title: "event_timeline title tf",
  *             query: "status:error",
  *             time: {
  *                 live_span: "1d",
  *             },
  *         },
  *         {
- *             type: "eventStream",
+ *             type: "event_stream",
  *             x: 115,
  *             y: 5,
- *             title: "eventStream title tf",
+ *             title: "event_stream title tf",
  *             query: "*",
  *             eventSize: "l",
  *             time: {
@@ -267,7 +265,7 @@ import * as utilities from "./utilities";
  *             html: "<b>test note</b>",
  *         },
  *         {
- *             type: "alertGraph",
+ *             type: "alert_graph",
  *             x: 185,
  *             y: 5,
  *             title: "alert graph title tf",
@@ -278,12 +276,12 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
- *             type: "alertValue",
+ *             type: "alert_value",
  *             x: 205,
  *             y: 5,
  *             title: "alert value title tf",
  *             alertId: "123456",
- *             textSize: "fillHeight",
+ *             textSize: "fill_height",
  *             textAlign: "right",
  *             precision: "*",
  *             unit: "b",
@@ -295,7 +293,7 @@ import * as utilities from "./utilities";
  *             url: "https://www.datadoghq.org",
  *         },
  *         {
- *             type: "checkStatus",
+ *             type: "check_status",
  *             x: 245,
  *             y: 5,
  *             title: "test title",
@@ -309,14 +307,14 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
- *             type: "traceService",
+ *             type: "trace_service",
  *             x: 265,
  *             y: 5,
  *             env: "testEnv",
  *             serviceService: "",
  *             serviceName: "",
  *             sizeVersion: "large",
- *             layoutVersion: "threeColumn",
+ *             layoutVersion: "three_column",
  *             mustShowHits: true,
  *             mustShowErrors: true,
  *             mustShowLatency: true,
@@ -332,19 +330,19 @@ import * as utilities from "./utilities";
  *             x: 285,
  *             y: 5,
  *             query: "avg:system.load.1{*} by {host}",
- *             tile_def: [{
+ *             tileDeves: [{
  *                 viz: "hostmap",
  *                 nodeType: "container",
  *                 scopes: ["datacenter:test"],
- *                 groups: ["podName"],
+ *                 groups: ["pod_name"],
  *                 noGroupHosts: false,
  *                 noMetricHosts: false,
- *                 request: [{
+ *                 requests: [{
  *                     q: "max:process.stat.container.io.wbps{datacenter:test} by {host}",
  *                     type: "fill",
  *                 }],
  *                 style: {
- *                     palette: "hostmapBlues",
+ *                     palette: "hostmap_blues",
  *                     palette_flip: true,
  *                     fill_min: 20,
  *                     fill_max: 300,
@@ -352,7 +350,7 @@ import * as utilities from "./utilities";
  *             }],
  *         },
  *         {
- *             type: "manageStatus",
+ *             type: "manage_status",
  *             x: 305,
  *             y: 5,
  *             summaryType: "monitors",
@@ -370,7 +368,7 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
- *             type: "logStream",
+ *             type: "log_stream",
  *             x: 325,
  *             y: 5,
  *             query: "source:kubernetes",
@@ -384,16 +382,16 @@ import * as utilities from "./utilities";
  *             type: "process",
  *             x: 365,
  *             y: 5,
- *             tile_def: [{
+ *             tileDeves: [{
  *                 viz: "process",
- *                 request: [{
+ *                 requests: [{
  *                     queryType: "process",
  *                     metric: "process.stat.cpu.total_pct",
  *                     textFilter: "",
  *                     tagFilters: [],
  *                     limit: 200,
  *                     style: {
- *                         palette: "dogClassicArea",
+ *                         palette: "dog_classic_area",
  *                     },
  *                 }],
  *             }],

@@ -14,8 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
@@ -30,6 +28,12 @@ namespace Pulumi.Datadog
     ///             Indexes = 
     ///             {
     ///                 datadog_logs_index.Sample_index.Id,
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 "datadog_logs_index.sample_index",
     ///             },
     ///         });
     ///     }

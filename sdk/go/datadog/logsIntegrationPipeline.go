@@ -15,8 +15,31 @@ import (
 // Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with
 // specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however,
 // allows you to manage the order of your pipelines by referencing them in your
-// .LogsPipelineOrder resource. If you don't need the
+// LogsPipelineOrder resource. If you don't need the
 // `pipelineOrder` feature, this resource declaration can be omitted.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewLogsIntegrationPipeline(ctx, "python", &datadog.LogsIntegrationPipelineArgs{
+// 			IsEnabled: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LogsIntegrationPipeline struct {
 	pulumi.CustomResourceState
 

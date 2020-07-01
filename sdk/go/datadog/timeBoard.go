@@ -12,7 +12,7 @@ import (
 
 // Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
 //
-// > **Note:**This resource is outdated. Use the new `.Dashboard` resource instead.
+// > **Note:**This resource is outdated. Use the new `Dashboard` resource instead.
 type TimeBoard struct {
 	pulumi.CustomResourceState
 

@@ -20,8 +20,7 @@ type IntegrationService struct {
 // IntegrationServiceInput is an input type that accepts IntegrationServiceArgs and IntegrationServiceOutput values.
 // You can construct a concrete instance of `IntegrationServiceInput` via:
 //
-// 		 IntegrationServiceArgs{...}
-//
+//          IntegrationServiceArgs{...}
 type IntegrationServiceInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i IntegrationServiceArgs) ToIntegrationServiceOutputWithContext(ctx contex
 // IntegrationServiceArrayInput is an input type that accepts IntegrationServiceArray and IntegrationServiceArrayOutput values.
 // You can construct a concrete instance of `IntegrationServiceArrayInput` via:
 //
-// 		 IntegrationServiceArray{ IntegrationServiceArgs{...} }
-//
+//          IntegrationServiceArray{ IntegrationServiceArgs{...} }
 type IntegrationServiceArrayInput interface {
 	pulumi.Input
 
