@@ -14,7 +14,7 @@ import (
 //
 // ## Example Usage
 //
-// Create a new Dashboard list with two dashbaords
+// Create a new Dashboard list with two dashboards
 //
 // ```go
 // package main
@@ -104,7 +104,7 @@ type DashboardList struct {
 
 	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
 	DashItems DashboardListDashItemArrayOutput `pulumi:"dashItems"`
-	// The name of this Dashbaord List.
+	// The name of this Dashboard List.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -141,14 +141,14 @@ func GetDashboardList(ctx *pulumi.Context,
 type dashboardListState struct {
 	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
 	DashItems []DashboardListDashItem `pulumi:"dashItems"`
-	// The name of this Dashbaord List.
+	// The name of this Dashboard List.
 	Name *string `pulumi:"name"`
 }
 
 type DashboardListState struct {
 	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
 	DashItems DashboardListDashItemArrayInput
-	// The name of this Dashbaord List.
+	// The name of this Dashboard List.
 	Name pulumi.StringPtrInput
 }
 
@@ -159,7 +159,7 @@ func (DashboardListState) ElementType() reflect.Type {
 type dashboardListArgs struct {
 	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
 	DashItems []DashboardListDashItem `pulumi:"dashItems"`
-	// The name of this Dashbaord List.
+	// The name of this Dashboard List.
 	Name string `pulumi:"name"`
 }
 
@@ -167,7 +167,7 @@ type dashboardListArgs struct {
 type DashboardListArgs struct {
 	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
 	DashItems DashboardListDashItemArrayInput
-	// The name of this Dashbaord List.
+	// The name of this Dashboard List.
 	Name pulumi.StringInput
 }
 

@@ -18,12 +18,14 @@ class SyntheticsTest(pulumi.CustomResource):
     name: pulumi.Output[str]
     options: pulumi.Output[dict]
     request: pulumi.Output[dict]
+    request_basicauth: pulumi.Output[dict]
     request_headers: pulumi.Output[dict]
+    request_query: pulumi.Output[dict]
     status: pulumi.Output[str]
     subtype: pulumi.Output[str]
     tags: pulumi.Output[list]
     type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_headers=None, status=None, subtype=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, assertions=None, device_ids=None, locations=None, message=None, name=None, options=None, request=None, request_basicauth=None, request_headers=None, request_query=None, status=None, subtype=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
 
@@ -132,6 +134,48 @@ class SyntheticsTest(pulumi.CustomResource):
 
         We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
 
+        ## Assertion format
+
+        The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_api = datadog.SyntheticsTest("testApi", assertions=[
+            {
+                "operator": "is",
+                "target": "200",
+                "type": "statusCode",
+            },
+            {
+                "operator": "lessThan",
+                "target": "1000",
+                "type": "responseTime",
+            },
+        ])
+        ```
+
+        turns into:
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_api = datadog.SyntheticsTest("testApi", assertions=[
+            {
+                "operator": "is",
+                "target": "200",
+                "type": "statusCode",
+            },
+            {
+                "operator": "lessThan",
+                "target": "1000",
+                "type": "responsTime",
+            },
+        ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
 
@@ -152,6 +196,11 @@ class SyntheticsTest(pulumi.CustomResource):
           * `port` (`pulumi.Input[float]`)
           * `timeout` (`pulumi.Input[float]`)
           * `url` (`pulumi.Input[str]`)
+
+        The **request_basicauth** object supports the following:
+
+          * `password` (`pulumi.Input[str]`)
+          * `username` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -170,6 +219,9 @@ class SyntheticsTest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if assertions is not None:
+                warnings.warn("Use assertion instead", DeprecationWarning)
+                pulumi.log.warn("assertions is deprecated: Use assertion instead")
             __props__['assertions'] = assertions
             __props__['device_ids'] = device_ids
             if locations is None:
@@ -183,7 +235,9 @@ class SyntheticsTest(pulumi.CustomResource):
             if request is None:
                 raise TypeError("Missing required property 'request'")
             __props__['request'] = request
+            __props__['request_basicauth'] = request_basicauth
             __props__['request_headers'] = request_headers
+            __props__['request_query'] = request_query
             if status is None:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
@@ -202,7 +256,7 @@ class SyntheticsTest(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, assertions=None, device_ids=None, locations=None, message=None, monitor_id=None, name=None, options=None, request=None, request_headers=None, status=None, subtype=None, tags=None, type=None):
+    def get(resource_name, id, opts=None, assertions=None, device_ids=None, locations=None, message=None, monitor_id=None, name=None, options=None, request=None, request_basicauth=None, request_headers=None, request_query=None, status=None, subtype=None, tags=None, type=None):
         """
         Get an existing SyntheticsTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -228,6 +282,11 @@ class SyntheticsTest(pulumi.CustomResource):
           * `port` (`pulumi.Input[float]`)
           * `timeout` (`pulumi.Input[float]`)
           * `url` (`pulumi.Input[str]`)
+
+        The **request_basicauth** object supports the following:
+
+          * `password` (`pulumi.Input[str]`)
+          * `username` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -241,7 +300,9 @@ class SyntheticsTest(pulumi.CustomResource):
         __props__["name"] = name
         __props__["options"] = options
         __props__["request"] = request
+        __props__["request_basicauth"] = request_basicauth
         __props__["request_headers"] = request_headers
+        __props__["request_query"] = request_query
         __props__["status"] = status
         __props__["subtype"] = subtype
         __props__["tags"] = tags

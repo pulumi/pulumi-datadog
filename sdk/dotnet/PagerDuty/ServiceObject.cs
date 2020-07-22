@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.PagerDuty
 {
     /// <summary>
-    /// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using `datadog.pagerduty.Integration`) in order for this resource to be usable.
+    /// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
     /// 
     /// ## Example Usage
     /// 
@@ -22,38 +22,15 @@ namespace Pulumi.Datadog.PagerDuty
     /// {
     ///     public MyStack()
     ///     {
-    ///         var pd = new Datadog.PagerDuty.Integration("pd", new Datadog.PagerDuty.IntegrationArgs
-    ///         {
-    ///             ApiToken = "38457822378273432587234242874",
-    ///             IndividualServices = true,
-    ///             Schedules = 
-    ///             {
-    ///                 "https://ddog.pagerduty.com/schedules/X123VF",
-    ///                 "https://ddog.pagerduty.com/schedules/X321XX",
-    ///             },
-    ///             Subdomain = "ddog",
-    ///         });
     ///         var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new Datadog.PagerDuty.ServiceObjectArgs
     ///         {
     ///             ServiceKey = "9876543210123456789",
     ///             ServiceName = "testing_foo",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_integration_pagerduty.pd",
-    ///             },
     ///         });
     ///         var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new Datadog.PagerDuty.ServiceObjectArgs
     ///         {
     ///             ServiceKey = "54321098765432109876",
     ///             ServiceName = "testing_bar",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_integration_pagerduty.pd",
-    ///             },
     ///         });
     ///     }
     /// 

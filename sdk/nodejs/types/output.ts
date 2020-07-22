@@ -2738,6 +2738,20 @@ export interface DowntimeRecurrence {
     weekDays?: string[];
 }
 
+export interface GetMonitorThresholdWindows {
+    recoveryWindow: string;
+    triggerWindow: string;
+}
+
+export interface GetMonitorThresholds {
+    critical: number;
+    criticalRecovery: number;
+    ok: number;
+    unknown: number;
+    warning: number;
+    warningRecovery: number;
+}
+
 export interface LogsArchiveAzure {
     /**
      * Your client id.
@@ -3808,6 +3822,11 @@ export interface SyntheticsTestRequest {
     port?: number;
     timeout?: number;
     url?: string;
+}
+
+export interface SyntheticsTestRequestBasicauth {
+    password: string;
+    username: string;
 }
 
 export interface TimeBoardGraph {

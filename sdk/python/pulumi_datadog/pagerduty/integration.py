@@ -35,7 +35,7 @@ class Integration(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, api_token=None, individual_services=None, schedules=None, services=None, subdomain=None, __props__=None, __name__=None, __opts__=None):
         """
-        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration.
+        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
 
         ## Example Usage
         ### Services as Individual Resources

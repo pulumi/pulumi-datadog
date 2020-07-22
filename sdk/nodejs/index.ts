@@ -6,6 +6,7 @@ export * from "./dashboard";
 export * from "./dashboardList";
 export * from "./downtime";
 export * from "./getIpRanges";
+export * from "./getMonitor";
 export * from "./logsArchive";
 export * from "./logsCustomPipeline";
 export * from "./logsIndex";

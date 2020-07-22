@@ -19,7 +19,7 @@ class DashboardList(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of this Dashbaord List.
+    The name of this Dashboard List.
     """
     def __init__(__self__, resource_name, opts=None, dash_items=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -27,7 +27,7 @@ class DashboardList(pulumi.CustomResource):
 
         ## Example Usage
 
-        Create a new Dashboard list with two dashbaords
+        Create a new Dashboard list with two dashboards
 
         ```python
         import pulumi
@@ -92,7 +92,7 @@ class DashboardList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
-        :param pulumi.Input[str] name: The name of this Dashbaord List.
+        :param pulumi.Input[str] name: The name of this Dashboard List.
 
         The **dash_items** object supports the following:
 
@@ -136,7 +136,7 @@ class DashboardList(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
-        :param pulumi.Input[str] name: The name of this Dashbaord List.
+        :param pulumi.Input[str] name: The name of this Dashboard List.
 
         The **dash_items** object supports the following:
 

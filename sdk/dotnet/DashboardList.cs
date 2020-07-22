@@ -14,7 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// Create a new Dashboard list with two dashbaords
+    /// Create a new Dashboard list with two dashboards
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -117,7 +117,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.DashboardListDashItem>> DashItems { get; private set; } = null!;
 
         /// <summary>
-        /// The name of this Dashbaord List.
+        /// The name of this Dashboard List.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of this Dashbaord List.
+        /// The name of this Dashboard List.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of this Dashbaord List.
+        /// The name of this Dashboard List.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
