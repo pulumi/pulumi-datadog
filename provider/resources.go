@@ -58,7 +58,8 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:    []string{"pulumi", "datadog"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-datadog",
+		//GitHubOrg:   "DataDog",
+		Repository: "https://github.com/pulumi/pulumi-datadog",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"api_key": {
 				Default: &tfbridge.DefaultInfo{
@@ -161,6 +162,9 @@ func Provider() tfbridge.ProviderInfo {
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_ip_ranges": {
 				Tok: makeDataSource(datadogMod, "getIpRanges"),
+			},
+			"datadog_monitor": {
+				Tok: makeDataSource(datadogMod, "getMonitor"),
 			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{

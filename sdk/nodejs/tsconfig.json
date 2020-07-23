@@ -27,6 +27,7 @@
         "gcp/index.ts",
         "gcp/integration.ts",
         "getIpRanges.ts",
+        "getMonitor.ts",
         "index.ts",
         "logsArchive.ts",
         "logsCustomPipeline.ts",

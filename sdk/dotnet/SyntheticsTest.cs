@@ -172,6 +172,74 @@ namespace Pulumi.Datadog
     /// You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
     /// 
     /// We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
+    /// 
+    /// ## Assertion format
+    /// 
+    /// The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testApi = new Datadog.SyntheticsTest("testApi", new Datadog.SyntheticsTestArgs
+    ///         {
+    ///             Assertions = 
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "operator", "is" },
+    ///                     { "target", "200" },
+    ///                     { "type", "statusCode" },
+    ///                 },
+    ///                 
+    ///                 {
+    ///                     { "operator", "lessThan" },
+    ///                     { "target", "1000" },
+    ///                     { "type", "responseTime" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// turns into:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testApi = new Datadog.SyntheticsTest("testApi", new Datadog.SyntheticsTestArgs
+    ///         {
+    ///             Assertions = 
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "operator", "is" },
+    ///                     { "target", "200" },
+    ///                     { "type", "statusCode" },
+    ///                 },
+    ///                 
+    ///                 {
+    ///                     { "operator", "lessThan" },
+    ///                     { "target", "1000" },
+    ///                     { "type", "responsTime" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SyntheticsTest : Pulumi.CustomResource
     {
@@ -199,8 +267,14 @@ namespace Pulumi.Datadog
         [Output("request")]
         public Output<Outputs.SyntheticsTestRequest> Request { get; private set; } = null!;
 
+        [Output("requestBasicauth")]
+        public Output<Outputs.SyntheticsTestRequestBasicauth?> RequestBasicauth { get; private set; } = null!;
+
         [Output("requestHeaders")]
         public Output<ImmutableDictionary<string, object>?> RequestHeaders { get; private set; } = null!;
+
+        [Output("requestQuery")]
+        public Output<ImmutableDictionary<string, object>?> RequestQuery { get; private set; } = null!;
 
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -262,6 +336,7 @@ namespace Pulumi.Datadog
     {
         [Input("assertions")]
         private InputList<ImmutableDictionary<string, object>>? _assertions;
+        [Obsolete(@"Use assertion instead")]
         public InputList<ImmutableDictionary<string, object>> Assertions
         {
             get => _assertions ?? (_assertions = new InputList<ImmutableDictionary<string, object>>());
@@ -296,12 +371,23 @@ namespace Pulumi.Datadog
         [Input("request", required: true)]
         public Input<Inputs.SyntheticsTestRequestArgs> Request { get; set; } = null!;
 
+        [Input("requestBasicauth")]
+        public Input<Inputs.SyntheticsTestRequestBasicauthArgs>? RequestBasicauth { get; set; }
+
         [Input("requestHeaders")]
         private InputMap<object>? _requestHeaders;
         public InputMap<object> RequestHeaders
         {
             get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
             set => _requestHeaders = value;
+        }
+
+        [Input("requestQuery")]
+        private InputMap<object>? _requestQuery;
+        public InputMap<object> RequestQuery
+        {
+            get => _requestQuery ?? (_requestQuery = new InputMap<object>());
+            set => _requestQuery = value;
         }
 
         [Input("status", required: true)]
@@ -330,6 +416,7 @@ namespace Pulumi.Datadog
     {
         [Input("assertions")]
         private InputList<ImmutableDictionary<string, object>>? _assertions;
+        [Obsolete(@"Use assertion instead")]
         public InputList<ImmutableDictionary<string, object>> Assertions
         {
             get => _assertions ?? (_assertions = new InputList<ImmutableDictionary<string, object>>());
@@ -367,12 +454,23 @@ namespace Pulumi.Datadog
         [Input("request")]
         public Input<Inputs.SyntheticsTestRequestGetArgs>? Request { get; set; }
 
+        [Input("requestBasicauth")]
+        public Input<Inputs.SyntheticsTestRequestBasicauthGetArgs>? RequestBasicauth { get; set; }
+
         [Input("requestHeaders")]
         private InputMap<object>? _requestHeaders;
         public InputMap<object> RequestHeaders
         {
             get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
             set => _requestHeaders = value;
+        }
+
+        [Input("requestQuery")]
+        private InputMap<object>? _requestQuery;
+        public InputMap<object> RequestQuery
+        {
+            get => _requestQuery ?? (_requestQuery = new InputMap<object>());
+            set => _requestQuery = value;
         }
 
         [Input("status")]

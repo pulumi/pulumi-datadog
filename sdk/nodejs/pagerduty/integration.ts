@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration.
+ * Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
  *
  * ## Example Usage
  * ### Services as Individual Resources

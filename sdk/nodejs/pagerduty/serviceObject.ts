@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated (either manually in the Datadog UI or by using `datadog.pagerduty.Integration`) in order for this resource to be usable.
+ * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
  *
  * ## Example Usage
  *
@@ -13,23 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const pd = new datadog.pagerduty.Integration("pd", {
- *     apiToken: "38457822378273432587234242874",
- *     individualServices: true,
- *     schedules: [
- *         "https://ddog.pagerduty.com/schedules/X123VF",
- *         "https://ddog.pagerduty.com/schedules/X321XX",
- *     ],
- *     subdomain: "ddog",
- * });
  * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
  *     serviceKey: "9876543210123456789",
  *     serviceName: "testing_foo",
- * }, { dependsOn: [pd] });
+ * });
  * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
  *     serviceKey: "54321098765432109876",
  *     serviceName: "testing_bar",
- * }, { dependsOn: [pd] });
+ * });
  * ```
  */
 export class ServiceObject extends pulumi.CustomResource {

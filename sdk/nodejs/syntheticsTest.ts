@@ -59,7 +59,7 @@ import * as utilities from "./utilities";
  * const testSsl = new datadog.SyntheticsTest("test_ssl", {
  *     assertions: [{
  *         operator: "isInMoreThan",
- *         target: 30,
+ *         target: "30",
  *         type: "certificate",
  *     }],
  *     locations: ["aws:eu-central-1"],
@@ -116,6 +116,52 @@ import * as utilities from "./utilities";
  * You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
  *
  * We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
+ *
+ * ## Assertion format
+ *
+ * The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testApi = new datadog.SyntheticsTest("test_api", {
+ *     assertions: [
+ *         {
+ *             operator: "is",
+ *             target: "200",
+ *             type: "statusCode",
+ *         },
+ *         {
+ *             operator: "lessThan",
+ *             target: "1000",
+ *             type: "responseTime",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * turns into:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testApi = new datadog.SyntheticsTest("test_api", {
+ *     assertions: [
+ *         {
+ *             operator: "is",
+ *             target: "200",
+ *             type: "statusCode",
+ *         },
+ *         {
+ *             operator: "lessThan",
+ *             target: "1000",
+ *             type: "responsTime",
+ *         },
+ *     ],
+ * });
+ * ```
  */
 export class SyntheticsTest extends pulumi.CustomResource {
     /**
@@ -145,6 +191,9 @@ export class SyntheticsTest extends pulumi.CustomResource {
         return obj['__pulumiType'] === SyntheticsTest.__pulumiType;
     }
 
+    /**
+     * @deprecated Use assertion instead
+     */
     public readonly assertions!: pulumi.Output<{[key: string]: any}[] | undefined>;
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
     public readonly locations!: pulumi.Output<string[]>;
@@ -153,7 +202,9 @@ export class SyntheticsTest extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly options!: pulumi.Output<outputs.SyntheticsTestOptions | undefined>;
     public readonly request!: pulumi.Output<outputs.SyntheticsTestRequest>;
+    public readonly requestBasicauth!: pulumi.Output<outputs.SyntheticsTestRequestBasicauth | undefined>;
     public readonly requestHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly requestQuery!: pulumi.Output<{[key: string]: any} | undefined>;
     public readonly status!: pulumi.Output<string>;
     public readonly subtype!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<string[]>;
@@ -179,7 +230,9 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["options"] = state ? state.options : undefined;
             inputs["request"] = state ? state.request : undefined;
+            inputs["requestBasicauth"] = state ? state.requestBasicauth : undefined;
             inputs["requestHeaders"] = state ? state.requestHeaders : undefined;
+            inputs["requestQuery"] = state ? state.requestQuery : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["subtype"] = state ? state.subtype : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -211,7 +264,9 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["request"] = args ? args.request : undefined;
+            inputs["requestBasicauth"] = args ? args.requestBasicauth : undefined;
             inputs["requestHeaders"] = args ? args.requestHeaders : undefined;
+            inputs["requestQuery"] = args ? args.requestQuery : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["subtype"] = args ? args.subtype : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -233,6 +288,9 @@ export class SyntheticsTest extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SyntheticsTest resources.
  */
 export interface SyntheticsTestState {
+    /**
+     * @deprecated Use assertion instead
+     */
     readonly assertions?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     readonly deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     readonly locations?: pulumi.Input<pulumi.Input<string>[]>;
@@ -241,7 +299,9 @@ export interface SyntheticsTestState {
     readonly name?: pulumi.Input<string>;
     readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
     readonly request?: pulumi.Input<inputs.SyntheticsTestRequest>;
+    readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
     readonly status?: pulumi.Input<string>;
     readonly subtype?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
@@ -252,6 +312,9 @@ export interface SyntheticsTestState {
  * The set of arguments for constructing a SyntheticsTest resource.
  */
 export interface SyntheticsTestArgs {
+    /**
+     * @deprecated Use assertion instead
+     */
     readonly assertions?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
     readonly deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     readonly locations: pulumi.Input<pulumi.Input<string>[]>;
@@ -259,7 +322,9 @@ export interface SyntheticsTestArgs {
     readonly name: pulumi.Input<string>;
     readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
     readonly request: pulumi.Input<inputs.SyntheticsTestRequest>;
+    readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
     readonly status: pulumi.Input<string>;
     readonly subtype?: pulumi.Input<string>;
     readonly tags: pulumi.Input<pulumi.Input<string>[]>;

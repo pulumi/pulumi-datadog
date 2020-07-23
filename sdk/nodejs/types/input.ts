@@ -3810,6 +3810,11 @@ export interface SyntheticsTestRequest {
     url?: pulumi.Input<string>;
 }
 
+export interface SyntheticsTestRequestBasicauth {
+    password: pulumi.Input<string>;
+    username: pulumi.Input<string>;
+}
+
 export interface TimeBoardGraph {
     autoscale?: pulumi.Input<boolean>;
     customUnit?: pulumi.Input<string>;

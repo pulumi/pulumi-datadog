@@ -8,6 +8,7 @@ from .dashboard import *
 from .dashboard_list import *
 from .downtime import *
 from .get_ip_ranges import *
+from .get_monitor import *
 from .logs_archive import *
 from .logs_custom_pipeline import *
 from .logs_index import *

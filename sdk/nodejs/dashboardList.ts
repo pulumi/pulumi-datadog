@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * Create a new Dashboard list with two dashbaords
+ * Create a new Dashboard list with two dashboards
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -105,7 +105,7 @@ export class DashboardList extends pulumi.CustomResource {
      */
     public readonly dashItems!: pulumi.Output<outputs.DashboardListDashItem[] | undefined>;
     /**
-     * The name of this Dashbaord List.
+     * The name of this Dashboard List.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -151,7 +151,7 @@ export interface DashboardListState {
      */
     readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**
-     * The name of this Dashbaord List.
+     * The name of this Dashboard List.
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -165,7 +165,7 @@ export interface DashboardListArgs {
      */
     readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**
-     * The name of this Dashbaord List.
+     * The name of this Dashboard List.
      */
     readonly name: pulumi.Input<string>;
 }
