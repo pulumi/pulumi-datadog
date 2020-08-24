@@ -5,116 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['TimeBoard']
 
 
 class TimeBoard(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    A description of the dashboard's content.
-    """
-    graphs: pulumi.Output[list]
-    """
-    A list of graph definitions.
-
-      * `autoscale` (`bool`)
-      * `customUnit` (`str`)
-      * `events` (`list`)
-      * `groups` (`list`)
-      * `includeNoMetricHosts` (`bool`)
-      * `includeUngroupedHosts` (`bool`)
-      * `markers` (`list`)
-        * `label` (`str`)
-        * `type` (`str`)
-        * `value` (`str`)
-
-      * `nodeType` (`str`)
-      * `precision` (`str`)
-      * `requests` (`list`)
-        * `aggregator` (`str`)
-        * `apmQuery` (`dict`)
-          * `compute` (`dict`)
-            * `aggregation` (`str`)
-            * `facet` (`str`)
-            * `interval` (`float`)
-
-          * `groupBies` (`list`)
-            * `facet` (`str`)
-            * `limit` (`float`)
-            * `sort` (`dict`)
-              * `aggregation` (`str`)
-              * `facet` (`str`)
-              * `order` (`str`)
-
-          * `index` (`str`)
-          * `search` (`dict`)
-            * `query` (`str`)
-
-        * `changeType` (`str`)
-        * `compareTo` (`str`)
-        * `conditionalFormats` (`list`)
-          * `comparator` (`str`)
-          * `customBgColor` (`str`)
-          * `customFgColor` (`str`)
-          * `palette` (`str`)
-          * `value` (`str`)
-
-        * `extraCol` (`str`)
-        * `increaseGood` (`bool`)
-        * `logQuery` (`dict`)
-          * `compute` (`dict`)
-            * `aggregation` (`str`)
-            * `facet` (`str`)
-            * `interval` (`float`)
-
-          * `groupBies` (`list`)
-            * `facet` (`str`)
-            * `limit` (`float`)
-            * `sort` (`dict`)
-              * `aggregation` (`str`)
-              * `facet` (`str`)
-              * `order` (`str`)
-
-          * `index` (`str`)
-          * `search` (`dict`)
-            * `query` (`str`)
-
-        * `metadataJson` (`str`)
-        * `orderBy` (`str`)
-        * `orderDirection` (`str`)
-        * `processQuery` (`dict`)
-          * `filterBies` (`list`)
-          * `limit` (`float`)
-          * `metric` (`str`)
-          * `searchBy` (`str`)
-
-        * `q` (`str`)
-        * `stacked` (`bool`)
-        * `style` (`dict`)
-        * `type` (`str`)
-
-      * `scopes` (`list`)
-      * `style` (`dict`)
-      * `textAlign` (`str`)
-      * `title` (`str`)
-      * `viz` (`str`)
-      * `yaxis` (`dict`)
-    """
-    read_only: pulumi.Output[bool]
-    template_variables: pulumi.Output[list]
-    """
-    A list of template variables for using Dashboard templating.
-
-      * `default` (`str`)
-      * `name` (`str`)
-      * `prefix` (`str`)
-    """
-    title: pulumi.Output[str]
-    """
-    The name of the dashboard.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, graphs=None, read_only=None, template_variables=None, title=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 graphs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
 
@@ -133,203 +43,113 @@ class TimeBoard(pulumi.CustomResource):
             description="created using the Datadog provider in TF",
             read_only=True,
             graphs=[
-                {
-                    "title": "Redis latency (ms)",
-                    "viz": "timeseries",
-                    "requests": [
-                        {
-                            "q": "avg:redis.info.latency_ms{$host}",
-                            "type": "bars",
-                            "metadataJson": json.dumps({
+                datadog.TimeBoardGraphArgs(
+                    title="Redis latency (ms)",
+                    viz="timeseries",
+                    requests=[
+                        datadog.TimeBoardGraphRequestArgs(
+                            q="avg:redis.info.latency_ms{$host}",
+                            type="bars",
+                            metadata_json=json.dumps({
                                 "avg:redis.info.latency_ms{$host}": {
                                     "alias": "Redis latency",
                                 },
                             }),
-                        },
-                        {
-                            "logQuery": {
-                                "index": "mcnulty",
-                                "compute": {
-                                    "aggregation": "avg",
-                                    "facet": "@duration",
-                                    "interval": 5000,
-                                },
-                                "search": {
-                                    "query": "status:info",
-                                },
-                                "groupBies": [{
-                                    "facet": "host",
-                                    "limit": 10,
-                                    "sort": {
-                                        "aggregation": "avg",
-                                        "order": "desc",
-                                        "facet": "@duration",
-                                    },
-                                }],
-                            },
-                            "type": "area",
-                        },
-                        {
-                            "apmQuery": {
-                                "index": "apm-search",
-                                "compute": {
-                                    "aggregation": "avg",
-                                    "facet": "@duration",
-                                    "interval": 5000,
-                                },
-                                "search": {
-                                    "query": "type:web",
-                                },
-                                "groupBies": [{
-                                    "facet": "resource_name",
-                                    "limit": 50,
-                                    "sort": {
-                                        "aggregation": "avg",
-                                        "order": "desc",
-                                        "facet": "@string_query.interval",
-                                    },
-                                }],
-                            },
-                            "type": "bars",
-                        },
-                        {
-                            "processQuery": {
-                                "metric": "process.stat.cpu.total_pct",
-                                "searchBy": "error",
-                                "filterBies": ["active"],
-                                "limit": 50,
-                            },
-                            "type": "area",
-                        },
+                        ),
+                        datadog.TimeBoardGraphRequestArgs(
+                            log_query=datadog.TimeBoardGraphRequestLogQueryArgs(
+                                index="mcnulty",
+                                compute=datadog.TimeBoardGraphRequestLogQueryComputeArgs(
+                                    aggregation="avg",
+                                    facet="@duration",
+                                    interval=5000,
+                                ),
+                                search=datadog.TimeBoardGraphRequestLogQuerySearchArgs(
+                                    query="status:info",
+                                ),
+                                group_bies=[datadog.TimeBoardGraphRequestLogQueryGroupByArgs(
+                                    facet="host",
+                                    limit=10,
+                                    sort=datadog.TimeBoardGraphRequestLogQueryGroupBySortArgs(
+                                        aggregation="avg",
+                                        order="desc",
+                                        facet="@duration",
+                                    ),
+                                )],
+                            ),
+                            type="area",
+                        ),
+                        datadog.TimeBoardGraphRequestArgs(
+                            apm_query=datadog.TimeBoardGraphRequestApmQueryArgs(
+                                index="apm-search",
+                                compute=datadog.TimeBoardGraphRequestApmQueryComputeArgs(
+                                    aggregation="avg",
+                                    facet="@duration",
+                                    interval=5000,
+                                ),
+                                search=datadog.TimeBoardGraphRequestApmQuerySearchArgs(
+                                    query="type:web",
+                                ),
+                                group_bies=[datadog.TimeBoardGraphRequestApmQueryGroupByArgs(
+                                    facet="resource_name",
+                                    limit=50,
+                                    sort=datadog.TimeBoardGraphRequestApmQueryGroupBySortArgs(
+                                        aggregation="avg",
+                                        order="desc",
+                                        facet="@string_query.interval",
+                                    ),
+                                )],
+                            ),
+                            type="bars",
+                        ),
+                        datadog.TimeBoardGraphRequestArgs(
+                            process_query=datadog.TimeBoardGraphRequestProcessQueryArgs(
+                                metric="process.stat.cpu.total_pct",
+                                search_by="error",
+                                filter_bies=["active"],
+                                limit=50,
+                            ),
+                            type="area",
+                        ),
                     ],
-                },
-                {
-                    "title": "Redis memory usage",
-                    "viz": "timeseries",
-                    "requests": [
-                        {
-                            "q": "avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}",
-                            "stacked": True,
-                        },
-                        {
-                            "q": "avg:redis.mem.rss{$host}",
-                            "style": {
+                ),
+                datadog.TimeBoardGraphArgs(
+                    title="Redis memory usage",
+                    viz="timeseries",
+                    requests=[
+                        datadog.TimeBoardGraphRequestArgs(
+                            q="avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}",
+                            stacked=True,
+                        ),
+                        datadog.TimeBoardGraphRequestArgs(
+                            q="avg:redis.mem.rss{$host}",
+                            style={
                                 "palette": "warm",
                             },
-                        },
+                        ),
                     ],
-                },
-                {
-                    "title": "Top System CPU by Docker container",
-                    "viz": "toplist",
-                    "requests": [{
-                        "q": "top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
-                    }],
-                },
+                ),
+                datadog.TimeBoardGraphArgs(
+                    title="Top System CPU by Docker container",
+                    viz="toplist",
+                    requests=[datadog.TimeBoardGraphRequestArgs(
+                        q="top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
+                    )],
+                ),
             ],
-            template_variables=[{
-                "name": "host",
-                "prefix": "host",
-            }])
+            template_variables=[datadog.TimeBoardTemplateVariableArgs(
+                name="host",
+                prefix="host",
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[list] graphs: A list of graph definitions.
-        :param pulumi.Input[list] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
+        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a TimeBoard resource.
         :param pulumi.Input[str] title: The name of the dashboard.
-
-        The **graphs** object supports the following:
-
-          * `autoscale` (`pulumi.Input[bool]`)
-          * `customUnit` (`pulumi.Input[str]`)
-          * `events` (`pulumi.Input[list]`)
-          * `groups` (`pulumi.Input[list]`)
-          * `includeNoMetricHosts` (`pulumi.Input[bool]`)
-          * `includeUngroupedHosts` (`pulumi.Input[bool]`)
-          * `markers` (`pulumi.Input[list]`)
-            * `label` (`pulumi.Input[str]`)
-            * `type` (`pulumi.Input[str]`)
-            * `value` (`pulumi.Input[str]`)
-
-          * `nodeType` (`pulumi.Input[str]`)
-          * `precision` (`pulumi.Input[str]`)
-          * `requests` (`pulumi.Input[list]`)
-            * `aggregator` (`pulumi.Input[str]`)
-            * `apmQuery` (`pulumi.Input[dict]`)
-              * `compute` (`pulumi.Input[dict]`)
-                * `aggregation` (`pulumi.Input[str]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `interval` (`pulumi.Input[float]`)
-
-              * `groupBies` (`pulumi.Input[list]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `limit` (`pulumi.Input[float]`)
-                * `sort` (`pulumi.Input[dict]`)
-                  * `aggregation` (`pulumi.Input[str]`)
-                  * `facet` (`pulumi.Input[str]`)
-                  * `order` (`pulumi.Input[str]`)
-
-              * `index` (`pulumi.Input[str]`)
-              * `search` (`pulumi.Input[dict]`)
-                * `query` (`pulumi.Input[str]`)
-
-            * `changeType` (`pulumi.Input[str]`)
-            * `compareTo` (`pulumi.Input[str]`)
-            * `conditionalFormats` (`pulumi.Input[list]`)
-              * `comparator` (`pulumi.Input[str]`)
-              * `customBgColor` (`pulumi.Input[str]`)
-              * `customFgColor` (`pulumi.Input[str]`)
-              * `palette` (`pulumi.Input[str]`)
-              * `value` (`pulumi.Input[str]`)
-
-            * `extraCol` (`pulumi.Input[str]`)
-            * `increaseGood` (`pulumi.Input[bool]`)
-            * `logQuery` (`pulumi.Input[dict]`)
-              * `compute` (`pulumi.Input[dict]`)
-                * `aggregation` (`pulumi.Input[str]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `interval` (`pulumi.Input[float]`)
-
-              * `groupBies` (`pulumi.Input[list]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `limit` (`pulumi.Input[float]`)
-                * `sort` (`pulumi.Input[dict]`)
-                  * `aggregation` (`pulumi.Input[str]`)
-                  * `facet` (`pulumi.Input[str]`)
-                  * `order` (`pulumi.Input[str]`)
-
-              * `index` (`pulumi.Input[str]`)
-              * `search` (`pulumi.Input[dict]`)
-                * `query` (`pulumi.Input[str]`)
-
-            * `metadataJson` (`pulumi.Input[str]`)
-            * `orderBy` (`pulumi.Input[str]`)
-            * `orderDirection` (`pulumi.Input[str]`)
-            * `processQuery` (`pulumi.Input[dict]`)
-              * `filterBies` (`pulumi.Input[list]`)
-              * `limit` (`pulumi.Input[float]`)
-              * `metric` (`pulumi.Input[str]`)
-              * `searchBy` (`pulumi.Input[str]`)
-
-            * `q` (`pulumi.Input[str]`)
-            * `stacked` (`pulumi.Input[bool]`)
-            * `style` (`pulumi.Input[dict]`)
-            * `type` (`pulumi.Input[str]`)
-
-          * `scopes` (`pulumi.Input[list]`)
-          * `style` (`pulumi.Input[dict]`)
-          * `textAlign` (`pulumi.Input[str]`)
-          * `title` (`pulumi.Input[str]`)
-          * `viz` (`pulumi.Input[str]`)
-          * `yaxis` (`pulumi.Input[dict]`)
-
-        The **template_variables** object supports the following:
-
-          * `default` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`)
-          * `prefix` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -342,7 +162,7 @@ class TimeBoard(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -366,109 +186,26 @@ class TimeBoard(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, graphs=None, read_only=None, template_variables=None, title=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            graphs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]]] = None,
+            read_only: Optional[pulumi.Input[bool]] = None,
+            template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]]] = None,
+            title: Optional[pulumi.Input[str]] = None) -> 'TimeBoard':
         """
         Get an existing TimeBoard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[list] graphs: A list of graph definitions.
-        :param pulumi.Input[list] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
+        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a TimeBoard resource.
         :param pulumi.Input[str] title: The name of the dashboard.
-
-        The **graphs** object supports the following:
-
-          * `autoscale` (`pulumi.Input[bool]`)
-          * `customUnit` (`pulumi.Input[str]`)
-          * `events` (`pulumi.Input[list]`)
-          * `groups` (`pulumi.Input[list]`)
-          * `includeNoMetricHosts` (`pulumi.Input[bool]`)
-          * `includeUngroupedHosts` (`pulumi.Input[bool]`)
-          * `markers` (`pulumi.Input[list]`)
-            * `label` (`pulumi.Input[str]`)
-            * `type` (`pulumi.Input[str]`)
-            * `value` (`pulumi.Input[str]`)
-
-          * `nodeType` (`pulumi.Input[str]`)
-          * `precision` (`pulumi.Input[str]`)
-          * `requests` (`pulumi.Input[list]`)
-            * `aggregator` (`pulumi.Input[str]`)
-            * `apmQuery` (`pulumi.Input[dict]`)
-              * `compute` (`pulumi.Input[dict]`)
-                * `aggregation` (`pulumi.Input[str]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `interval` (`pulumi.Input[float]`)
-
-              * `groupBies` (`pulumi.Input[list]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `limit` (`pulumi.Input[float]`)
-                * `sort` (`pulumi.Input[dict]`)
-                  * `aggregation` (`pulumi.Input[str]`)
-                  * `facet` (`pulumi.Input[str]`)
-                  * `order` (`pulumi.Input[str]`)
-
-              * `index` (`pulumi.Input[str]`)
-              * `search` (`pulumi.Input[dict]`)
-                * `query` (`pulumi.Input[str]`)
-
-            * `changeType` (`pulumi.Input[str]`)
-            * `compareTo` (`pulumi.Input[str]`)
-            * `conditionalFormats` (`pulumi.Input[list]`)
-              * `comparator` (`pulumi.Input[str]`)
-              * `customBgColor` (`pulumi.Input[str]`)
-              * `customFgColor` (`pulumi.Input[str]`)
-              * `palette` (`pulumi.Input[str]`)
-              * `value` (`pulumi.Input[str]`)
-
-            * `extraCol` (`pulumi.Input[str]`)
-            * `increaseGood` (`pulumi.Input[bool]`)
-            * `logQuery` (`pulumi.Input[dict]`)
-              * `compute` (`pulumi.Input[dict]`)
-                * `aggregation` (`pulumi.Input[str]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `interval` (`pulumi.Input[float]`)
-
-              * `groupBies` (`pulumi.Input[list]`)
-                * `facet` (`pulumi.Input[str]`)
-                * `limit` (`pulumi.Input[float]`)
-                * `sort` (`pulumi.Input[dict]`)
-                  * `aggregation` (`pulumi.Input[str]`)
-                  * `facet` (`pulumi.Input[str]`)
-                  * `order` (`pulumi.Input[str]`)
-
-              * `index` (`pulumi.Input[str]`)
-              * `search` (`pulumi.Input[dict]`)
-                * `query` (`pulumi.Input[str]`)
-
-            * `metadataJson` (`pulumi.Input[str]`)
-            * `orderBy` (`pulumi.Input[str]`)
-            * `orderDirection` (`pulumi.Input[str]`)
-            * `processQuery` (`pulumi.Input[dict]`)
-              * `filterBies` (`pulumi.Input[list]`)
-              * `limit` (`pulumi.Input[float]`)
-              * `metric` (`pulumi.Input[str]`)
-              * `searchBy` (`pulumi.Input[str]`)
-
-            * `q` (`pulumi.Input[str]`)
-            * `stacked` (`pulumi.Input[bool]`)
-            * `style` (`pulumi.Input[dict]`)
-            * `type` (`pulumi.Input[str]`)
-
-          * `scopes` (`pulumi.Input[list]`)
-          * `style` (`pulumi.Input[dict]`)
-          * `textAlign` (`pulumi.Input[str]`)
-          * `title` (`pulumi.Input[str]`)
-          * `viz` (`pulumi.Input[str]`)
-          * `yaxis` (`pulumi.Input[dict]`)
-
-        The **template_variables** object supports the following:
-
-          * `default` (`pulumi.Input[str]`)
-          * `name` (`pulumi.Input[str]`)
-          * `prefix` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -481,8 +218,49 @@ class TimeBoard(pulumi.CustomResource):
         __props__["title"] = title
         return TimeBoard(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        A description of the dashboard's content.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def graphs(self) -> List['outputs.TimeBoardGraph']:
+        """
+        Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
+        """
+        return pulumi.get(self, "graphs")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        """
+        The read-only status of the timeboard. Default is false.
+        """
+        return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="templateVariables")
+    def template_variables(self) -> Optional[List['outputs.TimeBoardTemplateVariable']]:
+        """
+        Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a TimeBoard resource.
+        """
+        return pulumi.get(self, "template_variables")
+
+    @property
+    @pulumi.getter
+    def title(self) -> str:
+        """
+        The name of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

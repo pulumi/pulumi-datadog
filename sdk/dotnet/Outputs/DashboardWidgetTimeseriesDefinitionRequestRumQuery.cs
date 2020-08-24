@@ -13,9 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTimeseriesDefinitionRequestRumQuery
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute Compute;
+        /// <summary>
+        /// When grouping = "cluster", indicates a list of tags to use for grouping.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy> GroupBies;
         public readonly string Index;
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch? Search;
 
         [OutputConstructor]

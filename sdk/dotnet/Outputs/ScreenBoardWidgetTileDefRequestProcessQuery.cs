@@ -14,7 +14,13 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ScreenBoardWidgetTileDefRequestProcessQuery
     {
         public readonly ImmutableArray<string> FilterBies;
+        /// <summary>
+        /// Integer indicating the number of hosts to limit to.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// The metric you want to use for the widget.
+        /// </summary>
         public readonly string Metric;
         public readonly string? SearchBy;
 

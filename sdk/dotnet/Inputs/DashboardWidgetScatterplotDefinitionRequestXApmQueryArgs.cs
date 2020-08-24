@@ -12,11 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         [Input("compute", required: true)]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeArgs> Compute { get; set; } = null!;
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs>? _groupBies;
+
+        /// <summary>
+        /// . Multiple nested blocks are allowed with the following structure:
+        /// </summary>
         public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupByArgs>());
@@ -26,6 +33,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         [Input("search")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearchArgs>? Search { get; set; }
 

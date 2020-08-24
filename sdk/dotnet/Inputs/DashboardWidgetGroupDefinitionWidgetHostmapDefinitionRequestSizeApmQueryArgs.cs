@@ -12,11 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         [Input("compute", required: true)]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryComputeArgs> Compute { get; set; } = null!;
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs>? _groupBies;
+
+        /// <summary>
+        /// . Multiple nested blocks are allowed with the following structure:
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupByArgs>());
@@ -26,6 +33,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         [Input("search")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearchArgs>? Search { get; set; }
 

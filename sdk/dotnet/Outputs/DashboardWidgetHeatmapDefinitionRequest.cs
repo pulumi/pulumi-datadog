@@ -17,6 +17,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        /// <summary>
+        /// Style of the widget graph. One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestStyle? Style;
 
         [OutputConstructor]

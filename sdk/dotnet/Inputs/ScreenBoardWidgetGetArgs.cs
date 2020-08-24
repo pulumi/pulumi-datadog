@@ -12,86 +12,165 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the monitor used by the widget.
+        /// </summary>
         [Input("alertId")]
         public Input<int>? AlertId { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether the widget is refreshed automatically.
+        /// </summary>
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
 
+        /// <summary>
+        /// The color of the background of the widget.
+        /// </summary>
         [Input("bgcolor")]
         public Input<string>? Bgcolor { get; set; }
 
+        /// <summary>
+        /// The check to use in the widget.
+        /// </summary>
         [Input("check")]
         public Input<string>? Check { get; set; }
 
+        /// <summary>
+        /// The color of the text in the widget.
+        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
+        /// <summary>
+        /// Whether to colorize text or background. One of "text", "background".
+        /// </summary>
         [Input("colorPreference")]
         public Input<string>? ColorPreference { get; set; }
 
+        /// <summary>
+        /// Stringified list of columns to use. Example: `"[\"column1\",\"column2\",\"column3\"]"`
+        /// </summary>
         [Input("columns")]
         public Input<string>? Columns { get; set; }
 
+        /// <summary>
+        /// The display setting to use. One of "counts", "list", or "countsAndList".
+        /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
 
+        /// <summary>
+        /// The environment to use.
+        /// </summary>
         [Input("env")]
         public Input<string>? Env { get; set; }
 
+        /// <summary>
+        /// The size of the events in the widget. Either "s" (small, title only) or "l" (large, full event).
+        /// </summary>
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
 
+        /// <summary>
+        /// The size of the text in the widget.
+        /// </summary>
         [Input("fontSize")]
         public Input<string>? FontSize { get; set; }
 
+        /// <summary>
+        /// The list of tags to group nodes by.
+        /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
         [Input("groupBies")]
         private InputList<string>? _groupBies;
+
+        /// <summary>
+        /// When grouping = "cluster", indicates a list of tags to use for grouping.
+        /// </summary>
         public InputList<string> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<string>());
             set => _groupBies = value;
         }
 
+        /// <summary>
+        /// Either "check" or "cluster", depending on whether the widget should use a single check or a cluster of checks.
+        /// </summary>
         [Input("grouping")]
         public Input<string>? Grouping { get; set; }
 
+        /// <summary>
+        /// The height of the widget. Default is 15.
+        /// </summary>
         [Input("height")]
         public Input<int>? Height { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to hide empty categories.
+        /// </summary>
         [Input("hideZeroCounts")]
         public Input<bool>? HideZeroCounts { get; set; }
 
+        /// <summary>
+        /// The content of the widget. HTML tags supported.
+        /// </summary>
         [Input("html")]
         public Input<string>? Html { get; set; }
 
+        /// <summary>
+        /// The number of columns to use when displaying values. One of "one_column", "two_column", "three_column".
+        /// </summary>
         [Input("layoutVersion")]
         public Input<string>? LayoutVersion { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to display a legend in the widget.
+        /// </summary>
         [Input("legend")]
         public Input<bool>? Legend { get; set; }
 
+        /// <summary>
+        /// The size of the legend displayed in the widget.
+        /// </summary>
         [Input("legendSize")]
         public Input<string>? LegendSize { get; set; }
 
+        /// <summary>
+        /// ID of the logset to use.
+        /// </summary>
         [Input("logset")]
         public Input<string>? Logset { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to show a title.
+        /// </summary>
         [Input("manageStatusShowTitle")]
         public Input<bool>? ManageStatusShowTitle { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. One of "left", "center", or "right".
+        /// </summary>
         [Input("manageStatusTitleAlign")]
         public Input<string>? ManageStatusTitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title.
+        /// </summary>
         [Input("manageStatusTitleSize")]
         public Input<string>? ManageStatusTitleSize { get; set; }
 
+        /// <summary>
+        /// The title of the widget.
+        /// </summary>
         [Input("manageStatusTitleText")]
         public Input<string>? ManageStatusTitleText { get; set; }
 
+        /// <summary>
+        /// The margins to use around the image. Either "small" or "large".
+        /// </summary>
         [Input("margin")]
         public Input<string>? Margin { get; set; }
 
@@ -103,35 +182,63 @@ namespace Pulumi.Datadog.Inputs
             set => _monitor = value;
         }
 
+        /// <summary>
+        /// Boolean indicating whether to display breakdown.
+        /// </summary>
         [Input("mustShowBreakdown")]
         public Input<bool>? MustShowBreakdown { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to display distribution.
+        /// </summary>
         [Input("mustShowDistribution")]
         public Input<bool>? MustShowDistribution { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to display errors.
+        /// </summary>
         [Input("mustShowErrors")]
         public Input<bool>? MustShowErrors { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to display hits.
+        /// </summary>
         [Input("mustShowHits")]
         public Input<bool>? MustShowHits { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to display latency.
+        /// </summary>
         [Input("mustShowLatency")]
         public Input<bool>? MustShowLatency { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to display resources.
+        /// </summary>
         [Input("mustShowResourceList")]
         public Input<bool>? MustShowResourceList { get; set; }
 
         [Input("params")]
         private InputMap<string>? _params;
+
+        /// <summary>
+        /// Nested block describing the monitors to display. The structure of this block is described below. At most one such block should be present in a given widget.
+        /// </summary>
         public InputMap<string> Params
         {
             get => _params ?? (_params = new InputMap<string>());
             set => _params = value;
         }
 
+        /// <summary>
+        /// The precision to use when displaying the tile.
+        /// </summary>
         [Input("precision")]
         public Input<string>? Precision { get; set; }
 
+        /// <summary>
+        /// The query to use in the widget.
+        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
@@ -143,52 +250,96 @@ namespace Pulumi.Datadog.Inputs
             set => _rules = value;
         }
 
+        /// <summary>
+        /// The name of the service to use.
+        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        /// <summary>
+        /// The trace service to use.
+        /// </summary>
         [Input("serviceService")]
         public Input<string>? ServiceService { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to show when monitors/groups last triggered.
+        /// </summary>
         [Input("showLastTriggered")]
         public Input<bool>? ShowLastTriggered { get; set; }
 
+        /// <summary>
+        /// The size of the widget. One of "small", "medium", "large".
+        /// </summary>
         [Input("sizeVersion")]
         public Input<string>? SizeVersion { get; set; }
 
+        /// <summary>
+        /// The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+        /// </summary>
         [Input("sizing")]
         public Input<string>? Sizing { get; set; }
 
+        /// <summary>
+        /// The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
+        /// </summary>
         [Input("summaryType")]
         public Input<string>? SummaryType { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// List of tags to use in the widget.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The query to use to get monitors. Example: "status:alert".
+        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 
+        /// <summary>
+        /// The alignment of the text.
+        /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
 
+        /// <summary>
+        /// The size of the text in the widget.
+        /// </summary>
         [Input("textSize")]
         public Input<string>? TextSize { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether a tick should be displayed on the border of the widget.
+        /// </summary>
         [Input("tick")]
         public Input<bool>? Tick { get; set; }
 
+        /// <summary>
+        /// When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
+        /// </summary>
         [Input("tickEdge")]
         public Input<string>? TickEdge { get; set; }
 
+        /// <summary>
+        /// When tick = true, string with a percent sign indicating the position of the tick. Example: use tick_pos = "50%" for centered alignment.
+        /// </summary>
         [Input("tickPos")]
         public Input<string>? TickPos { get; set; }
 
         [Input("tileDeves")]
         private InputList<Inputs.ScreenBoardWidgetTileDefGetArgs>? _tileDeves;
+
+        /// <summary>
+        /// Nested block describing the content to display in the widget. The structure of this block is described below. At most one such block should be present in a given widget.
+        /// </summary>
         public InputList<Inputs.ScreenBoardWidgetTileDefGetArgs> TileDeves
         {
             get => _tileDeves ?? (_tileDeves = new InputList<Inputs.ScreenBoardWidgetTileDefGetArgs>());
@@ -197,6 +348,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("time")]
         private InputMap<string>? _time;
+
+        /// <summary>
+        /// Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below. At most one such block should be present in a given widget.
+        /// </summary>
         public InputMap<string> Time
         {
             get => _time ?? (_time = new InputMap<string>());
@@ -211,33 +366,63 @@ namespace Pulumi.Datadog.Inputs
             set => _timeframes = value;
         }
 
+        /// <summary>
+        /// The title of the widget.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
+        /// <summary>
+        /// The alignment of the widget's title. One of "left", "center", or "right".
+        /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
+        /// <summary>
+        /// The size of the widget's title. Default is 16.
+        /// </summary>
         [Input("titleSize")]
         public Input<int>? TitleSize { get; set; }
 
+        /// <summary>
+        /// Choose the type of representation to use for this query. For widgets of type "timeseries" and "query_value", use one of "line", "bars" or "area". For widgets of type "hostmap", use "fill" or "size".
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The unit for the value displayed in the widget.
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
+        /// <summary>
+        /// The URL to use as a data source for the widget.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+        /// </summary>
         [Input("vizType")]
         public Input<string>? VizType { get; set; }
 
+        /// <summary>
+        /// The width of the widget. Default is 50.
+        /// </summary>
         [Input("width")]
         public Input<int>? Width { get; set; }
 
+        /// <summary>
+        /// The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+        /// </summary>
         [Input("x", required: true)]
         public Input<int> X { get; set; } = null!;
 
+        /// <summary>
+        /// The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+        /// </summary>
         [Input("y", required: true)]
         public Input<int> Y { get; set; } = null!;
 

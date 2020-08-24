@@ -13,9 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute Compute;
+        /// <summary>
+        /// When grouping = "cluster", indicates a list of tags to use for grouping.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy> GroupBies;
         public readonly string Index;
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch? Search;
 
         [OutputConstructor]

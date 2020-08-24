@@ -13,9 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute Compute;
+        /// <summary>
+        /// . Multiple nested blocks are allowed with the following structure:
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy> GroupBies;
         public readonly string Index;
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch? Search;
 
         [OutputConstructor]

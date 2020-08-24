@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("columns")]
         private InputList<string>? _columns;
+
+        /// <summary>
+        /// Stringified list of columns to use. Example: `"["column1","column2","column3"]"`.
+        /// </summary>
         public InputList<string> Columns
         {
             get => _columns ?? (_columns = new InputList<string>());
@@ -28,27 +32,52 @@ namespace Pulumi.Datadog.Inputs
             set => _indexes = value;
         }
 
+        /// <summary>
+        /// ID of the logset to use.
+        /// - `query`: (Optional) The query to use in the widget.
+        /// </summary>
         [Input("logset")]
         public Input<string>? Logset { get; set; }
 
+        /// <summary>
+        /// The amount of lines the message column should display. One of: `inline`, `expanded-md`, and `expanded-lg`.
+        /// </summary>
         [Input("messageDisplay")]
         public Input<string>? MessageDisplay { get; set; }
 
         [Input("query")]
         public Input<string>? Query { get; set; }
 
+        /// <summary>
+        /// If the date column should be displayed.
+        /// </summary>
         [Input("showDateColumn")]
         public Input<bool>? ShowDateColumn { get; set; }
 
+        /// <summary>
+        /// If the message column should be displayed.
+        /// </summary>
         [Input("showMessageColumn")]
         public Input<bool>? ShowMessageColumn { get; set; }
 
+        /// <summary>
+        /// The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+        /// - `title`: (Optional) The title of the widget.
+        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
+        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+        /// - `manage_status_definition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+        /// - `query`: (Required) The query to use in the widget.
+        /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSortArgs>? Sort { get; set; }
 
         [Input("time")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTimeArgs>? Time { get; set; }
 
+        /// <summary>
+        /// Title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

@@ -13,15 +13,43 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetLogStreamDefinition
     {
+        /// <summary>
+        /// Stringified list of columns to use. Example: `"["column1","column2","column3"]"`.
+        /// </summary>
         public readonly ImmutableArray<string> Columns;
         public readonly ImmutableArray<string> Indexes;
+        /// <summary>
+        /// ID of the logset to use.
+        /// - `query`: (Optional) The query to use in the widget.
+        /// </summary>
         public readonly string? Logset;
+        /// <summary>
+        /// The amount of lines the message column should display. One of: `inline`, `expanded-md`, and `expanded-lg`.
+        /// </summary>
         public readonly string? MessageDisplay;
         public readonly string? Query;
+        /// <summary>
+        /// If the date column should be displayed.
+        /// </summary>
         public readonly bool? ShowDateColumn;
+        /// <summary>
+        /// If the message column should be displayed.
+        /// </summary>
         public readonly bool? ShowMessageColumn;
+        /// <summary>
+        /// The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+        /// - `title`: (Optional) The title of the widget.
+        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
+        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+        /// - `manage_status_definition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+        /// - `query`: (Required) The query to use in the widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetLogStreamDefinitionSort? Sort;
         public readonly Outputs.DashboardWidgetLogStreamDefinitionTime? Time;
+        /// <summary>
+        /// Title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

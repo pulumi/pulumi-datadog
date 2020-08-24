@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestOptions
     {
+        /// <summary>
+        /// For type=ssl, true or false
+        /// </summary>
         public readonly bool? AcceptSelfSigned;
+        /// <summary>
+        /// For type=api, true or false. Allow your HTTP test go on with connection even if there is an error when validating the certificate.
+        /// </summary>
         public readonly bool? AllowInsecure;
+        /// <summary>
+        /// For type=api, true or false
+        /// </summary>
         public readonly bool? FollowRedirects;
+        /// <summary>
+        /// How long the test should be in failure before alerting (integer, number of seconds, max 7200). Default is 0.
+        /// </summary>
         public readonly int? MinFailureDuration;
+        /// <summary>
+        /// Threshold below which a synthetics test is allowed to fail before sending notifications
+        /// </summary>
         public readonly int? MinLocationFailed;
+        /// <summary>
+        /// How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 if type=api or 300 if type=browser
+        /// </summary>
         public readonly int TickEvery;
 
         [OutputConstructor]

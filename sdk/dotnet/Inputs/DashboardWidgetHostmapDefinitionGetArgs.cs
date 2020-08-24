@@ -14,18 +14,31 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("groups")]
         private InputList<string>? _groups;
+
+        /// <summary>
+        /// The check group to use in the widget.
+        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
 
+        /// <summary>
+        /// Boolean indicating whether to show ungrouped nodes.
+        /// </summary>
         [Input("noGroupHosts")]
         public Input<bool>? NoGroupHosts { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether to show nodes with no metrics.
+        /// </summary>
         [Input("noMetricHosts")]
         public Input<bool>? NoMetricHosts { get; set; }
 
+        /// <summary>
+        /// The type of node used. Either "host" or "container".
+        /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 
@@ -34,15 +47,25 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("scopes")]
         private InputList<string>? _scopes;
+
+        /// <summary>
+        /// The list of tags to filter nodes by.
+        /// </summary>
         public InputList<string> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<string>());
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// Style of the widget graph. One nested block is allowed with the following structure:
+        /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionStyleGetArgs>? Style { get; set; }
 
+        /// <summary>
+        /// Title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

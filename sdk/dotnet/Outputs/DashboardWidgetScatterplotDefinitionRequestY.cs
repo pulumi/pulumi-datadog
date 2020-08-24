@@ -13,6 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetScatterplotDefinitionRequestY
     {
+        /// <summary>
+        /// The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+        /// - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+        /// - `q`: (Required) The metric query to use in the widget.
+        /// - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+        /// - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+        /// </summary>
         public readonly string? Aggregator;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery? LogQuery;

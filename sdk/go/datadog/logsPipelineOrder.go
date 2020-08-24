@@ -27,8 +27,8 @@ import (
 // 		_, err := datadog.NewLogsPipelineOrder(ctx, "samplePipelineOrder", &datadog.LogsPipelineOrderArgs{
 // 			Name: pulumi.String("sample_pipeline_order"),
 // 			Pipelines: pulumi.StringArray{
-// 				pulumi.String(datadog_logs_custom_pipeline.Sample_pipeline.Id),
-// 				pulumi.String(datadog_logs_integration_pipeline.Python.Id),
+// 				pulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),
+// 				pulumi.Any(datadog_logs_integration_pipeline.Python.Id),
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			"datadog_logs_custom_pipeline.sample_pipeline",

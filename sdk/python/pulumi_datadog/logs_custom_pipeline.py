@@ -5,237 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LogsCustomPipeline']
 
 
 class LogsCustomPipeline(pulumi.CustomResource):
-    filters: pulumi.Output[list]
-    """
-    Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-
-      * `query` (`str`)
-    """
-    is_enabled: pulumi.Output[bool]
-    """
-    If the processor is enabled or not.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the processor
-    """
-    processors: pulumi.Output[list]
-    """
-    Processors. Nested pipeline can't take any other nested pipeline as its processor.
-
-      * `arithmeticProcessor` (`dict`)
-        * `expression` (`str`) - Arithmetic operation between one or more log attributes.
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
-          * trace_id_remapper
-        * `name` (`str`) - Name of the processor
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-      * `attributeRemapper` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `overrideOnConflict` (`bool`) - Override the target element if already set.
-        * `preserveSource` (`bool`) - Remove or preserve the remapped source element.
-        * `sourceType` (`str`) - Defines where the sources are from (log `attribute` or `tag`).
-        * `sources` (`list`) - List of source attributes.
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-        * `targetType` (`str`) - Defines if the target is a log `attribute` or `tag`.
-
-      * `categoryProcessor` (`dict`)
-        * `categories` (`list`) - List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-          * `filters` (`list`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-            * `query` (`str`)
-
-          * `name` (`str`) - Name of the processor
-
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-      * `dateRemapper` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `sources` (`list`) - List of source attributes.
-
-      * `geoIpParser` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `sources` (`list`) - List of source attributes.
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-      * `grokParser` (`dict`)
-        * `grok` (`dict`)
-          * `matchRules` (`str`) - Match rules for your grok parser.
-          * `supportRules` (`str`) - Support rules for your grok parser.
-
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `samples` (`list`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-        * `source` (`str`) - Name of the source attribute used to do the lookup.
-
-      * `lookupProcessor` (`dict`)
-        * `defaultLookup` (`str`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `lookupTables` (`list`) - List of entries of the lookup table using `"key,value"` format.
-        * `name` (`str`) - Name of the processor
-        * `source` (`str`) - Name of the source attribute used to do the lookup.
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-      * `messageRemapper` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `sources` (`list`) - List of source attributes.
-
-      * `pipeline` (`dict`)
-        * `filters` (`list`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-          * `query` (`str`)
-
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `processors` (`list`) - Processors. Nested pipeline can't take any other nested pipeline as its processor.
-          * `arithmeticProcessor` (`dict`)
-            * `expression` (`str`) - Arithmetic operation between one or more log attributes.
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
-              * trace_id_remapper
-            * `name` (`str`) - Name of the processor
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `attributeRemapper` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `overrideOnConflict` (`bool`) - Override the target element if already set.
-            * `preserveSource` (`bool`) - Remove or preserve the remapped source element.
-            * `sourceType` (`str`) - Defines where the sources are from (log `attribute` or `tag`).
-            * `sources` (`list`) - List of source attributes.
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-            * `targetType` (`str`) - Defines if the target is a log `attribute` or `tag`.
-
-          * `categoryProcessor` (`dict`)
-            * `categories` (`list`) - List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-              * `filters` (`list`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-                * `query` (`str`)
-
-              * `name` (`str`) - Name of the processor
-
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `dateRemapper` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `sources` (`list`) - List of source attributes.
-
-          * `geoIpParser` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `sources` (`list`) - List of source attributes.
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `grokParser` (`dict`)
-            * `grok` (`dict`)
-              * `matchRules` (`str`) - Match rules for your grok parser.
-              * `supportRules` (`str`) - Support rules for your grok parser.
-
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `samples` (`list`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-            * `source` (`str`) - Name of the source attribute used to do the lookup.
-
-          * `lookupProcessor` (`dict`)
-            * `defaultLookup` (`str`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `lookupTables` (`list`) - List of entries of the lookup table using `"key,value"` format.
-            * `name` (`str`) - Name of the processor
-            * `source` (`str`) - Name of the source attribute used to do the lookup.
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `messageRemapper` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `sources` (`list`) - List of source attributes.
-
-          * `serviceRemapper` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `sources` (`list`) - List of source attributes.
-
-          * `statusRemapper` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `sources` (`list`) - List of source attributes.
-
-          * `stringBuilderProcessor` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
-              * trace_id_remapper
-            * `name` (`str`) - Name of the processor
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-            * `template` (`str`) - The formula with one or more attributes and raw text.
-
-          * `traceIdRemapper` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `sources` (`list`) - List of source attributes.
-
-          * `urlParser` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `name` (`str`) - Name of the processor
-            * `normalizeEndingSlashes` (`bool`) - Normalize the ending slashes or not.
-            * `sources` (`list`) - List of source attributes.
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `userAgentParser` (`dict`)
-            * `is_enabled` (`bool`) - If the processor is enabled or not.
-            * `isEncoded` (`bool`) - If the source attribute is URL encoded or not.
-            * `name` (`str`) - Name of the processor
-            * `sources` (`list`) - List of source attributes.
-            * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-      * `serviceRemapper` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `sources` (`list`) - List of source attributes.
-
-      * `statusRemapper` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `sources` (`list`) - List of source attributes.
-
-      * `stringBuilderProcessor` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `isReplaceMissing` (`bool`) - If it replaces all missing attributes of `template` by an empty string.
-          * trace_id_remapper
-        * `name` (`str`) - Name of the processor
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-        * `template` (`str`) - The formula with one or more attributes and raw text.
-
-      * `traceIdRemapper` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `sources` (`list`) - List of source attributes.
-
-      * `urlParser` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `name` (`str`) - Name of the processor
-        * `normalizeEndingSlashes` (`bool`) - Normalize the ending slashes or not.
-        * `sources` (`list`) - List of source attributes.
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-      * `userAgentParser` (`dict`)
-        * `is_enabled` (`bool`) - If the processor is enabled or not.
-        * `isEncoded` (`bool`) - If the source attribute is URL encoded or not.
-        * `name` (`str`) - Name of the processor
-        * `sources` (`list`) - List of source attributes.
-        * `target` (`str`) - Name of the parent attribute that contains all the extracted details from the sources.
-    """
-    def __init__(__self__, resource_name, opts=None, filters=None, is_enabled=None, name=None, processors=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 processors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
 
@@ -248,36 +36,36 @@ class LogsCustomPipeline(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         sample_pipeline = datadog.LogsCustomPipeline("samplePipeline",
-            filters=[{
-                "query": "source:foo",
-            }],
+            filters=[datadog.LogsCustomPipelineFilterArgs(
+                query="source:foo",
+            )],
             is_enabled=True,
             name="sample pipeline",
             processors=[
-                {
-                    "arithmeticProcessor": {
-                        "expression": "(time1 - time2)*1000",
-                        "is_enabled": True,
-                        "isReplaceMissing": True,
-                        "name": "sample arithmetic processor",
-                        "target": "my_arithmetic",
-                    },
-                },
-                {
-                    "attributeRemapper": {
-                        "is_enabled": True,
-                        "name": "sample attribute processor",
-                        "overrideOnConflict": False,
-                        "preserveSource": True,
-                        "sourceType": "tag",
-                        "sources": ["db.instance"],
-                        "target": "db",
-                        "targetType": "tag",
-                    },
-                },
-                {
-                    "categoryProcessor": {
-                        "category": [
+                datadog.LogsCustomPipelineProcessorArgs(
+                    arithmetic_processor=datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs(
+                        expression="(time1 - time2)*1000",
+                        is_enabled=True,
+                        is_replace_missing=True,
+                        name="sample arithmetic processor",
+                        target="my_arithmetic",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    attribute_remapper=datadog.LogsCustomPipelineProcessorAttributeRemapperArgs(
+                        is_enabled=True,
+                        name="sample attribute processor",
+                        override_on_conflict=False,
+                        preserve_source=True,
+                        source_type="tag",
+                        sources=["db.instance"],
+                        target="db",
+                        target_type="tag",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    category_processor=datadog.LogsCustomPipelineProcessorCategoryProcessorArgs(
+                        category=[
                             {
                                 "filter": [{
                                     "query": "@severity: \".\"",
@@ -291,66 +79,66 @@ class LogsCustomPipeline(pulumi.CustomResource):
                                 "name": "verbose",
                             },
                         ],
-                        "is_enabled": True,
-                        "name": "sample category processor",
-                        "target": "foo.severity",
-                    },
-                },
-                {
-                    "dateRemapper": {
-                        "is_enabled": True,
-                        "name": "sample date remapper",
-                        "sources": [
+                        is_enabled=True,
+                        name="sample category processor",
+                        target="foo.severity",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    date_remapper=datadog.LogsCustomPipelineProcessorDateRemapperArgs(
+                        is_enabled=True,
+                        name="sample date remapper",
+                        sources=[
                             "_timestamp",
                             "published_date",
                         ],
-                    },
-                },
-                {
-                    "geoIpParser": {
-                        "is_enabled": True,
-                        "name": "sample geo ip parser",
-                        "sources": ["network.client.ip"],
-                        "target": "network.client.geoip",
-                    },
-                },
-                {
-                    "grokParser": {
-                        "grok": {
-                            "matchRules": "Rule %{word:my_word2} %{number:my_float2}",
-                            "supportRules": "",
-                        },
-                        "is_enabled": True,
-                        "name": "sample grok parser",
-                        "samples": ["sample log 1"],
-                        "source": "message",
-                    },
-                },
-                {
-                    "lookupProcessor": {
-                        "defaultLookup": "unknown service",
-                        "is_enabled": True,
-                        "lookupTable": ["1,my service"],
-                        "name": "sample lookup processor",
-                        "source": "service_id",
-                        "target": "service_name",
-                    },
-                },
-                {
-                    "messageRemapper": {
-                        "is_enabled": True,
-                        "name": "sample message remapper",
-                        "sources": ["msg"],
-                    },
-                },
-                {
-                    "pipeline": {
-                        "filter": [{
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    geo_ip_parser=datadog.LogsCustomPipelineProcessorGeoIpParserArgs(
+                        is_enabled=True,
+                        name="sample geo ip parser",
+                        sources=["network.client.ip"],
+                        target="network.client.geoip",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    grok_parser=datadog.LogsCustomPipelineProcessorGrokParserArgs(
+                        grok=datadog.LogsCustomPipelineProcessorGrokParserGrokArgs(
+                            match_rules="Rule %{word:my_word2} %{number:my_float2}",
+                            support_rules="",
+                        ),
+                        is_enabled=True,
+                        name="sample grok parser",
+                        samples=["sample log 1"],
+                        source="message",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    lookup_processor=datadog.LogsCustomPipelineProcessorLookupProcessorArgs(
+                        default_lookup="unknown service",
+                        is_enabled=True,
+                        lookup_table=["1,my service"],
+                        name="sample lookup processor",
+                        source="service_id",
+                        target="service_name",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    message_remapper=datadog.LogsCustomPipelineProcessorMessageRemapperArgs(
+                        is_enabled=True,
+                        name="sample message remapper",
+                        sources=["msg"],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    pipeline=datadog.LogsCustomPipelineProcessorPipelineArgs(
+                        filter=[{
                             "query": "source:foo",
                         }],
-                        "is_enabled": True,
-                        "name": "nested pipeline",
-                        "processor": [{
+                        is_enabled=True,
+                        name="nested pipeline",
+                        processor=[{
                             "urlParser": {
                                 "name": "sample url parser",
                                 "normalizeEndingSlashes": True,
@@ -361,53 +149,53 @@ class LogsCustomPipeline(pulumi.CustomResource):
                                 "target": "http_url",
                             },
                         }],
-                    },
-                },
-                {
-                    "serviceRemapper": {
-                        "is_enabled": True,
-                        "name": "sample service remapper",
-                        "sources": ["service"],
-                    },
-                },
-                {
-                    "statusRemapper": {
-                        "is_enabled": True,
-                        "name": "sample status remapper",
-                        "sources": [
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    service_remapper=datadog.LogsCustomPipelineProcessorServiceRemapperArgs(
+                        is_enabled=True,
+                        name="sample service remapper",
+                        sources=["service"],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    status_remapper=datadog.LogsCustomPipelineProcessorStatusRemapperArgs(
+                        is_enabled=True,
+                        name="sample status remapper",
+                        sources=[
                             "info",
                             "trace",
                         ],
-                    },
-                },
-                {
-                    "stringBuilderProcessor": {
-                        "is_enabled": True,
-                        "isReplaceMissing": False,
-                        "name": "sample string builder processor",
-                        "target": "user_activity",
-                        "template": "%{user.name} logged in at %{timestamp}",
-                    },
-                },
-                {
-                    "traceIdRemapper": {
-                        "is_enabled": True,
-                        "name": "sample trace id remapper",
-                        "sources": ["dd.trace_id"],
-                    },
-                },
-                {
-                    "userAgentParser": {
-                        "is_enabled": True,
-                        "isEncoded": False,
-                        "name": "sample user agent parser",
-                        "sources": [
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    string_builder_processor=datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs(
+                        is_enabled=True,
+                        is_replace_missing=False,
+                        name="sample string builder processor",
+                        target="user_activity",
+                        template="%{user.name} logged in at %{timestamp}",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    trace_id_remapper=datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs(
+                        is_enabled=True,
+                        name="sample trace id remapper",
+                        sources=["dd.trace_id"],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    user_agent_parser=datadog.LogsCustomPipelineProcessorUserAgentParserArgs(
+                        is_enabled=True,
+                        is_encoded=False,
+                        name="sample user agent parser",
+                        sources=[
                             "user",
                             "agent",
                         ],
-                        "target": "http_agent",
-                    },
-                },
+                        target="http_agent",
+                    ),
+                ),
             ])
         ```
         ## Important Notes
@@ -420,223 +208,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] filters: Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]] filters: Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
         :param pulumi.Input[bool] is_enabled: If the processor is enabled or not.
         :param pulumi.Input[str] name: Name of the processor
-        :param pulumi.Input[list] processors: Processors. Nested pipeline can't take any other nested pipeline as its processor.
-
-        The **filters** object supports the following:
-
-          * `query` (`pulumi.Input[str]`)
-
-        The **processors** object supports the following:
-
-          * `arithmeticProcessor` (`pulumi.Input[dict]`)
-            * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-              * trace_id_remapper
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `attributeRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
-            * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-            * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-            * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
-
-          * `categoryProcessor` (`pulumi.Input[dict]`)
-            * `categories` (`pulumi.Input[list]`) - List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-              * `filters` (`pulumi.Input[list]`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-                * `query` (`pulumi.Input[str]`)
-
-              * `name` (`pulumi.Input[str]`) - Name of the processor
-
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `dateRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `geoIpParser` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `grokParser` (`pulumi.Input[dict]`)
-            * `grok` (`pulumi.Input[dict]`)
-              * `matchRules` (`pulumi.Input[str]`) - Match rules for your grok parser.
-              * `supportRules` (`pulumi.Input[str]`) - Support rules for your grok parser.
-
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-
-          * `lookupProcessor` (`pulumi.Input[dict]`)
-            * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `messageRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `pipeline` (`pulumi.Input[dict]`)
-            * `filters` (`pulumi.Input[list]`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-              * `query` (`pulumi.Input[str]`)
-
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `processors` (`pulumi.Input[list]`) - Processors. Nested pipeline can't take any other nested pipeline as its processor.
-              * `arithmeticProcessor` (`pulumi.Input[dict]`)
-                * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-                  * trace_id_remapper
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `attributeRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
-                * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-                * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-                * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
-
-              * `categoryProcessor` (`pulumi.Input[dict]`)
-                * `categories` (`pulumi.Input[list]`) - List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-                  * `filters` (`pulumi.Input[list]`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-                    * `query` (`pulumi.Input[str]`)
-
-                  * `name` (`pulumi.Input[str]`) - Name of the processor
-
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `dateRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `geoIpParser` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `grokParser` (`pulumi.Input[dict]`)
-                * `grok` (`pulumi.Input[dict]`)
-                  * `matchRules` (`pulumi.Input[str]`) - Match rules for your grok parser.
-                  * `supportRules` (`pulumi.Input[str]`) - Support rules for your grok parser.
-
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-
-              * `lookupProcessor` (`pulumi.Input[dict]`)
-                * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `messageRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `serviceRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `statusRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `stringBuilderProcessor` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-                  * trace_id_remapper
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-                * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
-
-              * `traceIdRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `urlParser` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `normalizeEndingSlashes` (`pulumi.Input[bool]`) - Normalize the ending slashes or not.
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `userAgentParser` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isEncoded` (`pulumi.Input[bool]`) - If the source attribute is URL encoded or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `serviceRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `statusRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `stringBuilderProcessor` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-              * trace_id_remapper
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-            * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
-
-          * `traceIdRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `urlParser` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `normalizeEndingSlashes` (`pulumi.Input[bool]`) - Normalize the ending slashes or not.
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `userAgentParser` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isEncoded` (`pulumi.Input[bool]`) - If the source attribute is URL encoded or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]] processors: Processors. Nested pipeline can't take any other nested pipeline as its processor.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -649,7 +224,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -670,231 +245,24 @@ class LogsCustomPipeline(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, filters=None, is_enabled=None, name=None, processors=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
+            is_enabled: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            processors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None) -> 'LogsCustomPipeline':
         """
         Get an existing LogsCustomPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] filters: Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]] filters: Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
         :param pulumi.Input[bool] is_enabled: If the processor is enabled or not.
         :param pulumi.Input[str] name: Name of the processor
-        :param pulumi.Input[list] processors: Processors. Nested pipeline can't take any other nested pipeline as its processor.
-
-        The **filters** object supports the following:
-
-          * `query` (`pulumi.Input[str]`)
-
-        The **processors** object supports the following:
-
-          * `arithmeticProcessor` (`pulumi.Input[dict]`)
-            * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-              * trace_id_remapper
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `attributeRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
-            * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-            * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-            * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
-
-          * `categoryProcessor` (`pulumi.Input[dict]`)
-            * `categories` (`pulumi.Input[list]`) - List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-              * `filters` (`pulumi.Input[list]`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-                * `query` (`pulumi.Input[str]`)
-
-              * `name` (`pulumi.Input[str]`) - Name of the processor
-
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `dateRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `geoIpParser` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `grokParser` (`pulumi.Input[dict]`)
-            * `grok` (`pulumi.Input[dict]`)
-              * `matchRules` (`pulumi.Input[str]`) - Match rules for your grok parser.
-              * `supportRules` (`pulumi.Input[str]`) - Support rules for your grok parser.
-
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-
-          * `lookupProcessor` (`pulumi.Input[dict]`)
-            * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `messageRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `pipeline` (`pulumi.Input[dict]`)
-            * `filters` (`pulumi.Input[list]`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-              * `query` (`pulumi.Input[str]`)
-
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `processors` (`pulumi.Input[list]`) - Processors. Nested pipeline can't take any other nested pipeline as its processor.
-              * `arithmeticProcessor` (`pulumi.Input[dict]`)
-                * `expression` (`pulumi.Input[str]`) - Arithmetic operation between one or more log attributes.
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-                  * trace_id_remapper
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `attributeRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `overrideOnConflict` (`pulumi.Input[bool]`) - Override the target element if already set.
-                * `preserveSource` (`pulumi.Input[bool]`) - Remove or preserve the remapped source element.
-                * `sourceType` (`pulumi.Input[str]`) - Defines where the sources are from (log `attribute` or `tag`).
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-                * `targetType` (`pulumi.Input[str]`) - Defines if the target is a log `attribute` or `tag`.
-
-              * `categoryProcessor` (`pulumi.Input[dict]`)
-                * `categories` (`pulumi.Input[list]`) - List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-                  * `filters` (`pulumi.Input[list]`) - Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-                    * `query` (`pulumi.Input[str]`)
-
-                  * `name` (`pulumi.Input[str]`) - Name of the processor
-
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `dateRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `geoIpParser` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `grokParser` (`pulumi.Input[dict]`)
-                * `grok` (`pulumi.Input[dict]`)
-                  * `matchRules` (`pulumi.Input[str]`) - Match rules for your grok parser.
-                  * `supportRules` (`pulumi.Input[str]`) - Support rules for your grok parser.
-
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `samples` (`pulumi.Input[list]`) - List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-
-              * `lookupProcessor` (`pulumi.Input[dict]`)
-                * `defaultLookup` (`pulumi.Input[str]`) - Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `lookupTables` (`pulumi.Input[list]`) - List of entries of the lookup table using `"key,value"` format.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `source` (`pulumi.Input[str]`) - Name of the source attribute used to do the lookup.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `messageRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `serviceRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `statusRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `stringBuilderProcessor` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-                  * trace_id_remapper
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-                * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
-
-              * `traceIdRemapper` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-              * `urlParser` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `normalizeEndingSlashes` (`pulumi.Input[bool]`) - Normalize the ending slashes or not.
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-              * `userAgentParser` (`pulumi.Input[dict]`)
-                * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-                * `isEncoded` (`pulumi.Input[bool]`) - If the source attribute is URL encoded or not.
-                * `name` (`pulumi.Input[str]`) - Name of the processor
-                * `sources` (`pulumi.Input[list]`) - List of source attributes.
-                * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `serviceRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `statusRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `stringBuilderProcessor` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isReplaceMissing` (`pulumi.Input[bool]`) - If it replaces all missing attributes of `template` by an empty string.
-              * trace_id_remapper
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-            * `template` (`pulumi.Input[str]`) - The formula with one or more attributes and raw text.
-
-          * `traceIdRemapper` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-
-          * `urlParser` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `normalizeEndingSlashes` (`pulumi.Input[bool]`) - Normalize the ending slashes or not.
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
-
-          * `userAgentParser` (`pulumi.Input[dict]`)
-            * `is_enabled` (`pulumi.Input[bool]`) - If the processor is enabled or not.
-            * `isEncoded` (`pulumi.Input[bool]`) - If the source attribute is URL encoded or not.
-            * `name` (`pulumi.Input[str]`) - Name of the processor
-            * `sources` (`pulumi.Input[list]`) - List of source attributes.
-            * `target` (`pulumi.Input[str]`) - Name of the parent attribute that contains all the extracted details from the sources.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]] processors: Processors. Nested pipeline can't take any other nested pipeline as its processor.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -906,8 +274,41 @@ class LogsCustomPipeline(pulumi.CustomResource):
         __props__["processors"] = processors
         return LogsCustomPipeline(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def filters(self) -> List['outputs.LogsCustomPipelineFilter']:
+        """
+        Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        If the processor is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the processor
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional[List['outputs.LogsCustomPipelineProcessor']]:
+        """
+        Processors. Nested pipeline can't take any other nested pipeline as its processor.
+        """
+        return pulumi.get(self, "processors")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

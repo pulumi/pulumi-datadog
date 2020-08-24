@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardTemplateVariable
     {
+        /// <summary>
+        /// The default tag. Default: "\*" (match all).
+        /// </summary>
         public readonly string? Default;
+        /// <summary>
+        /// The variable name. Can be referenced as $name in `graph` `request` `q` query strings.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The tag group. Default: no tag group.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

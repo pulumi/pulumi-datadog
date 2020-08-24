@@ -14,13 +14,22 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequest
     {
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery? ApmQuery;
+        /// <summary>
+        /// Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+        /// </summary>
         public readonly string? DisplayType;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
+        /// <summary>
+        /// . Used to define expression aliases. Multiple nested blocks are allowed with the following structure:
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery? RumQuery;
+        /// <summary>
+        /// Style of the widget graph. One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestStyle? Style;
 
         [OutputConstructor]

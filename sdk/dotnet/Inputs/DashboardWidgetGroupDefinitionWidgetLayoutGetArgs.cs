@@ -12,15 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetLayoutGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The height of the widget.
+        /// </summary>
         [Input("height", required: true)]
         public Input<double> Height { get; set; } = null!;
 
+        /// <summary>
+        /// The width of the widget.
+        /// </summary>
         [Input("width", required: true)]
         public Input<double> Width { get; set; } = null!;
 
+        /// <summary>
+        /// The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+        /// </summary>
         [Input("x", required: true)]
         public Input<double> X { get; set; } = null!;
 
+        /// <summary>
+        /// The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+        /// </summary>
         [Input("y", required: true)]
         public Input<double> Y { get; set; } = null!;
 

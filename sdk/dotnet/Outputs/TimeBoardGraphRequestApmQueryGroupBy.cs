@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string Facet;
         public readonly int? Limit;
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.TimeBoardGraphRequestApmQueryGroupBySort? Sort;
 
         [OutputConstructor]

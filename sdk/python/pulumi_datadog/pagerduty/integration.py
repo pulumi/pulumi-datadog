@@ -5,35 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Integration']
 
 
 class Integration(pulumi.CustomResource):
-    api_token: pulumi.Output[str]
-    """
-    Your PagerDuty API token.
-    """
-    individual_services: pulumi.Output[bool]
-    """
-    Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
-    """
-    schedules: pulumi.Output[list]
-    """
-    Array of your schedule URLs.
-    """
-    services: pulumi.Output[list]
-    """
-    Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
-
-      * `service_key` (`str`) - Your Service name associated service key in Pagerduty.
-      * `service_name` (`str`) - Your Service name in PagerDuty.
-    """
-    subdomain: pulumi.Output[str]
-    """
-    Your PagerDuty account’s personalized subdomain name.
-    """
-    def __init__(__self__, resource_name, opts=None, api_token=None, individual_services=None, schedules=None, services=None, subdomain=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_token: Optional[pulumi.Input[str]] = None,
+                 individual_services: Optional[pulumi.Input[bool]] = None,
+                 schedules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 services: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]]] = None,
+                 subdomain: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
 
@@ -61,110 +52,14 @@ class Integration(pulumi.CustomResource):
             service_name="testing_bar",
             opts=ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
         ```
-        ### Inline Services
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        pd_services = {
-            "testing_foo": "9876543210123456789",
-            "testing_bar": "54321098765432109876",
-        }
-        # Create a new Datadog - PagerDuty integration
-        pd = datadog.pagerduty.Integration("pd",
-            dynamic=[{
-                "forEach": pd_services,
-                "content": [{
-                    "service_name": services["key"],
-                    "service_key": services["value"],
-                }],
-            }],
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog",
-            api_token="38457822378273432587234242874")
-        ```
-        ### Migrating from Inline Services to Individual Resources
-
-        Migrating from usage of inline services to individual resources is very simple. The following example shows how to convert an existing inline services configuration to configuration using individual resources. Doing analogous change and running `pulumi up` after every step is all that's necessary to migrate.
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        pd_services = {
-            "testing_foo": "9876543210123456789",
-            "testing_bar": "54321098765432109876",
-        }
-        # Create a new Datadog - PagerDuty integration
-        pd = datadog.pagerduty.Integration("pd",
-            dynamic=[{
-                "forEach": pd_services,
-                "content": [{
-                    "service_name": services["key"],
-                    "service_key": services["value"],
-                }],
-            }],
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog",
-            api_token="38457822378273432587234242874")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Second step - this will remove the inline-defined service objects
-        # Note that during this step, `individual_services` must not be defined
-        pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
-            individual_services=True,
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog")
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo",
-            opts=ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar",
-            opts=ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
         :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
-        :param pulumi.Input[list] schedules: Array of your schedule URLs.
-        :param pulumi.Input[list] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+        :param pulumi.Input[List[pulumi.Input[str]]] schedules: Array of your schedule URLs.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
-
-        The **services** object supports the following:
-
-          * `service_key` (`pulumi.Input[str]`) - Your Service name associated service key in Pagerduty.
-          * `service_name` (`pulumi.Input[str]`) - Your Service name in PagerDuty.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -177,7 +72,7 @@ class Integration(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -200,24 +95,26 @@ class Integration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_token=None, individual_services=None, schedules=None, services=None, subdomain=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_token: Optional[pulumi.Input[str]] = None,
+            individual_services: Optional[pulumi.Input[bool]] = None,
+            schedules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            services: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]]] = None,
+            subdomain: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
         :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
-        :param pulumi.Input[list] schedules: Array of your schedule URLs.
-        :param pulumi.Input[list] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+        :param pulumi.Input[List[pulumi.Input[str]]] schedules: Array of your schedule URLs.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
-
-        The **services** object supports the following:
-
-          * `service_key` (`pulumi.Input[str]`) - Your Service name associated service key in Pagerduty.
-          * `service_name` (`pulumi.Input[str]`) - Your Service name in PagerDuty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -230,8 +127,49 @@ class Integration(pulumi.CustomResource):
         __props__["subdomain"] = subdomain
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[str]:
+        """
+        Your PagerDuty API token.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter(name="individualServices")
+    def individual_services(self) -> Optional[bool]:
+        """
+        Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
+        """
+        return pulumi.get(self, "individual_services")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[List[str]]:
+        """
+        Array of your schedule URLs.
+        """
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[List['outputs.IntegrationService']]:
+        """
+        Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+        """
+        return pulumi.get(self, "services")
+
+    @property
+    @pulumi.getter
+    def subdomain(self) -> str:
+        """
+        Your PagerDuty account’s personalized subdomain name.
+        """
+        return pulumi.get(self, "subdomain")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

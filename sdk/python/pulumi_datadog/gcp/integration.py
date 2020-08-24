@@ -5,36 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Integration']
 
 
 class Integration(pulumi.CustomResource):
-    client_email: pulumi.Output[str]
-    """
-    Your email found in your JSON service account key.
-    """
-    client_id: pulumi.Output[str]
-    """
-    Your ID found in your JSON service account key.
-    """
-    host_filters: pulumi.Output[str]
-    """
-    Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-    """
-    private_key: pulumi.Output[str]
-    """
-    Your private key name found in your JSON service account key.
-    """
-    private_key_id: pulumi.Output[str]
-    """
-    Your private key ID found in your JSON service account key.
-    """
-    project_id: pulumi.Output[str]
-    """
-    Your Google Cloud project ID found in your JSON service account key.
-    """
-    def __init__(__self__, resource_name, opts=None, client_email=None, client_id=None, host_filters=None, private_key=None, private_key_id=None, project_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_email: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 host_filters: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
+                 private_key_id: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
 
@@ -78,7 +67,7 @@ class Integration(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -107,13 +96,21 @@ class Integration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, client_email=None, client_id=None, host_filters=None, private_key=None, private_key_id=None, project_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_email: Optional[pulumi.Input[str]] = None,
+            client_id: Optional[pulumi.Input[str]] = None,
+            host_filters: Optional[pulumi.Input[str]] = None,
+            private_key: Optional[pulumi.Input[str]] = None,
+            private_key_id: Optional[pulumi.Input[str]] = None,
+            project_id: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
@@ -134,8 +131,57 @@ class Integration(pulumi.CustomResource):
         __props__["project_id"] = project_id
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> str:
+        """
+        Your email found in your JSON service account key.
+        """
+        return pulumi.get(self, "client_email")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Your ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="hostFilters")
+    def host_filters(self) -> Optional[str]:
+        """
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+        """
+        return pulumi.get(self, "host_filters")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        Your private key name found in your JSON service account key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="privateKeyId")
+    def private_key_id(self) -> str:
+        """
+        Your private key ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "private_key_id")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        Your Google Cloud project ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "project_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

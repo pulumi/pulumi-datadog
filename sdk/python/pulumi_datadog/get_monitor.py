@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetMonitorResult',
+    'AwaitableGetMonitorResult',
+    'get_monitor',
+]
+
+@pulumi.output_type
 class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
@@ -15,135 +23,252 @@ class GetMonitorResult:
     def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
-        __self__.enable_logs_sample = enable_logs_sample
+        pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
+        if escalation_message and not isinstance(escalation_message, str):
+            raise TypeError("Expected argument 'escalation_message' to be a str")
+        pulumi.set(__self__, "escalation_message", escalation_message)
+        if evaluation_delay and not isinstance(evaluation_delay, float):
+            raise TypeError("Expected argument 'evaluation_delay' to be a float")
+        pulumi.set(__self__, "evaluation_delay", evaluation_delay)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if include_tags and not isinstance(include_tags, bool):
+            raise TypeError("Expected argument 'include_tags' to be a bool")
+        pulumi.set(__self__, "include_tags", include_tags)
+        if locked and not isinstance(locked, bool):
+            raise TypeError("Expected argument 'locked' to be a bool")
+        pulumi.set(__self__, "locked", locked)
+        if message and not isinstance(message, str):
+            raise TypeError("Expected argument 'message' to be a str")
+        pulumi.set(__self__, "message", message)
+        if monitor_tags_filters and not isinstance(monitor_tags_filters, list):
+            raise TypeError("Expected argument 'monitor_tags_filters' to be a list")
+        pulumi.set(__self__, "monitor_tags_filters", monitor_tags_filters)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if name_filter and not isinstance(name_filter, str):
+            raise TypeError("Expected argument 'name_filter' to be a str")
+        pulumi.set(__self__, "name_filter", name_filter)
+        if new_host_delay and not isinstance(new_host_delay, float):
+            raise TypeError("Expected argument 'new_host_delay' to be a float")
+        pulumi.set(__self__, "new_host_delay", new_host_delay)
+        if no_data_timeframe and not isinstance(no_data_timeframe, float):
+            raise TypeError("Expected argument 'no_data_timeframe' to be a float")
+        pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
+        if notify_audit and not isinstance(notify_audit, bool):
+            raise TypeError("Expected argument 'notify_audit' to be a bool")
+        pulumi.set(__self__, "notify_audit", notify_audit)
+        if notify_no_data and not isinstance(notify_no_data, bool):
+            raise TypeError("Expected argument 'notify_no_data' to be a bool")
+        pulumi.set(__self__, "notify_no_data", notify_no_data)
+        if query and not isinstance(query, str):
+            raise TypeError("Expected argument 'query' to be a str")
+        pulumi.set(__self__, "query", query)
+        if renotify_interval and not isinstance(renotify_interval, float):
+            raise TypeError("Expected argument 'renotify_interval' to be a float")
+        pulumi.set(__self__, "renotify_interval", renotify_interval)
+        if require_full_window and not isinstance(require_full_window, bool):
+            raise TypeError("Expected argument 'require_full_window' to be a bool")
+        pulumi.set(__self__, "require_full_window", require_full_window)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
+        if tags_filters and not isinstance(tags_filters, list):
+            raise TypeError("Expected argument 'tags_filters' to be a list")
+        pulumi.set(__self__, "tags_filters", tags_filters)
+        if threshold_windows and not isinstance(threshold_windows, dict):
+            raise TypeError("Expected argument 'threshold_windows' to be a dict")
+        pulumi.set(__self__, "threshold_windows", threshold_windows)
+        if thresholds and not isinstance(thresholds, dict):
+            raise TypeError("Expected argument 'thresholds' to be a dict")
+        pulumi.set(__self__, "thresholds", thresholds)
+        if timeout_h and not isinstance(timeout_h, float):
+            raise TypeError("Expected argument 'timeout_h' to be a float")
+        pulumi.set(__self__, "timeout_h", timeout_h)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="enableLogsSample")
+    def enable_logs_sample(self) -> bool:
         """
         Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
         """
-        if escalation_message and not isinstance(escalation_message, str):
-            raise TypeError("Expected argument 'escalation_message' to be a str")
-        __self__.escalation_message = escalation_message
+        return pulumi.get(self, "enable_logs_sample")
+
+    @property
+    @pulumi.getter(name="escalationMessage")
+    def escalation_message(self) -> str:
         """
         Message included with a re-notification for this monitor.
         """
-        if evaluation_delay and not isinstance(evaluation_delay, float):
-            raise TypeError("Expected argument 'evaluation_delay' to be a float")
-        __self__.evaluation_delay = evaluation_delay
+        return pulumi.get(self, "escalation_message")
+
+    @property
+    @pulumi.getter(name="evaluationDelay")
+    def evaluation_delay(self) -> float:
         """
         Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "evaluation_delay")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if include_tags and not isinstance(include_tags, bool):
-            raise TypeError("Expected argument 'include_tags' to be a bool")
-        __self__.include_tags = include_tags
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includeTags")
+    def include_tags(self) -> bool:
         """
         Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
         """
-        if locked and not isinstance(locked, bool):
-            raise TypeError("Expected argument 'locked' to be a bool")
-        __self__.locked = locked
+        return pulumi.get(self, "include_tags")
+
+    @property
+    @pulumi.getter
+    def locked(self) -> bool:
         """
         Whether or not changes to the monitor are restricted to the creator or admins.
         """
-        if message and not isinstance(message, str):
-            raise TypeError("Expected argument 'message' to be a str")
-        __self__.message = message
+        return pulumi.get(self, "locked")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
         """
         Message included with notifications for this monitor.
         """
-        if monitor_tags_filters and not isinstance(monitor_tags_filters, list):
-            raise TypeError("Expected argument 'monitor_tags_filters' to be a list")
-        __self__.monitor_tags_filters = monitor_tags_filters
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="monitorTagsFilters")
+    def monitor_tags_filters(self) -> Optional[List[str]]:
+        return pulumi.get(self, "monitor_tags_filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         Name of the monitor.
         """
-        if name_filter and not isinstance(name_filter, str):
-            raise TypeError("Expected argument 'name_filter' to be a str")
-        __self__.name_filter = name_filter
-        if new_host_delay and not isinstance(new_host_delay, float):
-            raise TypeError("Expected argument 'new_host_delay' to be a float")
-        __self__.new_host_delay = new_host_delay
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nameFilter")
+    def name_filter(self) -> Optional[str]:
+        return pulumi.get(self, "name_filter")
+
+    @property
+    @pulumi.getter(name="newHostDelay")
+    def new_host_delay(self) -> float:
         """
         Time (in seconds) allowing a host to boot and
         applications to fully start before starting the evaluation of monitor
         results.
         """
-        if no_data_timeframe and not isinstance(no_data_timeframe, float):
-            raise TypeError("Expected argument 'no_data_timeframe' to be a float")
-        __self__.no_data_timeframe = no_data_timeframe
+        return pulumi.get(self, "new_host_delay")
+
+    @property
+    @pulumi.getter(name="noDataTimeframe")
+    def no_data_timeframe(self) -> float:
         """
         The number of minutes before the monitor notifies when data stops reporting.
         """
-        if notify_audit and not isinstance(notify_audit, bool):
-            raise TypeError("Expected argument 'notify_audit' to be a bool")
-        __self__.notify_audit = notify_audit
+        return pulumi.get(self, "no_data_timeframe")
+
+    @property
+    @pulumi.getter(name="notifyAudit")
+    def notify_audit(self) -> bool:
         """
         Whether or not tagged users are notified on changes to the monitor.
         """
-        if notify_no_data and not isinstance(notify_no_data, bool):
-            raise TypeError("Expected argument 'notify_no_data' to be a bool")
-        __self__.notify_no_data = notify_no_data
+        return pulumi.get(self, "notify_audit")
+
+    @property
+    @pulumi.getter(name="notifyNoData")
+    def notify_no_data(self) -> bool:
         """
         Whether or not this monitor notifies when data stops reporting.
         """
-        if query and not isinstance(query, str):
-            raise TypeError("Expected argument 'query' to be a str")
-        __self__.query = query
+        return pulumi.get(self, "notify_no_data")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
         """
         Query of the monitor.
         """
-        if renotify_interval and not isinstance(renotify_interval, float):
-            raise TypeError("Expected argument 'renotify_interval' to be a float")
-        __self__.renotify_interval = renotify_interval
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="renotifyInterval")
+    def renotify_interval(self) -> float:
         """
         The number of minutes after the last notification before the monitor re-notifies on the current status.
         """
-        if require_full_window and not isinstance(require_full_window, bool):
-            raise TypeError("Expected argument 'require_full_window' to be a bool")
-        __self__.require_full_window = require_full_window
+        return pulumi.get(self, "renotify_interval")
+
+    @property
+    @pulumi.getter(name="requireFullWindow")
+    def require_full_window(self) -> bool:
         """
         Whether or not the monitor needs a full window of data before it is evaluated.
         """
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        __self__.tags = tags
+        return pulumi.get(self, "require_full_window")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> List[str]:
         """
         List of tags associated with the monitor.
         """
-        if tags_filters and not isinstance(tags_filters, list):
-            raise TypeError("Expected argument 'tags_filters' to be a list")
-        __self__.tags_filters = tags_filters
-        if threshold_windows and not isinstance(threshold_windows, dict):
-            raise TypeError("Expected argument 'threshold_windows' to be a dict")
-        __self__.threshold_windows = threshold_windows
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsFilters")
+    def tags_filters(self) -> Optional[List[str]]:
+        return pulumi.get(self, "tags_filters")
+
+    @property
+    @pulumi.getter(name="thresholdWindows")
+    def threshold_windows(self) -> 'outputs.GetMonitorThresholdWindowsResult':
         """
         Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
         """
-        if thresholds and not isinstance(thresholds, dict):
-            raise TypeError("Expected argument 'thresholds' to be a dict")
-        __self__.thresholds = thresholds
+        return pulumi.get(self, "threshold_windows")
+
+    @property
+    @pulumi.getter
+    def thresholds(self) -> 'outputs.GetMonitorThresholdsResult':
         """
         Alert thresholds of the monitor.
         """
-        if timeout_h and not isinstance(timeout_h, float):
-            raise TypeError("Expected argument 'timeout_h' to be a float")
-        __self__.timeout_h = timeout_h
+        return pulumi.get(self, "thresholds")
+
+    @property
+    @pulumi.getter(name="timeoutH")
+    def timeout_h(self) -> float:
         """
         Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "timeout_h")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         Type of the monitor.
         """
+        return pulumi.get(self, "type")
+
+
 class AwaitableGetMonitorResult(GetMonitorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -174,7 +299,11 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             timeout_h=self.timeout_h,
             type=self.type)
 
-def get_monitor(monitor_tags_filters=None,name_filter=None,tags_filters=None,opts=None):
+
+def get_monitor(monitor_tags_filters: Optional[List[str]] = None,
+                name_filter: Optional[str] = None,
+                tags_filters: Optional[List[str]] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
     Use this data source to retrieve information about an existing monitor for use in other resources.
 
@@ -189,43 +318,41 @@ def get_monitor(monitor_tags_filters=None,name_filter=None,tags_filters=None,opt
     ```
 
 
-    :param list monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+    :param List[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
     :param str name_filter: A monitor name to limit the search.
-    :param list tags_filters: A list of tags to limit the search. This filters on the monitor scope.
+    :param List[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
     __args__ = dict()
-
-
     __args__['monitorTagsFilters'] = monitor_tags_filters
     __args__['nameFilter'] = name_filter
     __args__['tagsFilters'] = tags_filters
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('datadog:index/getMonitor:getMonitor', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('datadog:index/getMonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult).value
 
     return AwaitableGetMonitorResult(
-        enable_logs_sample=__ret__.get('enableLogsSample'),
-        escalation_message=__ret__.get('escalationMessage'),
-        evaluation_delay=__ret__.get('evaluationDelay'),
-        id=__ret__.get('id'),
-        include_tags=__ret__.get('includeTags'),
-        locked=__ret__.get('locked'),
-        message=__ret__.get('message'),
-        monitor_tags_filters=__ret__.get('monitorTagsFilters'),
-        name=__ret__.get('name'),
-        name_filter=__ret__.get('nameFilter'),
-        new_host_delay=__ret__.get('newHostDelay'),
-        no_data_timeframe=__ret__.get('noDataTimeframe'),
-        notify_audit=__ret__.get('notifyAudit'),
-        notify_no_data=__ret__.get('notifyNoData'),
-        query=__ret__.get('query'),
-        renotify_interval=__ret__.get('renotifyInterval'),
-        require_full_window=__ret__.get('requireFullWindow'),
-        tags=__ret__.get('tags'),
-        tags_filters=__ret__.get('tagsFilters'),
-        threshold_windows=__ret__.get('thresholdWindows'),
-        thresholds=__ret__.get('thresholds'),
-        timeout_h=__ret__.get('timeoutH'),
-        type=__ret__.get('type'))
+        enable_logs_sample=__ret__.enable_logs_sample,
+        escalation_message=__ret__.escalation_message,
+        evaluation_delay=__ret__.evaluation_delay,
+        id=__ret__.id,
+        include_tags=__ret__.include_tags,
+        locked=__ret__.locked,
+        message=__ret__.message,
+        monitor_tags_filters=__ret__.monitor_tags_filters,
+        name=__ret__.name,
+        name_filter=__ret__.name_filter,
+        new_host_delay=__ret__.new_host_delay,
+        no_data_timeframe=__ret__.no_data_timeframe,
+        notify_audit=__ret__.notify_audit,
+        notify_no_data=__ret__.notify_no_data,
+        query=__ret__.query,
+        renotify_interval=__ret__.renotify_interval,
+        require_full_window=__ret__.require_full_window,
+        tags=__ret__.tags,
+        tags_filters=__ret__.tags_filters,
+        threshold_windows=__ret__.threshold_windows,
+        thresholds=__ret__.thresholds,
+        timeout_h=__ret__.timeout_h,
+        type=__ret__.type)

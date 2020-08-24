@@ -12,18 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class TimeBoardGraphRequestConditionalFormatGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Comparison operator. Example: "&gt;", "&lt;".
+        /// </summary>
         [Input("comparator", required: true)]
         public Input<string> Comparator { get; set; } = null!;
 
+        /// <summary>
+        /// Used when `palette` is set to `custom_bg`. Set the color of the background to a custom web color, such as "#205081".
+        /// </summary>
         [Input("customBgColor")]
         public Input<string>? CustomBgColor { get; set; }
 
+        /// <summary>
+        /// Used when `palette` is set to `custom_text`. Set the color of the text to a custom web color, such as "#205081".
+        /// </summary>
         [Input("customFgColor")]
         public Input<string>? CustomFgColor { get; set; }
 
+        /// <summary>
+        /// Color scheme to be used if the condition is met. For example: "red_on_white", "white_on_red", "yellow_on_white", "white_on_yellow", "green_on_white", "white_on_green", "gray_on_white", "white_on_gray", "custom_text", "custom_bg", "custom_image".
+        /// </summary>
         [Input("palette")]
         public Input<string>? Palette { get; set; }
 
+        /// <summary>
+        /// Value that is the threshold for the conditional format.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetIframeDefinition
     {
+        /// <summary>
+        /// Read only field - The URL of the dashboard.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

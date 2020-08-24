@@ -17,18 +17,39 @@ export interface DashboardListDashItem {
 }
 
 export interface DashboardTemplateVariable {
+    /**
+     * The default tag. Default: "\*" (match all).
+     */
     default?: string;
+    /**
+     * The variable name. Can be referenced as $name in `graph` `request` `q` query strings.
+     */
     name: string;
+    /**
+     * The tag group. Default: no tag group.
+     */
     prefix?: string;
 }
 
 export interface DashboardTemplateVariablePreset {
+    /**
+     * The displayed name of the preset.
+     * - `templateVariable`: (Required) Block describing the values that a templateVariable within this preset should assume. Each referenced templateVariable name must be defined on the dashboard, but not all templateVariables must be included in a preset. One or more blocks can be defined per preset.
+     * - `name`: (Required) The name of the templateVariable being referenced.
+     * - `value`: (Required) The value that the templateVariable should assume.
+     */
     name: string;
     templateVariables: outputs.DashboardTemplateVariablePresetTemplateVariable[];
 }
 
 export interface DashboardTemplateVariablePresetTemplateVariable {
+    /**
+     * The variable name. Can be referenced as $name in `graph` `request` `q` query strings.
+     */
     name: string;
+    /**
+     * Value for the comparator.
+     */
     value: string;
 }
 
@@ -46,6 +67,29 @@ export interface DashboardWidget {
     hostmapDefinition?: outputs.DashboardWidgetHostmapDefinition;
     iframeDefinition?: outputs.DashboardWidgetIframeDefinition;
     imageDefinition?: outputs.DashboardWidgetImageDefinition;
+    /**
+     * . The structure of this block is described below
+     * - A widget should have exactly one of the following nested blocks describing the widget definition:
+     * - `alertGraphDefinition`: The definition for a Alert Graph widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `vizType`: (Required) Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `alertValueDefinition`: The definition for an Alert Value widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `precision`: (Optional) The precision to use when displaying the value. Use "*" for maximum precision.
+     * - `unit`: (Optional) The unit for the value displayed in the widget.
+     * - `textAlign`: (Optional) The alignment of the text in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `changeDefinition`: The definition for a Change widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `changeType`: (Optional) Whether to show absolute or relative change. One of "absolute", "relative".
+     */
     layout?: outputs.DashboardWidgetLayout;
     logStreamDefinition?: outputs.DashboardWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetManageStatusDefinition;
@@ -63,6 +107,9 @@ export interface DashboardWidget {
 export interface DashboardWidgetAlertGraphDefinition {
     alertId: string;
     time?: outputs.DashboardWidgetAlertGraphDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -70,13 +117,38 @@ export interface DashboardWidgetAlertGraphDefinition {
 }
 
 export interface DashboardWidgetAlertGraphDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetAlertValueDefinition {
     alertId: string;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: number;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -86,6 +158,9 @@ export interface DashboardWidgetAlertValueDefinition {
 export interface DashboardWidgetChangeDefinition {
     requests?: outputs.DashboardWidgetChangeDefinitionRequest[];
     time?: outputs.DashboardWidgetChangeDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -94,20 +169,49 @@ export interface DashboardWidgetChangeDefinition {
 export interface DashboardWidgetChangeDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQuery;
     changeType?: string;
+    /**
+     * Choose from when to compare current data to. One of "hourBefore", "dayBefore", "weekBefore" or "monthBefore".
+     */
     compareTo?: string;
+    /**
+     * Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+     */
     increaseGood?: boolean;
     logQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQuery;
+    /**
+     * One of "change", "name", "present" (present value) or "past" (past value).
+     */
     orderBy?: string;
+    /**
+     * Either "asc" (ascending) or "desc" (descending).
+     */
     orderDir?: string;
     processQuery?: outputs.DashboardWidgetChangeDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * If set to "true", displays current value.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `checkStatusDefinition`: The definition for a Check Status widget. Exactly one nested block is allowed with the following structure:
+     */
     showPresent?: boolean;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetChangeDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetChangeDefinitionRequestApmQuerySearch;
 }
 
@@ -119,13 +223,36 @@ export interface DashboardWidgetChangeDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -134,9 +261,18 @@ export interface DashboardWidgetChangeDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetChangeDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetChangeDefinitionRequestLogQuerySearch;
 }
 
@@ -148,13 +284,36 @@ export interface DashboardWidgetChangeDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -164,28 +323,63 @@ export interface DashboardWidgetChangeDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetCheckStatusDefinition {
+    /**
+     * The check to use in the widget.
+     */
     check: string;
+    /**
+     * The check group to use in the widget.
+     */
     group?: string;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: string[];
+    /**
+     * Either "check" or "cluster", depending on whether the widget should use a single check or a cluster of checks.
+     */
     grouping: string;
+    /**
+     * List of tags to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `distributionDefinition`: The definition for a Distribution widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     tags?: string[];
     time?: outputs.DashboardWidgetCheckStatusDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetCheckStatusDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
@@ -194,6 +388,9 @@ export interface DashboardWidgetDistributionDefinition {
     requests?: outputs.DashboardWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
     time?: outputs.DashboardWidgetDistributionDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -204,13 +401,25 @@ export interface DashboardWidgetDistributionDefinitionRequest {
     logQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetDistributionDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch;
 }
 
@@ -222,13 +431,36 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -237,9 +469,18 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetDistributionDefinitionRequestLogQuerySearch;
 }
 
@@ -251,13 +492,36 @@ export interface DashboardWidgetDistributionDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -267,30 +531,85 @@ export interface DashboardWidgetDistributionDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetEventStreamDefinition {
+    /**
+     * The size of the events in the widget. Either "s" (small, title only) or "l" (large, full event).
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `eventTimelineDefinition`: The definition for a Event Timeline widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `freeTextDefinition`: The definition for a Free Text. Exactly one nested block is allowed with the following structure:
+     */
     eventSize?: string;
     query: string;
     tagsExecution?: string;
     time?: outputs.DashboardWidgetEventStreamDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetEventStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
@@ -298,25 +617,66 @@ export interface DashboardWidgetEventTimelineDefinition {
     query: string;
     tagsExecution?: string;
     time?: outputs.DashboardWidgetEventTimelineDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetEventTimelineDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetFreeTextDefinition {
+    /**
+     * The color of the text in the widget.
+     */
     color?: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * The text to display in the widget.
+     */
     text: string;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
 }
 
 export interface DashboardWidgetGroupDefinition {
+    /**
+     * Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
+     * <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+     */
     layoutType: string;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
+    /**
+     * Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+     */
     widgets: outputs.DashboardWidgetGroupDefinitionWidget[];
 }
 
@@ -333,6 +693,29 @@ export interface DashboardWidgetGroupDefinitionWidget {
     hostmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition;
     iframeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition;
     imageDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition;
+    /**
+     * . The structure of this block is described below
+     * - A widget should have exactly one of the following nested blocks describing the widget definition:
+     * - `alertGraphDefinition`: The definition for a Alert Graph widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `vizType`: (Required) Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `alertValueDefinition`: The definition for an Alert Value widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `precision`: (Optional) The precision to use when displaying the value. Use "*" for maximum precision.
+     * - `unit`: (Optional) The unit for the value displayed in the widget.
+     * - `textAlign`: (Optional) The alignment of the text in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `changeDefinition`: The definition for a Change widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `changeType`: (Optional) Whether to show absolute or relative change. One of "absolute", "relative".
+     */
     layout?: outputs.DashboardWidgetGroupDefinitionWidgetLayout;
     logStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition;
@@ -350,6 +733,9 @@ export interface DashboardWidgetGroupDefinitionWidget {
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     alertId: string;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -357,13 +743,38 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
     alertId: string;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: number;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -373,6 +784,9 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest[];
     time?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -381,20 +795,49 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery;
     changeType?: string;
+    /**
+     * Choose from when to compare current data to. One of "hourBefore", "dayBefore", "weekBefore" or "monthBefore".
+     */
     compareTo?: string;
+    /**
+     * Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+     */
     increaseGood?: boolean;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery;
+    /**
+     * One of "change", "name", "present" (present value) or "past" (past value).
+     */
     orderBy?: string;
+    /**
+     * Either "asc" (ascending) or "desc" (descending).
+     */
     orderDir?: string;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * If set to "true", displays current value.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `checkStatusDefinition`: The definition for a Check Status widget. Exactly one nested block is allowed with the following structure:
+     */
     showPresent?: boolean;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch;
 }
 
@@ -406,13 +849,36 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -421,9 +887,18 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch;
 }
 
@@ -435,13 +910,36 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQ
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -451,28 +949,63 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQ
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
+    /**
+     * The check to use in the widget.
+     */
     check: string;
+    /**
+     * The check group to use in the widget.
+     */
     group?: string;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: string[];
+    /**
+     * Either "check" or "cluster", depending on whether the widget should use a single check or a cluster of checks.
+     */
     grouping: string;
+    /**
+     * List of tags to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `distributionDefinition`: The definition for a Distribution widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     tags?: string[];
     time?: outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
@@ -481,6 +1014,9 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -491,13 +1027,25 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch;
 }
 
@@ -509,13 +1057,36 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -524,9 +1095,18 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch;
 }
 
@@ -538,13 +1118,36 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -554,30 +1157,85 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
+    /**
+     * The size of the events in the widget. Either "s" (small, title only) or "l" (large, full event).
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `eventTimelineDefinition`: The definition for a Event Timeline widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `freeTextDefinition`: The definition for a Free Text. Exactly one nested block is allowed with the following structure:
+     */
     eventSize?: string;
     query: string;
     tagsExecution?: string;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
@@ -585,19 +1243,50 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
     query: string;
     tagsExecution?: string;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetFreeTextDefinition {
+    /**
+     * The color of the text in the widget.
+     */
     color?: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * The text to display in the widget.
+     */
     text: string;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
 }
 
@@ -607,6 +1296,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -623,13 +1315,25 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch;
 }
 
@@ -641,13 +1345,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -656,9 +1383,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch;
 }
 
@@ -670,13 +1406,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -686,35 +1445,104 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
+    /**
+     * The check group to use in the widget.
+     */
     groups?: string[];
+    /**
+     * Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: boolean;
+    /**
+     * Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: boolean;
+    /**
+     * The type of node used. Either "host" or "container".
+     */
     nodeType?: string;
     request?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest;
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: string[];
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -733,9 +1561,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch;
 }
 
@@ -747,13 +1584,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -762,9 +1622,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch;
 }
 
@@ -776,13 +1645,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -792,6 +1684,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
@@ -805,9 +1700,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch;
 }
 
@@ -819,13 +1723,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -834,9 +1761,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch;
 }
 
@@ -848,13 +1784,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -864,48 +1823,143 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
+    /**
+     * Max value to use to color the map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `iframeDefinition`: The definition for a Iframe widget. Exactly one nested block is allowed with the following structure:
+     */
     fillMax?: string;
+    /**
+     * Min value to use to color the map.
+     */
     fillMin?: string;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
+    /**
+     * Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip?: boolean;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
+    /**
+     * The margins to use around the image. Either "small" or "large".
+     * - `logStreamDefinition`: The definition for a Log Stream widget. Exactly one nested block is allowed with the following structure:
+     */
     margin?: string;
+    /**
+     * The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+     */
     sizing?: string;
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLayout {
+    /**
+     * The height of the widget.
+     */
     height: number;
+    /**
+     * The width of the widget.
+     */
     width: number;
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     x: number;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     y: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
+    /**
+     * Stringified list of columns to use. Example: `"["column1","column2","column3"]"`.
+     */
     columns?: string[];
     indexes?: string[];
     /**
+     * ID of the logset to use.
+     * - `query`: (Optional) The query to use in the widget.
+     *
      * @deprecated This parameter has been deprecated. Use 'indexes' instead
      */
     logset?: string;
+    /**
+     * The amount of lines the message column should display. One of: `inline`, `expanded-md`, and `expanded-lg`.
+     */
     messageDisplay?: string;
     query?: string;
+    /**
+     * If the date column should be displayed.
+     */
     showDateColumn?: boolean;
+    /**
+     * If the message column should be displayed.
+     */
     showMessageColumn?: boolean;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -913,68 +1967,213 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort {
     column: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
+    /**
+     * Whether to colorize text or background. One of "text", "background".
+     */
     colorPreference?: string;
     /**
      * @deprecated This parameter has been deprecated
      */
     count?: number;
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: string;
+    /**
+     * Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: boolean;
     query: string;
+    /**
+     * Boolean indicating whether to show when monitors/groups last triggered.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `noteDefinition`: The definition for a Note widget. Exactly one nested block is allowed with the following structure:
+     */
     showLastTriggered?: boolean;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: string;
     /**
      * @deprecated This parameter has been deprecated
      */
     start?: number;
+    /**
+     * The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
+     */
     summaryType?: string;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
+    /**
+     * Background color of the note.
+     */
     backgroundColor?: string;
+    /**
+     * Content of the note.
+     */
     content: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * Whether to show a tick or not.
+     */
     showTick?: boolean;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
+    /**
+     * When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
+     * - `queryValueDefinition`: The definition for a Query Value widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     tickEdge?: string;
+    /**
+     * When tick = true, string with a percent sign indicating the position of the tick. Example: use tickPos = "50%" for centered alignment.
+     */
     tickPos?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest[];
     time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
+    /**
+     * The alias for the column name. Default is the metric name.
+     */
     alias?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order?: string;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery;
     q?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch;
 }
 
@@ -986,13 +2185,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1001,20 +2223,48 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: string;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: string;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: string;
     timeframe?: string;
+    /**
+     * Value for the comparator.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch;
 }
 
@@ -1026,13 +2276,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1042,30 +2315,95 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
+    /**
+     * Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: boolean;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     customUnit?: string;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: number;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest[];
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery;
@@ -1073,9 +2411,18 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch;
 }
 
@@ -1087,13 +2434,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1102,20 +2472,48 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: string;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: string;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: string;
     timeframe?: string;
+    /**
+     * Value for the comparator.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch;
 }
 
@@ -1127,13 +2525,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1143,19 +2564,58 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `servicemapDefinition`: The definition for a Service Map widget. Exactly one nested block is allowed with the following structure:
+     * - `filters`: (Required) Your environment and primary tag (or * if enabled for your account).
+     * - `service`: (Required) The ID of the service you want to map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `serviceLevelObjectiveDefinition`: The definition for a Service Level Objective widget. Exactly one nested block is allowed with the following structure:
+     * - `viewType`: (Required) Type of view to use when displaying the widget. Only "detail" is currently supported.
+     * - `sloId`: (Required) The ID of the service level objective used by the widget.
+     * - `showErrorBudget`: (Optional) Whether to show the error budget or not.
+     * - `viewMode`: (Required) View mode for the widget. One of "overall", "component", or "both".
+     * - `timeWindows`: (Required) List of time windows to display in the widget. Each value in the list must be one of "7d", "30d", "90d", "weekToDate",  "previousWeek", "monthToDate", or "previousMonth".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `timeseriesDefinition`: The definition for a Timeseries  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `networkQuery`: (Optional) The network query to use in the widget. The structure of this block is described below.
+     * - `rumQuery`: (Optional) The rum query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     colorByGroups?: string[];
     request?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1164,11 +2624,24 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest {
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     xes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX[];
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     ys?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY[];
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery;
@@ -1177,9 +2650,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch;
 }
 
@@ -1191,13 +2673,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1206,9 +2711,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch;
 }
 
@@ -1220,13 +2734,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1236,12 +2773,22 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery;
@@ -1250,9 +2797,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch;
 }
 
@@ -1264,13 +2820,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1279,9 +2858,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch;
 }
 
@@ -1293,13 +2881,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1309,28 +2920,64 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
@@ -1338,6 +2985,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1348,6 +2998,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
 export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     filters: string[];
     service: string;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1356,10 +3009,32 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     events?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
+    /**
+     * Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tileDef block.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `toplistDefinition`: The definition for a Toplist  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     markers?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest[];
     showLegend?: boolean;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1372,27 +3047,54 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: string;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Value for the comparator.
+     */
     value: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery;
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: string;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery;
+    /**
+     * . Used to define expression aliases. Multiple nested blocks are allowed with the following structure:
+     */
     metadatas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata[];
     networkQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch;
 }
 
@@ -1404,13 +3106,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1419,9 +3144,18 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch;
 }
 
@@ -1433,13 +3167,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1453,9 +3210,18 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch;
 }
 
@@ -1467,13 +3233,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1483,15 +3272,27 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch;
 }
 
@@ -1503,13 +3304,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1518,26 +3342,80 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * Type of lines displayed. Available values are: `dashed`, `dotted`, or `solid`.
+     */
     lineType?: string;
+    /**
+     * Width of line displayed. Available values are: `normal`, `thick`, or `thin`.
+     */
     lineWidth?: string;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest[];
     time?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1545,17 +3423,53 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch;
 }
 
@@ -1567,13 +3481,36 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1582,20 +3519,48 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: string;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: string;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: string;
     timeframe?: string;
+    /**
+     * Value for the comparator.
+     */
     value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch;
 }
 
@@ -1607,13 +3572,36 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1623,20 +3611,56 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: string;
     env: string;
     service: string;
@@ -1649,12 +3673,18 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     sizeFormat?: string;
     spanName: string;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
@@ -1664,6 +3694,9 @@ export interface DashboardWidgetHeatmapDefinition {
     requests?: outputs.DashboardWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
     time?: outputs.DashboardWidgetHeatmapDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1680,13 +3713,25 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
     logQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetHeatmapDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch;
 }
 
@@ -1698,13 +3743,36 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1713,9 +3781,18 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch;
 }
 
@@ -1727,13 +3804,36 @@ export interface DashboardWidgetHeatmapDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1743,35 +3843,104 @@ export interface DashboardWidgetHeatmapDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetHeatmapDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetHostmapDefinition {
+    /**
+     * The check group to use in the widget.
+     */
     groups?: string[];
+    /**
+     * Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: boolean;
+    /**
+     * Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: boolean;
+    /**
+     * The type of node used. Either "host" or "container".
+     */
     nodeType?: string;
     request?: outputs.DashboardWidgetHostmapDefinitionRequest;
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: string[];
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetHostmapDefinitionStyle;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1790,9 +3959,18 @@ export interface DashboardWidgetHostmapDefinitionRequestFill {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch;
 }
 
@@ -1804,13 +3982,36 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1819,9 +4020,18 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch;
 }
 
@@ -1833,13 +4043,36 @@ export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1849,6 +4082,9 @@ export interface DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch {
 
 export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
@@ -1862,9 +4098,18 @@ export interface DashboardWidgetHostmapDefinitionRequestSize {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch;
 }
 
@@ -1876,13 +4121,36 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1891,9 +4159,18 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch;
 }
 
@@ -1905,13 +4182,36 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -1921,48 +4221,143 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch {
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionStyle {
+    /**
+     * Max value to use to color the map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `iframeDefinition`: The definition for a Iframe widget. Exactly one nested block is allowed with the following structure:
+     */
     fillMax?: string;
+    /**
+     * Min value to use to color the map.
+     */
     fillMin?: string;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
+    /**
+     * Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip?: boolean;
 }
 
 export interface DashboardWidgetIframeDefinition {
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: string;
 }
 
 export interface DashboardWidgetImageDefinition {
+    /**
+     * The margins to use around the image. Either "small" or "large".
+     * - `logStreamDefinition`: The definition for a Log Stream widget. Exactly one nested block is allowed with the following structure:
+     */
     margin?: string;
+    /**
+     * The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+     */
     sizing?: string;
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: string;
 }
 
 export interface DashboardWidgetLayout {
+    /**
+     * The height of the widget.
+     */
     height: number;
+    /**
+     * The width of the widget.
+     */
     width: number;
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     x: number;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     y: number;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
+    /**
+     * Stringified list of columns to use. Example: `"["column1","column2","column3"]"`.
+     */
     columns?: string[];
     indexes?: string[];
     /**
+     * ID of the logset to use.
+     * - `query`: (Optional) The query to use in the widget.
+     *
      * @deprecated This parameter has been deprecated. Use 'indexes' instead
      */
     logset?: string;
+    /**
+     * The amount of lines the message column should display. One of: `inline`, `expanded-md`, and `expanded-lg`.
+     */
     messageDisplay?: string;
     query?: string;
+    /**
+     * If the date column should be displayed.
+     */
     showDateColumn?: boolean;
+    /**
+     * If the message column should be displayed.
+     */
     showMessageColumn?: boolean;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetLogStreamDefinitionSort;
     time?: outputs.DashboardWidgetLogStreamDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1970,68 +4365,213 @@ export interface DashboardWidgetLogStreamDefinition {
 
 export interface DashboardWidgetLogStreamDefinitionSort {
     column: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
 export interface DashboardWidgetLogStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetManageStatusDefinition {
+    /**
+     * Whether to colorize text or background. One of "text", "background".
+     */
     colorPreference?: string;
     /**
      * @deprecated This parameter has been deprecated
      */
     count?: number;
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: string;
+    /**
+     * Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: boolean;
     query: string;
+    /**
+     * Boolean indicating whether to show when monitors/groups last triggered.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `noteDefinition`: The definition for a Note widget. Exactly one nested block is allowed with the following structure:
+     */
     showLastTriggered?: boolean;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: string;
     /**
      * @deprecated This parameter has been deprecated
      */
     start?: number;
+    /**
+     * The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
+     */
     summaryType?: string;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetNoteDefinition {
+    /**
+     * Background color of the note.
+     */
     backgroundColor?: string;
+    /**
+     * Content of the note.
+     */
     content: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * Whether to show a tick or not.
+     */
     showTick?: boolean;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
+    /**
+     * When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
+     * - `queryValueDefinition`: The definition for a Query Value widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     tickEdge?: string;
+    /**
+     * When tick = true, string with a percent sign indicating the position of the tick. Example: use tickPos = "50%" for centered alignment.
+     */
     tickPos?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinition {
     requests?: outputs.DashboardWidgetQueryTableDefinitionRequest[];
     time?: outputs.DashboardWidgetQueryTableDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
+    /**
+     * The alias for the column name. Default is the metric name.
+     */
     alias?: string;
     apmQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     logQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order?: string;
     processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery;
     q?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch;
 }
 
@@ -2043,13 +4583,36 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2058,20 +4621,48 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: string;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: string;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: string;
     timeframe?: string;
+    /**
+     * Value for the comparator.
+     */
     value: number;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch;
 }
 
@@ -2083,13 +4674,36 @@ export interface DashboardWidgetQueryTableDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2099,30 +4713,95 @@ export interface DashboardWidgetQueryTableDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinition {
+    /**
+     * Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: boolean;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     customUnit?: string;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: number;
     requests?: outputs.DashboardWidgetQueryValueDefinitionRequest[];
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: string;
     time?: outputs.DashboardWidgetQueryValueDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat[];
     logQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery;
@@ -2130,9 +4809,18 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch;
 }
 
@@ -2144,13 +4832,36 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2159,20 +4870,48 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: string;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: string;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: string;
     timeframe?: string;
+    /**
+     * Value for the comparator.
+     */
     value: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuerySearch;
 }
 
@@ -2184,13 +4923,36 @@ export interface DashboardWidgetQueryValueDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2200,19 +4962,58 @@ export interface DashboardWidgetQueryValueDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `servicemapDefinition`: The definition for a Service Map widget. Exactly one nested block is allowed with the following structure:
+     * - `filters`: (Required) Your environment and primary tag (or * if enabled for your account).
+     * - `service`: (Required) The ID of the service you want to map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `serviceLevelObjectiveDefinition`: The definition for a Service Level Objective widget. Exactly one nested block is allowed with the following structure:
+     * - `viewType`: (Required) Type of view to use when displaying the widget. Only "detail" is currently supported.
+     * - `sloId`: (Required) The ID of the service level objective used by the widget.
+     * - `showErrorBudget`: (Optional) Whether to show the error budget or not.
+     * - `viewMode`: (Required) View mode for the widget. One of "overall", "component", or "both".
+     * - `timeWindows`: (Required) List of time windows to display in the widget. Each value in the list must be one of "7d", "30d", "90d", "weekToDate",  "previousWeek", "monthToDate", or "previousMonth".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `timeseriesDefinition`: The definition for a Timeseries  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `networkQuery`: (Optional) The network query to use in the widget. The structure of this block is described below.
+     * - `rumQuery`: (Optional) The rum query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     colorByGroups?: string[];
     request?: outputs.DashboardWidgetScatterplotDefinitionRequest;
     time?: outputs.DashboardWidgetScatterplotDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2221,11 +5022,24 @@ export interface DashboardWidgetScatterplotDefinition {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequest {
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     xes?: outputs.DashboardWidgetScatterplotDefinitionRequestX[];
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     ys?: outputs.DashboardWidgetScatterplotDefinitionRequestY[];
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestX {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery;
     logQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery;
@@ -2234,9 +5048,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestX {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch;
 }
 
@@ -2248,13 +5071,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2263,9 +5109,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch;
 }
 
@@ -2277,13 +5132,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2293,12 +5171,22 @@ export interface DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch {
 
 export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestY {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery;
     logQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery;
@@ -2307,9 +5195,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestY {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch;
 }
 
@@ -2321,13 +5218,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2336,9 +5256,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch;
 }
 
@@ -2350,13 +5279,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2366,28 +5318,64 @@ export interface DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch {
 
 export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
@@ -2395,6 +5383,9 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2405,6 +5396,9 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
 export interface DashboardWidgetServicemapDefinition {
     filters: string[];
     service: string;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2413,10 +5407,32 @@ export interface DashboardWidgetServicemapDefinition {
 export interface DashboardWidgetTimeseriesDefinition {
     events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
+    /**
+     * Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tileDef block.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `toplistDefinition`: The definition for a Toplist  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     markers?: outputs.DashboardWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetTimeseriesDefinitionRequest[];
     showLegend?: boolean;
     time?: outputs.DashboardWidgetTimeseriesDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2429,27 +5445,54 @@ export interface DashboardWidgetTimeseriesDefinitionEvent {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionMarker {
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: string;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Value for the comparator.
+     */
     value: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery;
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: string;
     logQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery;
+    /**
+     * . Used to define expression aliases. Multiple nested blocks are allowed with the following structure:
+     */
     metadatas?: outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata[];
     networkQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery;
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
     rumQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetTimeseriesDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch;
 }
 
@@ -2461,13 +5504,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2476,9 +5542,18 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch;
 }
 
@@ -2490,13 +5565,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2510,9 +5608,18 @@ export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch;
 }
 
@@ -2524,13 +5631,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2540,15 +5670,27 @@ export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch;
 }
 
@@ -2560,13 +5702,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2575,26 +5740,80 @@ export interface DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * Type of lines displayed. Available values are: `dashed`, `dotted`, or `solid`.
+     */
     lineType?: string;
+    /**
+     * Width of line displayed. Available values are: `normal`, `thick`, or `thin`.
+     */
     lineWidth?: string;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: boolean;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: string;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: string;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: string;
 }
 
 export interface DashboardWidgetToplistDefinition {
     requests?: outputs.DashboardWidgetToplistDefinitionRequest[];
     time?: outputs.DashboardWidgetToplistDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2602,17 +5821,53 @@ export interface DashboardWidgetToplistDefinition {
 
 export interface DashboardWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQuery;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat[];
     logQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetToplistDefinitionRequestProcessQuery;
     q?: string;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: outputs.DashboardWidgetToplistDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetToplistDefinitionRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetToplistDefinitionRequestApmQuerySearch;
 }
 
@@ -2624,13 +5879,36 @@ export interface DashboardWidgetToplistDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2639,20 +5917,48 @@ export interface DashboardWidgetToplistDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: string;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: string;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: string;
     hideValue?: boolean;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: string;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: string;
     timeframe?: string;
+    /**
+     * Value for the comparator.
+     */
     value: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch;
 }
 
@@ -2664,13 +5970,36 @@ export interface DashboardWidgetToplistDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
     facet?: string;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort {
     aggregation: string;
     facet?: string;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: string;
 }
 
@@ -2680,20 +6009,56 @@ export interface DashboardWidgetToplistDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: number;
     metric: string;
     searchBy?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
 export interface DashboardWidgetTraceServiceDefinition {
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: string;
     env: string;
     service: string;
@@ -2706,12 +6071,18 @@ export interface DashboardWidgetTraceServiceDefinition {
     sizeFormat?: string;
     spanName: string;
     time?: outputs.DashboardWidgetTraceServiceDefinitionTime;
+    /**
+     * Title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
 }
 
 export interface DashboardWidgetTraceServiceDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: string;
 }
 
@@ -3564,140 +6935,452 @@ export interface MonitorThresholds {
 }
 
 export interface ScreenBoardTemplateVariable {
+    /**
+     * The default tag. Default: "\*" (match all).
+     */
     default?: string;
+    /**
+     * The variable name. Can be referenced as \$name in `graph` `request` `q` query strings.
+     */
     name: string;
+    /**
+     * The tag group. Default: no tag group.
+     */
     prefix?: string;
 }
 
 export interface ScreenBoardWidget {
+    /**
+     * The ID of the monitor used by the widget.
+     */
     alertId?: number;
+    /**
+     * Boolean indicating whether the widget is refreshed automatically.
+     */
     autoRefresh?: boolean;
+    /**
+     * The color of the background of the widget.
+     */
     bgcolor?: string;
+    /**
+     * The check to use in the widget.
+     */
     check?: string;
+    /**
+     * The color of the text in the widget.
+     */
     color?: string;
+    /**
+     * Whether to colorize text or background. One of "text", "background".
+     */
     colorPreference?: string;
+    /**
+     * Stringified list of columns to use. Example: `"[\"column1\",\"column2\",\"column3\"]"`
+     */
     columns?: string;
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: string;
+    /**
+     * The environment to use.
+     */
     env?: string;
+    /**
+     * The size of the events in the widget. Either "s" (small, title only) or "l" (large, full event).
+     */
     eventSize?: string;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: string;
+    /**
+     * The list of tags to group nodes by.
+     */
     group?: string;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: string[];
+    /**
+     * Either "check" or "cluster", depending on whether the widget should use a single check or a cluster of checks.
+     */
     grouping?: string;
+    /**
+     * The height of the widget. Default is 15.
+     */
     height?: number;
+    /**
+     * Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: boolean;
+    /**
+     * The content of the widget. HTML tags supported.
+     */
     html?: string;
+    /**
+     * The number of columns to use when displaying values. One of "oneColumn", "twoColumn", "threeColumn".
+     */
     layoutVersion?: string;
+    /**
+     * Boolean indicating whether to display a legend in the widget.
+     */
     legend?: boolean;
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: string;
+    /**
+     * ID of the logset to use.
+     */
     logset?: string;
+    /**
+     * Boolean indicating whether to show a title.
+     */
     manageStatusShowTitle?: boolean;
+    /**
+     * The alignment of the widget's title. One of "left", "center", or "right".
+     */
     manageStatusTitleAlign?: string;
+    /**
+     * The size of the widget's title.
+     */
     manageStatusTitleSize?: string;
+    /**
+     * The title of the widget.
+     */
     manageStatusTitleText?: string;
+    /**
+     * The margins to use around the image. Either "small" or "large".
+     */
     margin?: string;
     monitor?: {[key: string]: string};
+    /**
+     * Boolean indicating whether to display breakdown.
+     */
     mustShowBreakdown?: boolean;
+    /**
+     * Boolean indicating whether to display distribution.
+     */
     mustShowDistribution?: boolean;
+    /**
+     * Boolean indicating whether to display errors.
+     */
     mustShowErrors?: boolean;
+    /**
+     * Boolean indicating whether to display hits.
+     */
     mustShowHits?: boolean;
+    /**
+     * Boolean indicating whether to display latency.
+     */
     mustShowLatency?: boolean;
+    /**
+     * Boolean indicating whether to display resources.
+     */
     mustShowResourceList?: boolean;
+    /**
+     * Nested block describing the monitors to display. The structure of this block is described below. At most one such block should be present in a given widget.
+     */
     params?: {[key: string]: string};
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: string;
+    /**
+     * The query to use in the widget.
+     */
     query?: string;
     rules?: outputs.ScreenBoardWidgetRule[];
+    /**
+     * The name of the service to use.
+     */
     serviceName?: string;
+    /**
+     * The trace service to use.
+     */
     serviceService?: string;
+    /**
+     * Boolean indicating whether to show when monitors/groups last triggered.
+     */
     showLastTriggered?: boolean;
+    /**
+     * The size of the widget. One of "small", "medium", "large".
+     */
     sizeVersion?: string;
+    /**
+     * The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+     */
     sizing?: string;
+    /**
+     * The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
+     */
     summaryType?: string;
+    /**
+     * List of tags to use in the widget.
+     */
     tags?: string[];
+    /**
+     * The query to use to get monitors. Example: "status:alert".
+     */
     text?: string;
+    /**
+     * The alignment of the text.
+     */
     textAlign?: string;
+    /**
+     * The size of the text in the widget.
+     */
     textSize?: string;
+    /**
+     * Boolean indicating whether a tick should be displayed on the border of the widget.
+     */
     tick?: boolean;
+    /**
+     * When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
+     */
     tickEdge?: string;
+    /**
+     * When tick = true, string with a percent sign indicating the position of the tick. Example: use tickPos = "50%" for centered alignment.
+     */
     tickPos?: string;
+    /**
+     * Nested block describing the content to display in the widget. The structure of this block is described below. At most one such block should be present in a given widget.
+     */
     tileDeves?: outputs.ScreenBoardWidgetTileDef[];
+    /**
+     * Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below. At most one such block should be present in a given widget.
+     */
     time?: {[key: string]: string};
     timeframes?: string[];
+    /**
+     * The title of the widget.
+     */
     title?: string;
+    /**
+     * The alignment of the widget's title. One of "left", "center", or "right".
+     */
     titleAlign?: string;
+    /**
+     * The size of the widget's title. Default is 16.
+     */
     titleSize?: number;
+    /**
+     * Choose the type of representation to use for this query. For widgets of type "timeseries" and "queryValue", use one of "line", "bars" or "area". For widgets of type "hostmap", use "fill" or "size".
+     */
     type: string;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     unit?: string;
+    /**
+     * The URL to use as a data source for the widget.
+     */
     url?: string;
+    /**
+     * Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+     */
     vizType?: string;
+    /**
+     * The width of the widget. Default is 50.
+     */
     width?: number;
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     x: number;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     y: number;
 }
 
 export interface ScreenBoardWidgetRule {
+    /**
+     * The color of the text in the widget.
+     */
     color?: string;
     threshold?: number;
     timeframe?: string;
 }
 
 export interface ScreenBoardWidgetTileDef {
+    /**
+     * Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: boolean;
+    /**
+     * The unit for the value displayed in the widget
+     */
     customUnit?: string;
+    /**
+     * Nested block describing the event overlays to use when displaying the widget. The structure of this block is described below. At most one such block should be present in a given tileDef block.
+     */
     events?: outputs.ScreenBoardWidgetTileDefEvent[];
+    /**
+     * The check group to use in the widget.
+     */
     groups?: string[];
+    /**
+     * Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tileDef block.
+     */
     markers?: outputs.ScreenBoardWidgetTileDefMarker[];
+    /**
+     * Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: boolean;
+    /**
+     * Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: boolean;
+    /**
+     * The type of node used. Either "host" or "container".
+     */
     nodeType?: string;
+    /**
+     * The precision to use when displaying the value. Use "\*" for maximum precision.
+     */
     precision?: string;
+    /**
+     * Nested block describing the request to use when displaying the widget. The structure of this block is described below. Multiple request blocks are allowed within a given tileDef block.
+     */
     requests: outputs.ScreenBoardWidgetTileDefRequest[];
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: string[];
+    /**
+     * Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tileDef block.
+     */
     style?: {[key: string]: any};
+    /**
+     * The alignment of the text in the widget.
+     */
     textAlign?: string;
+    /**
+     * Should be the same as the widget's type. One of "timeseries", "queryValue", "hostmap", "change", "toplist", "process".
+     */
     viz: string;
 }
 
 export interface ScreenBoardWidgetTileDefEvent {
+    /**
+     * The search query for event overlays.
+     */
     q: string;
 }
 
 export interface ScreenBoardWidgetTileDefMarker {
+    /**
+     * A label for the line or range.
+     */
     label?: string;
+    /**
+     * The type of the widget. One of "freeText", "timeseries", "queryValue", "toplist", "change", "eventTimeline", "eventStream", "image", "note", "alertGraph", "alertValue", "iframe", "checkStatus", "traceService", "hostmap", "manageStatus", "logStream", or "process".
+     */
     type: string;
+    /**
+     * Mathematical expression describing the marker. Examples: "y > 1", "-5 < y < 0", "y = 19".
+     */
     value: string;
 }
 
 export interface ScreenBoardWidgetTileDefRequest {
+    /**
+     * The aggregator to use for time aggregation. One of "avg", "min", "max", "sum", "last".
+     */
     aggregator?: string;
+    /**
+     * The APM query to use in the widget. The structure of this block is described below.
+     */
     apmQuery?: outputs.ScreenBoardWidgetTileDefRequestApmQuery;
+    /**
+     * Whether to show absolute or relative change. One of "absolute", "relative".
+     */
     changeType?: string;
+    /**
+     * Choose from when to compare current data to. One of "hourBefore", "dayBefore", "weekBefore" or "monthBefore".
+     */
     compareTo?: string;
+    /**
+     * Nested block to customize the style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
+     */
     conditionalFormats?: outputs.ScreenBoardWidgetTileDefRequestConditionalFormat[];
+    /**
+     * If set to "present", displays current value. Can be left empty otherwise.
+     */
     extraCol?: string;
+    /**
+     * Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+     */
     increaseGood?: boolean;
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: number;
+    /**
+     * The log query to use in the widget. The structure of this block is described below.
+     */
     logQuery?: outputs.ScreenBoardWidgetTileDefRequestLogQuery;
     /**
      * A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadataJson` will be ignored if they're not present in the query. For example:
      */
     metadataJson?: string;
+    /**
+     * The metric you want to use for the widget.
+     */
     metric?: string;
+    /**
+     * One of "change", "name", "present" (present value) or "past" (past value).
+     */
     orderBy?: string;
+    /**
+     * Either "asc" (ascending) or "desc" (descending).
+     */
     orderDir?: string;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.ScreenBoardWidgetTileDefRequestProcessQuery;
+    /**
+     * The search query for event overlays.
+     */
     q?: string;
+    /**
+     * Use "process".
+     */
     queryType?: string;
+    /**
+     * Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tileDef block.
+     */
     style?: {[key: string]: any};
+    /**
+     * Tags to use for filtering.
+     */
     tagFilters?: string[];
+    /**
+     * The search query for the widget.
+     */
     textFilter?: string;
+    /**
+     * The type of the widget. One of "freeText", "timeseries", "queryValue", "toplist", "change", "eventTimeline", "eventStream", "image", "note", "alertGraph", "alertValue", "iframe", "checkStatus", "traceService", "hostmap", "manageStatus", "logStream", or "process".
+     */
     type?: string;
 }
 
 export interface ScreenBoardWidgetTileDefRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.ScreenBoardWidgetTileDefRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.ScreenBoardWidgetTileDefRequestApmQuerySearch;
 }
 
@@ -3709,7 +7392,13 @@ export interface ScreenBoardWidgetTileDefRequestApmQueryCompute {
 
 export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBy {
     facet: string;
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: number;
+    /**
+     * The method to use to sort monitors. Example: "status,asc".
+     */
     sort?: outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort;
 }
 
@@ -3720,22 +7409,49 @@ export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBySort {
 }
 
 export interface ScreenBoardWidgetTileDefRequestApmQuerySearch {
+    /**
+     * The query to use in the widget.
+     */
     query: string;
 }
 
 export interface ScreenBoardWidgetTileDefRequestConditionalFormat {
+    /**
+     * Custom color (e.g., #205081).
+     */
     color?: string;
+    /**
+     * Comparison operator. Example: ">", "<".
+     */
     comparator: string;
     customBgColor?: string;
+    /**
+     * Boolean indicating whether to invert color scheme.
+     */
     invert?: boolean;
+    /**
+     * Color scheme to be used if the condition is met. One of: "redOnWhite", "whiteOnRed", "yellowOnWhite", "whiteOnYellow", "greenOnWhite", "whiteOnGreen", "grayOnWhite", "whiteOnGray", "customText", "customBg", "customImage".
+     */
     palette?: string;
+    /**
+     * Value that is the threshold for the conditional format.
+     */
     value?: string;
 }
 
 export interface ScreenBoardWidgetTileDefRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.ScreenBoardWidgetTileDefRequestLogQueryCompute;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.ScreenBoardWidgetTileDefRequestLogQuerySearch;
 }
 
@@ -3747,7 +7463,13 @@ export interface ScreenBoardWidgetTileDefRequestLogQueryCompute {
 
 export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBy {
     facet: string;
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: number;
+    /**
+     * The method to use to sort monitors. Example: "status,asc".
+     */
     sort?: outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort;
 }
 
@@ -3758,12 +7480,21 @@ export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBySort {
 }
 
 export interface ScreenBoardWidgetTileDefRequestLogQuerySearch {
+    /**
+     * The query to use in the widget.
+     */
     query: string;
 }
 
 export interface ScreenBoardWidgetTileDefRequestProcessQuery {
     filterBies?: string[];
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: number;
+    /**
+     * The metric you want to use for the widget.
+     */
     metric: string;
     searchBy?: string;
 }
@@ -3807,76 +7538,217 @@ export interface ServiceLevelObjectiveThreshold {
 }
 
 export interface SyntheticsTestOptions {
+    /**
+     * For type=ssl, true or false
+     */
     acceptSelfSigned?: boolean;
+    /**
+     * For type=api, true or false. Allow your HTTP test go on with connection even if there is an error when validating the certificate.
+     */
     allowInsecure?: boolean;
+    /**
+     * For type=api, true or false
+     */
     followRedirects?: boolean;
+    /**
+     * How long the test should be in failure before alerting (integer, number of seconds, max 7200). Default is 0.
+     */
     minFailureDuration?: number;
+    /**
+     * Threshold below which a synthetics test is allowed to fail before sending notifications
+     */
     minLocationFailed?: number;
+    /**
+     * How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 if type=api or 300 if type=browser
+     */
     tickEvery: number;
 }
 
 export interface SyntheticsTestRequest {
+    /**
+     * Request body
+     */
     body?: string;
+    /**
+     * host name
+     */
     host?: string;
+    /**
+     * no-op, use GET
+     */
     method?: string;
+    /**
+     * port number
+     */
     port?: number;
+    /**
+     * For type=api, any value between 0 and 60 (Default = 60)
+     */
     timeout?: number;
+    /**
+     * Any url
+     */
     url?: string;
 }
 
 export interface SyntheticsTestRequestBasicauth {
+    /**
+     * Password for authentication
+     */
     password: string;
+    /**
+     * Username for authentication
+     */
     username: string;
 }
 
 export interface TimeBoardGraph {
+    /**
+     * Boolean that determines whether to autoscale graphs.
+     */
     autoscale?: boolean;
+    /**
+     * Display a custom unit on the graph (such as 'hertz')
+     */
     customUnit?: string;
+    /**
+     * A list of event filter strings. Note that, while supported by the Datadog API, the Datadog UI does not (currently) support multiple event filters very well, so use at your own risk.
+     */
     events?: string[];
+    /**
+     * List of groups for hostmaps (shown as 'group by' in the UI).
+     */
     groups?: string[];
+    /**
+     * If set to true, will display hosts on hostmap that have no reported metrics.
+     */
     includeNoMetricHosts?: boolean;
+    /**
+     * If set to true, will display hosts without groups on hostmaps.
+     */
     includeUngroupedHosts?: boolean;
+    /**
+     * Nested block describing lines / ranges added to graph for formatting. The structure of this block is described below. Multiple marker blocks are allowed within a graph block.
+     */
     markers?: outputs.TimeBoardGraphMarker[];
+    /**
+     * What nodes to display in a hostmap. Can be one of 'host' (default) or 'container'.
+     */
     nodeType?: string;
+    /**
+     * Number of digits displayed, use `*` for full precision.
+     */
     precision?: string;
+    /**
+     * Nested block describing a graph definition request (a metric query to plot on the graph). The structure of this block is described below. Multiple request blocks are allowed within a graph block.
+     */
     requests: outputs.TimeBoardGraphRequest[];
+    /**
+     * List of scopes for hostmaps (shown as 'filter by' in the UI).
+     */
     scopes?: string[];
+    /**
+     * Nested block to customize the graph style.
+     */
     style?: {[key: string]: any};
+    /**
+     * How to align text in the graph, can be one of 'left', 'center', or 'right'.
+     */
     textAlign?: string;
+    /**
+     * The name of the graph.
+     */
     title: string;
+    /**
+     * The type of visualization to use for the graph. Valid choices are "change", "distribution", "heatmap", "hostmap", "queryValue", timeseries", and "toplist".
+     */
     viz: string;
+    /**
+     * Nested block describing modifications to the yaxis rendering. The structure of this block is described below.
+     */
     yaxis?: {[key: string]: any};
 }
 
 export interface TimeBoardGraphMarker {
+    /**
+     * A label for the line or range. **Warning:** when a label is enabled but left empty through the UI, the Datadog API returns a boolean value, not a string. This makes `pulumi up` fail with a JSON decoding error.
+     */
     label?: string;
+    /**
+     * How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
+     */
     type: string;
+    /**
+     * Mathematical expression describing the marker. Examples: "y > 1", "-5 < y < 0", "y = 19".
+     */
     value: string;
 }
 
 export interface TimeBoardGraphRequest {
+    /**
+     * The aggregation method used when the number of data points outnumbers the max that can be shown.
+     */
     aggregator?: string;
+    /**
+     * The APM query to use in the widget. The structure of this block is described below.
+     */
     apmQuery?: outputs.TimeBoardGraphRequestApmQuery;
     changeType?: string;
     compareTo?: string;
+    /**
+     * Nested block to customize the graph style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
+     */
     conditionalFormats?: outputs.TimeBoardGraphRequestConditionalFormat[];
+    /**
+     * If set to "present", displays current value. Can be left empty otherwise.
+     */
     extraCol?: string;
     increaseGood?: boolean;
+    /**
+     * The log query to use in the widget. The structure of this block is described below.
+     */
     logQuery?: outputs.TimeBoardGraphRequestLogQuery;
+    /**
+     * A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadataJson` will be ignored if they're not present in the query. For example:
+     */
     metadataJson?: string;
     orderBy?: string;
     orderDirection?: string;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: outputs.TimeBoardGraphRequestProcessQuery;
+    /**
+     * The query of the request. Pro tip: Use the JSON tab inside the Datadog UI to help build you query strings.
+     */
     q?: string;
+    /**
+     * Boolean value to determine if this is this a stacked area graph. Default: false (line chart).
+     */
     stacked?: boolean;
+    /**
+     * Nested block describing hostmaps. The structure of this block is described below.
+     */
     style?: {[key: string]: any};
+    /**
+     * How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
+     */
     type?: string;
 }
 
 export interface TimeBoardGraphRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.TimeBoardGraphRequestApmQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.TimeBoardGraphRequestApmQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.TimeBoardGraphRequestApmQuerySearch;
 }
 
@@ -3889,6 +7761,9 @@ export interface TimeBoardGraphRequestApmQueryCompute {
 export interface TimeBoardGraphRequestApmQueryGroupBy {
     facet: string;
     limit?: number;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     sort?: outputs.TimeBoardGraphRequestApmQueryGroupBySort;
 }
 
@@ -3903,17 +7778,41 @@ export interface TimeBoardGraphRequestApmQuerySearch {
 }
 
 export interface TimeBoardGraphRequestConditionalFormat {
+    /**
+     * Comparison operator. Example: ">", "<".
+     */
     comparator: string;
+    /**
+     * Used when `palette` is set to `customBg`. Set the color of the background to a custom web color, such as "#205081".
+     */
     customBgColor?: string;
+    /**
+     * Used when `palette` is set to `customText`. Set the color of the text to a custom web color, such as "#205081".
+     */
     customFgColor?: string;
+    /**
+     * Color scheme to be used if the condition is met. For example: "redOnWhite", "whiteOnRed", "yellowOnWhite", "whiteOnYellow", "greenOnWhite", "whiteOnGreen", "grayOnWhite", "whiteOnGray", "customText", "customBg", "customImage".
+     */
     palette?: string;
+    /**
+     * Value that is the threshold for the conditional format.
+     */
     value?: string;
 }
 
 export interface TimeBoardGraphRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: outputs.TimeBoardGraphRequestLogQueryCompute;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: outputs.TimeBoardGraphRequestLogQueryGroupBy[];
     index: string;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: outputs.TimeBoardGraphRequestLogQuerySearch;
 }
 
@@ -3926,6 +7825,9 @@ export interface TimeBoardGraphRequestLogQueryCompute {
 export interface TimeBoardGraphRequestLogQueryGroupBy {
     facet: string;
     limit?: number;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     sort?: outputs.TimeBoardGraphRequestLogQueryGroupBySort;
 }
 
@@ -3947,8 +7849,17 @@ export interface TimeBoardGraphRequestProcessQuery {
 }
 
 export interface TimeBoardTemplateVariable {
+    /**
+     * The default tag. Default: "\*" (match all).
+     */
     default?: string;
+    /**
+     * The variable name. Can be referenced as \$name in `graph` `request` `q` query strings.
+     */
     name: string;
+    /**
+     * The tag group. Default: no tag group.
+     */
     prefix?: string;
 }
 export namespace pagerduty {
