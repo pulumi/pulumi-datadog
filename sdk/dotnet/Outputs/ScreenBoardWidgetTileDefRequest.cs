@@ -13,28 +13,85 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ScreenBoardWidgetTileDefRequest
     {
+        /// <summary>
+        /// The aggregator to use for time aggregation. One of "avg", "min", "max", "sum", "last".
+        /// </summary>
         public readonly string? Aggregator;
+        /// <summary>
+        /// The APM query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.ScreenBoardWidgetTileDefRequestApmQuery? ApmQuery;
+        /// <summary>
+        /// Whether to show absolute or relative change. One of "absolute", "relative".
+        /// </summary>
         public readonly string? ChangeType;
+        /// <summary>
+        /// Choose from when to compare current data to. One of "hour_before", "day_before", "week_before" or "month_before".
+        /// </summary>
         public readonly string? CompareTo;
+        /// <summary>
+        /// Nested block to customize the style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScreenBoardWidgetTileDefRequestConditionalFormat> ConditionalFormats;
+        /// <summary>
+        /// If set to "present", displays current value. Can be left empty otherwise.
+        /// </summary>
         public readonly string? ExtraCol;
+        /// <summary>
+        /// Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+        /// </summary>
         public readonly bool? IncreaseGood;
+        /// <summary>
+        /// Integer indicating the number of hosts to limit to.
+        /// </summary>
         public readonly int? Limit;
+        /// <summary>
+        /// The log query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.ScreenBoardWidgetTileDefRequestLogQuery? LogQuery;
         /// <summary>
         /// A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadata_json` will be ignored if they're not present in the query. For example:
         /// </summary>
         public readonly string? MetadataJson;
+        /// <summary>
+        /// The metric you want to use for the widget.
+        /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// One of "change", "name", "present" (present value) or "past" (past value).
+        /// </summary>
         public readonly string? OrderBy;
+        /// <summary>
+        /// Either "asc" (ascending) or "desc" (descending).
+        /// </summary>
         public readonly string? OrderDir;
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly Outputs.ScreenBoardWidgetTileDefRequestProcessQuery? ProcessQuery;
+        /// <summary>
+        /// The search query for event overlays.
+        /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// Use "process".
+        /// </summary>
         public readonly string? QueryType;
+        /// <summary>
+        /// Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tile_def block.
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? Style;
+        /// <summary>
+        /// Tags to use for filtering.
+        /// </summary>
         public readonly ImmutableArray<string> TagFilters;
+        /// <summary>
+        /// The search query for the widget.
+        /// </summary>
         public readonly string? TextFilter;
+        /// <summary>
+        /// The type of the widget. One of "free_text", "timeseries", "query_value", "toplist", "change", "event_timeline", "event_stream", "image", "note", "alert_graph", "alert_value", "iframe", "check_status", "trace_service", "hostmap", "manage_status", "log_stream", or "process".
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

@@ -5,66 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Downtime']
 
 
 class Downtime(pulumi.CustomResource):
-    active: pulumi.Output[bool]
-    """
-    A flag indicating if the downtime is active now.
-    """
-    disabled: pulumi.Output[bool]
-    """
-    A flag indicating if the downtime was disabled.
-    """
-    end: pulumi.Output[float]
-    """
-    POSIX timestamp to end the downtime.
-    """
-    end_date: pulumi.Output[str]
-    """
-    String representing date and time to end the downtime in RFC3339 format.
-    """
-    message: pulumi.Output[str]
-    """
-    A message to include with notifications for this downtime.
-    """
-    monitor_id: pulumi.Output[float]
-    """
-    Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
-    """
-    monitor_tags: pulumi.Output[list]
-    """
-    A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
-    """
-    recurrence: pulumi.Output[dict]
-    """
-    A dictionary to configure the downtime to be recurring.
-
-      * `period` (`float`) - How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-      * `type` (`str`) - days, weeks, months, or years
-      * `untilDate` (`float`) - The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-      * `untilOccurrences` (`float`) - How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-      * `weekDays` (`list`) - A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
-    """
-    scopes: pulumi.Output[list]
-    """
-    The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
-    """
-    start: pulumi.Output[float]
-    """
-    POSIX timestamp to start the downtime.
-    """
-    start_date: pulumi.Output[str]
-    """
-    String representing date and time to start the downtime in RFC3339 format.
-    """
-    timezone: pulumi.Output[str]
-    """
-    The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
-    """
-    def __init__(__self__, resource_name, opts=None, active=None, disabled=None, end=None, end_date=None, message=None, monitor_id=None, monitor_tags=None, recurrence=None, scopes=None, start=None, start_date=None, timezone=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
+                 end: Optional[pulumi.Input[float]] = None,
+                 end_date: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 monitor_id: Optional[pulumi.Input[float]] = None,
+                 monitor_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 recurrence: Optional[pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']]] = None,
+                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 start: Optional[pulumi.Input[float]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
@@ -78,10 +45,10 @@ class Downtime(pulumi.CustomResource):
         foo = datadog.Downtime("foo",
             end=1483365600,
             monitor_id=12345,
-            recurrence={
-                "period": 1,
-                "type": "days",
-            },
+            recurrence=datadog.DowntimeRecurrenceArgs(
+                period=1,
+                type="days",
+            ),
             scopes=["*"],
             start=1483308000)
         ```
@@ -95,10 +62,10 @@ class Downtime(pulumi.CustomResource):
         # Create a new daily 1700-0900 Datadog downtime for all monitors
         foo = datadog.Downtime("foo",
             end=1483365600,
-            recurrence={
-                "period": 1,
-                "type": "days",
-            },
+            recurrence=datadog.DowntimeRecurrenceArgs(
+                period=1,
+                type="days",
+            ),
             scopes=["*"],
             start=1483308000)
         ```
@@ -111,20 +78,12 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: A message to include with notifications for this downtime.
         :param pulumi.Input[float] monitor_id: Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
-        :param pulumi.Input[list] monitor_tags: A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
-        :param pulumi.Input[dict] recurrence: A dictionary to configure the downtime to be recurring.
-        :param pulumi.Input[list] scopes: The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
+        :param pulumi.Input[List[pulumi.Input[str]]] monitor_tags: A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+        :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: A dictionary to configure the downtime to be recurring.
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
         :param pulumi.Input[float] start: POSIX timestamp to start the downtime.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
-
-        The **recurrence** object supports the following:
-
-          * `period` (`pulumi.Input[float]`) - How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-          * `type` (`pulumi.Input[str]`) - days, weeks, months, or years
-          * `untilDate` (`pulumi.Input[float]`) - The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-          * `untilOccurrences` (`pulumi.Input[float]`) - How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-          * `weekDays` (`pulumi.Input[list]`) - A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,7 +96,7 @@ class Downtime(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -164,13 +123,27 @@ class Downtime(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active=None, disabled=None, end=None, end_date=None, message=None, monitor_id=None, monitor_tags=None, recurrence=None, scopes=None, start=None, start_date=None, timezone=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: Optional[pulumi.Input[bool]] = None,
+            disabled: Optional[pulumi.Input[bool]] = None,
+            end: Optional[pulumi.Input[float]] = None,
+            end_date: Optional[pulumi.Input[str]] = None,
+            message: Optional[pulumi.Input[str]] = None,
+            monitor_id: Optional[pulumi.Input[float]] = None,
+            monitor_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            recurrence: Optional[pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']]] = None,
+            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            start: Optional[pulumi.Input[float]] = None,
+            start_date: Optional[pulumi.Input[str]] = None,
+            timezone: Optional[pulumi.Input[str]] = None) -> 'Downtime':
         """
         Get an existing Downtime resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: A flag indicating if the downtime is active now.
         :param pulumi.Input[bool] disabled: A flag indicating if the downtime was disabled.
@@ -178,20 +151,12 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: A message to include with notifications for this downtime.
         :param pulumi.Input[float] monitor_id: Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
-        :param pulumi.Input[list] monitor_tags: A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
-        :param pulumi.Input[dict] recurrence: A dictionary to configure the downtime to be recurring.
-        :param pulumi.Input[list] scopes: The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
+        :param pulumi.Input[List[pulumi.Input[str]]] monitor_tags: A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+        :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: A dictionary to configure the downtime to be recurring.
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
         :param pulumi.Input[float] start: POSIX timestamp to start the downtime.
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
-
-        The **recurrence** object supports the following:
-
-          * `period` (`pulumi.Input[float]`) - How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-          * `type` (`pulumi.Input[str]`) - days, weeks, months, or years
-          * `untilDate` (`pulumi.Input[float]`) - The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-          * `untilOccurrences` (`pulumi.Input[float]`) - How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-          * `weekDays` (`pulumi.Input[list]`) - A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -211,8 +176,105 @@ class Downtime(pulumi.CustomResource):
         __props__["timezone"] = timezone
         return Downtime(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        """
+        A flag indicating if the downtime is active now.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[bool]:
+        """
+        A flag indicating if the downtime was disabled.
+        """
+        return pulumi.get(self, "disabled")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[float]:
+        """
+        POSIX timestamp to end the downtime.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[str]:
+        """
+        String representing date and time to end the downtime in RFC3339 format.
+        """
+        return pulumi.get(self, "end_date")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        A message to include with notifications for this downtime.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> Optional[float]:
+        """
+        Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @property
+    @pulumi.getter(name="monitorTags")
+    def monitor_tags(self) -> Optional[List[str]]:
+        """
+        A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
+        """
+        return pulumi.get(self, "monitor_tags")
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional['outputs.DowntimeRecurrence']:
+        """
+        A dictionary to configure the downtime to be recurring.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> List[str]:
+        """
+        The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[float]:
+        """
+        POSIX timestamp to start the downtime.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[str]:
+        """
+        String representing date and time to start the downtime in RFC3339 format.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+        """
+        return pulumi.get(self, "timezone")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

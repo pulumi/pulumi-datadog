@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetDistributionDefinitionTime
     {
+        /// <summary>
+        /// The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+        /// </summary>
         public readonly string? LiveSpan;
 
         [OutputConstructor]

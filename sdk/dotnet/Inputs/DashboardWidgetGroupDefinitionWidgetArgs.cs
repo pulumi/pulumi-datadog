@@ -48,6 +48,29 @@ namespace Pulumi.Datadog.Inputs
         [Input("imageDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs>? ImageDefinition { get; set; }
 
+        /// <summary>
+        /// . The structure of this block is described below
+        /// - A widget should have exactly one of the following nested blocks describing the widget definition:
+        /// - `alert_graph_definition`: The definition for a Alert Graph widget. Exactly one nested block is allowed with the following structure:
+        /// - `alert_id`: (Required) The ID of the monitor used by the widget.
+        /// - `viz_type`: (Required) Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+        /// - `title`: (Optional) The title of the widget.
+        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
+        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+        /// - `alert_value_definition`: The definition for an Alert Value widget. Exactly one nested block is allowed with the following structure:
+        /// - `alert_id`: (Required) The ID of the monitor used by the widget.
+        /// - `precision`: (Optional) The precision to use when displaying the value. Use "*" for maximum precision.
+        /// - `unit`: (Optional) The unit for the value displayed in the widget.
+        /// - `text_align`: (Optional) The alignment of the text in the widget.
+        /// - `title`: (Optional) The title of the widget.
+        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
+        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+        /// - `change_definition`: The definition for a Change widget. Exactly one nested block is allowed with the following structure:
+        /// - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+        /// - `q`: (Required) The metric query to use in the widget.
+        /// - `change_type`: (Optional) Whether to show absolute or relative change. One of "absolute", "relative".
+        /// </summary>
         [Input("layout")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetLayoutArgs>? Layout { get; set; }
 

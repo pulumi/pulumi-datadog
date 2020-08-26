@@ -27,7 +27,7 @@ import (
 // 		_, err := datadog.NewLogsIndexOrder(ctx, "sampleIndexOrder", &datadog.LogsIndexOrderArgs{
 // 			Name: pulumi.String("sample_index_order"),
 // 			Indexes: pulumi.StringArray{
-// 				pulumi.String(datadog_logs_index.Sample_index.Id),
+// 				pulumi.Any(datadog_logs_index.Sample_index.Id),
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			"datadog_logs_index.sample_index",

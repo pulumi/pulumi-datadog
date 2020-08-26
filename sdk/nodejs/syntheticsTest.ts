@@ -195,19 +195,59 @@ export class SyntheticsTest extends pulumi.CustomResource {
      * @deprecated Use assertion instead
      */
     public readonly assertions!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    /**
+     * "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
+     */
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
+     */
     public readonly locations!: pulumi.Output<string[]>;
+    /**
+     * A message to include with notifications for this synthetics test.
+     * Email notifications can be sent to specific users by using the same '@username' notation as events.
+     */
     public readonly message!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the monitor associated with the Datadog synthetics test
+     */
     public /*out*/ readonly monitorId!: pulumi.Output<number>;
+    /**
+     * Name of Datadog synthetics test
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly options!: pulumi.Output<outputs.SyntheticsTestOptions | undefined>;
+    /**
+     * if type=browser
+     */
     public readonly request!: pulumi.Output<outputs.SyntheticsTestRequest>;
+    /**
+     * Array of 1 item containing HTTP basic authentication credentials
+     */
     public readonly requestBasicauth!: pulumi.Output<outputs.SyntheticsTestRequestBasicauth | undefined>;
+    /**
+     * Header name and value map
+     */
     public readonly requestHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Query arguments name and value map
+     */
     public readonly requestQuery!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * "live", "paused"
+     */
     public readonly status!: pulumi.Output<string>;
+    /**
+     * For type=api, http or ssl (Default = http)
+     */
     public readonly subtype!: pulumi.Output<string | undefined>;
+    /**
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
+     */
     public readonly tags!: pulumi.Output<string[]>;
+    /**
+     * body, header, responseTime, statusCode
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -292,19 +332,59 @@ export interface SyntheticsTestState {
      * @deprecated Use assertion instead
      */
     readonly assertions?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    /**
+     * "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
+     */
     readonly deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
+     */
     readonly locations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A message to include with notifications for this synthetics test.
+     * Email notifications can be sent to specific users by using the same '@username' notation as events.
+     */
     readonly message?: pulumi.Input<string>;
+    /**
+     * ID of the monitor associated with the Datadog synthetics test
+     */
     readonly monitorId?: pulumi.Input<number>;
+    /**
+     * Name of Datadog synthetics test
+     */
     readonly name?: pulumi.Input<string>;
     readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
+    /**
+     * if type=browser
+     */
     readonly request?: pulumi.Input<inputs.SyntheticsTestRequest>;
+    /**
+     * Array of 1 item containing HTTP basic authentication credentials
+     */
     readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
+    /**
+     * Header name and value map
+     */
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Query arguments name and value map
+     */
     readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * "live", "paused"
+     */
     readonly status?: pulumi.Input<string>;
+    /**
+     * For type=api, http or ssl (Default = http)
+     */
     readonly subtype?: pulumi.Input<string>;
+    /**
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
+     */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * body, header, responseTime, statusCode
+     */
     readonly type?: pulumi.Input<string>;
 }
 
@@ -316,17 +396,54 @@ export interface SyntheticsTestArgs {
      * @deprecated Use assertion instead
      */
     readonly assertions?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    /**
+     * "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
+     */
     readonly deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
+     */
     readonly locations: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A message to include with notifications for this synthetics test.
+     * Email notifications can be sent to specific users by using the same '@username' notation as events.
+     */
     readonly message?: pulumi.Input<string>;
+    /**
+     * Name of Datadog synthetics test
+     */
     readonly name: pulumi.Input<string>;
     readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
+    /**
+     * if type=browser
+     */
     readonly request: pulumi.Input<inputs.SyntheticsTestRequest>;
+    /**
+     * Array of 1 item containing HTTP basic authentication credentials
+     */
     readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
+    /**
+     * Header name and value map
+     */
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Query arguments name and value map
+     */
     readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * "live", "paused"
+     */
     readonly status: pulumi.Input<string>;
+    /**
+     * For type=api, http or ssl (Default = http)
+     */
     readonly subtype?: pulumi.Input<string>;
+    /**
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
+     */
     readonly tags: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * body, header, responseTime, statusCode
+     */
     readonly type: pulumi.Input<string>;
 }

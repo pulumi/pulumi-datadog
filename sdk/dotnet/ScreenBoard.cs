@@ -547,40 +547,43 @@ namespace Pulumi.Datadog
     public partial class ScreenBoard : Pulumi.CustomResource
     {
         /// <summary>
-        /// Height of the screenboard
+        /// The screenboard's height.
         /// </summary>
         [Output("height")]
         public Output<string?> Height { get; private set; } = null!;
 
+        /// <summary>
+        /// The read-only status of the screenboard. Default is false.
+        /// </summary>
         [Output("readOnly")]
         public Output<bool?> ReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the screenboard is shared or not
+        /// Whether the screenboard is shared or not. Default is false.
         /// </summary>
         [Output("shared")]
         public Output<bool?> Shared { get; private set; } = null!;
 
         /// <summary>
-        /// A list of template variables for using Dashboard templating.
+        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.ScreenBoard resource.
         /// </summary>
         [Output("templateVariables")]
         public Output<ImmutableArray<Outputs.ScreenBoardTemplateVariable>> TemplateVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the screenboard
+        /// The name of the screenboard.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// A list of widget definitions.
+        /// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
         /// </summary>
         [Output("widgets")]
         public Output<ImmutableArray<Outputs.ScreenBoardWidget>> Widgets { get; private set; } = null!;
 
         /// <summary>
-        /// Width of the screenboard
+        /// The screenboard's width.
         /// </summary>
         [Output("width")]
         public Output<string?> Width { get; private set; } = null!;
@@ -632,16 +635,19 @@ namespace Pulumi.Datadog
     public sealed class ScreenBoardArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Height of the screenboard
+        /// The screenboard's height.
         /// </summary>
         [Input("height")]
         public Input<string>? Height { get; set; }
 
+        /// <summary>
+        /// The read-only status of the screenboard. Default is false.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
-        /// Whether the screenboard is shared or not
+        /// Whether the screenboard is shared or not. Default is false.
         /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }
@@ -650,7 +656,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardTemplateVariableArgs>? _templateVariables;
 
         /// <summary>
-        /// A list of template variables for using Dashboard templating.
+        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.ScreenBoard resource.
         /// </summary>
         public InputList<Inputs.ScreenBoardTemplateVariableArgs> TemplateVariables
         {
@@ -659,7 +665,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Name of the screenboard
+        /// The name of the screenboard.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
@@ -668,7 +674,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardWidgetArgs>? _widgets;
 
         /// <summary>
-        /// A list of widget definitions.
+        /// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
         /// </summary>
         public InputList<Inputs.ScreenBoardWidgetArgs> Widgets
         {
@@ -677,7 +683,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Width of the screenboard
+        /// The screenboard's width.
         /// </summary>
         [Input("width")]
         public Input<string>? Width { get; set; }
@@ -690,16 +696,19 @@ namespace Pulumi.Datadog
     public sealed class ScreenBoardState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Height of the screenboard
+        /// The screenboard's height.
         /// </summary>
         [Input("height")]
         public Input<string>? Height { get; set; }
 
+        /// <summary>
+        /// The read-only status of the screenboard. Default is false.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
-        /// Whether the screenboard is shared or not
+        /// Whether the screenboard is shared or not. Default is false.
         /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }
@@ -708,7 +717,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardTemplateVariableGetArgs>? _templateVariables;
 
         /// <summary>
-        /// A list of template variables for using Dashboard templating.
+        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.ScreenBoard resource.
         /// </summary>
         public InputList<Inputs.ScreenBoardTemplateVariableGetArgs> TemplateVariables
         {
@@ -717,7 +726,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Name of the screenboard
+        /// The name of the screenboard.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
@@ -726,7 +735,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardWidgetGetArgs>? _widgets;
 
         /// <summary>
-        /// A list of widget definitions.
+        /// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
         /// </summary>
         public InputList<Inputs.ScreenBoardWidgetGetArgs> Widgets
         {
@@ -735,7 +744,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Width of the screenboard
+        /// The screenboard's width.
         /// </summary>
         [Input("width")]
         public Input<string>? Width { get; set; }

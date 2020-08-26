@@ -5,44 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['User']
 
 
 class User(pulumi.CustomResource):
-    access_role: pulumi.Output[str]
-    """
-    Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user).  Default is `st`.
-    """
-    disabled: pulumi.Output[bool]
-    """
-    Whether the user is disabled
-    """
-    email: pulumi.Output[str]
-    """
-    Email address for user
-    """
-    handle: pulumi.Output[str]
-    """
-    The user handle, must be a valid email.
-    """
-    is_admin: pulumi.Output[bool]
-    """
-    (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-    """
-    name: pulumi.Output[str]
-    """
-    Name for user
-    """
-    role: pulumi.Output[str]
-    """
-    Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-    """
-    verified: pulumi.Output[bool]
-    """
-    Returns true if Datadog user is verified
-    """
-    def __init__(__self__, resource_name, opts=None, access_role=None, disabled=None, email=None, handle=None, is_admin=None, name=None, role=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_role: Optional[pulumi.Input[str]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 handle: Optional[pulumi.Input[str]] = None,
+                 is_admin: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog user resource. This can be used to create and manage Datadog users.
 
@@ -80,7 +62,7 @@ class User(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -113,13 +95,23 @@ class User(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_role=None, disabled=None, email=None, handle=None, is_admin=None, name=None, role=None, verified=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_role: Optional[pulumi.Input[str]] = None,
+            disabled: Optional[pulumi.Input[bool]] = None,
+            email: Optional[pulumi.Input[str]] = None,
+            handle: Optional[pulumi.Input[str]] = None,
+            is_admin: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            role: Optional[pulumi.Input[str]] = None,
+            verified: Optional[pulumi.Input[bool]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_role: Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user).  Default is `st`.
         :param pulumi.Input[bool] disabled: Whether the user is disabled
@@ -144,8 +136,73 @@ class User(pulumi.CustomResource):
         __props__["verified"] = verified
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessRole")
+    def access_role(self) -> Optional[str]:
+        """
+        Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user).  Default is `st`.
+        """
+        return pulumi.get(self, "access_role")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[bool]:
+        """
+        Whether the user is disabled
+        """
+        return pulumi.get(self, "disabled")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        Email address for user
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def handle(self) -> str:
+        """
+        The user handle, must be a valid email.
+        """
+        return pulumi.get(self, "handle")
+
+    @property
+    @pulumi.getter(name="isAdmin")
+    def is_admin(self) -> bool:
+        """
+        (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        """
+        return pulumi.get(self, "is_admin")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name for user
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def verified(self) -> bool:
+        """
+        Returns true if Datadog user is verified
+        """
+        return pulumi.get(self, "verified")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

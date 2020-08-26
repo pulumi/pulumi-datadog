@@ -13,8 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetImageDefinition
     {
+        /// <summary>
+        /// The margins to use around the image. Either "small" or "large".
+        /// - `log_stream_definition`: The definition for a Log Stream widget. Exactly one nested block is allowed with the following structure:
+        /// </summary>
         public readonly string? Margin;
+        /// <summary>
+        /// The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+        /// </summary>
         public readonly string? Sizing;
+        /// <summary>
+        /// Read only field - The URL of the dashboard.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

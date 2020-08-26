@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetTileDefMarkerGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A label for the line or range.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The type of the widget. One of "free_text", "timeseries", "query_value", "toplist", "change", "event_timeline", "event_stream", "image", "note", "alert_graph", "alert_value", "iframe", "check_status", "trace_service", "hostmap", "manage_status", "log_stream", or "process".
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Mathematical expression describing the marker. Examples: "y &gt; 1", "-5 &lt; y &lt; 0", "y = 19".
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

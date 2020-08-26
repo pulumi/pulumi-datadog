@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetIpRangesResult',
+    'AwaitableGetIpRangesResult',
+    'get_ip_ranges',
+]
+
+@pulumi.output_type
 class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
@@ -15,94 +22,171 @@ class GetIpRangesResult:
     def __init__(__self__, agents_ipv4s=None, agents_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apm_ipv4s=None, apm_ipv6s=None, id=None, logs_ipv4s=None, logs_ipv6s=None, process_ipv4s=None, process_ipv6s=None, synthetics_ipv4s=None, synthetics_ipv6s=None, webhooks_ipv4s=None, webhooks_ipv6s=None):
         if agents_ipv4s and not isinstance(agents_ipv4s, list):
             raise TypeError("Expected argument 'agents_ipv4s' to be a list")
-        __self__.agents_ipv4s = agents_ipv4s
+        pulumi.set(__self__, "agents_ipv4s", agents_ipv4s)
+        if agents_ipv6s and not isinstance(agents_ipv6s, list):
+            raise TypeError("Expected argument 'agents_ipv6s' to be a list")
+        pulumi.set(__self__, "agents_ipv6s", agents_ipv6s)
+        if api_ipv4s and not isinstance(api_ipv4s, list):
+            raise TypeError("Expected argument 'api_ipv4s' to be a list")
+        pulumi.set(__self__, "api_ipv4s", api_ipv4s)
+        if api_ipv6s and not isinstance(api_ipv6s, list):
+            raise TypeError("Expected argument 'api_ipv6s' to be a list")
+        pulumi.set(__self__, "api_ipv6s", api_ipv6s)
+        if apm_ipv4s and not isinstance(apm_ipv4s, list):
+            raise TypeError("Expected argument 'apm_ipv4s' to be a list")
+        pulumi.set(__self__, "apm_ipv4s", apm_ipv4s)
+        if apm_ipv6s and not isinstance(apm_ipv6s, list):
+            raise TypeError("Expected argument 'apm_ipv6s' to be a list")
+        pulumi.set(__self__, "apm_ipv6s", apm_ipv6s)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if logs_ipv4s and not isinstance(logs_ipv4s, list):
+            raise TypeError("Expected argument 'logs_ipv4s' to be a list")
+        pulumi.set(__self__, "logs_ipv4s", logs_ipv4s)
+        if logs_ipv6s and not isinstance(logs_ipv6s, list):
+            raise TypeError("Expected argument 'logs_ipv6s' to be a list")
+        pulumi.set(__self__, "logs_ipv6s", logs_ipv6s)
+        if process_ipv4s and not isinstance(process_ipv4s, list):
+            raise TypeError("Expected argument 'process_ipv4s' to be a list")
+        pulumi.set(__self__, "process_ipv4s", process_ipv4s)
+        if process_ipv6s and not isinstance(process_ipv6s, list):
+            raise TypeError("Expected argument 'process_ipv6s' to be a list")
+        pulumi.set(__self__, "process_ipv6s", process_ipv6s)
+        if synthetics_ipv4s and not isinstance(synthetics_ipv4s, list):
+            raise TypeError("Expected argument 'synthetics_ipv4s' to be a list")
+        pulumi.set(__self__, "synthetics_ipv4s", synthetics_ipv4s)
+        if synthetics_ipv6s and not isinstance(synthetics_ipv6s, list):
+            raise TypeError("Expected argument 'synthetics_ipv6s' to be a list")
+        pulumi.set(__self__, "synthetics_ipv6s", synthetics_ipv6s)
+        if webhooks_ipv4s and not isinstance(webhooks_ipv4s, list):
+            raise TypeError("Expected argument 'webhooks_ipv4s' to be a list")
+        pulumi.set(__self__, "webhooks_ipv4s", webhooks_ipv4s)
+        if webhooks_ipv6s and not isinstance(webhooks_ipv6s, list):
+            raise TypeError("Expected argument 'webhooks_ipv6s' to be a list")
+        pulumi.set(__self__, "webhooks_ipv6s", webhooks_ipv6s)
+
+    @property
+    @pulumi.getter(name="agentsIpv4s")
+    def agents_ipv4s(self) -> List[str]:
         """
         An Array of IPv4 addresses in CIDR format specifying the A records for the agent endpoint.
         """
-        if agents_ipv6s and not isinstance(agents_ipv6s, list):
-            raise TypeError("Expected argument 'agents_ipv6s' to be a list")
-        __self__.agents_ipv6s = agents_ipv6s
+        return pulumi.get(self, "agents_ipv4s")
+
+    @property
+    @pulumi.getter(name="agentsIpv6s")
+    def agents_ipv6s(self) -> List[str]:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the agent endpoint.
         """
-        if api_ipv4s and not isinstance(api_ipv4s, list):
-            raise TypeError("Expected argument 'api_ipv4s' to be a list")
-        __self__.api_ipv4s = api_ipv4s
+        return pulumi.get(self, "agents_ipv6s")
+
+    @property
+    @pulumi.getter(name="apiIpv4s")
+    def api_ipv4s(self) -> List[str]:
         """
         An Array of IPv4 addresses in CIDR format specifying the A records for the api endpoint.
         """
-        if api_ipv6s and not isinstance(api_ipv6s, list):
-            raise TypeError("Expected argument 'api_ipv6s' to be a list")
-        __self__.api_ipv6s = api_ipv6s
+        return pulumi.get(self, "api_ipv4s")
+
+    @property
+    @pulumi.getter(name="apiIpv6s")
+    def api_ipv6s(self) -> List[str]:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the api endpoint.
         """
-        if apm_ipv4s and not isinstance(apm_ipv4s, list):
-            raise TypeError("Expected argument 'apm_ipv4s' to be a list")
-        __self__.apm_ipv4s = apm_ipv4s
+        return pulumi.get(self, "api_ipv6s")
+
+    @property
+    @pulumi.getter(name="apmIpv4s")
+    def apm_ipv4s(self) -> List[str]:
         """
         An Array of IPv4 addresses in CIDR format specifying the A records for the apm endpoint.
         """
-        if apm_ipv6s and not isinstance(apm_ipv6s, list):
-            raise TypeError("Expected argument 'apm_ipv6s' to be a list")
-        __self__.apm_ipv6s = apm_ipv6s
+        return pulumi.get(self, "apm_ipv4s")
+
+    @property
+    @pulumi.getter(name="apmIpv6s")
+    def apm_ipv6s(self) -> List[str]:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the apm endpoint.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "apm_ipv6s")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if logs_ipv4s and not isinstance(logs_ipv4s, list):
-            raise TypeError("Expected argument 'logs_ipv4s' to be a list")
-        __self__.logs_ipv4s = logs_ipv4s
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="logsIpv4s")
+    def logs_ipv4s(self) -> List[str]:
         """
         An Array of IPv4 addresses in CIDR format specifying the A records for the logs endpoint.
         """
-        if logs_ipv6s and not isinstance(logs_ipv6s, list):
-            raise TypeError("Expected argument 'logs_ipv6s' to be a list")
-        __self__.logs_ipv6s = logs_ipv6s
+        return pulumi.get(self, "logs_ipv4s")
+
+    @property
+    @pulumi.getter(name="logsIpv6s")
+    def logs_ipv6s(self) -> List[str]:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the logs endpoint.
         """
-        if process_ipv4s and not isinstance(process_ipv4s, list):
-            raise TypeError("Expected argument 'process_ipv4s' to be a list")
-        __self__.process_ipv4s = process_ipv4s
+        return pulumi.get(self, "logs_ipv6s")
+
+    @property
+    @pulumi.getter(name="processIpv4s")
+    def process_ipv4s(self) -> List[str]:
         """
         An Array of IPv4 addresses in CIDR format specifying the A records for the process endpoint.
         """
-        if process_ipv6s and not isinstance(process_ipv6s, list):
-            raise TypeError("Expected argument 'process_ipv6s' to be a list")
-        __self__.process_ipv6s = process_ipv6s
+        return pulumi.get(self, "process_ipv4s")
+
+    @property
+    @pulumi.getter(name="processIpv6s")
+    def process_ipv6s(self) -> List[str]:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the process endpoint.
         """
-        if synthetics_ipv4s and not isinstance(synthetics_ipv4s, list):
-            raise TypeError("Expected argument 'synthetics_ipv4s' to be a list")
-        __self__.synthetics_ipv4s = synthetics_ipv4s
+        return pulumi.get(self, "process_ipv6s")
+
+    @property
+    @pulumi.getter(name="syntheticsIpv4s")
+    def synthetics_ipv4s(self) -> List[str]:
         """
         An Array of IPv4 addresses in CIDR format specifying the A records for the synthetics endpoint.
         """
-        if synthetics_ipv6s and not isinstance(synthetics_ipv6s, list):
-            raise TypeError("Expected argument 'synthetics_ipv6s' to be a list")
-        __self__.synthetics_ipv6s = synthetics_ipv6s
+        return pulumi.get(self, "synthetics_ipv4s")
+
+    @property
+    @pulumi.getter(name="syntheticsIpv6s")
+    def synthetics_ipv6s(self) -> List[str]:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the synthetics endpoint.
         """
-        if webhooks_ipv4s and not isinstance(webhooks_ipv4s, list):
-            raise TypeError("Expected argument 'webhooks_ipv4s' to be a list")
-        __self__.webhooks_ipv4s = webhooks_ipv4s
+        return pulumi.get(self, "synthetics_ipv6s")
+
+    @property
+    @pulumi.getter(name="webhooksIpv4s")
+    def webhooks_ipv4s(self) -> List[str]:
         """
         An Array of IPv4 addresses in CIDR format specifying the A records for the webhooks endpoint.
         """
-        if webhooks_ipv6s and not isinstance(webhooks_ipv6s, list):
-            raise TypeError("Expected argument 'webhooks_ipv6s' to be a list")
-        __self__.webhooks_ipv6s = webhooks_ipv6s
+        return pulumi.get(self, "webhooks_ipv4s")
+
+    @property
+    @pulumi.getter(name="webhooksIpv6s")
+    def webhooks_ipv6s(self) -> List[str]:
         """
         An Array of IPv6 addresses in CIDR format specifying the A records for the webhooks endpoint.
         """
+        return pulumi.get(self, "webhooks_ipv6s")
+
+
 class AwaitableGetIpRangesResult(GetIpRangesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -125,7 +209,8 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             webhooks_ipv4s=self.webhooks_ipv4s,
             webhooks_ipv6s=self.webhooks_ipv6s)
 
-def get_ip_ranges(opts=None):
+
+def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
     """
     Use this data source to retrieve information about Datadog's IP addresses.
     ## Example Usage
@@ -138,27 +223,25 @@ def get_ip_ranges(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('datadog:index/getIpRanges:getIpRanges', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('datadog:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult).value
 
     return AwaitableGetIpRangesResult(
-        agents_ipv4s=__ret__.get('agentsIpv4s'),
-        agents_ipv6s=__ret__.get('agentsIpv6s'),
-        api_ipv4s=__ret__.get('apiIpv4s'),
-        api_ipv6s=__ret__.get('apiIpv6s'),
-        apm_ipv4s=__ret__.get('apmIpv4s'),
-        apm_ipv6s=__ret__.get('apmIpv6s'),
-        id=__ret__.get('id'),
-        logs_ipv4s=__ret__.get('logsIpv4s'),
-        logs_ipv6s=__ret__.get('logsIpv6s'),
-        process_ipv4s=__ret__.get('processIpv4s'),
-        process_ipv6s=__ret__.get('processIpv6s'),
-        synthetics_ipv4s=__ret__.get('syntheticsIpv4s'),
-        synthetics_ipv6s=__ret__.get('syntheticsIpv6s'),
-        webhooks_ipv4s=__ret__.get('webhooksIpv4s'),
-        webhooks_ipv6s=__ret__.get('webhooksIpv6s'))
+        agents_ipv4s=__ret__.agents_ipv4s,
+        agents_ipv6s=__ret__.agents_ipv6s,
+        api_ipv4s=__ret__.api_ipv4s,
+        api_ipv6s=__ret__.api_ipv6s,
+        apm_ipv4s=__ret__.apm_ipv4s,
+        apm_ipv6s=__ret__.apm_ipv6s,
+        id=__ret__.id,
+        logs_ipv4s=__ret__.logs_ipv4s,
+        logs_ipv6s=__ret__.logs_ipv6s,
+        process_ipv4s=__ret__.process_ipv4s,
+        process_ipv6s=__ret__.process_ipv6s,
+        synthetics_ipv4s=__ret__.synthetics_ipv4s,
+        synthetics_ipv6s=__ret__.synthetics_ipv6s,
+        webhooks_ipv4s=__ret__.webhooks_ipv4s,
+        webhooks_ipv6s=__ret__.webhooks_ipv6s)

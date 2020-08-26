@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class TimeBoardGraphRequestGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation method used when the number of data points outnumbers the max that can be shown.
+        /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
+        /// <summary>
+        /// The APM query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.TimeBoardGraphRequestApmQueryGetArgs>? ApmQuery { get; set; }
 
@@ -26,21 +32,34 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("conditionalFormats")]
         private InputList<Inputs.TimeBoardGraphRequestConditionalFormatGetArgs>? _conditionalFormats;
+
+        /// <summary>
+        /// Nested block to customize the graph style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
+        /// </summary>
         public InputList<Inputs.TimeBoardGraphRequestConditionalFormatGetArgs> ConditionalFormats
         {
             get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.TimeBoardGraphRequestConditionalFormatGetArgs>());
             set => _conditionalFormats = value;
         }
 
+        /// <summary>
+        /// If set to "present", displays current value. Can be left empty otherwise.
+        /// </summary>
         [Input("extraCol")]
         public Input<string>? ExtraCol { get; set; }
 
         [Input("increaseGood")]
         public Input<bool>? IncreaseGood { get; set; }
 
+        /// <summary>
+        /// The log query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.TimeBoardGraphRequestLogQueryGetArgs>? LogQuery { get; set; }
 
+        /// <summary>
+        /// A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadata_json` will be ignored if they're not present in the query. For example:
+        /// </summary>
         [Input("metadataJson")]
         public Input<string>? MetadataJson { get; set; }
 
@@ -50,23 +69,39 @@ namespace Pulumi.Datadog.Inputs
         [Input("orderDirection")]
         public Input<string>? OrderDirection { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.TimeBoardGraphRequestProcessQueryGetArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The query of the request. Pro tip: Use the JSON tab inside the Datadog UI to help build you query strings.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        /// <summary>
+        /// Boolean value to determine if this is this a stacked area graph. Default: false (line chart).
+        /// </summary>
         [Input("stacked")]
         public Input<bool>? Stacked { get; set; }
 
         [Input("style")]
         private InputMap<object>? _style;
+
+        /// <summary>
+        /// Nested block describing hostmaps. The structure of this block is described below.
+        /// </summary>
         public InputMap<object> Style
         {
             get => _style ?? (_style = new InputMap<object>());
             set => _style = value;
         }
 
+        /// <summary>
+        /// How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

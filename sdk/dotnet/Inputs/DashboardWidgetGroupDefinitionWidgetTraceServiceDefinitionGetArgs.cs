@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The display setting to use. One of "counts", "list", or "countsAndList".
+        /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
 
@@ -48,6 +51,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTimeGetArgs>? Time { get; set; }
 
+        /// <summary>
+        /// Title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

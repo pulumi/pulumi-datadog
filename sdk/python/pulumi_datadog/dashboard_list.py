@@ -5,23 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DashboardList']
 
 
 class DashboardList(pulumi.CustomResource):
-    dash_items: pulumi.Output[list]
-    """
-    An individual dashboard object to add to this Dashboard List. If present, must contain the following:
-
-      * `dashId` (`str`) - The ID of this dashboard.
-      * `type` (`str`) - The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
-    """
-    name: pulumi.Output[str]
-    """
-    The name of this Dashboard List.
-    """
-    def __init__(__self__, resource_name, opts=None, dash_items=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dash_items: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
 
@@ -38,49 +38,49 @@ class DashboardList(pulumi.CustomResource):
             is_read_only=True,
             layout_type="ordered",
             title="TF Test Layout Dashboard",
-            widgets=[{
-                "alertGraphDefinition": {
-                    "alertId": "1234",
-                    "time": {
-                        "liveSpan": "1h",
-                    },
-                    "title": "Widget Title",
-                    "vizType": "timeseries",
-                },
-            }])
+            widgets=[datadog.DashboardWidgetArgs(
+                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
+                    alert_id="1234",
+                    time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(
+                        live_span="1h",
+                    ),
+                    title="Widget Title",
+                    viz_type="timeseries",
+                ),
+            )])
         screen = datadog.Dashboard("screen",
             description="Created using the Datadog provider in TF",
             is_read_only=False,
             layout_type="free",
             title="TF Test Free Layout Dashboard",
-            widgets=[{
-                "eventStreamDefinition": {
-                    "eventSize": "l",
-                    "query": "*",
-                    "time": {
-                        "liveSpan": "1h",
-                    },
-                    "title": "Widget Title",
-                    "titleAlign": "left",
-                    "titleSize": 16,
-                },
-                "layout": {
-                    "height": 43,
-                    "width": 32,
-                    "x": 5,
-                    "y": 5,
-                },
-            }])
+            widgets=[datadog.DashboardWidgetArgs(
+                event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
+                    event_size="l",
+                    query="*",
+                    time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(
+                        live_span="1h",
+                    ),
+                    title="Widget Title",
+                    title_align="left",
+                    title_size="16",
+                ),
+                layout=datadog.DashboardWidgetLayoutArgs(
+                    height=43,
+                    width=32,
+                    x=5,
+                    y=5,
+                ),
+            )])
         new_list = datadog.DashboardList("newList",
             dash_items=[
-                {
-                    "dashId": time.id,
-                    "type": "custom_timeboard",
-                },
-                {
-                    "dashId": screen.id,
-                    "type": "custom_screenboard",
-                },
+                datadog.DashboardListDashItemArgs(
+                    dash_id=time.id,
+                    type="custom_timeboard",
+                ),
+                datadog.DashboardListDashItemArgs(
+                    dash_id=screen.id,
+                    type="custom_screenboard",
+                ),
             ],
             name="TF Created List",
             opts=ResourceOptions(depends_on=[
@@ -91,13 +91,8 @@ class DashboardList(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         :param pulumi.Input[str] name: The name of this Dashboard List.
-
-        The **dash_items** object supports the following:
-
-          * `dashId` (`pulumi.Input[str]`) - The ID of this dashboard.
-          * `type` (`pulumi.Input[str]`) - The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,7 +105,7 @@ class DashboardList(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -127,21 +122,20 @@ class DashboardList(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dash_items=None, name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dash_items: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]]] = None,
+            name: Optional[pulumi.Input[str]] = None) -> 'DashboardList':
         """
         Get an existing DashboardList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         :param pulumi.Input[str] name: The name of this Dashboard List.
-
-        The **dash_items** object supports the following:
-
-          * `dashId` (`pulumi.Input[str]`) - The ID of this dashboard.
-          * `type` (`pulumi.Input[str]`) - The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -151,8 +145,25 @@ class DashboardList(pulumi.CustomResource):
         __props__["name"] = name
         return DashboardList(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="dashItems")
+    def dash_items(self) -> Optional[List['outputs.DashboardListDashItem']]:
+        """
+        An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+        """
+        return pulumi.get(self, "dash_items")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Dashboard List.
+        """
+        return pulumi.get(self, "name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

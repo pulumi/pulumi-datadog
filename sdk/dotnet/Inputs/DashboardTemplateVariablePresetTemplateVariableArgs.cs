@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardTemplateVariablePresetTemplateVariableArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The variable name. Can be referenced as $name in `graph` `request` `q` query strings.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Value for the comparator.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

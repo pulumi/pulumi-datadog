@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetTileDefEventGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The search query for event overlays.
+        /// </summary>
         [Input("q", required: true)]
         public Input<string> Q { get; set; } = null!;
 

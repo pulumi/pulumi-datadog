@@ -12,35 +12,63 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetTileDefRequestArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregator to use for time aggregation. One of "avg", "min", "max", "sum", "last".
+        /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
+        /// <summary>
+        /// The APM query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.ScreenBoardWidgetTileDefRequestApmQueryArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// Whether to show absolute or relative change. One of "absolute", "relative".
+        /// </summary>
         [Input("changeType")]
         public Input<string>? ChangeType { get; set; }
 
+        /// <summary>
+        /// Choose from when to compare current data to. One of "hour_before", "day_before", "week_before" or "month_before".
+        /// </summary>
         [Input("compareTo")]
         public Input<string>? CompareTo { get; set; }
 
         [Input("conditionalFormats")]
         private InputList<Inputs.ScreenBoardWidgetTileDefRequestConditionalFormatArgs>? _conditionalFormats;
+
+        /// <summary>
+        /// Nested block to customize the style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
+        /// </summary>
         public InputList<Inputs.ScreenBoardWidgetTileDefRequestConditionalFormatArgs> ConditionalFormats
         {
             get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.ScreenBoardWidgetTileDefRequestConditionalFormatArgs>());
             set => _conditionalFormats = value;
         }
 
+        /// <summary>
+        /// If set to "present", displays current value. Can be left empty otherwise.
+        /// </summary>
         [Input("extraCol")]
         public Input<string>? ExtraCol { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+        /// </summary>
         [Input("increaseGood")]
         public Input<bool>? IncreaseGood { get; set; }
 
+        /// <summary>
+        /// Integer indicating the number of hosts to limit to.
+        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
+        /// <summary>
+        /// The log query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("logQuery")]
         public Input<Inputs.ScreenBoardWidgetTileDefRequestLogQueryArgs>? LogQuery { get; set; }
 
@@ -50,26 +78,48 @@ namespace Pulumi.Datadog.Inputs
         [Input("metadataJson")]
         public Input<string>? MetadataJson { get; set; }
 
+        /// <summary>
+        /// The metric you want to use for the widget.
+        /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
+        /// <summary>
+        /// One of "change", "name", "present" (present value) or "past" (past value).
+        /// </summary>
         [Input("orderBy")]
         public Input<string>? OrderBy { get; set; }
 
+        /// <summary>
+        /// Either "asc" (ascending) or "desc" (descending).
+        /// </summary>
         [Input("orderDir")]
         public Input<string>? OrderDir { get; set; }
 
+        /// <summary>
+        /// The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         [Input("processQuery")]
         public Input<Inputs.ScreenBoardWidgetTileDefRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
+        /// <summary>
+        /// The search query for event overlays.
+        /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        /// <summary>
+        /// Use "process".
+        /// </summary>
         [Input("queryType")]
         public Input<string>? QueryType { get; set; }
 
         [Input("style")]
         private InputMap<object>? _style;
+
+        /// <summary>
+        /// Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tile_def block.
+        /// </summary>
         public InputMap<object> Style
         {
             get => _style ?? (_style = new InputMap<object>());
@@ -78,15 +128,25 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("tagFilters")]
         private InputList<string>? _tagFilters;
+
+        /// <summary>
+        /// Tags to use for filtering.
+        /// </summary>
         public InputList<string> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new InputList<string>());
             set => _tagFilters = value;
         }
 
+        /// <summary>
+        /// The search query for the widget.
+        /// </summary>
         [Input("textFilter")]
         public Input<string>? TextFilter { get; set; }
 
+        /// <summary>
+        /// The type of the widget. One of "free_text", "timeseries", "query_value", "toplist", "change", "event_timeline", "event_stream", "image", "note", "alert_graph", "alert_value", "iframe", "check_status", "trace_service", "hostmap", "manage_status", "log_stream", or "process".
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

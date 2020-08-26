@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardTemplateVariablePreset
     {
+        /// <summary>
+        /// The displayed name of the preset.
+        /// - `template_variable`: (Required) Block describing the values that a template_variable within this preset should assume. Each referenced template_variable name must be defined on the dashboard, but not all template_variables must be included in a preset. One or more blocks can be defined per preset.
+        /// - `name`: (Required) The name of the template_variable being referenced.
+        /// - `value`: (Required) The value that the template_variable should assume.
+        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.DashboardTemplateVariablePresetTemplateVariable> TemplateVariables;
 

@@ -13,9 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetDistributionDefinitionRequestApmQuery
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute Compute;
+        /// <summary>
+        /// . Multiple nested blocks are allowed with the following structure:
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy> GroupBies;
         public readonly string Index;
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch? Search;
 
         [OutputConstructor]

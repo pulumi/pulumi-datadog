@@ -20,6 +20,9 @@ namespace Pulumi.Datadog.Inputs
             set => _filterBies = value;
         }
 
+        /// <summary>
+        /// The number of lines to show in the table.
+        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 

@@ -12,11 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class TimeBoardGraphRequestLogQueryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         [Input("compute", required: true)]
         public Input<Inputs.TimeBoardGraphRequestLogQueryComputeArgs> Compute { get; set; } = null!;
 
         [Input("groupBies")]
         private InputList<Inputs.TimeBoardGraphRequestLogQueryGroupByArgs>? _groupBies;
+
+        /// <summary>
+        /// . Multiple nested blocks are allowed with the following structure:
+        /// </summary>
         public InputList<Inputs.TimeBoardGraphRequestLogQueryGroupByArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.TimeBoardGraphRequestLogQueryGroupByArgs>());
@@ -26,6 +33,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         [Input("search")]
         public Input<Inputs.TimeBoardGraphRequestLogQuerySearchArgs>? Search { get; set; }
 

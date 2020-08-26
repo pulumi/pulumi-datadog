@@ -5,28 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LogsIndex']
 
 
 class LogsIndex(pulumi.CustomResource):
-    exclusion_filters: pulumi.Output[list]
-    """
-    List of exclusion filters.
-
-      * `filters` (`list`)
-        * `query` (`str`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-        * `sampleRate` (`float`) - The fraction of logs excluded by the exclusion filter, when active.
-
-      * `is_enabled` (`bool`) - A boolean stating if the exclusion is active or not.
-      * `name` (`str`) - The name of the exclusion filter.
-    """
-    filters: pulumi.Output[list]
-    name: pulumi.Output[str]
-    """
-    The name of the exclusion filter.
-    """
-    def __init__(__self__, resource_name, opts=None, exclusion_filters=None, filters=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 exclusion_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to create and manage Datadog logs indexes.
 
@@ -42,26 +38,26 @@ class LogsIndex(pulumi.CustomResource):
 
         sample_index = datadog.LogsIndex("sampleIndex",
             exclusion_filters=[
-                {
-                    "filters": [{
-                        "query": "app:coredns",
-                        "sampleRate": 0.97,
-                    }],
-                    "is_enabled": True,
-                    "name": "Filter coredns logs",
-                },
-                {
-                    "filters": [{
-                        "query": "service:kube_apiserver",
-                        "sampleRate": 1,
-                    }],
-                    "is_enabled": True,
-                    "name": "Kubernetes apiserver",
-                },
+                datadog.LogsIndexExclusionFilterArgs(
+                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
+                        query="app:coredns",
+                        sample_rate=0.97,
+                    )],
+                    is_enabled=True,
+                    name="Filter coredns logs",
+                ),
+                datadog.LogsIndexExclusionFilterArgs(
+                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
+                        query="service:kube_apiserver",
+                        sample_rate=1,
+                    )],
+                    is_enabled=True,
+                    name="Kubernetes apiserver",
+                ),
             ],
-            filters=[{
-                "query": "*",
-            }],
+            filters=[datadog.LogsIndexFilterArgs(
+                query="*",
+            )],
             name="your index")
         ```
         ## Important Notes
@@ -70,21 +66,8 @@ class LogsIndex(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] exclusion_filters: List of exclusion filters.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[str] name: The name of the exclusion filter.
-
-        The **exclusion_filters** object supports the following:
-
-          * `filters` (`pulumi.Input[list]`)
-            * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-            * `sampleRate` (`pulumi.Input[float]`) - The fraction of logs excluded by the exclusion filter, when active.
-
-          * `is_enabled` (`pulumi.Input[bool]`) - A boolean stating if the exclusion is active or not.
-          * `name` (`pulumi.Input[str]`) - The name of the exclusion filter.
-
-        The **filters** object supports the following:
-
-          * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,7 +80,7 @@ class LogsIndex(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -117,29 +100,21 @@ class LogsIndex(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, exclusion_filters=None, filters=None, name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            exclusion_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
+            name: Optional[pulumi.Input[str]] = None) -> 'LogsIndex':
         """
         Get an existing LogsIndex resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] exclusion_filters: List of exclusion filters.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[str] name: The name of the exclusion filter.
-
-        The **exclusion_filters** object supports the following:
-
-          * `filters` (`pulumi.Input[list]`)
-            * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
-            * `sampleRate` (`pulumi.Input[float]`) - The fraction of logs excluded by the exclusion filter, when active.
-
-          * `is_enabled` (`pulumi.Input[bool]`) - A boolean stating if the exclusion is active or not.
-          * `name` (`pulumi.Input[str]`) - The name of the exclusion filter.
-
-        The **filters** object supports the following:
-
-          * `query` (`pulumi.Input[str]`) - Only logs matching the filter criteria and the query of the parent index will be considered for this exclusion filter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -150,8 +125,30 @@ class LogsIndex(pulumi.CustomResource):
         __props__["name"] = name
         return LogsIndex(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[List['outputs.LogsIndexExclusionFilter']]:
+        """
+        List of exclusion filters.
+        """
+        return pulumi.get(self, "exclusion_filters")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> List['outputs.LogsIndexFilter']:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the exclusion filter.
+        """
+        return pulumi.get(self, "name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

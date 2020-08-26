@@ -13,13 +13,32 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat
     {
+        /// <summary>
+        /// Comparator to apply from: One of `&gt;`, `&gt;=`, `&lt;`, or `&lt;=`.
+        /// </summary>
         public readonly string Comparator;
+        /// <summary>
+        /// Color palette to apply to the background, same values available as palette.
+        /// </summary>
         public readonly string? CustomBgColor;
+        /// <summary>
+        /// Color palette to apply to the foreground, same values available as palette.
+        /// </summary>
         public readonly string? CustomFgColor;
         public readonly bool? HideValue;
+        /// <summary>
+        /// Displays an image as the background.
+        /// .
+        /// </summary>
         public readonly string? ImageUrl;
+        /// <summary>
+        /// Color palette to apply; One of `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `green`, `green_on_white`, `grey`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `white_on_red`, `white_on_yellow`, or `yellow_on_white`.
+        /// </summary>
         public readonly string Palette;
         public readonly string? Timeframe;
+        /// <summary>
+        /// Value for the comparator.
+        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

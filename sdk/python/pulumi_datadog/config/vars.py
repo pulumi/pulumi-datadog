@@ -5,16 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = [
+    'api_key',
+    'api_url',
+    'app_key',
+    'validate',
+]
 
 __config__ = pulumi.Config('datadog')
 
-api_key = __config__.get('apiKey') or utilities.get_env('DATADOG_API_KEY')
+api_key = __config__.get('apiKey') or _utilities.get_env('DATADOG_API_KEY')
 
-api_url = __config__.get('apiUrl') or utilities.get_env('DATADOG_HOST')
+api_url = __config__.get('apiUrl') or _utilities.get_env('DATADOG_HOST')
 
-app_key = __config__.get('appKey') or utilities.get_env('DATADOG_APP_KEY')
+app_key = __config__.get('appKey') or _utilities.get_env('DATADOG_APP_KEY')
 
 validate = __config__.get('validate')
 

@@ -5,22 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['IntegrationLogCollection']
 
 
 class IntegrationLogCollection(pulumi.CustomResource):
-    account_id: pulumi.Output[str]
-    """
-    Your AWS Account ID without dashes.
-    """
-    services: pulumi.Output[list]
-    """
-    A list of services to collect logs from. See the
-    [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-    services are supported.
-    """
-    def __init__(__self__, resource_name, opts=None, account_id=None, services=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which
         AWS services logs are collected from for an account.
@@ -40,7 +39,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[list] services: A list of services to collect logs from. See the
+        :param pulumi.Input[List[pulumi.Input[str]]] services: A list of services to collect logs from. See the
                [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
                services are supported.
         """
@@ -55,7 +54,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -74,16 +73,20 @@ class IntegrationLogCollection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_id=None, services=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
+            services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'IntegrationLogCollection':
         """
         Get an existing IntegrationLogCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[list] services: A list of services to collect logs from. See the
+        :param pulumi.Input[List[pulumi.Input[str]]] services: A list of services to collect logs from. See the
                [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
                services are supported.
         """
@@ -95,8 +98,27 @@ class IntegrationLogCollection(pulumi.CustomResource):
         __props__["services"] = services
         return IntegrationLogCollection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        Your AWS Account ID without dashes.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def services(self) -> List[str]:
+        """
+        A list of services to collect logs from. See the
+        [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
+        services are supported.
+        """
+        return pulumi.get(self, "services")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

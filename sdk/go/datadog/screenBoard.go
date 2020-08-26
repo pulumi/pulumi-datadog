@@ -16,18 +16,19 @@ import (
 type ScreenBoard struct {
 	pulumi.CustomResourceState
 
-	// Height of the screenboard
-	Height   pulumi.StringPtrOutput `pulumi:"height"`
-	ReadOnly pulumi.BoolPtrOutput   `pulumi:"readOnly"`
-	// Whether the screenboard is shared or not
+	// The screenboard's height.
+	Height pulumi.StringPtrOutput `pulumi:"height"`
+	// The read-only status of the screenboard. Default is false.
+	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
+	// Whether the screenboard is shared or not. Default is false.
 	Shared pulumi.BoolPtrOutput `pulumi:"shared"`
-	// A list of template variables for using Dashboard templating.
+	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a ScreenBoard resource.
 	TemplateVariables ScreenBoardTemplateVariableArrayOutput `pulumi:"templateVariables"`
-	// Name of the screenboard
+	// The name of the screenboard.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// A list of widget definitions.
+	// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
 	Widgets ScreenBoardWidgetArrayOutput `pulumi:"widgets"`
-	// Width of the screenboard
+	// The screenboard's width.
 	Width pulumi.StringPtrOutput `pulumi:"width"`
 }
 
@@ -65,34 +66,36 @@ func GetScreenBoard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScreenBoard resources.
 type screenBoardState struct {
-	// Height of the screenboard
-	Height   *string `pulumi:"height"`
-	ReadOnly *bool   `pulumi:"readOnly"`
-	// Whether the screenboard is shared or not
+	// The screenboard's height.
+	Height *string `pulumi:"height"`
+	// The read-only status of the screenboard. Default is false.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// Whether the screenboard is shared or not. Default is false.
 	Shared *bool `pulumi:"shared"`
-	// A list of template variables for using Dashboard templating.
+	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a ScreenBoard resource.
 	TemplateVariables []ScreenBoardTemplateVariable `pulumi:"templateVariables"`
-	// Name of the screenboard
+	// The name of the screenboard.
 	Title *string `pulumi:"title"`
-	// A list of widget definitions.
+	// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
 	Widgets []ScreenBoardWidget `pulumi:"widgets"`
-	// Width of the screenboard
+	// The screenboard's width.
 	Width *string `pulumi:"width"`
 }
 
 type ScreenBoardState struct {
-	// Height of the screenboard
-	Height   pulumi.StringPtrInput
+	// The screenboard's height.
+	Height pulumi.StringPtrInput
+	// The read-only status of the screenboard. Default is false.
 	ReadOnly pulumi.BoolPtrInput
-	// Whether the screenboard is shared or not
+	// Whether the screenboard is shared or not. Default is false.
 	Shared pulumi.BoolPtrInput
-	// A list of template variables for using Dashboard templating.
+	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a ScreenBoard resource.
 	TemplateVariables ScreenBoardTemplateVariableArrayInput
-	// Name of the screenboard
+	// The name of the screenboard.
 	Title pulumi.StringPtrInput
-	// A list of widget definitions.
+	// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
 	Widgets ScreenBoardWidgetArrayInput
-	// Width of the screenboard
+	// The screenboard's width.
 	Width pulumi.StringPtrInput
 }
 
@@ -101,35 +104,37 @@ func (ScreenBoardState) ElementType() reflect.Type {
 }
 
 type screenBoardArgs struct {
-	// Height of the screenboard
-	Height   *string `pulumi:"height"`
-	ReadOnly *bool   `pulumi:"readOnly"`
-	// Whether the screenboard is shared or not
+	// The screenboard's height.
+	Height *string `pulumi:"height"`
+	// The read-only status of the screenboard. Default is false.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// Whether the screenboard is shared or not. Default is false.
 	Shared *bool `pulumi:"shared"`
-	// A list of template variables for using Dashboard templating.
+	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a ScreenBoard resource.
 	TemplateVariables []ScreenBoardTemplateVariable `pulumi:"templateVariables"`
-	// Name of the screenboard
+	// The name of the screenboard.
 	Title string `pulumi:"title"`
-	// A list of widget definitions.
+	// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
 	Widgets []ScreenBoardWidget `pulumi:"widgets"`
-	// Width of the screenboard
+	// The screenboard's width.
 	Width *string `pulumi:"width"`
 }
 
 // The set of arguments for constructing a ScreenBoard resource.
 type ScreenBoardArgs struct {
-	// Height of the screenboard
-	Height   pulumi.StringPtrInput
+	// The screenboard's height.
+	Height pulumi.StringPtrInput
+	// The read-only status of the screenboard. Default is false.
 	ReadOnly pulumi.BoolPtrInput
-	// Whether the screenboard is shared or not
+	// Whether the screenboard is shared or not. Default is false.
 	Shared pulumi.BoolPtrInput
-	// A list of template variables for using Dashboard templating.
+	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a ScreenBoard resource.
 	TemplateVariables ScreenBoardTemplateVariableArrayInput
-	// Name of the screenboard
+	// The name of the screenboard.
 	Title pulumi.StringInput
-	// A list of widget definitions.
+	// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
 	Widgets ScreenBoardWidgetArrayInput
-	// Width of the screenboard
+	// The screenboard's width.
 	Width pulumi.StringPtrInput
 }
 

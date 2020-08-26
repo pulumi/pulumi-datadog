@@ -13,11 +13,26 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ScreenBoardWidgetTileDefRequestConditionalFormat
     {
+        /// <summary>
+        /// Custom color (e.g., #205081).
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// Comparison operator. Example: "&gt;", "&lt;".
+        /// </summary>
         public readonly string Comparator;
         public readonly string? CustomBgColor;
+        /// <summary>
+        /// Boolean indicating whether to invert color scheme.
+        /// </summary>
         public readonly bool? Invert;
+        /// <summary>
+        /// Color scheme to be used if the condition is met. One of: "red_on_white", "white_on_red", "yellow_on_white", "white_on_yellow", "green_on_white", "white_on_green", "gray_on_white", "white_on_gray", "custom_text", "custom_bg", "custom_image".
+        /// </summary>
         public readonly string? Palette;
+        /// <summary>
+        /// Value that is the threshold for the conditional format.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -17,18 +17,39 @@ export interface DashboardListDashItem {
 }
 
 export interface DashboardTemplateVariable {
+    /**
+     * The default tag. Default: "\*" (match all).
+     */
     default?: pulumi.Input<string>;
+    /**
+     * The variable name. Can be referenced as $name in `graph` `request` `q` query strings.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The tag group. Default: no tag group.
+     */
     prefix?: pulumi.Input<string>;
 }
 
 export interface DashboardTemplateVariablePreset {
+    /**
+     * The displayed name of the preset.
+     * - `templateVariable`: (Required) Block describing the values that a templateVariable within this preset should assume. Each referenced templateVariable name must be defined on the dashboard, but not all templateVariables must be included in a preset. One or more blocks can be defined per preset.
+     * - `name`: (Required) The name of the templateVariable being referenced.
+     * - `value`: (Required) The value that the templateVariable should assume.
+     */
     name: pulumi.Input<string>;
     templateVariables: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePresetTemplateVariable>[]>;
 }
 
 export interface DashboardTemplateVariablePresetTemplateVariable {
+    /**
+     * The variable name. Can be referenced as $name in `graph` `request` `q` query strings.
+     */
     name: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<string>;
 }
 
@@ -46,6 +67,29 @@ export interface DashboardWidget {
     hostmapDefinition?: pulumi.Input<inputs.DashboardWidgetHostmapDefinition>;
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetIframeDefinition>;
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetImageDefinition>;
+    /**
+     * . The structure of this block is described below
+     * - A widget should have exactly one of the following nested blocks describing the widget definition:
+     * - `alertGraphDefinition`: The definition for a Alert Graph widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `vizType`: (Required) Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `alertValueDefinition`: The definition for an Alert Value widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `precision`: (Optional) The precision to use when displaying the value. Use "*" for maximum precision.
+     * - `unit`: (Optional) The unit for the value displayed in the widget.
+     * - `textAlign`: (Optional) The alignment of the text in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `changeDefinition`: The definition for a Change widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `changeType`: (Optional) Whether to show absolute or relative change. One of "absolute", "relative".
+     */
     layout?: pulumi.Input<inputs.DashboardWidgetLayout>;
     logStreamDefinition?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinition>;
     manageStatusDefinition?: pulumi.Input<inputs.DashboardWidgetManageStatusDefinition>;
@@ -63,6 +107,9 @@ export interface DashboardWidget {
 export interface DashboardWidgetAlertGraphDefinition {
     alertId: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetAlertGraphDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -70,13 +117,38 @@ export interface DashboardWidgetAlertGraphDefinition {
 }
 
 export interface DashboardWidgetAlertGraphDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetAlertValueDefinition {
     alertId: pulumi.Input<string>;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: pulumi.Input<number>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -86,6 +158,9 @@ export interface DashboardWidgetAlertValueDefinition {
 export interface DashboardWidgetChangeDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequest>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -94,20 +169,49 @@ export interface DashboardWidgetChangeDefinition {
 export interface DashboardWidgetChangeDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQuery>;
     changeType?: pulumi.Input<string>;
+    /**
+     * Choose from when to compare current data to. One of "hourBefore", "dayBefore", "weekBefore" or "monthBefore".
+     */
     compareTo?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+     */
     increaseGood?: pulumi.Input<boolean>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQuery>;
+    /**
+     * One of "change", "name", "present" (present value) or "past" (past value).
+     */
     orderBy?: pulumi.Input<string>;
+    /**
+     * Either "asc" (ascending) or "desc" (descending).
+     */
     orderDir?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * If set to "true", displays current value.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `checkStatusDefinition`: The definition for a Check Status widget. Exactly one nested block is allowed with the following structure:
+     */
     showPresent?: pulumi.Input<boolean>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQuerySearch>;
 }
 
@@ -119,13 +223,36 @@ export interface DashboardWidgetChangeDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -134,9 +261,18 @@ export interface DashboardWidgetChangeDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQuerySearch>;
 }
 
@@ -148,13 +284,36 @@ export interface DashboardWidgetChangeDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -164,28 +323,63 @@ export interface DashboardWidgetChangeDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetChangeDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetCheckStatusDefinition {
+    /**
+     * The check to use in the widget.
+     */
     check: pulumi.Input<string>;
+    /**
+     * The check group to use in the widget.
+     */
     group?: pulumi.Input<string>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Either "check" or "cluster", depending on whether the widget should use a single check or a cluster of checks.
+     */
     grouping: pulumi.Input<string>;
+    /**
+     * List of tags to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `distributionDefinition`: The definition for a Distribution widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetCheckStatusDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetCheckStatusDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
@@ -194,6 +388,9 @@ export interface DashboardWidgetDistributionDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -204,13 +401,25 @@ export interface DashboardWidgetDistributionDefinitionRequest {
     logQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch>;
 }
 
@@ -222,13 +431,36 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -237,9 +469,18 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQuerySearch>;
 }
 
@@ -251,13 +492,36 @@ export interface DashboardWidgetDistributionDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -267,30 +531,85 @@ export interface DashboardWidgetDistributionDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetDistributionDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetEventStreamDefinition {
+    /**
+     * The size of the events in the widget. Either "s" (small, title only) or "l" (large, full event).
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `eventTimelineDefinition`: The definition for a Event Timeline widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `freeTextDefinition`: The definition for a Free Text. Exactly one nested block is allowed with the following structure:
+     */
     eventSize?: pulumi.Input<string>;
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetEventStreamDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetEventStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
@@ -298,25 +617,66 @@ export interface DashboardWidgetEventTimelineDefinition {
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetEventTimelineDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetEventTimelineDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetFreeTextDefinition {
+    /**
+     * The color of the text in the widget.
+     */
     color?: pulumi.Input<string>;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: pulumi.Input<string>;
+    /**
+     * The text to display in the widget.
+     */
     text: pulumi.Input<string>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinition {
+    /**
+     * Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
+     * <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+     */
     layoutType: pulumi.Input<string>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
+    /**
+     * Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+     */
     widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidget>[]>;
 }
 
@@ -333,6 +693,29 @@ export interface DashboardWidgetGroupDefinitionWidget {
     hostmapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition>;
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition>;
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetImageDefinition>;
+    /**
+     * . The structure of this block is described below
+     * - A widget should have exactly one of the following nested blocks describing the widget definition:
+     * - `alertGraphDefinition`: The definition for a Alert Graph widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `vizType`: (Required) Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `alertValueDefinition`: The definition for an Alert Value widget. Exactly one nested block is allowed with the following structure:
+     * - `alertId`: (Required) The ID of the monitor used by the widget.
+     * - `precision`: (Optional) The precision to use when displaying the value. Use "*" for maximum precision.
+     * - `unit`: (Optional) The unit for the value displayed in the widget.
+     * - `textAlign`: (Optional) The alignment of the text in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right"
+     * - `changeDefinition`: The definition for a Change widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `changeType`: (Optional) Whether to show absolute or relative change. One of "absolute", "relative".
+     */
     layout?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLayout>;
     logStreamDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition>;
     manageStatusDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition>;
@@ -350,6 +733,9 @@ export interface DashboardWidgetGroupDefinitionWidget {
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     alertId: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -357,13 +743,38 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
     alertId: pulumi.Input<string>;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: pulumi.Input<number>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -373,6 +784,9 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -381,20 +795,49 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery>;
     changeType?: pulumi.Input<string>;
+    /**
+     * Choose from when to compare current data to. One of "hourBefore", "dayBefore", "weekBefore" or "monthBefore".
+     */
     compareTo?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+     */
     increaseGood?: pulumi.Input<boolean>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery>;
+    /**
+     * One of "change", "name", "present" (present value) or "past" (past value).
+     */
     orderBy?: pulumi.Input<string>;
+    /**
+     * Either "asc" (ascending) or "desc" (descending).
+     */
     orderDir?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * If set to "true", displays current value.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `checkStatusDefinition`: The definition for a Check Status widget. Exactly one nested block is allowed with the following structure:
+     */
     showPresent?: pulumi.Input<boolean>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch>;
 }
 
@@ -406,13 +849,36 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -421,9 +887,18 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch>;
 }
 
@@ -435,13 +910,36 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQ
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -451,28 +949,63 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQ
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
+    /**
+     * The check to use in the widget.
+     */
     check: pulumi.Input<string>;
+    /**
+     * The check group to use in the widget.
+     */
     group?: pulumi.Input<string>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Either "check" or "cluster", depending on whether the widget should use a single check or a cluster of checks.
+     */
     grouping: pulumi.Input<string>;
+    /**
+     * List of tags to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `distributionDefinition`: The definition for a Distribution widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
@@ -481,6 +1014,9 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -491,13 +1027,25 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch>;
 }
 
@@ -509,13 +1057,36 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -524,9 +1095,18 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch>;
 }
 
@@ -538,13 +1118,36 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -554,30 +1157,85 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
+    /**
+     * The size of the events in the widget. Either "s" (small, title only) or "l" (large, full event).
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `eventTimelineDefinition`: The definition for a Event Timeline widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters. Can be either "and" or "or".
+     * - `freeTextDefinition`: The definition for a Free Text. Exactly one nested block is allowed with the following structure:
+     */
     eventSize?: pulumi.Input<string>;
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
@@ -585,19 +1243,50 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
     query: pulumi.Input<string>;
     tagsExecution?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetFreeTextDefinition {
+    /**
+     * The color of the text in the widget.
+     */
     color?: pulumi.Input<string>;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: pulumi.Input<string>;
+    /**
+     * The text to display in the widget.
+     */
     text: pulumi.Input<string>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
 }
 
@@ -607,6 +1296,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -623,13 +1315,25 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch>;
 }
 
@@ -641,13 +1345,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -656,9 +1383,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch>;
 }
 
@@ -670,13 +1406,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -686,35 +1445,104 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
+    /**
+     * The check group to use in the widget.
+     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: pulumi.Input<boolean>;
+    /**
+     * The type of node used. Either "host" or "container".
+     */
     nodeType?: pulumi.Input<string>;
     request?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest>;
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -733,9 +1561,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch>;
 }
 
@@ -747,13 +1584,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -762,9 +1622,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch>;
 }
 
@@ -776,13 +1645,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -792,6 +1684,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
@@ -805,9 +1700,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch>;
 }
 
@@ -819,13 +1723,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -834,9 +1761,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch>;
 }
 
@@ -848,13 +1784,36 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -864,48 +1823,143 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
+    /**
+     * Max value to use to color the map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `iframeDefinition`: The definition for a Iframe widget. Exactly one nested block is allowed with the following structure:
+     */
     fillMax?: pulumi.Input<string>;
+    /**
+     * Min value to use to color the map.
+     */
     fillMin?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip?: pulumi.Input<boolean>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
+    /**
+     * The margins to use around the image. Either "small" or "large".
+     * - `logStreamDefinition`: The definition for a Log Stream widget. Exactly one nested block is allowed with the following structure:
+     */
     margin?: pulumi.Input<string>;
+    /**
+     * The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+     */
     sizing?: pulumi.Input<string>;
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLayout {
+    /**
+     * The height of the widget.
+     */
     height: pulumi.Input<number>;
+    /**
+     * The width of the widget.
+     */
     width: pulumi.Input<number>;
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     x: pulumi.Input<number>;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     y: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
+    /**
+     * Stringified list of columns to use. Example: `"["column1","column2","column3"]"`.
+     */
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * ID of the logset to use.
+     * - `query`: (Optional) The query to use in the widget.
+     *
      * @deprecated This parameter has been deprecated. Use 'indexes' instead
      */
     logset?: pulumi.Input<string>;
+    /**
+     * The amount of lines the message column should display. One of: `inline`, `expanded-md`, and `expanded-lg`.
+     */
     messageDisplay?: pulumi.Input<string>;
     query?: pulumi.Input<string>;
+    /**
+     * If the date column should be displayed.
+     */
     showDateColumn?: pulumi.Input<boolean>;
+    /**
+     * If the message column should be displayed.
+     */
     showMessageColumn?: pulumi.Input<boolean>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -913,68 +1967,213 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort {
     column: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
+    /**
+     * Whether to colorize text or background. One of "text", "background".
+     */
     colorPreference?: pulumi.Input<string>;
     /**
      * @deprecated This parameter has been deprecated
      */
     count?: pulumi.Input<number>;
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: pulumi.Input<boolean>;
     query: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to show when monitors/groups last triggered.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `noteDefinition`: The definition for a Note widget. Exactly one nested block is allowed with the following structure:
+     */
     showLastTriggered?: pulumi.Input<boolean>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<string>;
     /**
      * @deprecated This parameter has been deprecated
      */
     start?: pulumi.Input<number>;
+    /**
+     * The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
+     */
     summaryType?: pulumi.Input<string>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
+    /**
+     * Background color of the note.
+     */
     backgroundColor?: pulumi.Input<string>;
+    /**
+     * Content of the note.
+     */
     content: pulumi.Input<string>;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: pulumi.Input<string>;
+    /**
+     * Whether to show a tick or not.
+     */
     showTick?: pulumi.Input<boolean>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
+    /**
+     * When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
+     * - `queryValueDefinition`: The definition for a Query Value widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     tickEdge?: pulumi.Input<string>;
+    /**
+     * When tick = true, string with a percent sign indicating the position of the tick. Example: use tickPos = "50%" for centered alignment.
+     */
     tickPos?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The alias for the column name. Default is the metric name.
+     */
     alias?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch>;
 }
 
@@ -986,13 +2185,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1001,20 +2223,48 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: pulumi.Input<string>;
     hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: pulumi.Input<string>;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: pulumi.Input<string>;
     timeframe?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch>;
 }
 
@@ -1026,13 +2276,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1042,30 +2315,95 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
+    /**
+     * Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: pulumi.Input<boolean>;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     customUnit?: pulumi.Input<string>;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: pulumi.Input<number>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest>[]>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery>;
@@ -1073,9 +2411,18 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch>;
 }
 
@@ -1087,13 +2434,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1102,20 +2472,48 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: pulumi.Input<string>;
     hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: pulumi.Input<string>;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: pulumi.Input<string>;
     timeframe?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch>;
 }
 
@@ -1127,13 +2525,36 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1143,19 +2564,58 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `servicemapDefinition`: The definition for a Service Map widget. Exactly one nested block is allowed with the following structure:
+     * - `filters`: (Required) Your environment and primary tag (or * if enabled for your account).
+     * - `service`: (Required) The ID of the service you want to map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `serviceLevelObjectiveDefinition`: The definition for a Service Level Objective widget. Exactly one nested block is allowed with the following structure:
+     * - `viewType`: (Required) Type of view to use when displaying the widget. Only "detail" is currently supported.
+     * - `sloId`: (Required) The ID of the service level objective used by the widget.
+     * - `showErrorBudget`: (Optional) Whether to show the error budget or not.
+     * - `viewMode`: (Required) View mode for the widget. One of "overall", "component", or "both".
+     * - `timeWindows`: (Required) List of time windows to display in the widget. Each value in the list must be one of "7d", "30d", "90d", "weekToDate",  "previousWeek", "monthToDate", or "previousMonth".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `timeseriesDefinition`: The definition for a Timeseries  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `networkQuery`: (Optional) The network query to use in the widget. The structure of this block is described below.
+     * - `rumQuery`: (Optional) The rum query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     colorByGroups?: pulumi.Input<pulumi.Input<string>[]>;
     request?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1164,11 +2624,24 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest {
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     xes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX>[]>;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     ys?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY>[]>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery>;
@@ -1177,9 +2650,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch>;
 }
 
@@ -1191,13 +2673,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1206,9 +2711,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch>;
 }
 
@@ -1220,13 +2734,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1236,12 +2773,22 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery>;
@@ -1250,9 +2797,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch>;
 }
 
@@ -1264,13 +2820,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1279,9 +2858,18 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch>;
 }
 
@@ -1293,13 +2881,36 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1309,28 +2920,64 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
@@ -1338,6 +2985,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
     timeWindows: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1348,6 +2998,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
 export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     filters: pulumi.Input<pulumi.Input<string>[]>;
     service: pulumi.Input<string>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1356,10 +3009,32 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
+    /**
+     * Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tileDef block.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `toplistDefinition`: The definition for a Toplist  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     markers?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker>[]>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1372,27 +3047,54 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker {
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: pulumi.Input<string>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery>;
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: pulumi.Input<string>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery>;
+    /**
+     * . Used to define expression aliases. Multiple nested blocks are allowed with the following structure:
+     */
     metadatas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata>[]>;
     networkQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch>;
 }
 
@@ -1404,13 +3106,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1419,9 +3144,18 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch>;
 }
 
@@ -1433,13 +3167,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1453,9 +3210,18 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch>;
 }
 
@@ -1467,13 +3233,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1483,15 +3272,27 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch>;
 }
 
@@ -1503,13 +3304,36 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1518,26 +3342,80 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * Type of lines displayed. Available values are: `dashed`, `dotted`, or `solid`.
+     */
     lineType?: pulumi.Input<string>;
+    /**
+     * Width of line displayed. Available values are: `normal`, `thick`, or `thin`.
+     */
     lineWidth?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1545,17 +3423,53 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch>;
 }
 
@@ -1567,13 +3481,36 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1582,20 +3519,48 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: pulumi.Input<string>;
     hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: pulumi.Input<string>;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: pulumi.Input<string>;
     timeframe?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch>;
 }
 
@@ -1607,13 +3572,36 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1623,20 +3611,56 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLog
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: pulumi.Input<string>;
     env: pulumi.Input<string>;
     service: pulumi.Input<string>;
@@ -1649,12 +3673,18 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     sizeFormat?: pulumi.Input<string>;
     spanName: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
@@ -1664,6 +3694,9 @@ export interface DashboardWidgetHeatmapDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1680,13 +3713,25 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
     logQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch>;
 }
 
@@ -1698,13 +3743,36 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1713,9 +3781,18 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch>;
 }
 
@@ -1727,13 +3804,36 @@ export interface DashboardWidgetHeatmapDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1743,35 +3843,104 @@ export interface DashboardWidgetHeatmapDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetHeatmapDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHeatmapDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHostmapDefinition {
+    /**
+     * The check group to use in the widget.
+     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: pulumi.Input<boolean>;
+    /**
+     * The type of node used. Either "host" or "container".
+     */
     nodeType?: pulumi.Input<string>;
     request?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequest>;
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionStyle>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1790,9 +3959,18 @@ export interface DashboardWidgetHostmapDefinitionRequestFill {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch>;
 }
 
@@ -1804,13 +3982,36 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1819,9 +4020,18 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch>;
 }
 
@@ -1833,13 +4043,36 @@ export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1849,6 +4082,9 @@ export interface DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch {
 
 export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
@@ -1862,9 +4098,18 @@ export interface DashboardWidgetHostmapDefinitionRequestSize {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch>;
 }
 
@@ -1876,13 +4121,36 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1891,9 +4159,18 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch>;
 }
 
@@ -1905,13 +4182,36 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute {
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -1921,48 +4221,143 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch {
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetHostmapDefinitionStyle {
+    /**
+     * Max value to use to color the map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `iframeDefinition`: The definition for a Iframe widget. Exactly one nested block is allowed with the following structure:
+     */
     fillMax?: pulumi.Input<string>;
+    /**
+     * Min value to use to color the map.
+     */
     fillMin?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to flip the palette tones.
+     */
     paletteFlip?: pulumi.Input<boolean>;
 }
 
 export interface DashboardWidgetIframeDefinition {
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetImageDefinition {
+    /**
+     * The margins to use around the image. Either "small" or "large".
+     * - `logStreamDefinition`: The definition for a Log Stream widget. Exactly one nested block is allowed with the following structure:
+     */
     margin?: pulumi.Input<string>;
+    /**
+     * The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+     */
     sizing?: pulumi.Input<string>;
+    /**
+     * Read only field - The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetLayout {
+    /**
+     * The height of the widget.
+     */
     height: pulumi.Input<number>;
+    /**
+     * The width of the widget.
+     */
     width: pulumi.Input<number>;
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     x: pulumi.Input<number>;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     y: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetLogStreamDefinition {
+    /**
+     * Stringified list of columns to use. Example: `"["column1","column2","column3"]"`.
+     */
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * ID of the logset to use.
+     * - `query`: (Optional) The query to use in the widget.
+     *
      * @deprecated This parameter has been deprecated. Use 'indexes' instead
      */
     logset?: pulumi.Input<string>;
+    /**
+     * The amount of lines the message column should display. One of: `inline`, `expanded-md`, and `expanded-lg`.
+     */
     messageDisplay?: pulumi.Input<string>;
     query?: pulumi.Input<string>;
+    /**
+     * If the date column should be displayed.
+     */
     showDateColumn?: pulumi.Input<boolean>;
+    /**
+     * If the message column should be displayed.
+     */
     showMessageColumn?: pulumi.Input<boolean>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinitionSort>;
     time?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1970,68 +4365,213 @@ export interface DashboardWidgetLogStreamDefinition {
 
 export interface DashboardWidgetLogStreamDefinitionSort {
     column: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetLogStreamDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetManageStatusDefinition {
+    /**
+     * Whether to colorize text or background. One of "text", "background".
+     */
     colorPreference?: pulumi.Input<string>;
     /**
      * @deprecated This parameter has been deprecated
      */
     count?: pulumi.Input<number>;
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: pulumi.Input<boolean>;
     query: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to show when monitors/groups last triggered.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `noteDefinition`: The definition for a Note widget. Exactly one nested block is allowed with the following structure:
+     */
     showLastTriggered?: pulumi.Input<boolean>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<string>;
     /**
      * @deprecated This parameter has been deprecated
      */
     start?: pulumi.Input<number>;
+    /**
+     * The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
+     */
     summaryType?: pulumi.Input<string>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetNoteDefinition {
+    /**
+     * Background color of the note.
+     */
     backgroundColor?: pulumi.Input<string>;
+    /**
+     * Content of the note.
+     */
     content: pulumi.Input<string>;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: pulumi.Input<string>;
+    /**
+     * Whether to show a tick or not.
+     */
     showTick?: pulumi.Input<boolean>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
+    /**
+     * When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
+     * - `queryValueDefinition`: The definition for a Query Value widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     tickEdge?: pulumi.Input<string>;
+    /**
+     * When tick = true, string with a percent sign indicating the position of the tick. Example: use tickPos = "50%" for centered alignment.
+     */
     tickPos?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequest>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The alias for the column name. Default is the metric name.
+     */
     alias?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQuery>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch>;
 }
 
@@ -2043,13 +4583,36 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2058,20 +4621,48 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: pulumi.Input<string>;
     hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: pulumi.Input<string>;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: pulumi.Input<string>;
     timeframe?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch>;
 }
 
@@ -2083,13 +4674,36 @@ export interface DashboardWidgetQueryTableDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2099,30 +4713,95 @@ export interface DashboardWidgetQueryTableDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinition {
+    /**
+     * Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: pulumi.Input<boolean>;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     customUnit?: pulumi.Input<string>;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: pulumi.Input<number>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequest>[]>;
+    /**
+     * The alignment of the text in the widget.
+     * - `heatmapDefinition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `queryTableDefinition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     textAlign?: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequest {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery>;
@@ -2130,9 +4809,18 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch>;
 }
 
@@ -2144,13 +4832,36 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2159,20 +4870,48 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: pulumi.Input<string>;
     hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: pulumi.Input<string>;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: pulumi.Input<string>;
     timeframe?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQuerySearch>;
 }
 
@@ -2184,13 +4923,36 @@ export interface DashboardWidgetQueryValueDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2200,19 +4962,58 @@ export interface DashboardWidgetQueryValueDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinition {
+    /**
+     * List of groups used for colors.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `servicemapDefinition`: The definition for a Service Map widget. Exactly one nested block is allowed with the following structure:
+     * - `filters`: (Required) Your environment and primary tag (or * if enabled for your account).
+     * - `service`: (Required) The ID of the service you want to map.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `serviceLevelObjectiveDefinition`: The definition for a Service Level Objective widget. Exactly one nested block is allowed with the following structure:
+     * - `viewType`: (Required) Type of view to use when displaying the widget. Only "detail" is currently supported.
+     * - `sloId`: (Required) The ID of the service level objective used by the widget.
+     * - `showErrorBudget`: (Optional) Whether to show the error budget or not.
+     * - `viewMode`: (Required) View mode for the widget. One of "overall", "component", or "both".
+     * - `timeWindows`: (Required) List of time windows to display in the widget. Each value in the list must be one of "7d", "30d", "90d", "weekToDate",  "previousWeek", "monthToDate", or "previousMonth".
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `timeseriesDefinition`: The definition for a Timeseries  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `networkQuery`: (Optional) The network query to use in the widget. The structure of this block is described below.
+     * - `rumQuery`: (Optional) The rum query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     colorByGroups?: pulumi.Input<pulumi.Input<string>[]>;
     request?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequest>;
     time?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2221,11 +5022,24 @@ export interface DashboardWidgetScatterplotDefinition {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequest {
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     xes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestX>[]>;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     ys?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestY>[]>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestX {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQuery>;
@@ -2234,9 +5048,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestX {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch>;
 }
 
@@ -2248,13 +5071,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2263,9 +5109,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch>;
 }
 
@@ -2277,13 +5132,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2293,12 +5171,22 @@ export interface DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch {
 
 export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestY {
+    /**
+     * The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
+     * - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     */
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery>;
@@ -2307,9 +5195,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestY {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch>;
 }
 
@@ -2321,13 +5218,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2336,9 +5256,18 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch>;
 }
 
@@ -2350,13 +5279,36 @@ export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute {
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2366,28 +5318,64 @@ export interface DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch {
 
 export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionXaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetScatterplotDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
@@ -2395,6 +5383,9 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
     timeWindows: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2405,6 +5396,9 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
 export interface DashboardWidgetServicemapDefinition {
     filters: pulumi.Input<pulumi.Input<string>[]>;
     service: pulumi.Input<string>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2413,10 +5407,32 @@ export interface DashboardWidgetServicemapDefinition {
 export interface DashboardWidgetTimeseriesDefinition {
     events?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionEvent>[]>;
     legendSize?: pulumi.Input<string>;
+    /**
+     * Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tileDef block.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `toplistDefinition`: The definition for a Toplist  widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apmQuery`, `logQuery` or `processQuery` is required within the request block):
+     * - `q`: (Optional) The metric query to use in the widget.
+     * - `apmQuery`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+     * - `logQuery`: (Optional) The log query to use in the widget. The structure of this block is described below.
+     * - `processQuery`: (Optional) The process query to use in the widget. The structure of this block is described below.
+     */
     markers?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionMarker>[]>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequest>[]>;
     showLegend?: pulumi.Input<boolean>;
     time?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2429,27 +5445,54 @@ export interface DashboardWidgetTimeseriesDefinitionEvent {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionMarker {
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: pulumi.Input<string>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery>;
+    /**
+     * Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
+     */
     displayType?: pulumi.Input<string>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery>;
+    /**
+     * . Used to define expression aliases. Multiple nested blocks are allowed with the following structure:
+     */
     metadatas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestMetadata>[]>;
     networkQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch>;
 }
 
@@ -2461,13 +5504,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2476,9 +5542,18 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch>;
 }
 
@@ -2490,13 +5565,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2510,9 +5608,18 @@ export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch>;
 }
 
@@ -2524,13 +5631,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2540,15 +5670,27 @@ export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch>;
 }
 
@@ -2560,13 +5702,36 @@ export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute {
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2575,26 +5740,80 @@ export interface DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
+    /**
+     * Type of lines displayed. Available values are: `dashed`, `dotted`, or `solid`.
+     */
     lineType?: pulumi.Input<string>;
+    /**
+     * Width of line displayed. Available values are: `normal`, `thick`, or `thin`.
+     */
     lineWidth?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionYaxis {
+    /**
+     * Always include zero or fit the axis to the data range.
+     */
     includeZero?: pulumi.Input<boolean>;
+    /**
+     * The label of the axis to display on the graph.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     max?: pulumi.Input<string>;
+    /**
+     * Specify the minimum value to show on y-axis.
+     */
     min?: pulumi.Input<string>;
+    /**
+     * Specifies the scale type. One of "linear", "log", "pow", "sqrt".
+     */
     scale?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinition {
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequest>[]>;
     time?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2602,17 +5821,53 @@ export interface DashboardWidgetToplistDefinition {
 
 export interface DashboardWidgetToplistDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQuery>;
+    /**
+     * Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `traceServiceDefinition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
+     * - `env`: (Required) APM environment.
+     * - `service`: (Required) APM service.
+     * - `spanName`: (Required) APM span name.
+     * - `showHits`: (Optional) APM span name.
+     * - `showHits`: (Optional) Whether to show the hits metrics or not.
+     * - `showErrors`: (Optional) Whether to show the error metrics or not.
+     * - `showLatency`: (Optional) Whether to show the latency metrics or not.
+     * - `showBreakdown`: (Optional) Whether to show the latency breakdown or not.
+     * - `showDistribution`: (Optional) Whether to show the latency distribution or not.
+     * - `showResourceList`: (Optional) Whether to show the resource list or not.
+     * - `sizeFormat`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
+     * - `displayFormat`: (Optional) Number of columns to display. Available values are: `oneColumn`, `twoColumn`, or `threeColumn`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestConditionalFormat>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    /**
+     * Style of the widget graph. One nested block is allowed with the following structure:
+     */
     style?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestStyle>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQuerySearch>;
 }
 
@@ -2624,13 +5879,36 @@ export interface DashboardWidgetToplistDefinitionRequestApmQueryCompute {
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2639,20 +5917,48 @@ export interface DashboardWidgetToplistDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
+    /**
+     * Comparator to apply from: One of `>`, `>=`, `<`, or `<=`.
+     */
     comparator: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the background, same values available as palette.
+     */
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Color palette to apply to the foreground, same values available as palette.
+     */
     customFgColor?: pulumi.Input<string>;
     hideValue?: pulumi.Input<boolean>;
+    /**
+     * Displays an image as the background.
+     * .
+     */
     imageUrl?: pulumi.Input<string>;
+    /**
+     * Color palette to apply; One of `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `green`, `greenOnWhite`, `grey`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `whiteOnRed`, `whiteOnYellow`, or `yellowOnWhite`.
+     */
     palette: pulumi.Input<string>;
     timeframe?: pulumi.Input<string>;
+    /**
+     * Value for the comparator.
+     */
     value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch>;
 }
 
@@ -2664,13 +5970,36 @@ export interface DashboardWidgetToplistDefinitionRequestLogQueryCompute {
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
     facet?: pulumi.Input<string>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `manageStatusDefinition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     */
     sort?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort {
     aggregation: pulumi.Input<string>;
     facet?: pulumi.Input<string>;
+    /**
+     * The sort order for the rows. One of `desc` or `asc`.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `scatterplotDefinition`: The definition for a Scatterplot widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Exactly one request block is allowed with the following structure:
+     * - `x`: (Optional) The query used for the X-Axis. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     order: pulumi.Input<string>;
 }
 
@@ -2680,20 +6009,56 @@ export interface DashboardWidgetToplistDefinitionRequestLogQuerySearch {
 
 export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of lines to show in the table.
+     */
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestStyle {
+    /**
+     * Color palette to apply to the widget. The available options are available here: https://docs.datadoghq.com/graphing/widgets/timeseries/#appearance.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `eventStreamDefinition`: The definition for a Event Stream widget. Exactly one nested block is allowed with the following structure:
+     * - `query`: (Required) The query to use in the widget.
+     * - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
+     * - `showLegend`: (Optional) Whether or not to show the legend on this widget.
+     * - `legendSize`: (Optional) The size of the legend displayed in the widget.
+     * - `event`: (Optional) The definition of the event to overlay on the graph. Includes the following structure:
+     * - `q`: (Required) The event query to use in the widget.
+     * - `tagsExecution`: (Optional) The execution method for multi-value filters.
+     * - `title`: (Optional) The title of the widget.
+     * - `titleSize`: (Optional) The size of the widget's title. Default is 16.
+     * - `titleAlign`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+     * - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+     * - `hostmapDefinition`: The definition for a Hostmap widget. Exactly one nested block is allowed with the following structure:
+     * - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+     * - `fill`: (Optional) The query used to fill the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     * - `size`: (Optional) The query used to size the map. Exactly one nested block is allowed with the following structure:
+     * - `q`: (Required) The metric query to use in the widget.
+     */
     palette?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTraceServiceDefinition {
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: pulumi.Input<string>;
     env: pulumi.Input<string>;
     service: pulumi.Input<string>;
@@ -2706,12 +6071,18 @@ export interface DashboardWidgetTraceServiceDefinition {
     sizeFormat?: pulumi.Input<string>;
     spanName: pulumi.Input<string>;
     time?: pulumi.Input<inputs.DashboardWidgetTraceServiceDefinitionTime>;
+    /**
+     * Title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTraceServiceDefinitionTime {
+    /**
+     * The timeframe to use when displaying the widget. One of `10m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`.
+     */
     liveSpan?: pulumi.Input<string>;
 }
 
@@ -3550,140 +6921,452 @@ export interface MonitorThresholds {
 }
 
 export interface ScreenBoardTemplateVariable {
+    /**
+     * The default tag. Default: "\*" (match all).
+     */
     default?: pulumi.Input<string>;
+    /**
+     * The variable name. Can be referenced as \$name in `graph` `request` `q` query strings.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The tag group. Default: no tag group.
+     */
     prefix?: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidget {
+    /**
+     * The ID of the monitor used by the widget.
+     */
     alertId?: pulumi.Input<number>;
+    /**
+     * Boolean indicating whether the widget is refreshed automatically.
+     */
     autoRefresh?: pulumi.Input<boolean>;
+    /**
+     * The color of the background of the widget.
+     */
     bgcolor?: pulumi.Input<string>;
+    /**
+     * The check to use in the widget.
+     */
     check?: pulumi.Input<string>;
+    /**
+     * The color of the text in the widget.
+     */
     color?: pulumi.Input<string>;
+    /**
+     * Whether to colorize text or background. One of "text", "background".
+     */
     colorPreference?: pulumi.Input<string>;
+    /**
+     * Stringified list of columns to use. Example: `"[\"column1\",\"column2\",\"column3\"]"`
+     */
     columns?: pulumi.Input<string>;
+    /**
+     * The display setting to use. One of "counts", "list", or "countsAndList".
+     */
     displayFormat?: pulumi.Input<string>;
+    /**
+     * The environment to use.
+     */
     env?: pulumi.Input<string>;
+    /**
+     * The size of the events in the widget. Either "s" (small, title only) or "l" (large, full event).
+     */
     eventSize?: pulumi.Input<string>;
+    /**
+     * The size of the text in the widget.
+     */
     fontSize?: pulumi.Input<string>;
+    /**
+     * The list of tags to group nodes by.
+     */
     group?: pulumi.Input<string>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Either "check" or "cluster", depending on whether the widget should use a single check or a cluster of checks.
+     */
     grouping?: pulumi.Input<string>;
+    /**
+     * The height of the widget. Default is 15.
+     */
     height?: pulumi.Input<number>;
+    /**
+     * Boolean indicating whether to hide empty categories.
+     */
     hideZeroCounts?: pulumi.Input<boolean>;
+    /**
+     * The content of the widget. HTML tags supported.
+     */
     html?: pulumi.Input<string>;
+    /**
+     * The number of columns to use when displaying values. One of "oneColumn", "twoColumn", "threeColumn".
+     */
     layoutVersion?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to display a legend in the widget.
+     */
     legend?: pulumi.Input<boolean>;
+    /**
+     * The size of the legend displayed in the widget.
+     */
     legendSize?: pulumi.Input<string>;
+    /**
+     * ID of the logset to use.
+     */
     logset?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to show a title.
+     */
     manageStatusShowTitle?: pulumi.Input<boolean>;
+    /**
+     * The alignment of the widget's title. One of "left", "center", or "right".
+     */
     manageStatusTitleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title.
+     */
     manageStatusTitleSize?: pulumi.Input<string>;
+    /**
+     * The title of the widget.
+     */
     manageStatusTitleText?: pulumi.Input<string>;
+    /**
+     * The margins to use around the image. Either "small" or "large".
+     */
     margin?: pulumi.Input<string>;
     monitor?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Boolean indicating whether to display breakdown.
+     */
     mustShowBreakdown?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to display distribution.
+     */
     mustShowDistribution?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to display errors.
+     */
     mustShowErrors?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to display hits.
+     */
     mustShowHits?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to display latency.
+     */
     mustShowLatency?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to display resources.
+     */
     mustShowResourceList?: pulumi.Input<boolean>;
+    /**
+     * Nested block describing the monitors to display. The structure of this block is described below. At most one such block should be present in a given widget.
+     */
     params?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The precision to use when displaying the tile.
+     */
     precision?: pulumi.Input<string>;
+    /**
+     * The query to use in the widget.
+     */
     query?: pulumi.Input<string>;
     rules?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetRule>[]>;
+    /**
+     * The name of the service to use.
+     */
     serviceName?: pulumi.Input<string>;
+    /**
+     * The trace service to use.
+     */
     serviceService?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to show when monitors/groups last triggered.
+     */
     showLastTriggered?: pulumi.Input<boolean>;
+    /**
+     * The size of the widget. One of "small", "medium", "large".
+     */
     sizeVersion?: pulumi.Input<string>;
+    /**
+     * The preferred method to adapt the dimensions of the image to those of the widget. One of "center" (center the image in the tile), "zoom" (zoom the image to cover the whole tile) or "fit" (fit the image dimensions to those of the tile).
+     */
     sizing?: pulumi.Input<string>;
+    /**
+     * The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
+     */
     summaryType?: pulumi.Input<string>;
+    /**
+     * List of tags to use in the widget.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The query to use to get monitors. Example: "status:alert".
+     */
     text?: pulumi.Input<string>;
+    /**
+     * The alignment of the text.
+     */
     textAlign?: pulumi.Input<string>;
+    /**
+     * The size of the text in the widget.
+     */
     textSize?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether a tick should be displayed on the border of the widget.
+     */
     tick?: pulumi.Input<boolean>;
+    /**
+     * When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
+     */
     tickEdge?: pulumi.Input<string>;
+    /**
+     * When tick = true, string with a percent sign indicating the position of the tick. Example: use tickPos = "50%" for centered alignment.
+     */
     tickPos?: pulumi.Input<string>;
+    /**
+     * Nested block describing the content to display in the widget. The structure of this block is described below. At most one such block should be present in a given widget.
+     */
     tileDeves?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDef>[]>;
+    /**
+     * Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below. At most one such block should be present in a given widget.
+     */
     time?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeframes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The title of the widget.
+     */
     title?: pulumi.Input<string>;
+    /**
+     * The alignment of the widget's title. One of "left", "center", or "right".
+     */
     titleAlign?: pulumi.Input<string>;
+    /**
+     * The size of the widget's title. Default is 16.
+     */
     titleSize?: pulumi.Input<number>;
+    /**
+     * Choose the type of representation to use for this query. For widgets of type "timeseries" and "queryValue", use one of "line", "bars" or "area". For widgets of type "hostmap", use "fill" or "size".
+     */
     type: pulumi.Input<string>;
+    /**
+     * The unit for the value displayed in the widget.
+     */
     unit?: pulumi.Input<string>;
+    /**
+     * The URL to use as a data source for the widget.
+     */
     url?: pulumi.Input<string>;
+    /**
+     * Type of visualization to use when displaying the widget. Either "timeseries" or "toplist".
+     */
     vizType?: pulumi.Input<string>;
+    /**
+     * The width of the widget. Default is 50.
+     */
     width?: pulumi.Input<number>;
+    /**
+     * The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
+     */
     x: pulumi.Input<number>;
+    /**
+     * The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
+     */
     y: pulumi.Input<number>;
 }
 
 export interface ScreenBoardWidgetRule {
+    /**
+     * The color of the text in the widget.
+     */
     color?: pulumi.Input<string>;
     threshold?: pulumi.Input<number>;
     timeframe?: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDef {
+    /**
+     * Boolean indicating whether to automatically scale the tile.
+     */
     autoscale?: pulumi.Input<boolean>;
+    /**
+     * The unit for the value displayed in the widget
+     */
     customUnit?: pulumi.Input<string>;
+    /**
+     * Nested block describing the event overlays to use when displaying the widget. The structure of this block is described below. At most one such block should be present in a given tileDef block.
+     */
     events?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefEvent>[]>;
+    /**
+     * The check group to use in the widget.
+     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tileDef block.
+     */
     markers?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefMarker>[]>;
+    /**
+     * Boolean indicating whether to show ungrouped nodes.
+     */
     noGroupHosts?: pulumi.Input<boolean>;
+    /**
+     * Boolean indicating whether to show nodes with no metrics.
+     */
     noMetricHosts?: pulumi.Input<boolean>;
+    /**
+     * The type of node used. Either "host" or "container".
+     */
     nodeType?: pulumi.Input<string>;
+    /**
+     * The precision to use when displaying the value. Use "\*" for maximum precision.
+     */
     precision?: pulumi.Input<string>;
+    /**
+     * Nested block describing the request to use when displaying the widget. The structure of this block is described below. Multiple request blocks are allowed within a given tileDef block.
+     */
     requests: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefRequest>[]>;
+    /**
+     * The list of tags to filter nodes by.
+     */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tileDef block.
+     */
     style?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The alignment of the text in the widget.
+     */
     textAlign?: pulumi.Input<string>;
+    /**
+     * Should be the same as the widget's type. One of "timeseries", "queryValue", "hostmap", "change", "toplist", "process".
+     */
     viz: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefEvent {
+    /**
+     * The search query for event overlays.
+     */
     q: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefMarker {
+    /**
+     * A label for the line or range.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * The type of the widget. One of "freeText", "timeseries", "queryValue", "toplist", "change", "eventTimeline", "eventStream", "image", "note", "alertGraph", "alertValue", "iframe", "checkStatus", "traceService", "hostmap", "manageStatus", "logStream", or "process".
+     */
     type: pulumi.Input<string>;
+    /**
+     * Mathematical expression describing the marker. Examples: "y > 1", "-5 < y < 0", "y = 19".
+     */
     value: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefRequest {
+    /**
+     * The aggregator to use for time aggregation. One of "avg", "min", "max", "sum", "last".
+     */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The APM query to use in the widget. The structure of this block is described below.
+     */
     apmQuery?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQuery>;
+    /**
+     * Whether to show absolute or relative change. One of "absolute", "relative".
+     */
     changeType?: pulumi.Input<string>;
+    /**
+     * Choose from when to compare current data to. One of "hourBefore", "dayBefore", "weekBefore" or "monthBefore".
+     */
     compareTo?: pulumi.Input<string>;
+    /**
+     * Nested block to customize the style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestConditionalFormat>[]>;
+    /**
+     * If set to "present", displays current value. Can be left empty otherwise.
+     */
     extraCol?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether an increase in the value is good (thus displayed in green) or not (thus displayed in red).
+     */
     increaseGood?: pulumi.Input<boolean>;
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The log query to use in the widget. The structure of this block is described below.
+     */
     logQuery?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQuery>;
     /**
      * A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadataJson` will be ignored if they're not present in the query. For example:
      */
     metadataJson?: pulumi.Input<string>;
+    /**
+     * The metric you want to use for the widget.
+     */
     metric?: pulumi.Input<string>;
+    /**
+     * One of "change", "name", "present" (present value) or "past" (past value).
+     */
     orderBy?: pulumi.Input<string>;
+    /**
+     * Either "asc" (ascending) or "desc" (descending).
+     */
     orderDir?: pulumi.Input<string>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestProcessQuery>;
+    /**
+     * The search query for event overlays.
+     */
     q?: pulumi.Input<string>;
+    /**
+     * Use "process".
+     */
     queryType?: pulumi.Input<string>;
+    /**
+     * Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tileDef block.
+     */
     style?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Tags to use for filtering.
+     */
     tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The search query for the widget.
+     */
     textFilter?: pulumi.Input<string>;
+    /**
+     * The type of the widget. One of "freeText", "timeseries", "queryValue", "toplist", "change", "eventTimeline", "eventStream", "image", "note", "alertGraph", "alertValue", "iframe", "checkStatus", "traceService", "hostmap", "manageStatus", "logStream", or "process".
+     */
     type?: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQuerySearch>;
 }
 
@@ -3695,7 +7378,13 @@ export interface ScreenBoardWidgetTileDefRequestApmQueryCompute {
 
 export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBy {
     facet: pulumi.Input<string>;
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The method to use to sort monitors. Example: "status,asc".
+     */
     sort?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort>;
 }
 
@@ -3706,22 +7395,49 @@ export interface ScreenBoardWidgetTileDefRequestApmQueryGroupBySort {
 }
 
 export interface ScreenBoardWidgetTileDefRequestApmQuerySearch {
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefRequestConditionalFormat {
+    /**
+     * Custom color (e.g., #205081).
+     */
     color?: pulumi.Input<string>;
+    /**
+     * Comparison operator. Example: ">", "<".
+     */
     comparator: pulumi.Input<string>;
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether to invert color scheme.
+     */
     invert?: pulumi.Input<boolean>;
+    /**
+     * Color scheme to be used if the condition is met. One of: "redOnWhite", "whiteOnRed", "yellowOnWhite", "whiteOnYellow", "greenOnWhite", "whiteOnGreen", "grayOnWhite", "whiteOnGray", "customText", "customBg", "customImage".
+     */
     palette?: pulumi.Input<string>;
+    /**
+     * Value that is the threshold for the conditional format.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQueryCompute>;
+    /**
+     * When grouping = "cluster", indicates a list of tags to use for grouping.
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQuerySearch>;
 }
 
@@ -3733,7 +7449,13 @@ export interface ScreenBoardWidgetTileDefRequestLogQueryCompute {
 
 export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBy {
     facet: pulumi.Input<string>;
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The method to use to sort monitors. Example: "status,asc".
+     */
     sort?: pulumi.Input<inputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort>;
 }
 
@@ -3744,12 +7466,21 @@ export interface ScreenBoardWidgetTileDefRequestLogQueryGroupBySort {
 }
 
 export interface ScreenBoardWidgetTileDefRequestLogQuerySearch {
+    /**
+     * The query to use in the widget.
+     */
     query: pulumi.Input<string>;
 }
 
 export interface ScreenBoardWidgetTileDefRequestProcessQuery {
     filterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Integer indicating the number of hosts to limit to.
+     */
     limit?: pulumi.Input<number>;
+    /**
+     * The metric you want to use for the widget.
+     */
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
 }
@@ -3793,76 +7524,217 @@ export interface ServiceLevelObjectiveThreshold {
 }
 
 export interface SyntheticsTestOptions {
+    /**
+     * For type=ssl, true or false
+     */
     acceptSelfSigned?: pulumi.Input<boolean>;
+    /**
+     * For type=api, true or false. Allow your HTTP test go on with connection even if there is an error when validating the certificate.
+     */
     allowInsecure?: pulumi.Input<boolean>;
+    /**
+     * For type=api, true or false
+     */
     followRedirects?: pulumi.Input<boolean>;
+    /**
+     * How long the test should be in failure before alerting (integer, number of seconds, max 7200). Default is 0.
+     */
     minFailureDuration?: pulumi.Input<number>;
+    /**
+     * Threshold below which a synthetics test is allowed to fail before sending notifications
+     */
     minLocationFailed?: pulumi.Input<number>;
+    /**
+     * How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 if type=api or 300 if type=browser
+     */
     tickEvery: pulumi.Input<number>;
 }
 
 export interface SyntheticsTestRequest {
+    /**
+     * Request body
+     */
     body?: pulumi.Input<string>;
+    /**
+     * host name
+     */
     host?: pulumi.Input<string>;
+    /**
+     * no-op, use GET
+     */
     method?: pulumi.Input<string>;
+    /**
+     * port number
+     */
     port?: pulumi.Input<number>;
+    /**
+     * For type=api, any value between 0 and 60 (Default = 60)
+     */
     timeout?: pulumi.Input<number>;
+    /**
+     * Any url
+     */
     url?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestRequestBasicauth {
+    /**
+     * Password for authentication
+     */
     password: pulumi.Input<string>;
+    /**
+     * Username for authentication
+     */
     username: pulumi.Input<string>;
 }
 
 export interface TimeBoardGraph {
+    /**
+     * Boolean that determines whether to autoscale graphs.
+     */
     autoscale?: pulumi.Input<boolean>;
+    /**
+     * Display a custom unit on the graph (such as 'hertz')
+     */
     customUnit?: pulumi.Input<string>;
+    /**
+     * A list of event filter strings. Note that, while supported by the Datadog API, the Datadog UI does not (currently) support multiple event filters very well, so use at your own risk.
+     */
     events?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of groups for hostmaps (shown as 'group by' in the UI).
+     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If set to true, will display hosts on hostmap that have no reported metrics.
+     */
     includeNoMetricHosts?: pulumi.Input<boolean>;
+    /**
+     * If set to true, will display hosts without groups on hostmaps.
+     */
     includeUngroupedHosts?: pulumi.Input<boolean>;
+    /**
+     * Nested block describing lines / ranges added to graph for formatting. The structure of this block is described below. Multiple marker blocks are allowed within a graph block.
+     */
     markers?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphMarker>[]>;
+    /**
+     * What nodes to display in a hostmap. Can be one of 'host' (default) or 'container'.
+     */
     nodeType?: pulumi.Input<string>;
+    /**
+     * Number of digits displayed, use `*` for full precision.
+     */
     precision?: pulumi.Input<string>;
+    /**
+     * Nested block describing a graph definition request (a metric query to plot on the graph). The structure of this block is described below. Multiple request blocks are allowed within a graph block.
+     */
     requests: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphRequest>[]>;
+    /**
+     * List of scopes for hostmaps (shown as 'filter by' in the UI).
+     */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Nested block to customize the graph style.
+     */
     style?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * How to align text in the graph, can be one of 'left', 'center', or 'right'.
+     */
     textAlign?: pulumi.Input<string>;
+    /**
+     * The name of the graph.
+     */
     title: pulumi.Input<string>;
+    /**
+     * The type of visualization to use for the graph. Valid choices are "change", "distribution", "heatmap", "hostmap", "queryValue", timeseries", and "toplist".
+     */
     viz: pulumi.Input<string>;
+    /**
+     * Nested block describing modifications to the yaxis rendering. The structure of this block is described below.
+     */
     yaxis?: pulumi.Input<{[key: string]: any}>;
 }
 
 export interface TimeBoardGraphMarker {
+    /**
+     * A label for the line or range. **Warning:** when a label is enabled but left empty through the UI, the Datadog API returns a boolean value, not a string. This makes `pulumi up` fail with a JSON decoding error.
+     */
     label?: pulumi.Input<string>;
+    /**
+     * How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
+     */
     type: pulumi.Input<string>;
+    /**
+     * Mathematical expression describing the marker. Examples: "y > 1", "-5 < y < 0", "y = 19".
+     */
     value: pulumi.Input<string>;
 }
 
 export interface TimeBoardGraphRequest {
+    /**
+     * The aggregation method used when the number of data points outnumbers the max that can be shown.
+     */
     aggregator?: pulumi.Input<string>;
+    /**
+     * The APM query to use in the widget. The structure of this block is described below.
+     */
     apmQuery?: pulumi.Input<inputs.TimeBoardGraphRequestApmQuery>;
     changeType?: pulumi.Input<string>;
     compareTo?: pulumi.Input<string>;
+    /**
+     * Nested block to customize the graph style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
+     */
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphRequestConditionalFormat>[]>;
+    /**
+     * If set to "present", displays current value. Can be left empty otherwise.
+     */
     extraCol?: pulumi.Input<string>;
     increaseGood?: pulumi.Input<boolean>;
+    /**
+     * The log query to use in the widget. The structure of this block is described below.
+     */
     logQuery?: pulumi.Input<inputs.TimeBoardGraphRequestLogQuery>;
+    /**
+     * A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadataJson` will be ignored if they're not present in the query. For example:
+     */
     metadataJson?: pulumi.Input<string>;
     orderBy?: pulumi.Input<string>;
     orderDirection?: pulumi.Input<string>;
+    /**
+     * The process query to use in the widget. The structure of this block is described below.
+     */
     processQuery?: pulumi.Input<inputs.TimeBoardGraphRequestProcessQuery>;
+    /**
+     * The query of the request. Pro tip: Use the JSON tab inside the Datadog UI to help build you query strings.
+     */
     q?: pulumi.Input<string>;
+    /**
+     * Boolean value to determine if this is this a stacked area graph. Default: false (line chart).
+     */
     stacked?: pulumi.Input<boolean>;
+    /**
+     * Nested block describing hostmaps. The structure of this block is described below.
+     */
     style?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
+     */
     type?: pulumi.Input<string>;
 }
 
 export interface TimeBoardGraphRequestApmQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.TimeBoardGraphRequestApmQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphRequestApmQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.TimeBoardGraphRequestApmQuerySearch>;
 }
 
@@ -3875,6 +7747,9 @@ export interface TimeBoardGraphRequestApmQueryCompute {
 export interface TimeBoardGraphRequestApmQueryGroupBy {
     facet: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     sort?: pulumi.Input<inputs.TimeBoardGraphRequestApmQueryGroupBySort>;
 }
 
@@ -3889,17 +7764,41 @@ export interface TimeBoardGraphRequestApmQuerySearch {
 }
 
 export interface TimeBoardGraphRequestConditionalFormat {
+    /**
+     * Comparison operator. Example: ">", "<".
+     */
     comparator: pulumi.Input<string>;
+    /**
+     * Used when `palette` is set to `customBg`. Set the color of the background to a custom web color, such as "#205081".
+     */
     customBgColor?: pulumi.Input<string>;
+    /**
+     * Used when `palette` is set to `customText`. Set the color of the text to a custom web color, such as "#205081".
+     */
     customFgColor?: pulumi.Input<string>;
+    /**
+     * Color scheme to be used if the condition is met. For example: "redOnWhite", "whiteOnRed", "yellowOnWhite", "whiteOnYellow", "greenOnWhite", "whiteOnGreen", "grayOnWhite", "whiteOnGray", "customText", "customBg", "customImage".
+     */
     palette?: pulumi.Input<string>;
+    /**
+     * Value that is the threshold for the conditional format.
+     */
     value?: pulumi.Input<string>;
 }
 
 export interface TimeBoardGraphRequestLogQuery {
+    /**
+     * . Exactly one nested block is required with the following structure:
+     */
     compute: pulumi.Input<inputs.TimeBoardGraphRequestLogQueryCompute>;
+    /**
+     * . Multiple nested blocks are allowed with the following structure:
+     */
     groupBies?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraphRequestLogQueryGroupBy>[]>;
     index: pulumi.Input<string>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     search?: pulumi.Input<inputs.TimeBoardGraphRequestLogQuerySearch>;
 }
 
@@ -3912,6 +7811,9 @@ export interface TimeBoardGraphRequestLogQueryCompute {
 export interface TimeBoardGraphRequestLogQueryGroupBy {
     facet: pulumi.Input<string>;
     limit?: pulumi.Input<number>;
+    /**
+     * . One nested block is allowed with the following structure:
+     */
     sort?: pulumi.Input<inputs.TimeBoardGraphRequestLogQueryGroupBySort>;
 }
 
@@ -3933,8 +7835,17 @@ export interface TimeBoardGraphRequestProcessQuery {
 }
 
 export interface TimeBoardTemplateVariable {
+    /**
+     * The default tag. Default: "\*" (match all).
+     */
     default?: pulumi.Input<string>;
+    /**
+     * The variable name. Can be referenced as \$name in `graph` `request` `q` query strings.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The tag group. Default: no tag group.
+     */
     prefix?: pulumi.Input<string>;
 }
 export namespace pagerduty {

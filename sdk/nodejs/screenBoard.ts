@@ -429,28 +429,31 @@ export class ScreenBoard extends pulumi.CustomResource {
     }
 
     /**
-     * Height of the screenboard
+     * The screenboard's height.
      */
     public readonly height!: pulumi.Output<string | undefined>;
+    /**
+     * The read-only status of the screenboard. Default is false.
+     */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the screenboard is shared or not
+     * Whether the screenboard is shared or not. Default is false.
      */
     public readonly shared!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of template variables for using Dashboard templating.
+     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.ScreenBoard resource.
      */
     public readonly templateVariables!: pulumi.Output<outputs.ScreenBoardTemplateVariable[] | undefined>;
     /**
-     * Name of the screenboard
+     * The name of the screenboard.
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * A list of widget definitions.
+     * Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
      */
     public readonly widgets!: pulumi.Output<outputs.ScreenBoardWidget[]>;
     /**
-     * Width of the screenboard
+     * The screenboard's width.
      */
     public readonly width!: pulumi.Output<string | undefined>;
 
@@ -505,28 +508,31 @@ export class ScreenBoard extends pulumi.CustomResource {
  */
 export interface ScreenBoardState {
     /**
-     * Height of the screenboard
+     * The screenboard's height.
      */
     readonly height?: pulumi.Input<string>;
+    /**
+     * The read-only status of the screenboard. Default is false.
+     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Whether the screenboard is shared or not
+     * Whether the screenboard is shared or not. Default is false.
      */
     readonly shared?: pulumi.Input<boolean>;
     /**
-     * A list of template variables for using Dashboard templating.
+     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.ScreenBoard resource.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
-     * Name of the screenboard
+     * The name of the screenboard.
      */
     readonly title?: pulumi.Input<string>;
     /**
-     * A list of widget definitions.
+     * Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
      */
     readonly widgets?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
-     * Width of the screenboard
+     * The screenboard's width.
      */
     readonly width?: pulumi.Input<string>;
 }
@@ -536,28 +542,31 @@ export interface ScreenBoardState {
  */
 export interface ScreenBoardArgs {
     /**
-     * Height of the screenboard
+     * The screenboard's height.
      */
     readonly height?: pulumi.Input<string>;
+    /**
+     * The read-only status of the screenboard. Default is false.
+     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Whether the screenboard is shared or not
+     * Whether the screenboard is shared or not. Default is false.
      */
     readonly shared?: pulumi.Input<boolean>;
     /**
-     * A list of template variables for using Dashboard templating.
+     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.ScreenBoard resource.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
-     * Name of the screenboard
+     * The name of the screenboard.
      */
     readonly title: pulumi.Input<string>;
     /**
-     * A list of widget definitions.
+     * Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
      */
     readonly widgets: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
-     * Width of the screenboard
+     * The screenboard's width.
      */
     readonly width?: pulumi.Input<string>;
 }

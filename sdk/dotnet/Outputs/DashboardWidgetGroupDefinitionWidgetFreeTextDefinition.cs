@@ -13,9 +13,34 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetFreeTextDefinition
     {
+        /// <summary>
+        /// The color of the text in the widget.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The size of the text in the widget.
+        /// </summary>
         public readonly string? FontSize;
+        /// <summary>
+        /// The text to display in the widget.
+        /// </summary>
         public readonly string Text;
+        /// <summary>
+        /// The alignment of the text in the widget.
+        /// - `heatmap_definition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
+        /// - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
+        /// - `q`: (Required) The metric query to use in the widget.
+        /// - `title`: (Optional) The title of the widget.
+        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
+        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
+        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
+        /// - `query_table_definition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
+        /// - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apm_query`, `log_query` or `process_query` is required within the request block):
+        /// - `q`: (Optional) The metric query to use in the widget
+        /// - `apm_query`: (Optional) The APM query to use in the widget. The structure of this block is described below.
+        /// - `log_query`: (Optional) The log query to use in the widget. The structure of this block is described below.
+        /// - `process_query`: (Optional) The process query to use in the widget. The structure of this block is described below.
+        /// </summary>
         public readonly string? TextAlign;
 
         [OutputConstructor]

@@ -5,50 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LogsArchive']
 
 
 class LogsArchive(pulumi.CustomResource):
-    azure: pulumi.Output[dict]
-    """
-    Definition of an azure archive.
-
-      * `client_id` (`str`) - Your client id.
-      * `container` (`str`) - The container where the archive will be stored.
-      * `path` (`str`) - The path where the archive will be stored.
-      * `storage_account` (`str`) - The associated storage account.
-      * `tenant_id` (`str`) - Your tenant id.
-    """
-    gcs: pulumi.Output[dict]
-    """
-    Definition of an gcs archive.
-
-      * `bucket` (`str`) - Name of your gcs bucket.
-      * `client_email` (`str`) - Your client email.
-      * `path` (`str`) - The path where the archive will be stored.
-      * `project_id` (`str`) - Your project id.
-    """
-    name: pulumi.Output[str]
-    """
-    Your archive name.
-    """
-    query: pulumi.Output[str]
-    """
-    The archive query/filter. Logs matching this query are included in the archive.
-    """
-    s3: pulumi.Output[dict]
-    """
-    Definition of an s3 archive.
-
-      * `account_id` (`str`) - Your AWS account id.
-      * `bucket` (`str`) - Name of your gcs bucket.
-      * `client_email` (`str`) - Your client email.
-      * `path` (`str`) - The path where the archive will be stored.
-      * `project_id` (`str`) - Your project id.
-      * `role_name` (`str`) - Your AWS role name.
-    """
-    def __init__(__self__, resource_name, opts=None, azure=None, gcs=None, name=None, query=None, s3=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
+                 gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 s3: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3Args']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to create and manage Datadog logs archives.
 
@@ -63,45 +39,21 @@ class LogsArchive(pulumi.CustomResource):
         my_s3_archive = datadog.LogsArchive("myS3Archive",
             name="my s3 archive",
             query="service:myservice",
-            s3={
-                "account_id": "001234567888",
-                "bucket": "my-bucket",
-                "path": "/path/foo",
-                "role_name": "my-role-name",
-            })
+            s3=datadog.LogsArchiveS3Args(
+                account_id="001234567888",
+                bucket="my-bucket",
+                path="/path/foo",
+                role_name="my-role-name",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] azure: Definition of an azure archive.
-        :param pulumi.Input[dict] gcs: Definition of an gcs archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of an gcs archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
-        :param pulumi.Input[dict] s3: Definition of an s3 archive.
-
-        The **azure** object supports the following:
-
-          * `client_id` (`pulumi.Input[str]`) - Your client id.
-          * `container` (`pulumi.Input[str]`) - The container where the archive will be stored.
-          * `path` (`pulumi.Input[str]`) - The path where the archive will be stored.
-          * `storage_account` (`pulumi.Input[str]`) - The associated storage account.
-          * `tenant_id` (`pulumi.Input[str]`) - Your tenant id.
-
-        The **gcs** object supports the following:
-
-          * `bucket` (`pulumi.Input[str]`) - Name of your gcs bucket.
-          * `client_email` (`pulumi.Input[str]`) - Your client email.
-          * `path` (`pulumi.Input[str]`) - The path where the archive will be stored.
-          * `project_id` (`pulumi.Input[str]`) - Your project id.
-
-        The **s3** object supports the following:
-
-          * `account_id` (`pulumi.Input[str]`) - Your AWS account id.
-          * `bucket` (`pulumi.Input[str]`) - Name of your gcs bucket.
-          * `client_email` (`pulumi.Input[str]`) - Your client email.
-          * `path` (`pulumi.Input[str]`) - The path where the archive will be stored.
-          * `project_id` (`pulumi.Input[str]`) - Your project id.
-          * `role_name` (`pulumi.Input[str]`) - Your AWS role name.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,7 +66,7 @@ class LogsArchive(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -136,43 +88,26 @@ class LogsArchive(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, azure=None, gcs=None, name=None, query=None, s3=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
+            gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            query: Optional[pulumi.Input[str]] = None,
+            s3: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3Args']]] = None) -> 'LogsArchive':
         """
         Get an existing LogsArchive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] azure: Definition of an azure archive.
-        :param pulumi.Input[dict] gcs: Definition of an gcs archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of an gcs archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
-        :param pulumi.Input[dict] s3: Definition of an s3 archive.
-
-        The **azure** object supports the following:
-
-          * `client_id` (`pulumi.Input[str]`) - Your client id.
-          * `container` (`pulumi.Input[str]`) - The container where the archive will be stored.
-          * `path` (`pulumi.Input[str]`) - The path where the archive will be stored.
-          * `storage_account` (`pulumi.Input[str]`) - The associated storage account.
-          * `tenant_id` (`pulumi.Input[str]`) - Your tenant id.
-
-        The **gcs** object supports the following:
-
-          * `bucket` (`pulumi.Input[str]`) - Name of your gcs bucket.
-          * `client_email` (`pulumi.Input[str]`) - Your client email.
-          * `path` (`pulumi.Input[str]`) - The path where the archive will be stored.
-          * `project_id` (`pulumi.Input[str]`) - Your project id.
-
-        The **s3** object supports the following:
-
-          * `account_id` (`pulumi.Input[str]`) - Your AWS account id.
-          * `bucket` (`pulumi.Input[str]`) - Name of your gcs bucket.
-          * `client_email` (`pulumi.Input[str]`) - Your client email.
-          * `path` (`pulumi.Input[str]`) - The path where the archive will be stored.
-          * `project_id` (`pulumi.Input[str]`) - Your project id.
-          * `role_name` (`pulumi.Input[str]`) - Your AWS role name.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -185,8 +120,49 @@ class LogsArchive(pulumi.CustomResource):
         __props__["s3"] = s3
         return LogsArchive(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def azure(self) -> Optional['outputs.LogsArchiveAzure']:
+        """
+        Definition of an azure archive.
+        """
+        return pulumi.get(self, "azure")
+
+    @property
+    @pulumi.getter
+    def gcs(self) -> Optional['outputs.LogsArchiveGcs']:
+        """
+        Definition of an gcs archive.
+        """
+        return pulumi.get(self, "gcs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Your archive name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The archive query/filter. Logs matching this query are included in the archive.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.LogsArchiveS3']:
+        """
+        Definition of an s3 archive.
+        """
+        return pulumi.get(self, "s3")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

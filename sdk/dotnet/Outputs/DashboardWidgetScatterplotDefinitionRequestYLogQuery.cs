@@ -13,9 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetScatterplotDefinitionRequestYLogQuery
     {
+        /// <summary>
+        /// . Exactly one nested block is required with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute Compute;
+        /// <summary>
+        /// When grouping = "cluster", indicates a list of tags to use for grouping.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy> GroupBies;
         public readonly string Index;
+        /// <summary>
+        /// . One nested block is allowed with the following structure:
+        /// </summary>
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch? Search;
 
         [OutputConstructor]
