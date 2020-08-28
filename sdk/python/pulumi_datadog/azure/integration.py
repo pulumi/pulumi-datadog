@@ -13,7 +13,7 @@ __all__ = ['Integration']
 
 class Integration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         Your Azure web application ID.
         """
@@ -119,7 +119,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         Your Azure web application secret key.
         """
@@ -127,7 +127,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostFilters")
-    def host_filters(self) -> Optional[str]:
+    def host_filters(self) -> pulumi.Output[Optional[str]]:
         """
         String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure.
         """
@@ -135,7 +135,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> str:
+    def tenant_name(self) -> pulumi.Output[str]:
         """
         Your Azure Active Directory ID.
         """

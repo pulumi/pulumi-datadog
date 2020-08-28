@@ -13,7 +13,7 @@ __all__ = ['LogsPipelineOrder']
 
 class LogsPipelineOrder(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipelines: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -103,7 +103,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
         No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
@@ -112,7 +112,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def pipelines(self) -> List[str]:
+    def pipelines(self) -> pulumi.Output[List[str]]:
         """
         The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """

@@ -13,7 +13,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[str]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
@@ -138,7 +138,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessRole")
-    def access_role(self) -> Optional[str]:
+    def access_role(self) -> pulumi.Output[Optional[str]]:
         """
         Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user).  Default is `st`.
         """
@@ -146,7 +146,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disabled(self) -> Optional[bool]:
+    def disabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the user is disabled
         """
@@ -154,7 +154,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         Email address for user
         """
@@ -162,7 +162,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def handle(self) -> str:
+    def handle(self) -> pulumi.Output[str]:
         """
         The user handle, must be a valid email.
         """
@@ -170,7 +170,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isAdmin")
-    def is_admin(self) -> bool:
+    def is_admin(self) -> pulumi.Output[bool]:
         """
         (Optional) Whether the user is an administrator. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
         """
@@ -178,7 +178,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name for user
         """
@@ -186,7 +186,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[str]:
+    def role(self) -> pulumi.Output[Optional[str]]:
         """
         Role description for user. **Warning**: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
         """
@@ -194,7 +194,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def verified(self) -> bool:
+    def verified(self) -> pulumi.Output[bool]:
         """
         Returns true if Datadog user is verified
         """

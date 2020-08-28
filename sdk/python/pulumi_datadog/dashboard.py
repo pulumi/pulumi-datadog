@@ -15,7 +15,7 @@ __all__ = ['Dashboard']
 
 class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
@@ -769,7 +769,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the dashboard.
         """
@@ -777,7 +777,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isReadOnly")
-    def is_read_only(self) -> Optional[bool]:
+    def is_read_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
         """
@@ -785,7 +785,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="layoutType")
-    def layout_type(self) -> str:
+    def layout_type(self) -> pulumi.Output[str]:
         """
         Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
         <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
@@ -794,7 +794,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notifyLists")
-    def notify_lists(self) -> Optional[List[str]]:
+    def notify_lists(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of handles of users to notify when changes are made to this dashboard.
         """
@@ -802,7 +802,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariablePresets")
-    def template_variable_presets(self) -> Optional[List['outputs.DashboardTemplateVariablePreset']]:
+    def template_variable_presets(self) -> pulumi.Output[Optional[List['outputs.DashboardTemplateVariablePreset']]]:
         """
         The list of selectable template variable presets for this dashboard.
         """
@@ -810,7 +810,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> Optional[List['outputs.DashboardTemplateVariable']]:
+    def template_variables(self) -> pulumi.Output[Optional[List['outputs.DashboardTemplateVariable']]]:
         """
         The list of template variables for this dashboard.
         """
@@ -818,7 +818,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         Title of the dashboard.
         """
@@ -826,7 +826,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         Read only field - The URL of the dashboard.
         """
@@ -834,7 +834,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def widgets(self) -> List['outputs.DashboardWidget']:
+    def widgets(self) -> pulumi.Output[List['outputs.DashboardWidget']]:
         """
         Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
         """

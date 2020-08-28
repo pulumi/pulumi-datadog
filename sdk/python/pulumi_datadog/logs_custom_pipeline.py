@@ -15,7 +15,7 @@ __all__ = ['LogsCustomPipeline']
 
 class LogsCustomPipeline(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
@@ -276,7 +276,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> List['outputs.LogsCustomPipelineFilter']:
+    def filters(self) -> pulumi.Output[List['outputs.LogsCustomPipelineFilter']]:
         """
         Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
         """
@@ -284,7 +284,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
+    def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         If the processor is enabled or not.
         """
@@ -292,7 +292,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the processor
         """
@@ -300,7 +300,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def processors(self) -> Optional[List['outputs.LogsCustomPipelineProcessor']]:
+    def processors(self) -> pulumi.Output[Optional[List['outputs.LogsCustomPipelineProcessor']]]:
         """
         Processors. Nested pipeline can't take any other nested pipeline as its processor.
         """

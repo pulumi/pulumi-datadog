@@ -13,7 +13,7 @@ __all__ = ['ServiceObject']
 
 class ServiceObject(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_key: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class ServiceObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceKey")
-    def service_key(self) -> str:
+    def service_key(self) -> pulumi.Output[str]:
         """
         Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
         """
@@ -105,7 +105,7 @@ class ServiceObject(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
+    def service_name(self) -> pulumi.Output[str]:
         """
         Your Service name in PagerDuty.
         """

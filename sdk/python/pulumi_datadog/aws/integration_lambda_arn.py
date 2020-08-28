@@ -13,7 +13,7 @@ __all__ = ['IntegrationLambdaArn']
 
 class IntegrationLambdaArn(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  lambda_arn: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Your AWS Account ID without dashes.
         """
@@ -105,7 +105,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaArn")
-    def lambda_arn(self) -> str:
+    def lambda_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the Datadog forwarder Lambda.
         """

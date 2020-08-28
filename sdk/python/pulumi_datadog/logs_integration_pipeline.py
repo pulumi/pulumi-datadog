@@ -13,7 +13,7 @@ __all__ = ['LogsIntegrationPipeline']
 
 class LogsIntegrationPipeline(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -89,7 +89,7 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[bool]:
+    def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean value to enable your pipeline.
         """

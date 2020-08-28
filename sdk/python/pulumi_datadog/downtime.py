@@ -15,7 +15,7 @@ __all__ = ['Downtime']
 
 class Downtime(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
@@ -178,7 +178,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> Optional[bool]:
+    def active(self) -> pulumi.Output[Optional[bool]]:
         """
         A flag indicating if the downtime is active now.
         """
@@ -186,7 +186,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disabled(self) -> Optional[bool]:
+    def disabled(self) -> pulumi.Output[Optional[bool]]:
         """
         A flag indicating if the downtime was disabled.
         """
@@ -194,7 +194,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def end(self) -> Optional[float]:
+    def end(self) -> pulumi.Output[Optional[float]]:
         """
         POSIX timestamp to end the downtime.
         """
@@ -202,7 +202,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[str]:
+    def end_date(self) -> pulumi.Output[Optional[str]]:
         """
         String representing date and time to end the downtime in RFC3339 format.
         """
@@ -210,7 +210,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> pulumi.Output[Optional[str]]:
         """
         A message to include with notifications for this downtime.
         """
@@ -218,7 +218,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> Optional[float]:
+    def monitor_id(self) -> pulumi.Output[Optional[float]]:
         """
         Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitor_tags` use none or one or the other.
         """
@@ -226,7 +226,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorTags")
-    def monitor_tags(self) -> Optional[List[str]]:
+    def monitor_tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitor_id` as it will match all monitors that match these tags.
         """
@@ -234,7 +234,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional['outputs.DowntimeRecurrence']:
+    def recurrence(self) -> pulumi.Output[Optional['outputs.DowntimeRecurrence']]:
         """
         A dictionary to configure the downtime to be recurring.
         """
@@ -242,7 +242,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List[str]:
+    def scopes(self) -> pulumi.Output[List[str]]:
         """
         The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
         """
@@ -250,7 +250,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def start(self) -> Optional[float]:
+    def start(self) -> pulumi.Output[Optional[float]]:
         """
         POSIX timestamp to start the downtime.
         """
@@ -258,7 +258,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[str]:
+    def start_date(self) -> pulumi.Output[Optional[str]]:
         """
         String representing date and time to start the downtime in RFC3339 format.
         """
@@ -266,7 +266,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
         """
