@@ -13,7 +13,7 @@ __all__ = ['IntegrationLogCollection']
 
 class IntegrationLogCollection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -100,7 +100,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Your AWS Account ID without dashes.
         """
@@ -108,7 +108,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def services(self) -> List[str]:
+    def services(self) -> pulumi.Output[List[str]]:
         """
         A list of services to collect logs from. See the
         [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which

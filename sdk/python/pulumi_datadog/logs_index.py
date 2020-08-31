@@ -15,7 +15,7 @@ __all__ = ['LogsIndex']
 
 class LogsIndex(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusion_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
                  filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
@@ -127,7 +127,7 @@ class LogsIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[List['outputs.LogsIndexExclusionFilter']]:
+    def exclusion_filters(self) -> pulumi.Output[Optional[List['outputs.LogsIndexExclusionFilter']]]:
         """
         List of exclusion filters.
         """
@@ -135,12 +135,12 @@ class LogsIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> List['outputs.LogsIndexFilter']:
+    def filters(self) -> pulumi.Output[List['outputs.LogsIndexFilter']]:
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the exclusion filter.
         """

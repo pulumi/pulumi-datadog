@@ -13,7 +13,7 @@ __all__ = ['Integration']
 
 class Integration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
@@ -136,7 +136,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         Your AWS Account ID without dashes.
         """
@@ -144,7 +144,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountSpecificNamespaceRules")
-    def account_specific_namespace_rules(self) -> Optional[Mapping[str, Any]]:
+    def account_specific_namespace_rules(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """
@@ -152,7 +152,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludedRegions")
-    def excluded_regions(self) -> Optional[List[str]]:
+    def excluded_regions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         An array of AWS regions to exclude from metrics collection.
         """
@@ -160,7 +160,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> str:
+    def external_id(self) -> pulumi.Output[str]:
         """
         AWS External ID
         """
@@ -168,7 +168,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterTags")
-    def filter_tags(self) -> Optional[List[str]]:
+    def filter_tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
         """
@@ -176,7 +176,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostTags")
-    def host_tags(self) -> Optional[List[str]]:
+    def host_tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
         """
@@ -184,7 +184,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> str:
+    def role_name(self) -> pulumi.Output[str]:
         """
         Your Datadog role delegation name.
         """

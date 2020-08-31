@@ -15,7 +15,7 @@ __all__ = ['LogsArchive']
 
 class LogsArchive(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
                  gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
@@ -122,7 +122,7 @@ class LogsArchive(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def azure(self) -> Optional['outputs.LogsArchiveAzure']:
+    def azure(self) -> pulumi.Output[Optional['outputs.LogsArchiveAzure']]:
         """
         Definition of an azure archive.
         """
@@ -130,7 +130,7 @@ class LogsArchive(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def gcs(self) -> Optional['outputs.LogsArchiveGcs']:
+    def gcs(self) -> pulumi.Output[Optional['outputs.LogsArchiveGcs']]:
         """
         Definition of an gcs archive.
         """
@@ -138,7 +138,7 @@ class LogsArchive(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Your archive name.
         """
@@ -146,7 +146,7 @@ class LogsArchive(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         The archive query/filter. Logs matching this query are included in the archive.
         """
@@ -154,7 +154,7 @@ class LogsArchive(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional['outputs.LogsArchiveS3']:
+    def s3(self) -> pulumi.Output[Optional['outputs.LogsArchiveS3']]:
         """
         Definition of an s3 archive.
         """

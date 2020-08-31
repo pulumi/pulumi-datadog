@@ -15,7 +15,7 @@ __all__ = ['TimeBoard']
 
 class TimeBoard(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  graphs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]]] = None,
@@ -220,7 +220,7 @@ class TimeBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         A description of the dashboard's content.
         """
@@ -228,7 +228,7 @@ class TimeBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def graphs(self) -> List['outputs.TimeBoardGraph']:
+    def graphs(self) -> pulumi.Output[List['outputs.TimeBoardGraph']]:
         """
         Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
         """
@@ -236,7 +236,7 @@ class TimeBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[bool]:
+    def read_only(self) -> pulumi.Output[Optional[bool]]:
         """
         The read-only status of the timeboard. Default is false.
         """
@@ -244,7 +244,7 @@ class TimeBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> Optional[List['outputs.TimeBoardTemplateVariable']]:
+    def template_variables(self) -> pulumi.Output[Optional[List['outputs.TimeBoardTemplateVariable']]]:
         """
         Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a TimeBoard resource.
         """
@@ -252,7 +252,7 @@ class TimeBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         The name of the dashboard.
         """

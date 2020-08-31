@@ -15,7 +15,7 @@ __all__ = ['DashboardList']
 
 class DashboardList(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dash_items: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class DashboardList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashItems")
-    def dash_items(self) -> Optional[List['outputs.DashboardListDashItem']]:
+    def dash_items(self) -> pulumi.Output[Optional[List['outputs.DashboardListDashItem']]]:
         """
         An individual dashboard object to add to this Dashboard List. If present, must contain the following:
         """
@@ -155,7 +155,7 @@ class DashboardList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of this Dashboard List.
         """

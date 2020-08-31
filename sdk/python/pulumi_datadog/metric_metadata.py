@@ -13,7 +13,7 @@ __all__ = ['MetricMetadata']
 
 class MetricMetadata(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class MetricMetadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the metric.
         """
@@ -132,7 +132,7 @@ class MetricMetadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metric(self) -> str:
+    def metric(self) -> pulumi.Output[str]:
         """
         The name of the metric.
         """
@@ -140,7 +140,7 @@ class MetricMetadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="perUnit")
-    def per_unit(self) -> Optional[str]:
+    def per_unit(self) -> pulumi.Output[Optional[str]]:
         """
         'Per' unit of the metric such as 'second' in 'bytes per second'.
         """
@@ -148,7 +148,7 @@ class MetricMetadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shortName")
-    def short_name(self) -> Optional[str]:
+    def short_name(self) -> pulumi.Output[Optional[str]]:
         """
         A short name of the metric.
         """
@@ -156,7 +156,7 @@ class MetricMetadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statsdInterval")
-    def statsd_interval(self) -> Optional[float]:
+    def statsd_interval(self) -> pulumi.Output[Optional[float]]:
         """
         If applicable, stasd flush interval in seconds for the metric.
         """
@@ -164,12 +164,12 @@ class MetricMetadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def unit(self) -> Optional[str]:
+    def unit(self) -> pulumi.Output[Optional[str]]:
         """
         Primary unit of the metric such as 'byte' or 'operation'.
         """

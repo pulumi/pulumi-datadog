@@ -13,7 +13,7 @@ __all__ = ['LogsIndexOrder']
 
 class LogsIndexOrder(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  indexes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class LogsIndexOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def indexes(self) -> List[str]:
+    def indexes(self) -> pulumi.Output[List[str]]:
         """
         The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         """
@@ -103,7 +103,7 @@ class LogsIndexOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The unique name of the index order resource.
         """

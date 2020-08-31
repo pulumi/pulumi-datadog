@@ -15,7 +15,7 @@ __all__ = ['SyntheticsTest']
 
 class SyntheticsTest(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assertions: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
                  device_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -317,12 +317,12 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def assertions(self) -> Optional[List[Mapping[str, Any]]]:
+    def assertions(self) -> pulumi.Output[Optional[List[Mapping[str, Any]]]]:
         return pulumi.get(self, "assertions")
 
     @property
     @pulumi.getter(name="deviceIds")
-    def device_ids(self) -> Optional[List[str]]:
+    def device_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         "laptop_large", "tablet" or "mobile_small" (only available if type=browser)
         """
@@ -330,7 +330,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> List[str]:
+    def locations(self) -> pulumi.Output[List[str]]:
         """
         Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
         """
@@ -338,7 +338,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def message(self) -> Optional[str]:
+    def message(self) -> pulumi.Output[Optional[str]]:
         """
         A message to include with notifications for this synthetics test.
         Email notifications can be sent to specific users by using the same '@username' notation as events.
@@ -347,7 +347,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> float:
+    def monitor_id(self) -> pulumi.Output[float]:
         """
         ID of the monitor associated with the Datadog synthetics test
         """
@@ -355,7 +355,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of Datadog synthetics test
         """
@@ -363,12 +363,12 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> Optional['outputs.SyntheticsTestOptions']:
+    def options(self) -> pulumi.Output[Optional['outputs.SyntheticsTestOptions']]:
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
-    def request(self) -> 'outputs.SyntheticsTestRequest':
+    def request(self) -> pulumi.Output['outputs.SyntheticsTestRequest']:
         """
         if type=browser
         """
@@ -376,7 +376,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestBasicauth")
-    def request_basicauth(self) -> Optional['outputs.SyntheticsTestRequestBasicauth']:
+    def request_basicauth(self) -> pulumi.Output[Optional['outputs.SyntheticsTestRequestBasicauth']]:
         """
         Array of 1 item containing HTTP basic authentication credentials
         """
@@ -384,7 +384,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[Mapping[str, Any]]:
+    def request_headers(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Header name and value map
         """
@@ -392,7 +392,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestQuery")
-    def request_query(self) -> Optional[Mapping[str, Any]]:
+    def request_query(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Query arguments name and value map
         """
@@ -400,7 +400,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         "live", "paused"
         """
@@ -408,7 +408,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subtype(self) -> Optional[str]:
+    def subtype(self) -> pulumi.Output[Optional[str]]:
         """
         For type=api, http or ssl (Default = http)
         """
@@ -416,7 +416,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> List[str]:
+    def tags(self) -> pulumi.Output[List[str]]:
         """
         A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
         """
@@ -424,7 +424,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         body, header, responseTime, statusCode
         """

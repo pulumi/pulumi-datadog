@@ -15,7 +15,7 @@ __all__ = ['Integration']
 
 class Integration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_token: Optional[pulumi.Input[str]] = None,
                  individual_services: Optional[pulumi.Input[bool]] = None,
@@ -129,7 +129,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiToken")
-    def api_token(self) -> Optional[str]:
+    def api_token(self) -> pulumi.Output[Optional[str]]:
         """
         Your PagerDuty API token.
         """
@@ -137,7 +137,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="individualServices")
-    def individual_services(self) -> Optional[bool]:
+    def individual_services(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
         """
@@ -145,7 +145,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedules(self) -> Optional[List[str]]:
+    def schedules(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Array of your schedule URLs.
         """
@@ -153,7 +153,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def services(self) -> Optional[List['outputs.IntegrationService']]:
+    def services(self) -> pulumi.Output[Optional[List['outputs.IntegrationService']]]:
         """
         Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
         """
@@ -161,7 +161,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdomain(self) -> str:
+    def subdomain(self) -> pulumi.Output[str]:
         """
         Your PagerDuty account’s personalized subdomain name.
         """

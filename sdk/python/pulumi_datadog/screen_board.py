@@ -15,7 +15,7 @@ __all__ = ['ScreenBoard']
 
 class ScreenBoard(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  height: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
@@ -506,7 +506,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def height(self) -> Optional[str]:
+    def height(self) -> pulumi.Output[Optional[str]]:
         """
         The screenboard's height.
         """
@@ -514,7 +514,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[bool]:
+    def read_only(self) -> pulumi.Output[Optional[bool]]:
         """
         The read-only status of the screenboard. Default is false.
         """
@@ -522,7 +522,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def shared(self) -> Optional[bool]:
+    def shared(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the screenboard is shared or not. Default is false.
         """
@@ -530,7 +530,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> Optional[List['outputs.ScreenBoardTemplateVariable']]:
+    def template_variables(self) -> pulumi.Output[Optional[List['outputs.ScreenBoardTemplateVariable']]]:
         """
         Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a ScreenBoard resource.
         """
@@ -538,7 +538,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> str:
+    def title(self) -> pulumi.Output[str]:
         """
         The name of the screenboard.
         """
@@ -546,7 +546,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def widgets(self) -> List['outputs.ScreenBoardWidget']:
+    def widgets(self) -> pulumi.Output[List['outputs.ScreenBoardWidget']]:
         """
         Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
         """
@@ -554,7 +554,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def width(self) -> Optional[str]:
+    def width(self) -> pulumi.Output[Optional[str]]:
         """
         The screenboard's width.
         """

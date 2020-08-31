@@ -15,7 +15,7 @@ __all__ = ['ServiceLevelObjective']
 
 class ServiceLevelObjective(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -196,7 +196,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of this service level objective.
         """
@@ -204,7 +204,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
         """
@@ -212,7 +212,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorIds")
-    def monitor_ids(self) -> Optional[List[float]]:
+    def monitor_ids(self) -> pulumi.Output[Optional[List[float]]]:
         """
         A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
         """
@@ -220,7 +220,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of Datadog service level objective
         """
@@ -228,7 +228,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> Optional['outputs.ServiceLevelObjectiveQuery']:
+    def query(self) -> pulumi.Output[Optional['outputs.ServiceLevelObjectiveQuery']]:
         """
         The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
         """
@@ -236,7 +236,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
@@ -244,7 +244,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thresholds(self) -> List['outputs.ServiceLevelObjectiveThreshold']:
+    def thresholds(self) -> pulumi.Output[List['outputs.ServiceLevelObjectiveThreshold']]:
         """
         - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
@@ -252,7 +252,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
         * `metric`

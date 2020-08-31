@@ -13,7 +13,7 @@ __all__ = ['Integration']
 
 class Integration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientEmail")
-    def client_email(self) -> str:
+    def client_email(self) -> pulumi.Output[str]:
         """
         Your email found in your JSON service account key.
         """
@@ -141,7 +141,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         Your ID found in your JSON service account key.
         """
@@ -149,7 +149,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostFilters")
-    def host_filters(self) -> Optional[str]:
+    def host_filters(self) -> pulumi.Output[Optional[str]]:
         """
         Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
@@ -157,7 +157,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> str:
+    def private_key(self) -> pulumi.Output[str]:
         """
         Your private key name found in your JSON service account key.
         """
@@ -165,7 +165,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateKeyId")
-    def private_key_id(self) -> str:
+    def private_key_id(self) -> pulumi.Output[str]:
         """
         Your private key ID found in your JSON service account key.
         """
@@ -173,7 +173,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectId")
-    def project_id(self) -> str:
+    def project_id(self) -> pulumi.Output[str]:
         """
         Your Google Cloud project ID found in your JSON service account key.
         """

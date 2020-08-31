@@ -15,7 +15,7 @@ __all__ = ['Monitor']
 
 class Monitor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_logs_sample: Optional[pulumi.Input[bool]] = None,
                  escalation_message: Optional[pulumi.Input[str]] = None,
@@ -340,7 +340,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableLogsSample")
-    def enable_logs_sample(self) -> Optional[bool]:
+    def enable_logs_sample(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
         triggering tags into the title. Defaults to true.
@@ -349,7 +349,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="escalationMessage")
-    def escalation_message(self) -> Optional[str]:
+    def escalation_message(self) -> pulumi.Output[Optional[str]]:
         """
         A message to include with a re-notification. Supports the '@username'
         notification allowed elsewhere.
@@ -358,7 +358,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationDelay")
-    def evaluation_delay(self) -> float:
+    def evaluation_delay(self) -> pulumi.Output[float]:
         """
         Time (in seconds) to delay evaluation, as a non-negative integer.
         For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
@@ -369,7 +369,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> Optional[bool]:
+    def force_delete(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         """
@@ -377,7 +377,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includeTags")
-    def include_tags(self) -> Optional[bool]:
+    def include_tags(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         """
@@ -385,7 +385,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locked(self) -> Optional[bool]:
+    def locked(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
         """
@@ -393,7 +393,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def message(self) -> str:
+    def message(self) -> pulumi.Output[str]:
         """
         A message to include with notifications for this monitor.
         Email notifications can be sent to specific users by using the same '@username' notation as events.
@@ -402,7 +402,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of Datadog monitor
         """
@@ -410,7 +410,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="newHostDelay")
-    def new_host_delay(self) -> Optional[float]:
+    def new_host_delay(self) -> pulumi.Output[Optional[float]]:
         """
         Time (in seconds) to allow a host to boot and
         applications to fully start before starting the evaluation of monitor
@@ -420,7 +420,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="noDataTimeframe")
-    def no_data_timeframe(self) -> Optional[float]:
+    def no_data_timeframe(self) -> pulumi.Output[Optional[float]]:
         """
         The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
         We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
@@ -429,7 +429,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notifyAudit")
-    def notify_audit(self) -> Optional[bool]:
+    def notify_audit(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether tagged users will be notified on changes to this monitor.
         Defaults to false.
@@ -438,7 +438,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notifyNoData")
-    def notify_no_data(self) -> Optional[bool]:
+    def notify_no_data(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether this monitor will notify when data stops reporting. Defaults
         to false.
@@ -447,7 +447,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         The monitor query to notify on. Note this is not the same query you see in the UI and
         the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
@@ -456,7 +456,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="renotifyInterval")
-    def renotify_interval(self) -> Optional[float]:
+    def renotify_interval(self) -> pulumi.Output[Optional[float]]:
         """
         The number of minutes after the last notification before a monitor will re-notify
         on the current status. It will only re-notify if it's not resolved.
@@ -465,7 +465,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requireFullWindow")
-    def require_full_window(self) -> Optional[bool]:
+    def require_full_window(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether this monitor needs a full window of data before it's evaluated.
         We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
@@ -475,7 +475,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def silenced(self) -> Optional[Mapping[str, Any]]:
+    def silenced(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
         Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
         """
@@ -483,7 +483,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
@@ -491,7 +491,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thresholdWindows")
-    def threshold_windows(self) -> Optional['outputs.MonitorThresholdWindows']:
+    def threshold_windows(self) -> pulumi.Output[Optional['outputs.MonitorThresholdWindows']]:
         """
         A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
         """
@@ -499,7 +499,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thresholds(self) -> Optional['outputs.MonitorThresholds']:
+    def thresholds(self) -> pulumi.Output[Optional['outputs.MonitorThresholds']]:
         """
         * Metric alerts:
         A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
@@ -520,7 +520,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeoutH")
-    def timeout_h(self) -> Optional[float]:
+    def timeout_h(self) -> pulumi.Output[Optional[float]]:
         """
         The number of hours of the monitor not reporting data before it will automatically resolve
         from a triggered state. Defaults to false.
@@ -529,7 +529,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
         * `metric alert`
