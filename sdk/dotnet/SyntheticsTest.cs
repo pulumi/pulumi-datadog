@@ -9,322 +9,56 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
-    /// <summary>
-    /// Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
-    /// 
-    /// ## Example Usage
-    /// ### Synthetics API Test)
-    /// 
-    /// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testApi = new Datadog.SyntheticsTest("testApi", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "operator", "is" },
-    ///                     { "target", "200" },
-    ///                     { "type", "statusCode" },
-    ///                 },
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             Message = "Notify @pagerduty",
-    ///             Name = "An API test on example.org",
-    ///             Options = new Datadog.Inputs.SyntheticsTestOptionsArgs
-    ///             {
-    ///                 Tick_every = 900,
-    ///             },
-    ///             Request = new Datadog.Inputs.SyntheticsTestRequestArgs
-    ///             {
-    ///                 Method = "GET",
-    ///                 Url = "https://www.example.org",
-    ///             },
-    ///             RequestHeaders = 
-    ///             {
-    ///                 { "Authentication", "Token: 1234566789" },
-    ///                 { "Content-Type", "application/json" },
-    ///             },
-    ///             Status = "live",
-    ///             Subtype = "http",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "foo",
-    ///                 "env:test",
-    ///             },
-    ///             Type = "api",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Synthetics SSL Test)
-    /// 
-    /// Create a new Datadog Synthetics API/SSL test on example.org
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testSsl = new Datadog.SyntheticsTest("testSsl", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "operator", "isInMoreThan" },
-    ///                     { "target", 30 },
-    ///                     { "type", "certificate" },
-    ///                 },
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             Message = "Notify @pagerduty",
-    ///             Name = "An API test on example.org",
-    ///             Options = new Datadog.Inputs.SyntheticsTestOptionsArgs
-    ///             {
-    ///                 Accept_self_signed = true,
-    ///                 Tick_every = 900,
-    ///             },
-    ///             Request = new Datadog.Inputs.SyntheticsTestRequestArgs
-    ///             {
-    ///                 Host = "example.org",
-    ///                 Port = 443,
-    ///             },
-    ///             Status = "live",
-    ///             Subtype = "ssl",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "foo",
-    ///                 "env:test",
-    ///             },
-    ///             Type = "api",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Synthetics Browser Test)
-    /// 
-    /// Support for Synthetics Browser test is limited (see below)
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new Datadog Synthetics Browser test starting on https://www.example.org
-    ///         var testBrowser = new Datadog.SyntheticsTest("testBrowser", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             DeviceIds = 
-    ///             {
-    ///                 "laptop_large",
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             Message = "Notify @qa",
-    ///             Name = "A Browser test on example.org",
-    ///             Options = new Datadog.Inputs.SyntheticsTestOptionsArgs
-    ///             {
-    ///                 Tick_every = 3600,
-    ///             },
-    ///             Request = new Datadog.Inputs.SyntheticsTestRequestArgs
-    ///             {
-    ///                 Method = "GET",
-    ///                 Url = "https://app.datadoghq.com",
-    ///             },
-    ///             Status = "paused",
-    ///             Tags = {},
-    ///             Type = "browser",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ## Synthetics Browser test
-    /// 
-    /// Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)
-    /// 
-    /// You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
-    /// 
-    /// We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
-    /// 
-    /// ## Assertion format
-    /// 
-    /// The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testApi = new Datadog.SyntheticsTest("testApi", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "operator", "is" },
-    ///                     { "target", "200" },
-    ///                     { "type", "statusCode" },
-    ///                 },
-    ///                 
-    ///                 {
-    ///                     { "operator", "lessThan" },
-    ///                     { "target", "1000" },
-    ///                     { "type", "responseTime" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// turns into:
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testApi = new Datadog.SyntheticsTest("testApi", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "operator", "is" },
-    ///                     { "target", "200" },
-    ///                     { "type", "statusCode" },
-    ///                 },
-    ///                 
-    ///                 {
-    ///                     { "operator", "lessThan" },
-    ///                     { "target", "1000" },
-    ///                     { "type", "responsTime" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     public partial class SyntheticsTest : Pulumi.CustomResource
     {
         [Output("assertions")]
         public Output<ImmutableArray<ImmutableDictionary<string, object>>> Assertions { get; private set; } = null!;
 
-        /// <summary>
-        /// "laptop_large", "tablet" or "mobile_small" (only available if type=browser)
-        /// </summary>
         [Output("deviceIds")]
         public Output<ImmutableArray<string>> DeviceIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-        /// </summary>
         [Output("locations")]
         public Output<ImmutableArray<string>> Locations { get; private set; } = null!;
 
-        /// <summary>
-        /// A message to include with notifications for this synthetics test.
-        /// Email notifications can be sent to specific users by using the same '@username' notation as events.
-        /// </summary>
         [Output("message")]
         public Output<string?> Message { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the monitor associated with the Datadog synthetics test
-        /// </summary>
         [Output("monitorId")]
         public Output<int> MonitorId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of Datadog synthetics test
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("options")]
         public Output<Outputs.SyntheticsTestOptions?> Options { get; private set; } = null!;
 
-        /// <summary>
-        /// if type=browser
-        /// </summary>
+        [Output("optionsList")]
+        public Output<Outputs.SyntheticsTestOptionsList?> OptionsList { get; private set; } = null!;
+
         [Output("request")]
         public Output<Outputs.SyntheticsTestRequest> Request { get; private set; } = null!;
 
-        /// <summary>
-        /// Array of 1 item containing HTTP basic authentication credentials
-        /// </summary>
         [Output("requestBasicauth")]
         public Output<Outputs.SyntheticsTestRequestBasicauth?> RequestBasicauth { get; private set; } = null!;
 
-        /// <summary>
-        /// Header name and value map
-        /// </summary>
         [Output("requestHeaders")]
         public Output<ImmutableDictionary<string, object>?> RequestHeaders { get; private set; } = null!;
 
-        /// <summary>
-        /// Query arguments name and value map
-        /// </summary>
         [Output("requestQuery")]
         public Output<ImmutableDictionary<string, object>?> RequestQuery { get; private set; } = null!;
 
-        /// <summary>
-        /// "live", "paused"
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// For type=api, http or ssl (Default = http)
-        /// </summary>
+        [Output("steps")]
+        public Output<ImmutableArray<Outputs.SyntheticsTestStep>> Steps { get; private set; } = null!;
+
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// body, header, responseTime, statusCode
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -385,10 +119,6 @@ namespace Pulumi.Datadog
 
         [Input("deviceIds")]
         private InputList<string>? _deviceIds;
-
-        /// <summary>
-        /// "laptop_large", "tablet" or "mobile_small" (only available if type=browser)
-        /// </summary>
         public InputList<string> DeviceIds
         {
             get => _deviceIds ?? (_deviceIds = new InputList<string>());
@@ -397,50 +127,32 @@ namespace Pulumi.Datadog
 
         [Input("locations", required: true)]
         private InputList<string>? _locations;
-
-        /// <summary>
-        /// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-        /// </summary>
         public InputList<string> Locations
         {
             get => _locations ?? (_locations = new InputList<string>());
             set => _locations = value;
         }
 
-        /// <summary>
-        /// A message to include with notifications for this synthetics test.
-        /// Email notifications can be sent to specific users by using the same '@username' notation as events.
-        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        /// <summary>
-        /// Name of Datadog synthetics test
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("options")]
         public Input<Inputs.SyntheticsTestOptionsArgs>? Options { get; set; }
 
-        /// <summary>
-        /// if type=browser
-        /// </summary>
+        [Input("optionsList")]
+        public Input<Inputs.SyntheticsTestOptionsListArgs>? OptionsList { get; set; }
+
         [Input("request", required: true)]
         public Input<Inputs.SyntheticsTestRequestArgs> Request { get; set; } = null!;
 
-        /// <summary>
-        /// Array of 1 item containing HTTP basic authentication credentials
-        /// </summary>
         [Input("requestBasicauth")]
         public Input<Inputs.SyntheticsTestRequestBasicauthArgs>? RequestBasicauth { get; set; }
 
         [Input("requestHeaders")]
         private InputMap<object>? _requestHeaders;
-
-        /// <summary>
-        /// Header name and value map
-        /// </summary>
         public InputMap<object> RequestHeaders
         {
             get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
@@ -449,43 +161,34 @@ namespace Pulumi.Datadog
 
         [Input("requestQuery")]
         private InputMap<object>? _requestQuery;
-
-        /// <summary>
-        /// Query arguments name and value map
-        /// </summary>
         public InputMap<object> RequestQuery
         {
             get => _requestQuery ?? (_requestQuery = new InputMap<object>());
             set => _requestQuery = value;
         }
 
-        /// <summary>
-        /// "live", "paused"
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
-        /// <summary>
-        /// For type=api, http or ssl (Default = http)
-        /// </summary>
+        [Input("steps")]
+        private InputList<Inputs.SyntheticsTestStepArgs>? _steps;
+        public InputList<Inputs.SyntheticsTestStepArgs> Steps
+        {
+            get => _steps ?? (_steps = new InputList<Inputs.SyntheticsTestStepArgs>());
+            set => _steps = value;
+        }
+
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
 
         [Input("tags", required: true)]
         private InputList<string>? _tags;
-
-        /// <summary>
-        /// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// body, header, responseTime, statusCode
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -507,10 +210,6 @@ namespace Pulumi.Datadog
 
         [Input("deviceIds")]
         private InputList<string>? _deviceIds;
-
-        /// <summary>
-        /// "laptop_large", "tablet" or "mobile_small" (only available if type=browser)
-        /// </summary>
         public InputList<string> DeviceIds
         {
             get => _deviceIds ?? (_deviceIds = new InputList<string>());
@@ -519,56 +218,35 @@ namespace Pulumi.Datadog
 
         [Input("locations")]
         private InputList<string>? _locations;
-
-        /// <summary>
-        /// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-        /// </summary>
         public InputList<string> Locations
         {
             get => _locations ?? (_locations = new InputList<string>());
             set => _locations = value;
         }
 
-        /// <summary>
-        /// A message to include with notifications for this synthetics test.
-        /// Email notifications can be sent to specific users by using the same '@username' notation as events.
-        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        /// <summary>
-        /// ID of the monitor associated with the Datadog synthetics test
-        /// </summary>
         [Input("monitorId")]
         public Input<int>? MonitorId { get; set; }
 
-        /// <summary>
-        /// Name of Datadog synthetics test
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("options")]
         public Input<Inputs.SyntheticsTestOptionsGetArgs>? Options { get; set; }
 
-        /// <summary>
-        /// if type=browser
-        /// </summary>
+        [Input("optionsList")]
+        public Input<Inputs.SyntheticsTestOptionsListGetArgs>? OptionsList { get; set; }
+
         [Input("request")]
         public Input<Inputs.SyntheticsTestRequestGetArgs>? Request { get; set; }
 
-        /// <summary>
-        /// Array of 1 item containing HTTP basic authentication credentials
-        /// </summary>
         [Input("requestBasicauth")]
         public Input<Inputs.SyntheticsTestRequestBasicauthGetArgs>? RequestBasicauth { get; set; }
 
         [Input("requestHeaders")]
         private InputMap<object>? _requestHeaders;
-
-        /// <summary>
-        /// Header name and value map
-        /// </summary>
         public InputMap<object> RequestHeaders
         {
             get => _requestHeaders ?? (_requestHeaders = new InputMap<object>());
@@ -577,43 +255,34 @@ namespace Pulumi.Datadog
 
         [Input("requestQuery")]
         private InputMap<object>? _requestQuery;
-
-        /// <summary>
-        /// Query arguments name and value map
-        /// </summary>
         public InputMap<object> RequestQuery
         {
             get => _requestQuery ?? (_requestQuery = new InputMap<object>());
             set => _requestQuery = value;
         }
 
-        /// <summary>
-        /// "live", "paused"
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// For type=api, http or ssl (Default = http)
-        /// </summary>
+        [Input("steps")]
+        private InputList<Inputs.SyntheticsTestStepGetArgs>? _steps;
+        public InputList<Inputs.SyntheticsTestStepGetArgs> Steps
+        {
+            get => _steps ?? (_steps = new InputList<Inputs.SyntheticsTestStepGetArgs>());
+            set => _steps = value;
+        }
+
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
-
-        /// <summary>
-        /// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// body, header, responseTime, statusCode
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

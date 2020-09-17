@@ -17,6 +17,8 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize(
@@ -26,12 +28,18 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery? processQuery,
 
-            string? q)
+            string? q,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery? rumQuery,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery? securityQuery)
         {
             ApmQuery = apmQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            RumQuery = rumQuery;
+            SecurityQuery = securityQuery;
         }
     }
 }

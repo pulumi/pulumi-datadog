@@ -64,18 +64,14 @@ import (
 // 					CategoryProcessor: &datadog.LogsCustomPipelineProcessorCategoryProcessorArgs{
 // 						Category: pulumi.MapArray{
 // 							pulumi.Map{
-// 								"filter": pulumi.StringMapArray{
-// 									pulumi.StringMap{
-// 										"query": pulumi.String("@severity: \".\""),
-// 									},
+// 								"filter": pulumi.StringMap{
+// 									"query": pulumi.String("@severity: \".\""),
 // 								},
 // 								"name": pulumi.String("debug"),
 // 							},
 // 							pulumi.Map{
-// 								"filter": pulumi.StringMapArray{
-// 									pulumi.StringMap{
-// 										"query": pulumi.String("@severity: \"-\""),
-// 									},
+// 								"filter": pulumi.StringMap{
+// 									"query": pulumi.String("@severity: \"-\""),
 // 								},
 // 								"name": pulumi.String("verbose"),
 // 							},
@@ -224,21 +220,13 @@ import (
 // ```
 // ## Important Notes
 //
-// Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
-// a different resource datadog_logs_pipeline_order.
-// When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder`
-// resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
-// `LogsPipelineOrder` resource.
+// Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
 type LogsCustomPipeline struct {
 	pulumi.CustomResourceState
 
-	// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-	Filters LogsCustomPipelineFilterArrayOutput `pulumi:"filters"`
-	// If the processor is enabled or not.
-	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Name of the processor
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Processors. Nested pipeline can't take any other nested pipeline as its processor.
+	Filters    LogsCustomPipelineFilterArrayOutput    `pulumi:"filters"`
+	IsEnabled  pulumi.BoolPtrOutput                   `pulumi:"isEnabled"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Processors LogsCustomPipelineProcessorArrayOutput `pulumi:"processors"`
 }
 
@@ -276,24 +264,16 @@ func GetLogsCustomPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsCustomPipeline resources.
 type logsCustomPipelineState struct {
-	// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-	Filters []LogsCustomPipelineFilter `pulumi:"filters"`
-	// If the processor is enabled or not.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Name of the processor
-	Name *string `pulumi:"name"`
-	// Processors. Nested pipeline can't take any other nested pipeline as its processor.
+	Filters    []LogsCustomPipelineFilter    `pulumi:"filters"`
+	IsEnabled  *bool                         `pulumi:"isEnabled"`
+	Name       *string                       `pulumi:"name"`
 	Processors []LogsCustomPipelineProcessor `pulumi:"processors"`
 }
 
 type LogsCustomPipelineState struct {
-	// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-	Filters LogsCustomPipelineFilterArrayInput
-	// If the processor is enabled or not.
-	IsEnabled pulumi.BoolPtrInput
-	// Name of the processor
-	Name pulumi.StringPtrInput
-	// Processors. Nested pipeline can't take any other nested pipeline as its processor.
+	Filters    LogsCustomPipelineFilterArrayInput
+	IsEnabled  pulumi.BoolPtrInput
+	Name       pulumi.StringPtrInput
 	Processors LogsCustomPipelineProcessorArrayInput
 }
 
@@ -302,25 +282,17 @@ func (LogsCustomPipelineState) ElementType() reflect.Type {
 }
 
 type logsCustomPipelineArgs struct {
-	// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-	Filters []LogsCustomPipelineFilter `pulumi:"filters"`
-	// If the processor is enabled or not.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Name of the processor
-	Name string `pulumi:"name"`
-	// Processors. Nested pipeline can't take any other nested pipeline as its processor.
+	Filters    []LogsCustomPipelineFilter    `pulumi:"filters"`
+	IsEnabled  *bool                         `pulumi:"isEnabled"`
+	Name       string                        `pulumi:"name"`
 	Processors []LogsCustomPipelineProcessor `pulumi:"processors"`
 }
 
 // The set of arguments for constructing a LogsCustomPipeline resource.
 type LogsCustomPipelineArgs struct {
-	// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-	Filters LogsCustomPipelineFilterArrayInput
-	// If the processor is enabled or not.
-	IsEnabled pulumi.BoolPtrInput
-	// Name of the processor
-	Name pulumi.StringInput
-	// Processors. Nested pipeline can't take any other nested pipeline as its processor.
+	Filters    LogsCustomPipelineFilterArrayInput
+	IsEnabled  pulumi.BoolPtrInput
+	Name       pulumi.StringInput
 	Processors LogsCustomPipelineProcessorArrayInput
 }
 

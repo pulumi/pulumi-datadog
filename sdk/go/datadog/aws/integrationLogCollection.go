@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which
-// AWS services logs are collected from for an account.
+// Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
 //
 // ## Example Usage
 //
@@ -41,12 +40,8 @@ import (
 type IntegrationLogCollection struct {
 	pulumi.CustomResourceState
 
-	// Your AWS Account ID without dashes.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// A list of services to collect logs from. See the
-	// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-	// services are supported.
-	Services pulumi.StringArrayOutput `pulumi:"services"`
+	AccountId pulumi.StringOutput      `pulumi:"accountId"`
+	Services  pulumi.StringArrayOutput `pulumi:"services"`
 }
 
 // NewIntegrationLogCollection registers a new resource with the given unique name, arguments, and options.
@@ -83,21 +78,13 @@ func GetIntegrationLogCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationLogCollection resources.
 type integrationLogCollectionState struct {
-	// Your AWS Account ID without dashes.
-	AccountId *string `pulumi:"accountId"`
-	// A list of services to collect logs from. See the
-	// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-	// services are supported.
-	Services []string `pulumi:"services"`
+	AccountId *string  `pulumi:"accountId"`
+	Services  []string `pulumi:"services"`
 }
 
 type IntegrationLogCollectionState struct {
-	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrInput
-	// A list of services to collect logs from. See the
-	// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-	// services are supported.
-	Services pulumi.StringArrayInput
+	Services  pulumi.StringArrayInput
 }
 
 func (IntegrationLogCollectionState) ElementType() reflect.Type {
@@ -105,22 +92,14 @@ func (IntegrationLogCollectionState) ElementType() reflect.Type {
 }
 
 type integrationLogCollectionArgs struct {
-	// Your AWS Account ID without dashes.
-	AccountId string `pulumi:"accountId"`
-	// A list of services to collect logs from. See the
-	// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-	// services are supported.
-	Services []string `pulumi:"services"`
+	AccountId string   `pulumi:"accountId"`
+	Services  []string `pulumi:"services"`
 }
 
 // The set of arguments for constructing a IntegrationLogCollection resource.
 type IntegrationLogCollectionArgs struct {
-	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringInput
-	// A list of services to collect logs from. See the
-	// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-	// services are supported.
-	Services pulumi.StringArrayInput
+	Services  pulumi.StringArrayInput
 }
 
 func (IntegrationLogCollectionArgs) ElementType() reflect.Type {

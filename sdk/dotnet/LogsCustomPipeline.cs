@@ -75,10 +75,7 @@ namespace Pulumi.Datadog
     ///                             {
     ///                                 { "filter", 
     ///                                 {
-    ///                                     
-    ///                                     {
-    ///                                         { "query", "@severity: \".\"" },
-    ///                                     },
+    ///                                     { "query", "@severity: \".\"" },
     ///                                 } },
     ///                                 { "name", "debug" },
     ///                             },
@@ -86,10 +83,7 @@ namespace Pulumi.Datadog
     ///                             {
     ///                                 { "filter", 
     ///                                 {
-    ///                                     
-    ///                                     {
-    ///                                         { "query", "@severity: \"-\"" },
-    ///                                     },
+    ///                                     { "query", "@severity: \"-\"" },
     ///                                 } },
     ///                                 { "name", "verbose" },
     ///                             },
@@ -273,35 +267,19 @@ namespace Pulumi.Datadog
     /// ```
     /// ## Important Notes
     /// 
-    /// Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
-    /// a different resource datadog_logs_pipeline_order.
-    /// When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder`
-    /// resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
-    /// `datadog.LogsPipelineOrder` resource.
+    /// Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.
     /// </summary>
     public partial class LogsCustomPipeline : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.LogsCustomPipelineFilter>> Filters { get; private set; } = null!;
 
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Processors. Nested pipeline can't take any other nested pipeline as its processor.
-        /// </summary>
         [Output("processors")]
         public Output<ImmutableArray<Outputs.LogsCustomPipelineProcessor>> Processors { get; private set; } = null!;
 
@@ -353,34 +331,20 @@ namespace Pulumi.Datadog
     {
         [Input("filters", required: true)]
         private InputList<Inputs.LogsCustomPipelineFilterArgs>? _filters;
-
-        /// <summary>
-        /// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        /// </summary>
         public InputList<Inputs.LogsCustomPipelineFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.LogsCustomPipelineFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("processors")]
         private InputList<Inputs.LogsCustomPipelineProcessorArgs>? _processors;
-
-        /// <summary>
-        /// Processors. Nested pipeline can't take any other nested pipeline as its processor.
-        /// </summary>
         public InputList<Inputs.LogsCustomPipelineProcessorArgs> Processors
         {
             get => _processors ?? (_processors = new InputList<Inputs.LogsCustomPipelineProcessorArgs>());
@@ -396,34 +360,20 @@ namespace Pulumi.Datadog
     {
         [Input("filters")]
         private InputList<Inputs.LogsCustomPipelineFilterGetArgs>? _filters;
-
-        /// <summary>
-        /// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        /// </summary>
         public InputList<Inputs.LogsCustomPipelineFilterGetArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.LogsCustomPipelineFilterGetArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("processors")]
         private InputList<Inputs.LogsCustomPipelineProcessorGetArgs>? _processors;
-
-        /// <summary>
-        /// Processors. Nested pipeline can't take any other nested pipeline as its processor.
-        /// </summary>
         public InputList<Inputs.LogsCustomPipelineProcessorGetArgs> Processors
         {
             get => _processors ?? (_processors = new InputList<Inputs.LogsCustomPipelineProcessorGetArgs>());

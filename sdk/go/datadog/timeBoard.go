@@ -10,19 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
-//
-// > **Note:**This resource is outdated. Use the new `Dashboard` resource instead.
 type TimeBoard struct {
 	pulumi.CustomResourceState
 
 	// A description of the dashboard's content.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
-	Graphs TimeBoardGraphArrayOutput `pulumi:"graphs"`
-	// The read-only status of the timeboard. Default is false.
-	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
-	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a TimeBoard resource.
+	// A list of graph definitions.
+	Graphs   TimeBoardGraphArrayOutput `pulumi:"graphs"`
+	ReadOnly pulumi.BoolPtrOutput      `pulumi:"readOnly"`
+	// A list of template variables for using Dashboard templating.
 	TemplateVariables TimeBoardTemplateVariableArrayOutput `pulumi:"templateVariables"`
 	// The name of the dashboard.
 	Title pulumi.StringOutput `pulumi:"title"`
@@ -67,11 +63,10 @@ func GetTimeBoard(ctx *pulumi.Context,
 type timeBoardState struct {
 	// A description of the dashboard's content.
 	Description *string `pulumi:"description"`
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
-	Graphs []TimeBoardGraph `pulumi:"graphs"`
-	// The read-only status of the timeboard. Default is false.
-	ReadOnly *bool `pulumi:"readOnly"`
-	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a TimeBoard resource.
+	// A list of graph definitions.
+	Graphs   []TimeBoardGraph `pulumi:"graphs"`
+	ReadOnly *bool            `pulumi:"readOnly"`
+	// A list of template variables for using Dashboard templating.
 	TemplateVariables []TimeBoardTemplateVariable `pulumi:"templateVariables"`
 	// The name of the dashboard.
 	Title *string `pulumi:"title"`
@@ -80,11 +75,10 @@ type timeBoardState struct {
 type TimeBoardState struct {
 	// A description of the dashboard's content.
 	Description pulumi.StringPtrInput
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
-	Graphs TimeBoardGraphArrayInput
-	// The read-only status of the timeboard. Default is false.
+	// A list of graph definitions.
+	Graphs   TimeBoardGraphArrayInput
 	ReadOnly pulumi.BoolPtrInput
-	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a TimeBoard resource.
+	// A list of template variables for using Dashboard templating.
 	TemplateVariables TimeBoardTemplateVariableArrayInput
 	// The name of the dashboard.
 	Title pulumi.StringPtrInput
@@ -97,11 +91,10 @@ func (TimeBoardState) ElementType() reflect.Type {
 type timeBoardArgs struct {
 	// A description of the dashboard's content.
 	Description string `pulumi:"description"`
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
-	Graphs []TimeBoardGraph `pulumi:"graphs"`
-	// The read-only status of the timeboard. Default is false.
-	ReadOnly *bool `pulumi:"readOnly"`
-	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a TimeBoard resource.
+	// A list of graph definitions.
+	Graphs   []TimeBoardGraph `pulumi:"graphs"`
+	ReadOnly *bool            `pulumi:"readOnly"`
+	// A list of template variables for using Dashboard templating.
 	TemplateVariables []TimeBoardTemplateVariable `pulumi:"templateVariables"`
 	// The name of the dashboard.
 	Title string `pulumi:"title"`
@@ -111,11 +104,10 @@ type timeBoardArgs struct {
 type TimeBoardArgs struct {
 	// A description of the dashboard's content.
 	Description pulumi.StringInput
-	// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
-	Graphs TimeBoardGraphArrayInput
-	// The read-only status of the timeboard. Default is false.
+	// A list of graph definitions.
+	Graphs   TimeBoardGraphArrayInput
 	ReadOnly pulumi.BoolPtrInput
-	// Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a TimeBoard resource.
+	// A list of template variables for using Dashboard templating.
 	TemplateVariables TimeBoardTemplateVariableArrayInput
 	// The name of the dashboard.
 	Title pulumi.StringInput

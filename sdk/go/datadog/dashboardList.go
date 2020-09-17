@@ -102,9 +102,9 @@ import (
 type DashboardList struct {
 	pulumi.CustomResourceState
 
-	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+	// A set of dashbaord items that belong to this list
 	DashItems DashboardListDashItemArrayOutput `pulumi:"dashItems"`
-	// The name of this Dashboard List.
+	// The name of the Dashboard List
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -139,16 +139,16 @@ func GetDashboardList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DashboardList resources.
 type dashboardListState struct {
-	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+	// A set of dashbaord items that belong to this list
 	DashItems []DashboardListDashItem `pulumi:"dashItems"`
-	// The name of this Dashboard List.
+	// The name of the Dashboard List
 	Name *string `pulumi:"name"`
 }
 
 type DashboardListState struct {
-	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+	// A set of dashbaord items that belong to this list
 	DashItems DashboardListDashItemArrayInput
-	// The name of this Dashboard List.
+	// The name of the Dashboard List
 	Name pulumi.StringPtrInput
 }
 
@@ -157,17 +157,17 @@ func (DashboardListState) ElementType() reflect.Type {
 }
 
 type dashboardListArgs struct {
-	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+	// A set of dashbaord items that belong to this list
 	DashItems []DashboardListDashItem `pulumi:"dashItems"`
-	// The name of this Dashboard List.
+	// The name of the Dashboard List
 	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a DashboardList resource.
 type DashboardListArgs struct {
-	// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+	// A set of dashbaord items that belong to this list
 	DashItems DashboardListDashItemArrayInput
-	// The name of this Dashboard List.
+	// The name of the Dashboard List
 	Name pulumi.StringInput
 }
 

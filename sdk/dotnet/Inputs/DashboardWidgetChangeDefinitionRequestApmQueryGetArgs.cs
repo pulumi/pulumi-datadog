@@ -12,18 +12,11 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetChangeDefinitionRequestApmQueryGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        [Input("compute", required: true)]
-        public Input<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeGetArgs> Compute { get; set; } = null!;
+        [Input("compute")]
+        public Input<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeGetArgs>? Compute { get; set; }
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupByGetArgs>? _groupBies;
-
-        /// <summary>
-        /// . Multiple nested blocks are allowed with the following structure:
-        /// </summary>
         public InputList<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupByGetArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupByGetArgs>());
@@ -33,9 +26,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        [Input("multiComputes")]
+        private InputList<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiComputeGetArgs>? _multiComputes;
+        public InputList<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiComputeGetArgs> MultiComputes
+        {
+            get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiComputeGetArgs>());
+            set => _multiComputes = value;
+        }
+
         [Input("search")]
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestApmQuerySearchGetArgs>? Search { get; set; }
 

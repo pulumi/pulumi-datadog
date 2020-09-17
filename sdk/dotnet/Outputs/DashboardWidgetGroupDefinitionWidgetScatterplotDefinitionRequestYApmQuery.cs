@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute Compute;
-        /// <summary>
-        /// . Multiple nested blocks are allowed with the following structure:
-        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(
-            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute compute,
+            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

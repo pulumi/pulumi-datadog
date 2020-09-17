@@ -18,9 +18,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetAlertGraphDefinitionTimeGetArgs>? Time { get; set; }
 
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

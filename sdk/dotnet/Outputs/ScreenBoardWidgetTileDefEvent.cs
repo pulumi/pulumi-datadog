@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ScreenBoardWidgetTileDefEvent
     {
-        /// <summary>
-        /// The search query for event overlays.
-        /// </summary>
         public readonly string Q;
 
         [OutputConstructor]

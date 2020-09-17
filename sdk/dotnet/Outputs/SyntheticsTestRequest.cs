@@ -13,29 +13,11 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestRequest
     {
-        /// <summary>
-        /// Request body
-        /// </summary>
         public readonly string? Body;
-        /// <summary>
-        /// host name
-        /// </summary>
         public readonly string? Host;
-        /// <summary>
-        /// no-op, use GET
-        /// </summary>
         public readonly string? Method;
-        /// <summary>
-        /// port number
-        /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// For type=api, any value between 0 and 60 (Default = 60)
-        /// </summary>
         public readonly int? Timeout;
-        /// <summary>
-        /// Any url
-        /// </summary>
         public readonly string? Url;
 
         [OutputConstructor]

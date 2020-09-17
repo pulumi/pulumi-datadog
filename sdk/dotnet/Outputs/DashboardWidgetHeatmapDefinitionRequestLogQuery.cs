@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHeatmapDefinitionRequestLogQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute Compute;
-        /// <summary>
-        /// When grouping = "cluster", indicates a list of tags to use for grouping.
-        /// </summary>
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetHeatmapDefinitionRequestLogQuery(
-            Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute compute,
+            Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

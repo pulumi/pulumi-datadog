@@ -69,7 +69,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="timeseries",
                     x=25,
                     y=5,
-                    title="graph title tf",
+                    title="graph title terraform",
                     title_size=16,
                     title_align="right",
                     legend=True,
@@ -164,7 +164,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="query_value",
                     x=45,
                     y=25,
-                    title="query value title tf",
+                    title="query value title terraform",
                     title_size=20,
                     title_align="center",
                     legend=True,
@@ -203,7 +203,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="toplist",
                     x=65,
                     y=5,
-                    title="toplist title tf",
+                    title="toplist title terraform",
                     legend=True,
                     legend_size="auto",
                     time={
@@ -230,7 +230,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="change",
                     x=85,
                     y=5,
-                    title="change title tf",
+                    title="change title terraform",
                     tile_deves=[datadog.ScreenBoardWidgetTileDefArgs(
                         viz="change",
                         requests=[datadog.ScreenBoardWidgetTileDefRequestArgs(
@@ -248,7 +248,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="event_timeline",
                     x=105,
                     y=5,
-                    title="event_timeline title tf",
+                    title="event_timeline title terraform",
                     query="status:error",
                     time={
                         "live_span": "1d",
@@ -258,7 +258,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="event_stream",
                     x=115,
                     y=5,
-                    title="event_stream title tf",
+                    title="event_stream title terraform",
                     query="*",
                     event_size="l",
                     time={
@@ -269,7 +269,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="image",
                     x=145,
                     y=5,
-                    title="image title tf",
+                    title="image title terraform",
                     sizing="fit",
                     margin="large",
                     url="https://datadog-prod.imgix.net/img/dd_logo_70x75.png",
@@ -290,7 +290,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="alert_graph",
                     x=185,
                     y=5,
-                    title="alert graph title tf",
+                    title="alert graph title terraform",
                     alert_id=123456,
                     viz_type="toplist",
                     time={
@@ -301,7 +301,7 @@ class ScreenBoard(pulumi.CustomResource):
                     type="alert_value",
                     x=205,
                     y=5,
-                    title="alert value title tf",
+                    title="alert value title terraform",
                     alert_id=123456,
                     text_size="fill_height",
                     text_align="right",
@@ -423,13 +423,12 @@ class ScreenBoard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] height: The screenboard's height.
-        :param pulumi.Input[bool] read_only: The read-only status of the screenboard. Default is false.
-        :param pulumi.Input[bool] shared: Whether the screenboard is shared or not. Default is false.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a ScreenBoard resource.
-        :param pulumi.Input[str] title: The name of the screenboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
-        :param pulumi.Input[str] width: The screenboard's width.
+        :param pulumi.Input[str] height: Height of the screenboard
+        :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[str] title: Name of the screenboard
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: A list of widget definitions.
+        :param pulumi.Input[str] width: Width of the screenboard
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -483,13 +482,12 @@ class ScreenBoard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] height: The screenboard's height.
-        :param pulumi.Input[bool] read_only: The read-only status of the screenboard. Default is false.
-        :param pulumi.Input[bool] shared: Whether the screenboard is shared or not. Default is false.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a ScreenBoard resource.
-        :param pulumi.Input[str] title: The name of the screenboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
-        :param pulumi.Input[str] width: The screenboard's width.
+        :param pulumi.Input[str] height: Height of the screenboard
+        :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[str] title: Name of the screenboard
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: A list of widget definitions.
+        :param pulumi.Input[str] width: Width of the screenboard
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -508,23 +506,20 @@ class ScreenBoard(pulumi.CustomResource):
     @pulumi.getter
     def height(self) -> pulumi.Output[Optional[str]]:
         """
-        The screenboard's height.
+        Height of the screenboard
         """
         return pulumi.get(self, "height")
 
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> pulumi.Output[Optional[bool]]:
-        """
-        The read-only status of the screenboard. Default is false.
-        """
         return pulumi.get(self, "read_only")
 
     @property
     @pulumi.getter
     def shared(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the screenboard is shared or not. Default is false.
+        Whether the screenboard is shared or not
         """
         return pulumi.get(self, "shared")
 
@@ -532,7 +527,7 @@ class ScreenBoard(pulumi.CustomResource):
     @pulumi.getter(name="templateVariables")
     def template_variables(self) -> pulumi.Output[Optional[List['outputs.ScreenBoardTemplateVariable']]]:
         """
-        Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a ScreenBoard resource.
+        A list of template variables for using Dashboard templating.
         """
         return pulumi.get(self, "template_variables")
 
@@ -540,7 +535,7 @@ class ScreenBoard(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        The name of the screenboard.
+        Name of the screenboard
         """
         return pulumi.get(self, "title")
 
@@ -548,7 +543,7 @@ class ScreenBoard(pulumi.CustomResource):
     @pulumi.getter
     def widgets(self) -> pulumi.Output[List['outputs.ScreenBoardWidget']]:
         """
-        Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a ScreenBoard resource.
+        A list of widget definitions.
         """
         return pulumi.get(self, "widgets")
 
@@ -556,7 +551,7 @@ class ScreenBoard(pulumi.CustomResource):
     @pulumi.getter
     def width(self) -> pulumi.Output[Optional[str]]:
         """
-        The screenboard's width.
+        Width of the screenboard
         """
         return pulumi.get(self, "width")
 

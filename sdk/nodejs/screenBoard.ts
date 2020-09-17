@@ -47,7 +47,7 @@ import * as utilities from "./utilities";
  *             type: "timeseries",
  *             x: 25,
  *             y: 5,
- *             title: "graph title tf",
+ *             title: "graph title terraform",
  *             titleSize: 16,
  *             titleAlign: "right",
  *             legend: true,
@@ -142,7 +142,7 @@ import * as utilities from "./utilities";
  *             type: "query_value",
  *             x: 45,
  *             y: 25,
- *             title: "query value title tf",
+ *             title: "query value title terraform",
  *             titleSize: 20,
  *             titleAlign: "center",
  *             legend: true,
@@ -181,7 +181,7 @@ import * as utilities from "./utilities";
  *             type: "toplist",
  *             x: 65,
  *             y: 5,
- *             title: "toplist title tf",
+ *             title: "toplist title terraform",
  *             legend: true,
  *             legendSize: "auto",
  *             time: {
@@ -208,7 +208,7 @@ import * as utilities from "./utilities";
  *             type: "change",
  *             x: 85,
  *             y: 5,
- *             title: "change title tf",
+ *             title: "change title terraform",
  *             tileDeves: [{
  *                 viz: "change",
  *                 requests: [{
@@ -226,7 +226,7 @@ import * as utilities from "./utilities";
  *             type: "event_timeline",
  *             x: 105,
  *             y: 5,
- *             title: "event_timeline title tf",
+ *             title: "event_timeline title terraform",
  *             query: "status:error",
  *             time: {
  *                 live_span: "1d",
@@ -236,7 +236,7 @@ import * as utilities from "./utilities";
  *             type: "event_stream",
  *             x: 115,
  *             y: 5,
- *             title: "event_stream title tf",
+ *             title: "event_stream title terraform",
  *             query: "*",
  *             eventSize: "l",
  *             time: {
@@ -247,7 +247,7 @@ import * as utilities from "./utilities";
  *             type: "image",
  *             x: 145,
  *             y: 5,
- *             title: "image title tf",
+ *             title: "image title terraform",
  *             sizing: "fit",
  *             margin: "large",
  *             url: "https://datadog-prod.imgix.net/img/dd_logo_70x75.png",
@@ -268,7 +268,7 @@ import * as utilities from "./utilities";
  *             type: "alert_graph",
  *             x: 185,
  *             y: 5,
- *             title: "alert graph title tf",
+ *             title: "alert graph title terraform",
  *             alertId: "123456",
  *             vizType: "toplist",
  *             time: {
@@ -279,7 +279,7 @@ import * as utilities from "./utilities";
  *             type: "alert_value",
  *             x: 205,
  *             y: 5,
- *             title: "alert value title tf",
+ *             title: "alert value title terraform",
  *             alertId: "123456",
  *             textSize: "fill_height",
  *             textAlign: "right",
@@ -429,31 +429,28 @@ export class ScreenBoard extends pulumi.CustomResource {
     }
 
     /**
-     * The screenboard's height.
+     * Height of the screenboard
      */
     public readonly height!: pulumi.Output<string | undefined>;
-    /**
-     * The read-only status of the screenboard. Default is false.
-     */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the screenboard is shared or not. Default is false.
+     * Whether the screenboard is shared or not
      */
     public readonly shared!: pulumi.Output<boolean | undefined>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.ScreenBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     public readonly templateVariables!: pulumi.Output<outputs.ScreenBoardTemplateVariable[] | undefined>;
     /**
-     * The name of the screenboard.
+     * Name of the screenboard
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
+     * A list of widget definitions.
      */
     public readonly widgets!: pulumi.Output<outputs.ScreenBoardWidget[]>;
     /**
-     * The screenboard's width.
+     * Width of the screenboard
      */
     public readonly width!: pulumi.Output<string | undefined>;
 
@@ -508,31 +505,28 @@ export class ScreenBoard extends pulumi.CustomResource {
  */
 export interface ScreenBoardState {
     /**
-     * The screenboard's height.
+     * Height of the screenboard
      */
     readonly height?: pulumi.Input<string>;
-    /**
-     * The read-only status of the screenboard. Default is false.
-     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Whether the screenboard is shared or not. Default is false.
+     * Whether the screenboard is shared or not
      */
     readonly shared?: pulumi.Input<boolean>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.ScreenBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
-     * The name of the screenboard.
+     * Name of the screenboard
      */
     readonly title?: pulumi.Input<string>;
     /**
-     * Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
+     * A list of widget definitions.
      */
     readonly widgets?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
-     * The screenboard's width.
+     * Width of the screenboard
      */
     readonly width?: pulumi.Input<string>;
 }
@@ -542,31 +536,28 @@ export interface ScreenBoardState {
  */
 export interface ScreenBoardArgs {
     /**
-     * The screenboard's height.
+     * Height of the screenboard
      */
     readonly height?: pulumi.Input<string>;
-    /**
-     * The read-only status of the screenboard. Default is false.
-     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Whether the screenboard is shared or not. Default is false.
+     * Whether the screenboard is shared or not
      */
     readonly shared?: pulumi.Input<boolean>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.ScreenBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
-     * The name of the screenboard.
+     * Name of the screenboard
      */
     readonly title: pulumi.Input<string>;
     /**
-     * Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
+     * A list of widget definitions.
      */
     readonly widgets: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
-     * The screenboard's width.
+     * Width of the screenboard
      */
     readonly width?: pulumi.Input<string>;
 }

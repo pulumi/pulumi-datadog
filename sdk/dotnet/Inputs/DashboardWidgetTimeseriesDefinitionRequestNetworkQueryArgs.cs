@@ -12,18 +12,11 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        [Input("compute", required: true)]
-        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeArgs> Compute { get; set; } = null!;
+        [Input("compute")]
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeArgs>? Compute { get; set; }
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs>? _groupBies;
-
-        /// <summary>
-        /// When grouping = "cluster", indicates a list of tags to use for grouping.
-        /// </summary>
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs>());
@@ -33,9 +26,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        [Input("multiComputes")]
+        private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs>? _multiComputes;
+        public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs> MultiComputes
+        {
+            get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs>());
+            set => _multiComputes = value;
+        }
+
         [Input("search")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearchArgs>? Search { get; set; }
 

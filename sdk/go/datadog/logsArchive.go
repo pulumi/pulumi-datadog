@@ -46,16 +46,11 @@ import (
 type LogsArchive struct {
 	pulumi.CustomResourceState
 
-	// Definition of an azure archive.
 	Azure LogsArchiveAzurePtrOutput `pulumi:"azure"`
-	// Definition of an gcs archive.
-	Gcs LogsArchiveGcsPtrOutput `pulumi:"gcs"`
-	// Your archive name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The archive query/filter. Logs matching this query are included in the archive.
-	Query pulumi.StringOutput `pulumi:"query"`
-	// Definition of an s3 archive.
-	S3 LogsArchiveS3PtrOutput `pulumi:"s3"`
+	Gcs   LogsArchiveGcsPtrOutput   `pulumi:"gcs"`
+	Name  pulumi.StringOutput       `pulumi:"name"`
+	Query pulumi.StringOutput       `pulumi:"query"`
+	S3    LogsArchiveS3PtrOutput    `pulumi:"s3"`
 }
 
 // NewLogsArchive registers a new resource with the given unique name, arguments, and options.
@@ -92,29 +87,19 @@ func GetLogsArchive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsArchive resources.
 type logsArchiveState struct {
-	// Definition of an azure archive.
 	Azure *LogsArchiveAzure `pulumi:"azure"`
-	// Definition of an gcs archive.
-	Gcs *LogsArchiveGcs `pulumi:"gcs"`
-	// Your archive name.
-	Name *string `pulumi:"name"`
-	// The archive query/filter. Logs matching this query are included in the archive.
-	Query *string `pulumi:"query"`
-	// Definition of an s3 archive.
-	S3 *LogsArchiveS3 `pulumi:"s3"`
+	Gcs   *LogsArchiveGcs   `pulumi:"gcs"`
+	Name  *string           `pulumi:"name"`
+	Query *string           `pulumi:"query"`
+	S3    *LogsArchiveS3    `pulumi:"s3"`
 }
 
 type LogsArchiveState struct {
-	// Definition of an azure archive.
 	Azure LogsArchiveAzurePtrInput
-	// Definition of an gcs archive.
-	Gcs LogsArchiveGcsPtrInput
-	// Your archive name.
-	Name pulumi.StringPtrInput
-	// The archive query/filter. Logs matching this query are included in the archive.
+	Gcs   LogsArchiveGcsPtrInput
+	Name  pulumi.StringPtrInput
 	Query pulumi.StringPtrInput
-	// Definition of an s3 archive.
-	S3 LogsArchiveS3PtrInput
+	S3    LogsArchiveS3PtrInput
 }
 
 func (LogsArchiveState) ElementType() reflect.Type {
@@ -122,30 +107,20 @@ func (LogsArchiveState) ElementType() reflect.Type {
 }
 
 type logsArchiveArgs struct {
-	// Definition of an azure archive.
 	Azure *LogsArchiveAzure `pulumi:"azure"`
-	// Definition of an gcs archive.
-	Gcs *LogsArchiveGcs `pulumi:"gcs"`
-	// Your archive name.
-	Name string `pulumi:"name"`
-	// The archive query/filter. Logs matching this query are included in the archive.
-	Query string `pulumi:"query"`
-	// Definition of an s3 archive.
-	S3 *LogsArchiveS3 `pulumi:"s3"`
+	Gcs   *LogsArchiveGcs   `pulumi:"gcs"`
+	Name  string            `pulumi:"name"`
+	Query string            `pulumi:"query"`
+	S3    *LogsArchiveS3    `pulumi:"s3"`
 }
 
 // The set of arguments for constructing a LogsArchive resource.
 type LogsArchiveArgs struct {
-	// Definition of an azure archive.
 	Azure LogsArchiveAzurePtrInput
-	// Definition of an gcs archive.
-	Gcs LogsArchiveGcsPtrInput
-	// Your archive name.
-	Name pulumi.StringInput
-	// The archive query/filter. Logs matching this query are included in the archive.
+	Gcs   LogsArchiveGcsPtrInput
+	Name  pulumi.StringInput
 	Query pulumi.StringInput
-	// Definition of an s3 archive.
-	S3 LogsArchiveS3PtrInput
+	S3    LogsArchiveS3PtrInput
 }
 
 func (LogsArchiveArgs) ElementType() reflect.Type {

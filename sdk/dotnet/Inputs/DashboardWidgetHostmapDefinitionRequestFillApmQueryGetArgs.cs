@@ -12,18 +12,11 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetHostmapDefinitionRequestFillApmQueryGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        [Input("compute", required: true)]
-        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeGetArgs> Compute { get; set; } = null!;
+        [Input("compute")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeGetArgs>? Compute { get; set; }
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByGetArgs>? _groupBies;
-
-        /// <summary>
-        /// . Multiple nested blocks are allowed with the following structure:
-        /// </summary>
         public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByGetArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupByGetArgs>());
@@ -33,9 +26,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        [Input("multiComputes")]
+        private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeGetArgs>? _multiComputes;
+        public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeGetArgs> MultiComputes
+        {
+            get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeGetArgs>());
+            set => _multiComputes = value;
+        }
+
         [Input("search")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearchGetArgs>? Search { get; set; }
 

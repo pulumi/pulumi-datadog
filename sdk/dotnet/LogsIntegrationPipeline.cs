@@ -10,14 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource to manage
-    /// the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
+    /// Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource to manage the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
     /// 
-    /// Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with
-    /// specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however,
-    /// allows you to manage the order of your pipelines by referencing them in your
-    /// datadog.LogsPipelineOrder resource. If you don't need the
-    /// `pipeline_order` feature, this resource declaration can be omitted.
+    /// Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your datadog.LogsPipelineOrder resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
     /// 
     /// ## Example Usage
     /// 
@@ -40,9 +35,6 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class LogsIntegrationPipeline : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Boolean value to enable your pipeline.
-        /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
 
@@ -92,9 +84,6 @@ namespace Pulumi.Datadog
 
     public sealed class LogsIntegrationPipelineArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean value to enable your pipeline.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
@@ -105,9 +94,6 @@ namespace Pulumi.Datadog
 
     public sealed class LogsIntegrationPipelineState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean value to enable your pipeline.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 

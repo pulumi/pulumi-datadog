@@ -44,18 +44,12 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
-	// Your email found in your JSON service account key.
-	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
-	// Your ID found in your JSON service account key.
-	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
-	// Your private key name found in your JSON service account key.
-	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
-	// Your private key ID found in your JSON service account key.
-	PrivateKeyId pulumi.StringOutput `pulumi:"privateKeyId"`
-	// Your Google Cloud project ID found in your JSON service account key.
-	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	ClientEmail  pulumi.StringOutput    `pulumi:"clientEmail"`
+	ClientId     pulumi.StringOutput    `pulumi:"clientId"`
+	HostFilters  pulumi.StringPtrOutput `pulumi:"hostFilters"`
+	PrivateKey   pulumi.StringOutput    `pulumi:"privateKey"`
+	PrivateKeyId pulumi.StringOutput    `pulumi:"privateKeyId"`
+	ProjectId    pulumi.StringOutput    `pulumi:"projectId"`
 }
 
 // NewIntegration registers a new resource with the given unique name, arguments, and options.
@@ -101,33 +95,21 @@ func GetIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
-	// Your email found in your JSON service account key.
-	ClientEmail *string `pulumi:"clientEmail"`
-	// Your ID found in your JSON service account key.
-	ClientId *string `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-	HostFilters *string `pulumi:"hostFilters"`
-	// Your private key name found in your JSON service account key.
-	PrivateKey *string `pulumi:"privateKey"`
-	// Your private key ID found in your JSON service account key.
+	ClientEmail  *string `pulumi:"clientEmail"`
+	ClientId     *string `pulumi:"clientId"`
+	HostFilters  *string `pulumi:"hostFilters"`
+	PrivateKey   *string `pulumi:"privateKey"`
 	PrivateKeyId *string `pulumi:"privateKeyId"`
-	// Your Google Cloud project ID found in your JSON service account key.
-	ProjectId *string `pulumi:"projectId"`
+	ProjectId    *string `pulumi:"projectId"`
 }
 
 type IntegrationState struct {
-	// Your email found in your JSON service account key.
-	ClientEmail pulumi.StringPtrInput
-	// Your ID found in your JSON service account key.
-	ClientId pulumi.StringPtrInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-	HostFilters pulumi.StringPtrInput
-	// Your private key name found in your JSON service account key.
-	PrivateKey pulumi.StringPtrInput
-	// Your private key ID found in your JSON service account key.
+	ClientEmail  pulumi.StringPtrInput
+	ClientId     pulumi.StringPtrInput
+	HostFilters  pulumi.StringPtrInput
+	PrivateKey   pulumi.StringPtrInput
 	PrivateKeyId pulumi.StringPtrInput
-	// Your Google Cloud project ID found in your JSON service account key.
-	ProjectId pulumi.StringPtrInput
+	ProjectId    pulumi.StringPtrInput
 }
 
 func (IntegrationState) ElementType() reflect.Type {
@@ -135,34 +117,22 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
-	// Your email found in your JSON service account key.
-	ClientEmail string `pulumi:"clientEmail"`
-	// Your ID found in your JSON service account key.
-	ClientId string `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-	HostFilters *string `pulumi:"hostFilters"`
-	// Your private key name found in your JSON service account key.
-	PrivateKey string `pulumi:"privateKey"`
-	// Your private key ID found in your JSON service account key.
-	PrivateKeyId string `pulumi:"privateKeyId"`
-	// Your Google Cloud project ID found in your JSON service account key.
-	ProjectId string `pulumi:"projectId"`
+	ClientEmail  string  `pulumi:"clientEmail"`
+	ClientId     string  `pulumi:"clientId"`
+	HostFilters  *string `pulumi:"hostFilters"`
+	PrivateKey   string  `pulumi:"privateKey"`
+	PrivateKeyId string  `pulumi:"privateKeyId"`
+	ProjectId    string  `pulumi:"projectId"`
 }
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
-	// Your email found in your JSON service account key.
-	ClientEmail pulumi.StringInput
-	// Your ID found in your JSON service account key.
-	ClientId pulumi.StringInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-	HostFilters pulumi.StringPtrInput
-	// Your private key name found in your JSON service account key.
-	PrivateKey pulumi.StringInput
-	// Your private key ID found in your JSON service account key.
+	ClientEmail  pulumi.StringInput
+	ClientId     pulumi.StringInput
+	HostFilters  pulumi.StringPtrInput
+	PrivateKey   pulumi.StringInput
 	PrivateKeyId pulumi.StringInput
-	// Your Google Cloud project ID found in your JSON service account key.
-	ProjectId pulumi.StringInput
+	ProjectId    pulumi.StringInput
 }
 
 func (IntegrationArgs) ElementType() reflect.Type {

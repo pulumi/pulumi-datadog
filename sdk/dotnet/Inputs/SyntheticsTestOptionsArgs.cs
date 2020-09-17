@@ -12,39 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestOptionsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// For type=ssl, true or false
-        /// </summary>
         [Input("acceptSelfSigned")]
         public Input<bool>? AcceptSelfSigned { get; set; }
 
-        /// <summary>
-        /// For type=api, true or false. Allow your HTTP test go on with connection even if there is an error when validating the certificate.
-        /// </summary>
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
 
-        /// <summary>
-        /// For type=api, true or false
-        /// </summary>
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
 
-        /// <summary>
-        /// How long the test should be in failure before alerting (integer, number of seconds, max 7200). Default is 0.
-        /// </summary>
         [Input("minFailureDuration")]
         public Input<int>? MinFailureDuration { get; set; }
 
-        /// <summary>
-        /// Threshold below which a synthetics test is allowed to fail before sending notifications
-        /// </summary>
         [Input("minLocationFailed")]
         public Input<int>? MinLocationFailed { get; set; }
 
-        /// <summary>
-        /// How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 if type=api or 300 if type=browser
-        /// </summary>
+        [Input("retryCount")]
+        public Input<int>? RetryCount { get; set; }
+
+        [Input("retryInterval")]
+        public Input<int>? RetryInterval { get; set; }
+
         [Input("tickEvery", required: true)]
         public Input<int> TickEvery { get; set; } = null!;
 

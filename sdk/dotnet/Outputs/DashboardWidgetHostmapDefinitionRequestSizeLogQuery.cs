@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHostmapDefinitionRequestSizeLogQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute Compute;
-        /// <summary>
-        /// When grouping = "cluster", indicates a list of tags to use for grouping.
-        /// </summary>
+        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetHostmapDefinitionRequestSizeLogQuery(
-            Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute compute,
+            Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

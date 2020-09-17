@@ -13,25 +13,10 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser
     {
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// If the source attribute is URL encoded or not.
-        /// </summary>
         public readonly bool? IsEncoded;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// List of source attributes.
-        /// </summary>
         public readonly ImmutableArray<string> Sources;
-        /// <summary>
-        /// Name of the parent attribute that contains all the extracted details from the sources.
-        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTimeseriesDefinitionRequestLogQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute Compute;
-        /// <summary>
-        /// When grouping = "cluster", indicates a list of tags to use for grouping.
-        /// </summary>
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetTimeseriesDefinitionRequestLogQuery(
-            Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute compute,
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

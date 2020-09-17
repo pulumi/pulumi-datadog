@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute Compute;
-        /// <summary>
-        /// . Multiple nested blocks are allowed with the following structure:
-        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(
-            Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute compute,
+            Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

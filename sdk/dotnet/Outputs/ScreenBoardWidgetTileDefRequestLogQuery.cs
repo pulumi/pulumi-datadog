@@ -13,18 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ScreenBoardWidgetTileDefRequestLogQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
         public readonly Outputs.ScreenBoardWidgetTileDefRequestLogQueryCompute Compute;
-        /// <summary>
-        /// When grouping = "cluster", indicates a list of tags to use for grouping.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
         public readonly Outputs.ScreenBoardWidgetTileDefRequestLogQuerySearch? Search;
 
         [OutputConstructor]

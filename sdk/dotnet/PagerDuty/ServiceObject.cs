@@ -39,15 +39,9 @@ namespace Pulumi.Datadog.PagerDuty
     /// </summary>
     public partial class ServiceObject : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
-        /// </summary>
         [Output("serviceKey")]
         public Output<string> ServiceKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Your Service name in PagerDuty.
-        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
@@ -97,15 +91,9 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class ServiceObjectArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
-        /// </summary>
         [Input("serviceKey", required: true)]
         public Input<string> ServiceKey { get; set; } = null!;
 
-        /// <summary>
-        /// Your Service name in PagerDuty.
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
@@ -116,15 +104,9 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class ServiceObjectState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
-        /// </summary>
         [Input("serviceKey")]
         public Input<string>? ServiceKey { get; set; }
 
-        /// <summary>
-        /// Your Service name in PagerDuty.
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 

@@ -111,13 +111,13 @@ namespace Pulumi.Datadog
     public partial class DashboardList : Pulumi.CustomResource
     {
         /// <summary>
-        /// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+        /// A set of dashbaord items that belong to this list
         /// </summary>
         [Output("dashItems")]
         public Output<ImmutableArray<Outputs.DashboardListDashItem>> DashItems { get; private set; } = null!;
 
         /// <summary>
-        /// The name of this Dashboard List.
+        /// The name of the Dashboard List
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardListDashItemArgs>? _dashItems;
 
         /// <summary>
-        /// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+        /// A set of dashbaord items that belong to this list
         /// </summary>
         public InputList<Inputs.DashboardListDashItemArgs> DashItems
         {
@@ -181,7 +181,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of this Dashboard List.
+        /// The name of the Dashboard List
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardListDashItemGetArgs>? _dashItems;
 
         /// <summary>
-        /// An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+        /// A set of dashbaord items that belong to this list
         /// </summary>
         public InputList<Inputs.DashboardListDashItemGetArgs> DashItems
         {
@@ -206,7 +206,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of this Dashboard List.
+        /// The name of the Dashboard List
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

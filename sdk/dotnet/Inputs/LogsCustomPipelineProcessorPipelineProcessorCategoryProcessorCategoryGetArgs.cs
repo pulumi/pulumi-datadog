@@ -12,21 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryGetArgs : Pulumi.ResourceArgs
     {
-        [Input("filters", required: true)]
-        private InputList<Inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterGetArgs>? _filters;
+        [Input("filter", required: true)]
+        public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterGetArgs> Filter { get; set; } = null!;
 
-        /// <summary>
-        /// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        /// </summary>
-        public InputList<Inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterGetArgs> Filters
-        {
-            get => _filters ?? (_filters = new InputList<Inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilterGetArgs>());
-            set => _filters = value;
-        }
-
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

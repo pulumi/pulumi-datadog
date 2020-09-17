@@ -12,24 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class TimeBoardGraphGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean that determines whether to autoscale graphs.
-        /// </summary>
         [Input("autoscale")]
         public Input<bool>? Autoscale { get; set; }
 
-        /// <summary>
-        /// Display a custom unit on the graph (such as 'hertz')
-        /// </summary>
         [Input("customUnit")]
         public Input<string>? CustomUnit { get; set; }
 
         [Input("events")]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// A list of event filter strings. Note that, while supported by the Datadog API, the Datadog UI does not (currently) support multiple event filters very well, so use at your own risk.
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
@@ -38,58 +28,34 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("groups")]
         private InputList<string>? _groups;
-
-        /// <summary>
-        /// List of groups for hostmaps (shown as 'group by' in the UI).
-        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
 
-        /// <summary>
-        /// If set to true, will display hosts on hostmap that have no reported metrics.
-        /// </summary>
         [Input("includeNoMetricHosts")]
         public Input<bool>? IncludeNoMetricHosts { get; set; }
 
-        /// <summary>
-        /// If set to true, will display hosts without groups on hostmaps.
-        /// </summary>
         [Input("includeUngroupedHosts")]
         public Input<bool>? IncludeUngroupedHosts { get; set; }
 
         [Input("markers")]
         private InputList<Inputs.TimeBoardGraphMarkerGetArgs>? _markers;
-
-        /// <summary>
-        /// Nested block describing lines / ranges added to graph for formatting. The structure of this block is described below. Multiple marker blocks are allowed within a graph block.
-        /// </summary>
         public InputList<Inputs.TimeBoardGraphMarkerGetArgs> Markers
         {
             get => _markers ?? (_markers = new InputList<Inputs.TimeBoardGraphMarkerGetArgs>());
             set => _markers = value;
         }
 
-        /// <summary>
-        /// What nodes to display in a hostmap. Can be one of 'host' (default) or 'container'.
-        /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 
-        /// <summary>
-        /// Number of digits displayed, use `*` for full precision.
-        /// </summary>
         [Input("precision")]
         public Input<string>? Precision { get; set; }
 
         [Input("requests", required: true)]
         private InputList<Inputs.TimeBoardGraphRequestGetArgs>? _requests;
-
-        /// <summary>
-        /// Nested block describing a graph definition request (a metric query to plot on the graph). The structure of this block is described below. Multiple request blocks are allowed within a graph block.
-        /// </summary>
         public InputList<Inputs.TimeBoardGraphRequestGetArgs> Requests
         {
             get => _requests ?? (_requests = new InputList<Inputs.TimeBoardGraphRequestGetArgs>());
@@ -98,10 +64,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("scopes")]
         private InputList<string>? _scopes;
-
-        /// <summary>
-        /// List of scopes for hostmaps (shown as 'filter by' in the UI).
-        /// </summary>
         public InputList<string> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<string>());
@@ -110,40 +72,23 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("style")]
         private InputMap<object>? _style;
-
-        /// <summary>
-        /// Nested block to customize the graph style.
-        /// </summary>
         public InputMap<object> Style
         {
             get => _style ?? (_style = new InputMap<object>());
             set => _style = value;
         }
 
-        /// <summary>
-        /// How to align text in the graph, can be one of 'left', 'center', or 'right'.
-        /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
 
-        /// <summary>
-        /// The name of the graph.
-        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
-        /// <summary>
-        /// The type of visualization to use for the graph. Valid choices are "change", "distribution", "heatmap", "hostmap", "query_value", timeseries", and "toplist".
-        /// </summary>
         [Input("viz", required: true)]
         public Input<string> Viz { get; set; } = null!;
 
         [Input("yaxis")]
         private InputMap<object>? _yaxis;
-
-        /// <summary>
-        /// Nested block describing modifications to the yaxis rendering. The structure of this block is described below.
-        /// </summary>
         public InputMap<object> Yaxis
         {
             get => _yaxis ?? (_yaxis = new InputMap<object>());

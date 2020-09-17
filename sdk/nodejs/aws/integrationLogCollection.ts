@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which
- * AWS services logs are collected from for an account.
+ * Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
  *
  * ## Example Usage
  *
@@ -49,15 +48,7 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationLogCollection.__pulumiType;
     }
 
-    /**
-     * Your AWS Account ID without dashes.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * A list of services to collect logs from. See the
-     * [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-     * services are supported.
-     */
     public readonly services!: pulumi.Output<string[]>;
 
     /**
@@ -100,15 +91,7 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationLogCollection resources.
  */
 export interface IntegrationLogCollectionState {
-    /**
-     * Your AWS Account ID without dashes.
-     */
     readonly accountId?: pulumi.Input<string>;
-    /**
-     * A list of services to collect logs from. See the
-     * [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-     * services are supported.
-     */
     readonly services?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -116,14 +99,6 @@ export interface IntegrationLogCollectionState {
  * The set of arguments for constructing a IntegrationLogCollection resource.
  */
 export interface IntegrationLogCollectionArgs {
-    /**
-     * Your AWS Account ID without dashes.
-     */
     readonly accountId: pulumi.Input<string>;
-    /**
-     * A list of services to collect logs from. See the
-     * [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-     * services are supported.
-     */
     readonly services: pulumi.Input<pulumi.Input<string>[]>;
 }

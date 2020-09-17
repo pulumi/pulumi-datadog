@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHeatmapDefinitionRequestApmQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute Compute;
-        /// <summary>
-        /// . Multiple nested blocks are allowed with the following structure:
-        /// </summary>
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetHeatmapDefinitionRequestApmQuery(
-            Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute compute,
+            Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

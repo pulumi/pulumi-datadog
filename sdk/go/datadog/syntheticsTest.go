@@ -10,265 +10,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
-//
-// ## Example Usage
-// ### Synthetics API Test)
-//
-// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
-// 			Assertions: pulumi.StringMapArray{
-// 				pulumi.StringMap{
-// 					"operator": pulumi.String("is"),
-// 					"target":   pulumi.String("200"),
-// 					"type":     pulumi.String("statusCode"),
-// 				},
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @pagerduty"),
-// 			Name:    pulumi.String("An API test on example.org"),
-// 			Options: &datadog.SyntheticsTestOptionsArgs{
-// 				Tick_every: pulumi.Float64(900),
-// 			},
-// 			Request: &datadog.SyntheticsTestRequestArgs{
-// 				Method: pulumi.String("GET"),
-// 				Url:    pulumi.String("https://www.example.org"),
-// 			},
-// 			RequestHeaders: pulumi.StringMap{
-// 				"Authentication": pulumi.String("Token: 1234566789"),
-// 				"Content-Type":   pulumi.String("application/json"),
-// 			},
-// 			Status:  pulumi.String("live"),
-// 			Subtype: pulumi.String("http"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("foo"),
-// 				pulumi.String("env:test"),
-// 			},
-// 			Type: pulumi.String("api"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Synthetics SSL Test)
-//
-// Create a new Datadog Synthetics API/SSL test on example.org
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsTest(ctx, "testSsl", &datadog.SyntheticsTestArgs{
-// 			Assertions: pulumi.MapArray{
-// 				pulumi.Map{
-// 					"operator": pulumi.String("isInMoreThan"),
-// 					"target":   pulumi.Float64(30),
-// 					"type":     pulumi.String("certificate"),
-// 				},
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @pagerduty"),
-// 			Name:    pulumi.String("An API test on example.org"),
-// 			Options: &datadog.SyntheticsTestOptionsArgs{
-// 				Accept_self_signed: pulumi.Bool(true),
-// 				Tick_every:         pulumi.Float64(900),
-// 			},
-// 			Request: &datadog.SyntheticsTestRequestArgs{
-// 				Host: pulumi.String("example.org"),
-// 				Port: pulumi.Int(443),
-// 			},
-// 			Status:  pulumi.String("live"),
-// 			Subtype: pulumi.String("ssl"),
-// 			Tags: pulumi.StringArray{
-// 				pulumi.String("foo:bar"),
-// 				pulumi.String("foo"),
-// 				pulumi.String("env:test"),
-// 			},
-// 			Type: pulumi.String("api"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Synthetics Browser Test)
-//
-// Support for Synthetics Browser test is limited (see below)
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsTest(ctx, "testBrowser", &datadog.SyntheticsTestArgs{
-// 			DeviceIds: pulumi.StringArray{
-// 				pulumi.String("laptop_large"),
-// 			},
-// 			Locations: pulumi.StringArray{
-// 				pulumi.String("aws:eu-central-1"),
-// 			},
-// 			Message: pulumi.String("Notify @qa"),
-// 			Name:    pulumi.String("A Browser test on example.org"),
-// 			Options: &datadog.SyntheticsTestOptionsArgs{
-// 				Tick_every: pulumi.Float64(3600),
-// 			},
-// 			Request: &datadog.SyntheticsTestRequestArgs{
-// 				Method: pulumi.String("GET"),
-// 				Url:    pulumi.String("https://app.datadoghq.com"),
-// 			},
-// 			Status: pulumi.String("paused"),
-// 			Tags:   []interface{}{},
-// 			Type:   pulumi.String("browser"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ## Synthetics Browser test
-//
-// Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)
-//
-// You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
-//
-// We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
-//
-// ## Assertion format
-//
-// The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
-// 			Assertions: pulumi.StringMapArray{
-// 				pulumi.StringMap{
-// 					"operator": pulumi.String("is"),
-// 					"target":   pulumi.String("200"),
-// 					"type":     pulumi.String("statusCode"),
-// 				},
-// 				pulumi.StringMap{
-// 					"operator": pulumi.String("lessThan"),
-// 					"target":   pulumi.String("1000"),
-// 					"type":     pulumi.String("responseTime"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// turns into:
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
-// 			Assertions: pulumi.StringMapArray{
-// 				pulumi.StringMap{
-// 					"operator": pulumi.String("is"),
-// 					"target":   pulumi.String("200"),
-// 					"type":     pulumi.String("statusCode"),
-// 				},
-// 				pulumi.StringMap{
-// 					"operator": pulumi.String("lessThan"),
-// 					"target":   pulumi.String("1000"),
-// 					"type":     pulumi.String("responsTime"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type SyntheticsTest struct {
 	pulumi.CustomResourceState
 
 	// Deprecated: Use assertion instead
-	Assertions pulumi.MapArrayOutput `pulumi:"assertions"`
-	// "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
-	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
-	// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-	Locations pulumi.StringArrayOutput `pulumi:"locations"`
-	// A message to include with notifications for this synthetics test.
-	// Email notifications can be sent to specific users by using the same '@username' notation as events.
-	Message pulumi.StringPtrOutput `pulumi:"message"`
-	// ID of the monitor associated with the Datadog synthetics test
-	MonitorId pulumi.IntOutput `pulumi:"monitorId"`
-	// Name of Datadog synthetics test
-	Name    pulumi.StringOutput            `pulumi:"name"`
-	Options SyntheticsTestOptionsPtrOutput `pulumi:"options"`
-	// if type=browser
-	Request SyntheticsTestRequestOutput `pulumi:"request"`
-	// Array of 1 item containing HTTP basic authentication credentials
+	Assertions pulumi.MapArrayOutput    `pulumi:"assertions"`
+	DeviceIds  pulumi.StringArrayOutput `pulumi:"deviceIds"`
+	Locations  pulumi.StringArrayOutput `pulumi:"locations"`
+	Message    pulumi.StringPtrOutput   `pulumi:"message"`
+	MonitorId  pulumi.IntOutput         `pulumi:"monitorId"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
+	// Deprecated: This parameter is deprecated, please use `options_list`
+	Options          SyntheticsTestOptionsPtrOutput          `pulumi:"options"`
+	OptionsList      SyntheticsTestOptionsListPtrOutput      `pulumi:"optionsList"`
+	Request          SyntheticsTestRequestOutput             `pulumi:"request"`
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrOutput `pulumi:"requestBasicauth"`
-	// Header name and value map
-	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
-	// Query arguments name and value map
-	RequestQuery pulumi.MapOutput `pulumi:"requestQuery"`
-	// "live", "paused"
-	Status pulumi.StringOutput `pulumi:"status"`
-	// For type=api, http or ssl (Default = http)
-	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
-	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// body, header, responseTime, statusCode
-	Type pulumi.StringOutput `pulumi:"type"`
+	RequestHeaders   pulumi.MapOutput                        `pulumi:"requestHeaders"`
+	RequestQuery     pulumi.MapOutput                        `pulumi:"requestQuery"`
+	Status           pulumi.StringOutput                     `pulumi:"status"`
+	Steps            SyntheticsTestStepArrayOutput           `pulumi:"steps"`
+	Subtype          pulumi.StringPtrOutput                  `pulumi:"subtype"`
+	Tags             pulumi.StringArrayOutput                `pulumi:"tags"`
+	Type             pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewSyntheticsTest registers a new resource with the given unique name, arguments, and options.
@@ -319,67 +82,45 @@ func GetSyntheticsTest(ctx *pulumi.Context,
 type syntheticsTestState struct {
 	// Deprecated: Use assertion instead
 	Assertions []map[string]interface{} `pulumi:"assertions"`
-	// "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
-	DeviceIds []string `pulumi:"deviceIds"`
-	// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-	Locations []string `pulumi:"locations"`
-	// A message to include with notifications for this synthetics test.
-	// Email notifications can be sent to specific users by using the same '@username' notation as events.
-	Message *string `pulumi:"message"`
-	// ID of the monitor associated with the Datadog synthetics test
-	MonitorId *int `pulumi:"monitorId"`
-	// Name of Datadog synthetics test
-	Name    *string                `pulumi:"name"`
-	Options *SyntheticsTestOptions `pulumi:"options"`
-	// if type=browser
-	Request *SyntheticsTestRequest `pulumi:"request"`
-	// Array of 1 item containing HTTP basic authentication credentials
+	DeviceIds  []string                 `pulumi:"deviceIds"`
+	Locations  []string                 `pulumi:"locations"`
+	Message    *string                  `pulumi:"message"`
+	MonitorId  *int                     `pulumi:"monitorId"`
+	Name       *string                  `pulumi:"name"`
+	// Deprecated: This parameter is deprecated, please use `options_list`
+	Options          *SyntheticsTestOptions          `pulumi:"options"`
+	OptionsList      *SyntheticsTestOptionsList      `pulumi:"optionsList"`
+	Request          *SyntheticsTestRequest          `pulumi:"request"`
 	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
-	// Header name and value map
-	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
-	// Query arguments name and value map
-	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
-	// "live", "paused"
-	Status *string `pulumi:"status"`
-	// For type=api, http or ssl (Default = http)
-	Subtype *string `pulumi:"subtype"`
-	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-	Tags []string `pulumi:"tags"`
-	// body, header, responseTime, statusCode
-	Type *string `pulumi:"type"`
+	RequestHeaders   map[string]interface{}          `pulumi:"requestHeaders"`
+	RequestQuery     map[string]interface{}          `pulumi:"requestQuery"`
+	Status           *string                         `pulumi:"status"`
+	Steps            []SyntheticsTestStep            `pulumi:"steps"`
+	Subtype          *string                         `pulumi:"subtype"`
+	Tags             []string                        `pulumi:"tags"`
+	Type             *string                         `pulumi:"type"`
 }
 
 type SyntheticsTestState struct {
 	// Deprecated: Use assertion instead
 	Assertions pulumi.MapArrayInput
-	// "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
-	DeviceIds pulumi.StringArrayInput
-	// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-	Locations pulumi.StringArrayInput
-	// A message to include with notifications for this synthetics test.
-	// Email notifications can be sent to specific users by using the same '@username' notation as events.
-	Message pulumi.StringPtrInput
-	// ID of the monitor associated with the Datadog synthetics test
-	MonitorId pulumi.IntPtrInput
-	// Name of Datadog synthetics test
-	Name    pulumi.StringPtrInput
-	Options SyntheticsTestOptionsPtrInput
-	// if type=browser
-	Request SyntheticsTestRequestPtrInput
-	// Array of 1 item containing HTTP basic authentication credentials
+	DeviceIds  pulumi.StringArrayInput
+	Locations  pulumi.StringArrayInput
+	Message    pulumi.StringPtrInput
+	MonitorId  pulumi.IntPtrInput
+	Name       pulumi.StringPtrInput
+	// Deprecated: This parameter is deprecated, please use `options_list`
+	Options          SyntheticsTestOptionsPtrInput
+	OptionsList      SyntheticsTestOptionsListPtrInput
+	Request          SyntheticsTestRequestPtrInput
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
-	// Header name and value map
-	RequestHeaders pulumi.MapInput
-	// Query arguments name and value map
-	RequestQuery pulumi.MapInput
-	// "live", "paused"
-	Status pulumi.StringPtrInput
-	// For type=api, http or ssl (Default = http)
-	Subtype pulumi.StringPtrInput
-	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-	Tags pulumi.StringArrayInput
-	// body, header, responseTime, statusCode
-	Type pulumi.StringPtrInput
+	RequestHeaders   pulumi.MapInput
+	RequestQuery     pulumi.MapInput
+	Status           pulumi.StringPtrInput
+	Steps            SyntheticsTestStepArrayInput
+	Subtype          pulumi.StringPtrInput
+	Tags             pulumi.StringArrayInput
+	Type             pulumi.StringPtrInput
 }
 
 func (SyntheticsTestState) ElementType() reflect.Type {
@@ -389,64 +130,44 @@ func (SyntheticsTestState) ElementType() reflect.Type {
 type syntheticsTestArgs struct {
 	// Deprecated: Use assertion instead
 	Assertions []map[string]interface{} `pulumi:"assertions"`
-	// "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
-	DeviceIds []string `pulumi:"deviceIds"`
-	// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-	Locations []string `pulumi:"locations"`
-	// A message to include with notifications for this synthetics test.
-	// Email notifications can be sent to specific users by using the same '@username' notation as events.
-	Message *string `pulumi:"message"`
-	// Name of Datadog synthetics test
-	Name    string                 `pulumi:"name"`
-	Options *SyntheticsTestOptions `pulumi:"options"`
-	// if type=browser
-	Request SyntheticsTestRequest `pulumi:"request"`
-	// Array of 1 item containing HTTP basic authentication credentials
+	DeviceIds  []string                 `pulumi:"deviceIds"`
+	Locations  []string                 `pulumi:"locations"`
+	Message    *string                  `pulumi:"message"`
+	Name       string                   `pulumi:"name"`
+	// Deprecated: This parameter is deprecated, please use `options_list`
+	Options          *SyntheticsTestOptions          `pulumi:"options"`
+	OptionsList      *SyntheticsTestOptionsList      `pulumi:"optionsList"`
+	Request          SyntheticsTestRequest           `pulumi:"request"`
 	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
-	// Header name and value map
-	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
-	// Query arguments name and value map
-	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
-	// "live", "paused"
-	Status string `pulumi:"status"`
-	// For type=api, http or ssl (Default = http)
-	Subtype *string `pulumi:"subtype"`
-	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-	Tags []string `pulumi:"tags"`
-	// body, header, responseTime, statusCode
-	Type string `pulumi:"type"`
+	RequestHeaders   map[string]interface{}          `pulumi:"requestHeaders"`
+	RequestQuery     map[string]interface{}          `pulumi:"requestQuery"`
+	Status           string                          `pulumi:"status"`
+	Steps            []SyntheticsTestStep            `pulumi:"steps"`
+	Subtype          *string                         `pulumi:"subtype"`
+	Tags             []string                        `pulumi:"tags"`
+	Type             string                          `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SyntheticsTest resource.
 type SyntheticsTestArgs struct {
 	// Deprecated: Use assertion instead
 	Assertions pulumi.MapArrayInput
-	// "laptopLarge", "tablet" or "mobileSmall" (only available if type=browser)
-	DeviceIds pulumi.StringArrayInput
-	// Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-	Locations pulumi.StringArrayInput
-	// A message to include with notifications for this synthetics test.
-	// Email notifications can be sent to specific users by using the same '@username' notation as events.
-	Message pulumi.StringPtrInput
-	// Name of Datadog synthetics test
-	Name    pulumi.StringInput
-	Options SyntheticsTestOptionsPtrInput
-	// if type=browser
-	Request SyntheticsTestRequestInput
-	// Array of 1 item containing HTTP basic authentication credentials
+	DeviceIds  pulumi.StringArrayInput
+	Locations  pulumi.StringArrayInput
+	Message    pulumi.StringPtrInput
+	Name       pulumi.StringInput
+	// Deprecated: This parameter is deprecated, please use `options_list`
+	Options          SyntheticsTestOptionsPtrInput
+	OptionsList      SyntheticsTestOptionsListPtrInput
+	Request          SyntheticsTestRequestInput
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
-	// Header name and value map
-	RequestHeaders pulumi.MapInput
-	// Query arguments name and value map
-	RequestQuery pulumi.MapInput
-	// "live", "paused"
-	Status pulumi.StringInput
-	// For type=api, http or ssl (Default = http)
-	Subtype pulumi.StringPtrInput
-	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-	Tags pulumi.StringArrayInput
-	// body, header, responseTime, statusCode
-	Type pulumi.StringInput
+	RequestHeaders   pulumi.MapInput
+	RequestQuery     pulumi.MapInput
+	Status           pulumi.StringInput
+	Steps            SyntheticsTestStepArrayInput
+	Subtype          pulumi.StringPtrInput
+	Tags             pulumi.StringArrayInput
+	Type             pulumi.StringInput
 }
 
 func (SyntheticsTestArgs) ElementType() reflect.Type {

@@ -13,30 +13,18 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DowntimeRecurrence
     {
-        /// <summary>
-        /// How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-        /// </summary>
-        public readonly int Period;
-        /// <summary>
-        /// days, weeks, months, or years
-        /// </summary>
+        public readonly int? Period;
+        public readonly string? Rrule;
         public readonly string Type;
-        /// <summary>
-        /// The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
         public readonly int? UntilDate;
-        /// <summary>
-        /// How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
         public readonly int? UntilOccurrences;
-        /// <summary>
-        /// A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
-        /// </summary>
         public readonly ImmutableArray<string> WeekDays;
 
         [OutputConstructor]
         private DowntimeRecurrence(
-            int period,
+            int? period,
+
+            string? rrule,
 
             string type,
 
@@ -47,6 +35,7 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<string> weekDays)
         {
             Period = period;
+            Rrule = rrule;
             Type = type;
             UntilDate = untilDate;
             UntilOccurrences = untilOccurrences;

@@ -49,13 +49,7 @@ export class LogsIndexOrder extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsIndexOrder.__pulumiType;
     }
 
-    /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
-     */
     public readonly indexes!: pulumi.Output<string[]>;
-    /**
-     * The unique name of the index order resource.
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -98,13 +92,7 @@ export class LogsIndexOrder extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsIndexOrder resources.
  */
 export interface LogsIndexOrderState {
-    /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
-     */
     readonly indexes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The unique name of the index order resource.
-     */
     readonly name?: pulumi.Input<string>;
 }
 
@@ -112,12 +100,6 @@ export interface LogsIndexOrderState {
  * The set of arguments for constructing a LogsIndexOrder resource.
  */
 export interface LogsIndexOrderArgs {
-    /**
-     * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
-     */
     readonly indexes: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The unique name of the index order resource.
-     */
     readonly name: pulumi.Input<string>;
 }

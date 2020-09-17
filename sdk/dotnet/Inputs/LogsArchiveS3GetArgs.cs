@@ -12,39 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsArchiveS3GetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your AWS account id.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of your gcs bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Your client email.
-        /// </summary>
         [Input("clientEmail", required: true)]
         public Input<string> ClientEmail { get; set; } = null!;
 
-        /// <summary>
-        /// The path where the archive will be stored.
-        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
-        /// <summary>
-        /// Your project id.
-        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
-        /// <summary>
-        /// Your AWS role name.
-        /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 

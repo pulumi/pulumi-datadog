@@ -14,10 +14,6 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("xes")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXArgs>? _xes;
-
-        /// <summary>
-        /// The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
-        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXArgs> Xes
         {
             get => _xes ?? (_xes = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("ys")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYArgs>? _ys;
-
-        /// <summary>
-        /// The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
-        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYArgs> Ys
         {
             get => _ys ?? (_ys = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYArgs>());

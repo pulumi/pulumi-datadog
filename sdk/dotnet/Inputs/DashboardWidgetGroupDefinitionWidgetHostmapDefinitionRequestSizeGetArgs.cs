@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        [Input("rumQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGetArgs>? RumQuery { get; set; }
+
+        [Input("securityQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGetArgs>? SecurityQuery { get; set; }
+
         public DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeGetArgs()
         {
         }

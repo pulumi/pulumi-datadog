@@ -12,36 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetTileDefRequestConditionalFormatGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Custom color (e.g., #205081).
-        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 
-        /// <summary>
-        /// Comparison operator. Example: "&gt;", "&lt;".
-        /// </summary>
         [Input("comparator", required: true)]
         public Input<string> Comparator { get; set; } = null!;
 
         [Input("customBgColor")]
         public Input<string>? CustomBgColor { get; set; }
 
-        /// <summary>
-        /// Boolean indicating whether to invert color scheme.
-        /// </summary>
         [Input("invert")]
         public Input<bool>? Invert { get; set; }
 
-        /// <summary>
-        /// Color scheme to be used if the condition is met. One of: "red_on_white", "white_on_red", "yellow_on_white", "white_on_yellow", "green_on_white", "white_on_green", "gray_on_white", "white_on_gray", "custom_text", "custom_bg", "custom_image".
-        /// </summary>
         [Input("palette")]
         public Input<string>? Palette { get; set; }
 
-        /// <summary>
-        /// Value that is the threshold for the conditional format.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

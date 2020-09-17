@@ -13,17 +13,8 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTimeseriesDefinitionMarker
     {
-        /// <summary>
-        /// Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
-        /// </summary>
         public readonly string? DisplayType;
-        /// <summary>
-        /// The label of the axis to display on the graph.
-        /// </summary>
         public readonly string? Label;
-        /// <summary>
-        /// Value for the comparator.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

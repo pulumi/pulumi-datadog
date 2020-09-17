@@ -41,19 +41,13 @@ import (
 type MetricMetadata struct {
 	pulumi.CustomResourceState
 
-	// A description of the metric.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the metric.
-	Metric pulumi.StringOutput `pulumi:"metric"`
-	// 'Per' unit of the metric such as 'second' in 'bytes per second'.
-	PerUnit pulumi.StringPtrOutput `pulumi:"perUnit"`
-	// A short name of the metric.
-	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
-	// If applicable, stasd flush interval in seconds for the metric.
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	Metric         pulumi.StringOutput    `pulumi:"metric"`
+	PerUnit        pulumi.StringPtrOutput `pulumi:"perUnit"`
+	ShortName      pulumi.StringPtrOutput `pulumi:"shortName"`
 	StatsdInterval pulumi.IntPtrOutput    `pulumi:"statsdInterval"`
 	Type           pulumi.StringPtrOutput `pulumi:"type"`
-	// Primary unit of the metric such as 'byte' or 'operation'.
-	Unit pulumi.StringPtrOutput `pulumi:"unit"`
+	Unit           pulumi.StringPtrOutput `pulumi:"unit"`
 }
 
 // NewMetricMetadata registers a new resource with the given unique name, arguments, and options.
@@ -87,35 +81,23 @@ func GetMetricMetadata(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MetricMetadata resources.
 type metricMetadataState struct {
-	// A description of the metric.
-	Description *string `pulumi:"description"`
-	// The name of the metric.
-	Metric *string `pulumi:"metric"`
-	// 'Per' unit of the metric such as 'second' in 'bytes per second'.
-	PerUnit *string `pulumi:"perUnit"`
-	// A short name of the metric.
-	ShortName *string `pulumi:"shortName"`
-	// If applicable, stasd flush interval in seconds for the metric.
+	Description    *string `pulumi:"description"`
+	Metric         *string `pulumi:"metric"`
+	PerUnit        *string `pulumi:"perUnit"`
+	ShortName      *string `pulumi:"shortName"`
 	StatsdInterval *int    `pulumi:"statsdInterval"`
 	Type           *string `pulumi:"type"`
-	// Primary unit of the metric such as 'byte' or 'operation'.
-	Unit *string `pulumi:"unit"`
+	Unit           *string `pulumi:"unit"`
 }
 
 type MetricMetadataState struct {
-	// A description of the metric.
-	Description pulumi.StringPtrInput
-	// The name of the metric.
-	Metric pulumi.StringPtrInput
-	// 'Per' unit of the metric such as 'second' in 'bytes per second'.
-	PerUnit pulumi.StringPtrInput
-	// A short name of the metric.
-	ShortName pulumi.StringPtrInput
-	// If applicable, stasd flush interval in seconds for the metric.
+	Description    pulumi.StringPtrInput
+	Metric         pulumi.StringPtrInput
+	PerUnit        pulumi.StringPtrInput
+	ShortName      pulumi.StringPtrInput
 	StatsdInterval pulumi.IntPtrInput
 	Type           pulumi.StringPtrInput
-	// Primary unit of the metric such as 'byte' or 'operation'.
-	Unit pulumi.StringPtrInput
+	Unit           pulumi.StringPtrInput
 }
 
 func (MetricMetadataState) ElementType() reflect.Type {
@@ -123,36 +105,24 @@ func (MetricMetadataState) ElementType() reflect.Type {
 }
 
 type metricMetadataArgs struct {
-	// A description of the metric.
-	Description *string `pulumi:"description"`
-	// The name of the metric.
-	Metric string `pulumi:"metric"`
-	// 'Per' unit of the metric such as 'second' in 'bytes per second'.
-	PerUnit *string `pulumi:"perUnit"`
-	// A short name of the metric.
-	ShortName *string `pulumi:"shortName"`
-	// If applicable, stasd flush interval in seconds for the metric.
+	Description    *string `pulumi:"description"`
+	Metric         string  `pulumi:"metric"`
+	PerUnit        *string `pulumi:"perUnit"`
+	ShortName      *string `pulumi:"shortName"`
 	StatsdInterval *int    `pulumi:"statsdInterval"`
 	Type           *string `pulumi:"type"`
-	// Primary unit of the metric such as 'byte' or 'operation'.
-	Unit *string `pulumi:"unit"`
+	Unit           *string `pulumi:"unit"`
 }
 
 // The set of arguments for constructing a MetricMetadata resource.
 type MetricMetadataArgs struct {
-	// A description of the metric.
-	Description pulumi.StringPtrInput
-	// The name of the metric.
-	Metric pulumi.StringInput
-	// 'Per' unit of the metric such as 'second' in 'bytes per second'.
-	PerUnit pulumi.StringPtrInput
-	// A short name of the metric.
-	ShortName pulumi.StringPtrInput
-	// If applicable, stasd flush interval in seconds for the metric.
+	Description    pulumi.StringPtrInput
+	Metric         pulumi.StringInput
+	PerUnit        pulumi.StringPtrInput
+	ShortName      pulumi.StringPtrInput
 	StatsdInterval pulumi.IntPtrInput
 	Type           pulumi.StringPtrInput
-	// Primary unit of the metric such as 'byte' or 'operation'.
-	Unit pulumi.StringPtrInput
+	Unit           pulumi.StringPtrInput
 }
 
 func (MetricMetadataArgs) ElementType() reflect.Type {

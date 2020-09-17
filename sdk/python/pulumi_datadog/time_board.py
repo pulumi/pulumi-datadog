@@ -26,129 +26,12 @@ class TimeBoard(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
-
-        > **Note:**This resource is outdated. Use the new `Dashboard` resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog timeboard
-        redis = datadog.TimeBoard("redis",
-            title="Redis Timeboard (created via TF)",
-            description="created using the Datadog provider in TF",
-            read_only=True,
-            graphs=[
-                datadog.TimeBoardGraphArgs(
-                    title="Redis latency (ms)",
-                    viz="timeseries",
-                    requests=[
-                        datadog.TimeBoardGraphRequestArgs(
-                            q="avg:redis.info.latency_ms{$host}",
-                            type="bars",
-                            metadata_json=json.dumps({
-                                "avg:redis.info.latency_ms{$host}": {
-                                    "alias": "Redis latency",
-                                },
-                            }),
-                        ),
-                        datadog.TimeBoardGraphRequestArgs(
-                            log_query=datadog.TimeBoardGraphRequestLogQueryArgs(
-                                index="mcnulty",
-                                compute=datadog.TimeBoardGraphRequestLogQueryComputeArgs(
-                                    aggregation="avg",
-                                    facet="@duration",
-                                    interval=5000,
-                                ),
-                                search=datadog.TimeBoardGraphRequestLogQuerySearchArgs(
-                                    query="status:info",
-                                ),
-                                group_bies=[datadog.TimeBoardGraphRequestLogQueryGroupByArgs(
-                                    facet="host",
-                                    limit=10,
-                                    sort=datadog.TimeBoardGraphRequestLogQueryGroupBySortArgs(
-                                        aggregation="avg",
-                                        order="desc",
-                                        facet="@duration",
-                                    ),
-                                )],
-                            ),
-                            type="area",
-                        ),
-                        datadog.TimeBoardGraphRequestArgs(
-                            apm_query=datadog.TimeBoardGraphRequestApmQueryArgs(
-                                index="apm-search",
-                                compute=datadog.TimeBoardGraphRequestApmQueryComputeArgs(
-                                    aggregation="avg",
-                                    facet="@duration",
-                                    interval=5000,
-                                ),
-                                search=datadog.TimeBoardGraphRequestApmQuerySearchArgs(
-                                    query="type:web",
-                                ),
-                                group_bies=[datadog.TimeBoardGraphRequestApmQueryGroupByArgs(
-                                    facet="resource_name",
-                                    limit=50,
-                                    sort=datadog.TimeBoardGraphRequestApmQueryGroupBySortArgs(
-                                        aggregation="avg",
-                                        order="desc",
-                                        facet="@string_query.interval",
-                                    ),
-                                )],
-                            ),
-                            type="bars",
-                        ),
-                        datadog.TimeBoardGraphRequestArgs(
-                            process_query=datadog.TimeBoardGraphRequestProcessQueryArgs(
-                                metric="process.stat.cpu.total_pct",
-                                search_by="error",
-                                filter_bies=["active"],
-                                limit=50,
-                            ),
-                            type="area",
-                        ),
-                    ],
-                ),
-                datadog.TimeBoardGraphArgs(
-                    title="Redis memory usage",
-                    viz="timeseries",
-                    requests=[
-                        datadog.TimeBoardGraphRequestArgs(
-                            q="avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}",
-                            stacked=True,
-                        ),
-                        datadog.TimeBoardGraphRequestArgs(
-                            q="avg:redis.mem.rss{$host}",
-                            style={
-                                "palette": "warm",
-                            },
-                        ),
-                    ],
-                ),
-                datadog.TimeBoardGraphArgs(
-                    title="Top System CPU by Docker container",
-                    viz="toplist",
-                    requests=[datadog.TimeBoardGraphRequestArgs(
-                        q="top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
-                    )],
-                ),
-            ],
-            template_variables=[datadog.TimeBoardTemplateVariableArgs(
-                name="host",
-                prefix="host",
-            )])
-        ```
-
+        Create a TimeBoard resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
-        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a TimeBoard resource.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: The name of the dashboard.
         """
         if __name__ is not None:
@@ -202,9 +85,8 @@ class TimeBoard(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
-        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a TimeBoard resource.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: The name of the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -230,23 +112,20 @@ class TimeBoard(pulumi.CustomResource):
     @pulumi.getter
     def graphs(self) -> pulumi.Output[List['outputs.TimeBoardGraph']]:
         """
-        Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a TimeBoard resource.
+        A list of graph definitions.
         """
         return pulumi.get(self, "graphs")
 
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> pulumi.Output[Optional[bool]]:
-        """
-        The read-only status of the timeboard. Default is false.
-        """
         return pulumi.get(self, "read_only")
 
     @property
     @pulumi.getter(name="templateVariables")
     def template_variables(self) -> pulumi.Output[Optional[List['outputs.TimeBoardTemplateVariable']]]:
         """
-        Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a TimeBoard resource.
+        A list of template variables for using Dashboard templating.
         """
         return pulumi.get(self, "template_variables")
 

@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute Compute;
-        /// <summary>
-        /// . Multiple nested blocks are allowed with the following structure:
-        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(
-            Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute compute,
+            Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

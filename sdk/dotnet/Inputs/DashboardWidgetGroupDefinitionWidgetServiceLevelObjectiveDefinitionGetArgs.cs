@@ -26,9 +26,6 @@ namespace Pulumi.Datadog.Inputs
             set => _timeWindows = value;
         }
 
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

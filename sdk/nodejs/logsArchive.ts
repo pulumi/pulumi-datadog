@@ -57,25 +57,10 @@ export class LogsArchive extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsArchive.__pulumiType;
     }
 
-    /**
-     * Definition of an azure archive.
-     */
     public readonly azure!: pulumi.Output<outputs.LogsArchiveAzure | undefined>;
-    /**
-     * Definition of an gcs archive.
-     */
     public readonly gcs!: pulumi.Output<outputs.LogsArchiveGcs | undefined>;
-    /**
-     * Your archive name.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The archive query/filter. Logs matching this query are included in the archive.
-     */
     public readonly query!: pulumi.Output<string>;
-    /**
-     * Definition of an s3 archive.
-     */
     public readonly s3!: pulumi.Output<outputs.LogsArchiveS3 | undefined>;
 
     /**
@@ -124,25 +109,10 @@ export class LogsArchive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsArchive resources.
  */
 export interface LogsArchiveState {
-    /**
-     * Definition of an azure archive.
-     */
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
-    /**
-     * Definition of an gcs archive.
-     */
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
-    /**
-     * Your archive name.
-     */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The archive query/filter. Logs matching this query are included in the archive.
-     */
     readonly query?: pulumi.Input<string>;
-    /**
-     * Definition of an s3 archive.
-     */
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
 }
 
@@ -150,24 +120,9 @@ export interface LogsArchiveState {
  * The set of arguments for constructing a LogsArchive resource.
  */
 export interface LogsArchiveArgs {
-    /**
-     * Definition of an azure archive.
-     */
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
-    /**
-     * Definition of an gcs archive.
-     */
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
-    /**
-     * Your archive name.
-     */
     readonly name: pulumi.Input<string>;
-    /**
-     * The archive query/filter. Logs matching this query are included in the archive.
-     */
     readonly query: pulumi.Input<string>;
-    /**
-     * Definition of an s3 archive.
-     */
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
 }

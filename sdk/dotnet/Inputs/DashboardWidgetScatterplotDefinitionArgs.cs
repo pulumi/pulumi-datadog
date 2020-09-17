@@ -14,37 +14,6 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("colorByGroups")]
         private InputList<string>? _colorByGroups;
-
-        /// <summary>
-        /// List of groups used for colors.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
-        /// - `servicemap_definition`: The definition for a Service Map widget. Exactly one nested block is allowed with the following structure:
-        /// - `filters`: (Required) Your environment and primary tag (or * if enabled for your account).
-        /// - `service`: (Required) The ID of the service you want to map.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `service_level_objective_definition`: The definition for a Service Level Objective widget. Exactly one nested block is allowed with the following structure:
-        /// - `view_type`: (Required) Type of view to use when displaying the widget. Only "detail" is currently supported.
-        /// - `slo_id`: (Required) The ID of the service level objective used by the widget.
-        /// - `show_error_budget`: (Optional) Whether to show the error budget or not.
-        /// - `view_mode`: (Required) View mode for the widget. One of "overall", "component", or "both".
-        /// - `time_windows`: (Required) List of time windows to display in the widget. Each value in the list must be one of "7d", "30d", "90d", "week_to_date",  "previous_week", "month_to_date", or "previous_month".
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `timeseries_definition`: The definition for a Timeseries  widget. Exactly one nested block is allowed with the following structure:
-        /// - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apm_query`, `log_query` or `process_query` is required within the request block):
-        /// - `q`: (Optional) The metric query to use in the widget.
-        /// - `apm_query`: (Optional) The APM query to use in the widget. The structure of this block is described below.
-        /// - `log_query`: (Optional) The log query to use in the widget. The structure of this block is described below.
-        /// - `network_query`: (Optional) The network query to use in the widget. The structure of this block is described below.
-        /// - `rum_query`: (Optional) The rum query to use in the widget. The structure of this block is described below.
-        /// - `process_query`: (Optional) The process query to use in the widget. The structure of this block is described below.
-        /// </summary>
         public InputList<string> ColorByGroups
         {
             get => _colorByGroups ?? (_colorByGroups = new InputList<string>());
@@ -57,9 +26,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionTimeArgs>? Time { get; set; }
 
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

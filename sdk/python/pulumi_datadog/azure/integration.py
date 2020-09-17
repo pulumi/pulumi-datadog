@@ -41,10 +41,6 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_id: Your Azure web application ID.
-        :param pulumi.Input[str] client_secret: Your Azure web application secret key.
-        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure.
-        :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,10 +90,6 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_id: Your Azure web application ID.
-        :param pulumi.Input[str] client_secret: Your Azure web application secret key.
-        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure.
-        :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -112,33 +104,21 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
-        """
-        Your Azure web application ID.
-        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[str]:
-        """
-        Your Azure web application secret key.
-        """
         return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> pulumi.Output[Optional[str]]:
-        """
-        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure.
-        """
         return pulumi.get(self, "host_filters")
 
     @property
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> pulumi.Output[str]:
-        """
-        Your Azure Active Directory ID.
-        """
         return pulumi.get(self, "tenant_name")
 
     def translate_output_property(self, prop):

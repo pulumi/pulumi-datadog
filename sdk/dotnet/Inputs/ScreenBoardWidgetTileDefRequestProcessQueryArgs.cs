@@ -20,15 +20,9 @@ namespace Pulumi.Datadog.Inputs
             set => _filterBies = value;
         }
 
-        /// <summary>
-        /// Integer indicating the number of hosts to limit to.
-        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
-        /// <summary>
-        /// The metric you want to use for the widget.
-        /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
 

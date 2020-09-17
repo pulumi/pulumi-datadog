@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const orderedDashboard = new datadog.Dashboard("ordered_dashboard", {
- *     description: "Created using the Datadog provider in TF",
+ *     description: "Created using the Datadog provider in Terraform",
  *     isReadOnly: true,
  *     layoutType: "ordered",
  *     templateVariables: [
@@ -471,7 +471,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const freeDashboard = new datadog.Dashboard("free_dashboard", {
- *     description: "Created using the Datadog provider in TF",
+ *     description: "Created using the Datadog provider in Terraform",
  *     isReadOnly: false,
  *     layoutType: "free",
  *     templateVariables: [
@@ -587,7 +587,7 @@ import * as utilities from "./utilities";
  *                     "core_service",
  *                     "tag_source",
  *                 ],
- *                 logset: "19",
+ *                 indexes: ["main"],
  *                 messageDisplay: "expanded-md",
  *                 query: "error",
  *                 showDateColumn: true,
@@ -678,20 +678,27 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /**
-     * Description of the dashboard.
+     * The list of dashboard lists this dashboard belongs to.
+     */
+    public readonly dashboardLists!: pulumi.Output<number[] | undefined>;
+    /**
+     * The list of dashboard lists this dashboard should be removed from. Internal only.
+     */
+    public /*out*/ readonly dashboardListsRemoveds!: pulumi.Output<number[]>;
+    /**
+     * The description of the dashboard.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+     * Whether this dashboard is read-only.
      */
     public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-     * <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+     * The layout type of the dashboard, either 'free' or 'ordered'.
      */
     public readonly layoutType!: pulumi.Output<string>;
     /**
-     * List of handles of users to notify when changes are made to this dashboard.
+     * The list of handles of users to notify when changes are made to this dashboard.
      */
     public readonly notifyLists!: pulumi.Output<string[] | undefined>;
     /**
@@ -703,15 +710,15 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly templateVariables!: pulumi.Output<outputs.DashboardTemplateVariable[] | undefined>;
     /**
-     * Title of the dashboard.
+     * The title of the dashboard.
      */
     public readonly title!: pulumi.Output<string>;
     /**
-     * Read only field - The URL of the dashboard.
+     * The URL of the dashboard.
      */
     public readonly url!: pulumi.Output<string>;
     /**
-     * Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+     * The list of widgets to display on the dashboard.
      */
     public readonly widgets!: pulumi.Output<outputs.DashboardWidget[]>;
 
@@ -727,6 +734,8 @@ export class Dashboard extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DashboardState | undefined;
+            inputs["dashboardLists"] = state ? state.dashboardLists : undefined;
+            inputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["isReadOnly"] = state ? state.isReadOnly : undefined;
             inputs["layoutType"] = state ? state.layoutType : undefined;
@@ -747,6 +756,7 @@ export class Dashboard extends pulumi.CustomResource {
             if (!args || args.widgets === undefined) {
                 throw new Error("Missing required property 'widgets'");
             }
+            inputs["dashboardLists"] = args ? args.dashboardLists : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["isReadOnly"] = args ? args.isReadOnly : undefined;
             inputs["layoutType"] = args ? args.layoutType : undefined;
@@ -756,6 +766,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["title"] = args ? args.title : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["widgets"] = args ? args.widgets : undefined;
+            inputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -773,20 +784,27 @@ export class Dashboard extends pulumi.CustomResource {
  */
 export interface DashboardState {
     /**
-     * Description of the dashboard.
+     * The list of dashboard lists this dashboard belongs to.
+     */
+    readonly dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The list of dashboard lists this dashboard should be removed from. Internal only.
+     */
+    readonly dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The description of the dashboard.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+     * Whether this dashboard is read-only.
      */
     readonly isReadOnly?: pulumi.Input<boolean>;
     /**
-     * Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-     * <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+     * The layout type of the dashboard, either 'free' or 'ordered'.
      */
     readonly layoutType?: pulumi.Input<string>;
     /**
-     * List of handles of users to notify when changes are made to this dashboard.
+     * The list of handles of users to notify when changes are made to this dashboard.
      */
     readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -798,15 +816,15 @@ export interface DashboardState {
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
-     * Title of the dashboard.
+     * The title of the dashboard.
      */
     readonly title?: pulumi.Input<string>;
     /**
-     * Read only field - The URL of the dashboard.
+     * The URL of the dashboard.
      */
     readonly url?: pulumi.Input<string>;
     /**
-     * Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+     * The list of widgets to display on the dashboard.
      */
     readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
@@ -816,20 +834,23 @@ export interface DashboardState {
  */
 export interface DashboardArgs {
     /**
-     * Description of the dashboard.
+     * The list of dashboard lists this dashboard belongs to.
+     */
+    readonly dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The description of the dashboard.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+     * Whether this dashboard is read-only.
      */
     readonly isReadOnly?: pulumi.Input<boolean>;
     /**
-     * Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-     * <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+     * The layout type of the dashboard, either 'free' or 'ordered'.
      */
     readonly layoutType: pulumi.Input<string>;
     /**
-     * List of handles of users to notify when changes are made to this dashboard.
+     * The list of handles of users to notify when changes are made to this dashboard.
      */
     readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -841,15 +862,15 @@ export interface DashboardArgs {
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
-     * Title of the dashboard.
+     * The title of the dashboard.
      */
     readonly title: pulumi.Input<string>;
     /**
-     * Read only field - The URL of the dashboard.
+     * The URL of the dashboard.
      */
     readonly url?: pulumi.Input<string>;
     /**
-     * Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+     * The list of widgets to display on the dashboard.
      */
     readonly widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }

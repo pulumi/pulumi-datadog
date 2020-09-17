@@ -12,25 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-        /// &lt;br&gt;**Note: This value cannot be changed. Converting a dashboard from `free` &lt;&gt; `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
-        /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
 
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         [Input("widgets", required: true)]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>? _widgets;
-
-        /// <summary>
-        /// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
-        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs> Widgets
         {
             get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>());

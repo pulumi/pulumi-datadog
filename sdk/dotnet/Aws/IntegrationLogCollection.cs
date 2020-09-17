@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Aws
 {
     /// <summary>
-    /// Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which
-    /// AWS services logs are collected from for an account.
+    /// Provides a Datadog - Amazon Web Services integration log collection resource. This can be used to manage which AWS services logs are collected from for an account.
     /// 
     /// ## Example Usage
     /// 
@@ -39,17 +38,9 @@ namespace Pulumi.Datadog.Aws
     /// </summary>
     public partial class IntegrationLogCollection : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Your AWS Account ID without dashes.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of services to collect logs from. See the
-        /// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-        /// services are supported.
-        /// </summary>
         [Output("services")]
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
 
@@ -99,20 +90,11 @@ namespace Pulumi.Datadog.Aws
 
     public sealed class IntegrationLogCollectionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your AWS Account ID without dashes.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
         [Input("services", required: true)]
         private InputList<string>? _services;
-
-        /// <summary>
-        /// A list of services to collect logs from. See the
-        /// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-        /// services are supported.
-        /// </summary>
         public InputList<string> Services
         {
             get => _services ?? (_services = new InputList<string>());
@@ -126,20 +108,11 @@ namespace Pulumi.Datadog.Aws
 
     public sealed class IntegrationLogCollectionState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your AWS Account ID without dashes.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         [Input("services")]
         private InputList<string>? _services;
-
-        /// <summary>
-        /// A list of services to collect logs from. See the
-        /// [api docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on which
-        /// services are supported.
-        /// </summary>
         public InputList<string> Services
         {
             get => _services ?? (_services = new InputList<string>());

@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Metric-Based SLO
+//
 // ```go
 // package main
 //
@@ -63,24 +64,19 @@ import (
 type ServiceLevelObjective struct {
 	pulumi.CustomResourceState
 
-	// A description of this service level objective.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
+	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayOutput `pulumi:"monitorIds"`
-	// Name of Datadog service level objective
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+	Name       pulumi.StringOutput   `pulumi:"name"`
+	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	Tags       pulumi.StringArrayOutput                  `pulumi:"tags"`
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-	// * `metric`
-	// * `monitor`
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewServiceLevelObjective registers a new resource with the given unique name, arguments, and options.
@@ -120,45 +116,35 @@ func GetServiceLevelObjective(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceLevelObjective resources.
 type serviceLevelObjectiveState struct {
-	// A description of this service level objective.
 	Description *string `pulumi:"description"`
-	// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
-	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
-	MonitorIds []int `pulumi:"monitorIds"`
-	// Name of Datadog service level objective
-	Name *string `pulumi:"name"`
-	// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+	// A static set of monitor IDs to use as part of the SLO
+	MonitorIds []int   `pulumi:"monitorIds"`
+	Name       *string `pulumi:"name"`
+	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags []string `pulumi:"tags"`
-	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-	// * `metric`
-	// * `monitor`
-	Type *string `pulumi:"type"`
+	Type       *string                          `pulumi:"type"`
 }
 
 type ServiceLevelObjectiveState struct {
-	// A description of this service level objective.
 	Description pulumi.StringPtrInput
-	// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayInput
-	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
+	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	// Name of Datadog service level objective
-	Name pulumi.StringPtrInput
-	// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+	Name       pulumi.StringPtrInput
+	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags pulumi.StringArrayInput
-	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-	// * `metric`
-	// * `monitor`
-	Type pulumi.StringPtrInput
+	Type       pulumi.StringPtrInput
 }
 
 func (ServiceLevelObjectiveState) ElementType() reflect.Type {
@@ -166,46 +152,36 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 }
 
 type serviceLevelObjectiveArgs struct {
-	// A description of this service level objective.
 	Description *string `pulumi:"description"`
-	// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
-	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
-	MonitorIds []int `pulumi:"monitorIds"`
-	// Name of Datadog service level objective
-	Name string `pulumi:"name"`
-	// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+	// A static set of monitor IDs to use as part of the SLO
+	MonitorIds []int  `pulumi:"monitorIds"`
+	Name       string `pulumi:"name"`
+	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags []string `pulumi:"tags"`
-	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-	// * `metric`
-	// * `monitor`
-	Type string `pulumi:"type"`
+	Type       string                           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ServiceLevelObjective resource.
 type ServiceLevelObjectiveArgs struct {
-	// A description of this service level objective.
 	Description pulumi.StringPtrInput
-	// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayInput
-	// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitorTags` field in the API resource.
+	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	// Name of Datadog service level objective
-	Name pulumi.StringInput
-	// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+	Name       pulumi.StringInput
+	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags pulumi.StringArrayInput
-	// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-	// * `metric`
-	// * `monitor`
-	Type pulumi.StringInput
+	Type       pulumi.StringInput
 }
 
 func (ServiceLevelObjectiveArgs) ElementType() reflect.Type {

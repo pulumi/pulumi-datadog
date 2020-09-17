@@ -9,85 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
-    /// <summary>
-    /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to create and manage Datadog logs indexes.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// A sample Datadog logs index resource definition. Note that at this point, it is not possible to create new logs indexes
-    /// through this provider, so the `name` field must match a name of an already existing index. If you want to keep the current
-    /// state of the index, we suggest importing it (see below).
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sampleIndex = new Datadog.LogsIndex("sampleIndex", new Datadog.LogsIndexArgs
-    ///         {
-    ///             ExclusionFilters = 
-    ///             {
-    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
-    ///                 {
-    ///                     Filters = 
-    ///                     {
-    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
-    ///                         {
-    ///                             Query = "app:coredns",
-    ///                             SampleRate = 0.97,
-    ///                         },
-    ///                     },
-    ///                     IsEnabled = true,
-    ///                     Name = "Filter coredns logs",
-    ///                 },
-    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
-    ///                 {
-    ///                     Filters = 
-    ///                     {
-    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
-    ///                         {
-    ///                             Query = "service:kube_apiserver",
-    ///                             SampleRate = 1,
-    ///                         },
-    ///                     },
-    ///                     IsEnabled = true,
-    ///                     Name = "Kubernetes apiserver",
-    ///                 },
-    ///             },
-    ///             Filters = 
-    ///             {
-    ///                 new Datadog.Inputs.LogsIndexFilterArgs
-    ///                 {
-    ///                     Query = "*",
-    ///                 },
-    ///             },
-    ///             Name = "your index",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ## Important Notes
-    /// 
-    /// The order of indexes is maintained in the separated resource datadog_logs_index_order.
-    /// </summary>
     public partial class LogsIndex : Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of exclusion filters.
-        /// </summary>
         [Output("exclusionFilters")]
         public Output<ImmutableArray<Outputs.LogsIndexExclusionFilter>> ExclusionFilters { get; private set; } = null!;
 
         [Output("filters")]
         public Output<ImmutableArray<Outputs.LogsIndexFilter>> Filters { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the exclusion filter.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -139,10 +68,6 @@ namespace Pulumi.Datadog
     {
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterArgs>? _exclusionFilters;
-
-        /// <summary>
-        /// List of exclusion filters.
-        /// </summary>
         public InputList<Inputs.LogsIndexExclusionFilterArgs> ExclusionFilters
         {
             get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFilterArgs>());
@@ -157,9 +82,6 @@ namespace Pulumi.Datadog
             set => _filters = value;
         }
 
-        /// <summary>
-        /// The name of the exclusion filter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -172,10 +94,6 @@ namespace Pulumi.Datadog
     {
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterGetArgs>? _exclusionFilters;
-
-        /// <summary>
-        /// List of exclusion filters.
-        /// </summary>
         public InputList<Inputs.LogsIndexExclusionFilterGetArgs> ExclusionFilters
         {
             get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFilterGetArgs>());
@@ -190,9 +108,6 @@ namespace Pulumi.Datadog
             set => _filters = value;
         }
 
-        /// <summary>
-        /// The name of the exclusion filter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

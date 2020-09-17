@@ -43,33 +43,18 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class LogsArchive : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Definition of an azure archive.
-        /// </summary>
         [Output("azure")]
         public Output<Outputs.LogsArchiveAzure?> Azure { get; private set; } = null!;
 
-        /// <summary>
-        /// Definition of an gcs archive.
-        /// </summary>
         [Output("gcs")]
         public Output<Outputs.LogsArchiveGcs?> Gcs { get; private set; } = null!;
 
-        /// <summary>
-        /// Your archive name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The archive query/filter. Logs matching this query are included in the archive.
-        /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
-        /// <summary>
-        /// Definition of an s3 archive.
-        /// </summary>
         [Output("s3")]
         public Output<Outputs.LogsArchiveS3?> S3 { get; private set; } = null!;
 
@@ -119,33 +104,18 @@ namespace Pulumi.Datadog
 
     public sealed class LogsArchiveArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Definition of an azure archive.
-        /// </summary>
         [Input("azure")]
         public Input<Inputs.LogsArchiveAzureArgs>? Azure { get; set; }
 
-        /// <summary>
-        /// Definition of an gcs archive.
-        /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsArgs>? Gcs { get; set; }
 
-        /// <summary>
-        /// Your archive name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The archive query/filter. Logs matching this query are included in the archive.
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
-        /// <summary>
-        /// Definition of an s3 archive.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3Args>? S3 { get; set; }
 
@@ -156,33 +126,18 @@ namespace Pulumi.Datadog
 
     public sealed class LogsArchiveState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Definition of an azure archive.
-        /// </summary>
         [Input("azure")]
         public Input<Inputs.LogsArchiveAzureGetArgs>? Azure { get; set; }
 
-        /// <summary>
-        /// Definition of an gcs archive.
-        /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsGetArgs>? Gcs { get; set; }
 
-        /// <summary>
-        /// Your archive name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The archive query/filter. Logs matching this query are included in the archive.
-        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
-        /// <summary>
-        /// Definition of an s3 archive.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3GetArgs>? S3 { get; set; }
 

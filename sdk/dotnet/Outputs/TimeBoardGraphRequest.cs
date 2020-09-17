@@ -13,54 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class TimeBoardGraphRequest
     {
-        /// <summary>
-        /// The aggregation method used when the number of data points outnumbers the max that can be shown.
-        /// </summary>
         public readonly string? Aggregator;
-        /// <summary>
-        /// The APM query to use in the widget. The structure of this block is described below.
-        /// </summary>
         public readonly Outputs.TimeBoardGraphRequestApmQuery? ApmQuery;
         public readonly string? ChangeType;
         public readonly string? CompareTo;
-        /// <summary>
-        /// Nested block to customize the graph style if certain conditions are met. Currently only applies to `Query Value` and `Top List` type graphs.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TimeBoardGraphRequestConditionalFormat> ConditionalFormats;
-        /// <summary>
-        /// If set to "present", displays current value. Can be left empty otherwise.
-        /// </summary>
         public readonly string? ExtraCol;
         public readonly bool? IncreaseGood;
-        /// <summary>
-        /// The log query to use in the widget. The structure of this block is described below.
-        /// </summary>
         public readonly Outputs.TimeBoardGraphRequestLogQuery? LogQuery;
-        /// <summary>
-        /// A JSON blob representing mapping of query expressions to alias names. Note that the query expressions in `metadata_json` will be ignored if they're not present in the query. For example:
-        /// </summary>
         public readonly string? MetadataJson;
         public readonly string? OrderBy;
         public readonly string? OrderDirection;
-        /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
-        /// </summary>
         public readonly Outputs.TimeBoardGraphRequestProcessQuery? ProcessQuery;
-        /// <summary>
-        /// The query of the request. Pro tip: Use the JSON tab inside the Datadog UI to help build you query strings.
-        /// </summary>
         public readonly string? Q;
-        /// <summary>
-        /// Boolean value to determine if this is this a stacked area graph. Default: false (line chart).
-        /// </summary>
         public readonly bool? Stacked;
-        /// <summary>
-        /// Nested block describing hostmaps. The structure of this block is described below.
-        /// </summary>
         public readonly ImmutableDictionary<string, object>? Style;
-        /// <summary>
-        /// How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

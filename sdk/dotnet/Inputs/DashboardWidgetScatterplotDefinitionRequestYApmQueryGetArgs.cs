@@ -12,18 +12,11 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetScatterplotDefinitionRequestYApmQueryGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        [Input("compute", required: true)]
-        public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeGetArgs> Compute { get; set; } = null!;
+        [Input("compute")]
+        public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeGetArgs>? Compute { get; set; }
 
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByGetArgs>? _groupBies;
-
-        /// <summary>
-        /// . Multiple nested blocks are allowed with the following structure:
-        /// </summary>
         public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByGetArgs> GroupBies
         {
             get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupByGetArgs>());
@@ -33,9 +26,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;
 
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        [Input("multiComputes")]
+        private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeGetArgs>? _multiComputes;
+        public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeGetArgs> MultiComputes
+        {
+            get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiComputeGetArgs>());
+            set => _multiComputes = value;
+        }
+
         [Input("search")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearchGetArgs>? Search { get; set; }
 

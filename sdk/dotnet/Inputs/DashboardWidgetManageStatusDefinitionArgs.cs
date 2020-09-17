@@ -12,64 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetManageStatusDefinitionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to colorize text or background. One of "text", "background".
-        /// </summary>
         [Input("colorPreference")]
         public Input<string>? ColorPreference { get; set; }
 
         [Input("count")]
         public Input<int>? Count { get; set; }
 
-        /// <summary>
-        /// The display setting to use. One of "counts", "list", or "countsAndList".
-        /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
 
-        /// <summary>
-        /// Boolean indicating whether to hide empty categories.
-        /// </summary>
         [Input("hideZeroCounts")]
         public Input<bool>? HideZeroCounts { get; set; }
 
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
-        /// <summary>
-        /// Boolean indicating whether to show when monitors/groups last triggered.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `note_definition`: The definition for a Note widget. Exactly one nested block is allowed with the following structure:
-        /// </summary>
         [Input("showLastTriggered")]
         public Input<bool>? ShowLastTriggered { get; set; }
 
-        /// <summary>
-        /// The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
-        /// - `manage_status_definition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
-        /// - `query`: (Required) The query to use in the widget.
-        /// </summary>
         [Input("sort")]
         public Input<string>? Sort { get; set; }
 
         [Input("start")]
         public Input<int>? Start { get; set; }
 
-        /// <summary>
-        /// The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
-        /// </summary>
         [Input("summaryType")]
         public Input<string>? SummaryType { get; set; }
 
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

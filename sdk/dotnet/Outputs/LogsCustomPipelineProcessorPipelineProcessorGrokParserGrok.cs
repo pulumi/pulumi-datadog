@@ -13,13 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok
     {
-        /// <summary>
-        /// Match rules for your grok parser.
-        /// </summary>
         public readonly string MatchRules;
-        /// <summary>
-        /// Support rules for your grok parser.
-        /// </summary>
         public readonly string SupportRules;
 
         [OutputConstructor]

@@ -14,34 +14,20 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("filters", required: true)]
         private InputList<Inputs.LogsCustomPipelineProcessorPipelineFilterGetArgs>? _filters;
-
-        /// <summary>
-        /// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        /// </summary>
         public InputList<Inputs.LogsCustomPipelineProcessorPipelineFilterGetArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.LogsCustomPipelineProcessorPipelineFilterGetArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("processors")]
         private InputList<Inputs.LogsCustomPipelineProcessorPipelineProcessorGetArgs>? _processors;
-
-        /// <summary>
-        /// Processors. Nested pipeline can't take any other nested pipeline as its processor.
-        /// </summary>
         public InputList<Inputs.LogsCustomPipelineProcessorPipelineProcessorGetArgs> Processors
         {
             get => _processors ?? (_processors = new InputList<Inputs.LogsCustomPipelineProcessorPipelineProcessorGetArgs>());

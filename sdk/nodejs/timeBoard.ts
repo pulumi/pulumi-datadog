@@ -6,124 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
- *
- * > **Note:**This resource is outdated. Use the new `datadog.Dashboard` resource instead.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Create a new Datadog timeboard
- * const redis = new datadog.TimeBoard("redis", {
- *     title: "Redis Timeboard (created via TF)",
- *     description: "created using the Datadog provider in TF",
- *     readOnly: true,
- *     graphs: [
- *         {
- *             title: "Redis latency (ms)",
- *             viz: "timeseries",
- *             requests: [
- *                 {
- *                     q: `avg:redis.info.latency_ms{$host}`,
- *                     type: "bars",
- *                     metadataJson: JSON.stringify({
- *                         `avg:redis.info.latency_ms{$host}`: {
- *                             alias: "Redis latency",
- *                         },
- *                     }),
- *                 },
- *                 {
- *                     logQuery: {
- *                         index: "mcnulty",
- *                         compute: {
- *                             aggregation: "avg",
- *                             facet: "@duration",
- *                             interval: 5000,
- *                         },
- *                         search: {
- *                             query: "status:info",
- *                         },
- *                         groupBies: [{
- *                             facet: "host",
- *                             limit: 10,
- *                             sort: {
- *                                 aggregation: "avg",
- *                                 order: "desc",
- *                                 facet: "@duration",
- *                             },
- *                         }],
- *                     },
- *                     type: "area",
- *                 },
- *                 {
- *                     apmQuery: {
- *                         index: "apm-search",
- *                         compute: {
- *                             aggregation: "avg",
- *                             facet: "@duration",
- *                             interval: 5000,
- *                         },
- *                         search: {
- *                             query: "type:web",
- *                         },
- *                         groupBies: [{
- *                             facet: "resource_name",
- *                             limit: 50,
- *                             sort: {
- *                                 aggregation: "avg",
- *                                 order: "desc",
- *                                 facet: "@string_query.interval",
- *                             },
- *                         }],
- *                     },
- *                     type: "bars",
- *                 },
- *                 {
- *                     processQuery: {
- *                         metric: "process.stat.cpu.total_pct",
- *                         searchBy: "error",
- *                         filterBies: ["active"],
- *                         limit: 50,
- *                     },
- *                     type: "area",
- *                 },
- *             ],
- *         },
- *         {
- *             title: "Redis memory usage",
- *             viz: "timeseries",
- *             requests: [
- *                 {
- *                     q: `avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}`,
- *                     stacked: true,
- *                 },
- *                 {
- *                     q: `avg:redis.mem.rss{$host}`,
- *                     style: {
- *                         palette: "warm",
- *                     },
- *                 },
- *             ],
- *         },
- *         {
- *             title: "Top System CPU by Docker container",
- *             viz: "toplist",
- *             requests: [{
- *                 q: "top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
- *             }],
- *         },
- *     ],
- *     templateVariables: [{
- *         name: "host",
- *         prefix: "host",
- *     }],
- * });
- * ```
- */
 export class TimeBoard extends pulumi.CustomResource {
     /**
      * Get an existing TimeBoard resource's state with the given name, ID, and optional extra
@@ -157,15 +39,12 @@ export class TimeBoard extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog.TimeBoard resource.
+     * A list of graph definitions.
      */
     public readonly graphs!: pulumi.Output<outputs.TimeBoardGraph[]>;
-    /**
-     * The read-only status of the timeboard. Default is false.
-     */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.TimeBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     public readonly templateVariables!: pulumi.Output<outputs.TimeBoardTemplateVariable[] | undefined>;
     /**
@@ -227,15 +106,12 @@ export interface TimeBoardState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog.TimeBoard resource.
+     * A list of graph definitions.
      */
     readonly graphs?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
-    /**
-     * The read-only status of the timeboard. Default is false.
-     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.TimeBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**
@@ -253,15 +129,12 @@ export interface TimeBoardArgs {
      */
     readonly description: pulumi.Input<string>;
     /**
-     * Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog.TimeBoard resource.
+     * A list of graph definitions.
      */
     readonly graphs: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
-    /**
-     * The read-only status of the timeboard. Default is false.
-     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
-     * Nested block describing a template variable. The structure of this block is described below. Multiple templateVariable blocks are allowed within a datadog.TimeBoard resource.
+     * A list of template variables for using Dashboard templating.
      */
     readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**

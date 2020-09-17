@@ -17,9 +17,8 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
-        /// <summary>
-        /// Style of the widget graph. One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestStyle? Style;
 
         [OutputConstructor]
@@ -32,12 +31,18 @@ namespace Pulumi.Datadog.Outputs
 
             string? q,
 
+            Outputs.DashboardWidgetHeatmapDefinitionRequestRumQuery? rumQuery,
+
+            Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuery? securityQuery,
+
             Outputs.DashboardWidgetHeatmapDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            RumQuery = rumQuery;
+            SecurityQuery = securityQuery;
             Style = style;
         }
     }

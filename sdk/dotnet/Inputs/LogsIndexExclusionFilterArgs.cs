@@ -20,15 +20,9 @@ namespace Pulumi.Datadog.Inputs
             set => _filters = value;
         }
 
-        /// <summary>
-        /// A boolean stating if the exclusion is active or not.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// The name of the exclusion filter.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

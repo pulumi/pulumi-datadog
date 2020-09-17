@@ -13,13 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardTemplateVariablePresetTemplateVariable
     {
-        /// <summary>
-        /// The variable name. Can be referenced as $name in `graph` `request` `q` query strings.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value for the comparator.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

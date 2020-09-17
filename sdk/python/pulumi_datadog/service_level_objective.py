@@ -33,6 +33,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
         ## Example Usage
         ### Metric-Based SLO
+
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -68,6 +69,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             type="metric")
         ```
         ### Monitor-Based SLO
+
         ```python
         import pulumi
         import pulumi_datadog as datadog
@@ -102,16 +104,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of this service level objective.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
-        :param pulumi.Input[List[pulumi.Input[float]]] monitor_ids: A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
-        :param pulumi.Input[str] name: Name of Datadog service level objective
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[List[pulumi.Input[float]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
+        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-               * `metric`
-               * `monitor`
+               - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -169,16 +166,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of this service level objective.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
-        :param pulumi.Input[List[pulumi.Input[float]]] monitor_ids: A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
-        :param pulumi.Input[str] name: Name of Datadog service level objective
-        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+        :param pulumi.Input[List[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[List[pulumi.Input[float]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
+        :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-               * `metric`
-               * `monitor`
+               - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -197,16 +189,13 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of this service level objective.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[List[str]]]:
         """
-        A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+        A static set of groups to filter monitor-based SLOs
         """
         return pulumi.get(self, "groups")
 
@@ -214,23 +203,20 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter(name="monitorIds")
     def monitor_ids(self) -> pulumi.Output[Optional[List[float]]]:
         """
-        A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
+        A static set of monitor IDs to use as part of the SLO
         """
         return pulumi.get(self, "monitor_ids")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of Datadog service level objective
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Output[Optional['outputs.ServiceLevelObjectiveQuery']]:
         """
-        The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+        The metric query of good / total events
         """
         return pulumi.get(self, "query")
 
@@ -239,25 +225,18 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def thresholds(self) -> pulumi.Output[List['outputs.ServiceLevelObjectiveThreshold']]:
-        """
-        - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        """
         return pulumi.get(self, "thresholds")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-        * `metric`
-        * `monitor`
-        """
         return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):

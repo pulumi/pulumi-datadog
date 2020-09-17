@@ -13,29 +13,11 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor
     {
-        /// <summary>
-        /// Default lookup value to use if there is no entry in the lookup table for the value of the source attribute.
-        /// </summary>
         public readonly string? DefaultLookup;
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// List of entries of the lookup table using `"key,value"` format.
-        /// </summary>
         public readonly ImmutableArray<string> LookupTables;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Name of the source attribute used to do the lookup.
-        /// </summary>
         public readonly string Source;
-        /// <summary>
-        /// Name of the parent attribute that contains all the extracted details from the sources.
-        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

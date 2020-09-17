@@ -14,6 +14,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// ### Metric-Based SLO
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
@@ -63,6 +64,7 @@ namespace Pulumi.Datadog
     /// }
     /// ```
     /// ### Monitor-Based SLO
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
@@ -111,53 +113,40 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class ServiceLevelObjective : Pulumi.CustomResource
     {
-        /// <summary>
-        /// A description of this service level objective.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+        /// A static set of groups to filter monitor-based SLOs
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
+        /// A static set of monitor IDs to use as part of the SLO
         /// </summary>
         [Output("monitorIds")]
         public Output<ImmutableArray<int>> MonitorIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of Datadog service level objective
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+        /// The metric query of good / total events
         /// </summary>
         [Output("query")]
         public Output<Outputs.ServiceLevelObjectiveQuery?> Query { get; private set; } = null!;
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        /// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        /// </summary>
         [Output("thresholds")]
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-        /// * `metric`
-        /// * `monitor`
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -207,9 +196,6 @@ namespace Pulumi.Datadog
 
     public sealed class ServiceLevelObjectiveArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of this service level objective.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -217,7 +203,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _groups;
 
         /// <summary>
-        /// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+        /// A static set of groups to filter monitor-based SLOs
         /// </summary>
         public InputList<string> Groups
         {
@@ -229,7 +215,7 @@ namespace Pulumi.Datadog
         private InputList<int>? _monitorIds;
 
         /// <summary>
-        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
+        /// A static set of monitor IDs to use as part of the SLO
         /// </summary>
         public InputList<int> MonitorIds
         {
@@ -237,14 +223,11 @@ namespace Pulumi.Datadog
             set => _monitorIds = value;
         }
 
-        /// <summary>
-        /// Name of Datadog service level objective
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+        /// The metric query of good / total events
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryArgs>? Query { get; set; }
@@ -254,6 +237,7 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        /// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         public InputList<string> Tags
         {
@@ -263,21 +247,12 @@ namespace Pulumi.Datadog
 
         [Input("thresholds", required: true)]
         private InputList<Inputs.ServiceLevelObjectiveThresholdArgs>? _thresholds;
-
-        /// <summary>
-        /// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        /// </summary>
         public InputList<Inputs.ServiceLevelObjectiveThresholdArgs> Thresholds
         {
             get => _thresholds ?? (_thresholds = new InputList<Inputs.ServiceLevelObjectiveThresholdArgs>());
             set => _thresholds = value;
         }
 
-        /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-        /// * `metric`
-        /// * `monitor`
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -288,9 +263,6 @@ namespace Pulumi.Datadog
 
     public sealed class ServiceLevelObjectiveState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of this service level objective.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -298,7 +270,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _groups;
 
         /// <summary>
-        /// A custom set of groups from the monitor(s) for which to use as the SLI instead of all the groups.
+        /// A static set of groups to filter monitor-based SLOs
         /// </summary>
         public InputList<string> Groups
         {
@@ -310,7 +282,7 @@ namespace Pulumi.Datadog
         private InputList<int>? _monitorIds;
 
         /// <summary>
-        /// A list of numeric monitor IDs for which to use as SLIs. Their tags will be auto-imported into `monitor_tags` field in the API resource.
+        /// A static set of monitor IDs to use as part of the SLO
         /// </summary>
         public InputList<int> MonitorIds
         {
@@ -318,14 +290,11 @@ namespace Pulumi.Datadog
             set => _monitorIds = value;
         }
 
-        /// <summary>
-        /// Name of Datadog service level objective
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The metric query configuration to use for the SLI. This is a dictionary and requires both the `numerator` and `denominator` fields which should be `count` metrics using the `sum` aggregator.
+        /// The metric query of good / total events
         /// </summary>
         [Input("query")]
         public Input<Inputs.ServiceLevelObjectiveQueryGetArgs>? Query { get; set; }
@@ -335,6 +304,7 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        /// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         public InputList<string> Tags
         {
@@ -344,21 +314,12 @@ namespace Pulumi.Datadog
 
         [Input("thresholds")]
         private InputList<Inputs.ServiceLevelObjectiveThresholdGetArgs>? _thresholds;
-
-        /// <summary>
-        /// - A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        /// </summary>
         public InputList<Inputs.ServiceLevelObjectiveThresholdGetArgs> Thresholds
         {
             get => _thresholds ?? (_thresholds = new InputList<Inputs.ServiceLevelObjectiveThresholdGetArgs>());
             set => _thresholds = value;
         }
 
-        /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-        /// * `metric`
-        /// * `monitor`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -17,31 +17,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatGetArgs>? _conditionalFormats;
-
-        /// <summary>
-        /// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple request blocks are allowed. The structure of this block is described below.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
-        /// - `trace_service_definition`: The definition for a Trace Service widget. Exactly one nested block is allowed with the following structure:
-        /// - `env`: (Required) APM environment.
-        /// - `service`: (Required) APM service.
-        /// - `span_name`: (Required) APM span name.
-        /// - `show_hits`: (Optional) APM span name.
-        /// - `show_hits`: (Optional) Whether to show the hits metrics or not.
-        /// - `show_errors`: (Optional) Whether to show the error metrics or not.
-        /// - `show_latency`: (Optional) Whether to show the latency metrics or not.
-        /// - `show_breakdown`: (Optional) Whether to show the latency breakdown or not.
-        /// - `show_distribution`: (Optional) Whether to show the latency distribution or not.
-        /// - `show_resource_list`: (Optional) Whether to show the resource list or not.
-        /// - `size_format`: (Optional) Size of the widget. Available values are: `small`, `medium`, or `large`.
-        /// - `display_format`: (Optional) Number of columns to display. Available values are: `one_column`, `two_column`, or `three_column`.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
-        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatGetArgs> ConditionalFormats
         {
             get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormatGetArgs>());
@@ -57,9 +32,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("q")]
         public Input<string>? Q { get; set; }
 
-        /// <summary>
-        /// Style of the widget graph. One nested block is allowed with the following structure:
-        /// </summary>
+        [Input("rumQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+
+        [Input("securityQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+
         [Input("style")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyleGetArgs>? Style { get; set; }
 

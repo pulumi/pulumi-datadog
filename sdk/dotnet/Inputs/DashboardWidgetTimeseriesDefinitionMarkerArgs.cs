@@ -12,21 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTimeseriesDefinitionMarkerArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
-        /// </summary>
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }
 
-        /// <summary>
-        /// The label of the axis to display on the graph.
-        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
-        /// <summary>
-        /// Value for the comparator.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

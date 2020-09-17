@@ -12,21 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardTemplateVariableGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default tag. Default: "\*" (match all).
-        /// </summary>
         [Input("default")]
         public Input<string>? Default { get; set; }
 
-        /// <summary>
-        /// The variable name. Can be referenced as \$name in `graph` `request` `q` query strings.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The tag group. Default: no tag group.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

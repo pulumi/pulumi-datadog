@@ -13,33 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetScatterplotDefinitionRequestXLogQuery
     {
-        /// <summary>
-        /// . Exactly one nested block is required with the following structure:
-        /// </summary>
-        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute Compute;
-        /// <summary>
-        /// When grouping = "cluster", indicates a list of tags to use for grouping.
-        /// </summary>
+        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute? Compute;
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy> GroupBies;
         public readonly string Index;
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch? Search;
 
         [OutputConstructor]
         private DashboardWidgetScatterplotDefinitionRequestXLogQuery(
-            Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute compute,
+            Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute? compute,
 
             ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy> groupBies,
 
             string index,
+
+            ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute> multiComputes,
 
             Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch? search)
         {
             Compute = compute;
             GroupBies = groupBies;
             Index = index;
+            MultiComputes = multiComputes;
             Search = search;
         }
     }

@@ -14,31 +14,18 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("categories", required: true)]
         private InputList<Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryGetArgs>? _categories;
-
-        /// <summary>
-        /// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-        /// </summary>
         public InputList<Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryGetArgs> Categories
         {
             get => _categories ?? (_categories = new InputList<Inputs.LogsCustomPipelineProcessorCategoryProcessorCategoryGetArgs>());
             set => _categories = value;
         }
 
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Name of the parent attribute that contains all the extracted details from the sources.
-        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 

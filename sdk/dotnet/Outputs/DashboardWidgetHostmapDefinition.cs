@@ -13,34 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHostmapDefinition
     {
-        /// <summary>
-        /// The check group to use in the widget.
-        /// </summary>
         public readonly ImmutableArray<string> Groups;
-        /// <summary>
-        /// Boolean indicating whether to show ungrouped nodes.
-        /// </summary>
         public readonly bool? NoGroupHosts;
-        /// <summary>
-        /// Boolean indicating whether to show nodes with no metrics.
-        /// </summary>
         public readonly bool? NoMetricHosts;
-        /// <summary>
-        /// The type of node used. Either "host" or "container".
-        /// </summary>
         public readonly string? NodeType;
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequest? Request;
-        /// <summary>
-        /// The list of tags to filter nodes by.
-        /// </summary>
         public readonly ImmutableArray<string> Scopes;
-        /// <summary>
-        /// Style of the widget graph. One nested block is allowed with the following structure:
-        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionStyle? Style;
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
