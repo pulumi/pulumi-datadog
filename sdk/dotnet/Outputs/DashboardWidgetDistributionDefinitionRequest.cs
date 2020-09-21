@@ -17,9 +17,8 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
-        /// <summary>
-        /// Style of the widget graph. One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestStyle? Style;
 
         [OutputConstructor]
@@ -32,12 +31,18 @@ namespace Pulumi.Datadog.Outputs
 
             string? q,
 
+            Outputs.DashboardWidgetDistributionDefinitionRequestRumQuery? rumQuery,
+
+            Outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuery? securityQuery,
+
             Outputs.DashboardWidgetDistributionDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            RumQuery = rumQuery;
+            SecurityQuery = securityQuery;
             Style = style;
         }
     }

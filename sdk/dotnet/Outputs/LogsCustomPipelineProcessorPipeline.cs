@@ -13,21 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipeline
     {
-        /// <summary>
-        /// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineFilter> Filters;
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Processors. Nested pipeline can't take any other nested pipeline as its processor.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessor> Processors;
 
         [OutputConstructor]

@@ -13,26 +13,10 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor
     {
-        /// <summary>
-        /// Arithmetic operation between one or more log attributes.
-        /// </summary>
         public readonly string Expression;
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// If it replaces all missing attributes of `template` by an empty string.
-        /// * trace_id_remapper
-        /// </summary>
         public readonly bool? IsReplaceMissing;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Name of the parent attribute that contains all the extracted details from the sources.
-        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

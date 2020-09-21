@@ -10,72 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to create and manage Datadog logs indexes.
-//
-// ## Example Usage
-//
-// A sample Datadog logs index resource definition. Note that at this point, it is not possible to create new logs indexes
-// through this provider, so the `name` field must match a name of an already existing index. If you want to keep the current
-// state of the index, we suggest importing it (see below).
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewLogsIndex(ctx, "sampleIndex", &datadog.LogsIndexArgs{
-// 			ExclusionFilters: datadog.LogsIndexExclusionFilterArray{
-// 				&datadog.LogsIndexExclusionFilterArgs{
-// 					Filters: datadog.LogsIndexExclusionFilterFilterArray{
-// 						&datadog.LogsIndexExclusionFilterFilterArgs{
-// 							Query:      pulumi.String("app:coredns"),
-// 							SampleRate: pulumi.Float64(0.97),
-// 						},
-// 					},
-// 					IsEnabled: pulumi.Bool(true),
-// 					Name:      pulumi.String("Filter coredns logs"),
-// 				},
-// 				&datadog.LogsIndexExclusionFilterArgs{
-// 					Filters: datadog.LogsIndexExclusionFilterFilterArray{
-// 						&datadog.LogsIndexExclusionFilterFilterArgs{
-// 							Query:      pulumi.String("service:kube_apiserver"),
-// 							SampleRate: pulumi.Float64(1),
-// 						},
-// 					},
-// 					IsEnabled: pulumi.Bool(true),
-// 					Name:      pulumi.String("Kubernetes apiserver"),
-// 				},
-// 			},
-// 			Filters: datadog.LogsIndexFilterArray{
-// 				&datadog.LogsIndexFilterArgs{
-// 					Query: pulumi.String("*"),
-// 				},
-// 			},
-// 			Name: pulumi.String("your index"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ## Important Notes
-//
-// The order of indexes is maintained in the separated resource datadog_logs_index_order.
 type LogsIndex struct {
 	pulumi.CustomResourceState
 
-	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
 	Filters          LogsIndexFilterArrayOutput          `pulumi:"filters"`
-	// The name of the exclusion filter.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name             pulumi.StringOutput                 `pulumi:"name"`
 }
 
 // NewLogsIndex registers a new resource with the given unique name, arguments, and options.
@@ -112,19 +52,15 @@ func GetLogsIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsIndex resources.
 type logsIndexState struct {
-	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	Filters          []LogsIndexFilter          `pulumi:"filters"`
-	// The name of the exclusion filter.
-	Name *string `pulumi:"name"`
+	Name             *string                    `pulumi:"name"`
 }
 
 type LogsIndexState struct {
-	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	Filters          LogsIndexFilterArrayInput
-	// The name of the exclusion filter.
-	Name pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
 }
 
 func (LogsIndexState) ElementType() reflect.Type {
@@ -132,20 +68,16 @@ func (LogsIndexState) ElementType() reflect.Type {
 }
 
 type logsIndexArgs struct {
-	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	Filters          []LogsIndexFilter          `pulumi:"filters"`
-	// The name of the exclusion filter.
-	Name string `pulumi:"name"`
+	Name             string                     `pulumi:"name"`
 }
 
 // The set of arguments for constructing a LogsIndex resource.
 type LogsIndexArgs struct {
-	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	Filters          LogsIndexFilterArrayInput
-	// The name of the exclusion filter.
-	Name pulumi.StringInput
+	Name             pulumi.StringInput
 }
 
 func (LogsIndexArgs) ElementType() reflect.Type {

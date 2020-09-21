@@ -24,9 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("q")]
         public Input<string>? Q { get; set; }
 
-        /// <summary>
-        /// Style of the widget graph. One nested block is allowed with the following structure:
-        /// </summary>
+        [Input("rumQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+
+        [Input("securityQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+
         [Input("style")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyleGetArgs>? Style { get; set; }
 

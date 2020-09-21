@@ -51,30 +51,12 @@ export class MetricMetadata extends pulumi.CustomResource {
         return obj['__pulumiType'] === MetricMetadata.__pulumiType;
     }
 
-    /**
-     * A description of the metric.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the metric.
-     */
     public readonly metric!: pulumi.Output<string>;
-    /**
-     * 'Per' unit of the metric such as 'second' in 'bytes per second'.
-     */
     public readonly perUnit!: pulumi.Output<string | undefined>;
-    /**
-     * A short name of the metric.
-     */
     public readonly shortName!: pulumi.Output<string | undefined>;
-    /**
-     * If applicable, stasd flush interval in seconds for the metric.
-     */
     public readonly statsdInterval!: pulumi.Output<number | undefined>;
     public readonly type!: pulumi.Output<string | undefined>;
-    /**
-     * Primary unit of the metric such as 'byte' or 'operation'.
-     */
     public readonly unit!: pulumi.Output<string | undefined>;
 
     /**
@@ -124,30 +106,12 @@ export class MetricMetadata extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MetricMetadata resources.
  */
 export interface MetricMetadataState {
-    /**
-     * A description of the metric.
-     */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The name of the metric.
-     */
     readonly metric?: pulumi.Input<string>;
-    /**
-     * 'Per' unit of the metric such as 'second' in 'bytes per second'.
-     */
     readonly perUnit?: pulumi.Input<string>;
-    /**
-     * A short name of the metric.
-     */
     readonly shortName?: pulumi.Input<string>;
-    /**
-     * If applicable, stasd flush interval in seconds for the metric.
-     */
     readonly statsdInterval?: pulumi.Input<number>;
     readonly type?: pulumi.Input<string>;
-    /**
-     * Primary unit of the metric such as 'byte' or 'operation'.
-     */
     readonly unit?: pulumi.Input<string>;
 }
 
@@ -155,29 +119,11 @@ export interface MetricMetadataState {
  * The set of arguments for constructing a MetricMetadata resource.
  */
 export interface MetricMetadataArgs {
-    /**
-     * A description of the metric.
-     */
     readonly description?: pulumi.Input<string>;
-    /**
-     * The name of the metric.
-     */
     readonly metric: pulumi.Input<string>;
-    /**
-     * 'Per' unit of the metric such as 'second' in 'bytes per second'.
-     */
     readonly perUnit?: pulumi.Input<string>;
-    /**
-     * A short name of the metric.
-     */
     readonly shortName?: pulumi.Input<string>;
-    /**
-     * If applicable, stasd flush interval in seconds for the metric.
-     */
     readonly statsdInterval?: pulumi.Input<number>;
     readonly type?: pulumi.Input<string>;
-    /**
-     * Primary unit of the metric such as 'byte' or 'operation'.
-     */
     readonly unit?: pulumi.Input<string>;
 }

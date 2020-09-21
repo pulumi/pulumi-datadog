@@ -13,61 +13,19 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ScreenBoardWidgetTileDef
     {
-        /// <summary>
-        /// Boolean indicating whether to automatically scale the tile.
-        /// </summary>
         public readonly bool? Autoscale;
-        /// <summary>
-        /// The unit for the value displayed in the widget
-        /// </summary>
         public readonly string? CustomUnit;
-        /// <summary>
-        /// Nested block describing the event overlays to use when displaying the widget. The structure of this block is described below. At most one such block should be present in a given tile_def block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ScreenBoardWidgetTileDefEvent> Events;
-        /// <summary>
-        /// The check group to use in the widget.
-        /// </summary>
         public readonly ImmutableArray<string> Groups;
-        /// <summary>
-        /// Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tile_def block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ScreenBoardWidgetTileDefMarker> Markers;
-        /// <summary>
-        /// Boolean indicating whether to show ungrouped nodes.
-        /// </summary>
         public readonly bool? NoGroupHosts;
-        /// <summary>
-        /// Boolean indicating whether to show nodes with no metrics.
-        /// </summary>
         public readonly bool? NoMetricHosts;
-        /// <summary>
-        /// The type of node used. Either "host" or "container".
-        /// </summary>
         public readonly string? NodeType;
-        /// <summary>
-        /// The precision to use when displaying the value. Use "\*" for maximum precision.
-        /// </summary>
         public readonly string? Precision;
-        /// <summary>
-        /// Nested block describing the request to use when displaying the widget. The structure of this block is described below. Multiple request blocks are allowed within a given tile_def block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ScreenBoardWidgetTileDefRequest> Requests;
-        /// <summary>
-        /// The list of tags to filter nodes by.
-        /// </summary>
         public readonly ImmutableArray<string> Scopes;
-        /// <summary>
-        /// Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tile_def block.
-        /// </summary>
         public readonly ImmutableDictionary<string, object>? Style;
-        /// <summary>
-        /// The alignment of the text in the widget.
-        /// </summary>
         public readonly string? TextAlign;
-        /// <summary>
-        /// Should be the same as the widget's type. One of "timeseries", "query_value", "hostmap", "change", "toplist", "process".
-        /// </summary>
         public readonly string Viz;
 
         [OutputConstructor]

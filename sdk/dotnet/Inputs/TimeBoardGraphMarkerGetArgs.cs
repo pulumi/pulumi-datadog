@@ -12,21 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class TimeBoardGraphMarkerGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A label for the line or range. **Warning:** when a label is enabled but left empty through the UI, the Datadog API returns a boolean value, not a string. This makes `pulumi up` fail with a JSON decoding error.
-        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
-        /// <summary>
-        /// How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// Mathematical expression describing the marker. Examples: "y &gt; 1", "-5 &lt; y &lt; 0", "y = 19".
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

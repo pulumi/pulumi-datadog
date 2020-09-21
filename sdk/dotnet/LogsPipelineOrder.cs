@@ -45,16 +45,9 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class LogsPipelineOrder : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
-        /// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
-        /// </summary>
         [Output("pipelines")]
         public Output<ImmutableArray<string>> Pipelines { get; private set; } = null!;
 
@@ -104,19 +97,11 @@ namespace Pulumi.Datadog
 
     public sealed class LogsPipelineOrderArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
-        /// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("pipelines", required: true)]
         private InputList<string>? _pipelines;
-
-        /// <summary>
-        /// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
-        /// </summary>
         public InputList<string> Pipelines
         {
             get => _pipelines ?? (_pipelines = new InputList<string>());
@@ -130,19 +115,11 @@ namespace Pulumi.Datadog
 
     public sealed class LogsPipelineOrderState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource `NAME`.
-        /// No related field is available in  [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-orderr).
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("pipelines")]
         private InputList<string>? _pipelines;
-
-        /// <summary>
-        /// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
-        /// </summary>
         public InputList<string> Pipelines
         {
             get => _pipelines ?? (_pipelines = new InputList<string>());

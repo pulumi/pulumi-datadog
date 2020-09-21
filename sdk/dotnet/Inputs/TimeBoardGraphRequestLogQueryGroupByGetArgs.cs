@@ -18,9 +18,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
-        /// <summary>
-        /// . One nested block is allowed with the following structure:
-        /// </summary>
         [Input("sort")]
         public Input<Inputs.TimeBoardGraphRequestLogQueryGroupBySortGetArgs>? Sort { get; set; }
 

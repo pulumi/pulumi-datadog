@@ -13,13 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardListDashItem
     {
-        /// <summary>
-        /// The ID of this dashboard.
-        /// </summary>
         public readonly string DashId;
-        /// <summary>
-        /// The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

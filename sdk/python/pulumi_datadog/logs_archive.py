@@ -49,11 +49,6 @@ class LogsArchive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of an gcs archive.
-        :param pulumi.Input[str] name: Your archive name.
-        :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,11 +98,6 @@ class LogsArchive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of an gcs archive.
-        :param pulumi.Input[str] name: Your archive name.
-        :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -123,41 +113,26 @@ class LogsArchive(pulumi.CustomResource):
     @property
     @pulumi.getter
     def azure(self) -> pulumi.Output[Optional['outputs.LogsArchiveAzure']]:
-        """
-        Definition of an azure archive.
-        """
         return pulumi.get(self, "azure")
 
     @property
     @pulumi.getter
     def gcs(self) -> pulumi.Output[Optional['outputs.LogsArchiveGcs']]:
-        """
-        Definition of an gcs archive.
-        """
         return pulumi.get(self, "gcs")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Your archive name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Output[str]:
-        """
-        The archive query/filter. Logs matching this query are included in the archive.
-        """
         return pulumi.get(self, "query")
 
     @property
     @pulumi.getter
     def s3(self) -> pulumi.Output[Optional['outputs.LogsArchiveS3']]:
-        """
-        Definition of an s3 archive.
-        """
         return pulumi.get(self, "s3")
 
     def translate_output_property(self, prop):

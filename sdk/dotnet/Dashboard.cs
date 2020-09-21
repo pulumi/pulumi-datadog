@@ -27,7 +27,7 @@ namespace Pulumi.Datadog
     ///     {
     ///         var orderedDashboard = new Datadog.Dashboard("orderedDashboard", new Datadog.DashboardArgs
     ///         {
-    ///             Description = "Created using the Datadog provider in TF",
+    ///             Description = "Created using the Datadog provider in Terraform",
     ///             IsReadOnly = true,
     ///             LayoutType = "ordered",
     ///             TemplateVariables = 
@@ -649,7 +649,7 @@ namespace Pulumi.Datadog
     ///     {
     ///         var freeDashboard = new Datadog.Dashboard("freeDashboard", new Datadog.DashboardArgs
     ///         {
-    ///             Description = "Created using the Datadog provider in TF",
+    ///             Description = "Created using the Datadog provider in Terraform",
     ///             IsReadOnly = false,
     ///             LayoutType = "free",
     ///             TemplateVariables = 
@@ -797,7 +797,10 @@ namespace Pulumi.Datadog
     ///                             "core_service",
     ///                             "tag_source",
     ///                         },
-    ///                         Logset = "19",
+    ///                         Indexes = 
+    ///                         {
+    ///                             "main",
+    ///                         },
     ///                         MessageDisplay = "expanded-md",
     ///                         Query = "error",
     ///                         ShowDateColumn = true,
@@ -873,26 +876,37 @@ namespace Pulumi.Datadog
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>
-        /// Description of the dashboard.
+        /// The list of dashboard lists this dashboard belongs to.
+        /// </summary>
+        [Output("dashboardLists")]
+        public Output<ImmutableArray<int>> DashboardLists { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of dashboard lists this dashboard should be removed from. Internal only.
+        /// </summary>
+        [Output("dashboardListsRemoveds")]
+        public Output<ImmutableArray<int>> DashboardListsRemoveds { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the dashboard.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+        /// Whether this dashboard is read-only.
         /// </summary>
         [Output("isReadOnly")]
         public Output<bool?> IsReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-        /// &lt;br&gt;**Note: This value cannot be changed. Converting a dashboard from `free` &lt;&gt; `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+        /// The layout type of the dashboard, either 'free' or 'ordered'.
         /// </summary>
         [Output("layoutType")]
         public Output<string> LayoutType { get; private set; } = null!;
 
         /// <summary>
-        /// List of handles of users to notify when changes are made to this dashboard.
+        /// The list of handles of users to notify when changes are made to this dashboard.
         /// </summary>
         [Output("notifyLists")]
         public Output<ImmutableArray<string>> NotifyLists { get; private set; } = null!;
@@ -910,19 +924,19 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.DashboardTemplateVariable>> TemplateVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Title of the dashboard.
+        /// The title of the dashboard.
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Read only field - The URL of the dashboard.
+        /// The URL of the dashboard.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+        /// The list of widgets to display on the dashboard.
         /// </summary>
         [Output("widgets")]
         public Output<ImmutableArray<Outputs.DashboardWidget>> Widgets { get; private set; } = null!;
@@ -973,21 +987,32 @@ namespace Pulumi.Datadog
 
     public sealed class DashboardArgs : Pulumi.ResourceArgs
     {
+        [Input("dashboardLists")]
+        private InputList<int>? _dashboardLists;
+
         /// <summary>
-        /// Description of the dashboard.
+        /// The list of dashboard lists this dashboard belongs to.
+        /// </summary>
+        public InputList<int> DashboardLists
+        {
+            get => _dashboardLists ?? (_dashboardLists = new InputList<int>());
+            set => _dashboardLists = value;
+        }
+
+        /// <summary>
+        /// The description of the dashboard.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+        /// Whether this dashboard is read-only.
         /// </summary>
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-        /// &lt;br&gt;**Note: This value cannot be changed. Converting a dashboard from `free` &lt;&gt; `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+        /// The layout type of the dashboard, either 'free' or 'ordered'.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
@@ -996,7 +1021,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyLists;
 
         /// <summary>
-        /// List of handles of users to notify when changes are made to this dashboard.
+        /// The list of handles of users to notify when changes are made to this dashboard.
         /// </summary>
         public InputList<string> NotifyLists
         {
@@ -1029,13 +1054,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Title of the dashboard.
+        /// The title of the dashboard.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// Read only field - The URL of the dashboard.
+        /// The URL of the dashboard.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -1044,7 +1069,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardWidgetArgs>? _widgets;
 
         /// <summary>
-        /// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+        /// The list of widgets to display on the dashboard.
         /// </summary>
         public InputList<Inputs.DashboardWidgetArgs> Widgets
         {
@@ -1059,21 +1084,44 @@ namespace Pulumi.Datadog
 
     public sealed class DashboardState : Pulumi.ResourceArgs
     {
+        [Input("dashboardLists")]
+        private InputList<int>? _dashboardLists;
+
         /// <summary>
-        /// Description of the dashboard.
+        /// The list of dashboard lists this dashboard belongs to.
+        /// </summary>
+        public InputList<int> DashboardLists
+        {
+            get => _dashboardLists ?? (_dashboardLists = new InputList<int>());
+            set => _dashboardLists = value;
+        }
+
+        [Input("dashboardListsRemoveds")]
+        private InputList<int>? _dashboardListsRemoveds;
+
+        /// <summary>
+        /// The list of dashboard lists this dashboard should be removed from. Internal only.
+        /// </summary>
+        public InputList<int> DashboardListsRemoveds
+        {
+            get => _dashboardListsRemoveds ?? (_dashboardListsRemoveds = new InputList<int>());
+            set => _dashboardListsRemoveds = value;
+        }
+
+        /// <summary>
+        /// The description of the dashboard.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+        /// Whether this dashboard is read-only.
         /// </summary>
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-        /// &lt;br&gt;**Note: This value cannot be changed. Converting a dashboard from `free` &lt;&gt; `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+        /// The layout type of the dashboard, either 'free' or 'ordered'.
         /// </summary>
         [Input("layoutType")]
         public Input<string>? LayoutType { get; set; }
@@ -1082,7 +1130,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyLists;
 
         /// <summary>
-        /// List of handles of users to notify when changes are made to this dashboard.
+        /// The list of handles of users to notify when changes are made to this dashboard.
         /// </summary>
         public InputList<string> NotifyLists
         {
@@ -1115,13 +1163,13 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Title of the dashboard.
+        /// The title of the dashboard.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// Read only field - The URL of the dashboard.
+        /// The URL of the dashboard.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -1130,7 +1178,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardWidgetGetArgs>? _widgets;
 
         /// <summary>
-        /// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `datadog.Dashboard` resource.
+        /// The list of widgets to display on the dashboard.
         /// </summary>
         public InputList<Inputs.DashboardWidgetGetArgs> Widgets
         {

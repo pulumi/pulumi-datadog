@@ -13,52 +13,12 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetNoteDefinition
     {
-        /// <summary>
-        /// Background color of the note.
-        /// </summary>
         public readonly string? BackgroundColor;
-        /// <summary>
-        /// Content of the note.
-        /// </summary>
         public readonly string Content;
-        /// <summary>
-        /// The size of the text in the widget.
-        /// </summary>
         public readonly string? FontSize;
-        /// <summary>
-        /// Whether to show a tick or not.
-        /// </summary>
         public readonly bool? ShowTick;
-        /// <summary>
-        /// The alignment of the text in the widget.
-        /// - `heatmap_definition`: The definition for a Heatmap widget. Exactly one nested block is allowed with the following structure:
-        /// - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure:
-        /// - `q`: (Required) The metric query to use in the widget.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
-        /// - `query_table_definition`: The definition for a Query Table widget. Exactly one nested block is allowed with the following structure:
-        /// - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apm_query`, `log_query` or `process_query` is required within the request block):
-        /// - `q`: (Optional) The metric query to use in the widget
-        /// - `apm_query`: (Optional) The APM query to use in the widget. The structure of this block is described below.
-        /// - `log_query`: (Optional) The log query to use in the widget. The structure of this block is described below.
-        /// - `process_query`: (Optional) The process query to use in the widget. The structure of this block is described below.
-        /// </summary>
         public readonly string? TextAlign;
-        /// <summary>
-        /// When tick = true, string indicating on which side of the widget the tick should be displayed. One of "bottom", "top", "left", "right".
-        /// - `query_value_definition`: The definition for a Query Value widget. Exactly one nested block is allowed with the following structure:
-        /// - `request`: (Required) Nested block describing the request to use when displaying the widget. Multiple request blocks are allowed with the following structure (exactly only one of `q`, `apm_query`, `log_query` or `process_query` is required within the request block):
-        /// - `q`: (Optional) The metric query to use in the widget.
-        /// - `apm_query`: (Optional) The APM query to use in the widget. The structure of this block is described below.
-        /// - `log_query`: (Optional) The log query to use in the widget. The structure of this block is described below.
-        /// - `process_query`: (Optional) The process query to use in the widget. The structure of this block is described below.
-        /// </summary>
         public readonly string? TickEdge;
-        /// <summary>
-        /// When tick = true, string with a percent sign indicating the position of the tick. Example: use tick_pos = "50%" for centered alignment.
-        /// </summary>
         public readonly string? TickPos;
 
         [OutputConstructor]

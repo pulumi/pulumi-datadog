@@ -12,46 +12,30 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetQueryValueDefinitionRequestConditionalFormatGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Comparator to apply from: One of `&gt;`, `&gt;=`, `&lt;`, or `&lt;=`.
-        /// </summary>
         [Input("comparator", required: true)]
         public Input<string> Comparator { get; set; } = null!;
 
-        /// <summary>
-        /// Color palette to apply to the background, same values available as palette.
-        /// </summary>
         [Input("customBgColor")]
         public Input<string>? CustomBgColor { get; set; }
 
-        /// <summary>
-        /// Color palette to apply to the foreground, same values available as palette.
-        /// </summary>
         [Input("customFgColor")]
         public Input<string>? CustomFgColor { get; set; }
 
         [Input("hideValue")]
         public Input<bool>? HideValue { get; set; }
 
-        /// <summary>
-        /// Displays an image as the background.
-        /// .
-        /// </summary>
         [Input("imageUrl")]
         public Input<string>? ImageUrl { get; set; }
 
-        /// <summary>
-        /// Color palette to apply; One of `blue`, `custom_bg`, `custom_image`, `custom_text`, `gray_on_white`, `green`, `green_on_white`, `grey`, `orange`, `red`, `red_on_white`, `white_on_gray`, `white_on_green`, `white_on_red`, `white_on_yellow`, or `yellow_on_white`.
-        /// </summary>
+        [Input("metric")]
+        public Input<string>? Metric { get; set; }
+
         [Input("palette", required: true)]
         public Input<string> Palette { get; set; } = null!;
 
         [Input("timeframe")]
         public Input<string>? Timeframe { get; set; }
 
-        /// <summary>
-        /// Value for the comparator.
-        /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;
 

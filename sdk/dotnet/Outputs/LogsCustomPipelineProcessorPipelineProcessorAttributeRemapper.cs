@@ -13,37 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper
     {
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Override the target element if already set.
-        /// </summary>
         public readonly bool? OverrideOnConflict;
-        /// <summary>
-        /// Remove or preserve the remapped source element.
-        /// </summary>
         public readonly bool? PreserveSource;
-        /// <summary>
-        /// Defines where the sources are from (log `attribute` or `tag`).
-        /// </summary>
         public readonly string SourceType;
-        /// <summary>
-        /// List of source attributes.
-        /// </summary>
         public readonly ImmutableArray<string> Sources;
-        /// <summary>
-        /// Name of the parent attribute that contains all the extracted details from the sources.
-        /// </summary>
         public readonly string Target;
-        /// <summary>
-        /// Defines if the target is a log `attribute` or `tag`.
-        /// </summary>
         public readonly string TargetType;
 
         [OutputConstructor]

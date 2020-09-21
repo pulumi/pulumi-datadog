@@ -30,7 +30,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewDashboard(ctx, "orderedDashboard", &datadog.DashboardArgs{
-// 			Description: pulumi.String("Created using the Datadog provider in TF"),
+// 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
 // 			IsReadOnly:  pulumi.Bool(true),
 // 			LayoutType:  pulumi.String("ordered"),
 // 			TemplateVariables: datadog.DashboardTemplateVariableArray{
@@ -524,7 +524,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewDashboard(ctx, "freeDashboard", &datadog.DashboardArgs{
-// 			Description: pulumi.String("Created using the Datadog provider in TF"),
+// 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
 // 			IsReadOnly:  pulumi.Bool(false),
 // 			LayoutType:  pulumi.String("free"),
 // 			TemplateVariables: datadog.DashboardTemplateVariableArray{
@@ -642,7 +642,9 @@ import (
 // 							pulumi.String("core_service"),
 // 							pulumi.String("tag_source"),
 // 						},
-// 						Logset:            pulumi.String("19"),
+// 						Indexes: pulumi.StringArray{
+// 							pulumi.String("main"),
+// 						},
 // 						MessageDisplay:    pulumi.String("expanded-md"),
 // 						Query:             pulumi.String("error"),
 // 						ShowDateColumn:    pulumi.Bool(true),
@@ -712,24 +714,27 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	// Description of the dashboard.
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists pulumi.IntArrayOutput `pulumi:"dashboardLists"`
+	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
+	// The description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+	// Whether this dashboard is read-only.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
-	// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-	// <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+	// The layout type of the dashboard, either 'free' or 'ordered'.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
-	// List of handles of users to notify when changes are made to this dashboard.
+	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayOutput `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
 	TemplateVariables DashboardTemplateVariableArrayOutput `pulumi:"templateVariables"`
-	// Title of the dashboard.
+	// The title of the dashboard.
 	Title pulumi.StringOutput `pulumi:"title"`
-	// Read only field - The URL of the dashboard.
+	// The URL of the dashboard.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayOutput `pulumi:"widgets"`
 }
 
@@ -770,46 +775,52 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	// Description of the dashboard.
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists []int `pulumi:"dashboardLists"`
+	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
+	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+	// Whether this dashboard is read-only.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-	// <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+	// The layout type of the dashboard, either 'free' or 'ordered'.
 	LayoutType *string `pulumi:"layoutType"`
-	// List of handles of users to notify when changes are made to this dashboard.
+	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
 	TemplateVariables []DashboardTemplateVariable `pulumi:"templateVariables"`
-	// Title of the dashboard.
+	// The title of the dashboard.
 	Title *string `pulumi:"title"`
-	// Read only field - The URL of the dashboard.
+	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
-	// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+	// The list of widgets to display on the dashboard.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
 type DashboardState struct {
-	// Description of the dashboard.
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists pulumi.IntArrayInput
+	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	DashboardListsRemoveds pulumi.IntArrayInput
+	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+	// Whether this dashboard is read-only.
 	IsReadOnly pulumi.BoolPtrInput
-	// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-	// <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+	// The layout type of the dashboard, either 'free' or 'ordered'.
 	LayoutType pulumi.StringPtrInput
-	// List of handles of users to notify when changes are made to this dashboard.
+	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
 	TemplateVariables DashboardTemplateVariableArrayInput
-	// Title of the dashboard.
+	// The title of the dashboard.
 	Title pulumi.StringPtrInput
-	// Read only field - The URL of the dashboard.
+	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
-	// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayInput
 }
 
@@ -818,47 +829,49 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	// Description of the dashboard.
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists []int `pulumi:"dashboardLists"`
+	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+	// Whether this dashboard is read-only.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-	// <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+	// The layout type of the dashboard, either 'free' or 'ordered'.
 	LayoutType string `pulumi:"layoutType"`
-	// List of handles of users to notify when changes are made to this dashboard.
+	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
 	TemplateVariables []DashboardTemplateVariable `pulumi:"templateVariables"`
-	// Title of the dashboard.
+	// The title of the dashboard.
 	Title string `pulumi:"title"`
-	// Read only field - The URL of the dashboard.
+	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
-	// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+	// The list of widgets to display on the dashboard.
 	Widgets []DashboardWidget `pulumi:"widgets"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// Description of the dashboard.
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists pulumi.IntArrayInput
+	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+	// Whether this dashboard is read-only.
 	IsReadOnly pulumi.BoolPtrInput
-	// Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-	// <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+	// The layout type of the dashboard, either 'free' or 'ordered'.
 	LayoutType pulumi.StringInput
-	// List of handles of users to notify when changes are made to this dashboard.
+	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
 	TemplateVariables DashboardTemplateVariableArrayInput
-	// Title of the dashboard.
+	// The title of the dashboard.
 	Title pulumi.StringInput
-	// Read only field - The URL of the dashboard.
+	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
-	// Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+	// The list of widgets to display on the dashboard.
 	Widgets DashboardWidgetArrayInput
 }
 

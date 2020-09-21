@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetTileDefRequestLogQuerySearchGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The query to use in the widget.
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

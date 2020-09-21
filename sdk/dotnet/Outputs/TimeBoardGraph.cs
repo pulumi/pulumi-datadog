@@ -13,69 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class TimeBoardGraph
     {
-        /// <summary>
-        /// Boolean that determines whether to autoscale graphs.
-        /// </summary>
         public readonly bool? Autoscale;
-        /// <summary>
-        /// Display a custom unit on the graph (such as 'hertz')
-        /// </summary>
         public readonly string? CustomUnit;
-        /// <summary>
-        /// A list of event filter strings. Note that, while supported by the Datadog API, the Datadog UI does not (currently) support multiple event filters very well, so use at your own risk.
-        /// </summary>
         public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// List of groups for hostmaps (shown as 'group by' in the UI).
-        /// </summary>
         public readonly ImmutableArray<string> Groups;
-        /// <summary>
-        /// If set to true, will display hosts on hostmap that have no reported metrics.
-        /// </summary>
         public readonly bool? IncludeNoMetricHosts;
-        /// <summary>
-        /// If set to true, will display hosts without groups on hostmaps.
-        /// </summary>
         public readonly bool? IncludeUngroupedHosts;
-        /// <summary>
-        /// Nested block describing lines / ranges added to graph for formatting. The structure of this block is described below. Multiple marker blocks are allowed within a graph block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TimeBoardGraphMarker> Markers;
-        /// <summary>
-        /// What nodes to display in a hostmap. Can be one of 'host' (default) or 'container'.
-        /// </summary>
         public readonly string? NodeType;
-        /// <summary>
-        /// Number of digits displayed, use `*` for full precision.
-        /// </summary>
         public readonly string? Precision;
-        /// <summary>
-        /// Nested block describing a graph definition request (a metric query to plot on the graph). The structure of this block is described below. Multiple request blocks are allowed within a graph block.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TimeBoardGraphRequest> Requests;
-        /// <summary>
-        /// List of scopes for hostmaps (shown as 'filter by' in the UI).
-        /// </summary>
         public readonly ImmutableArray<string> Scopes;
-        /// <summary>
-        /// Nested block to customize the graph style.
-        /// </summary>
         public readonly ImmutableDictionary<string, object>? Style;
-        /// <summary>
-        /// How to align text in the graph, can be one of 'left', 'center', or 'right'.
-        /// </summary>
         public readonly string? TextAlign;
-        /// <summary>
-        /// The name of the graph.
-        /// </summary>
         public readonly string Title;
-        /// <summary>
-        /// The type of visualization to use for the graph. Valid choices are "change", "distribution", "heatmap", "hostmap", "query_value", timeseries", and "toplist".
-        /// </summary>
         public readonly string Viz;
-        /// <summary>
-        /// Nested block describing modifications to the yaxis rendering. The structure of this block is described below.
-        /// </summary>
         public readonly ImmutableDictionary<string, object>? Yaxis;
 
         [OutputConstructor]

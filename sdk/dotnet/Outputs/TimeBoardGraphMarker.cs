@@ -13,17 +13,8 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class TimeBoardGraphMarker
     {
-        /// <summary>
-        /// A label for the line or range. **Warning:** when a label is enabled but left empty through the UI, the Datadog API returns a boolean value, not a string. This makes `pulumi up` fail with a JSON decoding error.
-        /// </summary>
         public readonly string? Label;
-        /// <summary>
-        /// How the marker lines will look. Possible values are {"error", "warning", "info", "ok"} {"dashed", "solid", "bold"}. Example: "error dashed".
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Mathematical expression describing the marker. Examples: "y &gt; 1", "-5 &lt; y &lt; 0", "y = 19".
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

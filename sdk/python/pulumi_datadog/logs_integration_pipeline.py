@@ -20,14 +20,9 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource to manage
-        the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
+        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource to manage the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
 
-        Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with
-        specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however,
-        allows you to manage the order of your pipelines by referencing them in your
-        LogsPipelineOrder resource. If you don't need the
-        `pipeline_order` feature, this resource declaration can be omitted.
+        Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your LogsPipelineOrder resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
 
         ## Example Usage
 
@@ -40,7 +35,6 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,7 +72,6 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -90,9 +83,6 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean value to enable your pipeline.
-        """
         return pulumi.get(self, "is_enabled")
 
     def translate_output_property(self, prop):

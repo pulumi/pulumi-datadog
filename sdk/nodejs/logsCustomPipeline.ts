@@ -49,15 +49,15 @@ import * as utilities from "./utilities";
  *             categoryProcessor: {
  *                 categories: [
  *                     {
- *                         filters: [{
+ *                         filter: {
  *                             query: "@severity: \".\"",
- *                         }],
+ *                         },
  *                         name: "debug",
  *                     },
  *                     {
- *                         filters: [{
+ *                         filter: {
  *                             query: "@severity: \"-\"",
- *                         }],
+ *                         },
  *                         name: "verbose",
  *                     },
  *                 ],
@@ -183,11 +183,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Important Notes
  *
- * Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
- * a different resource datadog_logs_pipeline_order.
- * When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder`
- * resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
- * `datadog.LogsPipelineOrder` resource.
+ * Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.
  */
 export class LogsCustomPipeline extends pulumi.CustomResource {
     /**
@@ -217,21 +213,9 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsCustomPipeline.__pulumiType;
     }
 
-    /**
-     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-     */
     public readonly filters!: pulumi.Output<outputs.LogsCustomPipelineFilter[]>;
-    /**
-     * If the processor is enabled or not.
-     */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Name of the processor
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Processors. Nested pipeline can't take any other nested pipeline as its processor.
-     */
     public readonly processors!: pulumi.Output<outputs.LogsCustomPipelineProcessor[] | undefined>;
 
     /**
@@ -278,21 +262,9 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsCustomPipeline resources.
  */
 export interface LogsCustomPipelineState {
-    /**
-     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-     */
     readonly filters?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
-    /**
-     * If the processor is enabled or not.
-     */
     readonly isEnabled?: pulumi.Input<boolean>;
-    /**
-     * Name of the processor
-     */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Processors. Nested pipeline can't take any other nested pipeline as its processor.
-     */
     readonly processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
 }
 
@@ -300,20 +272,8 @@ export interface LogsCustomPipelineState {
  * The set of arguments for constructing a LogsCustomPipeline resource.
  */
 export interface LogsCustomPipelineArgs {
-    /**
-     * Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-     */
     readonly filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
-    /**
-     * If the processor is enabled or not.
-     */
     readonly isEnabled?: pulumi.Input<boolean>;
-    /**
-     * Name of the processor
-     */
     readonly name: pulumi.Input<string>;
-    /**
-     * Processors. Nested pipeline can't take any other nested pipeline as its processor.
-     */
     readonly processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
 }

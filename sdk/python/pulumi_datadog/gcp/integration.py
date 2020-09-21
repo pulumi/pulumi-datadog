@@ -49,12 +49,6 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
-        :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-        :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
-        :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
-        :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,12 +106,6 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
-        :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-        :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
-        :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
-        :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -134,49 +122,31 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientEmail")
     def client_email(self) -> pulumi.Output[str]:
-        """
-        Your email found in your JSON service account key.
-        """
         return pulumi.get(self, "client_email")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
-        """
-        Your ID found in your JSON service account key.
-        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> pulumi.Output[Optional[str]]:
-        """
-        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-        """
         return pulumi.get(self, "host_filters")
 
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[str]:
-        """
-        Your private key name found in your JSON service account key.
-        """
         return pulumi.get(self, "private_key")
 
     @property
     @pulumi.getter(name="privateKeyId")
     def private_key_id(self) -> pulumi.Output[str]:
-        """
-        Your private key ID found in your JSON service account key.
-        """
         return pulumi.get(self, "private_key_id")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
-        """
-        Your Google Cloud project ID found in your JSON service account key.
-        """
         return pulumi.get(self, "project_id")
 
     def translate_output_property(self, prop):

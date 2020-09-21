@@ -14,9 +14,6 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery
     {
         public readonly ImmutableArray<string> FilterBies;
-        /// <summary>
-        /// The number of lines to show in the table.
-        /// </summary>
         public readonly int? Limit;
         public readonly string Metric;
         public readonly string? SearchBy;

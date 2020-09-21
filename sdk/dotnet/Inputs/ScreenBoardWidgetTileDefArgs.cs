@@ -12,24 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetTileDefArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean indicating whether to automatically scale the tile.
-        /// </summary>
         [Input("autoscale")]
         public Input<bool>? Autoscale { get; set; }
 
-        /// <summary>
-        /// The unit for the value displayed in the widget
-        /// </summary>
         [Input("customUnit")]
         public Input<string>? CustomUnit { get; set; }
 
         [Input("events")]
         private InputList<Inputs.ScreenBoardWidgetTileDefEventArgs>? _events;
-
-        /// <summary>
-        /// Nested block describing the event overlays to use when displaying the widget. The structure of this block is described below. At most one such block should be present in a given tile_def block.
-        /// </summary>
         public InputList<Inputs.ScreenBoardWidgetTileDefEventArgs> Events
         {
             get => _events ?? (_events = new InputList<Inputs.ScreenBoardWidgetTileDefEventArgs>());
@@ -38,10 +28,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("groups")]
         private InputList<string>? _groups;
-
-        /// <summary>
-        /// The check group to use in the widget.
-        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
@@ -50,46 +36,26 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("markers")]
         private InputList<Inputs.ScreenBoardWidgetTileDefMarkerArgs>? _markers;
-
-        /// <summary>
-        /// Nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple marker blocks are allowed within a given tile_def block.
-        /// </summary>
         public InputList<Inputs.ScreenBoardWidgetTileDefMarkerArgs> Markers
         {
             get => _markers ?? (_markers = new InputList<Inputs.ScreenBoardWidgetTileDefMarkerArgs>());
             set => _markers = value;
         }
 
-        /// <summary>
-        /// Boolean indicating whether to show ungrouped nodes.
-        /// </summary>
         [Input("noGroupHosts")]
         public Input<bool>? NoGroupHosts { get; set; }
 
-        /// <summary>
-        /// Boolean indicating whether to show nodes with no metrics.
-        /// </summary>
         [Input("noMetricHosts")]
         public Input<bool>? NoMetricHosts { get; set; }
 
-        /// <summary>
-        /// The type of node used. Either "host" or "container".
-        /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 
-        /// <summary>
-        /// The precision to use when displaying the value. Use "\*" for maximum precision.
-        /// </summary>
         [Input("precision")]
         public Input<string>? Precision { get; set; }
 
         [Input("requests", required: true)]
         private InputList<Inputs.ScreenBoardWidgetTileDefRequestArgs>? _requests;
-
-        /// <summary>
-        /// Nested block describing the request to use when displaying the widget. The structure of this block is described below. Multiple request blocks are allowed within a given tile_def block.
-        /// </summary>
         public InputList<Inputs.ScreenBoardWidgetTileDefRequestArgs> Requests
         {
             get => _requests ?? (_requests = new InputList<Inputs.ScreenBoardWidgetTileDefRequestArgs>());
@@ -98,10 +64,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("scopes")]
         private InputList<string>? _scopes;
-
-        /// <summary>
-        /// The list of tags to filter nodes by.
-        /// </summary>
         public InputList<string> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<string>());
@@ -110,25 +72,15 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("style")]
         private InputMap<object>? _style;
-
-        /// <summary>
-        /// Nested block describing how to display the widget. The structure of this block is described below. At most one such block should be present in a given tile_def block.
-        /// </summary>
         public InputMap<object> Style
         {
             get => _style ?? (_style = new InputMap<object>());
             set => _style = value;
         }
 
-        /// <summary>
-        /// The alignment of the text in the widget.
-        /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
 
-        /// <summary>
-        /// Should be the same as the widget's type. One of "timeseries", "query_value", "hostmap", "change", "toplist", "process".
-        /// </summary>
         [Input("viz", required: true)]
         public Input<string> Viz { get; set; } = null!;
 

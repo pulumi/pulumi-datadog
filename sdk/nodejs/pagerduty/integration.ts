@@ -162,6 +162,15 @@ export class Integration extends pulumi.CustomResource {
 
     /**
      * Your PagerDuty API token.
+     * =======
+     * - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+     * - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+     * - `serviceName`: (Required) Your Service name in PagerDuty.
+     * - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+     * - `schedules`: (Optional) Array of your schedule URLs.
+     * - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+     * - `apiToken`: (Optional) Your PagerDuty API token.
+     * >>>>>>> v2.13.0:docs/resources/integration_pagerduty.md
      */
     public readonly apiToken!: pulumi.Output<string | undefined>;
     /**
@@ -228,6 +237,15 @@ export class Integration extends pulumi.CustomResource {
 export interface IntegrationState {
     /**
      * Your PagerDuty API token.
+     * =======
+     * - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+     * - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+     * - `serviceName`: (Required) Your Service name in PagerDuty.
+     * - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+     * - `schedules`: (Optional) Array of your schedule URLs.
+     * - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+     * - `apiToken`: (Optional) Your PagerDuty API token.
+     * >>>>>>> v2.13.0:docs/resources/integration_pagerduty.md
      */
     readonly apiToken?: pulumi.Input<string>;
     /**
@@ -256,6 +274,15 @@ export interface IntegrationState {
 export interface IntegrationArgs {
     /**
      * Your PagerDuty API token.
+     * =======
+     * - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+     * - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [datadog.pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+     * - `serviceName`: (Required) Your Service name in PagerDuty.
+     * - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+     * - `schedules`: (Optional) Array of your schedule URLs.
+     * - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+     * - `apiToken`: (Optional) Your PagerDuty API token.
+     * >>>>>>> v2.13.0:docs/resources/integration_pagerduty.md
      */
     readonly apiToken?: pulumi.Input<string>;
     /**

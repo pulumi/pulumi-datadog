@@ -13,26 +13,10 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorStringBuilderProcessor
     {
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// If it replaces all missing attributes of `template` by an empty string.
-        /// * trace_id_remapper
-        /// </summary>
         public readonly bool? IsReplaceMissing;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Name of the parent attribute that contains all the extracted details from the sources.
-        /// </summary>
         public readonly string Target;
-        /// <summary>
-        /// The formula with one or more attributes and raw text.
-        /// </summary>
         public readonly string Template;
 
         [OutputConstructor]

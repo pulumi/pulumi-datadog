@@ -13,46 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition
     {
-        /// <summary>
-        /// Whether to colorize text or background. One of "text", "background".
-        /// </summary>
         public readonly string? ColorPreference;
         public readonly int? Count;
-        /// <summary>
-        /// The display setting to use. One of "counts", "list", or "countsAndList".
-        /// </summary>
         public readonly string? DisplayFormat;
-        /// <summary>
-        /// Boolean indicating whether to hide empty categories.
-        /// </summary>
         public readonly bool? HideZeroCounts;
         public readonly string Query;
-        /// <summary>
-        /// Boolean indicating whether to show when monitors/groups last triggered.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `note_definition`: The definition for a Note widget. Exactly one nested block is allowed with the following structure:
-        /// </summary>
         public readonly bool? ShowLastTriggered;
-        /// <summary>
-        /// The facet and order to sort the data based upon. Example: `"{"column": "time", "order": "desc"}"`.
-        /// - `title`: (Optional) The title of the widget.
-        /// - `title_size`: (Optional) The size of the widget's title. Default is 16.
-        /// - `title_align`: (Optional) The alignment of the widget's title. One of "left", "center", or "right".
-        /// - `time`: (Optional) Nested block describing the timeframe to use when displaying the widget. The structure of this block is described below.
-        /// - `manage_status_definition`: The definition for a Manage Status, aka Monitor Summary, widget. Exactly one nested block is allowed with the following structure:
-        /// - `query`: (Required) The query to use in the widget.
-        /// </summary>
         public readonly string? Sort;
         public readonly int? Start;
-        /// <summary>
-        /// The monitor summary type to use. One of "monitors", "groups", or "combined". Defaults to "monitors".
-        /// </summary>
         public readonly string? SummaryType;
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

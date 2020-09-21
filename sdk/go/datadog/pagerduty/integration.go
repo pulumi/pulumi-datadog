@@ -63,6 +63,15 @@ type Integration struct {
 	pulumi.CustomResourceState
 
 	// Your PagerDuty API token.
+	// ===
+	// - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+	// - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	// - `serviceName`: (Required) Your Service name in PagerDuty.
+	// - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+	// - `schedules`: (Optional) Array of your schedule URLs.
+	// - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+	// - `apiToken`: (Optional) Your PagerDuty API token.
+	// > > > > > > > v2.13.0:docs/resources/integration_pagerduty.md
 	ApiToken pulumi.StringPtrOutput `pulumi:"apiToken"`
 	// Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
 	IndividualServices pulumi.BoolPtrOutput `pulumi:"individualServices"`
@@ -108,6 +117,15 @@ func GetIntegration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
 	// Your PagerDuty API token.
+	// ===
+	// - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+	// - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	// - `serviceName`: (Required) Your Service name in PagerDuty.
+	// - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+	// - `schedules`: (Optional) Array of your schedule URLs.
+	// - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+	// - `apiToken`: (Optional) Your PagerDuty API token.
+	// > > > > > > > v2.13.0:docs/resources/integration_pagerduty.md
 	ApiToken *string `pulumi:"apiToken"`
 	// Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
 	IndividualServices *bool `pulumi:"individualServices"`
@@ -123,6 +141,15 @@ type integrationState struct {
 
 type IntegrationState struct {
 	// Your PagerDuty API token.
+	// ===
+	// - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+	// - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	// - `serviceName`: (Required) Your Service name in PagerDuty.
+	// - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+	// - `schedules`: (Optional) Array of your schedule URLs.
+	// - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+	// - `apiToken`: (Optional) Your PagerDuty API token.
+	// > > > > > > > v2.13.0:docs/resources/integration_pagerduty.md
 	ApiToken pulumi.StringPtrInput
 	// Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
 	IndividualServices pulumi.BoolPtrInput
@@ -142,6 +169,15 @@ func (IntegrationState) ElementType() reflect.Type {
 
 type integrationArgs struct {
 	// Your PagerDuty API token.
+	// ===
+	// - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+	// - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	// - `serviceName`: (Required) Your Service name in PagerDuty.
+	// - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+	// - `schedules`: (Optional) Array of your schedule URLs.
+	// - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+	// - `apiToken`: (Optional) Your PagerDuty API token.
+	// > > > > > > > v2.13.0:docs/resources/integration_pagerduty.md
 	ApiToken *string `pulumi:"apiToken"`
 	// Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
 	IndividualServices *bool `pulumi:"individualServices"`
@@ -158,6 +194,15 @@ type integrationArgs struct {
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
 	// Your PagerDuty API token.
+	// ===
+	// - `individualServices`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
+	// - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individualServices` must be set to `true` to ignore the `service` attribute and use individual services properly.
+	// - `serviceName`: (Required) Your Service name in PagerDuty.
+	// - `serviceKey`: (Required) Your Service name associated service key in Pagerduty.
+	// - `schedules`: (Optional) Array of your schedule URLs.
+	// - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
+	// - `apiToken`: (Optional) Your PagerDuty API token.
+	// > > > > > > > v2.13.0:docs/resources/integration_pagerduty.md
 	ApiToken pulumi.StringPtrInput
 	// Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
 	IndividualServices pulumi.BoolPtrInput

@@ -67,15 +67,15 @@ class LogsCustomPipeline(pulumi.CustomResource):
                     category_processor=datadog.LogsCustomPipelineProcessorCategoryProcessorArgs(
                         category=[
                             {
-                                "filter": [{
+                                "filter": {
                                     "query": "@severity: \".\"",
-                                }],
+                                },
                                 "name": "debug",
                             },
                             {
-                                "filter": [{
+                                "filter": {
                                     "query": "@severity: \"-\"",
-                                }],
+                                },
                                 "name": "verbose",
                             },
                         ],
@@ -200,18 +200,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
         ```
         ## Important Notes
 
-        Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in
-        a different resource datadog_logs_pipeline_order.
-        When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder`
-        resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the
-        `LogsPipelineOrder` resource.
+        Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]] filters: Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        :param pulumi.Input[bool] is_enabled: If the processor is enabled or not.
-        :param pulumi.Input[str] name: Name of the processor
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]] processors: Processors. Nested pipeline can't take any other nested pipeline as its processor.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -259,10 +251,6 @@ class LogsCustomPipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]] filters: Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        :param pulumi.Input[bool] is_enabled: If the processor is enabled or not.
-        :param pulumi.Input[str] name: Name of the processor
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]] processors: Processors. Nested pipeline can't take any other nested pipeline as its processor.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -277,33 +265,21 @@ class LogsCustomPipeline(pulumi.CustomResource):
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Output[List['outputs.LogsCustomPipelineFilter']]:
-        """
-        Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If the processor is enabled or not.
-        """
         return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the processor
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def processors(self) -> pulumi.Output[Optional[List['outputs.LogsCustomPipelineProcessor']]]:
-        """
-        Processors. Nested pipeline can't take any other nested pipeline as its processor.
-        """
         return pulumi.get(self, "processors")
 
     def translate_output_property(self, prop):

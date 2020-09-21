@@ -63,7 +63,7 @@ namespace Pulumi.Datadog
     ///                     Type = "timeseries",
     ///                     X = 25,
     ///                     Y = 5,
-    ///                     Title = "graph title tf",
+    ///                     Title = "graph title terraform",
     ///                     TitleSize = 16,
     ///                     TitleAlign = "right",
     ///                     Legend = true,
@@ -200,7 +200,7 @@ namespace Pulumi.Datadog
     ///                     Type = "query_value",
     ///                     X = 45,
     ///                     Y = 25,
-    ///                     Title = "query value title tf",
+    ///                     Title = "query value title terraform",
     ///                     TitleSize = 20,
     ///                     TitleAlign = "center",
     ///                     Legend = true,
@@ -252,7 +252,7 @@ namespace Pulumi.Datadog
     ///                     Type = "toplist",
     ///                     X = 65,
     ///                     Y = 5,
-    ///                     Title = "toplist title tf",
+    ///                     Title = "toplist title terraform",
     ///                     Legend = true,
     ///                     LegendSize = "auto",
     ///                     Time = 
@@ -294,7 +294,7 @@ namespace Pulumi.Datadog
     ///                     Type = "change",
     ///                     X = 85,
     ///                     Y = 5,
-    ///                     Title = "change title tf",
+    ///                     Title = "change title terraform",
     ///                     TileDeves = 
     ///                     {
     ///                         new Datadog.Inputs.ScreenBoardWidgetTileDefArgs
@@ -321,7 +321,7 @@ namespace Pulumi.Datadog
     ///                     Type = "event_timeline",
     ///                     X = 105,
     ///                     Y = 5,
-    ///                     Title = "event_timeline title tf",
+    ///                     Title = "event_timeline title terraform",
     ///                     Query = "status:error",
     ///                     Time = 
     ///                     {
@@ -333,7 +333,7 @@ namespace Pulumi.Datadog
     ///                     Type = "event_stream",
     ///                     X = 115,
     ///                     Y = 5,
-    ///                     Title = "event_stream title tf",
+    ///                     Title = "event_stream title terraform",
     ///                     Query = "*",
     ///                     EventSize = "l",
     ///                     Time = 
@@ -346,7 +346,7 @@ namespace Pulumi.Datadog
     ///                     Type = "image",
     ///                     X = 145,
     ///                     Y = 5,
-    ///                     Title = "image title tf",
+    ///                     Title = "image title terraform",
     ///                     Sizing = "fit",
     ///                     Margin = "large",
     ///                     Url = "https://datadog-prod.imgix.net/img/dd_logo_70x75.png",
@@ -369,7 +369,7 @@ namespace Pulumi.Datadog
     ///                     Type = "alert_graph",
     ///                     X = 185,
     ///                     Y = 5,
-    ///                     Title = "alert graph title tf",
+    ///                     Title = "alert graph title terraform",
     ///                     AlertId = 123456,
     ///                     VizType = "toplist",
     ///                     Time = 
@@ -382,7 +382,7 @@ namespace Pulumi.Datadog
     ///                     Type = "alert_value",
     ///                     X = 205,
     ///                     Y = 5,
-    ///                     Title = "alert value title tf",
+    ///                     Title = "alert value title terraform",
     ///                     AlertId = 123456,
     ///                     TextSize = "fill_height",
     ///                     TextAlign = "right",
@@ -547,43 +547,40 @@ namespace Pulumi.Datadog
     public partial class ScreenBoard : Pulumi.CustomResource
     {
         /// <summary>
-        /// The screenboard's height.
+        /// Height of the screenboard
         /// </summary>
         [Output("height")]
         public Output<string?> Height { get; private set; } = null!;
 
-        /// <summary>
-        /// The read-only status of the screenboard. Default is false.
-        /// </summary>
         [Output("readOnly")]
         public Output<bool?> ReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the screenboard is shared or not. Default is false.
+        /// Whether the screenboard is shared or not
         /// </summary>
         [Output("shared")]
         public Output<bool?> Shared { get; private set; } = null!;
 
         /// <summary>
-        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.ScreenBoard resource.
+        /// A list of template variables for using Dashboard templating.
         /// </summary>
         [Output("templateVariables")]
         public Output<ImmutableArray<Outputs.ScreenBoardTemplateVariable>> TemplateVariables { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the screenboard.
+        /// Name of the screenboard
         /// </summary>
         [Output("title")]
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
+        /// A list of widget definitions.
         /// </summary>
         [Output("widgets")]
         public Output<ImmutableArray<Outputs.ScreenBoardWidget>> Widgets { get; private set; } = null!;
 
         /// <summary>
-        /// The screenboard's width.
+        /// Width of the screenboard
         /// </summary>
         [Output("width")]
         public Output<string?> Width { get; private set; } = null!;
@@ -635,19 +632,16 @@ namespace Pulumi.Datadog
     public sealed class ScreenBoardArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The screenboard's height.
+        /// Height of the screenboard
         /// </summary>
         [Input("height")]
         public Input<string>? Height { get; set; }
 
-        /// <summary>
-        /// The read-only status of the screenboard. Default is false.
-        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
-        /// Whether the screenboard is shared or not. Default is false.
+        /// Whether the screenboard is shared or not
         /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }
@@ -656,7 +650,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardTemplateVariableArgs>? _templateVariables;
 
         /// <summary>
-        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.ScreenBoard resource.
+        /// A list of template variables for using Dashboard templating.
         /// </summary>
         public InputList<Inputs.ScreenBoardTemplateVariableArgs> TemplateVariables
         {
@@ -665,7 +659,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the screenboard.
+        /// Name of the screenboard
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
@@ -674,7 +668,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardWidgetArgs>? _widgets;
 
         /// <summary>
-        /// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
+        /// A list of widget definitions.
         /// </summary>
         public InputList<Inputs.ScreenBoardWidgetArgs> Widgets
         {
@@ -683,7 +677,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The screenboard's width.
+        /// Width of the screenboard
         /// </summary>
         [Input("width")]
         public Input<string>? Width { get; set; }
@@ -696,19 +690,16 @@ namespace Pulumi.Datadog
     public sealed class ScreenBoardState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The screenboard's height.
+        /// Height of the screenboard
         /// </summary>
         [Input("height")]
         public Input<string>? Height { get; set; }
 
-        /// <summary>
-        /// The read-only status of the screenboard. Default is false.
-        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
-        /// Whether the screenboard is shared or not. Default is false.
+        /// Whether the screenboard is shared or not
         /// </summary>
         [Input("shared")]
         public Input<bool>? Shared { get; set; }
@@ -717,7 +708,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardTemplateVariableGetArgs>? _templateVariables;
 
         /// <summary>
-        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.ScreenBoard resource.
+        /// A list of template variables for using Dashboard templating.
         /// </summary>
         public InputList<Inputs.ScreenBoardTemplateVariableGetArgs> TemplateVariables
         {
@@ -726,7 +717,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The name of the screenboard.
+        /// Name of the screenboard
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
@@ -735,7 +726,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.ScreenBoardWidgetGetArgs>? _widgets;
 
         /// <summary>
-        /// Nested block describing a widget. The structure of this block is described below. Multiple widget blocks are allowed within a datadog.ScreenBoard resource.
+        /// A list of widget definitions.
         /// </summary>
         public InputList<Inputs.ScreenBoardWidgetGetArgs> Widgets
         {
@@ -744,7 +735,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The screenboard's width.
+        /// Width of the screenboard
         /// </summary>
         [Input("width")]
         public Input<string>? Width { get; set; }

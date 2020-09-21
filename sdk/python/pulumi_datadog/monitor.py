@@ -38,6 +38,7 @@ class Monitor(pulumi.CustomResource):
                  thresholds: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']]] = None,
                  timeout_h: Optional[pulumi.Input[float]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -78,8 +79,8 @@ class Monitor(pulumi.CustomResource):
 
         There are two ways how to silence a single monitor:
 
-        * Mute it by hand
-        * Create a Downtime
+        - Mute it by hand
+        - Create a Downtime
 
         Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your application, as they would be removed on next `pulumi up` invocation. In order to prevent that from happening, you can add following to your monitor:
 
@@ -89,13 +90,11 @@ class Monitor(pulumi.CustomResource):
 
         The above will make sure that any changes to the `silenced` attribute are ignored.
 
-        This issue doesn't apply to multi-monitor downtimes (those that don't contain `monitor_id`), as these don't influence contents of the `silenced` attribute.
+        This issue doesn't apply to multi-monitor downtimes (those that don't contain `monitor_id` ), as these don't influence contents of the `silenced` attribute.
 
         ## Composite Monitors
 
-        You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)).
-        You just need to reuse the ID of your `Monitor` resources.
-        You can also compose any monitor with a `SyntheticsTest` by passing the computed `monitor_id` attribute in the query.
+        You can compose monitors of all types in order to define more specific alert conditions (see the [doc](https://docs.datadoghq.com/monitors/monitor_types/composite/)). You just need to reuse the ID of your `Monitor` resources. You can also compose any monitor with a `SyntheticsTest` by passing the computed `monitor_id` attribute in the query.
 
         ```python
         import pulumi
@@ -111,61 +110,21 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-               triggering tags into the title. Defaults to true.
-        :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the '@username'
-               notification allowed elsewhere.
         :param pulumi.Input[float] evaluation_delay: Time (in seconds) to delay evaluation, as a non-negative integer.
-               For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-               the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-               metrics to ensure the monitor will always have data during evaluation.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-        :param pulumi.Input[str] message: A message to include with notifications for this monitor.
-               Email notifications can be sent to specific users by using the same '@username' notation as events.
-        :param pulumi.Input[str] name: Name of Datadog monitor
         :param pulumi.Input[float] new_host_delay: Time (in seconds) to allow a host to boot and
-               applications to fully start before starting the evaluation of monitor
-               results. Should be a non negative integer. Defaults to 300.
         :param pulumi.Input[float] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
-               We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor.
-               Defaults to false.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults
-               to false.
-        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and
-               the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
         :param pulumi.Input[float] renotify_interval: The number of minutes after the last notification before a monitor will re-notify
-               on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated.
-               We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
-               Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
         :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
         :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']] thresholds: * Metric alerts:
-               A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-               Example usage:
-               ```python
-               import pulumi
-               ```
-               **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
-               along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
-               * Service checks:
-               A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-               Default values:
-               ```python
-               import pulumi
-               ```
+        :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[float] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve
-               from a triggered state. Defaults to false.
-        :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
-               * `metric alert`
-               * `service check`
-               * `event alert`
-               * `query alert`
-               * `composite`
-               * `log alert`
+        :param pulumi.Input[bool] validate: If set to false, skip the validation call done during `plan` .
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -216,6 +175,7 @@ class Monitor(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['validate'] = validate
         super(Monitor, __self__).__init__(
             'datadog:index/monitor:Monitor',
             resource_name,
@@ -246,7 +206,8 @@ class Monitor(pulumi.CustomResource):
             threshold_windows: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']]] = None,
             thresholds: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']]] = None,
             timeout_h: Optional[pulumi.Input[float]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'Monitor':
+            type: Optional[pulumi.Input[str]] = None,
+            validate: Optional[pulumi.Input[bool]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -255,61 +216,21 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-               triggering tags into the title. Defaults to true.
-        :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the '@username'
-               notification allowed elsewhere.
         :param pulumi.Input[float] evaluation_delay: Time (in seconds) to delay evaluation, as a non-negative integer.
-               For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-               the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-               metrics to ensure the monitor will always have data during evaluation.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-        :param pulumi.Input[str] message: A message to include with notifications for this monitor.
-               Email notifications can be sent to specific users by using the same '@username' notation as events.
-        :param pulumi.Input[str] name: Name of Datadog monitor
         :param pulumi.Input[float] new_host_delay: Time (in seconds) to allow a host to boot and
-               applications to fully start before starting the evaluation of monitor
-               results. Should be a non negative integer. Defaults to 300.
         :param pulumi.Input[float] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
-               We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor.
-               Defaults to false.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults
-               to false.
-        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and
-               the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
         :param pulumi.Input[float] renotify_interval: The number of minutes after the last notification before a monitor will re-notify
-               on the current status. It will only re-notify if it's not resolved.
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated.
-               We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
-               Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
         :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
         :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']] thresholds: * Metric alerts:
-               A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-               Example usage:
-               ```python
-               import pulumi
-               ```
-               **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
-               along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
-               * Service checks:
-               A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-               Default values:
-               ```python
-               import pulumi
-               ```
+        :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[float] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve
-               from a triggered state. Defaults to false.
-        :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
-               * `metric alert`
-               * `service check`
-               * `event alert`
-               * `query alert`
-               * `composite`
-               * `log alert`
+        :param pulumi.Input[bool] validate: If set to false, skip the validation call done during `plan` .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -336,6 +257,7 @@ class Monitor(pulumi.CustomResource):
         __props__["thresholds"] = thresholds
         __props__["timeout_h"] = timeout_h
         __props__["type"] = type
+        __props__["validate"] = validate
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -343,17 +265,12 @@ class Monitor(pulumi.CustomResource):
     def enable_logs_sample(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-        triggering tags into the title. Defaults to true.
         """
         return pulumi.get(self, "enable_logs_sample")
 
     @property
     @pulumi.getter(name="escalationMessage")
     def escalation_message(self) -> pulumi.Output[Optional[str]]:
-        """
-        A message to include with a re-notification. Supports the '@username'
-        notification allowed elsewhere.
-        """
         return pulumi.get(self, "escalation_message")
 
     @property
@@ -361,9 +278,6 @@ class Monitor(pulumi.CustomResource):
     def evaluation_delay(self) -> pulumi.Output[float]:
         """
         Time (in seconds) to delay evaluation, as a non-negative integer.
-        For example, if the value is set to 300 (5min), the timeframe is set to last_5m and the time is 7:00,
-        the monitor will evaluate data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled
-        metrics to ensure the monitor will always have data during evaluation.
         """
         return pulumi.get(self, "evaluation_delay")
 
@@ -394,18 +308,11 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter
     def message(self) -> pulumi.Output[str]:
-        """
-        A message to include with notifications for this monitor.
-        Email notifications can be sent to specific users by using the same '@username' notation as events.
-        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of Datadog monitor
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -413,8 +320,6 @@ class Monitor(pulumi.CustomResource):
     def new_host_delay(self) -> pulumi.Output[Optional[float]]:
         """
         Time (in seconds) to allow a host to boot and
-        applications to fully start before starting the evaluation of monitor
-        results. Should be a non negative integer. Defaults to 300.
         """
         return pulumi.get(self, "new_host_delay")
 
@@ -423,7 +328,6 @@ class Monitor(pulumi.CustomResource):
     def no_data_timeframe(self) -> pulumi.Output[Optional[float]]:
         """
         The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
-        We recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
         """
         return pulumi.get(self, "no_data_timeframe")
 
@@ -432,7 +336,6 @@ class Monitor(pulumi.CustomResource):
     def notify_audit(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether tagged users will be notified on changes to this monitor.
-        Defaults to false.
         """
         return pulumi.get(self, "notify_audit")
 
@@ -441,17 +344,12 @@ class Monitor(pulumi.CustomResource):
     def notify_no_data(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether this monitor will notify when data stops reporting. Defaults
-        to false.
         """
         return pulumi.get(self, "notify_no_data")
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Output[str]:
-        """
-        The monitor query to notify on. Note this is not the same query you see in the UI and
-        the syntax is different depending on the monitor `type`, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for details. **Warning:** `pulumi preview` won't perform any validation of the query contents.
-        """
         return pulumi.get(self, "query")
 
     @property
@@ -459,7 +357,6 @@ class Monitor(pulumi.CustomResource):
     def renotify_interval(self) -> pulumi.Output[Optional[float]]:
         """
         The number of minutes after the last notification before a monitor will re-notify
-        on the current status. It will only re-notify if it's not resolved.
         """
         return pulumi.get(self, "renotify_interval")
 
@@ -468,8 +365,6 @@ class Monitor(pulumi.CustomResource):
     def require_full_window(self) -> pulumi.Output[Optional[bool]]:
         """
         A boolean indicating whether this monitor needs a full window of data before it's evaluated.
-        We highly recommend you set this to False for sparse metrics, otherwise some evaluations will be skipped.
-        Default: True for "on average", "at all times" and "in total" aggregation. False otherwise.
         """
         return pulumi.get(self, "require_full_window")
 
@@ -493,29 +388,13 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="thresholdWindows")
     def threshold_windows(self) -> pulumi.Output[Optional['outputs.MonitorThresholdWindows']]:
         """
-        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are required for, anomaly monitors.
+        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         """
         return pulumi.get(self, "threshold_windows")
 
     @property
     @pulumi.getter
     def thresholds(self) -> pulumi.Output[Optional['outputs.MonitorThresholds']]:
-        """
-        * Metric alerts:
-        A dictionary of thresholds by threshold type. Currently we have four threshold types for metric alerts: critical, critical recovery, warning, and warning recovery. Critical is defined in the query, but can also be specified in this option. Warning and recovery thresholds can only be specified using the thresholds option.
-        Example usage:
-        ```python
-        import pulumi
-        ```
-        **Warning:** the `critical` threshold value must match the one contained in the `query` argument. The `threshold` from the previous example is valid along with a query like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 90` but
-        along with something like `avg(last_1h):avg:system.disk.in_use{role:sqlserver} by {host} > 95` would make the Datadog API return a HTTP error 400, complaining "The value provided for parameter 'query' is invalid".
-        * Service checks:
-        A dictionary of thresholds by status. Because service checks can have multiple thresholds, we don't define them directly in the query.
-        Default values:
-        ```python
-        import pulumi
-        ```
-        """
         return pulumi.get(self, "thresholds")
 
     @property
@@ -523,23 +402,21 @@ class Monitor(pulumi.CustomResource):
     def timeout_h(self) -> pulumi.Output[Optional[float]]:
         """
         The number of hours of the monitor not reporting data before it will automatically resolve
-        from a triggered state. Defaults to false.
         """
         return pulumi.get(self, "timeout_h")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) page. The available options are below. **Note**: The monitor type cannot be changed after a monitor is created.
-        * `metric alert`
-        * `service check`
-        * `event alert`
-        * `query alert`
-        * `composite`
-        * `log alert`
-        """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def validate(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to false, skip the validation call done during `plan` .
+        """
+        return pulumi.get(self, "validate")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

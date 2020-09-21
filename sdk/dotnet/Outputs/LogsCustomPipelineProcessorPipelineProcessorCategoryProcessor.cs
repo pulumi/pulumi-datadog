@@ -13,21 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor
     {
-        /// <summary>
-        /// List of filters to match or exclude a log with their corresponding name to assign a custom value to the log.
-        /// </summary>
         public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory> Categories;
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Name of the parent attribute that contains all the extracted details from the sources.
-        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

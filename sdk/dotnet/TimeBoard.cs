@@ -9,177 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
-    /// <summary>
-    /// Provides a Datadog timeboard resource. This can be used to create and manage Datadog timeboards.
-    /// 
-    /// &gt; **Note:**This resource is outdated. Use the new `datadog.Dashboard` resource instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new Datadog timeboard
-    ///         var redis = new Datadog.TimeBoard("redis", new Datadog.TimeBoardArgs
-    ///         {
-    ///             Title = "Redis Timeboard (created via TF)",
-    ///             Description = "created using the Datadog provider in TF",
-    ///             ReadOnly = true,
-    ///             Graphs = 
-    ///             {
-    ///                 new Datadog.Inputs.TimeBoardGraphArgs
-    ///                 {
-    ///                     Title = "Redis latency (ms)",
-    ///                     Viz = "timeseries",
-    ///                     Requests = 
-    ///                     {
-    ///                         new Datadog.Inputs.TimeBoardGraphRequestArgs
-    ///                         {
-    ///                             Q = "avg:redis.info.latency_ms{$host}",
-    ///                             Type = "bars",
-    ///                             MetadataJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "avg:redis.info.latency_ms{$host}", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "alias", "Redis latency" },
-    ///                                 } },
-    ///                             }),
-    ///                         },
-    ///                         new Datadog.Inputs.TimeBoardGraphRequestArgs
-    ///                         {
-    ///                             LogQuery = new Datadog.Inputs.TimeBoardGraphRequestLogQueryArgs
-    ///                             {
-    ///                                 Index = "mcnulty",
-    ///                                 Compute = new Datadog.Inputs.TimeBoardGraphRequestLogQueryComputeArgs
-    ///                                 {
-    ///                                     Aggregation = "avg",
-    ///                                     Facet = "@duration",
-    ///                                     Interval = 5000,
-    ///                                 },
-    ///                                 Search = new Datadog.Inputs.TimeBoardGraphRequestLogQuerySearchArgs
-    ///                                 {
-    ///                                     Query = "status:info",
-    ///                                 },
-    ///                                 GroupBies = 
-    ///                                 {
-    ///                                     new Datadog.Inputs.TimeBoardGraphRequestLogQueryGroupByArgs
-    ///                                     {
-    ///                                         Facet = "host",
-    ///                                         Limit = 10,
-    ///                                         Sort = new Datadog.Inputs.TimeBoardGraphRequestLogQueryGroupBySortArgs
-    ///                                         {
-    ///                                             Aggregation = "avg",
-    ///                                             Order = "desc",
-    ///                                             Facet = "@duration",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                             Type = "area",
-    ///                         },
-    ///                         new Datadog.Inputs.TimeBoardGraphRequestArgs
-    ///                         {
-    ///                             ApmQuery = new Datadog.Inputs.TimeBoardGraphRequestApmQueryArgs
-    ///                             {
-    ///                                 Index = "apm-search",
-    ///                                 Compute = new Datadog.Inputs.TimeBoardGraphRequestApmQueryComputeArgs
-    ///                                 {
-    ///                                     Aggregation = "avg",
-    ///                                     Facet = "@duration",
-    ///                                     Interval = 5000,
-    ///                                 },
-    ///                                 Search = new Datadog.Inputs.TimeBoardGraphRequestApmQuerySearchArgs
-    ///                                 {
-    ///                                     Query = "type:web",
-    ///                                 },
-    ///                                 GroupBies = 
-    ///                                 {
-    ///                                     new Datadog.Inputs.TimeBoardGraphRequestApmQueryGroupByArgs
-    ///                                     {
-    ///                                         Facet = "resource_name",
-    ///                                         Limit = 50,
-    ///                                         Sort = new Datadog.Inputs.TimeBoardGraphRequestApmQueryGroupBySortArgs
-    ///                                         {
-    ///                                             Aggregation = "avg",
-    ///                                             Order = "desc",
-    ///                                             Facet = "@string_query.interval",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                             Type = "bars",
-    ///                         },
-    ///                         new Datadog.Inputs.TimeBoardGraphRequestArgs
-    ///                         {
-    ///                             ProcessQuery = new Datadog.Inputs.TimeBoardGraphRequestProcessQueryArgs
-    ///                             {
-    ///                                 Metric = "process.stat.cpu.total_pct",
-    ///                                 SearchBy = "error",
-    ///                                 FilterBies = 
-    ///                                 {
-    ///                                     "active",
-    ///                                 },
-    ///                                 Limit = 50,
-    ///                             },
-    ///                             Type = "area",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Datadog.Inputs.TimeBoardGraphArgs
-    ///                 {
-    ///                     Title = "Redis memory usage",
-    ///                     Viz = "timeseries",
-    ///                     Requests = 
-    ///                     {
-    ///                         new Datadog.Inputs.TimeBoardGraphRequestArgs
-    ///                         {
-    ///                             Q = "avg:redis.mem.used{$host} - avg:redis.mem.lua{$host}, avg:redis.mem.lua{$host}",
-    ///                             Stacked = true,
-    ///                         },
-    ///                         new Datadog.Inputs.TimeBoardGraphRequestArgs
-    ///                         {
-    ///                             Q = "avg:redis.mem.rss{$host}",
-    ///                             Style = 
-    ///                             {
-    ///                                 { "palette", "warm" },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Datadog.Inputs.TimeBoardGraphArgs
-    ///                 {
-    ///                     Title = "Top System CPU by Docker container",
-    ///                     Viz = "toplist",
-    ///                     Requests = 
-    ///                     {
-    ///                         new Datadog.Inputs.TimeBoardGraphRequestArgs
-    ///                         {
-    ///                             Q = "top(avg:docker.cpu.system{*} by {container_name}, 10, 'mean', 'desc')",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             TemplateVariables = 
-    ///             {
-    ///                 new Datadog.Inputs.TimeBoardTemplateVariableArgs
-    ///                 {
-    ///                     Name = "host",
-    ///                     Prefix = "host",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     public partial class TimeBoard : Pulumi.CustomResource
     {
         /// <summary>
@@ -189,19 +18,16 @@ namespace Pulumi.Datadog
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog.TimeBoard resource.
+        /// A list of graph definitions.
         /// </summary>
         [Output("graphs")]
         public Output<ImmutableArray<Outputs.TimeBoardGraph>> Graphs { get; private set; } = null!;
 
-        /// <summary>
-        /// The read-only status of the timeboard. Default is false.
-        /// </summary>
         [Output("readOnly")]
         public Output<bool?> ReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.TimeBoard resource.
+        /// A list of template variables for using Dashboard templating.
         /// </summary>
         [Output("templateVariables")]
         public Output<ImmutableArray<Outputs.TimeBoardTemplateVariable>> TemplateVariables { get; private set; } = null!;
@@ -268,7 +94,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.TimeBoardGraphArgs>? _graphs;
 
         /// <summary>
-        /// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog.TimeBoard resource.
+        /// A list of graph definitions.
         /// </summary>
         public InputList<Inputs.TimeBoardGraphArgs> Graphs
         {
@@ -276,9 +102,6 @@ namespace Pulumi.Datadog
             set => _graphs = value;
         }
 
-        /// <summary>
-        /// The read-only status of the timeboard. Default is false.
-        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
@@ -286,7 +109,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.TimeBoardTemplateVariableArgs>? _templateVariables;
 
         /// <summary>
-        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.TimeBoard resource.
+        /// A list of template variables for using Dashboard templating.
         /// </summary>
         public InputList<Inputs.TimeBoardTemplateVariableArgs> TemplateVariables
         {
@@ -317,7 +140,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.TimeBoardGraphGetArgs>? _graphs;
 
         /// <summary>
-        /// Nested block describing a graph definition. The structure of this block is described below. Multiple graph blocks are allowed within a datadog.TimeBoard resource.
+        /// A list of graph definitions.
         /// </summary>
         public InputList<Inputs.TimeBoardGraphGetArgs> Graphs
         {
@@ -325,9 +148,6 @@ namespace Pulumi.Datadog
             set => _graphs = value;
         }
 
-        /// <summary>
-        /// The read-only status of the timeboard. Default is false.
-        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
@@ -335,7 +155,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.TimeBoardTemplateVariableGetArgs>? _templateVariables;
 
         /// <summary>
-        /// Nested block describing a template variable. The structure of this block is described below. Multiple template_variable blocks are allowed within a datadog.TimeBoard resource.
+        /// A list of template variables for using Dashboard templating.
         /// </summary>
         public InputList<Inputs.TimeBoardTemplateVariableGetArgs> TemplateVariables
         {

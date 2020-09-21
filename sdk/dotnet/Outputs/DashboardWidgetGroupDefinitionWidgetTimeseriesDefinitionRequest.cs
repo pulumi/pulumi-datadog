@@ -14,22 +14,14 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     {
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery? ApmQuery;
-        /// <summary>
-        /// Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
-        /// </summary>
         public readonly string? DisplayType;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
-        /// <summary>
-        /// . Used to define expression aliases. Multiple nested blocks are allowed with the following structure:
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery? RumQuery;
-        /// <summary>
-        /// Style of the widget graph. One nested block is allowed with the following structure:
-        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle? Style;
 
         [OutputConstructor]
@@ -50,6 +42,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery? rumQuery,
 
+            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery? securityQuery,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
@@ -60,6 +54,7 @@ namespace Pulumi.Datadog.Outputs
             ProcessQuery = processQuery;
             Q = q;
             RumQuery = rumQuery;
+            SecurityQuery = securityQuery;
             Style = style;
         }
     }

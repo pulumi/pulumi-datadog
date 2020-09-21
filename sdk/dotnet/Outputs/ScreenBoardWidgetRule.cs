@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ScreenBoardWidgetRule
     {
-        /// <summary>
-        /// The color of the text in the widget.
-        /// </summary>
         public readonly string? Color;
         public readonly double? Threshold;
         public readonly string? Timeframe;

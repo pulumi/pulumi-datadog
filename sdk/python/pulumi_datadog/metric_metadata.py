@@ -45,12 +45,6 @@ class MetricMetadata(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the metric.
-        :param pulumi.Input[str] metric: The name of the metric.
-        :param pulumi.Input[str] per_unit: 'Per' unit of the metric such as 'second' in 'bytes per second'.
-        :param pulumi.Input[str] short_name: A short name of the metric.
-        :param pulumi.Input[float] statsd_interval: If applicable, stasd flush interval in seconds for the metric.
-        :param pulumi.Input[str] unit: Primary unit of the metric such as 'byte' or 'operation'.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,12 +96,6 @@ class MetricMetadata(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the metric.
-        :param pulumi.Input[str] metric: The name of the metric.
-        :param pulumi.Input[str] per_unit: 'Per' unit of the metric such as 'second' in 'bytes per second'.
-        :param pulumi.Input[str] short_name: A short name of the metric.
-        :param pulumi.Input[float] statsd_interval: If applicable, stasd flush interval in seconds for the metric.
-        :param pulumi.Input[str] unit: Primary unit of the metric such as 'byte' or 'operation'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -125,41 +113,26 @@ class MetricMetadata(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of the metric.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def metric(self) -> pulumi.Output[str]:
-        """
-        The name of the metric.
-        """
         return pulumi.get(self, "metric")
 
     @property
     @pulumi.getter(name="perUnit")
     def per_unit(self) -> pulumi.Output[Optional[str]]:
-        """
-        'Per' unit of the metric such as 'second' in 'bytes per second'.
-        """
         return pulumi.get(self, "per_unit")
 
     @property
     @pulumi.getter(name="shortName")
     def short_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        A short name of the metric.
-        """
         return pulumi.get(self, "short_name")
 
     @property
     @pulumi.getter(name="statsdInterval")
     def statsd_interval(self) -> pulumi.Output[Optional[float]]:
-        """
-        If applicable, stasd flush interval in seconds for the metric.
-        """
         return pulumi.get(self, "statsd_interval")
 
     @property
@@ -170,9 +143,6 @@ class MetricMetadata(pulumi.CustomResource):
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Output[Optional[str]]:
-        """
-        Primary unit of the metric such as 'byte' or 'operation'.
-        """
         return pulumi.get(self, "unit")
 
     def translate_output_property(self, prop):

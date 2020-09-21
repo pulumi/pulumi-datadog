@@ -13,13 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetScatterplotDefinitionRequest
     {
-        /// <summary>
-        /// The position of the widget on the x (horizontal) axis. Should be greater or equal to 0.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestX> Xes;
-        /// <summary>
-        /// The position of the widget on the y (vertical) axis. Should be greater or equal to 0.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestY> Ys;
 
         [OutputConstructor]

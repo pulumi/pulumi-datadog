@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ScreenBoardWidgetRuleGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The color of the text in the widget.
-        /// </summary>
         [Input("color")]
         public Input<string>? Color { get; set; }
 

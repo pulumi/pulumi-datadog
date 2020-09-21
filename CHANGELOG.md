@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.13.0 of the datadog Terraform Provider
+* Upgrade to Pulumi v2.10.0
+* Upgrade to pulumi-terraform-bridge v2.8.0
 
 ---
 

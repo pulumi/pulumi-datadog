@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the
- * log collection Lambdas for an account.
+ * Provides a Datadog - Amazon Web Services integration Lambda ARN resource. This can be used to create and manage the log collection Lambdas for an account.
  *
  * Update operations are currently not supported with datadog API so any change forces a new resource.
  *
@@ -50,13 +49,7 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationLambdaArn.__pulumiType;
     }
 
-    /**
-     * Your AWS Account ID without dashes.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * The ARN of the Datadog forwarder Lambda.
-     */
     public readonly lambdaArn!: pulumi.Output<string>;
 
     /**
@@ -99,13 +92,7 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationLambdaArn resources.
  */
 export interface IntegrationLambdaArnState {
-    /**
-     * Your AWS Account ID without dashes.
-     */
     readonly accountId?: pulumi.Input<string>;
-    /**
-     * The ARN of the Datadog forwarder Lambda.
-     */
     readonly lambdaArn?: pulumi.Input<string>;
 }
 
@@ -113,12 +100,6 @@ export interface IntegrationLambdaArnState {
  * The set of arguments for constructing a IntegrationLambdaArn resource.
  */
 export interface IntegrationLambdaArnArgs {
-    /**
-     * Your AWS Account ID without dashes.
-     */
     readonly accountId: pulumi.Input<string>;
-    /**
-     * The ARN of the Datadog forwarder Lambda.
-     */
     readonly lambdaArn: pulumi.Input<string>;
 }

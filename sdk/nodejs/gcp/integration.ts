@@ -55,29 +55,11 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
-    /**
-     * Your email found in your JSON service account key.
-     */
     public readonly clientEmail!: pulumi.Output<string>;
-    /**
-     * Your ID found in your JSON service account key.
-     */
     public readonly clientId!: pulumi.Output<string>;
-    /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-     */
     public readonly hostFilters!: pulumi.Output<string | undefined>;
-    /**
-     * Your private key name found in your JSON service account key.
-     */
     public readonly privateKey!: pulumi.Output<string>;
-    /**
-     * Your private key ID found in your JSON service account key.
-     */
     public readonly privateKeyId!: pulumi.Output<string>;
-    /**
-     * Your Google Cloud project ID found in your JSON service account key.
-     */
     public readonly projectId!: pulumi.Output<string>;
 
     /**
@@ -137,29 +119,11 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
-    /**
-     * Your email found in your JSON service account key.
-     */
     readonly clientEmail?: pulumi.Input<string>;
-    /**
-     * Your ID found in your JSON service account key.
-     */
     readonly clientId?: pulumi.Input<string>;
-    /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-     */
     readonly hostFilters?: pulumi.Input<string>;
-    /**
-     * Your private key name found in your JSON service account key.
-     */
     readonly privateKey?: pulumi.Input<string>;
-    /**
-     * Your private key ID found in your JSON service account key.
-     */
     readonly privateKeyId?: pulumi.Input<string>;
-    /**
-     * Your Google Cloud project ID found in your JSON service account key.
-     */
     readonly projectId?: pulumi.Input<string>;
 }
 
@@ -167,28 +131,10 @@ export interface IntegrationState {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
-    /**
-     * Your email found in your JSON service account key.
-     */
     readonly clientEmail: pulumi.Input<string>;
-    /**
-     * Your ID found in your JSON service account key.
-     */
     readonly clientId: pulumi.Input<string>;
-    /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
-     */
     readonly hostFilters?: pulumi.Input<string>;
-    /**
-     * Your private key name found in your JSON service account key.
-     */
     readonly privateKey: pulumi.Input<string>;
-    /**
-     * Your private key ID found in your JSON service account key.
-     */
     readonly privateKeyId: pulumi.Input<string>;
-    /**
-     * Your Google Cloud project ID found in your JSON service account key.
-     */
     readonly projectId: pulumi.Input<string>;
 }

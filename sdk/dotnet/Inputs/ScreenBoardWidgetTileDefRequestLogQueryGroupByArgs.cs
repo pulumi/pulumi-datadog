@@ -15,15 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("facet", required: true)]
         public Input<string> Facet { get; set; } = null!;
 
-        /// <summary>
-        /// Integer indicating the number of hosts to limit to.
-        /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
-        /// <summary>
-        /// The method to use to sort monitors. Example: "status,asc".
-        /// </summary>
         [Input("sort")]
         public Input<Inputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySortArgs>? Sort { get; set; }
 

@@ -14,21 +14,9 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorGrokParser
     {
         public readonly Outputs.LogsCustomPipelineProcessorGrokParserGrok Grok;
-        /// <summary>
-        /// If the processor is enabled or not.
-        /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// List of sample logs for this parser. It can save up to 5 samples. Each sample takes up to 5000 characters.
-        /// </summary>
         public readonly ImmutableArray<string> Samples;
-        /// <summary>
-        /// Name of the source attribute used to do the lookup.
-        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]

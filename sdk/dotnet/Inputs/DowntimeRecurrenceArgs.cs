@@ -12,36 +12,23 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DowntimeRecurrenceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-        /// </summary>
-        [Input("period", required: true)]
-        public Input<int> Period { get; set; } = null!;
+        [Input("period")]
+        public Input<int>? Period { get; set; }
 
-        /// <summary>
-        /// days, weeks, months, or years
-        /// </summary>
+        [Input("rrule")]
+        public Input<string>? Rrule { get; set; }
+
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
         [Input("untilDate")]
         public Input<int>? UntilDate { get; set; }
 
-        /// <summary>
-        /// How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
-        /// </summary>
         [Input("untilOccurrences")]
         public Input<int>? UntilOccurrences { get; set; }
 
         [Input("weekDays")]
         private InputList<string>? _weekDays;
-
-        /// <summary>
-        /// A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
-        /// </summary>
         public InputList<string> WeekDays
         {
             get => _weekDays ?? (_weekDays = new InputList<string>());

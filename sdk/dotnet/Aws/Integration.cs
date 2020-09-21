@@ -54,45 +54,24 @@ namespace Pulumi.Datadog.Aws
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Your AWS Account ID without dashes.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-        /// </summary>
         [Output("accountSpecificNamespaceRules")]
         public Output<ImmutableDictionary<string, object>?> AccountSpecificNamespaceRules { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of AWS regions to exclude from metrics collection.
-        /// </summary>
         [Output("excludedRegions")]
         public Output<ImmutableArray<string>> ExcludedRegions { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS External ID
-        /// </summary>
         [Output("externalId")]
         public Output<string> ExternalId { get; private set; } = null!;
 
-        /// <summary>
-        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
-        /// </summary>
         [Output("filterTags")]
         public Output<ImmutableArray<string>> FilterTags { get; private set; } = null!;
 
-        /// <summary>
-        /// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
-        /// </summary>
         [Output("hostTags")]
         public Output<ImmutableArray<string>> HostTags { get; private set; } = null!;
 
-        /// <summary>
-        /// Your Datadog role delegation name.
-        /// </summary>
         [Output("roleName")]
         public Output<string> RoleName { get; private set; } = null!;
 
@@ -142,18 +121,11 @@ namespace Pulumi.Datadog.Aws
 
     public sealed class IntegrationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your AWS Account ID without dashes.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
         [Input("accountSpecificNamespaceRules")]
         private InputMap<object>? _accountSpecificNamespaceRules;
-
-        /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-        /// </summary>
         public InputMap<object> AccountSpecificNamespaceRules
         {
             get => _accountSpecificNamespaceRules ?? (_accountSpecificNamespaceRules = new InputMap<object>());
@@ -162,10 +134,6 @@ namespace Pulumi.Datadog.Aws
 
         [Input("excludedRegions")]
         private InputList<string>? _excludedRegions;
-
-        /// <summary>
-        /// An array of AWS regions to exclude from metrics collection.
-        /// </summary>
         public InputList<string> ExcludedRegions
         {
             get => _excludedRegions ?? (_excludedRegions = new InputList<string>());
@@ -174,10 +142,6 @@ namespace Pulumi.Datadog.Aws
 
         [Input("filterTags")]
         private InputList<string>? _filterTags;
-
-        /// <summary>
-        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
-        /// </summary>
         public InputList<string> FilterTags
         {
             get => _filterTags ?? (_filterTags = new InputList<string>());
@@ -186,19 +150,12 @@ namespace Pulumi.Datadog.Aws
 
         [Input("hostTags")]
         private InputList<string>? _hostTags;
-
-        /// <summary>
-        /// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
-        /// </summary>
         public InputList<string> HostTags
         {
             get => _hostTags ?? (_hostTags = new InputList<string>());
             set => _hostTags = value;
         }
 
-        /// <summary>
-        /// Your Datadog role delegation name.
-        /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 
@@ -209,18 +166,11 @@ namespace Pulumi.Datadog.Aws
 
     public sealed class IntegrationState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Your AWS Account ID without dashes.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         [Input("accountSpecificNamespaceRules")]
         private InputMap<object>? _accountSpecificNamespaceRules;
-
-        /// <summary>
-        /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
-        /// </summary>
         public InputMap<object> AccountSpecificNamespaceRules
         {
             get => _accountSpecificNamespaceRules ?? (_accountSpecificNamespaceRules = new InputMap<object>());
@@ -229,28 +179,17 @@ namespace Pulumi.Datadog.Aws
 
         [Input("excludedRegions")]
         private InputList<string>? _excludedRegions;
-
-        /// <summary>
-        /// An array of AWS regions to exclude from metrics collection.
-        /// </summary>
         public InputList<string> ExcludedRegions
         {
             get => _excludedRegions ?? (_excludedRegions = new InputList<string>());
             set => _excludedRegions = value;
         }
 
-        /// <summary>
-        /// AWS External ID
-        /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
         [Input("filterTags")]
         private InputList<string>? _filterTags;
-
-        /// <summary>
-        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog use when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
-        /// </summary>
         public InputList<string> FilterTags
         {
             get => _filterTags ?? (_filterTags = new InputList<string>());
@@ -259,19 +198,12 @@ namespace Pulumi.Datadog.Aws
 
         [Input("hostTags")]
         private InputList<string>? _hostTags;
-
-        /// <summary>
-        /// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
-        /// </summary>
         public InputList<string> HostTags
         {
             get => _hostTags ?? (_hostTags = new InputList<string>());
             set => _hostTags = value;
         }
 
-        /// <summary>
-        /// Your Datadog role delegation name.
-        /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 

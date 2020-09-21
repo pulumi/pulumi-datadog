@@ -6,48 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to create and manage Datadog logs indexes.
- *
- * ## Example Usage
- *
- * A sample Datadog logs index resource definition. Note that at this point, it is not possible to create new logs indexes
- * through this provider, so the `name` field must match a name of an already existing index. If you want to keep the current
- * state of the index, we suggest importing it (see below).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const sampleIndex = new datadog.LogsIndex("sample_index", {
- *     exclusionFilters: [
- *         {
- *             filters: [{
- *                 query: "app:coredns",
- *                 sampleRate: 0.97,
- *             }],
- *             isEnabled: true,
- *             name: "Filter coredns logs",
- *         },
- *         {
- *             filters: [{
- *                 query: "service:kube_apiserver",
- *                 sampleRate: 1,
- *             }],
- *             isEnabled: true,
- *             name: "Kubernetes apiserver",
- *         },
- *     ],
- *     filters: [{
- *         query: "*",
- *     }],
- *     name: "your index",
- * });
- * ```
- * ## Important Notes
- *
- * The order of indexes is maintained in the separated resource datadog_logs_index_order.
- */
 export class LogsIndex extends pulumi.CustomResource {
     /**
      * Get an existing LogsIndex resource's state with the given name, ID, and optional extra
@@ -76,14 +34,8 @@ export class LogsIndex extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsIndex.__pulumiType;
     }
 
-    /**
-     * List of exclusion filters.
-     */
     public readonly exclusionFilters!: pulumi.Output<outputs.LogsIndexExclusionFilter[] | undefined>;
     public readonly filters!: pulumi.Output<outputs.LogsIndexFilter[]>;
-    /**
-     * The name of the exclusion filter.
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -128,14 +80,8 @@ export class LogsIndex extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsIndex resources.
  */
 export interface LogsIndexState {
-    /**
-     * List of exclusion filters.
-     */
     readonly exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
     readonly filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
-    /**
-     * The name of the exclusion filter.
-     */
     readonly name?: pulumi.Input<string>;
 }
 
@@ -143,13 +89,7 @@ export interface LogsIndexState {
  * The set of arguments for constructing a LogsIndex resource.
  */
 export interface LogsIndexArgs {
-    /**
-     * List of exclusion filters.
-     */
     readonly exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
     readonly filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
-    /**
-     * The name of the exclusion filter.
-     */
     readonly name: pulumi.Input<string>;
 }

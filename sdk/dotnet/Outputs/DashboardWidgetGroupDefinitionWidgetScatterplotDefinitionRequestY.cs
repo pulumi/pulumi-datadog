@@ -13,18 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY
     {
-        /// <summary>
-        /// The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
-        /// - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
-        /// - `q`: (Required) The metric query to use in the widget.
-        /// - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
-        /// - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
-        /// </summary>
         public readonly string? Aggregator;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY(
@@ -36,13 +31,19 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery? processQuery,
 
-            string? q)
+            string? q,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery? rumQuery,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery? securityQuery)
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            RumQuery = rumQuery;
+            SecurityQuery = securityQuery;
         }
     }
 }

@@ -12,15 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestRequestBasicauthArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Password for authentication
-        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
-        /// <summary>
-        /// Username for authentication
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

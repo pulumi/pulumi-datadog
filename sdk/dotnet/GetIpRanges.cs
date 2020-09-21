@@ -13,6 +13,7 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve information about Datadog's IP addresses.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -41,65 +42,23 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetIpRangesResult
     {
-        /// <summary>
-        /// An Array of IPv4 addresses in CIDR format specifying the A records for the agent endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> AgentsIpv4s;
-        /// <summary>
-        /// An Array of IPv6 addresses in CIDR format specifying the A records for the agent endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> AgentsIpv6s;
-        /// <summary>
-        /// An Array of IPv4 addresses in CIDR format specifying the A records for the api endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> ApiIpv4s;
-        /// <summary>
-        /// An Array of IPv6 addresses in CIDR format specifying the A records for the api endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> ApiIpv6s;
-        /// <summary>
-        /// An Array of IPv4 addresses in CIDR format specifying the A records for the apm endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> ApmIpv4s;
-        /// <summary>
-        /// An Array of IPv6 addresses in CIDR format specifying the A records for the apm endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> ApmIpv6s;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// An Array of IPv4 addresses in CIDR format specifying the A records for the logs endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> LogsIpv4s;
-        /// <summary>
-        /// An Array of IPv6 addresses in CIDR format specifying the A records for the logs endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> LogsIpv6s;
-        /// <summary>
-        /// An Array of IPv4 addresses in CIDR format specifying the A records for the process endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> ProcessIpv4s;
-        /// <summary>
-        /// An Array of IPv6 addresses in CIDR format specifying the A records for the process endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> ProcessIpv6s;
-        /// <summary>
-        /// An Array of IPv4 addresses in CIDR format specifying the A records for the synthetics endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> SyntheticsIpv4s;
-        /// <summary>
-        /// An Array of IPv6 addresses in CIDR format specifying the A records for the synthetics endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> SyntheticsIpv6s;
-        /// <summary>
-        /// An Array of IPv4 addresses in CIDR format specifying the A records for the webhooks endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> WebhooksIpv4s;
-        /// <summary>
-        /// An Array of IPv6 addresses in CIDR format specifying the A records for the webhooks endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> WebhooksIpv6s;
 
         [OutputConstructor]

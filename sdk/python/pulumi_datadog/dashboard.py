@@ -17,6 +17,7 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dashboard_lists: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
@@ -42,7 +43,7 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         ordered_dashboard = datadog.Dashboard("orderedDashboard",
-            description="Created using the Datadog provider in TF",
+            description="Created using the Datadog provider in Terraform",
             is_read_only=True,
             layout_type="ordered",
             template_variables=[
@@ -493,7 +494,7 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         free_dashboard = datadog.Dashboard("freeDashboard",
-            description="Created using the Datadog provider in TF",
+            description="Created using the Datadog provider in Terraform",
             is_read_only=False,
             layout_type="free",
             template_variables=[
@@ -609,7 +610,7 @@ class Dashboard(pulumi.CustomResource):
                             "core_service",
                             "tag_source",
                         ],
-                        logset="19",
+                        indexes=["main"],
                         message_display="expanded-md",
                         query="error",
                         show_date_column=True,
@@ -672,16 +673,16 @@ class Dashboard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
-        :param pulumi.Input[str] layout_type: Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-               <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
-        :param pulumi.Input[List[pulumi.Input[str]]] notify_lists: List of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[List[pulumi.Input[float]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[str] description: The description of the dashboard.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[List[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
-        :param pulumi.Input[str] title: Title of the dashboard.
-        :param pulumi.Input[str] url: Read only field - The URL of the dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -700,6 +701,7 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['dashboard_lists'] = dashboard_lists
             __props__['description'] = description
             __props__['is_read_only'] = is_read_only
             if layout_type is None:
@@ -715,6 +717,7 @@ class Dashboard(pulumi.CustomResource):
             if widgets is None:
                 raise TypeError("Missing required property 'widgets'")
             __props__['widgets'] = widgets
+            __props__['dashboard_lists_removeds'] = None
         super(Dashboard, __self__).__init__(
             'datadog:index/dashboard:Dashboard',
             resource_name,
@@ -725,6 +728,8 @@ class Dashboard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            dashboard_lists: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+            dashboard_lists_removeds: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             is_read_only: Optional[pulumi.Input[bool]] = None,
             layout_type: Optional[pulumi.Input[str]] = None,
@@ -741,21 +746,24 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the dashboard.
-        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
-        :param pulumi.Input[str] layout_type: Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-               <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
-        :param pulumi.Input[List[pulumi.Input[str]]] notify_lists: List of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[List[pulumi.Input[float]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[List[pulumi.Input[float]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input[str] description: The description of the dashboard.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[List[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
-        :param pulumi.Input[str] title: Title of the dashboard.
-        :param pulumi.Input[str] url: Read only field - The URL of the dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["dashboard_lists"] = dashboard_lists
+        __props__["dashboard_lists_removeds"] = dashboard_lists_removeds
         __props__["description"] = description
         __props__["is_read_only"] = is_read_only
         __props__["layout_type"] = layout_type
@@ -768,10 +776,26 @@ class Dashboard(pulumi.CustomResource):
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="dashboardLists")
+    def dashboard_lists(self) -> pulumi.Output[Optional[List[float]]]:
+        """
+        The list of dashboard lists this dashboard belongs to.
+        """
+        return pulumi.get(self, "dashboard_lists")
+
+    @property
+    @pulumi.getter(name="dashboardListsRemoveds")
+    def dashboard_lists_removeds(self) -> pulumi.Output[List[float]]:
+        """
+        The list of dashboard lists this dashboard should be removed from. Internal only.
+        """
+        return pulumi.get(self, "dashboard_lists_removeds")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of the dashboard.
+        The description of the dashboard.
         """
         return pulumi.get(self, "description")
 
@@ -779,7 +803,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="isReadOnly")
     def is_read_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether this dashboard is read-only. If `true`, only the author and admins can make changes to it.
+        Whether this dashboard is read-only.
         """
         return pulumi.get(self, "is_read_only")
 
@@ -787,8 +811,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Output[str]:
         """
-        Layout type of the dashboard. Available values are: `ordered` (previous timeboard) or `free` (previous screenboard layout).
-        <br>**Note: This value cannot be changed. Converting a dashboard from `free` <> `ordered` requires destroying and re-creating the dashboard.** Instead of using `ForceNew`, this is a manual action as many underlying widget configs need to be updated to work for the updated layout, otherwise the new dashboard won't be created properly.
+        The layout type of the dashboard, either 'free' or 'ordered'.
         """
         return pulumi.get(self, "layout_type")
 
@@ -796,7 +819,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="notifyLists")
     def notify_lists(self) -> pulumi.Output[Optional[List[str]]]:
         """
-        List of handles of users to notify when changes are made to this dashboard.
+        The list of handles of users to notify when changes are made to this dashboard.
         """
         return pulumi.get(self, "notify_lists")
 
@@ -820,7 +843,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
-        Title of the dashboard.
+        The title of the dashboard.
         """
         return pulumi.get(self, "title")
 
@@ -828,7 +851,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        Read only field - The URL of the dashboard.
+        The URL of the dashboard.
         """
         return pulumi.get(self, "url")
 
@@ -836,7 +859,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def widgets(self) -> pulumi.Output[List['outputs.DashboardWidget']]:
         """
-        Nested block describing a widget. The structure of this block is described below. Multiple `widget` blocks are allowed within a `Dashboard` resource.
+        The list of widgets to display on the dashboard.
         """
         return pulumi.get(self, "widgets")
 

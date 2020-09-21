@@ -13,22 +13,16 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory
     {
-        /// <summary>
-        /// Defines the nested pipeline filter. Only logs that match the filter criteria are processed by this pipeline.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter> Filters;
-        /// <summary>
-        /// Name of the processor
-        /// </summary>
+        public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter Filter;
         public readonly string Name;
 
         [OutputConstructor]
         private LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory(
-            ImmutableArray<Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter> filters,
+            Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter filter,
 
             string name)
         {
-            Filters = filters;
+            Filter = filter;
             Name = name;
         }
     }

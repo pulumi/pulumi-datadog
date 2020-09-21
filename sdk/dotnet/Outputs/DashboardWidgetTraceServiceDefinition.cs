@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTraceServiceDefinition
     {
-        /// <summary>
-        /// The display setting to use. One of "counts", "list", or "countsAndList".
-        /// </summary>
         public readonly string? DisplayFormat;
         public readonly string Env;
         public readonly string Service;
@@ -28,9 +25,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? SizeFormat;
         public readonly string SpanName;
         public readonly Outputs.DashboardWidgetTraceServiceDefinitionTime? Time;
-        /// <summary>
-        /// Title of the dashboard.
-        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

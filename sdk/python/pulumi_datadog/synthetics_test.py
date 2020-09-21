@@ -23,11 +23,13 @@ class SyntheticsTest(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsArgs']]] = None,
+                 options_list: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsListArgs']]] = None,
                  request: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestArgs']]] = None,
                  request_basicauth: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 steps: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
                  subtype: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -35,170 +37,9 @@ class SyntheticsTest(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
-
-        ## Example Usage
-        ### Synthetics API Test)
-
-        Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_api = datadog.SyntheticsTest("testApi",
-            assertions=[{
-                "operator": "is",
-                "target": "200",
-                "type": "statusCode",
-            }],
-            locations=["aws:eu-central-1"],
-            message="Notify @pagerduty",
-            name="An API test on example.org",
-            options=datadog.SyntheticsTestOptionsArgs(
-                tick_every=900,
-            ),
-            request=datadog.SyntheticsTestRequestArgs(
-                method="GET",
-                url="https://www.example.org",
-            ),
-            request_headers={
-                "Authentication": "Token: 1234566789",
-                "Content-Type": "application/json",
-            },
-            status="live",
-            subtype="http",
-            tags=[
-                "foo:bar",
-                "foo",
-                "env:test",
-            ],
-            type="api")
-        ```
-        ### Synthetics SSL Test)
-
-        Create a new Datadog Synthetics API/SSL test on example.org
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_ssl = datadog.SyntheticsTest("testSsl",
-            assertions=[{
-                "operator": "isInMoreThan",
-                "target": 30,
-                "type": "certificate",
-            }],
-            locations=["aws:eu-central-1"],
-            message="Notify @pagerduty",
-            name="An API test on example.org",
-            options=datadog.SyntheticsTestOptionsArgs(
-                accept_self_signed=True,
-                tick_every=900,
-            ),
-            request=datadog.SyntheticsTestRequestArgs(
-                host="example.org",
-                port=443,
-            ),
-            status="live",
-            subtype="ssl",
-            tags=[
-                "foo:bar",
-                "foo",
-                "env:test",
-            ],
-            type="api")
-        ```
-        ### Synthetics Browser Test)
-
-        Support for Synthetics Browser test is limited (see below)
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        # Create a new Datadog Synthetics Browser test starting on https://www.example.org
-        test_browser = datadog.SyntheticsTest("testBrowser",
-            device_ids=["laptop_large"],
-            locations=["aws:eu-central-1"],
-            message="Notify @qa",
-            name="A Browser test on example.org",
-            options=datadog.SyntheticsTestOptionsArgs(
-                tick_every=3600,
-            ),
-            request=datadog.SyntheticsTestRequestArgs(
-                method="GET",
-                url="https://app.datadoghq.com",
-            ),
-            status="paused",
-            tags=[],
-            type="browser")
-        ```
-        ## Synthetics Browser test
-
-        Support for Synthetics Browser test is limited to creating shallow Synthetics Browser test (cf. example usage below)
-
-        You cannot create/edit/delete steps or assertions via this provider unless you use [Datadog WebUI](https://app.datadoghq.com/synthetics/list) in conjunction with the provider.
-
-        We are considering adding support for Synthetics Browser test steps and assertions in the future but can't share any release date on that matter.
-
-        ## Assertion format
-
-        The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_api = datadog.SyntheticsTest("testApi", assertions=[
-            {
-                "operator": "is",
-                "target": "200",
-                "type": "statusCode",
-            },
-            {
-                "operator": "lessThan",
-                "target": "1000",
-                "type": "responseTime",
-            },
-        ])
-        ```
-
-        turns into:
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        test_api = datadog.SyntheticsTest("testApi", assertions=[
-            {
-                "operator": "is",
-                "target": "200",
-                "type": "statusCode",
-            },
-            {
-                "operator": "lessThan",
-                "target": "1000",
-                "type": "responsTime",
-            },
-        ])
-        ```
-
+        Create a SyntheticsTest resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] device_ids: "laptop_large", "tablet" or "mobile_small" (only available if type=browser)
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test.
-               Email notifications can be sent to specific users by using the same '@username' notation as events.
-        :param pulumi.Input[str] name: Name of Datadog synthetics test
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestArgs']] request: if type=browser
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: Array of 1 item containing HTTP basic authentication credentials
-        :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map
-        :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map
-        :param pulumi.Input[str] status: "live", "paused"
-        :param pulumi.Input[str] subtype: For type=api, http or ssl (Default = http)
-        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-        :param pulumi.Input[str] type: body, header, responseTime, statusCode
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -229,7 +70,11 @@ class SyntheticsTest(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if options is not None:
+                warnings.warn("This parameter is deprecated, please use `options_list`", DeprecationWarning)
+                pulumi.log.warn("options is deprecated: This parameter is deprecated, please use `options_list`")
             __props__['options'] = options
+            __props__['options_list'] = options_list
             if request is None:
                 raise TypeError("Missing required property 'request'")
             __props__['request'] = request
@@ -239,6 +84,7 @@ class SyntheticsTest(pulumi.CustomResource):
             if status is None:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
+            __props__['steps'] = steps
             __props__['subtype'] = subtype
             if tags is None:
                 raise TypeError("Missing required property 'tags'")
@@ -264,11 +110,13 @@ class SyntheticsTest(pulumi.CustomResource):
             monitor_id: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsArgs']]] = None,
+            options_list: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsListArgs']]] = None,
             request: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestArgs']]] = None,
             request_basicauth: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']]] = None,
             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             status: Optional[pulumi.Input[str]] = None,
+            steps: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
             subtype: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'SyntheticsTest':
@@ -279,20 +127,6 @@ class SyntheticsTest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] device_ids: "laptop_large", "tablet" or "mobile_small" (only available if type=browser)
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test.
-               Email notifications can be sent to specific users by using the same '@username' notation as events.
-        :param pulumi.Input[float] monitor_id: ID of the monitor associated with the Datadog synthetics test
-        :param pulumi.Input[str] name: Name of Datadog synthetics test
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestArgs']] request: if type=browser
-        :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestBasicauthArgs']] request_basicauth: Array of 1 item containing HTTP basic authentication credentials
-        :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map
-        :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map
-        :param pulumi.Input[str] status: "live", "paused"
-        :param pulumi.Input[str] subtype: For type=api, http or ssl (Default = http)
-        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-        :param pulumi.Input[str] type: body, header, responseTime, statusCode
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -305,11 +139,13 @@ class SyntheticsTest(pulumi.CustomResource):
         __props__["monitor_id"] = monitor_id
         __props__["name"] = name
         __props__["options"] = options
+        __props__["options_list"] = options_list
         __props__["request"] = request
         __props__["request_basicauth"] = request_basicauth
         __props__["request_headers"] = request_headers
         __props__["request_query"] = request_query
         __props__["status"] = status
+        __props__["steps"] = steps
         __props__["subtype"] = subtype
         __props__["tags"] = tags
         __props__["type"] = type
@@ -323,42 +159,26 @@ class SyntheticsTest(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deviceIds")
     def device_ids(self) -> pulumi.Output[Optional[List[str]]]:
-        """
-        "laptop_large", "tablet" or "mobile_small" (only available if type=browser)
-        """
         return pulumi.get(self, "device_ids")
 
     @property
     @pulumi.getter
     def locations(self) -> pulumi.Output[List[str]]:
-        """
-        Please refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. "aws:eu-central-1")
-        """
         return pulumi.get(self, "locations")
 
     @property
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[str]]:
-        """
-        A message to include with notifications for this synthetics test.
-        Email notifications can be sent to specific users by using the same '@username' notation as events.
-        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter(name="monitorId")
     def monitor_id(self) -> pulumi.Output[float]:
-        """
-        ID of the monitor associated with the Datadog synthetics test
-        """
         return pulumi.get(self, "monitor_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of Datadog synthetics test
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -367,67 +187,53 @@ class SyntheticsTest(pulumi.CustomResource):
         return pulumi.get(self, "options")
 
     @property
+    @pulumi.getter(name="optionsList")
+    def options_list(self) -> pulumi.Output[Optional['outputs.SyntheticsTestOptionsList']]:
+        return pulumi.get(self, "options_list")
+
+    @property
     @pulumi.getter
     def request(self) -> pulumi.Output['outputs.SyntheticsTestRequest']:
-        """
-        if type=browser
-        """
         return pulumi.get(self, "request")
 
     @property
     @pulumi.getter(name="requestBasicauth")
     def request_basicauth(self) -> pulumi.Output[Optional['outputs.SyntheticsTestRequestBasicauth']]:
-        """
-        Array of 1 item containing HTTP basic authentication credentials
-        """
         return pulumi.get(self, "request_basicauth")
 
     @property
     @pulumi.getter(name="requestHeaders")
     def request_headers(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
-        """
-        Header name and value map
-        """
         return pulumi.get(self, "request_headers")
 
     @property
     @pulumi.getter(name="requestQuery")
     def request_query(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
-        """
-        Query arguments name and value map
-        """
         return pulumi.get(self, "request_query")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        "live", "paused"
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
+    def steps(self) -> pulumi.Output[Optional[List['outputs.SyntheticsTestStep']]]:
+        return pulumi.get(self, "steps")
+
+    @property
+    @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[str]]:
-        """
-        For type=api, http or ssl (Default = http)
-        """
         return pulumi.get(self, "subtype")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[List[str]]:
-        """
-        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        body, header, responseTime, statusCode
-        """
         return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):

@@ -13,18 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetScatterplotDefinitionRequestY
     {
-        /// <summary>
-        /// The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
-        /// - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
-        /// - `q`: (Required) The metric query to use in the widget.
-        /// - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
-        /// - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
-        /// </summary>
         public readonly string? Aggregator;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery? ApmQuery;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery? RumQuery;
+        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardWidgetScatterplotDefinitionRequestY(
@@ -36,13 +31,19 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetScatterplotDefinitionRequestYProcessQuery? processQuery,
 
-            string? q)
+            string? q,
+
+            Outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuery? rumQuery,
+
+            Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery? securityQuery)
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            RumQuery = rumQuery;
+            SecurityQuery = securityQuery;
         }
     }
 }

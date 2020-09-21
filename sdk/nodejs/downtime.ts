@@ -75,51 +75,45 @@ export class Downtime extends pulumi.CustomResource {
     }
 
     /**
-     * A flag indicating if the downtime is active now.
+     * When true indicates this downtime is being actively applied
      */
     public readonly active!: pulumi.Output<boolean | undefined>;
     /**
-     * A flag indicating if the downtime was disabled.
+     * When true indicates this downtime is not being applied
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
-     * POSIX timestamp to end the downtime.
+     * Optionally specify an end date when this downtime should expire
      */
     public readonly end!: pulumi.Output<number | undefined>;
-    /**
-     * String representing date and time to end the downtime in RFC3339 format.
-     */
     public readonly endDate!: pulumi.Output<string | undefined>;
     /**
-     * A message to include with notifications for this downtime.
+     * An optional message to provide when creating the downtime, can include notification handles
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
+     * When specified, this downtime will only apply to this monitor
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
     /**
-     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
+     * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
      */
     public readonly monitorTags!: pulumi.Output<string[] | undefined>;
     /**
-     * A dictionary to configure the downtime to be recurring.
+     * Optional recurring schedule for this downtime
      */
     public readonly recurrence!: pulumi.Output<outputs.DowntimeRecurrence | undefined>;
     /**
-     * The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
+     * specify the group scope to which this downtime applies. For everything use '*'
      */
     public readonly scopes!: pulumi.Output<string[]>;
     /**
-     * POSIX timestamp to start the downtime.
+     * Specify when this downtime should start
      */
     public readonly start!: pulumi.Output<number | undefined>;
-    /**
-     * String representing date and time to start the downtime in RFC3339 format.
-     */
     public readonly startDate!: pulumi.Output<string | undefined>;
     /**
-     * The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+     * The timezone for the downtime, default UTC
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
 
@@ -181,51 +175,45 @@ export class Downtime extends pulumi.CustomResource {
  */
 export interface DowntimeState {
     /**
-     * A flag indicating if the downtime is active now.
+     * When true indicates this downtime is being actively applied
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * A flag indicating if the downtime was disabled.
+     * When true indicates this downtime is not being applied
      */
     readonly disabled?: pulumi.Input<boolean>;
     /**
-     * POSIX timestamp to end the downtime.
+     * Optionally specify an end date when this downtime should expire
      */
     readonly end?: pulumi.Input<number>;
-    /**
-     * String representing date and time to end the downtime in RFC3339 format.
-     */
     readonly endDate?: pulumi.Input<string>;
     /**
-     * A message to include with notifications for this downtime.
+     * An optional message to provide when creating the downtime, can include notification handles
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
+     * When specified, this downtime will only apply to this monitor
      */
     readonly monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
+     * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
      */
     readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A dictionary to configure the downtime to be recurring.
+     * Optional recurring schedule for this downtime
      */
     readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
-     * The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
+     * specify the group scope to which this downtime applies. For everything use '*'
      */
     readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * POSIX timestamp to start the downtime.
+     * Specify when this downtime should start
      */
     readonly start?: pulumi.Input<number>;
-    /**
-     * String representing date and time to start the downtime in RFC3339 format.
-     */
     readonly startDate?: pulumi.Input<string>;
     /**
-     * The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+     * The timezone for the downtime, default UTC
      */
     readonly timezone?: pulumi.Input<string>;
 }
@@ -235,51 +223,45 @@ export interface DowntimeState {
  */
 export interface DowntimeArgs {
     /**
-     * A flag indicating if the downtime is active now.
+     * When true indicates this downtime is being actively applied
      */
     readonly active?: pulumi.Input<boolean>;
     /**
-     * A flag indicating if the downtime was disabled.
+     * When true indicates this downtime is not being applied
      */
     readonly disabled?: pulumi.Input<boolean>;
     /**
-     * POSIX timestamp to end the downtime.
+     * Optionally specify an end date when this downtime should expire
      */
     readonly end?: pulumi.Input<number>;
-    /**
-     * String representing date and time to end the downtime in RFC3339 format.
-     */
     readonly endDate?: pulumi.Input<string>;
     /**
-     * A message to include with notifications for this downtime.
+     * An optional message to provide when creating the downtime, can include notification handles
      */
     readonly message?: pulumi.Input<string>;
     /**
-     * Reference to which monitor this downtime is applied. When scheduling downtime for a given monitor, datadog changes `silenced` property of the monitor to match the `end` POSIX timestamp. **Note:** this will effectively change the `silenced` attribute of the referenced monitor. If that monitor is also tracked by this provider and you don't want it to be unmuted on the next `pulumi up`, see `silencing-by-hand-and-by-downtimes` in the monitor resource documentation. This option also conflicts with `monitorTags` use none or one or the other.
+     * When specified, this downtime will only apply to this monitor
      */
     readonly monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags to match. The resulting downtime applies to monitors that match **all** provided monitor tags. This option conflicts with `monitorId` as it will match all monitors that match these tags.
+     * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
      */
     readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A dictionary to configure the downtime to be recurring.
+     * Optional recurring schedule for this downtime
      */
     readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
-     * The scope(s) to which the downtime applies, e.g. host:app2. Provide multiple scopes as a comma-separated list, e.g. env:dev,env:prod. The resulting downtime applies to sources that matches ALL provided scopes (i.e. env:dev AND env:prod), NOT any of them.
+     * specify the group scope to which this downtime applies. For everything use '*'
      */
     readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * POSIX timestamp to start the downtime.
+     * Specify when this downtime should start
      */
     readonly start?: pulumi.Input<number>;
-    /**
-     * String representing date and time to start the downtime in RFC3339 format.
-     */
     readonly startDate?: pulumi.Input<string>;
     /**
-     * The timezone for the downtime, default UTC. It must be a valid IANA Time Zone.
+     * The timezone for the downtime, default UTC
      */
     readonly timezone?: pulumi.Input<string>;
 }

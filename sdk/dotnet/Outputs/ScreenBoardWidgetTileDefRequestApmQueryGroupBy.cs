@@ -14,13 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ScreenBoardWidgetTileDefRequestApmQueryGroupBy
     {
         public readonly string Facet;
-        /// <summary>
-        /// Integer indicating the number of hosts to limit to.
-        /// </summary>
         public readonly int? Limit;
-        /// <summary>
-        /// The method to use to sort monitors. Example: "status,asc".
-        /// </summary>
         public readonly Outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort? Sort;
 
         [OutputConstructor]

@@ -15,9 +15,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
 
-        /// <summary>
-        /// Type of display to use for the request. Available values are: `area`, `bars`, or `line`.
-        /// </summary>
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }
 
@@ -26,10 +23,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("metadatas")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataGetArgs>? _metadatas;
-
-        /// <summary>
-        /// . Used to define expression aliases. Multiple nested blocks are allowed with the following structure:
-        /// </summary>
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataGetArgs> Metadatas
         {
             get => _metadatas ?? (_metadatas = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataGetArgs>());
@@ -48,9 +41,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
 
-        /// <summary>
-        /// Style of the widget graph. One nested block is allowed with the following structure:
-        /// </summary>
+        [Input("securityQuery")]
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+
         [Input("style")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestStyleGetArgs>? Style { get; set; }
 

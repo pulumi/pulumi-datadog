@@ -13,9 +13,6 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ScreenBoardWidgetTileDefRequestLogQuerySearch
     {
-        /// <summary>
-        /// The query to use in the widget.
-        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

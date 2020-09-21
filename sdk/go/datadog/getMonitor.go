@@ -46,59 +46,35 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getMonitor.
 type LookupMonitorArgs struct {
-	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 	MonitorTagsFilters []string `pulumi:"monitorTagsFilters"`
-	// A monitor name to limit the search.
-	NameFilter *string `pulumi:"nameFilter"`
-	// A list of tags to limit the search. This filters on the monitor scope.
-	TagsFilters []string `pulumi:"tagsFilters"`
+	NameFilter         *string  `pulumi:"nameFilter"`
+	TagsFilters        []string `pulumi:"tagsFilters"`
 }
 
 // A collection of values returned by getMonitor.
 type LookupMonitorResult struct {
-	// Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
-	EnableLogsSample bool `pulumi:"enableLogsSample"`
-	// Message included with a re-notification for this monitor.
+	EnableLogsSample  bool   `pulumi:"enableLogsSample"`
 	EscalationMessage string `pulumi:"escalationMessage"`
-	// Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
-	EvaluationDelay int `pulumi:"evaluationDelay"`
+	EvaluationDelay   int    `pulumi:"evaluationDelay"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
-	IncludeTags bool `pulumi:"includeTags"`
-	// Whether or not changes to the monitor are restricted to the creator or admins.
-	Locked bool `pulumi:"locked"`
-	// Message included with notifications for this monitor.
-	Message            string   `pulumi:"message"`
-	MonitorTagsFilters []string `pulumi:"monitorTagsFilters"`
-	// Name of the monitor.
-	Name       string  `pulumi:"name"`
-	NameFilter *string `pulumi:"nameFilter"`
-	// Time (in seconds) allowing a host to boot and
-	// applications to fully start before starting the evaluation of monitor
-	// results.
-	NewHostDelay int `pulumi:"newHostDelay"`
-	// The number of minutes before the monitor notifies when data stops reporting.
-	NoDataTimeframe int `pulumi:"noDataTimeframe"`
-	// Whether or not tagged users are notified on changes to the monitor.
-	NotifyAudit bool `pulumi:"notifyAudit"`
-	// Whether or not this monitor notifies when data stops reporting.
-	NotifyNoData bool `pulumi:"notifyNoData"`
-	// Query of the monitor.
-	Query string `pulumi:"query"`
-	// The number of minutes after the last notification before the monitor re-notifies on the current status.
-	RenotifyInterval int `pulumi:"renotifyInterval"`
-	// Whether or not the monitor needs a full window of data before it is evaluated.
-	RequireFullWindow bool `pulumi:"requireFullWindow"`
-	// List of tags associated with the monitor.
-	Tags        []string `pulumi:"tags"`
-	TagsFilters []string `pulumi:"tagsFilters"`
-	// Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
-	ThresholdWindows GetMonitorThresholdWindows `pulumi:"thresholdWindows"`
-	// Alert thresholds of the monitor.
-	Thresholds GetMonitorThresholds `pulumi:"thresholds"`
-	// Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
-	TimeoutH int `pulumi:"timeoutH"`
-	// Type of the monitor.
-	Type string `pulumi:"type"`
+	Id                 string                     `pulumi:"id"`
+	IncludeTags        bool                       `pulumi:"includeTags"`
+	Locked             bool                       `pulumi:"locked"`
+	Message            string                     `pulumi:"message"`
+	MonitorTagsFilters []string                   `pulumi:"monitorTagsFilters"`
+	Name               string                     `pulumi:"name"`
+	NameFilter         *string                    `pulumi:"nameFilter"`
+	NewHostDelay       int                        `pulumi:"newHostDelay"`
+	NoDataTimeframe    int                        `pulumi:"noDataTimeframe"`
+	NotifyAudit        bool                       `pulumi:"notifyAudit"`
+	NotifyNoData       bool                       `pulumi:"notifyNoData"`
+	Query              string                     `pulumi:"query"`
+	RenotifyInterval   int                        `pulumi:"renotifyInterval"`
+	RequireFullWindow  bool                       `pulumi:"requireFullWindow"`
+	Tags               []string                   `pulumi:"tags"`
+	TagsFilters        []string                   `pulumi:"tagsFilters"`
+	ThresholdWindows   GetMonitorThresholdWindows `pulumi:"thresholdWindows"`
+	Thresholds         GetMonitorThresholds       `pulumi:"thresholds"`
+	TimeoutH           int                        `pulumi:"timeoutH"`
+	Type               string                     `pulumi:"type"`
 }

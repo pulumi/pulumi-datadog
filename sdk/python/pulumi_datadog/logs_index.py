@@ -24,50 +24,9 @@ class LogsIndex(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to create and manage Datadog logs indexes.
-
-        ## Example Usage
-
-        A sample Datadog logs index resource definition. Note that at this point, it is not possible to create new logs indexes
-        through this provider, so the `name` field must match a name of an already existing index. If you want to keep the current
-        state of the index, we suggest importing it (see below).
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_index = datadog.LogsIndex("sampleIndex",
-            exclusion_filters=[
-                datadog.LogsIndexExclusionFilterArgs(
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="app:coredns",
-                        sample_rate=0.97,
-                    )],
-                    is_enabled=True,
-                    name="Filter coredns logs",
-                ),
-                datadog.LogsIndexExclusionFilterArgs(
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="service:kube_apiserver",
-                        sample_rate=1,
-                    )],
-                    is_enabled=True,
-                    name="Kubernetes apiserver",
-                ),
-            ],
-            filters=[datadog.LogsIndexFilterArgs(
-                query="*",
-            )],
-            name="your index")
-        ```
-        ## Important Notes
-
-        The order of indexes is maintained in the separated resource datadog_logs_index_order.
-
+        Create a LogsIndex resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
-        :param pulumi.Input[str] name: The name of the exclusion filter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,8 +72,6 @@ class LogsIndex(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
-        :param pulumi.Input[str] name: The name of the exclusion filter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -128,9 +85,6 @@ class LogsIndex(pulumi.CustomResource):
     @property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> pulumi.Output[Optional[List['outputs.LogsIndexExclusionFilter']]]:
-        """
-        List of exclusion filters.
-        """
         return pulumi.get(self, "exclusion_filters")
 
     @property
@@ -141,9 +95,6 @@ class LogsIndex(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the exclusion filter.
-        """
         return pulumi.get(self, "name")
 
     def translate_output_property(self, prop):

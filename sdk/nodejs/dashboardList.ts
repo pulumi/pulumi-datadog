@@ -101,11 +101,11 @@ export class DashboardList extends pulumi.CustomResource {
     }
 
     /**
-     * An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+     * A set of dashbaord items that belong to this list
      */
     public readonly dashItems!: pulumi.Output<outputs.DashboardListDashItem[] | undefined>;
     /**
-     * The name of this Dashboard List.
+     * The name of the Dashboard List
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -147,11 +147,11 @@ export class DashboardList extends pulumi.CustomResource {
  */
 export interface DashboardListState {
     /**
-     * An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+     * A set of dashbaord items that belong to this list
      */
     readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**
-     * The name of this Dashboard List.
+     * The name of the Dashboard List
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -161,11 +161,11 @@ export interface DashboardListState {
  */
 export interface DashboardListArgs {
     /**
-     * An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+     * A set of dashbaord items that belong to this list
      */
     readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**
-     * The name of this Dashboard List.
+     * The name of the Dashboard List
      */
     readonly name: pulumi.Input<string>;
 }

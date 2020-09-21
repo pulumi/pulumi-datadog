@@ -12,13 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The aggregator to use for time aggregation. One of `avg`, `min`, `max`, `sum`, `last`.
-        /// - `y`: (Optional) The query used for the Y-Axis. Exactly one nested block is allowed with the following structure:
-        /// - `q`: (Required) The metric query to use in the widget.
-        /// - `xaxis`: (Optional) Nested block describing the X-Axis Controls. The structure of this block is described below
-        /// - `yaxis`: (Optional) Nested block describing the Y-Axis Controls. The structure of this block is described below
-        /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
@@ -33,6 +26,12 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("q")]
         public Input<string>? Q { get; set; }
+
+        [Input("rumQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGetArgs>? RumQuery { get; set; }
+
+        [Input("securityQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXGetArgs()
         {

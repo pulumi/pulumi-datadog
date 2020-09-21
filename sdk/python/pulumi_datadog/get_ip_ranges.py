@@ -69,49 +69,31 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="agentsIpv4s")
     def agents_ipv4s(self) -> List[str]:
-        """
-        An Array of IPv4 addresses in CIDR format specifying the A records for the agent endpoint.
-        """
         return pulumi.get(self, "agents_ipv4s")
 
     @property
     @pulumi.getter(name="agentsIpv6s")
     def agents_ipv6s(self) -> List[str]:
-        """
-        An Array of IPv6 addresses in CIDR format specifying the A records for the agent endpoint.
-        """
         return pulumi.get(self, "agents_ipv6s")
 
     @property
     @pulumi.getter(name="apiIpv4s")
     def api_ipv4s(self) -> List[str]:
-        """
-        An Array of IPv4 addresses in CIDR format specifying the A records for the api endpoint.
-        """
         return pulumi.get(self, "api_ipv4s")
 
     @property
     @pulumi.getter(name="apiIpv6s")
     def api_ipv6s(self) -> List[str]:
-        """
-        An Array of IPv6 addresses in CIDR format specifying the A records for the api endpoint.
-        """
         return pulumi.get(self, "api_ipv6s")
 
     @property
     @pulumi.getter(name="apmIpv4s")
     def apm_ipv4s(self) -> List[str]:
-        """
-        An Array of IPv4 addresses in CIDR format specifying the A records for the apm endpoint.
-        """
         return pulumi.get(self, "apm_ipv4s")
 
     @property
     @pulumi.getter(name="apmIpv6s")
     def apm_ipv6s(self) -> List[str]:
-        """
-        An Array of IPv6 addresses in CIDR format specifying the A records for the apm endpoint.
-        """
         return pulumi.get(self, "apm_ipv6s")
 
     @property
@@ -125,65 +107,41 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="logsIpv4s")
     def logs_ipv4s(self) -> List[str]:
-        """
-        An Array of IPv4 addresses in CIDR format specifying the A records for the logs endpoint.
-        """
         return pulumi.get(self, "logs_ipv4s")
 
     @property
     @pulumi.getter(name="logsIpv6s")
     def logs_ipv6s(self) -> List[str]:
-        """
-        An Array of IPv6 addresses in CIDR format specifying the A records for the logs endpoint.
-        """
         return pulumi.get(self, "logs_ipv6s")
 
     @property
     @pulumi.getter(name="processIpv4s")
     def process_ipv4s(self) -> List[str]:
-        """
-        An Array of IPv4 addresses in CIDR format specifying the A records for the process endpoint.
-        """
         return pulumi.get(self, "process_ipv4s")
 
     @property
     @pulumi.getter(name="processIpv6s")
     def process_ipv6s(self) -> List[str]:
-        """
-        An Array of IPv6 addresses in CIDR format specifying the A records for the process endpoint.
-        """
         return pulumi.get(self, "process_ipv6s")
 
     @property
     @pulumi.getter(name="syntheticsIpv4s")
     def synthetics_ipv4s(self) -> List[str]:
-        """
-        An Array of IPv4 addresses in CIDR format specifying the A records for the synthetics endpoint.
-        """
         return pulumi.get(self, "synthetics_ipv4s")
 
     @property
     @pulumi.getter(name="syntheticsIpv6s")
     def synthetics_ipv6s(self) -> List[str]:
-        """
-        An Array of IPv6 addresses in CIDR format specifying the A records for the synthetics endpoint.
-        """
         return pulumi.get(self, "synthetics_ipv6s")
 
     @property
     @pulumi.getter(name="webhooksIpv4s")
     def webhooks_ipv4s(self) -> List[str]:
-        """
-        An Array of IPv4 addresses in CIDR format specifying the A records for the webhooks endpoint.
-        """
         return pulumi.get(self, "webhooks_ipv4s")
 
     @property
     @pulumi.getter(name="webhooksIpv6s")
     def webhooks_ipv6s(self) -> List[str]:
-        """
-        An Array of IPv6 addresses in CIDR format specifying the A records for the webhooks endpoint.
-        """
         return pulumi.get(self, "webhooks_ipv6s")
 
 
@@ -213,6 +171,7 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
 def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
     """
     Use this data source to retrieve information about Datadog's IP addresses.
+
     ## Example Usage
 
     ```python

@@ -91,8 +91,8 @@ class DashboardList(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
-        :param pulumi.Input[str] name: The name of this Dashboard List.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashbaord items that belong to this list
+        :param pulumi.Input[str] name: The name of the Dashboard List
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,8 +134,8 @@ class DashboardList(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: An individual dashboard object to add to this Dashboard List. If present, must contain the following:
-        :param pulumi.Input[str] name: The name of this Dashboard List.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashbaord items that belong to this list
+        :param pulumi.Input[str] name: The name of the Dashboard List
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -149,7 +149,7 @@ class DashboardList(pulumi.CustomResource):
     @pulumi.getter(name="dashItems")
     def dash_items(self) -> pulumi.Output[Optional[List['outputs.DashboardListDashItem']]]:
         """
-        An individual dashboard object to add to this Dashboard List. If present, must contain the following:
+        A set of dashbaord items that belong to this list
         """
         return pulumi.get(self, "dash_items")
 
@@ -157,7 +157,7 @@ class DashboardList(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of this Dashboard List.
+        The name of the Dashboard List
         """
         return pulumi.get(self, "name")
 
