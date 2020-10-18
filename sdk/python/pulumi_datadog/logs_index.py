@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,8 +17,8 @@ class LogsIndex(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclusion_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
-                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -62,8 +62,8 @@ class LogsIndex(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            exclusion_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
-            filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
+            exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'LogsIndex':
         """
         Get an existing LogsIndex resource's state with the given name, id, and optional extra
@@ -84,12 +84,12 @@ class LogsIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> pulumi.Output[Optional[List['outputs.LogsIndexExclusionFilter']]]:
+    def exclusion_filters(self) -> pulumi.Output[Optional[Sequence['outputs.LogsIndexExclusionFilter']]]:
         return pulumi.get(self, "exclusion_filters")
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[List['outputs.LogsIndexFilter']]:
+    def filters(self) -> pulumi.Output[Sequence['outputs.LogsIndexFilter']]:
         return pulumi.get(self, "filters")
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -868,7 +868,7 @@ class DashboardTemplateVariable(dict):
 class DashboardTemplateVariablePreset(dict):
     def __init__(__self__, *,
                  name: str,
-                 template_variables: List['outputs.DashboardTemplateVariablePresetTemplateVariable']):
+                 template_variables: Sequence['outputs.DashboardTemplateVariablePresetTemplateVariable']):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_variables", template_variables)
 
@@ -879,7 +879,7 @@ class DashboardTemplateVariablePreset(dict):
 
     @property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> List['outputs.DashboardTemplateVariablePresetTemplateVariable']:
+    def template_variables(self) -> Sequence['outputs.DashboardTemplateVariablePresetTemplateVariable']:
         return pulumi.get(self, "template_variables")
 
     def _translate_property(self, prop):
@@ -1190,7 +1190,7 @@ class DashboardWidgetAlertGraphDefinitionTime(dict):
 class DashboardWidgetAlertValueDefinition(dict):
     def __init__(__self__, *,
                  alert_id: str,
-                 precision: Optional[float] = None,
+                 precision: Optional[int] = None,
                  text_align: Optional[str] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -1217,7 +1217,7 @@ class DashboardWidgetAlertValueDefinition(dict):
 
     @property
     @pulumi.getter
-    def precision(self) -> Optional[float]:
+    def precision(self) -> Optional[int]:
         return pulumi.get(self, "precision")
 
     @property
@@ -1252,7 +1252,7 @@ class DashboardWidgetAlertValueDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetChangeDefinition(dict):
     def __init__(__self__, *,
-                 requests: Optional[List['outputs.DashboardWidgetChangeDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetChangeDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -1270,7 +1270,7 @@ class DashboardWidgetChangeDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -1406,8 +1406,8 @@ class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -1431,12 +1431,12 @@ class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -1453,7 +1453,7 @@ class DashboardWidgetChangeDefinitionRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1472,7 +1472,7 @@ class DashboardWidgetChangeDefinitionRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -1483,7 +1483,7 @@ class DashboardWidgetChangeDefinitionRequestApmQueryCompute(dict):
 class DashboardWidgetChangeDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1499,7 +1499,7 @@ class DashboardWidgetChangeDefinitionRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -1546,7 +1546,7 @@ class DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1565,7 +1565,7 @@ class DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -1592,8 +1592,8 @@ class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -1617,12 +1617,12 @@ class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -1639,7 +1639,7 @@ class DashboardWidgetChangeDefinitionRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1658,7 +1658,7 @@ class DashboardWidgetChangeDefinitionRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -1669,7 +1669,7 @@ class DashboardWidgetChangeDefinitionRequestLogQueryCompute(dict):
 class DashboardWidgetChangeDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1685,7 +1685,7 @@ class DashboardWidgetChangeDefinitionRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -1732,7 +1732,7 @@ class DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1751,7 +1751,7 @@ class DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -1777,8 +1777,8 @@ class DashboardWidgetChangeDefinitionRequestLogQuerySearch(dict):
 class DashboardWidgetChangeDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -1795,12 +1795,12 @@ class DashboardWidgetChangeDefinitionRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -1817,8 +1817,8 @@ class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -1842,12 +1842,12 @@ class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -1864,7 +1864,7 @@ class DashboardWidgetChangeDefinitionRequestRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1883,7 +1883,7 @@ class DashboardWidgetChangeDefinitionRequestRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -1894,7 +1894,7 @@ class DashboardWidgetChangeDefinitionRequestRumQueryCompute(dict):
 class DashboardWidgetChangeDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1910,7 +1910,7 @@ class DashboardWidgetChangeDefinitionRequestRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -1957,7 +1957,7 @@ class DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -1976,7 +1976,7 @@ class DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2003,8 +2003,8 @@ class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -2028,12 +2028,12 @@ class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -2050,7 +2050,7 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2069,7 +2069,7 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2080,7 +2080,7 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
 class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2096,7 +2096,7 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -2143,7 +2143,7 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2162,7 +2162,7 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2206,8 +2206,8 @@ class DashboardWidgetCheckStatusDefinition(dict):
                  check: str,
                  grouping: str,
                  group: Optional[str] = None,
-                 group_bies: Optional[List[str]] = None,
-                 tags: Optional[List[str]] = None,
+                 group_bies: Optional[Sequence[str]] = None,
+                 tags: Optional[Sequence[str]] = None,
                  time: Optional['outputs.DashboardWidgetCheckStatusDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -2246,12 +2246,12 @@ class DashboardWidgetCheckStatusDefinition(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List[str]]:
+    def group_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tags")
 
     @property
@@ -2298,7 +2298,7 @@ class DashboardWidgetCheckStatusDefinitionTime(dict):
 class DashboardWidgetDistributionDefinition(dict):
     def __init__(__self__, *,
                  legend_size: Optional[str] = None,
-                 requests: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetDistributionDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -2326,7 +2326,7 @@ class DashboardWidgetDistributionDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -2427,8 +2427,8 @@ class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -2452,12 +2452,12 @@ class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -2474,7 +2474,7 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2493,7 +2493,7 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2504,7 +2504,7 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryCompute(dict):
 class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2520,7 +2520,7 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -2567,7 +2567,7 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2586,7 +2586,7 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2613,8 +2613,8 @@ class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -2638,12 +2638,12 @@ class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -2660,7 +2660,7 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2679,7 +2679,7 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2690,7 +2690,7 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryCompute(dict):
 class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2706,7 +2706,7 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -2753,7 +2753,7 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2772,7 +2772,7 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2798,8 +2798,8 @@ class DashboardWidgetDistributionDefinitionRequestLogQuerySearch(dict):
 class DashboardWidgetDistributionDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -2816,12 +2816,12 @@ class DashboardWidgetDistributionDefinitionRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -2838,8 +2838,8 @@ class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -2863,12 +2863,12 @@ class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -2885,7 +2885,7 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2904,7 +2904,7 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -2915,7 +2915,7 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryCompute(dict):
 class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2931,7 +2931,7 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -2978,7 +2978,7 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -2997,7 +2997,7 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -3024,8 +3024,8 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -3049,12 +3049,12 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -3071,7 +3071,7 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -3090,7 +3090,7 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -3101,7 +3101,7 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
 class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -3117,7 +3117,7 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -3164,7 +3164,7 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute(dict
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -3183,7 +3183,7 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute(dict
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -3430,7 +3430,7 @@ class DashboardWidgetFreeTextDefinition(dict):
 class DashboardWidgetGroupDefinition(dict):
     def __init__(__self__, *,
                  layout_type: str,
-                 widgets: List['outputs.DashboardWidgetGroupDefinitionWidget'],
+                 widgets: Sequence['outputs.DashboardWidgetGroupDefinitionWidget'],
                  title: Optional[str] = None):
         pulumi.set(__self__, "layout_type", layout_type)
         pulumi.set(__self__, "widgets", widgets)
@@ -3444,7 +3444,7 @@ class DashboardWidgetGroupDefinition(dict):
 
     @property
     @pulumi.getter
-    def widgets(self) -> List['outputs.DashboardWidgetGroupDefinitionWidget']:
+    def widgets(self) -> Sequence['outputs.DashboardWidgetGroupDefinitionWidget']:
         return pulumi.get(self, "widgets")
 
     @property
@@ -3730,7 +3730,7 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime(dict):
 class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
     def __init__(__self__, *,
                  alert_id: str,
-                 precision: Optional[float] = None,
+                 precision: Optional[int] = None,
                  text_align: Optional[str] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -3757,7 +3757,7 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
 
     @property
     @pulumi.getter
-    def precision(self) -> Optional[float]:
+    def precision(self) -> Optional[int]:
         return pulumi.get(self, "precision")
 
     @property
@@ -3792,7 +3792,7 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
     def __init__(__self__, *,
-                 requests: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -3810,7 +3810,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -3946,8 +3946,8 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -3971,12 +3971,12 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -3993,7 +3993,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4012,7 +4012,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4023,7 +4023,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4039,7 +4039,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -4086,7 +4086,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4105,7 +4105,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4132,8 +4132,8 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -4157,12 +4157,12 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -4179,7 +4179,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4198,7 +4198,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4209,7 +4209,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4225,7 +4225,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -4272,7 +4272,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4291,7 +4291,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4317,8 +4317,8 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch(
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -4335,12 +4335,12 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery(di
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -4357,8 +4357,8 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -4382,12 +4382,12 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -4404,7 +4404,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4423,7 +4423,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4434,7 +4434,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4450,7 +4450,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -4497,7 +4497,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4516,7 +4516,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4543,8 +4543,8 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(d
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -4568,12 +4568,12 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(d
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -4590,7 +4590,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4609,7 +4609,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4620,7 +4620,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCo
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4636,7 +4636,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGr
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -4683,7 +4683,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -4702,7 +4702,7 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -4746,8 +4746,8 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
                  check: str,
                  grouping: str,
                  group: Optional[str] = None,
-                 group_bies: Optional[List[str]] = None,
-                 tags: Optional[List[str]] = None,
+                 group_bies: Optional[Sequence[str]] = None,
+                 tags: Optional[Sequence[str]] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -4786,12 +4786,12 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List[str]]:
+    def group_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tags")
 
     @property
@@ -4838,7 +4838,7 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime(dict):
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
     def __init__(__self__, *,
                  legend_size: Optional[str] = None,
-                 requests: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -4866,7 +4866,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -4967,8 +4967,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -4992,12 +4992,12 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -5014,7 +5014,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5033,7 +5033,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5044,7 +5044,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryC
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5060,7 +5060,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -5107,7 +5107,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5126,7 +5126,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5153,8 +5153,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -5178,12 +5178,12 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -5200,7 +5200,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5219,7 +5219,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5230,7 +5230,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryC
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5246,7 +5246,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -5293,7 +5293,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5312,7 +5312,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5338,8 +5338,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryS
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -5356,12 +5356,12 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQu
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -5378,8 +5378,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -5403,12 +5403,12 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -5425,7 +5425,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5444,7 +5444,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5455,7 +5455,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryC
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5471,7 +5471,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -5518,7 +5518,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5537,7 +5537,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5564,8 +5564,8 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -5589,12 +5589,12 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -5611,7 +5611,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5630,7 +5630,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5641,7 +5641,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5657,7 +5657,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -5704,7 +5704,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -5723,7 +5723,7 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -5969,9 +5969,9 @@ class DashboardWidgetGroupDefinitionWidgetFreeTextDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
     def __init__(__self__, *,
-                 events: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent']] = None,
+                 events: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
-                 requests: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -5999,7 +5999,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent']]:
+    def events(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent']]:
         return pulumi.get(self, "events")
 
     @property
@@ -6009,7 +6009,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -6138,8 +6138,8 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery(dict)
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -6163,12 +6163,12 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery(dict)
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -6185,7 +6185,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComput
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6204,7 +6204,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComput
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6215,7 +6215,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComput
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6231,7 +6231,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupB
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -6278,7 +6278,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6297,7 +6297,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6324,8 +6324,8 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict)
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -6349,12 +6349,12 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict)
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -6371,7 +6371,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComput
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6390,7 +6390,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComput
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6401,7 +6401,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComput
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6417,7 +6417,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupB
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -6464,7 +6464,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6483,7 +6483,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6509,8 +6509,8 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -6527,12 +6527,12 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery(d
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -6549,8 +6549,8 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery(dict)
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -6574,12 +6574,12 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery(dict)
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -6596,7 +6596,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComput
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6615,7 +6615,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComput
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6626,7 +6626,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComput
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6642,7 +6642,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupB
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -6689,7 +6689,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6708,7 +6708,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6735,8 +6735,8 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -6760,12 +6760,12 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -6782,7 +6782,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6801,7 +6801,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6812,7 +6812,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryC
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6828,7 +6828,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -6875,7 +6875,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -6894,7 +6894,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -6999,12 +6999,12 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
     def __init__(__self__, *,
-                 groups: Optional[List[str]] = None,
+                 groups: Optional[Sequence[str]] = None,
                  no_group_hosts: Optional[bool] = None,
                  no_metric_hosts: Optional[bool] = None,
                  node_type: Optional[str] = None,
                  request: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest'] = None,
-                 scopes: Optional[List[str]] = None,
+                 scopes: Optional[Sequence[str]] = None,
                  style: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -7032,7 +7032,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "groups")
 
     @property
@@ -7057,7 +7057,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "scopes")
 
     @property
@@ -7087,8 +7087,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest(dict):
     def __init__(__self__, *,
-                 fills: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill']] = None,
-                 sizes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize']] = None):
+                 fills: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill']] = None,
+                 sizes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize']] = None):
         if fills is not None:
             pulumi.set(__self__, "fills", fills)
         if sizes is not None:
@@ -7096,12 +7096,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest(dict):
 
     @property
     @pulumi.getter
-    def fills(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill']]:
+    def fills(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill']]:
         return pulumi.get(self, "fills")
 
     @property
     @pulumi.getter
-    def sizes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize']]:
+    def sizes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize']]:
         return pulumi.get(self, "sizes")
 
     def _translate_property(self, prop):
@@ -7169,8 +7169,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery(d
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -7194,12 +7194,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery(d
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -7216,7 +7216,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7235,7 +7235,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -7246,7 +7246,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCo
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7262,7 +7262,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGr
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -7309,7 +7309,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7328,7 +7328,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -7355,8 +7355,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(d
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -7380,12 +7380,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(d
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -7402,7 +7402,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7421,7 +7421,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -7432,7 +7432,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCo
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7448,7 +7448,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGr
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -7495,7 +7495,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7514,7 +7514,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -7540,8 +7540,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySe
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -7558,12 +7558,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQue
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -7580,8 +7580,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(d
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -7605,12 +7605,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(d
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -7627,7 +7627,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7646,7 +7646,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -7657,7 +7657,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCo
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7673,7 +7673,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGr
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -7720,7 +7720,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7739,7 +7739,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -7766,8 +7766,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -7791,12 +7791,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -7813,7 +7813,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7832,7 +7832,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -7843,7 +7843,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7859,7 +7859,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -7906,7 +7906,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -7925,7 +7925,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8008,8 +8008,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery(d
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -8033,12 +8033,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery(d
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -8055,7 +8055,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8074,7 +8074,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8085,7 +8085,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCo
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8101,7 +8101,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGr
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -8148,7 +8148,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8167,7 +8167,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8194,8 +8194,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(d
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -8219,12 +8219,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(d
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -8241,7 +8241,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8260,7 +8260,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8271,7 +8271,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCo
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8287,7 +8287,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGr
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -8334,7 +8334,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8353,7 +8353,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8379,8 +8379,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySe
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -8397,12 +8397,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQue
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -8419,8 +8419,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery(d
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -8444,12 +8444,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery(d
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -8466,7 +8466,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCo
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8485,7 +8485,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCo
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8496,7 +8496,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCo
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8512,7 +8512,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGr
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -8559,7 +8559,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8578,7 +8578,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8605,8 +8605,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -8630,12 +8630,12 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -8652,7 +8652,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8671,7 +8671,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8682,7 +8682,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8698,7 +8698,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -8745,7 +8745,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -8764,7 +8764,7 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -8911,8 +8911,8 @@ class DashboardWidgetGroupDefinitionWidgetLayout(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
     def __init__(__self__, *,
-                 columns: Optional[List[str]] = None,
-                 indexes: Optional[List[str]] = None,
+                 columns: Optional[Sequence[str]] = None,
+                 indexes: Optional[Sequence[str]] = None,
                  logset: Optional[str] = None,
                  message_display: Optional[str] = None,
                  query: Optional[str] = None,
@@ -8950,12 +8950,12 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[List[str]]:
+    def columns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "columns")
 
     @property
     @pulumi.getter
-    def indexes(self) -> Optional[List[str]]:
+    def indexes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "indexes")
 
     @property
@@ -9055,12 +9055,12 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
     def __init__(__self__, *,
                  query: str,
                  color_preference: Optional[str] = None,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  display_format: Optional[str] = None,
                  hide_zero_counts: Optional[bool] = None,
                  show_last_triggered: Optional[bool] = None,
                  sort: Optional[str] = None,
-                 start: Optional[float] = None,
+                 start: Optional[int] = None,
                  summary_type: Optional[str] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -9101,7 +9101,7 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         return pulumi.get(self, "count")
 
     @property
@@ -9126,7 +9126,7 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
 
     @property
     @pulumi.getter
-    def start(self) -> Optional[float]:
+    def start(self) -> Optional[int]:
         return pulumi.get(self, "start")
 
     @property
@@ -9219,7 +9219,7 @@ class DashboardWidgetGroupDefinitionWidgetNoteDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
     def __init__(__self__, *,
-                 requests: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -9237,7 +9237,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -9270,8 +9270,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest(dict):
                  aggregator: Optional[str] = None,
                  alias: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery'] = None,
-                 conditional_formats: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat']] = None,
-                 limit: Optional[float] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat']] = None,
+                 limit: Optional[int] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery'] = None,
                  order: Optional[str] = None,
                  process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery'] = None,
@@ -9318,12 +9318,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -9365,8 +9365,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -9390,12 +9390,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -9412,7 +9412,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9431,7 +9431,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -9442,7 +9442,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCom
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9458,7 +9458,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -9505,7 +9505,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9524,7 +9524,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -9628,8 +9628,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -9653,12 +9653,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -9675,7 +9675,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9694,7 +9694,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -9705,7 +9705,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCom
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9721,7 +9721,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -9768,7 +9768,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9787,7 +9787,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -9813,8 +9813,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySea
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -9831,12 +9831,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuer
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -9853,8 +9853,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -9878,12 +9878,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -9900,7 +9900,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9919,7 +9919,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -9930,7 +9930,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCom
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -9946,7 +9946,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -9993,7 +9993,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10012,7 +10012,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10039,8 +10039,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -10064,12 +10064,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -10086,7 +10086,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10105,7 +10105,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10116,7 +10116,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10132,7 +10132,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -10179,7 +10179,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10198,7 +10198,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10241,8 +10241,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
     def __init__(__self__, *,
                  autoscale: Optional[bool] = None,
                  custom_unit: Optional[str] = None,
-                 precision: Optional[float] = None,
-                 requests: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest']] = None,
+                 precision: Optional[int] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest']] = None,
                  text_align: Optional[str] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -10279,12 +10279,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
 
     @property
     @pulumi.getter
-    def precision(self) -> Optional[float]:
+    def precision(self) -> Optional[int]:
         return pulumi.get(self, "precision")
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -10321,7 +10321,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest(dict):
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery'] = None,
-                 conditional_formats: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat']] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat']] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -10356,7 +10356,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
@@ -10393,8 +10393,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -10418,12 +10418,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -10440,7 +10440,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10459,7 +10459,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10470,7 +10470,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCom
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10486,7 +10486,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -10533,7 +10533,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10552,7 +10552,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10656,8 +10656,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -10681,12 +10681,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -10703,7 +10703,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10722,7 +10722,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10733,7 +10733,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCom
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10749,7 +10749,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -10796,7 +10796,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10815,7 +10815,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10841,8 +10841,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySea
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -10859,12 +10859,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuer
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -10881,8 +10881,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -10906,12 +10906,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -10928,7 +10928,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10947,7 +10947,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -10958,7 +10958,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCom
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -10974,7 +10974,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -11021,7 +11021,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11040,7 +11040,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11067,8 +11067,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -11092,12 +11092,12 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -11114,7 +11114,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11133,7 +11133,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11144,7 +11144,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11160,7 +11160,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -11207,7 +11207,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11226,7 +11226,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11267,7 +11267,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
     def __init__(__self__, *,
-                 color_by_groups: Optional[List[str]] = None,
+                 color_by_groups: Optional[Sequence[str]] = None,
                  request: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest'] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -11294,7 +11294,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
 
     @property
     @pulumi.getter(name="colorByGroups")
-    def color_by_groups(self) -> Optional[List[str]]:
+    def color_by_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "color_by_groups")
 
     @property
@@ -11339,8 +11339,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest(dict):
     def __init__(__self__, *,
-                 xes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX']] = None,
-                 ys: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY']] = None):
+                 xes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX']] = None,
+                 ys: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY']] = None):
         if xes is not None:
             pulumi.set(__self__, "xes", xes)
         if ys is not None:
@@ -11348,12 +11348,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest(dict):
 
     @property
     @pulumi.getter
-    def xes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX']]:
+    def xes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX']]:
         return pulumi.get(self, "xes")
 
     @property
     @pulumi.getter
-    def ys(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY']]:
+    def ys(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY']]:
         return pulumi.get(self, "ys")
 
     def _translate_property(self, prop):
@@ -11429,8 +11429,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -11454,12 +11454,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -11476,7 +11476,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11495,7 +11495,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11506,7 +11506,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryC
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11522,7 +11522,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -11569,7 +11569,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11588,7 +11588,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11615,8 +11615,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -11640,12 +11640,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -11662,7 +11662,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11681,7 +11681,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11692,7 +11692,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryC
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11708,7 +11708,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -11755,7 +11755,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11774,7 +11774,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11800,8 +11800,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryS
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -11818,12 +11818,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQu
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -11840,8 +11840,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -11865,12 +11865,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -11887,7 +11887,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11906,7 +11906,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -11917,7 +11917,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryC
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11933,7 +11933,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -11980,7 +11980,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -11999,7 +11999,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12026,8 +12026,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -12051,12 +12051,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -12073,7 +12073,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12092,7 +12092,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12103,7 +12103,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12119,7 +12119,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -12166,7 +12166,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12185,7 +12185,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12276,8 +12276,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -12301,12 +12301,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -12323,7 +12323,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12342,7 +12342,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12353,7 +12353,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryC
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12369,7 +12369,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -12416,7 +12416,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12435,7 +12435,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12462,8 +12462,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -12487,12 +12487,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -12509,7 +12509,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12528,7 +12528,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12539,7 +12539,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryC
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12555,7 +12555,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -12602,7 +12602,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12621,7 +12621,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12647,8 +12647,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryS
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -12665,12 +12665,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQu
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -12687,8 +12687,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -12712,12 +12712,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -12734,7 +12734,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12753,7 +12753,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12764,7 +12764,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryC
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12780,7 +12780,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -12827,7 +12827,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12846,7 +12846,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12873,8 +12873,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -12898,12 +12898,12 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -12920,7 +12920,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12939,7 +12939,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -12950,7 +12950,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -12966,7 +12966,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -13013,7 +13013,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13032,7 +13032,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -13170,7 +13170,7 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis(dict):
 class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(dict):
     def __init__(__self__, *,
                  slo_id: str,
-                 time_windows: List[str],
+                 time_windows: Sequence[str],
                  view_mode: str,
                  view_type: str,
                  show_error_budget: Optional[bool] = None,
@@ -13197,7 +13197,7 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(dict):
 
     @property
     @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> List[str]:
+    def time_windows(self) -> Sequence[str]:
         return pulumi.get(self, "time_windows")
 
     @property
@@ -13237,7 +13237,7 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
     def __init__(__self__, *,
-                 filters: List[str],
+                 filters: Sequence[str],
                  service: str,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -13253,7 +13253,7 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
 
     @property
     @pulumi.getter
-    def filters(self) -> List[str]:
+    def filters(self) -> Sequence[str]:
         return pulumi.get(self, "filters")
 
     @property
@@ -13283,10 +13283,10 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
     def __init__(__self__, *,
-                 events: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent']] = None,
+                 events: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
-                 markers: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker']] = None,
-                 requests: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest']] = None,
+                 markers: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -13316,7 +13316,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent']]:
+    def events(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent']]:
         return pulumi.get(self, "events")
 
     @property
@@ -13326,12 +13326,12 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
 
     @property
     @pulumi.getter
-    def markers(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker']]:
+    def markers(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker']]:
         return pulumi.get(self, "markers")
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -13428,7 +13428,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest(dict):
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery'] = None,
                  display_type: Optional[str] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery'] = None,
-                 metadatas: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata']] = None,
+                 metadatas: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata']] = None,
                  network_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -13473,7 +13473,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest(dict):
 
     @property
     @pulumi.getter
-    def metadatas(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata']]:
+    def metadatas(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata']]:
         return pulumi.get(self, "metadatas")
 
     @property
@@ -13515,8 +13515,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -13540,12 +13540,12 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -13562,7 +13562,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13581,7 +13581,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -13592,7 +13592,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCom
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13608,7 +13608,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -13655,7 +13655,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13674,7 +13674,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -13701,8 +13701,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -13726,12 +13726,12 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -13748,7 +13748,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13767,7 +13767,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -13778,7 +13778,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCom
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13794,7 +13794,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -13841,7 +13841,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13860,7 +13860,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -13910,8 +13910,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -13935,12 +13935,12 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -13957,7 +13957,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -13976,7 +13976,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -13987,7 +13987,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14003,7 +14003,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -14050,7 +14050,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14069,7 +14069,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -14095,8 +14095,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -14113,12 +14113,12 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuer
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -14135,8 +14135,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery(di
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -14160,12 +14160,12 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery(di
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -14182,7 +14182,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCom
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14201,7 +14201,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCom
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -14212,7 +14212,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCom
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14228,7 +14228,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGro
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -14275,7 +14275,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMul
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14294,7 +14294,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMul
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -14321,8 +14321,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -14346,12 +14346,12 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -14368,7 +14368,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14387,7 +14387,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -14398,7 +14398,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14414,7 +14414,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -14461,7 +14461,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14480,7 +14480,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -14601,7 +14601,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
     def __init__(__self__, *,
-                 requests: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -14619,7 +14619,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -14650,7 +14650,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest(dict):
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery'] = None,
-                 conditional_formats: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat']] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat']] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -14681,7 +14681,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
@@ -14723,8 +14723,8 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(dict)
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -14748,12 +14748,12 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(dict)
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -14770,7 +14770,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComput
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14789,7 +14789,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComput
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -14800,7 +14800,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComput
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14816,7 +14816,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupB
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -14863,7 +14863,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -14882,7 +14882,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -14986,8 +14986,8 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery(dict)
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -15011,12 +15011,12 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery(dict)
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -15033,7 +15033,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComput
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15052,7 +15052,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComput
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -15063,7 +15063,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComput
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15079,7 +15079,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupB
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -15126,7 +15126,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15145,7 +15145,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -15171,8 +15171,8 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -15189,12 +15189,12 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery(d
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -15211,8 +15211,8 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery(dict)
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -15236,12 +15236,12 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery(dict)
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -15258,7 +15258,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComput
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15277,7 +15277,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComput
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -15288,7 +15288,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComput
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15304,7 +15304,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupB
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -15351,7 +15351,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15370,7 +15370,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -15397,8 +15397,8 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -15422,12 +15422,12 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -15444,7 +15444,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryC
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15463,7 +15463,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryC
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -15474,7 +15474,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryC
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15490,7 +15490,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryG
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -15537,7 +15537,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryM
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15556,7 +15556,7 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryM
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -15754,9 +15754,9 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime(dict):
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinition(dict):
     def __init__(__self__, *,
-                 events: Optional[List['outputs.DashboardWidgetHeatmapDefinitionEvent']] = None,
+                 events: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
-                 requests: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetHeatmapDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -15784,7 +15784,7 @@ class DashboardWidgetHeatmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionEvent']]:
+    def events(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionEvent']]:
         return pulumi.get(self, "events")
 
     @property
@@ -15794,7 +15794,7 @@ class DashboardWidgetHeatmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -15923,8 +15923,8 @@ class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -15948,12 +15948,12 @@ class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -15970,7 +15970,7 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -15989,7 +15989,7 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16000,7 +16000,7 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
 class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16016,7 +16016,7 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -16063,7 +16063,7 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16082,7 +16082,7 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16109,8 +16109,8 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -16134,12 +16134,12 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -16156,7 +16156,7 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16175,7 +16175,7 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16186,7 +16186,7 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
 class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16202,7 +16202,7 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -16249,7 +16249,7 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16268,7 +16268,7 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16294,8 +16294,8 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuerySearch(dict):
 class DashboardWidgetHeatmapDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -16312,12 +16312,12 @@ class DashboardWidgetHeatmapDefinitionRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -16334,8 +16334,8 @@ class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -16359,12 +16359,12 @@ class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -16381,7 +16381,7 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16400,7 +16400,7 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16411,7 +16411,7 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
 class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16427,7 +16427,7 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -16474,7 +16474,7 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16493,7 +16493,7 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16520,8 +16520,8 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -16545,12 +16545,12 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -16567,7 +16567,7 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16586,7 +16586,7 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16597,7 +16597,7 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
 class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16613,7 +16613,7 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -16660,7 +16660,7 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -16679,7 +16679,7 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -16784,12 +16784,12 @@ class DashboardWidgetHeatmapDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetHostmapDefinition(dict):
     def __init__(__self__, *,
-                 groups: Optional[List[str]] = None,
+                 groups: Optional[Sequence[str]] = None,
                  no_group_hosts: Optional[bool] = None,
                  no_metric_hosts: Optional[bool] = None,
                  node_type: Optional[str] = None,
                  request: Optional['outputs.DashboardWidgetHostmapDefinitionRequest'] = None,
-                 scopes: Optional[List[str]] = None,
+                 scopes: Optional[Sequence[str]] = None,
                  style: Optional['outputs.DashboardWidgetHostmapDefinitionStyle'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -16817,7 +16817,7 @@ class DashboardWidgetHostmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "groups")
 
     @property
@@ -16842,7 +16842,7 @@ class DashboardWidgetHostmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "scopes")
 
     @property
@@ -16872,8 +16872,8 @@ class DashboardWidgetHostmapDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequest(dict):
     def __init__(__self__, *,
-                 fills: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFill']] = None,
-                 sizes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSize']] = None):
+                 fills: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFill']] = None,
+                 sizes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSize']] = None):
         if fills is not None:
             pulumi.set(__self__, "fills", fills)
         if sizes is not None:
@@ -16881,12 +16881,12 @@ class DashboardWidgetHostmapDefinitionRequest(dict):
 
     @property
     @pulumi.getter
-    def fills(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFill']]:
+    def fills(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFill']]:
         return pulumi.get(self, "fills")
 
     @property
     @pulumi.getter
-    def sizes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSize']]:
+    def sizes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSize']]:
         return pulumi.get(self, "sizes")
 
     def _translate_property(self, prop):
@@ -16954,8 +16954,8 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -16979,12 +16979,12 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -17001,7 +17001,7 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17020,7 +17020,7 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17031,7 +17031,7 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17047,7 +17047,7 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -17094,7 +17094,7 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17113,7 +17113,7 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17140,8 +17140,8 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -17165,12 +17165,12 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -17187,7 +17187,7 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17206,7 +17206,7 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17217,7 +17217,7 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17233,7 +17233,7 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -17280,7 +17280,7 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17299,7 +17299,7 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17325,8 +17325,8 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch(dict):
 class DashboardWidgetHostmapDefinitionRequestFillProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -17343,12 +17343,12 @@ class DashboardWidgetHostmapDefinitionRequestFillProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -17365,8 +17365,8 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -17390,12 +17390,12 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -17412,7 +17412,7 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17431,7 +17431,7 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17442,7 +17442,7 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17458,7 +17458,7 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -17505,7 +17505,7 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17524,7 +17524,7 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17551,8 +17551,8 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -17576,12 +17576,12 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -17598,7 +17598,7 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17617,7 +17617,7 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17628,7 +17628,7 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17644,7 +17644,7 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -17691,7 +17691,7 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute(dict)
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17710,7 +17710,7 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute(dict)
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17793,8 +17793,8 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -17818,12 +17818,12 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -17840,7 +17840,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17859,7 +17859,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17870,7 +17870,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17886,7 +17886,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -17933,7 +17933,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -17952,7 +17952,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -17979,8 +17979,8 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -18004,12 +18004,12 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -18026,7 +18026,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18045,7 +18045,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -18056,7 +18056,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18072,7 +18072,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -18119,7 +18119,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18138,7 +18138,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -18164,8 +18164,8 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch(dict):
 class DashboardWidgetHostmapDefinitionRequestSizeProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -18182,12 +18182,12 @@ class DashboardWidgetHostmapDefinitionRequestSizeProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -18204,8 +18204,8 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -18229,12 +18229,12 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -18251,7 +18251,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18270,7 +18270,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -18281,7 +18281,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18297,7 +18297,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -18344,7 +18344,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18363,7 +18363,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -18390,8 +18390,8 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -18415,12 +18415,12 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -18437,7 +18437,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18456,7 +18456,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -18467,7 +18467,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
 class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18483,7 +18483,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -18530,7 +18530,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute(dict)
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -18549,7 +18549,7 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute(dict)
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -18696,8 +18696,8 @@ class DashboardWidgetLayout(dict):
 @pulumi.output_type
 class DashboardWidgetLogStreamDefinition(dict):
     def __init__(__self__, *,
-                 columns: Optional[List[str]] = None,
-                 indexes: Optional[List[str]] = None,
+                 columns: Optional[Sequence[str]] = None,
+                 indexes: Optional[Sequence[str]] = None,
                  logset: Optional[str] = None,
                  message_display: Optional[str] = None,
                  query: Optional[str] = None,
@@ -18735,12 +18735,12 @@ class DashboardWidgetLogStreamDefinition(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[List[str]]:
+    def columns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "columns")
 
     @property
     @pulumi.getter
-    def indexes(self) -> Optional[List[str]]:
+    def indexes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "indexes")
 
     @property
@@ -18840,12 +18840,12 @@ class DashboardWidgetManageStatusDefinition(dict):
     def __init__(__self__, *,
                  query: str,
                  color_preference: Optional[str] = None,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  display_format: Optional[str] = None,
                  hide_zero_counts: Optional[bool] = None,
                  show_last_triggered: Optional[bool] = None,
                  sort: Optional[str] = None,
-                 start: Optional[float] = None,
+                 start: Optional[int] = None,
                  summary_type: Optional[str] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -18886,7 +18886,7 @@ class DashboardWidgetManageStatusDefinition(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         return pulumi.get(self, "count")
 
     @property
@@ -18911,7 +18911,7 @@ class DashboardWidgetManageStatusDefinition(dict):
 
     @property
     @pulumi.getter
-    def start(self) -> Optional[float]:
+    def start(self) -> Optional[int]:
         return pulumi.get(self, "start")
 
     @property
@@ -19004,7 +19004,7 @@ class DashboardWidgetNoteDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinition(dict):
     def __init__(__self__, *,
-                 requests: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetQueryTableDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -19022,7 +19022,7 @@ class DashboardWidgetQueryTableDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -19055,8 +19055,8 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
                  aggregator: Optional[str] = None,
                  alias: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery'] = None,
-                 conditional_formats: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat']] = None,
-                 limit: Optional[float] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat']] = None,
+                 limit: Optional[int] = None,
                  log_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery'] = None,
                  order: Optional[str] = None,
                  process_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery'] = None,
@@ -19103,12 +19103,12 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -19150,8 +19150,8 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -19175,12 +19175,12 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -19197,7 +19197,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19216,7 +19216,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -19227,7 +19227,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
 class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19243,7 +19243,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -19290,7 +19290,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19309,7 +19309,7 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -19413,8 +19413,8 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -19438,12 +19438,12 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -19460,7 +19460,7 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19479,7 +19479,7 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -19490,7 +19490,7 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
 class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19506,7 +19506,7 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -19553,7 +19553,7 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19572,7 +19572,7 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -19598,8 +19598,8 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuerySearch(dict):
 class DashboardWidgetQueryTableDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -19616,12 +19616,12 @@ class DashboardWidgetQueryTableDefinitionRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -19638,8 +19638,8 @@ class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -19663,12 +19663,12 @@ class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -19685,7 +19685,7 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19704,7 +19704,7 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -19715,7 +19715,7 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
 class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19731,7 +19731,7 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -19778,7 +19778,7 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19797,7 +19797,7 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -19824,8 +19824,8 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -19849,12 +19849,12 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -19871,7 +19871,7 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19890,7 +19890,7 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -19901,7 +19901,7 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
 class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19917,7 +19917,7 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -19964,7 +19964,7 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -19983,7 +19983,7 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20026,8 +20026,8 @@ class DashboardWidgetQueryValueDefinition(dict):
     def __init__(__self__, *,
                  autoscale: Optional[bool] = None,
                  custom_unit: Optional[str] = None,
-                 precision: Optional[float] = None,
-                 requests: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequest']] = None,
+                 precision: Optional[int] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequest']] = None,
                  text_align: Optional[str] = None,
                  time: Optional['outputs.DashboardWidgetQueryValueDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -20064,12 +20064,12 @@ class DashboardWidgetQueryValueDefinition(dict):
 
     @property
     @pulumi.getter
-    def precision(self) -> Optional[float]:
+    def precision(self) -> Optional[int]:
         return pulumi.get(self, "precision")
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -20106,7 +20106,7 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery'] = None,
-                 conditional_formats: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat']] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat']] = None,
                  log_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -20141,7 +20141,7 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
@@ -20178,8 +20178,8 @@ class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -20203,12 +20203,12 @@ class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -20225,7 +20225,7 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20244,7 +20244,7 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20255,7 +20255,7 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
 class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20271,7 +20271,7 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -20318,7 +20318,7 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20337,7 +20337,7 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20441,8 +20441,8 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -20466,12 +20466,12 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -20488,7 +20488,7 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20507,7 +20507,7 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20518,7 +20518,7 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
 class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20534,7 +20534,7 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -20581,7 +20581,7 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20600,7 +20600,7 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20626,8 +20626,8 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuerySearch(dict):
 class DashboardWidgetQueryValueDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -20644,12 +20644,12 @@ class DashboardWidgetQueryValueDefinitionRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -20666,8 +20666,8 @@ class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -20691,12 +20691,12 @@ class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -20713,7 +20713,7 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20732,7 +20732,7 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20743,7 +20743,7 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
 class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20759,7 +20759,7 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -20806,7 +20806,7 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20825,7 +20825,7 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20852,8 +20852,8 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -20877,12 +20877,12 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -20899,7 +20899,7 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20918,7 +20918,7 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -20929,7 +20929,7 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
 class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -20945,7 +20945,7 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -20992,7 +20992,7 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21011,7 +21011,7 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21052,7 +21052,7 @@ class DashboardWidgetQueryValueDefinitionTime(dict):
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinition(dict):
     def __init__(__self__, *,
-                 color_by_groups: Optional[List[str]] = None,
+                 color_by_groups: Optional[Sequence[str]] = None,
                  request: Optional['outputs.DashboardWidgetScatterplotDefinitionRequest'] = None,
                  time: Optional['outputs.DashboardWidgetScatterplotDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -21079,7 +21079,7 @@ class DashboardWidgetScatterplotDefinition(dict):
 
     @property
     @pulumi.getter(name="colorByGroups")
-    def color_by_groups(self) -> Optional[List[str]]:
+    def color_by_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "color_by_groups")
 
     @property
@@ -21124,8 +21124,8 @@ class DashboardWidgetScatterplotDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequest(dict):
     def __init__(__self__, *,
-                 xes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestX']] = None,
-                 ys: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestY']] = None):
+                 xes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestX']] = None,
+                 ys: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestY']] = None):
         if xes is not None:
             pulumi.set(__self__, "xes", xes)
         if ys is not None:
@@ -21133,12 +21133,12 @@ class DashboardWidgetScatterplotDefinitionRequest(dict):
 
     @property
     @pulumi.getter
-    def xes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestX']]:
+    def xes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestX']]:
         return pulumi.get(self, "xes")
 
     @property
     @pulumi.getter
-    def ys(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestY']]:
+    def ys(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestY']]:
         return pulumi.get(self, "ys")
 
     def _translate_property(self, prop):
@@ -21214,8 +21214,8 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -21239,12 +21239,12 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -21261,7 +21261,7 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21280,7 +21280,7 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21291,7 +21291,7 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21307,7 +21307,7 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -21354,7 +21354,7 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21373,7 +21373,7 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21400,8 +21400,8 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -21425,12 +21425,12 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -21447,7 +21447,7 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21466,7 +21466,7 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21477,7 +21477,7 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21493,7 +21493,7 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -21540,7 +21540,7 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21559,7 +21559,7 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21585,8 +21585,8 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch(dict):
 class DashboardWidgetScatterplotDefinitionRequestXProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -21603,12 +21603,12 @@ class DashboardWidgetScatterplotDefinitionRequestXProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -21625,8 +21625,8 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -21650,12 +21650,12 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -21672,7 +21672,7 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21691,7 +21691,7 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21702,7 +21702,7 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21718,7 +21718,7 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -21765,7 +21765,7 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21784,7 +21784,7 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21811,8 +21811,8 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -21836,12 +21836,12 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -21858,7 +21858,7 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21877,7 +21877,7 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -21888,7 +21888,7 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21904,7 +21904,7 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -21951,7 +21951,7 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute(dict
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -21970,7 +21970,7 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute(dict
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22061,8 +22061,8 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -22086,12 +22086,12 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -22108,7 +22108,7 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22127,7 +22127,7 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22138,7 +22138,7 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22154,7 +22154,7 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -22201,7 +22201,7 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22220,7 +22220,7 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22247,8 +22247,8 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -22272,12 +22272,12 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -22294,7 +22294,7 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22313,7 +22313,7 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22324,7 +22324,7 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22340,7 +22340,7 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -22387,7 +22387,7 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22406,7 +22406,7 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22432,8 +22432,8 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch(dict):
 class DashboardWidgetScatterplotDefinitionRequestYProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -22450,12 +22450,12 @@ class DashboardWidgetScatterplotDefinitionRequestYProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -22472,8 +22472,8 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -22497,12 +22497,12 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -22519,7 +22519,7 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22538,7 +22538,7 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22549,7 +22549,7 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22565,7 +22565,7 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -22612,7 +22612,7 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22631,7 +22631,7 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22658,8 +22658,8 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -22683,12 +22683,12 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -22705,7 +22705,7 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22724,7 +22724,7 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22735,7 +22735,7 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
 class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22751,7 +22751,7 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -22798,7 +22798,7 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute(dict
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -22817,7 +22817,7 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute(dict
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -22955,7 +22955,7 @@ class DashboardWidgetScatterplotDefinitionYaxis(dict):
 class DashboardWidgetServiceLevelObjectiveDefinition(dict):
     def __init__(__self__, *,
                  slo_id: str,
-                 time_windows: List[str],
+                 time_windows: Sequence[str],
                  view_mode: str,
                  view_type: str,
                  show_error_budget: Optional[bool] = None,
@@ -22982,7 +22982,7 @@ class DashboardWidgetServiceLevelObjectiveDefinition(dict):
 
     @property
     @pulumi.getter(name="timeWindows")
-    def time_windows(self) -> List[str]:
+    def time_windows(self) -> Sequence[str]:
         return pulumi.get(self, "time_windows")
 
     @property
@@ -23022,7 +23022,7 @@ class DashboardWidgetServiceLevelObjectiveDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetServicemapDefinition(dict):
     def __init__(__self__, *,
-                 filters: List[str],
+                 filters: Sequence[str],
                  service: str,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -23038,7 +23038,7 @@ class DashboardWidgetServicemapDefinition(dict):
 
     @property
     @pulumi.getter
-    def filters(self) -> List[str]:
+    def filters(self) -> Sequence[str]:
         return pulumi.get(self, "filters")
 
     @property
@@ -23068,10 +23068,10 @@ class DashboardWidgetServicemapDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinition(dict):
     def __init__(__self__, *,
-                 events: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionEvent']] = None,
+                 events: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
-                 markers: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionMarker']] = None,
-                 requests: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequest']] = None,
+                 markers: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionMarker']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetTimeseriesDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -23101,7 +23101,7 @@ class DashboardWidgetTimeseriesDefinition(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionEvent']]:
+    def events(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionEvent']]:
         return pulumi.get(self, "events")
 
     @property
@@ -23111,12 +23111,12 @@ class DashboardWidgetTimeseriesDefinition(dict):
 
     @property
     @pulumi.getter
-    def markers(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionMarker']]:
+    def markers(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionMarker']]:
         return pulumi.get(self, "markers")
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -23213,7 +23213,7 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
                  apm_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery'] = None,
                  display_type: Optional[str] = None,
                  log_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery'] = None,
-                 metadatas: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata']] = None,
+                 metadatas: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata']] = None,
                  network_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -23258,7 +23258,7 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
 
     @property
     @pulumi.getter
-    def metadatas(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata']]:
+    def metadatas(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata']]:
         return pulumi.get(self, "metadatas")
 
     @property
@@ -23300,8 +23300,8 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -23325,12 +23325,12 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -23347,7 +23347,7 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23366,7 +23366,7 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -23377,7 +23377,7 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
 class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23393,7 +23393,7 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -23440,7 +23440,7 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23459,7 +23459,7 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -23486,8 +23486,8 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -23511,12 +23511,12 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -23533,7 +23533,7 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23552,7 +23552,7 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -23563,7 +23563,7 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
 class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23579,7 +23579,7 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -23626,7 +23626,7 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23645,7 +23645,7 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -23695,8 +23695,8 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -23720,12 +23720,12 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -23742,7 +23742,7 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23761,7 +23761,7 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -23772,7 +23772,7 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
 class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23788,7 +23788,7 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -23835,7 +23835,7 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23854,7 +23854,7 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -23880,8 +23880,8 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch(dict):
 class DashboardWidgetTimeseriesDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -23898,12 +23898,12 @@ class DashboardWidgetTimeseriesDefinitionRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -23920,8 +23920,8 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -23945,12 +23945,12 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -23967,7 +23967,7 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -23986,7 +23986,7 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -23997,7 +23997,7 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
 class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24013,7 +24013,7 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -24060,7 +24060,7 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24079,7 +24079,7 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -24106,8 +24106,8 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -24131,12 +24131,12 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -24153,7 +24153,7 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24172,7 +24172,7 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -24183,7 +24183,7 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
 class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24199,7 +24199,7 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -24246,7 +24246,7 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24265,7 +24265,7 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -24386,7 +24386,7 @@ class DashboardWidgetTimeseriesDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetToplistDefinition(dict):
     def __init__(__self__, *,
-                 requests: Optional[List['outputs.DashboardWidgetToplistDefinitionRequest']] = None,
+                 requests: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetToplistDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -24404,7 +24404,7 @@ class DashboardWidgetToplistDefinition(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequest']]:
+    def requests(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequest']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -24435,7 +24435,7 @@ class DashboardWidgetToplistDefinition(dict):
 class DashboardWidgetToplistDefinitionRequest(dict):
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuery'] = None,
-                 conditional_formats: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat']] = None,
+                 conditional_formats: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat']] = None,
                  log_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQuery'] = None,
                  process_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
@@ -24466,7 +24466,7 @@ class DashboardWidgetToplistDefinitionRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
@@ -24508,8 +24508,8 @@ class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -24533,12 +24533,12 @@ class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -24555,7 +24555,7 @@ class DashboardWidgetToplistDefinitionRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24574,7 +24574,7 @@ class DashboardWidgetToplistDefinitionRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -24585,7 +24585,7 @@ class DashboardWidgetToplistDefinitionRequestApmQueryCompute(dict):
 class DashboardWidgetToplistDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24601,7 +24601,7 @@ class DashboardWidgetToplistDefinitionRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -24648,7 +24648,7 @@ class DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24667,7 +24667,7 @@ class DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -24771,8 +24771,8 @@ class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -24796,12 +24796,12 @@ class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -24818,7 +24818,7 @@ class DashboardWidgetToplistDefinitionRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24837,7 +24837,7 @@ class DashboardWidgetToplistDefinitionRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -24848,7 +24848,7 @@ class DashboardWidgetToplistDefinitionRequestLogQueryCompute(dict):
 class DashboardWidgetToplistDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24864,7 +24864,7 @@ class DashboardWidgetToplistDefinitionRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -24911,7 +24911,7 @@ class DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -24930,7 +24930,7 @@ class DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -24956,8 +24956,8 @@ class DashboardWidgetToplistDefinitionRequestLogQuerySearch(dict):
 class DashboardWidgetToplistDefinitionRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -24974,12 +24974,12 @@ class DashboardWidgetToplistDefinitionRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -24996,8 +24996,8 @@ class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -25021,12 +25021,12 @@ class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -25043,7 +25043,7 @@ class DashboardWidgetToplistDefinitionRequestRumQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -25062,7 +25062,7 @@ class DashboardWidgetToplistDefinitionRequestRumQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -25073,7 +25073,7 @@ class DashboardWidgetToplistDefinitionRequestRumQueryCompute(dict):
 class DashboardWidgetToplistDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -25089,7 +25089,7 @@ class DashboardWidgetToplistDefinitionRequestRumQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -25136,7 +25136,7 @@ class DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -25155,7 +25155,7 @@ class DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -25182,8 +25182,8 @@ class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryCompute'] = None,
-                 group_bies: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy']] = None,
-                 multi_computes: Optional[List['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute']] = None,
+                 group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy']] = None,
+                 multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute']] = None,
                  search: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQuerySearch'] = None):
         pulumi.set(__self__, "index", index)
         if compute is not None:
@@ -25207,12 +25207,12 @@ class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
     @pulumi.getter(name="multiComputes")
-    def multi_computes(self) -> Optional[List['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute']]:
+    def multi_computes(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute']]:
         return pulumi.get(self, "multi_computes")
 
     @property
@@ -25229,7 +25229,7 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -25248,7 +25248,7 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -25259,7 +25259,7 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
 class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -25275,7 +25275,7 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -25322,7 +25322,7 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -25341,7 +25341,7 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -25540,11 +25540,11 @@ class DashboardWidgetTraceServiceDefinitionTime(dict):
 class DowntimeRecurrence(dict):
     def __init__(__self__, *,
                  type: str,
-                 period: Optional[float] = None,
+                 period: Optional[int] = None,
                  rrule: Optional[str] = None,
-                 until_date: Optional[float] = None,
-                 until_occurrences: Optional[float] = None,
-                 week_days: Optional[List[str]] = None):
+                 until_date: Optional[int] = None,
+                 until_occurrences: Optional[int] = None,
+                 week_days: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "type", type)
         if period is not None:
             pulumi.set(__self__, "period", period)
@@ -25564,7 +25564,7 @@ class DowntimeRecurrence(dict):
 
     @property
     @pulumi.getter
-    def period(self) -> Optional[float]:
+    def period(self) -> Optional[int]:
         return pulumi.get(self, "period")
 
     @property
@@ -25574,17 +25574,17 @@ class DowntimeRecurrence(dict):
 
     @property
     @pulumi.getter(name="untilDate")
-    def until_date(self) -> Optional[float]:
+    def until_date(self) -> Optional[int]:
         return pulumi.get(self, "until_date")
 
     @property
     @pulumi.getter(name="untilOccurrences")
-    def until_occurrences(self) -> Optional[float]:
+    def until_occurrences(self) -> Optional[int]:
         return pulumi.get(self, "until_occurrences")
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[List[str]]:
+    def week_days(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "week_days")
 
     def _translate_property(self, prop):
@@ -25914,7 +25914,7 @@ class LogsCustomPipelineProcessorArithmeticProcessor(dict):
 class LogsCustomPipelineProcessorAttributeRemapper(dict):
     def __init__(__self__, *,
                  source_type: str,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  target_type: str,
                  is_enabled: Optional[bool] = None,
@@ -25941,7 +25941,7 @@ class LogsCustomPipelineProcessorAttributeRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -25981,7 +25981,7 @@ class LogsCustomPipelineProcessorAttributeRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorCategoryProcessor(dict):
     def __init__(__self__, *,
-                 categories: List['outputs.LogsCustomPipelineProcessorCategoryProcessorCategory'],
+                 categories: Sequence['outputs.LogsCustomPipelineProcessorCategoryProcessorCategory'],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
@@ -25994,7 +25994,7 @@ class LogsCustomPipelineProcessorCategoryProcessor(dict):
 
     @property
     @pulumi.getter
-    def categories(self) -> List['outputs.LogsCustomPipelineProcessorCategoryProcessorCategory']:
+    def categories(self) -> Sequence['outputs.LogsCustomPipelineProcessorCategoryProcessorCategory']:
         return pulumi.get(self, "categories")
 
     @property
@@ -26056,7 +26056,7 @@ class LogsCustomPipelineProcessorCategoryProcessorCategoryFilter(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorDateRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -26067,7 +26067,7 @@ class LogsCustomPipelineProcessorDateRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26087,7 +26087,7 @@ class LogsCustomPipelineProcessorDateRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorGeoIpParser(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
@@ -26100,7 +26100,7 @@ class LogsCustomPipelineProcessorGeoIpParser(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26129,7 +26129,7 @@ class LogsCustomPipelineProcessorGrokParser(dict):
                  source: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None,
-                 samples: Optional[List[str]] = None):
+                 samples: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "grok", grok)
         pulumi.set(__self__, "source", source)
         if is_enabled is not None:
@@ -26161,7 +26161,7 @@ class LogsCustomPipelineProcessorGrokParser(dict):
 
     @property
     @pulumi.getter
-    def samples(self) -> Optional[List[str]]:
+    def samples(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "samples")
 
     def _translate_property(self, prop):
@@ -26193,7 +26193,7 @@ class LogsCustomPipelineProcessorGrokParserGrok(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorLookupProcessor(dict):
     def __init__(__self__, *,
-                 lookup_tables: List[str],
+                 lookup_tables: Sequence[str],
                  source: str,
                  target: str,
                  default_lookup: Optional[str] = None,
@@ -26211,7 +26211,7 @@ class LogsCustomPipelineProcessorLookupProcessor(dict):
 
     @property
     @pulumi.getter(name="lookupTables")
-    def lookup_tables(self) -> List[str]:
+    def lookup_tables(self) -> Sequence[str]:
         return pulumi.get(self, "lookup_tables")
 
     @property
@@ -26246,7 +26246,7 @@ class LogsCustomPipelineProcessorLookupProcessor(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorMessageRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -26257,7 +26257,7 @@ class LogsCustomPipelineProcessorMessageRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26277,10 +26277,10 @@ class LogsCustomPipelineProcessorMessageRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipeline(dict):
     def __init__(__self__, *,
-                 filters: List['outputs.LogsCustomPipelineProcessorPipelineFilter'],
+                 filters: Sequence['outputs.LogsCustomPipelineProcessorPipelineFilter'],
                  name: str,
                  is_enabled: Optional[bool] = None,
-                 processors: Optional[List['outputs.LogsCustomPipelineProcessorPipelineProcessor']] = None):
+                 processors: Optional[Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessor']] = None):
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "name", name)
         if is_enabled is not None:
@@ -26290,7 +26290,7 @@ class LogsCustomPipelineProcessorPipeline(dict):
 
     @property
     @pulumi.getter
-    def filters(self) -> List['outputs.LogsCustomPipelineProcessorPipelineFilter']:
+    def filters(self) -> Sequence['outputs.LogsCustomPipelineProcessorPipelineFilter']:
         return pulumi.get(self, "filters")
 
     @property
@@ -26305,7 +26305,7 @@ class LogsCustomPipelineProcessorPipeline(dict):
 
     @property
     @pulumi.getter
-    def processors(self) -> Optional[List['outputs.LogsCustomPipelineProcessorPipelineProcessor']]:
+    def processors(self) -> Optional[Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessor']]:
         return pulumi.get(self, "processors")
 
     def _translate_property(self, prop):
@@ -26497,7 +26497,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor(dict):
 class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
     def __init__(__self__, *,
                  source_type: str,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  target_type: str,
                  is_enabled: Optional[bool] = None,
@@ -26524,7 +26524,7 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26564,7 +26564,7 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor(dict):
     def __init__(__self__, *,
-                 categories: List['outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory'],
+                 categories: Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory'],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
@@ -26577,7 +26577,7 @@ class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor(dict):
 
     @property
     @pulumi.getter
-    def categories(self) -> List['outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory']:
+    def categories(self) -> Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory']:
         return pulumi.get(self, "categories")
 
     @property
@@ -26639,7 +26639,7 @@ class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilte
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorDateRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -26650,7 +26650,7 @@ class LogsCustomPipelineProcessorPipelineProcessorDateRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26670,7 +26670,7 @@ class LogsCustomPipelineProcessorPipelineProcessorDateRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorGeoIpParser(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
@@ -26683,7 +26683,7 @@ class LogsCustomPipelineProcessorPipelineProcessorGeoIpParser(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26712,7 +26712,7 @@ class LogsCustomPipelineProcessorPipelineProcessorGrokParser(dict):
                  source: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None,
-                 samples: Optional[List[str]] = None):
+                 samples: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "grok", grok)
         pulumi.set(__self__, "source", source)
         if is_enabled is not None:
@@ -26744,7 +26744,7 @@ class LogsCustomPipelineProcessorPipelineProcessorGrokParser(dict):
 
     @property
     @pulumi.getter
-    def samples(self) -> Optional[List[str]]:
+    def samples(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "samples")
 
     def _translate_property(self, prop):
@@ -26776,7 +26776,7 @@ class LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor(dict):
     def __init__(__self__, *,
-                 lookup_tables: List[str],
+                 lookup_tables: Sequence[str],
                  source: str,
                  target: str,
                  default_lookup: Optional[str] = None,
@@ -26794,7 +26794,7 @@ class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor(dict):
 
     @property
     @pulumi.getter(name="lookupTables")
-    def lookup_tables(self) -> List[str]:
+    def lookup_tables(self) -> Sequence[str]:
         return pulumi.get(self, "lookup_tables")
 
     @property
@@ -26829,7 +26829,7 @@ class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorMessageRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -26840,7 +26840,7 @@ class LogsCustomPipelineProcessorPipelineProcessorMessageRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26860,7 +26860,7 @@ class LogsCustomPipelineProcessorPipelineProcessorMessageRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -26871,7 +26871,7 @@ class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26891,7 +26891,7 @@ class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorStatusRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -26902,7 +26902,7 @@ class LogsCustomPipelineProcessorPipelineProcessorStatusRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26968,7 +26968,7 @@ class LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -26979,7 +26979,7 @@ class LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -26999,7 +26999,7 @@ class LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorUrlParser(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None,
@@ -27015,7 +27015,7 @@ class LogsCustomPipelineProcessorPipelineProcessorUrlParser(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -27045,7 +27045,7 @@ class LogsCustomPipelineProcessorPipelineProcessorUrlParser(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  is_encoded: Optional[bool] = None,
@@ -27061,7 +27061,7 @@ class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -27091,7 +27091,7 @@ class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorServiceRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -27102,7 +27102,7 @@ class LogsCustomPipelineProcessorServiceRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -27122,7 +27122,7 @@ class LogsCustomPipelineProcessorServiceRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorStatusRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -27133,7 +27133,7 @@ class LogsCustomPipelineProcessorStatusRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -27199,7 +27199,7 @@ class LogsCustomPipelineProcessorStringBuilderProcessor(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorTraceIdRemapper(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "sources", sources)
@@ -27210,7 +27210,7 @@ class LogsCustomPipelineProcessorTraceIdRemapper(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -27230,7 +27230,7 @@ class LogsCustomPipelineProcessorTraceIdRemapper(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorUrlParser(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None,
@@ -27246,7 +27246,7 @@ class LogsCustomPipelineProcessorUrlParser(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -27276,7 +27276,7 @@ class LogsCustomPipelineProcessorUrlParser(dict):
 @pulumi.output_type
 class LogsCustomPipelineProcessorUserAgentParser(dict):
     def __init__(__self__, *,
-                 sources: List[str],
+                 sources: Sequence[str],
                  target: str,
                  is_enabled: Optional[bool] = None,
                  is_encoded: Optional[bool] = None,
@@ -27292,7 +27292,7 @@ class LogsCustomPipelineProcessorUserAgentParser(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> List[str]:
+    def sources(self) -> Sequence[str]:
         return pulumi.get(self, "sources")
 
     @property
@@ -27322,7 +27322,7 @@ class LogsCustomPipelineProcessorUserAgentParser(dict):
 @pulumi.output_type
 class LogsIndexExclusionFilter(dict):
     def __init__(__self__, *,
-                 filters: Optional[List['outputs.LogsIndexExclusionFilterFilter']] = None,
+                 filters: Optional[Sequence['outputs.LogsIndexExclusionFilterFilter']] = None,
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         if filters is not None:
@@ -27334,7 +27334,7 @@ class LogsIndexExclusionFilter(dict):
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.LogsIndexExclusionFilterFilter']]:
+    def filters(self) -> Optional[Sequence['outputs.LogsIndexExclusionFilterFilter']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -27515,9 +27515,9 @@ class ScreenBoardTemplateVariable(dict):
 class ScreenBoardWidget(dict):
     def __init__(__self__, *,
                  type: str,
-                 x: float,
-                 y: float,
-                 alert_id: Optional[float] = None,
+                 x: int,
+                 y: int,
+                 alert_id: Optional[int] = None,
                  auto_refresh: Optional[bool] = None,
                  bgcolor: Optional[str] = None,
                  check: Optional[str] = None,
@@ -27529,9 +27529,9 @@ class ScreenBoardWidget(dict):
                  event_size: Optional[str] = None,
                  font_size: Optional[str] = None,
                  group: Optional[str] = None,
-                 group_bies: Optional[List[str]] = None,
+                 group_bies: Optional[Sequence[str]] = None,
                  grouping: Optional[str] = None,
-                 height: Optional[float] = None,
+                 height: Optional[int] = None,
                  hide_zero_counts: Optional[bool] = None,
                  html: Optional[str] = None,
                  layout_version: Optional[str] = None,
@@ -27553,30 +27553,30 @@ class ScreenBoardWidget(dict):
                  params: Optional[Mapping[str, str]] = None,
                  precision: Optional[str] = None,
                  query: Optional[str] = None,
-                 rules: Optional[List['outputs.ScreenBoardWidgetRule']] = None,
+                 rules: Optional[Sequence['outputs.ScreenBoardWidgetRule']] = None,
                  service_name: Optional[str] = None,
                  service_service: Optional[str] = None,
                  show_last_triggered: Optional[bool] = None,
                  size_version: Optional[str] = None,
                  sizing: Optional[str] = None,
                  summary_type: Optional[str] = None,
-                 tags: Optional[List[str]] = None,
+                 tags: Optional[Sequence[str]] = None,
                  text: Optional[str] = None,
                  text_align: Optional[str] = None,
                  text_size: Optional[str] = None,
                  tick: Optional[bool] = None,
                  tick_edge: Optional[str] = None,
                  tick_pos: Optional[str] = None,
-                 tile_deves: Optional[List['outputs.ScreenBoardWidgetTileDef']] = None,
+                 tile_deves: Optional[Sequence['outputs.ScreenBoardWidgetTileDef']] = None,
                  time: Optional[Mapping[str, str]] = None,
-                 timeframes: Optional[List[str]] = None,
+                 timeframes: Optional[Sequence[str]] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
-                 title_size: Optional[float] = None,
+                 title_size: Optional[int] = None,
                  unit: Optional[str] = None,
                  url: Optional[str] = None,
                  viz_type: Optional[str] = None,
-                 width: Optional[float] = None):
+                 width: Optional[int] = None):
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "x", x)
         pulumi.set(__self__, "y", y)
@@ -27708,17 +27708,17 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter
-    def x(self) -> float:
+    def x(self) -> int:
         return pulumi.get(self, "x")
 
     @property
     @pulumi.getter
-    def y(self) -> float:
+    def y(self) -> int:
         return pulumi.get(self, "y")
 
     @property
     @pulumi.getter(name="alertId")
-    def alert_id(self) -> Optional[float]:
+    def alert_id(self) -> Optional[int]:
         return pulumi.get(self, "alert_id")
 
     @property
@@ -27778,7 +27778,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List[str]]:
+    def group_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "group_bies")
 
     @property
@@ -27788,7 +27788,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter
-    def height(self) -> Optional[float]:
+    def height(self) -> Optional[int]:
         return pulumi.get(self, "height")
 
     @property
@@ -27898,7 +27898,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.ScreenBoardWidgetRule']]:
+    def rules(self) -> Optional[Sequence['outputs.ScreenBoardWidgetRule']]:
         return pulumi.get(self, "rules")
 
     @property
@@ -27933,7 +27933,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tags")
 
     @property
@@ -27968,7 +27968,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter(name="tileDeves")
-    def tile_deves(self) -> Optional[List['outputs.ScreenBoardWidgetTileDef']]:
+    def tile_deves(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDef']]:
         return pulumi.get(self, "tile_deves")
 
     @property
@@ -27978,7 +27978,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter
-    def timeframes(self) -> Optional[List[str]]:
+    def timeframes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "timeframes")
 
     @property
@@ -27993,7 +27993,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter(name="titleSize")
-    def title_size(self) -> Optional[float]:
+    def title_size(self) -> Optional[int]:
         return pulumi.get(self, "title_size")
 
     @property
@@ -28013,7 +28013,7 @@ class ScreenBoardWidget(dict):
 
     @property
     @pulumi.getter
-    def width(self) -> Optional[float]:
+    def width(self) -> Optional[int]:
         return pulumi.get(self, "width")
 
     def _translate_property(self, prop):
@@ -28055,18 +28055,18 @@ class ScreenBoardWidgetRule(dict):
 @pulumi.output_type
 class ScreenBoardWidgetTileDef(dict):
     def __init__(__self__, *,
-                 requests: List['outputs.ScreenBoardWidgetTileDefRequest'],
+                 requests: Sequence['outputs.ScreenBoardWidgetTileDefRequest'],
                  viz: str,
                  autoscale: Optional[bool] = None,
                  custom_unit: Optional[str] = None,
-                 events: Optional[List['outputs.ScreenBoardWidgetTileDefEvent']] = None,
-                 groups: Optional[List[str]] = None,
-                 markers: Optional[List['outputs.ScreenBoardWidgetTileDefMarker']] = None,
+                 events: Optional[Sequence['outputs.ScreenBoardWidgetTileDefEvent']] = None,
+                 groups: Optional[Sequence[str]] = None,
+                 markers: Optional[Sequence['outputs.ScreenBoardWidgetTileDefMarker']] = None,
                  no_group_hosts: Optional[bool] = None,
                  no_metric_hosts: Optional[bool] = None,
                  node_type: Optional[str] = None,
                  precision: Optional[str] = None,
-                 scopes: Optional[List[str]] = None,
+                 scopes: Optional[Sequence[str]] = None,
                  style: Optional[Mapping[str, Any]] = None,
                  text_align: Optional[str] = None):
         pulumi.set(__self__, "requests", requests)
@@ -28098,7 +28098,7 @@ class ScreenBoardWidgetTileDef(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> List['outputs.ScreenBoardWidgetTileDefRequest']:
+    def requests(self) -> Sequence['outputs.ScreenBoardWidgetTileDefRequest']:
         return pulumi.get(self, "requests")
 
     @property
@@ -28118,17 +28118,17 @@ class ScreenBoardWidgetTileDef(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List['outputs.ScreenBoardWidgetTileDefEvent']]:
+    def events(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefEvent']]:
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
-    def markers(self) -> Optional[List['outputs.ScreenBoardWidgetTileDefMarker']]:
+    def markers(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefMarker']]:
         return pulumi.get(self, "markers")
 
     @property
@@ -28153,7 +28153,7 @@ class ScreenBoardWidgetTileDef(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "scopes")
 
     @property
@@ -28222,10 +28222,10 @@ class ScreenBoardWidgetTileDefRequest(dict):
                  apm_query: Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuery'] = None,
                  change_type: Optional[str] = None,
                  compare_to: Optional[str] = None,
-                 conditional_formats: Optional[List['outputs.ScreenBoardWidgetTileDefRequestConditionalFormat']] = None,
+                 conditional_formats: Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestConditionalFormat']] = None,
                  extra_col: Optional[str] = None,
                  increase_good: Optional[bool] = None,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  log_query: Optional['outputs.ScreenBoardWidgetTileDefRequestLogQuery'] = None,
                  metadata_json: Optional[str] = None,
                  metric: Optional[str] = None,
@@ -28235,7 +28235,7 @@ class ScreenBoardWidgetTileDefRequest(dict):
                  q: Optional[str] = None,
                  query_type: Optional[str] = None,
                  style: Optional[Mapping[str, Any]] = None,
-                 tag_filters: Optional[List[str]] = None,
+                 tag_filters: Optional[Sequence[str]] = None,
                  text_filter: Optional[str] = None,
                  type: Optional[str] = None):
         if aggregator is not None:
@@ -28301,7 +28301,7 @@ class ScreenBoardWidgetTileDefRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.ScreenBoardWidgetTileDefRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
@@ -28316,7 +28316,7 @@ class ScreenBoardWidgetTileDefRequest(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -28366,7 +28366,7 @@ class ScreenBoardWidgetTileDefRequest(dict):
 
     @property
     @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[List[str]]:
+    def tag_filters(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tag_filters")
 
     @property
@@ -28388,7 +28388,7 @@ class ScreenBoardWidgetTileDefRequestApmQuery(dict):
     def __init__(__self__, *,
                  compute: 'outputs.ScreenBoardWidgetTileDefRequestApmQueryCompute',
                  index: str,
-                 group_bies: Optional[List['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy']] = None,
+                 group_bies: Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy']] = None,
                  search: Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "compute", compute)
         pulumi.set(__self__, "index", index)
@@ -28409,7 +28409,7 @@ class ScreenBoardWidgetTileDefRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
@@ -28456,7 +28456,7 @@ class ScreenBoardWidgetTileDefRequestApmQueryCompute(dict):
 class ScreenBoardWidgetTileDefRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: str,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort'] = None):
         pulumi.set(__self__, "facet", facet)
         if limit is not None:
@@ -28471,7 +28471,7 @@ class ScreenBoardWidgetTileDefRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -28588,7 +28588,7 @@ class ScreenBoardWidgetTileDefRequestLogQuery(dict):
     def __init__(__self__, *,
                  compute: 'outputs.ScreenBoardWidgetTileDefRequestLogQueryCompute',
                  index: str,
-                 group_bies: Optional[List['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy']] = None,
+                 group_bies: Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy']] = None,
                  search: Optional['outputs.ScreenBoardWidgetTileDefRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "compute", compute)
         pulumi.set(__self__, "index", index)
@@ -28609,7 +28609,7 @@ class ScreenBoardWidgetTileDefRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
@@ -28656,7 +28656,7 @@ class ScreenBoardWidgetTileDefRequestLogQueryCompute(dict):
 class ScreenBoardWidgetTileDefRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: str,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort'] = None):
         pulumi.set(__self__, "facet", facet)
         if limit is not None:
@@ -28671,7 +28671,7 @@ class ScreenBoardWidgetTileDefRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -28732,8 +28732,8 @@ class ScreenBoardWidgetTileDefRequestLogQuerySearch(dict):
 class ScreenBoardWidgetTileDefRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -28750,12 +28750,12 @@ class ScreenBoardWidgetTileDefRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -28858,14 +28858,14 @@ class ServiceLevelObjectiveThreshold(dict):
 @pulumi.output_type
 class SyntheticsTestOptions(dict):
     def __init__(__self__, *,
-                 tick_every: float,
+                 tick_every: int,
                  accept_self_signed: Optional[bool] = None,
                  allow_insecure: Optional[bool] = None,
                  follow_redirects: Optional[bool] = None,
-                 min_failure_duration: Optional[float] = None,
-                 min_location_failed: Optional[float] = None,
-                 retry_count: Optional[float] = None,
-                 retry_interval: Optional[float] = None):
+                 min_failure_duration: Optional[int] = None,
+                 min_location_failed: Optional[int] = None,
+                 retry_count: Optional[int] = None,
+                 retry_interval: Optional[int] = None):
         pulumi.set(__self__, "tick_every", tick_every)
         if accept_self_signed is not None:
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
@@ -28884,7 +28884,7 @@ class SyntheticsTestOptions(dict):
 
     @property
     @pulumi.getter(name="tickEvery")
-    def tick_every(self) -> float:
+    def tick_every(self) -> int:
         return pulumi.get(self, "tick_every")
 
     @property
@@ -28904,22 +28904,22 @@ class SyntheticsTestOptions(dict):
 
     @property
     @pulumi.getter(name="minFailureDuration")
-    def min_failure_duration(self) -> Optional[float]:
+    def min_failure_duration(self) -> Optional[int]:
         return pulumi.get(self, "min_failure_duration")
 
     @property
     @pulumi.getter(name="minLocationFailed")
-    def min_location_failed(self) -> Optional[float]:
+    def min_location_failed(self) -> Optional[int]:
         return pulumi.get(self, "min_location_failed")
 
     @property
     @pulumi.getter(name="retryCount")
-    def retry_count(self) -> Optional[float]:
+    def retry_count(self) -> Optional[int]:
         return pulumi.get(self, "retry_count")
 
     @property
     @pulumi.getter(name="retryInterval")
-    def retry_interval(self) -> Optional[float]:
+    def retry_interval(self) -> Optional[int]:
         return pulumi.get(self, "retry_interval")
 
     def _translate_property(self, prop):
@@ -28932,11 +28932,11 @@ class SyntheticsTestOptionsList(dict):
                  accept_self_signed: Optional[bool] = None,
                  allow_insecure: Optional[bool] = None,
                  follow_redirects: Optional[bool] = None,
-                 min_failure_duration: Optional[float] = None,
-                 min_location_failed: Optional[float] = None,
+                 min_failure_duration: Optional[int] = None,
+                 min_location_failed: Optional[int] = None,
                  monitor_options: Optional['outputs.SyntheticsTestOptionsListMonitorOptions'] = None,
                  retry: Optional['outputs.SyntheticsTestOptionsListRetry'] = None,
-                 tick_every: Optional[float] = None):
+                 tick_every: Optional[int] = None):
         if accept_self_signed is not None:
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
         if allow_insecure is not None:
@@ -28971,12 +28971,12 @@ class SyntheticsTestOptionsList(dict):
 
     @property
     @pulumi.getter(name="minFailureDuration")
-    def min_failure_duration(self) -> Optional[float]:
+    def min_failure_duration(self) -> Optional[int]:
         return pulumi.get(self, "min_failure_duration")
 
     @property
     @pulumi.getter(name="minLocationFailed")
-    def min_location_failed(self) -> Optional[float]:
+    def min_location_failed(self) -> Optional[int]:
         return pulumi.get(self, "min_location_failed")
 
     @property
@@ -28991,7 +28991,7 @@ class SyntheticsTestOptionsList(dict):
 
     @property
     @pulumi.getter(name="tickEvery")
-    def tick_every(self) -> Optional[float]:
+    def tick_every(self) -> Optional[int]:
         return pulumi.get(self, "tick_every")
 
     def _translate_property(self, prop):
@@ -29001,13 +29001,13 @@ class SyntheticsTestOptionsList(dict):
 @pulumi.output_type
 class SyntheticsTestOptionsListMonitorOptions(dict):
     def __init__(__self__, *,
-                 renotify_interval: Optional[float] = None):
+                 renotify_interval: Optional[int] = None):
         if renotify_interval is not None:
             pulumi.set(__self__, "renotify_interval", renotify_interval)
 
     @property
     @pulumi.getter(name="renotifyInterval")
-    def renotify_interval(self) -> Optional[float]:
+    def renotify_interval(self) -> Optional[int]:
         return pulumi.get(self, "renotify_interval")
 
     def _translate_property(self, prop):
@@ -29017,8 +29017,8 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
 @pulumi.output_type
 class SyntheticsTestOptionsListRetry(dict):
     def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 interval: Optional[float] = None):
+                 count: Optional[int] = None,
+                 interval: Optional[int] = None):
         if count is not None:
             pulumi.set(__self__, "count", count)
         if interval is not None:
@@ -29026,12 +29026,12 @@ class SyntheticsTestOptionsListRetry(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -29044,8 +29044,8 @@ class SyntheticsTestRequest(dict):
                  body: Optional[str] = None,
                  host: Optional[str] = None,
                  method: Optional[str] = None,
-                 port: Optional[float] = None,
-                 timeout: Optional[float] = None,
+                 port: Optional[int] = None,
+                 timeout: Optional[int] = None,
                  url: Optional[str] = None):
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -29077,12 +29077,12 @@ class SyntheticsTestRequest(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> Optional[int]:
         return pulumi.get(self, "timeout")
 
     @property
@@ -29123,7 +29123,7 @@ class SyntheticsTestStep(dict):
                  params: str,
                  type: str,
                  allow_failure: Optional[bool] = None,
-                 timeout: Optional[float] = None):
+                 timeout: Optional[int] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "params", params)
         pulumi.set(__self__, "type", type)
@@ -29154,7 +29154,7 @@ class SyntheticsTestStep(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> Optional[int]:
         return pulumi.get(self, "timeout")
 
     def _translate_property(self, prop):
@@ -29164,19 +29164,19 @@ class SyntheticsTestStep(dict):
 @pulumi.output_type
 class TimeBoardGraph(dict):
     def __init__(__self__, *,
-                 requests: List['outputs.TimeBoardGraphRequest'],
+                 requests: Sequence['outputs.TimeBoardGraphRequest'],
                  title: str,
                  viz: str,
                  autoscale: Optional[bool] = None,
                  custom_unit: Optional[str] = None,
-                 events: Optional[List[str]] = None,
-                 groups: Optional[List[str]] = None,
+                 events: Optional[Sequence[str]] = None,
+                 groups: Optional[Sequence[str]] = None,
                  include_no_metric_hosts: Optional[bool] = None,
                  include_ungrouped_hosts: Optional[bool] = None,
-                 markers: Optional[List['outputs.TimeBoardGraphMarker']] = None,
+                 markers: Optional[Sequence['outputs.TimeBoardGraphMarker']] = None,
                  node_type: Optional[str] = None,
                  precision: Optional[str] = None,
-                 scopes: Optional[List[str]] = None,
+                 scopes: Optional[Sequence[str]] = None,
                  style: Optional[Mapping[str, Any]] = None,
                  text_align: Optional[str] = None,
                  yaxis: Optional[Mapping[str, Any]] = None):
@@ -29212,7 +29212,7 @@ class TimeBoardGraph(dict):
 
     @property
     @pulumi.getter
-    def requests(self) -> List['outputs.TimeBoardGraphRequest']:
+    def requests(self) -> Sequence['outputs.TimeBoardGraphRequest']:
         return pulumi.get(self, "requests")
 
     @property
@@ -29237,12 +29237,12 @@ class TimeBoardGraph(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[List[str]]:
+    def events(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List[str]]:
+    def groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "groups")
 
     @property
@@ -29257,7 +29257,7 @@ class TimeBoardGraph(dict):
 
     @property
     @pulumi.getter
-    def markers(self) -> Optional[List['outputs.TimeBoardGraphMarker']]:
+    def markers(self) -> Optional[Sequence['outputs.TimeBoardGraphMarker']]:
         return pulumi.get(self, "markers")
 
     @property
@@ -29272,7 +29272,7 @@ class TimeBoardGraph(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "scopes")
 
     @property
@@ -29331,7 +29331,7 @@ class TimeBoardGraphRequest(dict):
                  apm_query: Optional['outputs.TimeBoardGraphRequestApmQuery'] = None,
                  change_type: Optional[str] = None,
                  compare_to: Optional[str] = None,
-                 conditional_formats: Optional[List['outputs.TimeBoardGraphRequestConditionalFormat']] = None,
+                 conditional_formats: Optional[Sequence['outputs.TimeBoardGraphRequestConditionalFormat']] = None,
                  extra_col: Optional[str] = None,
                  increase_good: Optional[bool] = None,
                  log_query: Optional['outputs.TimeBoardGraphRequestLogQuery'] = None,
@@ -29398,7 +29398,7 @@ class TimeBoardGraphRequest(dict):
 
     @property
     @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[List['outputs.TimeBoardGraphRequestConditionalFormat']]:
+    def conditional_formats(self) -> Optional[Sequence['outputs.TimeBoardGraphRequestConditionalFormat']]:
         return pulumi.get(self, "conditional_formats")
 
     @property
@@ -29465,7 +29465,7 @@ class TimeBoardGraphRequestApmQuery(dict):
     def __init__(__self__, *,
                  compute: 'outputs.TimeBoardGraphRequestApmQueryCompute',
                  index: str,
-                 group_bies: Optional[List['outputs.TimeBoardGraphRequestApmQueryGroupBy']] = None,
+                 group_bies: Optional[Sequence['outputs.TimeBoardGraphRequestApmQueryGroupBy']] = None,
                  search: Optional['outputs.TimeBoardGraphRequestApmQuerySearch'] = None):
         pulumi.set(__self__, "compute", compute)
         pulumi.set(__self__, "index", index)
@@ -29486,7 +29486,7 @@ class TimeBoardGraphRequestApmQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.TimeBoardGraphRequestApmQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.TimeBoardGraphRequestApmQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
@@ -29503,7 +29503,7 @@ class TimeBoardGraphRequestApmQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -29522,7 +29522,7 @@ class TimeBoardGraphRequestApmQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -29533,7 +29533,7 @@ class TimeBoardGraphRequestApmQueryCompute(dict):
 class TimeBoardGraphRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: str,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.TimeBoardGraphRequestApmQueryGroupBySort'] = None):
         pulumi.set(__self__, "facet", facet)
         if limit is not None:
@@ -29548,7 +29548,7 @@ class TimeBoardGraphRequestApmQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -29657,7 +29657,7 @@ class TimeBoardGraphRequestLogQuery(dict):
     def __init__(__self__, *,
                  compute: 'outputs.TimeBoardGraphRequestLogQueryCompute',
                  index: str,
-                 group_bies: Optional[List['outputs.TimeBoardGraphRequestLogQueryGroupBy']] = None,
+                 group_bies: Optional[Sequence['outputs.TimeBoardGraphRequestLogQueryGroupBy']] = None,
                  search: Optional['outputs.TimeBoardGraphRequestLogQuerySearch'] = None):
         pulumi.set(__self__, "compute", compute)
         pulumi.set(__self__, "index", index)
@@ -29678,7 +29678,7 @@ class TimeBoardGraphRequestLogQuery(dict):
 
     @property
     @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[List['outputs.TimeBoardGraphRequestLogQueryGroupBy']]:
+    def group_bies(self) -> Optional[Sequence['outputs.TimeBoardGraphRequestLogQueryGroupBy']]:
         return pulumi.get(self, "group_bies")
 
     @property
@@ -29695,7 +29695,7 @@ class TimeBoardGraphRequestLogQueryCompute(dict):
     def __init__(__self__, *,
                  aggregation: str,
                  facet: Optional[str] = None,
-                 interval: Optional[float] = None):
+                 interval: Optional[int] = None):
         pulumi.set(__self__, "aggregation", aggregation)
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
@@ -29714,7 +29714,7 @@ class TimeBoardGraphRequestLogQueryCompute(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
     def _translate_property(self, prop):
@@ -29725,7 +29725,7 @@ class TimeBoardGraphRequestLogQueryCompute(dict):
 class TimeBoardGraphRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: str,
-                 limit: Optional[float] = None,
+                 limit: Optional[int] = None,
                  sort: Optional['outputs.TimeBoardGraphRequestLogQueryGroupBySort'] = None):
         pulumi.set(__self__, "facet", facet)
         if limit is not None:
@@ -29740,7 +29740,7 @@ class TimeBoardGraphRequestLogQueryGroupBy(dict):
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property
@@ -29801,8 +29801,8 @@ class TimeBoardGraphRequestLogQuerySearch(dict):
 class TimeBoardGraphRequestProcessQuery(dict):
     def __init__(__self__, *,
                  metric: str,
-                 filter_bies: Optional[List[str]] = None,
-                 limit: Optional[float] = None,
+                 filter_bies: Optional[Sequence[str]] = None,
+                 limit: Optional[int] = None,
                  search_by: Optional[str] = None):
         pulumi.set(__self__, "metric", metric)
         if filter_bies is not None:
@@ -29819,12 +29819,12 @@ class TimeBoardGraphRequestProcessQuery(dict):
 
     @property
     @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[List[str]]:
+    def filter_bies(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_bies")
 
     @property
     @pulumi.getter
-    def limit(self) -> Optional[float]:
+    def limit(self) -> Optional[int]:
         return pulumi.get(self, "limit")
 
     @property

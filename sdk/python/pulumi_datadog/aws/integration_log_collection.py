@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['IntegrationLogCollection']
@@ -16,7 +16,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -72,7 +72,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            services: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'IntegrationLogCollection':
+            services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'IntegrationLogCollection':
         """
         Get an existing IntegrationLogCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -96,7 +96,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def services(self) -> pulumi.Output[List[str]]:
+    def services(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "services")
 
     def translate_output_property(self, prop):

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,16 +17,16 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dashboard_lists: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
-                 notify_lists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 template_variable_presets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
-                 template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
+                 notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 widgets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -673,16 +673,16 @@ class Dashboard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[float]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
-        :param pulumi.Input[List[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] url: The URL of the dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -728,17 +728,17 @@ class Dashboard(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dashboard_lists: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-            dashboard_lists_removeds: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+            dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            dashboard_lists_removeds: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             is_read_only: Optional[pulumi.Input[bool]] = None,
             layout_type: Optional[pulumi.Input[str]] = None,
-            notify_lists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            template_variable_presets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
-            template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
+            notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
+            template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
             title: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
-            widgets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None) -> 'Dashboard':
+            widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None) -> 'Dashboard':
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -746,17 +746,17 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[float]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
-        :param pulumi.Input[List[pulumi.Input[float]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
-        :param pulumi.Input[List[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[str] url: The URL of the dashboard.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -777,7 +777,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardLists")
-    def dashboard_lists(self) -> pulumi.Output[Optional[List[float]]]:
+    def dashboard_lists(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
         The list of dashboard lists this dashboard belongs to.
         """
@@ -785,7 +785,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardListsRemoveds")
-    def dashboard_lists_removeds(self) -> pulumi.Output[List[float]]:
+    def dashboard_lists_removeds(self) -> pulumi.Output[Sequence[int]]:
         """
         The list of dashboard lists this dashboard should be removed from. Internal only.
         """
@@ -817,7 +817,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notifyLists")
-    def notify_lists(self) -> pulumi.Output[Optional[List[str]]]:
+    def notify_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of handles of users to notify when changes are made to this dashboard.
         """
@@ -825,7 +825,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariablePresets")
-    def template_variable_presets(self) -> pulumi.Output[Optional[List['outputs.DashboardTemplateVariablePreset']]]:
+    def template_variable_presets(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardTemplateVariablePreset']]]:
         """
         The list of selectable template variable presets for this dashboard.
         """
@@ -833,7 +833,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> pulumi.Output[Optional[List['outputs.DashboardTemplateVariable']]]:
+    def template_variables(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardTemplateVariable']]]:
         """
         The list of template variables for this dashboard.
         """
@@ -857,7 +857,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def widgets(self) -> pulumi.Output[List['outputs.DashboardWidget']]:
+    def widgets(self) -> pulumi.Output[Sequence['outputs.DashboardWidget']]:
         """
         The list of widgets to display on the dashboard.
         """

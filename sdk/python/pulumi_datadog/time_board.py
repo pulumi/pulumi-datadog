@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,9 +18,9 @@ class TimeBoard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 graphs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]]] = None,
+                 graphs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
-                 template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -30,8 +30,8 @@ class TimeBoard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: The name of the dashboard.
         """
         if __name__ is not None:
@@ -73,9 +73,9 @@ class TimeBoard(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            graphs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]]] = None,
+            graphs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]]] = None,
             read_only: Optional[pulumi.Input[bool]] = None,
-            template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]]] = None,
+            template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]]] = None,
             title: Optional[pulumi.Input[str]] = None) -> 'TimeBoard':
         """
         Get an existing TimeBoard resource's state with the given name, id, and optional extra
@@ -85,8 +85,8 @@ class TimeBoard(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: The name of the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -110,7 +110,7 @@ class TimeBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def graphs(self) -> pulumi.Output[List['outputs.TimeBoardGraph']]:
+    def graphs(self) -> pulumi.Output[Sequence['outputs.TimeBoardGraph']]:
         """
         A list of graph definitions.
         """
@@ -123,7 +123,7 @@ class TimeBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> pulumi.Output[Optional[List['outputs.TimeBoardTemplateVariable']]]:
+    def template_variables(self) -> pulumi.Output[Optional[Sequence['outputs.TimeBoardTemplateVariable']]]:
         """
         A list of template variables for using Dashboard templating.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,10 +17,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 processors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -240,10 +240,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            processors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None) -> 'LogsCustomPipeline':
+            processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None) -> 'LogsCustomPipeline':
         """
         Get an existing LogsCustomPipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -264,7 +264,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[List['outputs.LogsCustomPipelineFilter']]:
+    def filters(self) -> pulumi.Output[Sequence['outputs.LogsCustomPipelineFilter']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -279,7 +279,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def processors(self) -> pulumi.Output[Optional[List['outputs.LogsCustomPipelineProcessor']]]:
+    def processors(self) -> pulumi.Output[Optional[Sequence['outputs.LogsCustomPipelineProcessor']]]:
         return pulumi.get(self, "processors")
 
     def translate_output_property(self, prop):

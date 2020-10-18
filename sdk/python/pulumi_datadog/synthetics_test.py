@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,9 +17,9 @@ class SyntheticsTest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assertions: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 device_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsArgs']]] = None,
@@ -29,9 +29,9 @@ class SyntheticsTest(pulumi.CustomResource):
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 steps: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
                  subtype: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -103,11 +103,11 @@ class SyntheticsTest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assertions: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
-            device_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+            device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             message: Optional[pulumi.Input[str]] = None,
-            monitor_id: Optional[pulumi.Input[float]] = None,
+            monitor_id: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsArgs']]] = None,
             options_list: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestOptionsListArgs']]] = None,
@@ -116,9 +116,9 @@ class SyntheticsTest(pulumi.CustomResource):
             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            steps: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
+            steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
             subtype: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'SyntheticsTest':
         """
         Get an existing SyntheticsTest resource's state with the given name, id, and optional extra
@@ -153,17 +153,17 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def assertions(self) -> pulumi.Output[Optional[List[Mapping[str, Any]]]]:
+    def assertions(self) -> pulumi.Output[Optional[Sequence[Mapping[str, Any]]]]:
         return pulumi.get(self, "assertions")
 
     @property
     @pulumi.getter(name="deviceIds")
-    def device_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def device_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "device_ids")
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[List[str]]:
+    def locations(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "locations")
 
     @property
@@ -173,7 +173,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> pulumi.Output[float]:
+    def monitor_id(self) -> pulumi.Output[int]:
         return pulumi.get(self, "monitor_id")
 
     @property
@@ -218,7 +218,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def steps(self) -> pulumi.Output[Optional[List['outputs.SyntheticsTestStep']]]:
+    def steps(self) -> pulumi.Output[Optional[Sequence['outputs.SyntheticsTestStep']]]:
         return pulumi.get(self, "steps")
 
     @property
@@ -228,7 +228,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[List[str]]:
+    def tags(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "tags")
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,14 +19,14 @@ class Downtime(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
-                 end: Optional[pulumi.Input[float]] = None,
+                 end: Optional[pulumi.Input[int]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 monitor_id: Optional[pulumi.Input[float]] = None,
-                 monitor_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 monitor_id: Optional[pulumi.Input[int]] = None,
+                 monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  recurrence: Optional[pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 start: Optional[pulumi.Input[float]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 start: Optional[pulumi.Input[int]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -74,13 +74,13 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
-        :param pulumi.Input[float] end: Optionally specify an end date when this downtime should expire
+        :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
-        :param pulumi.Input[float] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[List[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
-        :param pulumi.Input[float] start: Specify when this downtime should start
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
+        :param pulumi.Input[int] start: Specify when this downtime should start
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC
         """
         if __name__ is not None:
@@ -126,14 +126,14 @@ class Downtime(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
-            end: Optional[pulumi.Input[float]] = None,
+            end: Optional[pulumi.Input[int]] = None,
             end_date: Optional[pulumi.Input[str]] = None,
             message: Optional[pulumi.Input[str]] = None,
-            monitor_id: Optional[pulumi.Input[float]] = None,
-            monitor_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            monitor_id: Optional[pulumi.Input[int]] = None,
+            monitor_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             recurrence: Optional[pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']]] = None,
-            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            start: Optional[pulumi.Input[float]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            start: Optional[pulumi.Input[int]] = None,
             start_date: Optional[pulumi.Input[str]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'Downtime':
         """
@@ -145,13 +145,13 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
-        :param pulumi.Input[float] end: Optionally specify an end date when this downtime should expire
+        :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
-        :param pulumi.Input[float] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[List[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
-        :param pulumi.Input[float] start: Specify when this downtime should start
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
+        :param pulumi.Input[int] start: Specify when this downtime should start
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -190,7 +190,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def end(self) -> pulumi.Output[Optional[float]]:
+    def end(self) -> pulumi.Output[Optional[int]]:
         """
         Optionally specify an end date when this downtime should expire
         """
@@ -211,7 +211,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorId")
-    def monitor_id(self) -> pulumi.Output[Optional[float]]:
+    def monitor_id(self) -> pulumi.Output[Optional[int]]:
         """
         When specified, this downtime will only apply to this monitor
         """
@@ -219,7 +219,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorTags")
-    def monitor_tags(self) -> pulumi.Output[Optional[List[str]]]:
+    def monitor_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
         """
@@ -235,7 +235,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[List[str]]:
+    def scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         specify the group scope to which this downtime applies. For everything use '*'
         """
@@ -243,7 +243,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def start(self) -> pulumi.Output[Optional[float]]:
+    def start(self) -> pulumi.Output[Optional[int]]:
         """
         Specify when this downtime should start
         """

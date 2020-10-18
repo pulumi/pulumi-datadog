@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -68,32 +68,32 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="agentsIpv4s")
-    def agents_ipv4s(self) -> List[str]:
+    def agents_ipv4s(self) -> Sequence[str]:
         return pulumi.get(self, "agents_ipv4s")
 
     @property
     @pulumi.getter(name="agentsIpv6s")
-    def agents_ipv6s(self) -> List[str]:
+    def agents_ipv6s(self) -> Sequence[str]:
         return pulumi.get(self, "agents_ipv6s")
 
     @property
     @pulumi.getter(name="apiIpv4s")
-    def api_ipv4s(self) -> List[str]:
+    def api_ipv4s(self) -> Sequence[str]:
         return pulumi.get(self, "api_ipv4s")
 
     @property
     @pulumi.getter(name="apiIpv6s")
-    def api_ipv6s(self) -> List[str]:
+    def api_ipv6s(self) -> Sequence[str]:
         return pulumi.get(self, "api_ipv6s")
 
     @property
     @pulumi.getter(name="apmIpv4s")
-    def apm_ipv4s(self) -> List[str]:
+    def apm_ipv4s(self) -> Sequence[str]:
         return pulumi.get(self, "apm_ipv4s")
 
     @property
     @pulumi.getter(name="apmIpv6s")
-    def apm_ipv6s(self) -> List[str]:
+    def apm_ipv6s(self) -> Sequence[str]:
         return pulumi.get(self, "apm_ipv6s")
 
     @property
@@ -106,42 +106,42 @@ class GetIpRangesResult:
 
     @property
     @pulumi.getter(name="logsIpv4s")
-    def logs_ipv4s(self) -> List[str]:
+    def logs_ipv4s(self) -> Sequence[str]:
         return pulumi.get(self, "logs_ipv4s")
 
     @property
     @pulumi.getter(name="logsIpv6s")
-    def logs_ipv6s(self) -> List[str]:
+    def logs_ipv6s(self) -> Sequence[str]:
         return pulumi.get(self, "logs_ipv6s")
 
     @property
     @pulumi.getter(name="processIpv4s")
-    def process_ipv4s(self) -> List[str]:
+    def process_ipv4s(self) -> Sequence[str]:
         return pulumi.get(self, "process_ipv4s")
 
     @property
     @pulumi.getter(name="processIpv6s")
-    def process_ipv6s(self) -> List[str]:
+    def process_ipv6s(self) -> Sequence[str]:
         return pulumi.get(self, "process_ipv6s")
 
     @property
     @pulumi.getter(name="syntheticsIpv4s")
-    def synthetics_ipv4s(self) -> List[str]:
+    def synthetics_ipv4s(self) -> Sequence[str]:
         return pulumi.get(self, "synthetics_ipv4s")
 
     @property
     @pulumi.getter(name="syntheticsIpv6s")
-    def synthetics_ipv6s(self) -> List[str]:
+    def synthetics_ipv6s(self) -> Sequence[str]:
         return pulumi.get(self, "synthetics_ipv6s")
 
     @property
     @pulumi.getter(name="webhooksIpv4s")
-    def webhooks_ipv4s(self) -> List[str]:
+    def webhooks_ipv4s(self) -> Sequence[str]:
         return pulumi.get(self, "webhooks_ipv4s")
 
     @property
     @pulumi.getter(name="webhooksIpv6s")
-    def webhooks_ipv6s(self) -> List[str]:
+    def webhooks_ipv6s(self) -> Sequence[str]:
         return pulumi.get(self, "webhooks_ipv6s")
 
 
