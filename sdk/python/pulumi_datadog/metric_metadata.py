@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['MetricMetadata']
@@ -19,7 +19,7 @@ class MetricMetadata(pulumi.CustomResource):
                  metric: Optional[pulumi.Input[str]] = None,
                  per_unit: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
-                 statsd_interval: Optional[pulumi.Input[float]] = None,
+                 statsd_interval: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -86,7 +86,7 @@ class MetricMetadata(pulumi.CustomResource):
             metric: Optional[pulumi.Input[str]] = None,
             per_unit: Optional[pulumi.Input[str]] = None,
             short_name: Optional[pulumi.Input[str]] = None,
-            statsd_interval: Optional[pulumi.Input[float]] = None,
+            statsd_interval: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[str]] = None,
             unit: Optional[pulumi.Input[str]] = None) -> 'MetricMetadata':
         """
@@ -132,7 +132,7 @@ class MetricMetadata(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="statsdInterval")
-    def statsd_interval(self) -> pulumi.Output[Optional[float]]:
+    def statsd_interval(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "statsd_interval")
 
     @property

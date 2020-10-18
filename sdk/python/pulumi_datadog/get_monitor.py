@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class GetMonitorResult:
         if escalation_message and not isinstance(escalation_message, str):
             raise TypeError("Expected argument 'escalation_message' to be a str")
         pulumi.set(__self__, "escalation_message", escalation_message)
-        if evaluation_delay and not isinstance(evaluation_delay, float):
-            raise TypeError("Expected argument 'evaluation_delay' to be a float")
+        if evaluation_delay and not isinstance(evaluation_delay, int):
+            raise TypeError("Expected argument 'evaluation_delay' to be a int")
         pulumi.set(__self__, "evaluation_delay", evaluation_delay)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -51,11 +51,11 @@ class GetMonitorResult:
         if name_filter and not isinstance(name_filter, str):
             raise TypeError("Expected argument 'name_filter' to be a str")
         pulumi.set(__self__, "name_filter", name_filter)
-        if new_host_delay and not isinstance(new_host_delay, float):
-            raise TypeError("Expected argument 'new_host_delay' to be a float")
+        if new_host_delay and not isinstance(new_host_delay, int):
+            raise TypeError("Expected argument 'new_host_delay' to be a int")
         pulumi.set(__self__, "new_host_delay", new_host_delay)
-        if no_data_timeframe and not isinstance(no_data_timeframe, float):
-            raise TypeError("Expected argument 'no_data_timeframe' to be a float")
+        if no_data_timeframe and not isinstance(no_data_timeframe, int):
+            raise TypeError("Expected argument 'no_data_timeframe' to be a int")
         pulumi.set(__self__, "no_data_timeframe", no_data_timeframe)
         if notify_audit and not isinstance(notify_audit, bool):
             raise TypeError("Expected argument 'notify_audit' to be a bool")
@@ -66,8 +66,8 @@ class GetMonitorResult:
         if query and not isinstance(query, str):
             raise TypeError("Expected argument 'query' to be a str")
         pulumi.set(__self__, "query", query)
-        if renotify_interval and not isinstance(renotify_interval, float):
-            raise TypeError("Expected argument 'renotify_interval' to be a float")
+        if renotify_interval and not isinstance(renotify_interval, int):
+            raise TypeError("Expected argument 'renotify_interval' to be a int")
         pulumi.set(__self__, "renotify_interval", renotify_interval)
         if require_full_window and not isinstance(require_full_window, bool):
             raise TypeError("Expected argument 'require_full_window' to be a bool")
@@ -84,8 +84,8 @@ class GetMonitorResult:
         if thresholds and not isinstance(thresholds, dict):
             raise TypeError("Expected argument 'thresholds' to be a dict")
         pulumi.set(__self__, "thresholds", thresholds)
-        if timeout_h and not isinstance(timeout_h, float):
-            raise TypeError("Expected argument 'timeout_h' to be a float")
+        if timeout_h and not isinstance(timeout_h, int):
+            raise TypeError("Expected argument 'timeout_h' to be a int")
         pulumi.set(__self__, "timeout_h", timeout_h)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -103,7 +103,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="evaluationDelay")
-    def evaluation_delay(self) -> float:
+    def evaluation_delay(self) -> int:
         return pulumi.get(self, "evaluation_delay")
 
     @property
@@ -131,7 +131,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="monitorTagsFilters")
-    def monitor_tags_filters(self) -> Optional[List[str]]:
+    def monitor_tags_filters(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "monitor_tags_filters")
 
     @property
@@ -146,12 +146,12 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="newHostDelay")
-    def new_host_delay(self) -> float:
+    def new_host_delay(self) -> int:
         return pulumi.get(self, "new_host_delay")
 
     @property
     @pulumi.getter(name="noDataTimeframe")
-    def no_data_timeframe(self) -> float:
+    def no_data_timeframe(self) -> int:
         return pulumi.get(self, "no_data_timeframe")
 
     @property
@@ -171,7 +171,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="renotifyInterval")
-    def renotify_interval(self) -> float:
+    def renotify_interval(self) -> int:
         return pulumi.get(self, "renotify_interval")
 
     @property
@@ -181,12 +181,12 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> List[str]:
+    def tags(self) -> Sequence[str]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsFilters")
-    def tags_filters(self) -> Optional[List[str]]:
+    def tags_filters(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "tags_filters")
 
     @property
@@ -201,7 +201,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="timeoutH")
-    def timeout_h(self) -> float:
+    def timeout_h(self) -> int:
         return pulumi.get(self, "timeout_h")
 
     @property
@@ -241,9 +241,9 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             type=self.type)
 
 
-def get_monitor(monitor_tags_filters: Optional[List[str]] = None,
+def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
                 name_filter: Optional[str] = None,
-                tags_filters: Optional[List[str]] = None,
+                tags_filters: Optional[Sequence[str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
     Use this data source to retrieve information about an existing monitor for use in other resources.

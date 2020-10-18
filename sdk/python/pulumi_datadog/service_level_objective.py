@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,12 +18,12 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 monitor_ids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']]] = None,
-                 tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 thresholds: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -104,10 +104,10 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
-        :param pulumi.Input[List[pulumi.Input[float]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
-        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
                - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         if __name__ is not None:
@@ -152,12 +152,12 @@ class ServiceLevelObjective(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            monitor_ids: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']]] = None,
-            tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            thresholds: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ServiceLevelObjective':
         """
         Get an existing ServiceLevelObjective resource's state with the given name, id, and optional extra
@@ -166,10 +166,10 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
-        :param pulumi.Input[List[pulumi.Input[float]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
-        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
                - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -193,7 +193,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[Optional[List[str]]]:
+    def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A static set of groups to filter monitor-based SLOs
         """
@@ -201,7 +201,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorIds")
-    def monitor_ids(self) -> pulumi.Output[Optional[List[float]]]:
+    def monitor_ids(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
         A static set of monitor IDs to use as part of the SLO
         """
@@ -222,7 +222,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[List[str]]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
@@ -231,7 +231,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thresholds(self) -> pulumi.Output[List['outputs.ServiceLevelObjectiveThreshold']]:
+    def thresholds(self) -> pulumi.Output[Sequence['outputs.ServiceLevelObjectiveThreshold']]:
         return pulumi.get(self, "thresholds")
 
     @property

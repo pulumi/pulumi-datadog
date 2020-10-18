@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 	"github.com/terraform-providers/terraform-provider-datadog/datadog"
+	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 )
 
 const (
@@ -50,7 +51,7 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 }
 
 func Provider() tfbridge.ProviderInfo {
-	p := datadog.Provider().(*schema.Provider)
+	p := shimv1.NewProvider(datadog.Provider().(*schema.Provider))
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "datadog",

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['LogsIndexOrder']
@@ -15,7 +15,7 @@ class LogsIndexOrder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 indexes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -71,7 +71,7 @@ class LogsIndexOrder(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            indexes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'LogsIndexOrder':
         """
         Get an existing LogsIndexOrder resource's state with the given name, id, and optional extra
@@ -91,7 +91,7 @@ class LogsIndexOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def indexes(self) -> pulumi.Output[List[str]]:
+    def indexes(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "indexes")
 
     @property

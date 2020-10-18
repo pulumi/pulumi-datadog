@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,9 +20,9 @@ class ScreenBoard(pulumi.CustomResource):
                  height: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  shared: Optional[pulumi.Input[bool]] = None,
-                 template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 widgets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]]] = None,
                  width: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -425,9 +425,9 @@ class ScreenBoard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] height: Height of the screenboard
         :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: Name of the screenboard
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: A list of widget definitions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: A list of widget definitions.
         :param pulumi.Input[str] width: Width of the screenboard
         """
         if __name__ is not None:
@@ -471,9 +471,9 @@ class ScreenBoard(pulumi.CustomResource):
             height: Optional[pulumi.Input[str]] = None,
             read_only: Optional[pulumi.Input[bool]] = None,
             shared: Optional[pulumi.Input[bool]] = None,
-            template_variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]]] = None,
+            template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]]] = None,
             title: Optional[pulumi.Input[str]] = None,
-            widgets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]]] = None,
+            widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]]] = None,
             width: Optional[pulumi.Input[str]] = None) -> 'ScreenBoard':
         """
         Get an existing ScreenBoard resource's state with the given name, id, and optional extra
@@ -484,9 +484,9 @@ class ScreenBoard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] height: Height of the screenboard
         :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: Name of the screenboard
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: A list of widget definitions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardWidgetArgs']]]] widgets: A list of widget definitions.
         :param pulumi.Input[str] width: Width of the screenboard
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -525,7 +525,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateVariables")
-    def template_variables(self) -> pulumi.Output[Optional[List['outputs.ScreenBoardTemplateVariable']]]:
+    def template_variables(self) -> pulumi.Output[Optional[Sequence['outputs.ScreenBoardTemplateVariable']]]:
         """
         A list of template variables for using Dashboard templating.
         """
@@ -541,7 +541,7 @@ class ScreenBoard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def widgets(self) -> pulumi.Output[List['outputs.ScreenBoardWidget']]:
+    def widgets(self) -> pulumi.Output[Sequence['outputs.ScreenBoardWidget']]:
         """
         A list of widget definitions.
         """

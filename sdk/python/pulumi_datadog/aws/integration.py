@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Integration']
@@ -17,9 +17,9 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 excluded_regions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 filter_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 host_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -95,10 +95,10 @@ class Integration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
             account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-            excluded_regions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             external_id: Optional[pulumi.Input[str]] = None,
-            filter_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            host_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             role_name: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
@@ -133,7 +133,7 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludedRegions")
-    def excluded_regions(self) -> pulumi.Output[Optional[List[str]]]:
+    def excluded_regions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "excluded_regions")
 
     @property
@@ -143,12 +143,12 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterTags")
-    def filter_tags(self) -> pulumi.Output[Optional[List[str]]]:
+    def filter_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "filter_tags")
 
     @property
     @pulumi.getter(name="hostTags")
-    def host_tags(self) -> pulumi.Output[Optional[List[str]]]:
+    def host_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "host_tags")
 
     @property
