@@ -77,6 +77,7 @@ type ServiceLevelObjective struct {
 	Tags       pulumi.StringArrayOutput                  `pulumi:"tags"`
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
 	Type       pulumi.StringOutput                       `pulumi:"type"`
+	Validate   pulumi.BoolPtrOutput                      `pulumi:"validate"`
 }
 
 // NewServiceLevelObjective registers a new resource with the given unique name, arguments, and options.
@@ -129,6 +130,7 @@ type serviceLevelObjectiveState struct {
 	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	Type       *string                          `pulumi:"type"`
+	Validate   *bool                            `pulumi:"validate"`
 }
 
 type ServiceLevelObjectiveState struct {
@@ -145,6 +147,7 @@ type ServiceLevelObjectiveState struct {
 	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	Type       pulumi.StringPtrInput
+	Validate   pulumi.BoolPtrInput
 }
 
 func (ServiceLevelObjectiveState) ElementType() reflect.Type {
@@ -165,6 +168,7 @@ type serviceLevelObjectiveArgs struct {
 	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	Type       string                           `pulumi:"type"`
+	Validate   *bool                            `pulumi:"validate"`
 }
 
 // The set of arguments for constructing a ServiceLevelObjective resource.
@@ -182,6 +186,7 @@ type ServiceLevelObjectiveArgs struct {
 	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	Type       pulumi.StringInput
+	Validate   pulumi.BoolPtrInput
 }
 
 func (ServiceLevelObjectiveArgs) ElementType() reflect.Type {

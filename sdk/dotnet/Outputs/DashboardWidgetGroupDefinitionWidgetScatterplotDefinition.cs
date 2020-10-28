@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition
     {
         public readonly ImmutableArray<string> ColorByGroups;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink> CustomLinks;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest? Request;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime? Time;
         public readonly string? Title;
@@ -25,6 +26,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(
             ImmutableArray<string> colorByGroups,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink> customLinks,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest? request,
 
@@ -41,6 +44,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis? yaxis)
         {
             ColorByGroups = colorByGroups;
+            CustomLinks = customLinks;
             Request = request;
             Time = time;
             Title = title;

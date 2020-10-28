@@ -12,6 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("events")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs>? _events;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs> Events
@@ -38,6 +46,9 @@ namespace Pulumi.Datadog.Inputs
             get => _requests ?? (_requests = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestArgs>());
             set => _requests = value;
         }
+
+        [Input("rightYaxis")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxisArgs>? RightYaxis { get; set; }
 
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }

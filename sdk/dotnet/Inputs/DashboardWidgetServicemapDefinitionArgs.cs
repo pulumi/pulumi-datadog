@@ -12,6 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetServicemapDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("filters", required: true)]
         private InputList<string>? _filters;
         public InputList<string> Filters

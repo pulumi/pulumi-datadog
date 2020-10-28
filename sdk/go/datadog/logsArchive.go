@@ -46,11 +46,13 @@ import (
 type LogsArchive struct {
 	pulumi.CustomResourceState
 
-	Azure LogsArchiveAzurePtrOutput `pulumi:"azure"`
-	Gcs   LogsArchiveGcsPtrOutput   `pulumi:"gcs"`
-	Name  pulumi.StringOutput       `pulumi:"name"`
-	Query pulumi.StringOutput       `pulumi:"query"`
-	S3    LogsArchiveS3PtrOutput    `pulumi:"s3"`
+	Azure           LogsArchiveAzurePtrOutput `pulumi:"azure"`
+	Gcs             LogsArchiveGcsPtrOutput   `pulumi:"gcs"`
+	IncludeTags     pulumi.BoolPtrOutput      `pulumi:"includeTags"`
+	Name            pulumi.StringOutput       `pulumi:"name"`
+	Query           pulumi.StringOutput       `pulumi:"query"`
+	RehydrationTags pulumi.StringArrayOutput  `pulumi:"rehydrationTags"`
+	S3              LogsArchiveS3PtrOutput    `pulumi:"s3"`
 }
 
 // NewLogsArchive registers a new resource with the given unique name, arguments, and options.
@@ -87,19 +89,23 @@ func GetLogsArchive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsArchive resources.
 type logsArchiveState struct {
-	Azure *LogsArchiveAzure `pulumi:"azure"`
-	Gcs   *LogsArchiveGcs   `pulumi:"gcs"`
-	Name  *string           `pulumi:"name"`
-	Query *string           `pulumi:"query"`
-	S3    *LogsArchiveS3    `pulumi:"s3"`
+	Azure           *LogsArchiveAzure `pulumi:"azure"`
+	Gcs             *LogsArchiveGcs   `pulumi:"gcs"`
+	IncludeTags     *bool             `pulumi:"includeTags"`
+	Name            *string           `pulumi:"name"`
+	Query           *string           `pulumi:"query"`
+	RehydrationTags []string          `pulumi:"rehydrationTags"`
+	S3              *LogsArchiveS3    `pulumi:"s3"`
 }
 
 type LogsArchiveState struct {
-	Azure LogsArchiveAzurePtrInput
-	Gcs   LogsArchiveGcsPtrInput
-	Name  pulumi.StringPtrInput
-	Query pulumi.StringPtrInput
-	S3    LogsArchiveS3PtrInput
+	Azure           LogsArchiveAzurePtrInput
+	Gcs             LogsArchiveGcsPtrInput
+	IncludeTags     pulumi.BoolPtrInput
+	Name            pulumi.StringPtrInput
+	Query           pulumi.StringPtrInput
+	RehydrationTags pulumi.StringArrayInput
+	S3              LogsArchiveS3PtrInput
 }
 
 func (LogsArchiveState) ElementType() reflect.Type {
@@ -107,20 +113,24 @@ func (LogsArchiveState) ElementType() reflect.Type {
 }
 
 type logsArchiveArgs struct {
-	Azure *LogsArchiveAzure `pulumi:"azure"`
-	Gcs   *LogsArchiveGcs   `pulumi:"gcs"`
-	Name  string            `pulumi:"name"`
-	Query string            `pulumi:"query"`
-	S3    *LogsArchiveS3    `pulumi:"s3"`
+	Azure           *LogsArchiveAzure `pulumi:"azure"`
+	Gcs             *LogsArchiveGcs   `pulumi:"gcs"`
+	IncludeTags     *bool             `pulumi:"includeTags"`
+	Name            string            `pulumi:"name"`
+	Query           string            `pulumi:"query"`
+	RehydrationTags []string          `pulumi:"rehydrationTags"`
+	S3              *LogsArchiveS3    `pulumi:"s3"`
 }
 
 // The set of arguments for constructing a LogsArchive resource.
 type LogsArchiveArgs struct {
-	Azure LogsArchiveAzurePtrInput
-	Gcs   LogsArchiveGcsPtrInput
-	Name  pulumi.StringInput
-	Query pulumi.StringInput
-	S3    LogsArchiveS3PtrInput
+	Azure           LogsArchiveAzurePtrInput
+	Gcs             LogsArchiveGcsPtrInput
+	IncludeTags     pulumi.BoolPtrInput
+	Name            pulumi.StringInput
+	Query           pulumi.StringInput
+	RehydrationTags pulumi.StringArrayInput
+	S3              LogsArchiveS3PtrInput
 }
 
 func (LogsArchiveArgs) ElementType() reflect.Type {

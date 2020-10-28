@@ -12,6 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetChangeDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetChangeDefinitionCustomLinkArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetChangeDefinitionCustomLinkArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetChangeDefinitionCustomLinkArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetChangeDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetChangeDefinitionRequestArgs> Requests

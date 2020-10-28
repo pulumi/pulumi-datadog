@@ -25,6 +25,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -141,6 +142,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
+            __props__['validate'] = validate
         super(ServiceLevelObjective, __self__).__init__(
             'datadog:index/serviceLevelObjective:ServiceLevelObjective',
             resource_name,
@@ -158,7 +160,8 @@ class ServiceLevelObjective(pulumi.CustomResource):
             query: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'ServiceLevelObjective':
+            type: Optional[pulumi.Input[str]] = None,
+            validate: Optional[pulumi.Input[bool]] = None) -> 'ServiceLevelObjective':
         """
         Get an existing ServiceLevelObjective resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -184,6 +187,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["thresholds"] = thresholds
         __props__["type"] = type
+        __props__["validate"] = validate
         return ServiceLevelObjective(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -238,6 +242,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def validate(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "validate")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -18,6 +18,7 @@ __all__ = [
     'DashboardWidgetAlertGraphDefinitionTimeArgs',
     'DashboardWidgetAlertValueDefinitionArgs',
     'DashboardWidgetChangeDefinitionArgs',
+    'DashboardWidgetChangeDefinitionCustomLinkArgs',
     'DashboardWidgetChangeDefinitionRequestArgs',
     'DashboardWidgetChangeDefinitionRequestApmQueryArgs',
     'DashboardWidgetChangeDefinitionRequestApmQueryComputeArgs',
@@ -87,6 +88,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTimeArgs',
     'DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryComputeArgs',
@@ -151,6 +153,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTimeArgs',
     'DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventArgs',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryArgs',
@@ -182,6 +185,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTimeArgs',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillArgs',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryArgs',
@@ -245,6 +249,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeArgs',
@@ -252,6 +257,8 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearchArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeArgs',
@@ -274,6 +281,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTimeArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryComputeArgs',
@@ -303,6 +311,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXArgs',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryArgs',
@@ -361,7 +370,9 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs',
     'DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestArgs',
@@ -398,9 +409,11 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearchArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyleArgs',
+    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxisArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTimeArgs',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxisArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs',
+    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLinkArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryArgs',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComputeArgs',
@@ -433,6 +446,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionArgs',
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTimeArgs',
     'DashboardWidgetHeatmapDefinitionArgs',
+    'DashboardWidgetHeatmapDefinitionCustomLinkArgs',
     'DashboardWidgetHeatmapDefinitionEventArgs',
     'DashboardWidgetHeatmapDefinitionRequestArgs',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryArgs',
@@ -464,6 +478,7 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionTimeArgs',
     'DashboardWidgetHeatmapDefinitionYaxisArgs',
     'DashboardWidgetHostmapDefinitionArgs',
+    'DashboardWidgetHostmapDefinitionCustomLinkArgs',
     'DashboardWidgetHostmapDefinitionRequestArgs',
     'DashboardWidgetHostmapDefinitionRequestFillArgs',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryArgs',
@@ -527,6 +542,7 @@ __all__ = [
     'DashboardWidgetManageStatusDefinitionArgs',
     'DashboardWidgetNoteDefinitionArgs',
     'DashboardWidgetQueryTableDefinitionArgs',
+    'DashboardWidgetQueryTableDefinitionCustomLinkArgs',
     'DashboardWidgetQueryTableDefinitionRequestArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryComputeArgs',
@@ -534,6 +550,8 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryMultiComputeArgs',
     'DashboardWidgetQueryTableDefinitionRequestApmQuerySearchArgs',
+    'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs',
+    'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs',
     'DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryArgs',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryComputeArgs',
@@ -556,6 +574,7 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearchArgs',
     'DashboardWidgetQueryTableDefinitionTimeArgs',
     'DashboardWidgetQueryValueDefinitionArgs',
+    'DashboardWidgetQueryValueDefinitionCustomLinkArgs',
     'DashboardWidgetQueryValueDefinitionRequestArgs',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryArgs',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryComputeArgs',
@@ -585,6 +604,7 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearchArgs',
     'DashboardWidgetQueryValueDefinitionTimeArgs',
     'DashboardWidgetScatterplotDefinitionArgs',
+    'DashboardWidgetScatterplotDefinitionCustomLinkArgs',
     'DashboardWidgetScatterplotDefinitionRequestArgs',
     'DashboardWidgetScatterplotDefinitionRequestXArgs',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryArgs',
@@ -643,7 +663,9 @@ __all__ = [
     'DashboardWidgetScatterplotDefinitionYaxisArgs',
     'DashboardWidgetServiceLevelObjectiveDefinitionArgs',
     'DashboardWidgetServicemapDefinitionArgs',
+    'DashboardWidgetServicemapDefinitionCustomLinkArgs',
     'DashboardWidgetTimeseriesDefinitionArgs',
+    'DashboardWidgetTimeseriesDefinitionCustomLinkArgs',
     'DashboardWidgetTimeseriesDefinitionEventArgs',
     'DashboardWidgetTimeseriesDefinitionMarkerArgs',
     'DashboardWidgetTimeseriesDefinitionRequestArgs',
@@ -680,9 +702,11 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiComputeArgs',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearchArgs',
     'DashboardWidgetTimeseriesDefinitionRequestStyleArgs',
+    'DashboardWidgetTimeseriesDefinitionRightYaxisArgs',
     'DashboardWidgetTimeseriesDefinitionTimeArgs',
     'DashboardWidgetTimeseriesDefinitionYaxisArgs',
     'DashboardWidgetToplistDefinitionArgs',
+    'DashboardWidgetToplistDefinitionCustomLinkArgs',
     'DashboardWidgetToplistDefinitionRequestArgs',
     'DashboardWidgetToplistDefinitionRequestApmQueryArgs',
     'DashboardWidgetToplistDefinitionRequestApmQueryComputeArgs',
@@ -789,7 +813,11 @@ __all__ = [
     'SyntheticsTestOptionsListRetryArgs',
     'SyntheticsTestRequestArgs',
     'SyntheticsTestRequestBasicauthArgs',
+    'SyntheticsTestRequestClientCertificateArgs',
+    'SyntheticsTestRequestClientCertificateCertArgs',
+    'SyntheticsTestRequestClientCertificateKeyArgs',
     'SyntheticsTestStepArgs',
+    'SyntheticsTestVariableArgs',
     'TimeBoardGraphArgs',
     'TimeBoardGraphMarkerArgs',
     'TimeBoardGraphRequestArgs',
@@ -1417,11 +1445,14 @@ class DashboardWidgetAlertValueDefinitionArgs:
 @pulumi.input_type
 class DashboardWidgetChangeDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionCustomLinkArgs']]]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionRequestArgs']]]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetChangeDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -1432,6 +1463,15 @@ class DashboardWidgetChangeDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetChangeDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -1477,6 +1517,33 @@ class DashboardWidgetChangeDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetChangeDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -4774,11 +4841,14 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs:
 @pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLinkArgs']]]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestArgs']]]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -4789,6 +4859,15 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -4834,6 +4913,33 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -7619,6 +7725,7 @@ class DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs:
 @pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkArgs']]]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventArgs']]]] = None,
                  legend_size: Optional[pulumi.Input[str]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestArgs']]]] = None,
@@ -7628,6 +7735,8 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs']] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -7646,6 +7755,15 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs:
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -7727,6 +7845,33 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs:
     @yaxis.setter
     def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs']]):
         pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -8960,6 +9105,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxisArgs:
 @pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLinkArgs']]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  no_group_hosts: Optional[pulumi.Input[bool]] = None,
                  no_metric_hosts: Optional[pulumi.Input[bool]] = None,
@@ -8970,6 +9116,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if no_group_hosts is not None:
@@ -8990,6 +9138,15 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -9080,6 +9237,33 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -11888,11 +12072,17 @@ class DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs:
 @pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkArgs']]]] = None,
+                 has_search_bar: Optional[pulumi.Input[str]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestArgs']]]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if has_search_bar is not None:
+            pulumi.set(__self__, "has_search_bar", has_search_bar)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -11903,6 +12093,24 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @property
+    @pulumi.getter(name="hasSearchBar")
+    def has_search_bar(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "has_search_bar")
+
+    @has_search_bar.setter
+    def has_search_bar(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "has_search_bar", value)
 
     @property
     @pulumi.getter
@@ -11951,11 +12159,40 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
+
+
+@pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestArgs:
     def __init__(__self__, *,
                  aggregator: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  apm_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryArgs']] = None,
+                 apm_stats_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs']] = None,
+                 cell_display_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  conditional_formats: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatArgs']]]] = None,
                  limit: Optional[pulumi.Input[int]] = None,
                  log_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryArgs']] = None,
@@ -11970,6 +12207,10 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestArgs:
             pulumi.set(__self__, "alias", alias)
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
+        if cell_display_modes is not None:
+            pulumi.set(__self__, "cell_display_modes", cell_display_modes)
         if conditional_formats is not None:
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
@@ -12013,6 +12254,24 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestArgs:
     @apm_query.setter
     def apm_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryArgs']]):
         pulumi.set(self, "apm_query", value)
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs']]:
+        return pulumi.get(self, "apm_stats_query")
+
+    @apm_stats_query.setter
+    def apm_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs']]):
+        pulumi.set(self, "apm_stats_query", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayModes")
+    def cell_display_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "cell_display_modes")
+
+    @cell_display_modes.setter
+    def cell_display_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cell_display_modes", value)
 
     @property
     @pulumi.getter(name="conditionalFormats")
@@ -12325,6 +12584,142 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySea
     @query.setter
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryArgs:
+    def __init__(__self__, *,
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 primary_tag: pulumi.Input[str],
+                 row_type: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs']]]] = None,
+                 resource: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "primary_tag")
+
+    @primary_tag.setter
+    def primary_tag(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_tag", value)
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "row_type")
+
+    @row_type.setter
+    def row_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "row_type", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs']]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 cell_display_mode: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @cell_display_mode.setter
+    def cell_display_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cell_display_mode", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -13230,6 +13625,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTimeArgs:
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs:
     def __init__(__self__, *,
                  autoscale: Optional[pulumi.Input[bool]] = None,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkArgs']]]] = None,
                  custom_unit: Optional[pulumi.Input[str]] = None,
                  precision: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestArgs']]]] = None,
@@ -13240,6 +13636,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs:
                  title_size: Optional[pulumi.Input[str]] = None):
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if custom_unit is not None:
             pulumi.set(__self__, "custom_unit", custom_unit)
         if precision is not None:
@@ -13265,6 +13663,15 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs:
     @autoscale.setter
     def autoscale(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "autoscale", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter(name="customUnit")
@@ -13337,6 +13744,33 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -14583,6 +15017,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeArgs:
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs:
     def __init__(__self__, *,
                  color_by_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLinkArgs']]]] = None,
                  request: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestArgs']] = None,
                  time: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -14592,6 +15027,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs:
                  yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs']] = None):
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if request is not None:
             pulumi.set(__self__, "request", request)
         if time is not None:
@@ -14615,6 +15052,15 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs:
     @color_by_groups.setter
     def color_by_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "color_by_groups", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -14678,6 +15124,33 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs:
     @yaxis.setter
     def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxisArgs']]):
         pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -17160,11 +17633,14 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs:
     def __init__(__self__, *,
                  filters: pulumi.Input[Sequence[pulumi.Input[str]]],
                  service: pulumi.Input[str],
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -17189,6 +17665,15 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs:
     @service.setter
     def service(self, value: pulumi.Input[str]):
         pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -17219,18 +17704,49 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
+
+
+@pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs']]]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEventArgs']]]] = None,
                  legend_size: Optional[pulumi.Input[str]] = None,
                  markers: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerArgs']]]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestArgs']]]] = None,
+                 right_yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxisArgs']] = None,
                  show_legend: Optional[pulumi.Input[bool]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxisArgs']] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -17239,6 +17755,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs:
             pulumi.set(__self__, "markers", markers)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if right_yaxis is not None:
+            pulumi.set(__self__, "right_yaxis", right_yaxis)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
         if time is not None:
@@ -17251,6 +17769,15 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs:
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -17287,6 +17814,15 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs:
     @requests.setter
     def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestArgs']]]]):
         pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter(name="rightYaxis")
+    def right_yaxis(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxisArgs']]:
+        return pulumi.get(self, "right_yaxis")
+
+    @right_yaxis.setter
+    def right_yaxis(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxisArgs']]):
+        pulumi.set(self, "right_yaxis", value)
 
     @property
     @pulumi.getter(name="showLegend")
@@ -17341,6 +17877,33 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionArgs:
     @yaxis.setter
     def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxisArgs']]):
         pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -17419,6 +17982,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestArgs:
                  log_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryArgs']] = None,
                  metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadataArgs']]]] = None,
                  network_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryArgs']] = None,
+                 on_right_yaxis: Optional[pulumi.Input[bool]] = None,
                  process_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQueryArgs']] = None,
                  q: Optional[pulumi.Input[str]] = None,
                  rum_query: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryArgs']] = None,
@@ -17434,6 +17998,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestArgs:
             pulumi.set(__self__, "metadatas", metadatas)
         if network_query is not None:
             pulumi.set(__self__, "network_query", network_query)
+        if on_right_yaxis is not None:
+            pulumi.set(__self__, "on_right_yaxis", on_right_yaxis)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
         if q is not None:
@@ -17489,6 +18055,15 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestArgs:
     @network_query.setter
     def network_query(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryArgs']]):
         pulumi.set(self, "network_query", value)
+
+    @property
+    @pulumi.getter(name="onRightYaxis")
+    def on_right_yaxis(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "on_right_yaxis")
+
+    @on_right_yaxis.setter
+    def on_right_yaxis(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_right_yaxis", value)
 
     @property
     @pulumi.getter(name="processQuery")
@@ -18858,6 +19433,71 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyleArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxisArgs:
+    def __init__(__self__, *,
+                 include_zero: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[str]] = None,
+                 min: Optional[pulumi.Input[str]] = None,
+                 scale: Optional[pulumi.Input[str]] = None):
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_zero")
+
+    @include_zero.setter
+    def include_zero(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_zero", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTimeArgs:
     def __init__(__self__, *,
                  live_span: Optional[pulumi.Input[str]] = None):
@@ -18942,11 +19582,14 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxisArgs:
 @pulumi.input_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLinkArgs']]]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs']]]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -18957,6 +19600,15 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -19002,6 +19654,33 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -20463,6 +21142,7 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTimeArgs:
 @pulumi.input_type
 class DashboardWidgetHeatmapDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionCustomLinkArgs']]]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionEventArgs']]]] = None,
                  legend_size: Optional[pulumi.Input[str]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionRequestArgs']]]] = None,
@@ -20472,6 +21152,8 @@ class DashboardWidgetHeatmapDefinitionArgs:
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionYaxisArgs']] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -20490,6 +21172,15 @@ class DashboardWidgetHeatmapDefinitionArgs:
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHeatmapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -20571,6 +21262,33 @@ class DashboardWidgetHeatmapDefinitionArgs:
     @yaxis.setter
     def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionYaxisArgs']]):
         pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetHeatmapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -21804,6 +22522,7 @@ class DashboardWidgetHeatmapDefinitionYaxisArgs:
 @pulumi.input_type
 class DashboardWidgetHostmapDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionCustomLinkArgs']]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  no_group_hosts: Optional[pulumi.Input[bool]] = None,
                  no_metric_hosts: Optional[pulumi.Input[bool]] = None,
@@ -21814,6 +22533,8 @@ class DashboardWidgetHostmapDefinitionArgs:
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if no_group_hosts is not None:
@@ -21834,6 +22555,15 @@ class DashboardWidgetHostmapDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetHostmapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -21924,6 +22654,33 @@ class DashboardWidgetHostmapDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetHostmapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -24732,11 +25489,17 @@ class DashboardWidgetNoteDefinitionArgs:
 @pulumi.input_type
 class DashboardWidgetQueryTableDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionCustomLinkArgs']]]] = None,
+                 has_search_bar: Optional[pulumi.Input[str]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestArgs']]]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if has_search_bar is not None:
+            pulumi.set(__self__, "has_search_bar", has_search_bar)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -24747,6 +25510,24 @@ class DashboardWidgetQueryTableDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @property
+    @pulumi.getter(name="hasSearchBar")
+    def has_search_bar(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "has_search_bar")
+
+    @has_search_bar.setter
+    def has_search_bar(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "has_search_bar", value)
 
     @property
     @pulumi.getter
@@ -24795,11 +25576,40 @@ class DashboardWidgetQueryTableDefinitionArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetQueryTableDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
+
+
+@pulumi.input_type
 class DashboardWidgetQueryTableDefinitionRequestArgs:
     def __init__(__self__, *,
                  aggregator: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  apm_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryArgs']] = None,
+                 apm_stats_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs']] = None,
+                 cell_display_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  conditional_formats: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs']]]] = None,
                  limit: Optional[pulumi.Input[int]] = None,
                  log_query: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestLogQueryArgs']] = None,
@@ -24814,6 +25624,10 @@ class DashboardWidgetQueryTableDefinitionRequestArgs:
             pulumi.set(__self__, "alias", alias)
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
+        if cell_display_modes is not None:
+            pulumi.set(__self__, "cell_display_modes", cell_display_modes)
         if conditional_formats is not None:
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
@@ -24857,6 +25671,24 @@ class DashboardWidgetQueryTableDefinitionRequestArgs:
     @apm_query.setter
     def apm_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmQueryArgs']]):
         pulumi.set(self, "apm_query", value)
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs']]:
+        return pulumi.get(self, "apm_stats_query")
+
+    @apm_stats_query.setter
+    def apm_stats_query(self, value: Optional[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs']]):
+        pulumi.set(self, "apm_stats_query", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayModes")
+    def cell_display_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "cell_display_modes")
+
+    @cell_display_modes.setter
+    def cell_display_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cell_display_modes", value)
 
     @property
     @pulumi.getter(name="conditionalFormats")
@@ -25169,6 +26001,142 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuerySearchArgs:
     @query.setter
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryArgs:
+    def __init__(__self__, *,
+                 env: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 primary_tag: pulumi.Input[str],
+                 row_type: pulumi.Input[str],
+                 service: pulumi.Input[str],
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs']]]] = None,
+                 resource: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "env")
+
+    @env.setter
+    def env(self, value: pulumi.Input[str]):
+        pulumi.set(self, "env", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "primary_tag")
+
+    @primary_tag.setter
+    def primary_tag(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_tag", value)
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "row_type")
+
+    @row_type.setter
+    def row_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "row_type", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs']]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 cell_display_mode: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @cell_display_mode.setter
+    def cell_display_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cell_display_mode", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type
@@ -26074,6 +27042,7 @@ class DashboardWidgetQueryTableDefinitionTimeArgs:
 class DashboardWidgetQueryValueDefinitionArgs:
     def __init__(__self__, *,
                  autoscale: Optional[pulumi.Input[bool]] = None,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionCustomLinkArgs']]]] = None,
                  custom_unit: Optional[pulumi.Input[str]] = None,
                  precision: Optional[pulumi.Input[int]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionRequestArgs']]]] = None,
@@ -26084,6 +27053,8 @@ class DashboardWidgetQueryValueDefinitionArgs:
                  title_size: Optional[pulumi.Input[str]] = None):
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if custom_unit is not None:
             pulumi.set(__self__, "custom_unit", custom_unit)
         if precision is not None:
@@ -26109,6 +27080,15 @@ class DashboardWidgetQueryValueDefinitionArgs:
     @autoscale.setter
     def autoscale(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "autoscale", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetQueryValueDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter(name="customUnit")
@@ -26181,6 +27161,33 @@ class DashboardWidgetQueryValueDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetQueryValueDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -27427,6 +28434,7 @@ class DashboardWidgetQueryValueDefinitionTimeArgs:
 class DashboardWidgetScatterplotDefinitionArgs:
     def __init__(__self__, *,
                  color_by_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionCustomLinkArgs']]]] = None,
                  request: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionRequestArgs']] = None,
                  time: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -27436,6 +28444,8 @@ class DashboardWidgetScatterplotDefinitionArgs:
                  yaxis: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionYaxisArgs']] = None):
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if request is not None:
             pulumi.set(__self__, "request", request)
         if time is not None:
@@ -27459,6 +28469,15 @@ class DashboardWidgetScatterplotDefinitionArgs:
     @color_by_groups.setter
     def color_by_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "color_by_groups", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetScatterplotDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -27522,6 +28541,33 @@ class DashboardWidgetScatterplotDefinitionArgs:
     @yaxis.setter
     def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetScatterplotDefinitionYaxisArgs']]):
         pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetScatterplotDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -30004,11 +31050,14 @@ class DashboardWidgetServicemapDefinitionArgs:
     def __init__(__self__, *,
                  filters: pulumi.Input[Sequence[pulumi.Input[str]]],
                  service: pulumi.Input[str],
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetServicemapDefinitionCustomLinkArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -30033,6 +31082,15 @@ class DashboardWidgetServicemapDefinitionArgs:
     @service.setter
     def service(self, value: pulumi.Input[str]):
         pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetServicemapDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetServicemapDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -30063,18 +31121,49 @@ class DashboardWidgetServicemapDefinitionArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetServicemapDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
+
+
+@pulumi.input_type
 class DashboardWidgetTimeseriesDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionCustomLinkArgs']]]] = None,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionEventArgs']]]] = None,
                  legend_size: Optional[pulumi.Input[str]] = None,
                  markers: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionMarkerArgs']]]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestArgs']]]] = None,
+                 right_yaxis: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRightYaxisArgs']] = None,
                  show_legend: Optional[pulumi.Input[bool]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None,
                  yaxis: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionYaxisArgs']] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -30083,6 +31172,8 @@ class DashboardWidgetTimeseriesDefinitionArgs:
             pulumi.set(__self__, "markers", markers)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if right_yaxis is not None:
+            pulumi.set(__self__, "right_yaxis", right_yaxis)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
         if time is not None:
@@ -30095,6 +31186,15 @@ class DashboardWidgetTimeseriesDefinitionArgs:
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -30131,6 +31231,15 @@ class DashboardWidgetTimeseriesDefinitionArgs:
     @requests.setter
     def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestArgs']]]]):
         pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter(name="rightYaxis")
+    def right_yaxis(self) -> Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRightYaxisArgs']]:
+        return pulumi.get(self, "right_yaxis")
+
+    @right_yaxis.setter
+    def right_yaxis(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRightYaxisArgs']]):
+        pulumi.set(self, "right_yaxis", value)
 
     @property
     @pulumi.getter(name="showLegend")
@@ -30185,6 +31294,33 @@ class DashboardWidgetTimeseriesDefinitionArgs:
     @yaxis.setter
     def yaxis(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionYaxisArgs']]):
         pulumi.set(self, "yaxis", value)
+
+
+@pulumi.input_type
+class DashboardWidgetTimeseriesDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -30263,6 +31399,7 @@ class DashboardWidgetTimeseriesDefinitionRequestArgs:
                  log_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs']] = None,
                  metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestMetadataArgs']]]] = None,
                  network_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs']] = None,
+                 on_right_yaxis: Optional[pulumi.Input[bool]] = None,
                  process_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs']] = None,
                  q: Optional[pulumi.Input[str]] = None,
                  rum_query: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs']] = None,
@@ -30278,6 +31415,8 @@ class DashboardWidgetTimeseriesDefinitionRequestArgs:
             pulumi.set(__self__, "metadatas", metadatas)
         if network_query is not None:
             pulumi.set(__self__, "network_query", network_query)
+        if on_right_yaxis is not None:
+            pulumi.set(__self__, "on_right_yaxis", on_right_yaxis)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
         if q is not None:
@@ -30333,6 +31472,15 @@ class DashboardWidgetTimeseriesDefinitionRequestArgs:
     @network_query.setter
     def network_query(self, value: Optional[pulumi.Input['DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs']]):
         pulumi.set(self, "network_query", value)
+
+    @property
+    @pulumi.getter(name="onRightYaxis")
+    def on_right_yaxis(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "on_right_yaxis")
+
+    @on_right_yaxis.setter
+    def on_right_yaxis(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_right_yaxis", value)
 
     @property
     @pulumi.getter(name="processQuery")
@@ -31702,6 +32850,71 @@ class DashboardWidgetTimeseriesDefinitionRequestStyleArgs:
 
 
 @pulumi.input_type
+class DashboardWidgetTimeseriesDefinitionRightYaxisArgs:
+    def __init__(__self__, *,
+                 include_zero: Optional[pulumi.Input[bool]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[str]] = None,
+                 min: Optional[pulumi.Input[str]] = None,
+                 scale: Optional[pulumi.Input[str]] = None):
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_zero")
+
+    @include_zero.setter
+    def include_zero(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_zero", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scale")
+
+    @scale.setter
+    def scale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
 class DashboardWidgetTimeseriesDefinitionTimeArgs:
     def __init__(__self__, *,
                  live_span: Optional[pulumi.Input[str]] = None):
@@ -31786,11 +32999,14 @@ class DashboardWidgetTimeseriesDefinitionYaxisArgs:
 @pulumi.input_type
 class DashboardWidgetToplistDefinitionArgs:
     def __init__(__self__, *,
+                 custom_links: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionCustomLinkArgs']]]] = None,
                  requests: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionRequestArgs']]]] = None,
                  time: Optional[pulumi.Input['DashboardWidgetToplistDefinitionTimeArgs']] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  title_align: Optional[pulumi.Input[str]] = None,
                  title_size: Optional[pulumi.Input[str]] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -31801,6 +33017,15 @@ class DashboardWidgetToplistDefinitionArgs:
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionCustomLinkArgs']]]]:
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetToplistDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
 
     @property
     @pulumi.getter
@@ -31846,6 +33071,33 @@ class DashboardWidgetToplistDefinitionArgs:
     @title_size.setter
     def title_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title_size", value)
+
+
+@pulumi.input_type
+class DashboardWidgetToplistDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 label: pulumi.Input[str],
+                 link: pulumi.Input[str]):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[str]):
+        pulumi.set(self, "link", value)
 
 
 @pulumi.input_type
@@ -33835,7 +35087,8 @@ class LogsCustomPipelineProcessorAttributeRemapperArgs:
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  override_on_conflict: Optional[pulumi.Input[bool]] = None,
-                 preserve_source: Optional[pulumi.Input[bool]] = None):
+                 preserve_source: Optional[pulumi.Input[bool]] = None,
+                 target_format: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "source_type", source_type)
         pulumi.set(__self__, "sources", sources)
         pulumi.set(__self__, "target", target)
@@ -33848,6 +35101,8 @@ class LogsCustomPipelineProcessorAttributeRemapperArgs:
             pulumi.set(__self__, "override_on_conflict", override_on_conflict)
         if preserve_source is not None:
             pulumi.set(__self__, "preserve_source", preserve_source)
+        if target_format is not None:
+            pulumi.set(__self__, "target_format", target_format)
 
     @property
     @pulumi.getter(name="sourceType")
@@ -33920,6 +35175,15 @@ class LogsCustomPipelineProcessorAttributeRemapperArgs:
     @preserve_source.setter
     def preserve_source(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "preserve_source", value)
+
+    @property
+    @pulumi.getter(name="targetFormat")
+    def target_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target_format")
+
+    @target_format.setter
+    def target_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_format", value)
 
 
 @pulumi.input_type
@@ -34624,7 +35888,8 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs:
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  override_on_conflict: Optional[pulumi.Input[bool]] = None,
-                 preserve_source: Optional[pulumi.Input[bool]] = None):
+                 preserve_source: Optional[pulumi.Input[bool]] = None,
+                 target_format: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "source_type", source_type)
         pulumi.set(__self__, "sources", sources)
         pulumi.set(__self__, "target", target)
@@ -34637,6 +35902,8 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs:
             pulumi.set(__self__, "override_on_conflict", override_on_conflict)
         if preserve_source is not None:
             pulumi.set(__self__, "preserve_source", preserve_source)
+        if target_format is not None:
+            pulumi.set(__self__, "target_format", target_format)
 
     @property
     @pulumi.getter(name="sourceType")
@@ -34709,6 +35976,15 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs:
     @preserve_source.setter
     def preserve_source(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "preserve_source", value)
+
+    @property
+    @pulumi.getter(name="targetFormat")
+    def target_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "target_format")
+
+    @target_format.setter
+    def target_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_format", value)
 
 
 @pulumi.input_type
@@ -38091,6 +39367,7 @@ class SyntheticsTestOptionsListRetryArgs:
 class SyntheticsTestRequestArgs:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[str]] = None,
+                 dns_server: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  method: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -38098,6 +39375,8 @@ class SyntheticsTestRequestArgs:
                  url: Optional[pulumi.Input[str]] = None):
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if dns_server is not None:
+            pulumi.set(__self__, "dns_server", dns_server)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if method is not None:
@@ -38117,6 +39396,15 @@ class SyntheticsTestRequestArgs:
     @body.setter
     def body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="dnsServer")
+    def dns_server(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dns_server")
+
+    @dns_server.setter
+    def dns_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_server", value)
 
     @property
     @pulumi.getter
@@ -38192,6 +39480,89 @@ class SyntheticsTestRequestBasicauthArgs:
 
 
 @pulumi.input_type
+class SyntheticsTestRequestClientCertificateArgs:
+    def __init__(__self__, *,
+                 cert: pulumi.Input['SyntheticsTestRequestClientCertificateCertArgs'],
+                 key: pulumi.Input['SyntheticsTestRequestClientCertificateKeyArgs']):
+        pulumi.set(__self__, "cert", cert)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def cert(self) -> pulumi.Input['SyntheticsTestRequestClientCertificateCertArgs']:
+        return pulumi.get(self, "cert")
+
+    @cert.setter
+    def cert(self, value: pulumi.Input['SyntheticsTestRequestClientCertificateCertArgs']):
+        pulumi.set(self, "cert", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input['SyntheticsTestRequestClientCertificateKeyArgs']:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input['SyntheticsTestRequestClientCertificateKeyArgs']):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class SyntheticsTestRequestClientCertificateCertArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 filename: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
+
+
+@pulumi.input_type
+class SyntheticsTestRequestClientCertificateKeyArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 filename: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
+
+
+@pulumi.input_type
 class SyntheticsTestStepArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -38251,6 +39622,69 @@ class SyntheticsTestStepArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class SyntheticsTestVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 example: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if example is not None:
+            pulumi.set(__self__, "example", example)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def example(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "example")
+
+    @example.setter
+    def example(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "example", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
 
 
 @pulumi.input_type

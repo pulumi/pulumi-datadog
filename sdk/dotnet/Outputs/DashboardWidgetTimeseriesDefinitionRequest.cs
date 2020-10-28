@@ -18,6 +18,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
+        public readonly bool? OnRightYaxis;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery? RumQuery;
@@ -36,6 +37,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery? networkQuery,
 
+            bool? onRightYaxis,
+
             Outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery? processQuery,
 
             string? q,
@@ -51,6 +54,7 @@ namespace Pulumi.Datadog.Outputs
             LogQuery = logQuery;
             Metadatas = metadatas;
             NetworkQuery = networkQuery;
+            OnRightYaxis = onRightYaxis;
             ProcessQuery = processQuery;
             Q = q;
             RumQuery = rumQuery;

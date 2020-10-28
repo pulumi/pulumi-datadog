@@ -495,6 +495,17 @@
         },
         "datadog:index/DashboardWidgetChangeDefinition:DashboardWidgetChangeDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetChangeDefinitionCustomLink:DashboardWidgetChangeDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -540,6 +551,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetChangeDefinitionCustomLink:DashboardWidgetChangeDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetChangeDefinitionRequest:DashboardWidgetChangeDefinitionRequest": {
             "properties": {
@@ -3115,6 +3151,17 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinition:DashboardWidgetGroupDefinitionWidgetChangeDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -3160,6 +3207,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest:DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest": {
             "properties": {
@@ -5368,6 +5440,17 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetHeatmapDefinition:DashboardWidgetGroupDefinitionWidgetHeatmapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "events": {
                     "type": "array",
                     "items": {
@@ -5448,6 +5531,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent:DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent": {
             "properties": {
@@ -6434,6 +6542,17 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetHostmapDefinition:DashboardWidgetGroupDefinitionWidgetHostmapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "groups": {
                     "type": "array",
                     "items": {
@@ -6522,6 +6641,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest:DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest": {
             "properties": {
@@ -8756,6 +8900,25 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinition:DashboardWidgetGroupDefinitionWidgetQueryTableDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hasSearchBar": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -8802,6 +8965,31 @@
             },
             "type": "object"
         },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
+        },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest": {
             "properties": {
                 "aggregator": {
@@ -8822,6 +9010,25 @@
                 },
                 "apmQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayModes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -9092,6 +9299,117 @@
             "type": "object",
             "required": [
                 "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTag": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rowType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "env",
+                "name",
+                "primaryTag",
+                "rowType",
+                "service"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat:DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat": {
@@ -9830,6 +10148,17 @@
                         }
                     }
                 },
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "customUnit": {
                     "type": "string",
                     "language": {
@@ -9899,6 +10228,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest": {
             "properties": {
@@ -10907,6 +11261,17 @@
                         }
                     }
                 },
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "request": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest",
                     "language": {
@@ -10965,6 +11330,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest:DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest": {
             "properties": {
@@ -12952,6 +13342,17 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetServicemapDefinition:DashboardWidgetGroupDefinitionWidgetServicemapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "filters": {
                     "type": "array",
                     "items": {
@@ -13002,8 +13403,44 @@
                 "service"
             ]
         },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
+        },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "events": {
                     "type": "array",
                     "items": {
@@ -13039,6 +13476,14 @@
                     "items": {
                         "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest"
                     },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rightYaxis": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -13095,6 +13540,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent": {
             "properties": {
@@ -13191,6 +13661,14 @@
                 },
                 "networkQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onRightYaxis": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -14316,6 +14794,51 @@
             },
             "type": "object"
         },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis": {
+            "properties": {
+                "includeZero": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "max": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "min": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scale": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime:DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime": {
             "properties": {
                 "liveSpan": {
@@ -14376,6 +14899,17 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinition:DashboardWidgetGroupDefinitionWidgetToplistDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -14421,6 +14955,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink:DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest": {
             "properties": {
@@ -15574,6 +16133,17 @@
         },
         "datadog:index/DashboardWidgetHeatmapDefinition:DashboardWidgetHeatmapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetHeatmapDefinitionCustomLink:DashboardWidgetHeatmapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "events": {
                     "type": "array",
                     "items": {
@@ -15654,6 +16224,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetHeatmapDefinitionCustomLink:DashboardWidgetHeatmapDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetHeatmapDefinitionEvent:DashboardWidgetHeatmapDefinitionEvent": {
             "properties": {
@@ -16640,6 +17235,17 @@
         },
         "datadog:index/DashboardWidgetHostmapDefinition:DashboardWidgetHostmapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetHostmapDefinitionCustomLink:DashboardWidgetHostmapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "groups": {
                     "type": "array",
                     "items": {
@@ -16728,6 +17334,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetHostmapDefinitionCustomLink:DashboardWidgetHostmapDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetHostmapDefinitionRequest:DashboardWidgetHostmapDefinitionRequest": {
             "properties": {
@@ -18962,6 +19593,25 @@
         },
         "datadog:index/DashboardWidgetQueryTableDefinition:DashboardWidgetQueryTableDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionCustomLink:DashboardWidgetQueryTableDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hasSearchBar": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -19008,6 +19658,31 @@
             },
             "type": "object"
         },
+        "datadog:index/DashboardWidgetQueryTableDefinitionCustomLink:DashboardWidgetQueryTableDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
+        },
         "datadog:index/DashboardWidgetQueryTableDefinitionRequest:DashboardWidgetQueryTableDefinitionRequest": {
             "properties": {
                 "aggregator": {
@@ -19028,6 +19703,25 @@
                 },
                 "apmQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestApmQuery:DashboardWidgetQueryTableDefinitionRequestApmQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "apmStatsQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestApmStatsQuery:DashboardWidgetQueryTableDefinitionRequestApmStatsQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayModes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -19298,6 +19992,117 @@
             "type": "object",
             "required": [
                 "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestApmStatsQuery:DashboardWidgetQueryTableDefinitionRequestApmStatsQuery": {
+            "properties": {
+                "columns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn:DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "env": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "primaryTag": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rowType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "service": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "env",
+                "name",
+                "primaryTag",
+                "rowType",
+                "service"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn:DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cellDisplayMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetQueryTableDefinitionRequestConditionalFormat:DashboardWidgetQueryTableDefinitionRequestConditionalFormat": {
@@ -20036,6 +20841,17 @@
                         }
                     }
                 },
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionCustomLink:DashboardWidgetQueryValueDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "customUnit": {
                     "type": "string",
                     "language": {
@@ -20105,6 +20921,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionCustomLink:DashboardWidgetQueryValueDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetQueryValueDefinitionRequest:DashboardWidgetQueryValueDefinitionRequest": {
             "properties": {
@@ -21113,6 +21954,17 @@
                         }
                     }
                 },
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionCustomLink:DashboardWidgetScatterplotDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "request": {
                     "$ref": "#/types/datadog:index/DashboardWidgetScatterplotDefinitionRequest:DashboardWidgetScatterplotDefinitionRequest",
                     "language": {
@@ -21171,6 +22023,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetScatterplotDefinitionCustomLink:DashboardWidgetScatterplotDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetScatterplotDefinitionRequest:DashboardWidgetScatterplotDefinitionRequest": {
             "properties": {
@@ -23158,6 +24035,17 @@
         },
         "datadog:index/DashboardWidgetServicemapDefinition:DashboardWidgetServicemapDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetServicemapDefinitionCustomLink:DashboardWidgetServicemapDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "filters": {
                     "type": "array",
                     "items": {
@@ -23208,8 +24096,44 @@
                 "service"
             ]
         },
+        "datadog:index/DashboardWidgetServicemapDefinitionCustomLink:DashboardWidgetServicemapDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
+        },
         "datadog:index/DashboardWidgetTimeseriesDefinition:DashboardWidgetTimeseriesDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionCustomLink:DashboardWidgetTimeseriesDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "events": {
                     "type": "array",
                     "items": {
@@ -23245,6 +24169,14 @@
                     "items": {
                         "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequest:DashboardWidgetTimeseriesDefinitionRequest"
                     },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rightYaxis": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRightYaxis:DashboardWidgetTimeseriesDefinitionRightYaxis",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -23301,6 +24233,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetTimeseriesDefinitionCustomLink:DashboardWidgetTimeseriesDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetTimeseriesDefinitionEvent:DashboardWidgetTimeseriesDefinitionEvent": {
             "properties": {
@@ -23397,6 +24354,14 @@
                 },
                 "networkQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetTimeseriesDefinitionRequestNetworkQuery:DashboardWidgetTimeseriesDefinitionRequestNetworkQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onRightYaxis": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -24522,6 +25487,51 @@
             },
             "type": "object"
         },
+        "datadog:index/DashboardWidgetTimeseriesDefinitionRightYaxis:DashboardWidgetTimeseriesDefinitionRightYaxis": {
+            "properties": {
+                "includeZero": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "max": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "min": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scale": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/DashboardWidgetTimeseriesDefinitionTime:DashboardWidgetTimeseriesDefinitionTime": {
             "properties": {
                 "liveSpan": {
@@ -24582,6 +25592,17 @@
         },
         "datadog:index/DashboardWidgetToplistDefinition:DashboardWidgetToplistDefinition": {
             "properties": {
+                "customLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionCustomLink:DashboardWidgetToplistDefinitionCustomLink"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "requests": {
                     "type": "array",
                     "items": {
@@ -24627,6 +25648,31 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionCustomLink:DashboardWidgetToplistDefinitionCustomLink": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "link": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "link"
+            ]
         },
         "datadog:index/DashboardWidgetToplistDefinitionRequest:DashboardWidgetToplistDefinitionRequest": {
             "properties": {
@@ -26168,6 +27214,14 @@
                         }
                     }
                 },
+                "targetFormat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "targetType": {
                     "type": "string",
                     "language": {
@@ -26805,6 +27859,14 @@
                     }
                 },
                 "target": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "targetFormat": {
                     "type": "string",
                     "language": {
                         "python": {
@@ -29459,6 +30521,9 @@
                 "body": {
                     "type": "string"
                 },
+                "dnsServer": {
+                    "type": "string"
+                },
                 "host": {
                     "type": "string"
                 },
@@ -29500,6 +30565,79 @@
             "required": [
                 "password",
                 "username"
+            ]
+        },
+        "datadog:index/SyntheticsTestRequestClientCertificate:SyntheticsTestRequestClientCertificate": {
+            "properties": {
+                "cert": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestRequestClientCertificateCert:SyntheticsTestRequestClientCertificateCert",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "key": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestRequestClientCertificateKey:SyntheticsTestRequestClientCertificateKey",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cert",
+                "key"
+            ]
+        },
+        "datadog:index/SyntheticsTestRequestClientCertificateCert:SyntheticsTestRequestClientCertificateCert": {
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "content"
+            ]
+        },
+        "datadog:index/SyntheticsTestRequestClientCertificateKey:SyntheticsTestRequestClientCertificateKey": {
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "content"
             ]
         },
         "datadog:index/SyntheticsTestStep:SyntheticsTestStep": {
@@ -29549,6 +30687,55 @@
             "required": [
                 "name",
                 "params",
+                "type"
+            ]
+        },
+        "datadog:index/SyntheticsTestVariable:SyntheticsTestVariable": {
+            "properties": {
+                "example": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pattern": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
                 "type"
             ]
         },
@@ -31222,11 +32409,20 @@
                 "gcs": {
                     "$ref": "#/types/datadog:index/LogsArchiveGcs:LogsArchiveGcs"
                 },
+                "includeTags": {
+                    "type": "boolean"
+                },
                 "name": {
                     "type": "string"
                 },
                 "query": {
                     "type": "string"
+                },
+                "rehydrationTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "s3": {
                     "$ref": "#/types/datadog:index/LogsArchiveS3:LogsArchiveS3"
@@ -31243,11 +32439,20 @@
                 "gcs": {
                     "$ref": "#/types/datadog:index/LogsArchiveGcs:LogsArchiveGcs"
                 },
+                "includeTags": {
+                    "type": "boolean"
+                },
                 "name": {
                     "type": "string"
                 },
                 "query": {
                     "type": "string"
+                },
+                "rehydrationTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "s3": {
                     "$ref": "#/types/datadog:index/LogsArchiveS3:LogsArchiveS3"
@@ -31266,11 +32471,20 @@
                     "gcs": {
                         "$ref": "#/types/datadog:index/LogsArchiveGcs:LogsArchiveGcs"
                     },
+                    "includeTags": {
+                        "type": "boolean"
+                    },
                     "name": {
                         "type": "string"
                     },
                     "query": {
                         "type": "string"
+                    },
+                    "rehydrationTags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "s3": {
                         "$ref": "#/types/datadog:index/LogsArchiveS3:LogsArchiveS3"
@@ -31279,8 +32493,42 @@
                 "type": "object"
             }
         },
+        "datadog:index/logsArchiveOrder:LogsArchiveOrder": {
+            "description": "Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleArchiveOrder = new datadog.LogsArchiveOrder(\"sample_archive_order\", {\n    archiveIds: [\n        datadog_logs_archive_sample_archive_1.id,\n        datadog_logs_archive_sample_archive_2.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_archive_order = datadog.LogsArchiveOrder(\"sampleArchiveOrder\", archive_ids=[\n    datadog_logs_archive[\"sample_archive_1\"][\"id\"],\n    datadog_logs_archive[\"sample_archive_2\"][\"id\"],\n])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleArchiveOrder = new Datadog.LogsArchiveOrder(\"sampleArchiveOrder\", new Datadog.LogsArchiveOrderArgs\n        {\n            ArchiveIds = \n            {\n                datadog_logs_archive.Sample_archive_1.Id,\n                datadog_logs_archive.Sample_archive_2.Id,\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "archiveIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "archiveIds"
+            ],
+            "inputProperties": {
+                "archiveIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LogsArchiveOrder resources.\n",
+                "properties": {
+                    "archiveIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/logsCustomPipeline:LogsCustomPipeline": {
-            "description": "Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nCreate a Datadog logs pipeline:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst samplePipeline = new datadog.LogsCustomPipeline(\"sample_pipeline\", {\n    filters: [{\n        query: \"source:foo\",\n    }],\n    isEnabled: true,\n    name: \"sample pipeline\",\n    processors: [\n        {\n            arithmeticProcessor: {\n                expression: \"(time1 - time2)*1000\",\n                isEnabled: true,\n                isReplaceMissing: true,\n                name: \"sample arithmetic processor\",\n                target: \"my_arithmetic\",\n            },\n        },\n        {\n            attributeRemapper: {\n                isEnabled: true,\n                name: \"sample attribute processor\",\n                overrideOnConflict: false,\n                preserveSource: true,\n                sourceType: \"tag\",\n                sources: [\"db.instance\"],\n                target: \"db\",\n                targetType: \"tag\",\n            },\n        },\n        {\n            categoryProcessor: {\n                categories: [\n                    {\n                        filter: {\n                            query: \"@severity: \\\".\\\"\",\n                        },\n                        name: \"debug\",\n                    },\n                    {\n                        filter: {\n                            query: \"@severity: \\\"-\\\"\",\n                        },\n                        name: \"verbose\",\n                    },\n                ],\n                isEnabled: true,\n                name: \"sample category processor\",\n                target: \"foo.severity\",\n            },\n        },\n        {\n            dateRemapper: {\n                isEnabled: true,\n                name: \"sample date remapper\",\n                sources: [\n                    \"_timestamp\",\n                    \"published_date\",\n                ],\n            },\n        },\n        {\n            geoIpParser: {\n                isEnabled: true,\n                name: \"sample geo ip parser\",\n                sources: [\"network.client.ip\"],\n                target: \"network.client.geoip\",\n            },\n        },\n        {\n            grokParser: {\n                grok: {\n                    matchRules: \"Rule %%{word:my_word2} %%{number:my_float2}\",\n                    supportRules: \"\",\n                },\n                isEnabled: true,\n                name: \"sample grok parser\",\n                samples: [\"sample log 1\"],\n                source: \"message\",\n            },\n        },\n        {\n            lookupProcessor: {\n                defaultLookup: \"unknown service\",\n                isEnabled: true,\n                lookupTables: [\"1,my service\"],\n                name: \"sample lookup processor\",\n                source: \"service_id\",\n                target: \"service_name\",\n            },\n        },\n        {\n            messageRemapper: {\n                isEnabled: true,\n                name: \"sample message remapper\",\n                sources: [\"msg\"],\n            },\n        },\n        {\n            pipeline: {\n                filters: [{\n                    query: \"source:foo\",\n                }],\n                isEnabled: true,\n                name: \"nested pipeline\",\n                processors: [{\n                    urlParser: {\n                        name: \"sample url parser\",\n                        normalizeEndingSlashes: true,\n                        sources: [\n                            \"url\",\n                            \"extra\",\n                        ],\n                        target: \"http_url\",\n                    },\n                }],\n            },\n        },\n        {\n            serviceRemapper: {\n                isEnabled: true,\n                name: \"sample service remapper\",\n                sources: [\"service\"],\n            },\n        },\n        {\n            statusRemapper: {\n                isEnabled: true,\n                name: \"sample status remapper\",\n                sources: [\n                    \"info\",\n                    \"trace\",\n                ],\n            },\n        },\n        {\n            stringBuilderProcessor: {\n                isEnabled: true,\n                isReplaceMissing: false,\n                name: \"sample string builder processor\",\n                target: \"user_activity\",\n                template: \"%%{user.name} logged in at %%{timestamp}\",\n            },\n        },\n        {\n            traceIdRemapper: {\n                isEnabled: true,\n                name: \"sample trace id remapper\",\n                sources: [\"dd.trace_id\"],\n            },\n        },\n        {\n            userAgentParser: {\n                isEnabled: true,\n                isEncoded: false,\n                name: \"sample user agent parser\",\n                sources: [\n                    \"user\",\n                    \"agent\",\n                ],\n                target: \"http_agent\",\n            },\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_pipeline = datadog.LogsCustomPipeline(\"samplePipeline\",\n    filters=[datadog.LogsCustomPipelineFilterArgs(\n        query=\"source:foo\",\n    )],\n    is_enabled=True,\n    name=\"sample pipeline\",\n    processors=[\n        datadog.LogsCustomPipelineProcessorArgs(\n            arithmetic_processor=datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs(\n                expression=\"(time1 - time2)*1000\",\n                is_enabled=True,\n                is_replace_missing=True,\n                name=\"sample arithmetic processor\",\n                target=\"my_arithmetic\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            attribute_remapper=datadog.LogsCustomPipelineProcessorAttributeRemapperArgs(\n                is_enabled=True,\n                name=\"sample attribute processor\",\n                override_on_conflict=False,\n                preserve_source=True,\n                source_type=\"tag\",\n                sources=[\"db.instance\"],\n                target=\"db\",\n                target_type=\"tag\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            category_processor=datadog.LogsCustomPipelineProcessorCategoryProcessorArgs(\n                category=[\n                    {\n                        \"filter\": {\n                            \"query\": \"@severity: \\\".\\\"\",\n                        },\n                        \"name\": \"debug\",\n                    },\n                    {\n                        \"filter\": {\n                            \"query\": \"@severity: \\\"-\\\"\",\n                        },\n                        \"name\": \"verbose\",\n                    },\n                ],\n                is_enabled=True,\n                name=\"sample category processor\",\n                target=\"foo.severity\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            date_remapper=datadog.LogsCustomPipelineProcessorDateRemapperArgs(\n                is_enabled=True,\n                name=\"sample date remapper\",\n                sources=[\n                    \"_timestamp\",\n                    \"published_date\",\n                ],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            geo_ip_parser=datadog.LogsCustomPipelineProcessorGeoIpParserArgs(\n                is_enabled=True,\n                name=\"sample geo ip parser\",\n                sources=[\"network.client.ip\"],\n                target=\"network.client.geoip\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            grok_parser=datadog.LogsCustomPipelineProcessorGrokParserArgs(\n                grok=datadog.LogsCustomPipelineProcessorGrokParserGrokArgs(\n                    match_rules=\"Rule %{word:my_word2} %{number:my_float2}\",\n                    support_rules=\"\",\n                ),\n                is_enabled=True,\n                name=\"sample grok parser\",\n                samples=[\"sample log 1\"],\n                source=\"message\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            lookup_processor=datadog.LogsCustomPipelineProcessorLookupProcessorArgs(\n                default_lookup=\"unknown service\",\n                is_enabled=True,\n                lookup_table=[\"1,my service\"],\n                name=\"sample lookup processor\",\n                source=\"service_id\",\n                target=\"service_name\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            message_remapper=datadog.LogsCustomPipelineProcessorMessageRemapperArgs(\n                is_enabled=True,\n                name=\"sample message remapper\",\n                sources=[\"msg\"],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            pipeline=datadog.LogsCustomPipelineProcessorPipelineArgs(\n                filter=[{\n                    \"query\": \"source:foo\",\n                }],\n                is_enabled=True,\n                name=\"nested pipeline\",\n                processor=[{\n                    \"urlParser\": {\n                        \"name\": \"sample url parser\",\n                        \"normalizeEndingSlashes\": True,\n                        \"sources\": [\n                            \"url\",\n                            \"extra\",\n                        ],\n                        \"target\": \"http_url\",\n                    },\n                }],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            service_remapper=datadog.LogsCustomPipelineProcessorServiceRemapperArgs(\n                is_enabled=True,\n                name=\"sample service remapper\",\n                sources=[\"service\"],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            status_remapper=datadog.LogsCustomPipelineProcessorStatusRemapperArgs(\n                is_enabled=True,\n                name=\"sample status remapper\",\n                sources=[\n                    \"info\",\n                    \"trace\",\n                ],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            string_builder_processor=datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs(\n                is_enabled=True,\n                is_replace_missing=False,\n                name=\"sample string builder processor\",\n                target=\"user_activity\",\n                template=\"%{user.name} logged in at %{timestamp}\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            trace_id_remapper=datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs(\n                is_enabled=True,\n                name=\"sample trace id remapper\",\n                sources=[\"dd.trace_id\"],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            user_agent_parser=datadog.LogsCustomPipelineProcessorUserAgentParserArgs(\n                is_enabled=True,\n                is_encoded=False,\n                name=\"sample user agent parser\",\n                sources=[\n                    \"user\",\n                    \"agent\",\n                ],\n                target=\"http_agent\",\n            ),\n        ),\n    ])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePipeline = new Datadog.LogsCustomPipeline(\"samplePipeline\", new Datadog.LogsCustomPipelineArgs\n        {\n            Filters = \n            {\n                new Datadog.Inputs.LogsCustomPipelineFilterArgs\n                {\n                    Query = \"source:foo\",\n                },\n            },\n            IsEnabled = true,\n            Name = \"sample pipeline\",\n            Processors = \n            {\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    ArithmeticProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorArithmeticProcessorArgs\n                    {\n                        Expression = \"(time1 - time2)*1000\",\n                        IsEnabled = true,\n                        IsReplaceMissing = true,\n                        Name = \"sample arithmetic processor\",\n                        Target = \"my_arithmetic\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    AttributeRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorAttributeRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample attribute processor\",\n                        OverrideOnConflict = false,\n                        PreserveSource = true,\n                        SourceType = \"tag\",\n                        Sources = \n                        {\n                            \"db.instance\",\n                        },\n                        Target = \"db\",\n                        TargetType = \"tag\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    CategoryProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorCategoryProcessorArgs\n                    {\n                        Category = \n                        {\n                            \n                            {\n                                { \"filter\", \n                                {\n                                    { \"query\", \"@severity: \\\".\\\"\" },\n                                } },\n                                { \"name\", \"debug\" },\n                            },\n                            \n                            {\n                                { \"filter\", \n                                {\n                                    { \"query\", \"@severity: \\\"-\\\"\" },\n                                } },\n                                { \"name\", \"verbose\" },\n                            },\n                        },\n                        IsEnabled = true,\n                        Name = \"sample category processor\",\n                        Target = \"foo.severity\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    DateRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorDateRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample date remapper\",\n                        Sources = \n                        {\n                            \"_timestamp\",\n                            \"published_date\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    GeoIpParser = new Datadog.Inputs.LogsCustomPipelineProcessorGeoIpParserArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample geo ip parser\",\n                        Sources = \n                        {\n                            \"network.client.ip\",\n                        },\n                        Target = \"network.client.geoip\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    GrokParser = new Datadog.Inputs.LogsCustomPipelineProcessorGrokParserArgs\n                    {\n                        Grok = new Datadog.Inputs.LogsCustomPipelineProcessorGrokParserGrokArgs\n                        {\n                            MatchRules = \"Rule %{word:my_word2} %{number:my_float2}\",\n                            SupportRules = \"\",\n                        },\n                        IsEnabled = true,\n                        Name = \"sample grok parser\",\n                        Samples = \n                        {\n                            \"sample log 1\",\n                        },\n                        Source = \"message\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    LookupProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorLookupProcessorArgs\n                    {\n                        DefaultLookup = \"unknown service\",\n                        IsEnabled = true,\n                        LookupTable = \n                        {\n                            \"1,my service\",\n                        },\n                        Name = \"sample lookup processor\",\n                        Source = \"service_id\",\n                        Target = \"service_name\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    MessageRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorMessageRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample message remapper\",\n                        Sources = \n                        {\n                            \"msg\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    Pipeline = new Datadog.Inputs.LogsCustomPipelineProcessorPipelineArgs\n                    {\n                        Filter = \n                        {\n                            \n                            {\n                                { \"query\", \"source:foo\" },\n                            },\n                        },\n                        IsEnabled = true,\n                        Name = \"nested pipeline\",\n                        Processor = \n                        {\n                            \n                            {\n                                { \"urlParser\", \n                                {\n                                    { \"name\", \"sample url parser\" },\n                                    { \"normalizeEndingSlashes\", true },\n                                    { \"sources\", \n                                    {\n                                        \"url\",\n                                        \"extra\",\n                                    } },\n                                    { \"target\", \"http_url\" },\n                                } },\n                            },\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    ServiceRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorServiceRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample service remapper\",\n                        Sources = \n                        {\n                            \"service\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    StatusRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorStatusRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample status remapper\",\n                        Sources = \n                        {\n                            \"info\",\n                            \"trace\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    StringBuilderProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorStringBuilderProcessorArgs\n                    {\n                        IsEnabled = true,\n                        IsReplaceMissing = false,\n                        Name = \"sample string builder processor\",\n                        Target = \"user_activity\",\n                        Template = \"%{user.name} logged in at %{timestamp}\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    TraceIdRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorTraceIdRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample trace id remapper\",\n                        Sources = \n                        {\n                            \"dd.trace_id\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    UserAgentParser = new Datadog.Inputs.LogsCustomPipelineProcessorUserAgentParserArgs\n                    {\n                        IsEnabled = true,\n                        IsEncoded = false,\n                        Name = \"sample user agent parser\",\n                        Sources = \n                        {\n                            \"user\",\n                            \"agent\",\n                        },\n                        Target = \"http_agent\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsCustomPipeline(ctx, \"samplePipeline\", \u0026datadog.LogsCustomPipelineArgs{\n\t\t\tFilters: datadog.LogsCustomPipelineFilterArray{\n\t\t\t\t\u0026datadog.LogsCustomPipelineFilterArgs{\n\t\t\t\t\tQuery: pulumi.String(\"source:foo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\tName:      pulumi.String(\"sample pipeline\"),\n\t\t\tProcessors: datadog.LogsCustomPipelineProcessorArray{\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tArithmeticProcessor: \u0026datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs{\n\t\t\t\t\t\tExpression:       pulumi.String(\"(time1 - time2)*1000\"),\n\t\t\t\t\t\tIsEnabled:        pulumi.Bool(true),\n\t\t\t\t\t\tIsReplaceMissing: pulumi.Bool(true),\n\t\t\t\t\t\tName:             pulumi.String(\"sample arithmetic processor\"),\n\t\t\t\t\t\tTarget:           pulumi.String(\"my_arithmetic\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tAttributeRemapper: \u0026datadog.LogsCustomPipelineProcessorAttributeRemapperArgs{\n\t\t\t\t\t\tIsEnabled:          pulumi.Bool(true),\n\t\t\t\t\t\tName:               pulumi.String(\"sample attribute processor\"),\n\t\t\t\t\t\tOverrideOnConflict: pulumi.Bool(false),\n\t\t\t\t\t\tPreserveSource:     pulumi.Bool(true),\n\t\t\t\t\t\tSourceType:         pulumi.String(\"tag\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"db.instance\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTarget:     pulumi.String(\"db\"),\n\t\t\t\t\t\tTargetType: pulumi.String(\"tag\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tCategoryProcessor: \u0026datadog.LogsCustomPipelineProcessorCategoryProcessorArgs{\n\t\t\t\t\t\tCategory: pulumi.MapArray{\n\t\t\t\t\t\t\tpulumi.Map{\n\t\t\t\t\t\t\t\t\"filter\": pulumi.StringMap{\n\t\t\t\t\t\t\t\t\t\"query\": pulumi.String(\"@severity: \\\".\\\"\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"name\": pulumi.String(\"debug\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tpulumi.Map{\n\t\t\t\t\t\t\t\t\"filter\": pulumi.StringMap{\n\t\t\t\t\t\t\t\t\t\"query\": pulumi.String(\"@severity: \\\"-\\\"\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"name\": pulumi.String(\"verbose\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample category processor\"),\n\t\t\t\t\t\tTarget:    pulumi.String(\"foo.severity\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tDateRemapper: \u0026datadog.LogsCustomPipelineProcessorDateRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample date remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"_timestamp\"),\n\t\t\t\t\t\t\tpulumi.String(\"published_date\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tGeoIpParser: \u0026datadog.LogsCustomPipelineProcessorGeoIpParserArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample geo ip parser\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"network.client.ip\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTarget: pulumi.String(\"network.client.geoip\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tGrokParser: \u0026datadog.LogsCustomPipelineProcessorGrokParserArgs{\n\t\t\t\t\t\tGrok: \u0026datadog.LogsCustomPipelineProcessorGrokParserGrokArgs{\n\t\t\t\t\t\t\tMatchRules:   pulumi.String(fmt.Sprintf(\"%v%v%v%v%v\", \"Rule \", \"%{\", \"word:my_word2} \", \"%{\", \"number:my_float2}\")),\n\t\t\t\t\t\t\tSupportRules: pulumi.String(\"\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample grok parser\"),\n\t\t\t\t\t\tSamples: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"sample log 1\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tSource: pulumi.String(\"message\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tLookupProcessor: \u0026datadog.LogsCustomPipelineProcessorLookupProcessorArgs{\n\t\t\t\t\t\tDefaultLookup: pulumi.String(\"unknown service\"),\n\t\t\t\t\t\tIsEnabled:     pulumi.Bool(true),\n\t\t\t\t\t\tLookupTable: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"1,my service\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tName:   pulumi.String(\"sample lookup processor\"),\n\t\t\t\t\t\tSource: pulumi.String(\"service_id\"),\n\t\t\t\t\t\tTarget: pulumi.String(\"service_name\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tMessageRemapper: \u0026datadog.LogsCustomPipelineProcessorMessageRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample message remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"msg\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tPipeline: \u0026datadog.LogsCustomPipelineProcessorPipelineArgs{\n\t\t\t\t\t\tFilter: pulumi.StringMapArray{\n\t\t\t\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\t\t\t\"query\": pulumi.String(\"source:foo\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"nested pipeline\"),\n\t\t\t\t\t\tProcessor: pulumi.MapMapArray{\n\t\t\t\t\t\t\tpulumi.MapMap{\n\t\t\t\t\t\t\t\t\"urlParser\": pulumi.Map{\n\t\t\t\t\t\t\t\t\t\"name\":                   pulumi.String(\"sample url parser\"),\n\t\t\t\t\t\t\t\t\t\"normalizeEndingSlashes\": pulumi.Bool(true),\n\t\t\t\t\t\t\t\t\t\"sources\": pulumi.StringArray{\n\t\t\t\t\t\t\t\t\t\tpulumi.String(\"url\"),\n\t\t\t\t\t\t\t\t\t\tpulumi.String(\"extra\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"target\": pulumi.String(\"http_url\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tServiceRemapper: \u0026datadog.LogsCustomPipelineProcessorServiceRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample service remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"service\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tStatusRemapper: \u0026datadog.LogsCustomPipelineProcessorStatusRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample status remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"info\"),\n\t\t\t\t\t\t\tpulumi.String(\"trace\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tStringBuilderProcessor: \u0026datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs{\n\t\t\t\t\t\tIsEnabled:        pulumi.Bool(true),\n\t\t\t\t\t\tIsReplaceMissing: pulumi.Bool(false),\n\t\t\t\t\t\tName:             pulumi.String(\"sample string builder processor\"),\n\t\t\t\t\t\tTarget:           pulumi.String(\"user_activity\"),\n\t\t\t\t\t\tTemplate:         pulumi.String(fmt.Sprintf(\"%v%v%v%v\", \"%{\", \"user.name} logged in at \", \"%{\", \"timestamp}\")),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tTraceIdRemapper: \u0026datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample trace id remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"dd.trace_id\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tUserAgentParser: \u0026datadog.LogsCustomPipelineProcessorUserAgentParserArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tIsEncoded: pulumi.Bool(false),\n\t\t\t\t\t\tName:      pulumi.String(\"sample user agent parser\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"user\"),\n\t\t\t\t\t\t\tpulumi.String(\"agent\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTarget: pulumi.String(\"http_agent\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Important Notes\n\nEach `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.\n",
+            "description": "Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nCreate a Datadog logs pipeline:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst samplePipeline = new datadog.LogsCustomPipeline(\"sample_pipeline\", {\n    filters: [{\n        query: \"source:foo\",\n    }],\n    isEnabled: true,\n    name: \"sample pipeline\",\n    processors: [\n        {\n            arithmeticProcessor: {\n                expression: \"(time1 - time2)*1000\",\n                isEnabled: true,\n                isReplaceMissing: true,\n                name: \"sample arithmetic processor\",\n                target: \"my_arithmetic\",\n            },\n        },\n        {\n            attributeRemapper: {\n                isEnabled: true,\n                name: \"sample attribute processor\",\n                overrideOnConflict: false,\n                preserveSource: true,\n                sourceType: \"tag\",\n                sources: [\"db.instance\"],\n                target: \"db\",\n                targetFormat: \"string\",\n                targetType: \"attribute\",\n            },\n        },\n        {\n            categoryProcessor: {\n                categories: [\n                    {\n                        filter: {\n                            query: \"@severity: \\\".\\\"\",\n                        },\n                        name: \"debug\",\n                    },\n                    {\n                        filter: {\n                            query: \"@severity: \\\"-\\\"\",\n                        },\n                        name: \"verbose\",\n                    },\n                ],\n                isEnabled: true,\n                name: \"sample category processor\",\n                target: \"foo.severity\",\n            },\n        },\n        {\n            dateRemapper: {\n                isEnabled: true,\n                name: \"sample date remapper\",\n                sources: [\n                    \"_timestamp\",\n                    \"published_date\",\n                ],\n            },\n        },\n        {\n            geoIpParser: {\n                isEnabled: true,\n                name: \"sample geo ip parser\",\n                sources: [\"network.client.ip\"],\n                target: \"network.client.geoip\",\n            },\n        },\n        {\n            grokParser: {\n                grok: {\n                    matchRules: \"Rule %%{word:my_word2} %%{number:my_float2}\",\n                    supportRules: \"\",\n                },\n                isEnabled: true,\n                name: \"sample grok parser\",\n                samples: [\"sample log 1\"],\n                source: \"message\",\n            },\n        },\n        {\n            lookupProcessor: {\n                defaultLookup: \"unknown service\",\n                isEnabled: true,\n                lookupTables: [\"1,my service\"],\n                name: \"sample lookup processor\",\n                source: \"service_id\",\n                target: \"service_name\",\n            },\n        },\n        {\n            messageRemapper: {\n                isEnabled: true,\n                name: \"sample message remapper\",\n                sources: [\"msg\"],\n            },\n        },\n        {\n            pipeline: {\n                filters: [{\n                    query: \"source:foo\",\n                }],\n                isEnabled: true,\n                name: \"nested pipeline\",\n                processors: [{\n                    urlParser: {\n                        name: \"sample url parser\",\n                        normalizeEndingSlashes: true,\n                        sources: [\n                            \"url\",\n                            \"extra\",\n                        ],\n                        target: \"http_url\",\n                    },\n                }],\n            },\n        },\n        {\n            serviceRemapper: {\n                isEnabled: true,\n                name: \"sample service remapper\",\n                sources: [\"service\"],\n            },\n        },\n        {\n            statusRemapper: {\n                isEnabled: true,\n                name: \"sample status remapper\",\n                sources: [\n                    \"info\",\n                    \"trace\",\n                ],\n            },\n        },\n        {\n            stringBuilderProcessor: {\n                isEnabled: true,\n                isReplaceMissing: false,\n                name: \"sample string builder processor\",\n                target: \"user_activity\",\n                template: \"%%{user.name} logged in at %%{timestamp}\",\n            },\n        },\n        {\n            traceIdRemapper: {\n                isEnabled: true,\n                name: \"sample trace id remapper\",\n                sources: [\"dd.trace_id\"],\n            },\n        },\n        {\n            userAgentParser: {\n                isEnabled: true,\n                isEncoded: false,\n                name: \"sample user agent parser\",\n                sources: [\n                    \"user\",\n                    \"agent\",\n                ],\n                target: \"http_agent\",\n            },\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_pipeline = datadog.LogsCustomPipeline(\"samplePipeline\",\n    filters=[datadog.LogsCustomPipelineFilterArgs(\n        query=\"source:foo\",\n    )],\n    is_enabled=True,\n    name=\"sample pipeline\",\n    processors=[\n        datadog.LogsCustomPipelineProcessorArgs(\n            arithmetic_processor=datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs(\n                expression=\"(time1 - time2)*1000\",\n                is_enabled=True,\n                is_replace_missing=True,\n                name=\"sample arithmetic processor\",\n                target=\"my_arithmetic\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            attribute_remapper=datadog.LogsCustomPipelineProcessorAttributeRemapperArgs(\n                is_enabled=True,\n                name=\"sample attribute processor\",\n                override_on_conflict=False,\n                preserve_source=True,\n                source_type=\"tag\",\n                sources=[\"db.instance\"],\n                target=\"db\",\n                target_format=\"string\",\n                target_type=\"attribute\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            category_processor=datadog.LogsCustomPipelineProcessorCategoryProcessorArgs(\n                category=[\n                    {\n                        \"filter\": {\n                            \"query\": \"@severity: \\\".\\\"\",\n                        },\n                        \"name\": \"debug\",\n                    },\n                    {\n                        \"filter\": {\n                            \"query\": \"@severity: \\\"-\\\"\",\n                        },\n                        \"name\": \"verbose\",\n                    },\n                ],\n                is_enabled=True,\n                name=\"sample category processor\",\n                target=\"foo.severity\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            date_remapper=datadog.LogsCustomPipelineProcessorDateRemapperArgs(\n                is_enabled=True,\n                name=\"sample date remapper\",\n                sources=[\n                    \"_timestamp\",\n                    \"published_date\",\n                ],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            geo_ip_parser=datadog.LogsCustomPipelineProcessorGeoIpParserArgs(\n                is_enabled=True,\n                name=\"sample geo ip parser\",\n                sources=[\"network.client.ip\"],\n                target=\"network.client.geoip\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            grok_parser=datadog.LogsCustomPipelineProcessorGrokParserArgs(\n                grok=datadog.LogsCustomPipelineProcessorGrokParserGrokArgs(\n                    match_rules=\"Rule %{word:my_word2} %{number:my_float2}\",\n                    support_rules=\"\",\n                ),\n                is_enabled=True,\n                name=\"sample grok parser\",\n                samples=[\"sample log 1\"],\n                source=\"message\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            lookup_processor=datadog.LogsCustomPipelineProcessorLookupProcessorArgs(\n                default_lookup=\"unknown service\",\n                is_enabled=True,\n                lookup_table=[\"1,my service\"],\n                name=\"sample lookup processor\",\n                source=\"service_id\",\n                target=\"service_name\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            message_remapper=datadog.LogsCustomPipelineProcessorMessageRemapperArgs(\n                is_enabled=True,\n                name=\"sample message remapper\",\n                sources=[\"msg\"],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            pipeline=datadog.LogsCustomPipelineProcessorPipelineArgs(\n                filter=[{\n                    \"query\": \"source:foo\",\n                }],\n                is_enabled=True,\n                name=\"nested pipeline\",\n                processor=[{\n                    \"urlParser\": {\n                        \"name\": \"sample url parser\",\n                        \"normalizeEndingSlashes\": True,\n                        \"sources\": [\n                            \"url\",\n                            \"extra\",\n                        ],\n                        \"target\": \"http_url\",\n                    },\n                }],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            service_remapper=datadog.LogsCustomPipelineProcessorServiceRemapperArgs(\n                is_enabled=True,\n                name=\"sample service remapper\",\n                sources=[\"service\"],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            status_remapper=datadog.LogsCustomPipelineProcessorStatusRemapperArgs(\n                is_enabled=True,\n                name=\"sample status remapper\",\n                sources=[\n                    \"info\",\n                    \"trace\",\n                ],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            string_builder_processor=datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs(\n                is_enabled=True,\n                is_replace_missing=False,\n                name=\"sample string builder processor\",\n                target=\"user_activity\",\n                template=\"%{user.name} logged in at %{timestamp}\",\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            trace_id_remapper=datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs(\n                is_enabled=True,\n                name=\"sample trace id remapper\",\n                sources=[\"dd.trace_id\"],\n            ),\n        ),\n        datadog.LogsCustomPipelineProcessorArgs(\n            user_agent_parser=datadog.LogsCustomPipelineProcessorUserAgentParserArgs(\n                is_enabled=True,\n                is_encoded=False,\n                name=\"sample user agent parser\",\n                sources=[\n                    \"user\",\n                    \"agent\",\n                ],\n                target=\"http_agent\",\n            ),\n        ),\n    ])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePipeline = new Datadog.LogsCustomPipeline(\"samplePipeline\", new Datadog.LogsCustomPipelineArgs\n        {\n            Filters = \n            {\n                new Datadog.Inputs.LogsCustomPipelineFilterArgs\n                {\n                    Query = \"source:foo\",\n                },\n            },\n            IsEnabled = true,\n            Name = \"sample pipeline\",\n            Processors = \n            {\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    ArithmeticProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorArithmeticProcessorArgs\n                    {\n                        Expression = \"(time1 - time2)*1000\",\n                        IsEnabled = true,\n                        IsReplaceMissing = true,\n                        Name = \"sample arithmetic processor\",\n                        Target = \"my_arithmetic\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    AttributeRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorAttributeRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample attribute processor\",\n                        OverrideOnConflict = false,\n                        PreserveSource = true,\n                        SourceType = \"tag\",\n                        Sources = \n                        {\n                            \"db.instance\",\n                        },\n                        Target = \"db\",\n                        TargetFormat = \"string\",\n                        TargetType = \"attribute\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    CategoryProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorCategoryProcessorArgs\n                    {\n                        Category = \n                        {\n                            \n                            {\n                                { \"filter\", \n                                {\n                                    { \"query\", \"@severity: \\\".\\\"\" },\n                                } },\n                                { \"name\", \"debug\" },\n                            },\n                            \n                            {\n                                { \"filter\", \n                                {\n                                    { \"query\", \"@severity: \\\"-\\\"\" },\n                                } },\n                                { \"name\", \"verbose\" },\n                            },\n                        },\n                        IsEnabled = true,\n                        Name = \"sample category processor\",\n                        Target = \"foo.severity\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    DateRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorDateRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample date remapper\",\n                        Sources = \n                        {\n                            \"_timestamp\",\n                            \"published_date\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    GeoIpParser = new Datadog.Inputs.LogsCustomPipelineProcessorGeoIpParserArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample geo ip parser\",\n                        Sources = \n                        {\n                            \"network.client.ip\",\n                        },\n                        Target = \"network.client.geoip\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    GrokParser = new Datadog.Inputs.LogsCustomPipelineProcessorGrokParserArgs\n                    {\n                        Grok = new Datadog.Inputs.LogsCustomPipelineProcessorGrokParserGrokArgs\n                        {\n                            MatchRules = \"Rule %{word:my_word2} %{number:my_float2}\",\n                            SupportRules = \"\",\n                        },\n                        IsEnabled = true,\n                        Name = \"sample grok parser\",\n                        Samples = \n                        {\n                            \"sample log 1\",\n                        },\n                        Source = \"message\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    LookupProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorLookupProcessorArgs\n                    {\n                        DefaultLookup = \"unknown service\",\n                        IsEnabled = true,\n                        LookupTable = \n                        {\n                            \"1,my service\",\n                        },\n                        Name = \"sample lookup processor\",\n                        Source = \"service_id\",\n                        Target = \"service_name\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    MessageRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorMessageRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample message remapper\",\n                        Sources = \n                        {\n                            \"msg\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    Pipeline = new Datadog.Inputs.LogsCustomPipelineProcessorPipelineArgs\n                    {\n                        Filter = \n                        {\n                            \n                            {\n                                { \"query\", \"source:foo\" },\n                            },\n                        },\n                        IsEnabled = true,\n                        Name = \"nested pipeline\",\n                        Processor = \n                        {\n                            \n                            {\n                                { \"urlParser\", \n                                {\n                                    { \"name\", \"sample url parser\" },\n                                    { \"normalizeEndingSlashes\", true },\n                                    { \"sources\", \n                                    {\n                                        \"url\",\n                                        \"extra\",\n                                    } },\n                                    { \"target\", \"http_url\" },\n                                } },\n                            },\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    ServiceRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorServiceRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample service remapper\",\n                        Sources = \n                        {\n                            \"service\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    StatusRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorStatusRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample status remapper\",\n                        Sources = \n                        {\n                            \"info\",\n                            \"trace\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    StringBuilderProcessor = new Datadog.Inputs.LogsCustomPipelineProcessorStringBuilderProcessorArgs\n                    {\n                        IsEnabled = true,\n                        IsReplaceMissing = false,\n                        Name = \"sample string builder processor\",\n                        Target = \"user_activity\",\n                        Template = \"%{user.name} logged in at %{timestamp}\",\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    TraceIdRemapper = new Datadog.Inputs.LogsCustomPipelineProcessorTraceIdRemapperArgs\n                    {\n                        IsEnabled = true,\n                        Name = \"sample trace id remapper\",\n                        Sources = \n                        {\n                            \"dd.trace_id\",\n                        },\n                    },\n                },\n                new Datadog.Inputs.LogsCustomPipelineProcessorArgs\n                {\n                    UserAgentParser = new Datadog.Inputs.LogsCustomPipelineProcessorUserAgentParserArgs\n                    {\n                        IsEnabled = true,\n                        IsEncoded = false,\n                        Name = \"sample user agent parser\",\n                        Sources = \n                        {\n                            \"user\",\n                            \"agent\",\n                        },\n                        Target = \"http_agent\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsCustomPipeline(ctx, \"samplePipeline\", \u0026datadog.LogsCustomPipelineArgs{\n\t\t\tFilters: datadog.LogsCustomPipelineFilterArray{\n\t\t\t\t\u0026datadog.LogsCustomPipelineFilterArgs{\n\t\t\t\t\tQuery: pulumi.String(\"source:foo\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\tName:      pulumi.String(\"sample pipeline\"),\n\t\t\tProcessors: datadog.LogsCustomPipelineProcessorArray{\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tArithmeticProcessor: \u0026datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs{\n\t\t\t\t\t\tExpression:       pulumi.String(\"(time1 - time2)*1000\"),\n\t\t\t\t\t\tIsEnabled:        pulumi.Bool(true),\n\t\t\t\t\t\tIsReplaceMissing: pulumi.Bool(true),\n\t\t\t\t\t\tName:             pulumi.String(\"sample arithmetic processor\"),\n\t\t\t\t\t\tTarget:           pulumi.String(\"my_arithmetic\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tAttributeRemapper: \u0026datadog.LogsCustomPipelineProcessorAttributeRemapperArgs{\n\t\t\t\t\t\tIsEnabled:          pulumi.Bool(true),\n\t\t\t\t\t\tName:               pulumi.String(\"sample attribute processor\"),\n\t\t\t\t\t\tOverrideOnConflict: pulumi.Bool(false),\n\t\t\t\t\t\tPreserveSource:     pulumi.Bool(true),\n\t\t\t\t\t\tSourceType:         pulumi.String(\"tag\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"db.instance\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTarget:       pulumi.String(\"db\"),\n\t\t\t\t\t\tTargetFormat: pulumi.String(\"string\"),\n\t\t\t\t\t\tTargetType:   pulumi.String(\"attribute\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tCategoryProcessor: \u0026datadog.LogsCustomPipelineProcessorCategoryProcessorArgs{\n\t\t\t\t\t\tCategory: pulumi.MapArray{\n\t\t\t\t\t\t\tpulumi.Map{\n\t\t\t\t\t\t\t\t\"filter\": pulumi.StringMap{\n\t\t\t\t\t\t\t\t\t\"query\": pulumi.String(\"@severity: \\\".\\\"\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"name\": pulumi.String(\"debug\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tpulumi.Map{\n\t\t\t\t\t\t\t\t\"filter\": pulumi.StringMap{\n\t\t\t\t\t\t\t\t\t\"query\": pulumi.String(\"@severity: \\\"-\\\"\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\"name\": pulumi.String(\"verbose\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample category processor\"),\n\t\t\t\t\t\tTarget:    pulumi.String(\"foo.severity\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tDateRemapper: \u0026datadog.LogsCustomPipelineProcessorDateRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample date remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"_timestamp\"),\n\t\t\t\t\t\t\tpulumi.String(\"published_date\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tGeoIpParser: \u0026datadog.LogsCustomPipelineProcessorGeoIpParserArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample geo ip parser\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"network.client.ip\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTarget: pulumi.String(\"network.client.geoip\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tGrokParser: \u0026datadog.LogsCustomPipelineProcessorGrokParserArgs{\n\t\t\t\t\t\tGrok: \u0026datadog.LogsCustomPipelineProcessorGrokParserGrokArgs{\n\t\t\t\t\t\t\tMatchRules:   pulumi.String(fmt.Sprintf(\"%v%v%v%v%v\", \"Rule \", \"%{\", \"word:my_word2} \", \"%{\", \"number:my_float2}\")),\n\t\t\t\t\t\t\tSupportRules: pulumi.String(\"\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample grok parser\"),\n\t\t\t\t\t\tSamples: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"sample log 1\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tSource: pulumi.String(\"message\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tLookupProcessor: \u0026datadog.LogsCustomPipelineProcessorLookupProcessorArgs{\n\t\t\t\t\t\tDefaultLookup: pulumi.String(\"unknown service\"),\n\t\t\t\t\t\tIsEnabled:     pulumi.Bool(true),\n\t\t\t\t\t\tLookupTable: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"1,my service\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tName:   pulumi.String(\"sample lookup processor\"),\n\t\t\t\t\t\tSource: pulumi.String(\"service_id\"),\n\t\t\t\t\t\tTarget: pulumi.String(\"service_name\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tMessageRemapper: \u0026datadog.LogsCustomPipelineProcessorMessageRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample message remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"msg\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tPipeline: \u0026datadog.LogsCustomPipelineProcessorPipelineArgs{\n\t\t\t\t\t\tFilter: pulumi.StringMapArray{\n\t\t\t\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\t\t\t\"query\": pulumi.String(\"source:foo\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"nested pipeline\"),\n\t\t\t\t\t\tProcessor: pulumi.MapMapArray{\n\t\t\t\t\t\t\tpulumi.MapMap{\n\t\t\t\t\t\t\t\t\"urlParser\": pulumi.Map{\n\t\t\t\t\t\t\t\t\t\"name\":                   pulumi.String(\"sample url parser\"),\n\t\t\t\t\t\t\t\t\t\"normalizeEndingSlashes\": pulumi.Bool(true),\n\t\t\t\t\t\t\t\t\t\"sources\": pulumi.StringArray{\n\t\t\t\t\t\t\t\t\t\tpulumi.String(\"url\"),\n\t\t\t\t\t\t\t\t\t\tpulumi.String(\"extra\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"target\": pulumi.String(\"http_url\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tServiceRemapper: \u0026datadog.LogsCustomPipelineProcessorServiceRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample service remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"service\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tStatusRemapper: \u0026datadog.LogsCustomPipelineProcessorStatusRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample status remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"info\"),\n\t\t\t\t\t\t\tpulumi.String(\"trace\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tStringBuilderProcessor: \u0026datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs{\n\t\t\t\t\t\tIsEnabled:        pulumi.Bool(true),\n\t\t\t\t\t\tIsReplaceMissing: pulumi.Bool(false),\n\t\t\t\t\t\tName:             pulumi.String(\"sample string builder processor\"),\n\t\t\t\t\t\tTarget:           pulumi.String(\"user_activity\"),\n\t\t\t\t\t\tTemplate:         pulumi.String(fmt.Sprintf(\"%v%v%v%v\", \"%{\", \"user.name} logged in at \", \"%{\", \"timestamp}\")),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tTraceIdRemapper: \u0026datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tName:      pulumi.String(\"sample trace id remapper\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"dd.trace_id\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026datadog.LogsCustomPipelineProcessorArgs{\n\t\t\t\t\tUserAgentParser: \u0026datadog.LogsCustomPipelineProcessorUserAgentParserArgs{\n\t\t\t\t\t\tIsEnabled: pulumi.Bool(true),\n\t\t\t\t\t\tIsEncoded: pulumi.Bool(false),\n\t\t\t\t\t\tName:      pulumi.String(\"sample user agent parser\"),\n\t\t\t\t\t\tSources: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"user\"),\n\t\t\t\t\t\t\tpulumi.String(\"agent\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTarget: pulumi.String(\"http_agent\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Important Notes\n\nEach `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.\n",
             "properties": {
                 "filters": {
                     "type": "array",
@@ -32074,6 +33322,9 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "validate": {
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -32121,6 +33372,9 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "validate": {
+                    "type": "boolean"
                 }
             },
             "requiredInputs": [
@@ -32170,12 +33424,82 @@
                     },
                     "type": {
                         "type": "string"
+                    },
+                    "validate": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": {
+            "description": "Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testApi = new datadog.SyntheticsGlobalVariable(\"test_api\", {\n    description: \"Description of the variable\",\n    name: \"EXAMPLE_VARIABLE\",\n    tags: [\n        \"foo:bar\",\n        \"env:test\",\n    ],\n    value: \"variable-value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_api = datadog.SyntheticsGlobalVariable(\"testApi\",\n    description=\"Description of the variable\",\n    name=\"EXAMPLE_VARIABLE\",\n    tags=[\n        \"foo:bar\",\n        \"env:test\",\n    ],\n    value=\"variable-value\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testApi = new Datadog.SyntheticsGlobalVariable(\"testApi\", new Datadog.SyntheticsGlobalVariableArgs\n        {\n            Description = \"Description of the variable\",\n            Name = \"EXAMPLE_VARIABLE\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"env:test\",\n            },\n            Value = \"variable-value\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsGlobalVariable(ctx, \"testApi\", \u0026datadog.SyntheticsGlobalVariableArgs{\n\t\t\tDescription: pulumi.String(\"Description of the variable\"),\n\t\t\tName:        pulumi.String(\"EXAMPLE_VARIABLE\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t\tValue: pulumi.String(\"variable-value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Secure global variables\n\nSecure global variables are not supported for now.\n",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "value"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SyntheticsGlobalVariable resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "value": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
             }
         },
         "datadog:index/syntheticsTest:SyntheticsTest": {
+            "description": "Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Synthetics API Test)\n\nCreate a new Datadog Synthetics API/HTTP test on https://www.example.org\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testApi = new datadog.SyntheticsTest(\"test_api\", {\n    assertions: [{\n        operator: \"is\",\n        target: \"200\",\n        type: \"statusCode\",\n    }],\n    locations: [\"aws:eu-central-1\"],\n    message: \"Notify @pagerduty\",\n    name: \"An API test on example.org\",\n    optionsList: {\n        monitorOptions: {\n            renotifyInterval: 100,\n        },\n        retry: {\n            count: 2,\n            interval: 300,\n        },\n        tickEvery: 900,\n    },\n    request: {\n        method: \"GET\",\n        url: \"https://www.example.org\",\n    },\n    requestHeaders: {\n        Authentication: \"Token: 1234566789\",\n        \"Content-Type\": \"application/json\",\n    },\n    status: \"live\",\n    subtype: \"http\",\n    tags: [\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type: \"api\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_api = datadog.SyntheticsTest(\"testApi\",\n    assertions=[{\n        \"operator\": \"is\",\n        \"target\": \"200\",\n        \"type\": \"statusCode\",\n    }],\n    locations=[\"aws:eu-central-1\"],\n    message=\"Notify @pagerduty\",\n    name=\"An API test on example.org\",\n    options_list=datadog.SyntheticsTestOptionsListArgs(\n        monitor_options=datadog.SyntheticsTestOptionsListMonitorOptionsArgs(\n            renotify_interval=100,\n        ),\n        retry=datadog.SyntheticsTestOptionsListRetryArgs(\n            count=2,\n            interval=300,\n        ),\n        tick_every=900,\n    ),\n    request=datadog.SyntheticsTestRequestArgs(\n        method=\"GET\",\n        url=\"https://www.example.org\",\n    ),\n    request_headers={\n        \"Authentication\": \"Token: 1234566789\",\n        \"Content-Type\": \"application/json\",\n    },\n    status=\"live\",\n    subtype=\"http\",\n    tags=[\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type=\"api\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testApi = new Datadog.SyntheticsTest(\"testApi\", new Datadog.SyntheticsTestArgs\n        {\n            Assertions = \n            {\n                \n                {\n                    { \"operator\", \"is\" },\n                    { \"target\", \"200\" },\n                    { \"type\", \"statusCode\" },\n                },\n            },\n            Locations = \n            {\n                \"aws:eu-central-1\",\n            },\n            Message = \"Notify @pagerduty\",\n            Name = \"An API test on example.org\",\n            OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs\n            {\n                MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs\n                {\n                    RenotifyInterval = 100,\n                },\n                Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs\n                {\n                    Count = 2,\n                    Interval = 300,\n                },\n                TickEvery = 900,\n            },\n            Request = new Datadog.Inputs.SyntheticsTestRequestArgs\n            {\n                Method = \"GET\",\n                Url = \"https://www.example.org\",\n            },\n            RequestHeaders = \n            {\n                { \"Authentication\", \"Token: 1234566789\" },\n                { \"Content-Type\", \"application/json\" },\n            },\n            Status = \"live\",\n            Subtype = \"http\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"foo\",\n                \"env:test\",\n            },\n            Type = \"api\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsTest(ctx, \"testApi\", \u0026datadog.SyntheticsTestArgs{\n\t\t\tAssertions: pulumi.StringMapArray{\n\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\"operator\": pulumi.String(\"is\"),\n\t\t\t\t\t\"target\":   pulumi.String(\"200\"),\n\t\t\t\t\t\"type\":     pulumi.String(\"statusCode\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"aws:eu-central-1\"),\n\t\t\t},\n\t\t\tMessage: pulumi.String(\"Notify @pagerduty\"),\n\t\t\tName:    pulumi.String(\"An API test on example.org\"),\n\t\t\tOptionsList: \u0026datadog.SyntheticsTestOptionsListArgs{\n\t\t\t\tMonitorOptions: \u0026datadog.SyntheticsTestOptionsListMonitorOptionsArgs{\n\t\t\t\t\tRenotifyInterval: pulumi.Int(100),\n\t\t\t\t},\n\t\t\t\tRetry: \u0026datadog.SyntheticsTestOptionsListRetryArgs{\n\t\t\t\t\tCount:    pulumi.Int(2),\n\t\t\t\t\tInterval: pulumi.Int(300),\n\t\t\t\t},\n\t\t\t\tTickEvery: pulumi.Int(900),\n\t\t\t},\n\t\t\tRequest: \u0026datadog.SyntheticsTestRequestArgs{\n\t\t\t\tMethod: pulumi.String(\"GET\"),\n\t\t\t\tUrl:    pulumi.String(\"https://www.example.org\"),\n\t\t\t},\n\t\t\tRequestHeaders: pulumi.StringMap{\n\t\t\t\t\"Authentication\": pulumi.String(\"Token: 1234566789\"),\n\t\t\t\t\"Content-Type\":   pulumi.String(\"application/json\"),\n\t\t\t},\n\t\t\tStatus:  pulumi.String(\"live\"),\n\t\t\tSubtype: pulumi.String(\"http\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"foo\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"api\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% example %}}\n### Synthetics SSL Test)\n\nCreate a new Datadog Synthetics API/SSL test on example.org\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testSsl = new datadog.SyntheticsTest(\"test_ssl\", {\n    assertions: [{\n        operator: \"isInMoreThan\",\n        target: \"30\",\n        type: \"certificate\",\n    }],\n    locations: [\"aws:eu-central-1\"],\n    message: \"Notify @pagerduty\",\n    name: \"An API test on example.org\",\n    optionsList: {\n        acceptSelfSigned: true,\n        tickEvery: 900,\n    },\n    request: {\n        host: \"example.org\",\n        port: 443,\n    },\n    status: \"live\",\n    subtype: \"ssl\",\n    tags: [\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type: \"api\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_ssl = datadog.SyntheticsTest(\"testSsl\",\n    assertions=[{\n        \"operator\": \"isInMoreThan\",\n        \"target\": 30,\n        \"type\": \"certificate\",\n    }],\n    locations=[\"aws:eu-central-1\"],\n    message=\"Notify @pagerduty\",\n    name=\"An API test on example.org\",\n    options_list=datadog.SyntheticsTestOptionsListArgs(\n        accept_self_signed=True,\n        tick_every=900,\n    ),\n    request=datadog.SyntheticsTestRequestArgs(\n        host=\"example.org\",\n        port=443,\n    ),\n    status=\"live\",\n    subtype=\"ssl\",\n    tags=[\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type=\"api\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testSsl = new Datadog.SyntheticsTest(\"testSsl\", new Datadog.SyntheticsTestArgs\n        {\n            Assertions = \n            {\n                \n                {\n                    { \"operator\", \"isInMoreThan\" },\n                    { \"target\", 30 },\n                    { \"type\", \"certificate\" },\n                },\n            },\n            Locations = \n            {\n                \"aws:eu-central-1\",\n            },\n            Message = \"Notify @pagerduty\",\n            Name = \"An API test on example.org\",\n            OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs\n            {\n                AcceptSelfSigned = true,\n                TickEvery = 900,\n            },\n            Request = new Datadog.Inputs.SyntheticsTestRequestArgs\n            {\n                Host = \"example.org\",\n                Port = 443,\n            },\n            Status = \"live\",\n            Subtype = \"ssl\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"foo\",\n                \"env:test\",\n            },\n            Type = \"api\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsTest(ctx, \"testSsl\", \u0026datadog.SyntheticsTestArgs{\n\t\t\tAssertions: pulumi.MapArray{\n\t\t\t\tpulumi.Map{\n\t\t\t\t\t\"operator\": pulumi.String(\"isInMoreThan\"),\n\t\t\t\t\t\"target\":   pulumi.Float64(30),\n\t\t\t\t\t\"type\":     pulumi.String(\"certificate\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"aws:eu-central-1\"),\n\t\t\t},\n\t\t\tMessage: pulumi.String(\"Notify @pagerduty\"),\n\t\t\tName:    pulumi.String(\"An API test on example.org\"),\n\t\t\tOptionsList: \u0026datadog.SyntheticsTestOptionsListArgs{\n\t\t\t\tAcceptSelfSigned: pulumi.Bool(true),\n\t\t\t\tTickEvery:        pulumi.Int(900),\n\t\t\t},\n\t\t\tRequest: \u0026datadog.SyntheticsTestRequestArgs{\n\t\t\t\tHost: pulumi.String(\"example.org\"),\n\t\t\t\tPort: pulumi.Int(443),\n\t\t\t},\n\t\t\tStatus:  pulumi.String(\"live\"),\n\t\t\tSubtype: pulumi.String(\"ssl\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"foo\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"api\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% example %}}\n### Synthetics TCP Test)\n\nCreate a new Datadog Synthetics API/TCP test on example.org\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testTcp = new datadog.SyntheticsTest(\"test_tcp\", {\n    assertions: [{\n        operator: \"lessThan\",\n        target: \"2000\",\n        type: \"responseTime\",\n    }],\n    locations: [\"aws:eu-central-1\"],\n    message: \"Notify @pagerduty\",\n    name: \"An API test on example.org\",\n    optionsList: {\n        tickEvery: 900,\n    },\n    request: {\n        host: \"example.org\",\n        port: 443,\n    },\n    status: \"live\",\n    subtype: \"tcp\",\n    tags: [\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type: \"api\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_tcp = datadog.SyntheticsTest(\"testTcp\",\n    assertions=[{\n        \"operator\": \"lessThan\",\n        \"target\": 2000,\n        \"type\": \"responseTime\",\n    }],\n    locations=[\"aws:eu-central-1\"],\n    message=\"Notify @pagerduty\",\n    name=\"An API test on example.org\",\n    options_list=datadog.SyntheticsTestOptionsListArgs(\n        tick_every=900,\n    ),\n    request=datadog.SyntheticsTestRequestArgs(\n        host=\"example.org\",\n        port=443,\n    ),\n    status=\"live\",\n    subtype=\"tcp\",\n    tags=[\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type=\"api\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testTcp = new Datadog.SyntheticsTest(\"testTcp\", new Datadog.SyntheticsTestArgs\n        {\n            Assertions = \n            {\n                \n                {\n                    { \"operator\", \"lessThan\" },\n                    { \"target\", 2000 },\n                    { \"type\", \"responseTime\" },\n                },\n            },\n            Locations = \n            {\n                \"aws:eu-central-1\",\n            },\n            Message = \"Notify @pagerduty\",\n            Name = \"An API test on example.org\",\n            OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs\n            {\n                TickEvery = 900,\n            },\n            Request = new Datadog.Inputs.SyntheticsTestRequestArgs\n            {\n                Host = \"example.org\",\n                Port = 443,\n            },\n            Status = \"live\",\n            Subtype = \"tcp\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"foo\",\n                \"env:test\",\n            },\n            Type = \"api\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsTest(ctx, \"testTcp\", \u0026datadog.SyntheticsTestArgs{\n\t\t\tAssertions: pulumi.MapArray{\n\t\t\t\tpulumi.Map{\n\t\t\t\t\t\"operator\": pulumi.String(\"lessThan\"),\n\t\t\t\t\t\"target\":   pulumi.Float64(2000),\n\t\t\t\t\t\"type\":     pulumi.String(\"responseTime\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"aws:eu-central-1\"),\n\t\t\t},\n\t\t\tMessage: pulumi.String(\"Notify @pagerduty\"),\n\t\t\tName:    pulumi.String(\"An API test on example.org\"),\n\t\t\tOptionsList: \u0026datadog.SyntheticsTestOptionsListArgs{\n\t\t\t\tTickEvery: pulumi.Int(900),\n\t\t\t},\n\t\t\tRequest: \u0026datadog.SyntheticsTestRequestArgs{\n\t\t\t\tHost: pulumi.String(\"example.org\"),\n\t\t\t\tPort: pulumi.Int(443),\n\t\t\t},\n\t\t\tStatus:  pulumi.String(\"live\"),\n\t\t\tSubtype: pulumi.String(\"tcp\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"foo\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"api\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% example %}}\n### Synthetics DNS Test)\n\nCreate a new Datadog Synthetics API/DNS test on example.org\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testTcp = new datadog.SyntheticsTest(\"test_tcp\", {\n    assertions: [{\n        operator: \"is\",\n        property: \"A\",\n        target: \"0.0.0.0\",\n        type: \"recordSome\",\n    }],\n    locations: [\"aws:eu-central-1\"],\n    message: \"Notify @pagerduty\",\n    name: \"An API test on example.org\",\n    optionsList: {\n        tickEvery: 900,\n    },\n    request: {\n        host: \"example.org\",\n    },\n    status: \"live\",\n    subtype: \"dns\",\n    tags: [\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type: \"api\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_tcp = datadog.SyntheticsTest(\"testTcp\",\n    assertions=[{\n        \"operator\": \"is\",\n        \"property\": \"A\",\n        \"target\": \"0.0.0.0\",\n        \"type\": \"recordSome\",\n    }],\n    locations=[\"aws:eu-central-1\"],\n    message=\"Notify @pagerduty\",\n    name=\"An API test on example.org\",\n    options_list=datadog.SyntheticsTestOptionsListArgs(\n        tick_every=900,\n    ),\n    request=datadog.SyntheticsTestRequestArgs(\n        host=\"example.org\",\n    ),\n    status=\"live\",\n    subtype=\"dns\",\n    tags=[\n        \"foo:bar\",\n        \"foo\",\n        \"env:test\",\n    ],\n    type=\"api\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testTcp = new Datadog.SyntheticsTest(\"testTcp\", new Datadog.SyntheticsTestArgs\n        {\n            Assertions = \n            {\n                \n                {\n                    { \"operator\", \"is\" },\n                    { \"property\", \"A\" },\n                    { \"target\", \"0.0.0.0\" },\n                    { \"type\", \"recordSome\" },\n                },\n            },\n            Locations = \n            {\n                \"aws:eu-central-1\",\n            },\n            Message = \"Notify @pagerduty\",\n            Name = \"An API test on example.org\",\n            OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs\n            {\n                TickEvery = 900,\n            },\n            Request = new Datadog.Inputs.SyntheticsTestRequestArgs\n            {\n                Host = \"example.org\",\n            },\n            Status = \"live\",\n            Subtype = \"dns\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"foo\",\n                \"env:test\",\n            },\n            Type = \"api\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsTest(ctx, \"testTcp\", \u0026datadog.SyntheticsTestArgs{\n\t\t\tAssertions: pulumi.StringMapArray{\n\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\"operator\": pulumi.String(\"is\"),\n\t\t\t\t\t\"property\": pulumi.String(\"A\"),\n\t\t\t\t\t\"target\":   pulumi.String(\"0.0.0.0\"),\n\t\t\t\t\t\"type\":     pulumi.String(\"recordSome\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tLocations: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"aws:eu-central-1\"),\n\t\t\t},\n\t\t\tMessage: pulumi.String(\"Notify @pagerduty\"),\n\t\t\tName:    pulumi.String(\"An API test on example.org\"),\n\t\t\tOptionsList: \u0026datadog.SyntheticsTestOptionsListArgs{\n\t\t\t\tTickEvery: pulumi.Int(900),\n\t\t\t},\n\t\t\tRequest: \u0026datadog.SyntheticsTestRequestArgs{\n\t\t\t\tHost: pulumi.String(\"example.org\"),\n\t\t\t},\n\t\t\tStatus:  pulumi.String(\"live\"),\n\t\t\tSubtype: pulumi.String(\"dns\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"foo\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t\tType: pulumi.String(\"api\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% example %}}\n### Synthetics Browser Test)\n\nSupport for Synthetics Browser test steps is limited (see below)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog Synthetics Browser test starting on https://www.example.org\nconst testBrowser = new datadog.SyntheticsTest(\"testBrowser\", {\n    type: \"browser\",\n    request: {\n        method: \"GET\",\n        url: \"https://app.datadoghq.com\",\n    },\n    deviceIds: [\"laptop_large\"],\n    locations: [\"aws:eu-central-1\"],\n    optionsList: {\n        tickEvery: 3600,\n    },\n    name: \"A Browser test on example.org\",\n    message: \"Notify @qa\",\n    tags: [],\n    status: \"paused\",\n    steps: [{\n        name: \"Check current url\",\n        type: \"assertCurrentUrl\",\n        params: JSON.stringify({\n            check: \"contains\",\n            value: \"datadoghq\",\n        }),\n    }],\n    variables: [\n        {\n            type: \"text\",\n            name: \"MY_PATTERN_VAR\",\n            pattern: \"{{numeric(3)}}\",\n            example: \"597\",\n        },\n        {\n            type: \"email\",\n            name: \"MY_EMAIL_VAR\",\n            pattern: \"jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co\",\n            example: \"jd8-afe-ydv.4546132139@synthetics.dtdg.co\",\n        },\n        {\n            type: \"global\",\n            name: \"MY_GLOBAL_VAR\",\n            id: \"76636cd1-82e2-4aeb-9cfe-51366a8198a2\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_datadog as datadog\n\n# Create a new Datadog Synthetics Browser test starting on https://www.example.org\ntest_browser = datadog.SyntheticsTest(\"testBrowser\",\n    type=\"browser\",\n    request=datadog.SyntheticsTestRequestArgs(\n        method=\"GET\",\n        url=\"https://app.datadoghq.com\",\n    ),\n    device_ids=[\"laptop_large\"],\n    locations=[\"aws:eu-central-1\"],\n    options_list=datadog.SyntheticsTestOptionsListArgs(\n        tick_every=3600,\n    ),\n    name=\"A Browser test on example.org\",\n    message=\"Notify @qa\",\n    tags=[],\n    status=\"paused\",\n    steps=[datadog.SyntheticsTestStepArgs(\n        name=\"Check current url\",\n        type=\"assertCurrentUrl\",\n        params=json.dumps({\n            \"check\": \"contains\",\n            \"value\": \"datadoghq\",\n        }),\n    )],\n    variables=[\n        datadog.SyntheticsTestVariableArgs(\n            type=\"text\",\n            name=\"MY_PATTERN_VAR\",\n            pattern=\"{{numeric(3)}}\",\n            example=\"597\",\n        ),\n        datadog.SyntheticsTestVariableArgs(\n            type=\"email\",\n            name=\"MY_EMAIL_VAR\",\n            pattern=\"jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co\",\n            example=\"jd8-afe-ydv.4546132139@synthetics.dtdg.co\",\n        ),\n        datadog.SyntheticsTestVariableArgs(\n            type=\"global\",\n            name=\"MY_GLOBAL_VAR\",\n            id=\"76636cd1-82e2-4aeb-9cfe-51366a8198a2\",\n        ),\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Text.Json;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog Synthetics Browser test starting on https://www.example.org\n        var testBrowser = new Datadog.SyntheticsTest(\"testBrowser\", new Datadog.SyntheticsTestArgs\n        {\n            Type = \"browser\",\n            Request = new Datadog.Inputs.SyntheticsTestRequestArgs\n            {\n                Method = \"GET\",\n                Url = \"https://app.datadoghq.com\",\n            },\n            DeviceIds = \n            {\n                \"laptop_large\",\n            },\n            Locations = \n            {\n                \"aws:eu-central-1\",\n            },\n            OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs\n            {\n                TickEvery = 3600,\n            },\n            Name = \"A Browser test on example.org\",\n            Message = \"Notify @qa\",\n            Tags = {},\n            Status = \"paused\",\n            Steps = \n            {\n                new Datadog.Inputs.SyntheticsTestStepArgs\n                {\n                    Name = \"Check current url\",\n                    Type = \"assertCurrentUrl\",\n                    Params = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n                    {\n                        { \"check\", \"contains\" },\n                        { \"value\", \"datadoghq\" },\n                    }),\n                },\n            },\n            Variables = \n            {\n                new Datadog.Inputs.SyntheticsTestVariableArgs\n                {\n                    Type = \"text\",\n                    Name = \"MY_PATTERN_VAR\",\n                    Pattern = \"{{numeric(3)}}\",\n                    Example = \"597\",\n                },\n                new Datadog.Inputs.SyntheticsTestVariableArgs\n                {\n                    Type = \"email\",\n                    Name = \"MY_EMAIL_VAR\",\n                    Pattern = \"jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co\",\n                    Example = \"jd8-afe-ydv.4546132139@synthetics.dtdg.co\",\n                },\n                new Datadog.Inputs.SyntheticsTestVariableArgs\n                {\n                    Type = \"global\",\n                    Name = \"MY_GLOBAL_VAR\",\n                    Id = \"76636cd1-82e2-4aeb-9cfe-51366a8198a2\",\n                },\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Synthetics Browser test\n\nSupport for Synthetics Browser test is limited when creating steps. Some steps types (like steps involving elements) cannot be created, but they can be imported.\n\n## Assertion format\n\nThe resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testApi = new datadog.SyntheticsTest(\"test_api\", {\n    assertions: [\n        {\n            operator: \"is\",\n            target: \"200\",\n            type: \"statusCode\",\n        },\n        {\n            operator: \"lessThan\",\n            target: \"1000\",\n            type: \"responseTime\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_api = datadog.SyntheticsTest(\"testApi\", assertions=[\n    {\n        \"operator\": \"is\",\n        \"target\": \"200\",\n        \"type\": \"statusCode\",\n    },\n    {\n        \"operator\": \"lessThan\",\n        \"target\": \"1000\",\n        \"type\": \"responseTime\",\n    },\n])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testApi = new Datadog.SyntheticsTest(\"testApi\", new Datadog.SyntheticsTestArgs\n        {\n            Assertions = \n            {\n                \n                {\n                    { \"operator\", \"is\" },\n                    { \"target\", \"200\" },\n                    { \"type\", \"statusCode\" },\n                },\n                \n                {\n                    { \"operator\", \"lessThan\" },\n                    { \"target\", \"1000\" },\n                    { \"type\", \"responseTime\" },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsTest(ctx, \"testApi\", \u0026datadog.SyntheticsTestArgs{\n\t\t\tAssertions: pulumi.StringMapArray{\n\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\"operator\": pulumi.String(\"is\"),\n\t\t\t\t\t\"target\":   pulumi.String(\"200\"),\n\t\t\t\t\t\"type\":     pulumi.String(\"statusCode\"),\n\t\t\t\t},\n\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\"operator\": pulumi.String(\"lessThan\"),\n\t\t\t\t\t\"target\":   pulumi.String(\"1000\"),\n\t\t\t\t\t\"type\":     pulumi.String(\"responseTime\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nturns into:\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testApi = new datadog.SyntheticsTest(\"test_api\", {\n    assertions: [\n        {\n            operator: \"is\",\n            target: \"200\",\n            type: \"statusCode\",\n        },\n        {\n            operator: \"lessThan\",\n            target: \"1000\",\n            type: \"responsTime\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_api = datadog.SyntheticsTest(\"testApi\", assertions=[\n    {\n        \"operator\": \"is\",\n        \"target\": \"200\",\n        \"type\": \"statusCode\",\n    },\n    {\n        \"operator\": \"lessThan\",\n        \"target\": \"1000\",\n        \"type\": \"responsTime\",\n    },\n])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testApi = new Datadog.SyntheticsTest(\"testApi\", new Datadog.SyntheticsTestArgs\n        {\n            Assertions = \n            {\n                \n                {\n                    { \"operator\", \"is\" },\n                    { \"target\", \"200\" },\n                    { \"type\", \"statusCode\" },\n                },\n                \n                {\n                    { \"operator\", \"lessThan\" },\n                    { \"target\", \"1000\" },\n                    { \"type\", \"responsTime\" },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsTest(ctx, \"testApi\", \u0026datadog.SyntheticsTestArgs{\n\t\t\tAssertions: pulumi.StringMapArray{\n\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\"operator\": pulumi.String(\"is\"),\n\t\t\t\t\t\"target\":   pulumi.String(\"200\"),\n\t\t\t\t\t\"type\":     pulumi.String(\"statusCode\"),\n\t\t\t\t},\n\t\t\t\tpulumi.StringMap{\n\t\t\t\t\t\"operator\": pulumi.String(\"lessThan\"),\n\t\t\t\t\t\"target\":   pulumi.String(\"1000\"),\n\t\t\t\t\t\"type\":     pulumi.String(\"responsTime\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n",
             "properties": {
                 "assertions": {
                     "type": "array",
@@ -32221,6 +33545,9 @@
                 "requestBasicauth": {
                     "$ref": "#/types/datadog:index/SyntheticsTestRequestBasicauth:SyntheticsTestRequestBasicauth"
                 },
+                "requestClientCertificate": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestRequestClientCertificate:SyntheticsTestRequestClientCertificate"
+                },
                 "requestHeaders": {
                     "type": "object",
                     "additionalProperties": {
@@ -32253,6 +33580,12 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SyntheticsTestVariable:SyntheticsTestVariable"
+                    }
                 }
             },
             "required": [
@@ -32261,7 +33594,6 @@
                 "name",
                 "request",
                 "status",
-                "tags",
                 "type"
             ],
             "inputProperties": {
@@ -32306,6 +33638,9 @@
                 "requestBasicauth": {
                     "$ref": "#/types/datadog:index/SyntheticsTestRequestBasicauth:SyntheticsTestRequestBasicauth"
                 },
+                "requestClientCertificate": {
+                    "$ref": "#/types/datadog:index/SyntheticsTestRequestClientCertificate:SyntheticsTestRequestClientCertificate"
+                },
                 "requestHeaders": {
                     "type": "object",
                     "additionalProperties": {
@@ -32338,6 +33673,12 @@
                 },
                 "type": {
                     "type": "string"
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SyntheticsTestVariable:SyntheticsTestVariable"
+                    }
                 }
             },
             "requiredInputs": [
@@ -32345,7 +33686,6 @@
                 "name",
                 "request",
                 "status",
-                "tags",
                 "type"
             ],
             "stateInputs": {
@@ -32395,6 +33735,9 @@
                     "requestBasicauth": {
                         "$ref": "#/types/datadog:index/SyntheticsTestRequestBasicauth:SyntheticsTestRequestBasicauth"
                     },
+                    "requestClientCertificate": {
+                        "$ref": "#/types/datadog:index/SyntheticsTestRequestClientCertificate:SyntheticsTestRequestClientCertificate"
+                    },
                     "requestHeaders": {
                         "type": "object",
                         "additionalProperties": {
@@ -32427,6 +33770,12 @@
                     },
                     "type": {
                         "type": "string"
+                    },
+                    "variables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/SyntheticsTestVariable:SyntheticsTestVariable"
+                        }
                     }
                 },
                 "type": "object"

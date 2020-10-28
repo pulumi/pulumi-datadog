@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryValueDefinition
     {
         public readonly bool? Autoscale;
+        public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionCustomLink> CustomLinks;
         public readonly string? CustomUnit;
         public readonly int? Precision;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequest> Requests;
@@ -26,6 +27,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetQueryValueDefinition(
             bool? autoscale,
+
+            ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionCustomLink> customLinks,
 
             string? customUnit,
 
@@ -44,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             Autoscale = autoscale;
+            CustomLinks = customLinks;
             CustomUnit = customUnit;
             Precision = precision;
             Requests = requests;

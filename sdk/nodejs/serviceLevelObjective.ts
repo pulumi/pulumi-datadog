@@ -131,6 +131,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
     public readonly type!: pulumi.Output<string>;
+    public readonly validate!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ServiceLevelObjective resource with the given unique name, arguments, and options.
@@ -152,6 +153,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["thresholds"] = state ? state.thresholds : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as ServiceLevelObjectiveArgs | undefined;
             if (!args || args.name === undefined) {
@@ -171,6 +173,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["thresholds"] = args ? args.thresholds : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["validate"] = args ? args.validate : undefined;
         }
         if (!opts) {
             opts = {}
@@ -208,6 +211,7 @@ export interface ServiceLevelObjectiveState {
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     readonly type?: pulumi.Input<string>;
+    readonly validate?: pulumi.Input<boolean>;
 }
 
 /**
@@ -235,4 +239,5 @@ export interface ServiceLevelObjectiveArgs {
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     readonly type: pulumi.Input<string>;
+    readonly validate?: pulumi.Input<boolean>;
 }

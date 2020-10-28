@@ -12,6 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetHostmapDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetHostmapDefinitionCustomLinkGetArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetHostmapDefinitionCustomLinkGetArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetHostmapDefinitionCustomLinkGetArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("groups")]
         private InputList<string>? _groups;
         public InputList<string> Groups

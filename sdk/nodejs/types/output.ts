@@ -78,11 +78,17 @@ export interface DashboardWidgetAlertValueDefinition {
 }
 
 export interface DashboardWidgetChangeDefinition {
+    customLinks?: outputs.DashboardWidgetChangeDefinitionCustomLink[];
     requests?: outputs.DashboardWidgetChangeDefinitionRequest[];
     time?: outputs.DashboardWidgetChangeDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetChangeDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequest {
@@ -541,11 +547,17 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink[];
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest[];
     time?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
@@ -948,6 +960,7 @@ export interface DashboardWidgetGroupDefinitionWidgetFreeTextDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink[];
     events?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent[];
     legendSize?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest[];
@@ -957,6 +970,11 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
     titleAlign?: string;
     titleSize?: string;
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent {
@@ -1142,6 +1160,7 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink[];
     groups?: string[];
     noGroupHosts?: boolean;
     noMetricHosts?: boolean;
@@ -1152,6 +1171,11 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest {
@@ -1562,6 +1586,8 @@ export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink[];
+    hasSearchBar?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest[];
     time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime;
     title?: string;
@@ -1569,10 +1595,17 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
     titleSize?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink {
+    label: string;
+    link: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest {
     aggregator?: string;
     alias?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery;
+    apmStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery;
+    cellDisplayModes?: string[];
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat[];
     limit?: number;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery;
@@ -1617,6 +1650,23 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch {
     query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery {
+    columns?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn[];
+    env: string;
+    name: string;
+    primaryTag: string;
+    resource?: string;
+    rowType: string;
+    service: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
+    alias?: string;
+    cellDisplayMode?: string;
+    name: string;
+    order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat {
@@ -1752,6 +1802,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime {
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
     autoscale?: boolean;
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink[];
     customUnit?: string;
     precision?: number;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest[];
@@ -1760,6 +1811,11 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
@@ -1942,6 +1998,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime {
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     colorByGroups?: string[];
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink[];
     request?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime;
     title?: string;
@@ -1949,6 +2006,11 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     titleSize?: string;
     xaxis?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis;
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest {
@@ -2310,6 +2372,7 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
     title?: string;
@@ -2317,17 +2380,29 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     titleSize?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink {
+    label: string;
+    link: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink[];
     events?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
     markers?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest[];
+    rightYaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
     time?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
     yaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent {
@@ -2347,6 +2422,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery;
     metadatas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata[];
     networkQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery;
+    onRightYaxis?: boolean;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery;
@@ -2552,6 +2628,14 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     palette?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis {
+    includeZero?: boolean;
+    label?: string;
+    max?: string;
+    min?: string;
+    scale?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime {
     liveSpan?: string;
 }
@@ -2565,11 +2649,17 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink[];
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest[];
     time?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
@@ -2777,6 +2867,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime 
 }
 
 export interface DashboardWidgetHeatmapDefinition {
+    customLinks?: outputs.DashboardWidgetHeatmapDefinitionCustomLink[];
     events?: outputs.DashboardWidgetHeatmapDefinitionEvent[];
     legendSize?: string;
     requests?: outputs.DashboardWidgetHeatmapDefinitionRequest[];
@@ -2786,6 +2877,11 @@ export interface DashboardWidgetHeatmapDefinition {
     titleAlign?: string;
     titleSize?: string;
     yaxis?: outputs.DashboardWidgetHeatmapDefinitionYaxis;
+}
+
+export interface DashboardWidgetHeatmapDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionEvent {
@@ -2971,6 +3067,7 @@ export interface DashboardWidgetHeatmapDefinitionYaxis {
 }
 
 export interface DashboardWidgetHostmapDefinition {
+    customLinks?: outputs.DashboardWidgetHostmapDefinitionCustomLink[];
     groups?: string[];
     noGroupHosts?: boolean;
     noMetricHosts?: boolean;
@@ -2981,6 +3078,11 @@ export interface DashboardWidgetHostmapDefinition {
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequest {
@@ -3391,6 +3493,8 @@ export interface DashboardWidgetNoteDefinition {
 }
 
 export interface DashboardWidgetQueryTableDefinition {
+    customLinks?: outputs.DashboardWidgetQueryTableDefinitionCustomLink[];
+    hasSearchBar?: string;
     requests?: outputs.DashboardWidgetQueryTableDefinitionRequest[];
     time?: outputs.DashboardWidgetQueryTableDefinitionTime;
     title?: string;
@@ -3398,10 +3502,17 @@ export interface DashboardWidgetQueryTableDefinition {
     titleSize?: string;
 }
 
+export interface DashboardWidgetQueryTableDefinitionCustomLink {
+    label: string;
+    link: string;
+}
+
 export interface DashboardWidgetQueryTableDefinitionRequest {
     aggregator?: string;
     alias?: string;
     apmQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery;
+    apmStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery;
+    cellDisplayModes?: string[];
     conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat[];
     limit?: number;
     logQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery;
@@ -3446,6 +3557,23 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute 
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQuerySearch {
     query: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQuery {
+    columns?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn[];
+    env: string;
+    name: string;
+    primaryTag: string;
+    resource?: string;
+    rowType: string;
+    service: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn {
+    alias?: string;
+    cellDisplayMode?: string;
+    name: string;
+    order?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
@@ -3581,6 +3709,7 @@ export interface DashboardWidgetQueryTableDefinitionTime {
 
 export interface DashboardWidgetQueryValueDefinition {
     autoscale?: boolean;
+    customLinks?: outputs.DashboardWidgetQueryValueDefinitionCustomLink[];
     customUnit?: string;
     precision?: number;
     requests?: outputs.DashboardWidgetQueryValueDefinitionRequest[];
@@ -3589,6 +3718,11 @@ export interface DashboardWidgetQueryValueDefinition {
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequest {
@@ -3771,6 +3905,7 @@ export interface DashboardWidgetQueryValueDefinitionTime {
 
 export interface DashboardWidgetScatterplotDefinition {
     colorByGroups?: string[];
+    customLinks?: outputs.DashboardWidgetScatterplotDefinitionCustomLink[];
     request?: outputs.DashboardWidgetScatterplotDefinitionRequest;
     time?: outputs.DashboardWidgetScatterplotDefinitionTime;
     title?: string;
@@ -3778,6 +3913,11 @@ export interface DashboardWidgetScatterplotDefinition {
     titleSize?: string;
     xaxis?: outputs.DashboardWidgetScatterplotDefinitionXaxis;
     yaxis?: outputs.DashboardWidgetScatterplotDefinitionYaxis;
+}
+
+export interface DashboardWidgetScatterplotDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequest {
@@ -4139,6 +4279,7 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
 }
 
 export interface DashboardWidgetServicemapDefinition {
+    customLinks?: outputs.DashboardWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
     title?: string;
@@ -4146,17 +4287,29 @@ export interface DashboardWidgetServicemapDefinition {
     titleSize?: string;
 }
 
+export interface DashboardWidgetServicemapDefinitionCustomLink {
+    label: string;
+    link: string;
+}
+
 export interface DashboardWidgetTimeseriesDefinition {
+    customLinks?: outputs.DashboardWidgetTimeseriesDefinitionCustomLink[];
     events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
     legendSize?: string;
     markers?: outputs.DashboardWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetTimeseriesDefinitionRequest[];
+    rightYaxis?: outputs.DashboardWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
     time?: outputs.DashboardWidgetTimeseriesDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
     yaxis?: outputs.DashboardWidgetTimeseriesDefinitionYaxis;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionEvent {
@@ -4176,6 +4329,7 @@ export interface DashboardWidgetTimeseriesDefinitionRequest {
     logQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery;
     metadatas?: outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata[];
     networkQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery;
+    onRightYaxis?: boolean;
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
     rumQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery;
@@ -4381,6 +4535,14 @@ export interface DashboardWidgetTimeseriesDefinitionRequestStyle {
     palette?: string;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRightYaxis {
+    includeZero?: boolean;
+    label?: string;
+    max?: string;
+    min?: string;
+    scale?: string;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionTime {
     liveSpan?: string;
 }
@@ -4394,11 +4556,17 @@ export interface DashboardWidgetTimeseriesDefinitionYaxis {
 }
 
 export interface DashboardWidgetToplistDefinition {
+    customLinks?: outputs.DashboardWidgetToplistDefinitionCustomLink[];
     requests?: outputs.DashboardWidgetToplistDefinitionRequest[];
     time?: outputs.DashboardWidgetToplistDefinitionTime;
     title?: string;
     titleAlign?: string;
     titleSize?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionCustomLink {
+    label: string;
+    link: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequest {
@@ -4690,6 +4858,7 @@ export interface LogsCustomPipelineProcessorAttributeRemapper {
     sourceType: string;
     sources: string[];
     target: string;
+    targetFormat?: string;
     targetType: string;
 }
 
@@ -4794,6 +4963,7 @@ export interface LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper {
     sourceType: string;
     sources: string[];
     target: string;
+    targetFormat?: string;
     targetType: string;
 }
 
@@ -5231,6 +5401,7 @@ export interface SyntheticsTestOptionsListRetry {
 
 export interface SyntheticsTestRequest {
     body?: string;
+    dnsServer?: string;
     host?: string;
     method?: string;
     port?: number;
@@ -5243,11 +5414,34 @@ export interface SyntheticsTestRequestBasicauth {
     username: string;
 }
 
+export interface SyntheticsTestRequestClientCertificate {
+    cert: outputs.SyntheticsTestRequestClientCertificateCert;
+    key: outputs.SyntheticsTestRequestClientCertificateKey;
+}
+
+export interface SyntheticsTestRequestClientCertificateCert {
+    content: string;
+    filename?: string;
+}
+
+export interface SyntheticsTestRequestClientCertificateKey {
+    content: string;
+    filename?: string;
+}
+
 export interface SyntheticsTestStep {
     allowFailure?: boolean;
     name: string;
     params: string;
     timeout?: number;
+    type: string;
+}
+
+export interface SyntheticsTestVariable {
+    example?: string;
+    id?: string;
+    name: string;
+    pattern?: string;
     type: string;
 }
 

@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent> Events;
         public readonly string? LegendSize;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest> Requests;
@@ -25,6 +26,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink> customLinks,
+
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent> events,
 
             string? legendSize,
@@ -43,6 +46,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis? yaxis)
         {
+            CustomLinks = customLinks;
             Events = events;
             LegendSize = legendSize;
             Requests = requests;

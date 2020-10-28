@@ -6,6 +6,261 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
+ *
+ * ## Example Usage
+ * ### Synthetics API Test)
+ *
+ * Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testApi = new datadog.SyntheticsTest("test_api", {
+ *     assertions: [{
+ *         operator: "is",
+ *         target: "200",
+ *         type: "statusCode",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     optionsList: {
+ *         monitorOptions: {
+ *             renotifyInterval: 100,
+ *         },
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         tickEvery: 900,
+ *     },
+ *     request: {
+ *         method: "GET",
+ *         url: "https://www.example.org",
+ *     },
+ *     requestHeaders: {
+ *         Authentication: "Token: 1234566789",
+ *         "Content-Type": "application/json",
+ *     },
+ *     status: "live",
+ *     subtype: "http",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     type: "api",
+ * });
+ * ```
+ * ### Synthetics SSL Test)
+ *
+ * Create a new Datadog Synthetics API/SSL test on example.org
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testSsl = new datadog.SyntheticsTest("test_ssl", {
+ *     assertions: [{
+ *         operator: "isInMoreThan",
+ *         target: "30",
+ *         type: "certificate",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     optionsList: {
+ *         acceptSelfSigned: true,
+ *         tickEvery: 900,
+ *     },
+ *     request: {
+ *         host: "example.org",
+ *         port: 443,
+ *     },
+ *     status: "live",
+ *     subtype: "ssl",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     type: "api",
+ * });
+ * ```
+ * ### Synthetics TCP Test)
+ *
+ * Create a new Datadog Synthetics API/TCP test on example.org
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testTcp = new datadog.SyntheticsTest("test_tcp", {
+ *     assertions: [{
+ *         operator: "lessThan",
+ *         target: "2000",
+ *         type: "responseTime",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     optionsList: {
+ *         tickEvery: 900,
+ *     },
+ *     request: {
+ *         host: "example.org",
+ *         port: 443,
+ *     },
+ *     status: "live",
+ *     subtype: "tcp",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     type: "api",
+ * });
+ * ```
+ * ### Synthetics DNS Test)
+ *
+ * Create a new Datadog Synthetics API/DNS test on example.org
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testTcp = new datadog.SyntheticsTest("test_tcp", {
+ *     assertions: [{
+ *         operator: "is",
+ *         property: "A",
+ *         target: "0.0.0.0",
+ *         type: "recordSome",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     optionsList: {
+ *         tickEvery: 900,
+ *     },
+ *     request: {
+ *         host: "example.org",
+ *     },
+ *     status: "live",
+ *     subtype: "dns",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     type: "api",
+ * });
+ * ```
+ * ### Synthetics Browser Test)
+ *
+ * Support for Synthetics Browser test steps is limited (see below)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
+ * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
+ *     type: "browser",
+ *     request: {
+ *         method: "GET",
+ *         url: "https://app.datadoghq.com",
+ *     },
+ *     deviceIds: ["laptop_large"],
+ *     locations: ["aws:eu-central-1"],
+ *     optionsList: {
+ *         tickEvery: 3600,
+ *     },
+ *     name: "A Browser test on example.org",
+ *     message: "Notify @qa",
+ *     tags: [],
+ *     status: "paused",
+ *     steps: [{
+ *         name: "Check current url",
+ *         type: "assertCurrentUrl",
+ *         params: JSON.stringify({
+ *             check: "contains",
+ *             value: "datadoghq",
+ *         }),
+ *     }],
+ *     variables: [
+ *         {
+ *             type: "text",
+ *             name: "MY_PATTERN_VAR",
+ *             pattern: "{{numeric(3)}}",
+ *             example: "597",
+ *         },
+ *         {
+ *             type: "email",
+ *             name: "MY_EMAIL_VAR",
+ *             pattern: "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+ *             example: "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+ *         },
+ *         {
+ *             type: "global",
+ *             name: "MY_GLOBAL_VAR",
+ *             id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+ *         },
+ *     ],
+ * });
+ * ```
+ * ## Synthetics Browser test
+ *
+ * Support for Synthetics Browser test is limited when creating steps. Some steps types (like steps involving elements) cannot be created, but they can be imported.
+ *
+ * ## Assertion format
+ *
+ * The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testApi = new datadog.SyntheticsTest("test_api", {
+ *     assertions: [
+ *         {
+ *             operator: "is",
+ *             target: "200",
+ *             type: "statusCode",
+ *         },
+ *         {
+ *             operator: "lessThan",
+ *             target: "1000",
+ *             type: "responseTime",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * turns into:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const testApi = new datadog.SyntheticsTest("test_api", {
+ *     assertions: [
+ *         {
+ *             operator: "is",
+ *             target: "200",
+ *             type: "statusCode",
+ *         },
+ *         {
+ *             operator: "lessThan",
+ *             target: "1000",
+ *             type: "responsTime",
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export class SyntheticsTest extends pulumi.CustomResource {
     /**
      * Get an existing SyntheticsTest resource's state with the given name, ID, and optional extra
@@ -50,13 +305,15 @@ export class SyntheticsTest extends pulumi.CustomResource {
     public readonly optionsList!: pulumi.Output<outputs.SyntheticsTestOptionsList | undefined>;
     public readonly request!: pulumi.Output<outputs.SyntheticsTestRequest>;
     public readonly requestBasicauth!: pulumi.Output<outputs.SyntheticsTestRequestBasicauth | undefined>;
+    public readonly requestClientCertificate!: pulumi.Output<outputs.SyntheticsTestRequestClientCertificate | undefined>;
     public readonly requestHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
     public readonly requestQuery!: pulumi.Output<{[key: string]: any} | undefined>;
     public readonly status!: pulumi.Output<string>;
     public readonly steps!: pulumi.Output<outputs.SyntheticsTestStep[] | undefined>;
     public readonly subtype!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<string[]>;
+    public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly type!: pulumi.Output<string>;
+    public readonly variables!: pulumi.Output<outputs.SyntheticsTestVariable[] | undefined>;
 
     /**
      * Create a SyntheticsTest resource with the given unique name, arguments, and options.
@@ -80,6 +337,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["optionsList"] = state ? state.optionsList : undefined;
             inputs["request"] = state ? state.request : undefined;
             inputs["requestBasicauth"] = state ? state.requestBasicauth : undefined;
+            inputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
             inputs["requestHeaders"] = state ? state.requestHeaders : undefined;
             inputs["requestQuery"] = state ? state.requestQuery : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -87,6 +345,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["subtype"] = state ? state.subtype : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
+            inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as SyntheticsTestArgs | undefined;
             if (!args || args.locations === undefined) {
@@ -101,9 +360,6 @@ export class SyntheticsTest extends pulumi.CustomResource {
             if (!args || args.status === undefined) {
                 throw new Error("Missing required property 'status'");
             }
-            if (!args || args.tags === undefined) {
-                throw new Error("Missing required property 'tags'");
-            }
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
@@ -116,6 +372,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["optionsList"] = args ? args.optionsList : undefined;
             inputs["request"] = args ? args.request : undefined;
             inputs["requestBasicauth"] = args ? args.requestBasicauth : undefined;
+            inputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
             inputs["requestHeaders"] = args ? args.requestHeaders : undefined;
             inputs["requestQuery"] = args ? args.requestQuery : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -123,6 +380,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["subtype"] = args ? args.subtype : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["variables"] = args ? args.variables : undefined;
             inputs["monitorId"] = undefined /*out*/;
         }
         if (!opts) {
@@ -156,6 +414,7 @@ export interface SyntheticsTestState {
     readonly optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList>;
     readonly request?: pulumi.Input<inputs.SyntheticsTestRequest>;
     readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
+    readonly requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
     readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
     readonly status?: pulumi.Input<string>;
@@ -163,6 +422,7 @@ export interface SyntheticsTestState {
     readonly subtype?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly type?: pulumi.Input<string>;
+    readonly variables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestVariable>[]>;
 }
 
 /**
@@ -184,11 +444,13 @@ export interface SyntheticsTestArgs {
     readonly optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList>;
     readonly request: pulumi.Input<inputs.SyntheticsTestRequest>;
     readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
+    readonly requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     readonly requestHeaders?: pulumi.Input<{[key: string]: any}>;
     readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
     readonly status: pulumi.Input<string>;
     readonly steps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestStep>[]>;
     readonly subtype?: pulumi.Input<string>;
-    readonly tags: pulumi.Input<pulumi.Input<string>[]>;
+    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly type: pulumi.Input<string>;
+    readonly variables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestVariable>[]>;
 }

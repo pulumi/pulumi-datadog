@@ -38,6 +38,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
+        [Input("targetFormat")]
+        public Input<string>? TargetFormat { get; set; }
+
         [Input("targetType", required: true)]
         public Input<string> TargetType { get; set; } = null!;
 

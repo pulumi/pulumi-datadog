@@ -13,10 +13,12 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent> Events;
         public readonly string? LegendSize;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker> Markers;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest> Requests;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis? RightYaxis;
         public readonly bool? ShowLegend;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime? Time;
         public readonly string? Title;
@@ -26,6 +28,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink> customLinks,
+
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent> events,
 
             string? legendSize,
@@ -33,6 +37,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker> markers,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest> requests,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis? rightYaxis,
 
             bool? showLegend,
 
@@ -46,10 +52,12 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis? yaxis)
         {
+            CustomLinks = customLinks;
             Events = events;
             LegendSize = legendSize;
             Markers = markers;
             Requests = requests;
+            RightYaxis = rightYaxis;
             ShowLegend = showLegend;
             Time = time;
             Title = title;

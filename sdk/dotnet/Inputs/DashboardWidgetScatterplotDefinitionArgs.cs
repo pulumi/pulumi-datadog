@@ -20,6 +20,14 @@ namespace Pulumi.Datadog.Inputs
             set => _colorByGroups = value;
         }
 
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetScatterplotDefinitionCustomLinkArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetScatterplotDefinitionCustomLinkArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetScatterplotDefinitionCustomLinkArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("request")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestArgs>? Request { get; set; }
 

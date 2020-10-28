@@ -19,6 +19,7 @@ __all__ = [
     'DashboardWidgetAlertGraphDefinitionTime',
     'DashboardWidgetAlertValueDefinition',
     'DashboardWidgetChangeDefinition',
+    'DashboardWidgetChangeDefinitionCustomLink',
     'DashboardWidgetChangeDefinitionRequest',
     'DashboardWidgetChangeDefinitionRequestApmQuery',
     'DashboardWidgetChangeDefinitionRequestApmQueryCompute',
@@ -88,6 +89,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetAlertValueDefinition',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinition',
+    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute',
@@ -152,6 +154,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetFreeTextDefinition',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinition',
+    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery',
@@ -183,6 +186,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinition',
+    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery',
@@ -246,6 +250,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetManageStatusDefinition',
     'DashboardWidgetGroupDefinitionWidgetNoteDefinition',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinition',
+    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute',
@@ -253,6 +258,8 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch',
+    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery',
+    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute',
@@ -275,6 +282,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinition',
+    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute',
@@ -304,6 +312,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinition',
+    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery',
@@ -362,7 +371,9 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis',
     'DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition',
     'DashboardWidgetGroupDefinitionWidgetServicemapDefinition',
+    'DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition',
+    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest',
@@ -399,9 +410,11 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle',
+    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinition',
+    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute',
@@ -434,6 +447,7 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition',
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime',
     'DashboardWidgetHeatmapDefinition',
+    'DashboardWidgetHeatmapDefinitionCustomLink',
     'DashboardWidgetHeatmapDefinitionEvent',
     'DashboardWidgetHeatmapDefinitionRequest',
     'DashboardWidgetHeatmapDefinitionRequestApmQuery',
@@ -465,6 +479,7 @@ __all__ = [
     'DashboardWidgetHeatmapDefinitionTime',
     'DashboardWidgetHeatmapDefinitionYaxis',
     'DashboardWidgetHostmapDefinition',
+    'DashboardWidgetHostmapDefinitionCustomLink',
     'DashboardWidgetHostmapDefinitionRequest',
     'DashboardWidgetHostmapDefinitionRequestFill',
     'DashboardWidgetHostmapDefinitionRequestFillApmQuery',
@@ -528,6 +543,7 @@ __all__ = [
     'DashboardWidgetManageStatusDefinition',
     'DashboardWidgetNoteDefinition',
     'DashboardWidgetQueryTableDefinition',
+    'DashboardWidgetQueryTableDefinitionCustomLink',
     'DashboardWidgetQueryTableDefinitionRequest',
     'DashboardWidgetQueryTableDefinitionRequestApmQuery',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryCompute',
@@ -535,6 +551,8 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute',
     'DashboardWidgetQueryTableDefinitionRequestApmQuerySearch',
+    'DashboardWidgetQueryTableDefinitionRequestApmStatsQuery',
+    'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetQueryTableDefinitionRequestConditionalFormat',
     'DashboardWidgetQueryTableDefinitionRequestLogQuery',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryCompute',
@@ -557,6 +575,7 @@ __all__ = [
     'DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetQueryTableDefinitionTime',
     'DashboardWidgetQueryValueDefinition',
+    'DashboardWidgetQueryValueDefinitionCustomLink',
     'DashboardWidgetQueryValueDefinitionRequest',
     'DashboardWidgetQueryValueDefinitionRequestApmQuery',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryCompute',
@@ -586,6 +605,7 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetQueryValueDefinitionTime',
     'DashboardWidgetScatterplotDefinition',
+    'DashboardWidgetScatterplotDefinitionCustomLink',
     'DashboardWidgetScatterplotDefinitionRequest',
     'DashboardWidgetScatterplotDefinitionRequestX',
     'DashboardWidgetScatterplotDefinitionRequestXApmQuery',
@@ -644,7 +664,9 @@ __all__ = [
     'DashboardWidgetScatterplotDefinitionYaxis',
     'DashboardWidgetServiceLevelObjectiveDefinition',
     'DashboardWidgetServicemapDefinition',
+    'DashboardWidgetServicemapDefinitionCustomLink',
     'DashboardWidgetTimeseriesDefinition',
+    'DashboardWidgetTimeseriesDefinitionCustomLink',
     'DashboardWidgetTimeseriesDefinitionEvent',
     'DashboardWidgetTimeseriesDefinitionMarker',
     'DashboardWidgetTimeseriesDefinitionRequest',
@@ -681,9 +703,11 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetTimeseriesDefinitionRequestStyle',
+    'DashboardWidgetTimeseriesDefinitionRightYaxis',
     'DashboardWidgetTimeseriesDefinitionTime',
     'DashboardWidgetTimeseriesDefinitionYaxis',
     'DashboardWidgetToplistDefinition',
+    'DashboardWidgetToplistDefinitionCustomLink',
     'DashboardWidgetToplistDefinitionRequest',
     'DashboardWidgetToplistDefinitionRequestApmQuery',
     'DashboardWidgetToplistDefinitionRequestApmQueryCompute',
@@ -790,7 +814,11 @@ __all__ = [
     'SyntheticsTestOptionsListRetry',
     'SyntheticsTestRequest',
     'SyntheticsTestRequestBasicauth',
+    'SyntheticsTestRequestClientCertificate',
+    'SyntheticsTestRequestClientCertificateCert',
+    'SyntheticsTestRequestClientCertificateKey',
     'SyntheticsTestStep',
+    'SyntheticsTestVariable',
     'TimeBoardGraph',
     'TimeBoardGraphMarker',
     'TimeBoardGraphRequest',
@@ -1252,11 +1280,14 @@ class DashboardWidgetAlertValueDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetChangeDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetChangeDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -1267,6 +1298,11 @@ class DashboardWidgetChangeDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetChangeDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -1292,6 +1328,28 @@ class DashboardWidgetChangeDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetChangeDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -3792,11 +3850,14 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -3807,6 +3868,11 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -3832,6 +3898,28 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -5969,6 +6057,7 @@ class DashboardWidgetGroupDefinitionWidgetFreeTextDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest']] = None,
@@ -5978,6 +6067,8 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis'] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -5996,6 +6087,11 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -6041,6 +6137,28 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
     @pulumi.getter
     def yaxis(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -6999,6 +7117,7 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink']] = None,
                  groups: Optional[Sequence[str]] = None,
                  no_group_hosts: Optional[bool] = None,
                  no_metric_hosts: Optional[bool] = None,
@@ -7009,6 +7128,8 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if no_group_hosts is not None:
@@ -7029,6 +7150,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -7079,6 +7205,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -9219,11 +9367,17 @@ class DashboardWidgetGroupDefinitionWidgetNoteDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink']] = None,
+                 has_search_bar: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if has_search_bar is not None:
+            pulumi.set(__self__, "has_search_bar", has_search_bar)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -9234,6 +9388,16 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter(name="hasSearchBar")
+    def has_search_bar(self) -> Optional[str]:
+        return pulumi.get(self, "has_search_bar")
 
     @property
     @pulumi.getter
@@ -9265,11 +9429,35 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest(dict):
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  alias: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery'] = None,
+                 apm_stats_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery'] = None,
+                 cell_display_modes: Optional[Sequence[str]] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat']] = None,
                  limit: Optional[int] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery'] = None,
@@ -9284,6 +9472,10 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest(dict):
             pulumi.set(__self__, "alias", alias)
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
+        if cell_display_modes is not None:
+            pulumi.set(__self__, "cell_display_modes", cell_display_modes)
         if conditional_formats is not None:
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
@@ -9315,6 +9507,16 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest(dict):
     @pulumi.getter(name="apmQuery")
     def apm_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery']:
         return pulumi.get(self, "apm_query")
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery']:
+        return pulumi.get(self, "apm_stats_query")
+
+    @property
+    @pulumi.getter(name="cellDisplayModes")
+    def cell_display_modes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "cell_display_modes")
 
     @property
     @pulumi.getter(name="conditionalFormats")
@@ -9541,6 +9743,104 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySea
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery(dict):
+    def __init__(__self__, *,
+                 env: str,
+                 name: str,
+                 primary_tag: str,
+                 row_type: str,
+                 service: str,
+                 columns: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn']] = None,
+                 resource: Optional[str] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> str:
+        return pulumi.get(self, "primary_tag")
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> str:
+        return pulumi.get(self, "row_type")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn']]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[str]:
+        return pulumi.get(self, "resource")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -10240,6 +10540,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime(dict):
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
     def __init__(__self__, *,
                  autoscale: Optional[bool] = None,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink']] = None,
                  custom_unit: Optional[str] = None,
                  precision: Optional[int] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest']] = None,
@@ -10250,6 +10551,8 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
                  title_size: Optional[str] = None):
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if custom_unit is not None:
             pulumi.set(__self__, "custom_unit", custom_unit)
         if precision is not None:
@@ -10271,6 +10574,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
     @pulumi.getter
     def autoscale(self) -> Optional[bool]:
         return pulumi.get(self, "autoscale")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter(name="customUnit")
@@ -10311,6 +10619,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -11268,6 +11598,7 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime(dict):
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
     def __init__(__self__, *,
                  color_by_groups: Optional[Sequence[str]] = None,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink']] = None,
                  request: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest'] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -11277,6 +11608,8 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
                  yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis'] = None):
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if request is not None:
             pulumi.set(__self__, "request", request)
         if time is not None:
@@ -11296,6 +11629,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
     @pulumi.getter(name="colorByGroups")
     def color_by_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "color_by_groups")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -11331,6 +11669,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
     @pulumi.getter
     def yaxis(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -13239,11 +13599,14 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
     def __init__(__self__, *,
                  filters: Sequence[str],
                  service: str,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink']] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -13260,6 +13623,11 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
     @pulumi.getter
     def service(self) -> str:
         return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -13281,18 +13649,44 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
                  markers: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest']] = None,
+                 right_yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis'] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis'] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -13301,6 +13695,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
             pulumi.set(__self__, "markers", markers)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if right_yaxis is not None:
+            pulumi.set(__self__, "right_yaxis", right_yaxis)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
         if time is not None:
@@ -13313,6 +13709,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -13333,6 +13734,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
     @pulumi.getter
     def requests(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest']]:
         return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter(name="rightYaxis")
+    def right_yaxis(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis']:
+        return pulumi.get(self, "right_yaxis")
 
     @property
     @pulumi.getter(name="showLegend")
@@ -13363,6 +13769,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
     @pulumi.getter
     def yaxis(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -13430,6 +13858,7 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest(dict):
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery'] = None,
                  metadatas: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata']] = None,
                  network_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery'] = None,
+                 on_right_yaxis: Optional[bool] = None,
                  process_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  rum_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery'] = None,
@@ -13445,6 +13874,8 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest(dict):
             pulumi.set(__self__, "metadatas", metadatas)
         if network_query is not None:
             pulumi.set(__self__, "network_query", network_query)
+        if on_right_yaxis is not None:
+            pulumi.set(__self__, "on_right_yaxis", on_right_yaxis)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
         if q is not None:
@@ -13480,6 +13911,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest(dict):
     @pulumi.getter(name="networkQuery")
     def network_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery']:
         return pulumi.get(self, "network_query")
+
+    @property
+    @pulumi.getter(name="onRightYaxis")
+    def on_right_yaxis(self) -> Optional[bool]:
+        return pulumi.get(self, "on_right_yaxis")
 
     @property
     @pulumi.getter(name="processQuery")
@@ -14535,6 +14971,54 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle(dict)
 
 
 @pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis(dict):
+    def __init__(__self__, *,
+                 include_zero: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None,
+                 scale: Optional[str] = None):
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[bool]:
+        return pulumi.get(self, "include_zero")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[str]:
+        return pulumi.get(self, "scale")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime(dict):
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
@@ -14601,11 +15085,14 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -14616,6 +15103,11 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -14641,6 +15133,28 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -15754,6 +16268,7 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime(dict):
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequest']] = None,
@@ -15763,6 +16278,8 @@ class DashboardWidgetHeatmapDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetHeatmapDefinitionYaxis'] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -15781,6 +16298,11 @@ class DashboardWidgetHeatmapDefinition(dict):
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -15826,6 +16348,28 @@ class DashboardWidgetHeatmapDefinition(dict):
     @pulumi.getter
     def yaxis(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetHeatmapDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -16784,6 +17328,7 @@ class DashboardWidgetHeatmapDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetHostmapDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionCustomLink']] = None,
                  groups: Optional[Sequence[str]] = None,
                  no_group_hosts: Optional[bool] = None,
                  no_metric_hosts: Optional[bool] = None,
@@ -16794,6 +17339,8 @@ class DashboardWidgetHostmapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if no_group_hosts is not None:
@@ -16814,6 +17361,11 @@ class DashboardWidgetHostmapDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -16864,6 +17416,28 @@ class DashboardWidgetHostmapDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetHostmapDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -19004,11 +19578,17 @@ class DashboardWidgetNoteDefinition(dict):
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionCustomLink']] = None,
+                 has_search_bar: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetQueryTableDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if has_search_bar is not None:
+            pulumi.set(__self__, "has_search_bar", has_search_bar)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -19019,6 +19599,16 @@ class DashboardWidgetQueryTableDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
+
+    @property
+    @pulumi.getter(name="hasSearchBar")
+    def has_search_bar(self) -> Optional[str]:
+        return pulumi.get(self, "has_search_bar")
 
     @property
     @pulumi.getter
@@ -19050,11 +19640,35 @@ class DashboardWidgetQueryTableDefinition(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetQueryTableDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequest(dict):
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  alias: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery'] = None,
+                 apm_stats_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery'] = None,
+                 cell_display_modes: Optional[Sequence[str]] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat']] = None,
                  limit: Optional[int] = None,
                  log_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery'] = None,
@@ -19069,6 +19683,10 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
             pulumi.set(__self__, "alias", alias)
         if apm_query is not None:
             pulumi.set(__self__, "apm_query", apm_query)
+        if apm_stats_query is not None:
+            pulumi.set(__self__, "apm_stats_query", apm_stats_query)
+        if cell_display_modes is not None:
+            pulumi.set(__self__, "cell_display_modes", cell_display_modes)
         if conditional_formats is not None:
             pulumi.set(__self__, "conditional_formats", conditional_formats)
         if limit is not None:
@@ -19100,6 +19718,16 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
     @pulumi.getter(name="apmQuery")
     def apm_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuery']:
         return pulumi.get(self, "apm_query")
+
+    @property
+    @pulumi.getter(name="apmStatsQuery")
+    def apm_stats_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery']:
+        return pulumi.get(self, "apm_stats_query")
+
+    @property
+    @pulumi.getter(name="cellDisplayModes")
+    def cell_display_modes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "cell_display_modes")
 
     @property
     @pulumi.getter(name="conditionalFormats")
@@ -19326,6 +19954,104 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuerySearch(dict):
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery(dict):
+    def __init__(__self__, *,
+                 env: str,
+                 name: str,
+                 primary_tag: str,
+                 row_type: str,
+                 service: str,
+                 columns: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn']] = None,
+                 resource: Optional[str] = None):
+        pulumi.set(__self__, "env", env)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_tag", primary_tag)
+        pulumi.set(__self__, "row_type", row_type)
+        pulumi.set(__self__, "service", service)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def env(self) -> str:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryTag")
+    def primary_tag(self) -> str:
+        return pulumi.get(self, "primary_tag")
+
+    @property
+    @pulumi.getter(name="rowType")
+    def row_type(self) -> str:
+        return pulumi.get(self, "row_type")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn']]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[str]:
+        return pulumi.get(self, "resource")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 alias: Optional[str] = None,
+                 cell_display_mode: Optional[str] = None,
+                 order: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if cell_display_mode is not None:
+            pulumi.set(__self__, "cell_display_mode", cell_display_mode)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="cellDisplayMode")
+    def cell_display_mode(self) -> Optional[str]:
+        return pulumi.get(self, "cell_display_mode")
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[str]:
+        return pulumi.get(self, "order")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -20025,6 +20751,7 @@ class DashboardWidgetQueryTableDefinitionTime(dict):
 class DashboardWidgetQueryValueDefinition(dict):
     def __init__(__self__, *,
                  autoscale: Optional[bool] = None,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionCustomLink']] = None,
                  custom_unit: Optional[str] = None,
                  precision: Optional[int] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequest']] = None,
@@ -20035,6 +20762,8 @@ class DashboardWidgetQueryValueDefinition(dict):
                  title_size: Optional[str] = None):
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if custom_unit is not None:
             pulumi.set(__self__, "custom_unit", custom_unit)
         if precision is not None:
@@ -20056,6 +20785,11 @@ class DashboardWidgetQueryValueDefinition(dict):
     @pulumi.getter
     def autoscale(self) -> Optional[bool]:
         return pulumi.get(self, "autoscale")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter(name="customUnit")
@@ -20096,6 +20830,28 @@ class DashboardWidgetQueryValueDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetQueryValueDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -21053,6 +21809,7 @@ class DashboardWidgetQueryValueDefinitionTime(dict):
 class DashboardWidgetScatterplotDefinition(dict):
     def __init__(__self__, *,
                  color_by_groups: Optional[Sequence[str]] = None,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionCustomLink']] = None,
                  request: Optional['outputs.DashboardWidgetScatterplotDefinitionRequest'] = None,
                  time: Optional['outputs.DashboardWidgetScatterplotDefinitionTime'] = None,
                  title: Optional[str] = None,
@@ -21062,6 +21819,8 @@ class DashboardWidgetScatterplotDefinition(dict):
                  yaxis: Optional['outputs.DashboardWidgetScatterplotDefinitionYaxis'] = None):
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if request is not None:
             pulumi.set(__self__, "request", request)
         if time is not None:
@@ -21081,6 +21840,11 @@ class DashboardWidgetScatterplotDefinition(dict):
     @pulumi.getter(name="colorByGroups")
     def color_by_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "color_by_groups")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -21116,6 +21880,28 @@ class DashboardWidgetScatterplotDefinition(dict):
     @pulumi.getter
     def yaxis(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetScatterplotDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -23024,11 +23810,14 @@ class DashboardWidgetServicemapDefinition(dict):
     def __init__(__self__, *,
                  filters: Sequence[str],
                  service: str,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetServicemapDefinitionCustomLink']] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -23045,6 +23834,11 @@ class DashboardWidgetServicemapDefinition(dict):
     @pulumi.getter
     def service(self) -> str:
         return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetServicemapDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -23066,18 +23860,44 @@ class DashboardWidgetServicemapDefinition(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetServicemapDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DashboardWidgetTimeseriesDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionEvent']] = None,
                  legend_size: Optional[str] = None,
                  markers: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionMarker']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequest']] = None,
+                 right_yaxis: Optional['outputs.DashboardWidgetTimeseriesDefinitionRightYaxis'] = None,
                  show_legend: Optional[bool] = None,
                  time: Optional['outputs.DashboardWidgetTimeseriesDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetTimeseriesDefinitionYaxis'] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if legend_size is not None:
@@ -23086,6 +23906,8 @@ class DashboardWidgetTimeseriesDefinition(dict):
             pulumi.set(__self__, "markers", markers)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
+        if right_yaxis is not None:
+            pulumi.set(__self__, "right_yaxis", right_yaxis)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
         if time is not None:
@@ -23098,6 +23920,11 @@ class DashboardWidgetTimeseriesDefinition(dict):
             pulumi.set(__self__, "title_size", title_size)
         if yaxis is not None:
             pulumi.set(__self__, "yaxis", yaxis)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -23118,6 +23945,11 @@ class DashboardWidgetTimeseriesDefinition(dict):
     @pulumi.getter
     def requests(self) -> Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequest']]:
         return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter(name="rightYaxis")
+    def right_yaxis(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRightYaxis']:
+        return pulumi.get(self, "right_yaxis")
 
     @property
     @pulumi.getter(name="showLegend")
@@ -23148,6 +23980,28 @@ class DashboardWidgetTimeseriesDefinition(dict):
     @pulumi.getter
     def yaxis(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetTimeseriesDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -23215,6 +24069,7 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
                  log_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery'] = None,
                  metadatas: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata']] = None,
                  network_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery'] = None,
+                 on_right_yaxis: Optional[bool] = None,
                  process_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery'] = None,
                  q: Optional[str] = None,
                  rum_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery'] = None,
@@ -23230,6 +24085,8 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
             pulumi.set(__self__, "metadatas", metadatas)
         if network_query is not None:
             pulumi.set(__self__, "network_query", network_query)
+        if on_right_yaxis is not None:
+            pulumi.set(__self__, "on_right_yaxis", on_right_yaxis)
         if process_query is not None:
             pulumi.set(__self__, "process_query", process_query)
         if q is not None:
@@ -23265,6 +24122,11 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
     @pulumi.getter(name="networkQuery")
     def network_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery']:
         return pulumi.get(self, "network_query")
+
+    @property
+    @pulumi.getter(name="onRightYaxis")
+    def on_right_yaxis(self) -> Optional[bool]:
+        return pulumi.get(self, "on_right_yaxis")
 
     @property
     @pulumi.getter(name="processQuery")
@@ -24320,6 +25182,54 @@ class DashboardWidgetTimeseriesDefinitionRequestStyle(dict):
 
 
 @pulumi.output_type
+class DashboardWidgetTimeseriesDefinitionRightYaxis(dict):
+    def __init__(__self__, *,
+                 include_zero: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 max: Optional[str] = None,
+                 min: Optional[str] = None,
+                 scale: Optional[str] = None):
+        if include_zero is not None:
+            pulumi.set(__self__, "include_zero", include_zero)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @property
+    @pulumi.getter(name="includeZero")
+    def include_zero(self) -> Optional[bool]:
+        return pulumi.get(self, "include_zero")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[str]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[str]:
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def scale(self) -> Optional[str]:
+        return pulumi.get(self, "scale")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionTime(dict):
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
@@ -24386,11 +25296,14 @@ class DashboardWidgetTimeseriesDefinitionYaxis(dict):
 @pulumi.output_type
 class DashboardWidgetToplistDefinition(dict):
     def __init__(__self__, *,
+                 custom_links: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequest']] = None,
                  time: Optional['outputs.DashboardWidgetToplistDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
         if time is not None:
@@ -24401,6 +25314,11 @@ class DashboardWidgetToplistDefinition(dict):
             pulumi.set(__self__, "title_align", title_align)
         if title_size is not None:
             pulumi.set(__self__, "title_size", title_size)
+
+    @property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardWidgetToplistDefinitionCustomLink']]:
+        return pulumi.get(self, "custom_links")
 
     @property
     @pulumi.getter
@@ -24426,6 +25344,28 @@ class DashboardWidgetToplistDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DashboardWidgetToplistDefinitionCustomLink(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 link: str):
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "link", link)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def link(self) -> str:
+        return pulumi.get(self, "link")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -25920,7 +26860,8 @@ class LogsCustomPipelineProcessorAttributeRemapper(dict):
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None,
                  override_on_conflict: Optional[bool] = None,
-                 preserve_source: Optional[bool] = None):
+                 preserve_source: Optional[bool] = None,
+                 target_format: Optional[str] = None):
         pulumi.set(__self__, "source_type", source_type)
         pulumi.set(__self__, "sources", sources)
         pulumi.set(__self__, "target", target)
@@ -25933,6 +26874,8 @@ class LogsCustomPipelineProcessorAttributeRemapper(dict):
             pulumi.set(__self__, "override_on_conflict", override_on_conflict)
         if preserve_source is not None:
             pulumi.set(__self__, "preserve_source", preserve_source)
+        if target_format is not None:
+            pulumi.set(__self__, "target_format", target_format)
 
     @property
     @pulumi.getter(name="sourceType")
@@ -25973,6 +26916,11 @@ class LogsCustomPipelineProcessorAttributeRemapper(dict):
     @pulumi.getter(name="preserveSource")
     def preserve_source(self) -> Optional[bool]:
         return pulumi.get(self, "preserve_source")
+
+    @property
+    @pulumi.getter(name="targetFormat")
+    def target_format(self) -> Optional[str]:
+        return pulumi.get(self, "target_format")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -26503,7 +27451,8 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None,
                  override_on_conflict: Optional[bool] = None,
-                 preserve_source: Optional[bool] = None):
+                 preserve_source: Optional[bool] = None,
+                 target_format: Optional[str] = None):
         pulumi.set(__self__, "source_type", source_type)
         pulumi.set(__self__, "sources", sources)
         pulumi.set(__self__, "target", target)
@@ -26516,6 +27465,8 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
             pulumi.set(__self__, "override_on_conflict", override_on_conflict)
         if preserve_source is not None:
             pulumi.set(__self__, "preserve_source", preserve_source)
+        if target_format is not None:
+            pulumi.set(__self__, "target_format", target_format)
 
     @property
     @pulumi.getter(name="sourceType")
@@ -26556,6 +27507,11 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
     @pulumi.getter(name="preserveSource")
     def preserve_source(self) -> Optional[bool]:
         return pulumi.get(self, "preserve_source")
+
+    @property
+    @pulumi.getter(name="targetFormat")
+    def target_format(self) -> Optional[str]:
+        return pulumi.get(self, "target_format")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -29042,6 +29998,7 @@ class SyntheticsTestOptionsListRetry(dict):
 class SyntheticsTestRequest(dict):
     def __init__(__self__, *,
                  body: Optional[str] = None,
+                 dns_server: Optional[str] = None,
                  host: Optional[str] = None,
                  method: Optional[str] = None,
                  port: Optional[int] = None,
@@ -29049,6 +30006,8 @@ class SyntheticsTestRequest(dict):
                  url: Optional[str] = None):
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if dns_server is not None:
+            pulumi.set(__self__, "dns_server", dns_server)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if method is not None:
@@ -29064,6 +30023,11 @@ class SyntheticsTestRequest(dict):
     @pulumi.getter
     def body(self) -> Optional[str]:
         return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="dnsServer")
+    def dns_server(self) -> Optional[str]:
+        return pulumi.get(self, "dns_server")
 
     @property
     @pulumi.getter
@@ -29117,6 +30081,74 @@ class SyntheticsTestRequestBasicauth(dict):
 
 
 @pulumi.output_type
+class SyntheticsTestRequestClientCertificate(dict):
+    def __init__(__self__, *,
+                 cert: 'outputs.SyntheticsTestRequestClientCertificateCert',
+                 key: 'outputs.SyntheticsTestRequestClientCertificateKey'):
+        pulumi.set(__self__, "cert", cert)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def cert(self) -> 'outputs.SyntheticsTestRequestClientCertificateCert':
+        return pulumi.get(self, "cert")
+
+    @property
+    @pulumi.getter
+    def key(self) -> 'outputs.SyntheticsTestRequestClientCertificateKey':
+        return pulumi.get(self, "key")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyntheticsTestRequestClientCertificateCert(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 filename: Optional[str] = None):
+        pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        return pulumi.get(self, "filename")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyntheticsTestRequestClientCertificateKey(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 filename: Optional[str] = None):
+        pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        return pulumi.get(self, "filename")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SyntheticsTestStep(dict):
     def __init__(__self__, *,
                  name: str,
@@ -29156,6 +30188,52 @@ class SyntheticsTestStep(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         return pulumi.get(self, "timeout")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyntheticsTestVariable(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 example: Optional[str] = None,
+                 id: Optional[str] = None,
+                 pattern: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if example is not None:
+            pulumi.set(__self__, "example", example)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def example(self) -> Optional[str]:
+        return pulumi.get(self, "example")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        return pulumi.get(self, "pattern")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        [Input("dnsServer")]
+        public Input<string>? DnsServer { get; set; }
+
         [Input("host")]
         public Input<string>? Host { get; set; }
 
