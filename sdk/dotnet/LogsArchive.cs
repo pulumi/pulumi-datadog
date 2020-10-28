@@ -49,11 +49,17 @@ namespace Pulumi.Datadog
         [Output("gcs")]
         public Output<Outputs.LogsArchiveGcs?> Gcs { get; private set; } = null!;
 
+        [Output("includeTags")]
+        public Output<bool?> IncludeTags { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
+
+        [Output("rehydrationTags")]
+        public Output<ImmutableArray<string>> RehydrationTags { get; private set; } = null!;
 
         [Output("s3")]
         public Output<Outputs.LogsArchiveS3?> S3 { get; private set; } = null!;
@@ -110,11 +116,22 @@ namespace Pulumi.Datadog
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsArgs>? Gcs { get; set; }
 
+        [Input("includeTags")]
+        public Input<bool>? IncludeTags { get; set; }
+
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
+
+        [Input("rehydrationTags")]
+        private InputList<string>? _rehydrationTags;
+        public InputList<string> RehydrationTags
+        {
+            get => _rehydrationTags ?? (_rehydrationTags = new InputList<string>());
+            set => _rehydrationTags = value;
+        }
 
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3Args>? S3 { get; set; }
@@ -132,11 +149,22 @@ namespace Pulumi.Datadog
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsGetArgs>? Gcs { get; set; }
 
+        [Input("includeTags")]
+        public Input<bool>? IncludeTags { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("query")]
         public Input<string>? Query { get; set; }
+
+        [Input("rehydrationTags")]
+        private InputList<string>? _rehydrationTags;
+        public InputList<string> RehydrationTags
+        {
+            get => _rehydrationTags ?? (_rehydrationTags = new InputList<string>());
+            set => _rehydrationTags = value;
+        }
 
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3GetArgs>? S3 { get; set; }

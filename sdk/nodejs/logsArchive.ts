@@ -59,8 +59,10 @@ export class LogsArchive extends pulumi.CustomResource {
 
     public readonly azure!: pulumi.Output<outputs.LogsArchiveAzure | undefined>;
     public readonly gcs!: pulumi.Output<outputs.LogsArchiveGcs | undefined>;
+    public readonly includeTags!: pulumi.Output<boolean | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly query!: pulumi.Output<string>;
+    public readonly rehydrationTags!: pulumi.Output<string[] | undefined>;
     public readonly s3!: pulumi.Output<outputs.LogsArchiveS3 | undefined>;
 
     /**
@@ -77,8 +79,10 @@ export class LogsArchive extends pulumi.CustomResource {
             const state = argsOrState as LogsArchiveState | undefined;
             inputs["azure"] = state ? state.azure : undefined;
             inputs["gcs"] = state ? state.gcs : undefined;
+            inputs["includeTags"] = state ? state.includeTags : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["query"] = state ? state.query : undefined;
+            inputs["rehydrationTags"] = state ? state.rehydrationTags : undefined;
             inputs["s3"] = state ? state.s3 : undefined;
         } else {
             const args = argsOrState as LogsArchiveArgs | undefined;
@@ -90,8 +94,10 @@ export class LogsArchive extends pulumi.CustomResource {
             }
             inputs["azure"] = args ? args.azure : undefined;
             inputs["gcs"] = args ? args.gcs : undefined;
+            inputs["includeTags"] = args ? args.includeTags : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
+            inputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
             inputs["s3"] = args ? args.s3 : undefined;
         }
         if (!opts) {
@@ -111,8 +117,10 @@ export class LogsArchive extends pulumi.CustomResource {
 export interface LogsArchiveState {
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    readonly includeTags?: pulumi.Input<boolean>;
     readonly name?: pulumi.Input<string>;
     readonly query?: pulumi.Input<string>;
+    readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
 }
 
@@ -122,7 +130,9 @@ export interface LogsArchiveState {
 export interface LogsArchiveArgs {
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    readonly includeTags?: pulumi.Input<boolean>;
     readonly name: pulumi.Input<string>;
     readonly query: pulumi.Input<string>;
+    readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
 }

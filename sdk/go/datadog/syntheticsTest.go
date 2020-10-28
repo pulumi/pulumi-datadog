@@ -10,6 +10,294 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
+//
+// ## Example Usage
+// ### Synthetics API Test)
+//
+// Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.StringMapArray{
+// 				pulumi.StringMap{
+// 					"operator": pulumi.String("is"),
+// 					"target":   pulumi.String("200"),
+// 					"type":     pulumi.String("statusCode"),
+// 				},
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("aws:eu-central-1"),
+// 			},
+// 			Message: pulumi.String("Notify @pagerduty"),
+// 			Name:    pulumi.String("An API test on example.org"),
+// 			OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+// 				MonitorOptions: &datadog.SyntheticsTestOptionsListMonitorOptionsArgs{
+// 					RenotifyInterval: pulumi.Int(100),
+// 				},
+// 				Retry: &datadog.SyntheticsTestOptionsListRetryArgs{
+// 					Count:    pulumi.Int(2),
+// 					Interval: pulumi.Int(300),
+// 				},
+// 				TickEvery: pulumi.Int(900),
+// 			},
+// 			Request: &datadog.SyntheticsTestRequestArgs{
+// 				Method: pulumi.String("GET"),
+// 				Url:    pulumi.String("https://www.example.org"),
+// 			},
+// 			RequestHeaders: pulumi.StringMap{
+// 				"Authentication": pulumi.String("Token: 1234566789"),
+// 				"Content-Type":   pulumi.String("application/json"),
+// 			},
+// 			Status:  pulumi.String("live"),
+// 			Subtype: pulumi.String("http"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("foo"),
+// 				pulumi.String("env:test"),
+// 			},
+// 			Type: pulumi.String("api"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Synthetics SSL Test)
+//
+// Create a new Datadog Synthetics API/SSL test on example.org
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testSsl", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.MapArray{
+// 				pulumi.Map{
+// 					"operator": pulumi.String("isInMoreThan"),
+// 					"target":   pulumi.Float64(30),
+// 					"type":     pulumi.String("certificate"),
+// 				},
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("aws:eu-central-1"),
+// 			},
+// 			Message: pulumi.String("Notify @pagerduty"),
+// 			Name:    pulumi.String("An API test on example.org"),
+// 			OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+// 				AcceptSelfSigned: pulumi.Bool(true),
+// 				TickEvery:        pulumi.Int(900),
+// 			},
+// 			Request: &datadog.SyntheticsTestRequestArgs{
+// 				Host: pulumi.String("example.org"),
+// 				Port: pulumi.Int(443),
+// 			},
+// 			Status:  pulumi.String("live"),
+// 			Subtype: pulumi.String("ssl"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("foo"),
+// 				pulumi.String("env:test"),
+// 			},
+// 			Type: pulumi.String("api"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Synthetics TCP Test)
+//
+// Create a new Datadog Synthetics API/TCP test on example.org
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testTcp", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.MapArray{
+// 				pulumi.Map{
+// 					"operator": pulumi.String("lessThan"),
+// 					"target":   pulumi.Float64(2000),
+// 					"type":     pulumi.String("responseTime"),
+// 				},
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("aws:eu-central-1"),
+// 			},
+// 			Message: pulumi.String("Notify @pagerduty"),
+// 			Name:    pulumi.String("An API test on example.org"),
+// 			OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+// 				TickEvery: pulumi.Int(900),
+// 			},
+// 			Request: &datadog.SyntheticsTestRequestArgs{
+// 				Host: pulumi.String("example.org"),
+// 				Port: pulumi.Int(443),
+// 			},
+// 			Status:  pulumi.String("live"),
+// 			Subtype: pulumi.String("tcp"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("foo"),
+// 				pulumi.String("env:test"),
+// 			},
+// 			Type: pulumi.String("api"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Synthetics DNS Test)
+//
+// Create a new Datadog Synthetics API/DNS test on example.org
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testTcp", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.StringMapArray{
+// 				pulumi.StringMap{
+// 					"operator": pulumi.String("is"),
+// 					"property": pulumi.String("A"),
+// 					"target":   pulumi.String("0.0.0.0"),
+// 					"type":     pulumi.String("recordSome"),
+// 				},
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("aws:eu-central-1"),
+// 			},
+// 			Message: pulumi.String("Notify @pagerduty"),
+// 			Name:    pulumi.String("An API test on example.org"),
+// 			OptionsList: &datadog.SyntheticsTestOptionsListArgs{
+// 				TickEvery: pulumi.Int(900),
+// 			},
+// 			Request: &datadog.SyntheticsTestRequestArgs{
+// 				Host: pulumi.String("example.org"),
+// 			},
+// 			Status:  pulumi.String("live"),
+// 			Subtype: pulumi.String("dns"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("foo"),
+// 				pulumi.String("env:test"),
+// 			},
+// 			Type: pulumi.String("api"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Synthetics Browser test
+//
+// Support for Synthetics Browser test is limited when creating steps. Some steps types (like steps involving elements) cannot be created, but they can be imported.
+//
+// ## Assertion format
+//
+// The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.StringMapArray{
+// 				pulumi.StringMap{
+// 					"operator": pulumi.String("is"),
+// 					"target":   pulumi.String("200"),
+// 					"type":     pulumi.String("statusCode"),
+// 				},
+// 				pulumi.StringMap{
+// 					"operator": pulumi.String("lessThan"),
+// 					"target":   pulumi.String("1000"),
+// 					"type":     pulumi.String("responseTime"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// turns into:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testApi", &datadog.SyntheticsTestArgs{
+// 			Assertions: pulumi.StringMapArray{
+// 				pulumi.StringMap{
+// 					"operator": pulumi.String("is"),
+// 					"target":   pulumi.String("200"),
+// 					"type":     pulumi.String("statusCode"),
+// 				},
+// 				pulumi.StringMap{
+// 					"operator": pulumi.String("lessThan"),
+// 					"target":   pulumi.String("1000"),
+// 					"type":     pulumi.String("responsTime"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SyntheticsTest struct {
 	pulumi.CustomResourceState
 
@@ -21,17 +309,19 @@ type SyntheticsTest struct {
 	MonitorId  pulumi.IntOutput         `pulumi:"monitorId"`
 	Name       pulumi.StringOutput      `pulumi:"name"`
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options          SyntheticsTestOptionsPtrOutput          `pulumi:"options"`
-	OptionsList      SyntheticsTestOptionsListPtrOutput      `pulumi:"optionsList"`
-	Request          SyntheticsTestRequestOutput             `pulumi:"request"`
-	RequestBasicauth SyntheticsTestRequestBasicauthPtrOutput `pulumi:"requestBasicauth"`
-	RequestHeaders   pulumi.MapOutput                        `pulumi:"requestHeaders"`
-	RequestQuery     pulumi.MapOutput                        `pulumi:"requestQuery"`
-	Status           pulumi.StringOutput                     `pulumi:"status"`
-	Steps            SyntheticsTestStepArrayOutput           `pulumi:"steps"`
-	Subtype          pulumi.StringPtrOutput                  `pulumi:"subtype"`
-	Tags             pulumi.StringArrayOutput                `pulumi:"tags"`
-	Type             pulumi.StringOutput                     `pulumi:"type"`
+	Options                  SyntheticsTestOptionsPtrOutput                  `pulumi:"options"`
+	OptionsList              SyntheticsTestOptionsListPtrOutput              `pulumi:"optionsList"`
+	Request                  SyntheticsTestRequestOutput                     `pulumi:"request"`
+	RequestBasicauth         SyntheticsTestRequestBasicauthPtrOutput         `pulumi:"requestBasicauth"`
+	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrOutput `pulumi:"requestClientCertificate"`
+	RequestHeaders           pulumi.MapOutput                                `pulumi:"requestHeaders"`
+	RequestQuery             pulumi.MapOutput                                `pulumi:"requestQuery"`
+	Status                   pulumi.StringOutput                             `pulumi:"status"`
+	Steps                    SyntheticsTestStepArrayOutput                   `pulumi:"steps"`
+	Subtype                  pulumi.StringPtrOutput                          `pulumi:"subtype"`
+	Tags                     pulumi.StringArrayOutput                        `pulumi:"tags"`
+	Type                     pulumi.StringOutput                             `pulumi:"type"`
+	Variables                SyntheticsTestVariableArrayOutput               `pulumi:"variables"`
 }
 
 // NewSyntheticsTest registers a new resource with the given unique name, arguments, and options.
@@ -48,9 +338,6 @@ func NewSyntheticsTest(ctx *pulumi.Context,
 	}
 	if args == nil || args.Status == nil {
 		return nil, errors.New("missing required argument 'Status'")
-	}
-	if args == nil || args.Tags == nil {
-		return nil, errors.New("missing required argument 'Tags'")
 	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
@@ -88,17 +375,19 @@ type syntheticsTestState struct {
 	MonitorId  *int                     `pulumi:"monitorId"`
 	Name       *string                  `pulumi:"name"`
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options          *SyntheticsTestOptions          `pulumi:"options"`
-	OptionsList      *SyntheticsTestOptionsList      `pulumi:"optionsList"`
-	Request          *SyntheticsTestRequest          `pulumi:"request"`
-	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
-	RequestHeaders   map[string]interface{}          `pulumi:"requestHeaders"`
-	RequestQuery     map[string]interface{}          `pulumi:"requestQuery"`
-	Status           *string                         `pulumi:"status"`
-	Steps            []SyntheticsTestStep            `pulumi:"steps"`
-	Subtype          *string                         `pulumi:"subtype"`
-	Tags             []string                        `pulumi:"tags"`
-	Type             *string                         `pulumi:"type"`
+	Options                  *SyntheticsTestOptions                  `pulumi:"options"`
+	OptionsList              *SyntheticsTestOptionsList              `pulumi:"optionsList"`
+	Request                  *SyntheticsTestRequest                  `pulumi:"request"`
+	RequestBasicauth         *SyntheticsTestRequestBasicauth         `pulumi:"requestBasicauth"`
+	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
+	RequestHeaders           map[string]interface{}                  `pulumi:"requestHeaders"`
+	RequestQuery             map[string]interface{}                  `pulumi:"requestQuery"`
+	Status                   *string                                 `pulumi:"status"`
+	Steps                    []SyntheticsTestStep                    `pulumi:"steps"`
+	Subtype                  *string                                 `pulumi:"subtype"`
+	Tags                     []string                                `pulumi:"tags"`
+	Type                     *string                                 `pulumi:"type"`
+	Variables                []SyntheticsTestVariable                `pulumi:"variables"`
 }
 
 type SyntheticsTestState struct {
@@ -110,17 +399,19 @@ type SyntheticsTestState struct {
 	MonitorId  pulumi.IntPtrInput
 	Name       pulumi.StringPtrInput
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options          SyntheticsTestOptionsPtrInput
-	OptionsList      SyntheticsTestOptionsListPtrInput
-	Request          SyntheticsTestRequestPtrInput
-	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
-	RequestHeaders   pulumi.MapInput
-	RequestQuery     pulumi.MapInput
-	Status           pulumi.StringPtrInput
-	Steps            SyntheticsTestStepArrayInput
-	Subtype          pulumi.StringPtrInput
-	Tags             pulumi.StringArrayInput
-	Type             pulumi.StringPtrInput
+	Options                  SyntheticsTestOptionsPtrInput
+	OptionsList              SyntheticsTestOptionsListPtrInput
+	Request                  SyntheticsTestRequestPtrInput
+	RequestBasicauth         SyntheticsTestRequestBasicauthPtrInput
+	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
+	RequestHeaders           pulumi.MapInput
+	RequestQuery             pulumi.MapInput
+	Status                   pulumi.StringPtrInput
+	Steps                    SyntheticsTestStepArrayInput
+	Subtype                  pulumi.StringPtrInput
+	Tags                     pulumi.StringArrayInput
+	Type                     pulumi.StringPtrInput
+	Variables                SyntheticsTestVariableArrayInput
 }
 
 func (SyntheticsTestState) ElementType() reflect.Type {
@@ -135,17 +426,19 @@ type syntheticsTestArgs struct {
 	Message    *string                  `pulumi:"message"`
 	Name       string                   `pulumi:"name"`
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options          *SyntheticsTestOptions          `pulumi:"options"`
-	OptionsList      *SyntheticsTestOptionsList      `pulumi:"optionsList"`
-	Request          SyntheticsTestRequest           `pulumi:"request"`
-	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
-	RequestHeaders   map[string]interface{}          `pulumi:"requestHeaders"`
-	RequestQuery     map[string]interface{}          `pulumi:"requestQuery"`
-	Status           string                          `pulumi:"status"`
-	Steps            []SyntheticsTestStep            `pulumi:"steps"`
-	Subtype          *string                         `pulumi:"subtype"`
-	Tags             []string                        `pulumi:"tags"`
-	Type             string                          `pulumi:"type"`
+	Options                  *SyntheticsTestOptions                  `pulumi:"options"`
+	OptionsList              *SyntheticsTestOptionsList              `pulumi:"optionsList"`
+	Request                  SyntheticsTestRequest                   `pulumi:"request"`
+	RequestBasicauth         *SyntheticsTestRequestBasicauth         `pulumi:"requestBasicauth"`
+	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
+	RequestHeaders           map[string]interface{}                  `pulumi:"requestHeaders"`
+	RequestQuery             map[string]interface{}                  `pulumi:"requestQuery"`
+	Status                   string                                  `pulumi:"status"`
+	Steps                    []SyntheticsTestStep                    `pulumi:"steps"`
+	Subtype                  *string                                 `pulumi:"subtype"`
+	Tags                     []string                                `pulumi:"tags"`
+	Type                     string                                  `pulumi:"type"`
+	Variables                []SyntheticsTestVariable                `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a SyntheticsTest resource.
@@ -157,17 +450,19 @@ type SyntheticsTestArgs struct {
 	Message    pulumi.StringPtrInput
 	Name       pulumi.StringInput
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options          SyntheticsTestOptionsPtrInput
-	OptionsList      SyntheticsTestOptionsListPtrInput
-	Request          SyntheticsTestRequestInput
-	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
-	RequestHeaders   pulumi.MapInput
-	RequestQuery     pulumi.MapInput
-	Status           pulumi.StringInput
-	Steps            SyntheticsTestStepArrayInput
-	Subtype          pulumi.StringPtrInput
-	Tags             pulumi.StringArrayInput
-	Type             pulumi.StringInput
+	Options                  SyntheticsTestOptionsPtrInput
+	OptionsList              SyntheticsTestOptionsListPtrInput
+	Request                  SyntheticsTestRequestInput
+	RequestBasicauth         SyntheticsTestRequestBasicauthPtrInput
+	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
+	RequestHeaders           pulumi.MapInput
+	RequestQuery             pulumi.MapInput
+	Status                   pulumi.StringInput
+	Steps                    SyntheticsTestStepArrayInput
+	Subtype                  pulumi.StringPtrInput
+	Tags                     pulumi.StringArrayInput
+	Type                     pulumi.StringInput
+	Variables                SyntheticsTestVariableArrayInput
 }
 
 func (SyntheticsTestArgs) ElementType() reflect.Type {

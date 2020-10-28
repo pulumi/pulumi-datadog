@@ -56,8 +56,9 @@ import (
 // 						Sources: pulumi.StringArray{
 // 							pulumi.String("db.instance"),
 // 						},
-// 						Target:     pulumi.String("db"),
-// 						TargetType: pulumi.String("tag"),
+// 						Target:       pulumi.String("db"),
+// 						TargetFormat: pulumi.String("string"),
+// 						TargetType:   pulumi.String("attribute"),
 // 					},
 // 				},
 // 				&datadog.LogsCustomPipelineProcessorArgs{

@@ -32,6 +32,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("networkQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGetArgs>? NetworkQuery { get; set; }
 
+        [Input("onRightYaxis")]
+        public Input<bool>? OnRightYaxis { get; set; }
+
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQueryGetArgs>? ProcessQuery { get; set; }
 

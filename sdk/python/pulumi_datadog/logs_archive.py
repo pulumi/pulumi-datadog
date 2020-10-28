@@ -19,8 +19,10 @@ class LogsArchive(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
                  gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
+                 include_tags: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
+                 rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3Args']]] = None,
                  __props__=None,
                  __name__=None,
@@ -69,12 +71,14 @@ class LogsArchive(pulumi.CustomResource):
 
             __props__['azure'] = azure
             __props__['gcs'] = gcs
+            __props__['include_tags'] = include_tags
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if query is None:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
+            __props__['rehydration_tags'] = rehydration_tags
             __props__['s3'] = s3
         super(LogsArchive, __self__).__init__(
             'datadog:index/logsArchive:LogsArchive',
@@ -88,8 +92,10 @@ class LogsArchive(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
             gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
+            include_tags: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None,
+            rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             s3: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3Args']]] = None) -> 'LogsArchive':
         """
         Get an existing LogsArchive resource's state with the given name, id, and optional extra
@@ -105,8 +111,10 @@ class LogsArchive(pulumi.CustomResource):
 
         __props__["azure"] = azure
         __props__["gcs"] = gcs
+        __props__["include_tags"] = include_tags
         __props__["name"] = name
         __props__["query"] = query
+        __props__["rehydration_tags"] = rehydration_tags
         __props__["s3"] = s3
         return LogsArchive(resource_name, opts=opts, __props__=__props__)
 
@@ -121,6 +129,11 @@ class LogsArchive(pulumi.CustomResource):
         return pulumi.get(self, "gcs")
 
     @property
+    @pulumi.getter(name="includeTags")
+    def include_tags(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "include_tags")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
@@ -129,6 +142,11 @@ class LogsArchive(pulumi.CustomResource):
     @pulumi.getter
     def query(self) -> pulumi.Output[str]:
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="rehydrationTags")
+    def rehydration_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "rehydration_tags")
 
     @property
     @pulumi.getter

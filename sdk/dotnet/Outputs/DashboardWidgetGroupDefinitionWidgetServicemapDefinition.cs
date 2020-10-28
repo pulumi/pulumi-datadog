@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetServicemapDefinition
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<string> Filters;
         public readonly string Service;
         public readonly string? Title;
@@ -21,6 +22,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetServicemapDefinition(
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink> customLinks,
+
             ImmutableArray<string> filters,
 
             string service,
@@ -31,6 +34,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            CustomLinks = customLinks;
             Filters = filters;
             Service = service;
             Title = title;

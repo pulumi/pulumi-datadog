@@ -12,6 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkGetArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkGetArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLinkGetArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("events")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventGetArgs>? _events;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEventGetArgs> Events

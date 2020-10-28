@@ -60,7 +60,8 @@ class LogsCustomPipeline(pulumi.CustomResource):
                         source_type="tag",
                         sources=["db.instance"],
                         target="db",
-                        target_type="tag",
+                        target_format="string",
+                        target_type="attribute",
                     ),
                 ),
                 datadog.LogsCustomPipelineProcessorArgs(

@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetHostmapDefinition
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<string> Groups;
         public readonly bool? NoGroupHosts;
         public readonly bool? NoMetricHosts;
@@ -26,6 +27,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetHostmapDefinition(
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink> customLinks,
+
             ImmutableArray<string> groups,
 
             bool? noGroupHosts,
@@ -46,6 +49,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            CustomLinks = customLinks;
             Groups = groups;
             NoGroupHosts = noGroupHosts;
             NoMetricHosts = noMetricHosts;

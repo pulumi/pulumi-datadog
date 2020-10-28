@@ -13,6 +13,8 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetQueryTableDefinition
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionCustomLink> CustomLinks;
+        public readonly string? HasSearchBar;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionTime? Time;
         public readonly string? Title;
@@ -21,6 +23,10 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetQueryTableDefinition(
+            ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionCustomLink> customLinks,
+
+            string? hasSearchBar,
+
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> requests,
 
             Outputs.DashboardWidgetQueryTableDefinitionTime? time,
@@ -31,6 +37,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            CustomLinks = customLinks;
+            HasSearchBar = hasSearchBar;
             Requests = requests;
             Time = time;
             Title = title;

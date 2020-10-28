@@ -21,6 +21,17 @@ namespace Pulumi.Datadog.Inputs
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
 
+        [Input("apmStatsQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryGetArgs>? ApmStatsQuery { get; set; }
+
+        [Input("cellDisplayModes")]
+        private InputList<string>? _cellDisplayModes;
+        public InputList<string> CellDisplayModes
+        {
+            get => _cellDisplayModes ?? (_cellDisplayModes = new InputList<string>());
+            set => _cellDisplayModes = value;
+        }
+
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatGetArgs>? _conditionalFormats;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormatGetArgs> ConditionalFormats

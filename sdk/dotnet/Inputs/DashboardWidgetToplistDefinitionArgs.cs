@@ -12,6 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetToplistDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetToplistDefinitionCustomLinkArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetToplistDefinitionCustomLinkArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetToplistDefinitionCustomLinkArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetToplistDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetToplistDefinitionRequestArgs> Requests

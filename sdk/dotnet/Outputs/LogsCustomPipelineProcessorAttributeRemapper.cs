@@ -20,6 +20,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string SourceType;
         public readonly ImmutableArray<string> Sources;
         public readonly string Target;
+        public readonly string? TargetFormat;
         public readonly string TargetType;
 
         [OutputConstructor]
@@ -38,6 +39,8 @@ namespace Pulumi.Datadog.Outputs
 
             string target,
 
+            string? targetFormat,
+
             string targetType)
         {
             IsEnabled = isEnabled;
@@ -47,6 +50,7 @@ namespace Pulumi.Datadog.Outputs
             SourceType = sourceType;
             Sources = sources;
             Target = target;
+            TargetFormat = targetFormat;
             TargetType = targetType;
         }
     }

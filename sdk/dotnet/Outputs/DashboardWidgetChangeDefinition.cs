@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetChangeDefinition
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetChangeDefinitionTime? Time;
         public readonly string? Title;
@@ -21,6 +22,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetChangeDefinition(
+            ImmutableArray<Outputs.DashboardWidgetChangeDefinitionCustomLink> customLinks,
+
             ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequest> requests,
 
             Outputs.DashboardWidgetChangeDefinitionTime? time,
@@ -31,6 +34,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            CustomLinks = customLinks;
             Requests = requests;
             Time = time;
             Title = title;

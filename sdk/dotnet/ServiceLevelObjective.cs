@@ -150,6 +150,9 @@ namespace Pulumi.Datadog
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        [Output("validate")]
+        public Output<bool?> Validate { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ServiceLevelObjective resource with the given unique name, arguments, and options.
@@ -256,6 +259,9 @@ namespace Pulumi.Datadog
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
+
         public ServiceLevelObjectiveArgs()
         {
         }
@@ -322,6 +328,9 @@ namespace Pulumi.Datadog
 
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
 
         public ServiceLevelObjectiveState()
         {

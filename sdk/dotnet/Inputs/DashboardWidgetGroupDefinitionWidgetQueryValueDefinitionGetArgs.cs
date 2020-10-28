@@ -15,6 +15,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("autoscale")]
         public Input<bool>? Autoscale { get; set; }
 
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkGetArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkGetArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLinkGetArgs>());
+            set => _customLinks = value;
+        }
+
         [Input("customUnit")]
         public Input<string>? CustomUnit { get; set; }
 

@@ -6,9 +6,9 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
+	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 	"github.com/terraform-providers/terraform-provider-datadog/datadog"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 )
 
 const (
@@ -106,6 +106,9 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "synthetics.html.markdown",
 				},
 			},
+			"datadog_synthetics_global_variable": {
+				Tok: makeResource(datadogMod, "SyntheticsGlobalVariable"),
+			},
 			"datadog_dashboard_list": {
 				Tok: makeResource(datadogMod, "DashboardList"),
 			},
@@ -129,6 +132,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"datadog_logs_pipeline_order": {
 				Tok: makeResource(datadogMod, "LogsPipelineOrder"),
+			},
+			"datadog_logs_archive_order": {
+				Tok: makeResource(datadogMod, "LogsArchiveOrder"),
 			},
 
 			// GCP Integrations

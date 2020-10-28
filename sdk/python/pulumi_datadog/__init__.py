@@ -11,6 +11,7 @@ from .get_ip_ranges import *
 from .get_monitor import *
 from .get_synthetics_locations import *
 from .logs_archive import *
+from .logs_archive_order import *
 from .logs_custom_pipeline import *
 from .logs_index import *
 from .logs_index_order import *
@@ -21,6 +22,7 @@ from .monitor import *
 from .provider import *
 from .screen_board import *
 from .service_level_objective import *
+from .synthetics_global_variable import *
 from .synthetics_test import *
 from .time_board import *
 from .user import *

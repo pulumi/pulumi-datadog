@@ -12,6 +12,17 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetQueryTableDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("customLinks")]
+        private InputList<Inputs.DashboardWidgetQueryTableDefinitionCustomLinkArgs>? _customLinks;
+        public InputList<Inputs.DashboardWidgetQueryTableDefinitionCustomLinkArgs> CustomLinks
+        {
+            get => _customLinks ?? (_customLinks = new InputList<Inputs.DashboardWidgetQueryTableDefinitionCustomLinkArgs>());
+            set => _customLinks = value;
+        }
+
+        [Input("hasSearchBar")]
+        public Input<string>? HasSearchBar { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetQueryTableDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetQueryTableDefinitionRequestArgs> Requests

@@ -62,7 +62,8 @@ namespace Pulumi.Datadog
     ///                             "db.instance",
     ///                         },
     ///                         Target = "db",
-    ///                         TargetType = "tag",
+    ///                         TargetFormat = "string",
+    ///                         TargetType = "attribute",
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.LogsCustomPipelineProcessorArgs

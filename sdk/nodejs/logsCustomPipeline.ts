@@ -42,7 +42,8 @@ import * as utilities from "./utilities";
  *                 sourceType: "tag",
  *                 sources: ["db.instance"],
  *                 target: "db",
- *                 targetType: "tag",
+ *                 targetFormat: "string",
+ *                 targetType: "attribute",
  *             },
  *         },
  *         {

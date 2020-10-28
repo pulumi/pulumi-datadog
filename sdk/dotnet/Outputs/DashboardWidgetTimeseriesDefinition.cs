@@ -13,10 +13,12 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTimeseriesDefinition
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> Events;
         public readonly string? LegendSize;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionMarker> Markers;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequest> Requests;
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRightYaxis? RightYaxis;
         public readonly bool? ShowLegend;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionTime? Time;
         public readonly string? Title;
@@ -26,6 +28,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetTimeseriesDefinition(
+            ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionCustomLink> customLinks,
+
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> events,
 
             string? legendSize,
@@ -33,6 +37,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionMarker> markers,
 
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequest> requests,
+
+            Outputs.DashboardWidgetTimeseriesDefinitionRightYaxis? rightYaxis,
 
             bool? showLegend,
 
@@ -46,10 +52,12 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetTimeseriesDefinitionYaxis? yaxis)
         {
+            CustomLinks = customLinks;
             Events = events;
             LegendSize = legendSize;
             Markers = markers;
             Requests = requests;
+            RightYaxis = rightYaxis;
             ShowLegend = showLegend;
             Time = time;
             Title = title;
