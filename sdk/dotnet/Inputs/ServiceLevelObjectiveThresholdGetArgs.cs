@@ -20,13 +20,13 @@ namespace Pulumi.Datadog.Inputs
 
         /// <summary>
         /// the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-        /// - `7d`
-        /// - `30d`
-        /// - `90d`
-        /// - `target`: (Required) the objective's target `[0,100]`
-        /// - `target_display`: (Optional) the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-        /// - `warning`: (Optional) the objective's warning value `[0,100]`. This must be `&gt; target` value.
-        /// - `warning_display`: (Optional) the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
+        /// -   `7d`
+        /// -   `30d`
+        /// -   `90d`
+        /// -   `target`: (Required) the objective's target `[0,100]`
+        /// -   `target_display`: (Optional) the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
+        /// -   `warning`: (Optional) the objective's warning value `[0,100]`. This must be `&gt; target` value.
+        /// -   `warning_display`: (Optional) the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
         /// </summary>
         [Input("timeframe", required: true)]
         public Input<string> Timeframe { get; set; } = null!;

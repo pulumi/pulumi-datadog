@@ -55,20 +55,7 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_token: Your PagerDuty API token.
-               =======
-               - `individual_services`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
-               - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
-               - `service_name`: (Required) Your Service name in PagerDuty.
-               - `service_key`: (Required) Your Service name associated service key in Pagerduty.
-               - `schedules`: (Optional) Array of your schedule URLs.
-               - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
-               - `api_token`: (Optional) Your PagerDuty API token.
-               >>>>>>> v2.13.0:docs/resources/integration_pagerduty.md
-        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
-        :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,20 +106,7 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_token: Your PagerDuty API token.
-               =======
-               - `individual_services`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
-               - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
-               - `service_name`: (Required) Your Service name in PagerDuty.
-               - `service_key`: (Required) Your Service name associated service key in Pagerduty.
-               - `schedules`: (Optional) Array of your schedule URLs.
-               - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
-               - `api_token`: (Optional) Your PagerDuty API token.
-               >>>>>>> v2.13.0:docs/resources/integration_pagerduty.md
-        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
-        :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -148,50 +122,29 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiToken")
     def api_token(self) -> pulumi.Output[Optional[str]]:
-        """
-        Your PagerDuty API token.
-        =======
-        - `individual_services`: (Optional) Boolean to specify whether or not individual service objects specified by [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource are to be used. Mutually exclusive with `services` key.
-        - `services`: (Optional) Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of [pagerduty.ServiceObject](https://www.terraform.io/docs/providers/datadog/r/integration_pagerduty_service_object.html) resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
-        - `service_name`: (Required) Your Service name in PagerDuty.
-        - `service_key`: (Required) Your Service name associated service key in Pagerduty.
-        - `schedules`: (Optional) Array of your schedule URLs.
-        - `subdomain`: (Required) Your PagerDuty account’s personalized subdomain name.
-        - `api_token`: (Optional) Your PagerDuty API token.
-        >>>>>>> v2.13.0:docs/resources/integration_pagerduty.md
-        """
         return pulumi.get(self, "api_token")
 
     @property
     @pulumi.getter(name="individualServices")
     def individual_services(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean to specify whether or not individual service objects specified by `pagerduty.ServiceObject` resource are to be used. Mutually exclusive with `services` key.
-        """
         return pulumi.get(self, "individual_services")
 
     @property
     @pulumi.getter
     def schedules(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Array of your schedule URLs.
-        """
         return pulumi.get(self, "schedules")
 
     @property
     @pulumi.getter
     def services(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationService']]]:
         """
-        Array of PagerDuty service objects. **Deprecated** The `services` list is now deprecated in favour of `pagerduty.ServiceObject` resource. Note that `individual_services` must be set to `true` to ignore the `service` attribute and use individual services properly.
+        A list of service names and service keys.
         """
         return pulumi.get(self, "services")
 
     @property
     @pulumi.getter
     def subdomain(self) -> pulumi.Output[str]:
-        """
-        Your PagerDuty account’s personalized subdomain name.
-        """
         return pulumi.get(self, "subdomain")
 
     def translate_output_property(self, prop):

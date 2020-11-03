@@ -57,8 +57,8 @@ namespace Pulumi.Datadog
     /// 
     /// There are two ways how to silence a single monitor:
     /// 
-    /// - Mute it by hand
-    /// - Create a Downtime
+    /// -   Mute it by hand
+    /// -   Create a Downtime
     /// 
     /// Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your application, as they would be removed on next `pulumi up` invocation. In order to prevent that from happening, you can add following to your monitor:
     /// 
@@ -167,6 +167,9 @@ namespace Pulumi.Datadog
         [Output("notifyNoData")]
         public Output<bool?> NotifyNoData { get; private set; } = null!;
 
+        [Output("priority")]
+        public Output<int?> Priority { get; private set; } = null!;
+
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
@@ -183,7 +186,7 @@ namespace Pulumi.Datadog
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
         /// </summary>
         [Output("silenced")]
         public Output<ImmutableDictionary<string, object>?> Silenced { get; private set; } = null!;
@@ -327,6 +330,9 @@ namespace Pulumi.Datadog
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
 
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -346,7 +352,7 @@ namespace Pulumi.Datadog
         private InputMap<object>? _silenced;
 
         /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
         /// </summary>
         [Obsolete(@"use Downtime Resource instead")]
         public InputMap<object> Silenced
@@ -461,6 +467,9 @@ namespace Pulumi.Datadog
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
 
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
         [Input("query")]
         public Input<string>? Query { get; set; }
 
@@ -480,7 +489,7 @@ namespace Pulumi.Datadog
         private InputMap<object>? _silenced;
 
         /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
         /// </summary>
         [Obsolete(@"use Downtime Resource instead")]
         public InputMap<object> Silenced

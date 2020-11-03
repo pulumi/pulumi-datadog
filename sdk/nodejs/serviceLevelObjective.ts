@@ -126,7 +126,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     public readonly query!: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-     * - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
@@ -206,7 +206,7 @@ export interface ServiceLevelObjectiveState {
     readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-     * - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
@@ -234,7 +234,7 @@ export interface ServiceLevelObjectiveArgs {
     readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-     * - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
