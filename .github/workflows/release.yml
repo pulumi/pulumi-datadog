@@ -149,6 +149,11 @@ jobs:
         author_name: Failure in building provider prerequisites
         fields: repo,commit,author,action
         status: ${{ job.status }}
+    strategy:
+      fail-fast: true
+      matrix:
+        goversion:
+        - 1.15.x
   publish:
     name: publish
     needs: test
@@ -184,7 +189,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-        args: release --rm-dist
+        args: -p 4 release --rm-dist
         version: latest
   publish_sdk:
     name: publish_sdk
@@ -253,6 +258,11 @@ jobs:
         author_name: Failure in publishing SDK
         fields: repo,commit,author,action
         status: ${{ job.status }}
+    strategy:
+      fail-fast: true
+      matrix:
+        goversion:
+        - 1.15.x
   test:
     name: test
     needs: build_sdk
