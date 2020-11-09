@@ -26,6 +26,7 @@
         "downtime.ts",
         "gcp/index.ts",
         "gcp/integration.ts",
+        "getDashboard.ts",
         "getDashboardList.ts",
         "getIpRanges.ts",
         "getMonitor.ts",

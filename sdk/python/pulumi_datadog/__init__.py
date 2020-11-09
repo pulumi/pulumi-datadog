@@ -6,6 +6,7 @@
 from .dashboard import *
 from .dashboard_list import *
 from .downtime import *
+from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_ip_ranges import *
 from .get_monitor import *

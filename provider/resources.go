@@ -174,6 +174,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: makeDataSource(datadogMod, "getMonitor"),
 			},
 			"datadog_dashboard_list":       {Tok: makeDataSource(datadogMod, "getDashboardList")},
+			"datadog_dashboard":            {Tok: makeDataSource(datadogMod, "getDashboard")},
 			"datadog_synthetics_locations": {Tok: makeDataSource(datadogMod, "getSyntheticsLocations")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{

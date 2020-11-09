@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.15.0 of the datadog Terraform Provider
+* Upgrade to v2.16.0 of the datadog Terraform Provider
 
 ---
 
