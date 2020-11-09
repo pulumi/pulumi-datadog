@@ -58,8 +58,8 @@ import (
 //
 // There are two ways how to silence a single monitor:
 //
-// - Mute it by hand
-// - Create a Downtime
+// -   Mute it by hand
+// -   Create a Downtime
 //
 // Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your application, as they would be removed on next `pulumi up` invocation. In order to prevent that from happening, you can add following to your monitor:
 //
@@ -134,12 +134,13 @@ type Monitor struct {
 	NotifyAudit pulumi.BoolPtrOutput `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
+	Priority     pulumi.IntPtrOutput  `pulumi:"priority"`
 	Query        pulumi.StringOutput  `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapOutput `pulumi:"silenced"`
@@ -216,12 +217,13 @@ type monitorState struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData *bool   `pulumi:"notifyNoData"`
+	Priority     *int    `pulumi:"priority"`
 	Query        *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced map[string]interface{} `pulumi:"silenced"`
@@ -259,12 +261,13 @@ type MonitorState struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData pulumi.BoolPtrInput
+	Priority     pulumi.IntPtrInput
 	Query        pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval pulumi.IntPtrInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow pulumi.BoolPtrInput
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapInput
@@ -306,12 +309,13 @@ type monitorArgs struct {
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData *bool  `pulumi:"notifyNoData"`
+	Priority     *int   `pulumi:"priority"`
 	Query        string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced map[string]interface{} `pulumi:"silenced"`
@@ -350,12 +354,13 @@ type MonitorArgs struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData pulumi.BoolPtrInput
+	Priority     pulumi.IntPtrInput
 	Query        pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval pulumi.IntPtrInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow pulumi.BoolPtrInput
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapInput

@@ -139,7 +139,7 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        /// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        /// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         public InputList<string> Tags
         {
@@ -310,7 +310,7 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        /// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         public InputList<string> Tags
         {

@@ -29,6 +29,7 @@ class Monitor(pulumi.CustomResource):
                  no_data_timeframe: Optional[pulumi.Input[int]] = None,
                  notify_audit: Optional[pulumi.Input[bool]] = None,
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
@@ -79,8 +80,8 @@ class Monitor(pulumi.CustomResource):
 
         There are two ways how to silence a single monitor:
 
-        - Mute it by hand
-        - Create a Downtime
+        -   Mute it by hand
+        -   Create a Downtime
 
         Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your application, as they would be removed on next `pulumi up` invocation. In order to prevent that from happening, you can add following to your monitor:
 
@@ -120,7 +121,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve
@@ -159,6 +160,7 @@ class Monitor(pulumi.CustomResource):
             __props__['no_data_timeframe'] = no_data_timeframe
             __props__['notify_audit'] = notify_audit
             __props__['notify_no_data'] = notify_no_data
+            __props__['priority'] = priority
             if query is None:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
@@ -198,6 +200,7 @@ class Monitor(pulumi.CustomResource):
             no_data_timeframe: Optional[pulumi.Input[int]] = None,
             notify_audit: Optional[pulumi.Input[bool]] = None,
             notify_no_data: Optional[pulumi.Input[bool]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             query: Optional[pulumi.Input[str]] = None,
             renotify_interval: Optional[pulumi.Input[int]] = None,
             require_full_window: Optional[pulumi.Input[bool]] = None,
@@ -226,7 +229,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve
@@ -248,6 +251,7 @@ class Monitor(pulumi.CustomResource):
         __props__["no_data_timeframe"] = no_data_timeframe
         __props__["notify_audit"] = notify_audit
         __props__["notify_no_data"] = notify_no_data
+        __props__["priority"] = priority
         __props__["query"] = query
         __props__["renotify_interval"] = renotify_interval
         __props__["require_full_window"] = require_full_window
@@ -349,6 +353,11 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def priority(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
     def query(self) -> pulumi.Output[str]:
         return pulumi.get(self, "query")
 
@@ -372,7 +381,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def silenced(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+        Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
         """
         return pulumi.get(self, "silenced")
 

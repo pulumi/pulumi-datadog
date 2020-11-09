@@ -44,8 +44,8 @@ import * as utilities from "./utilities";
  *
  * There are two ways how to silence a single monitor:
  *
- * - Mute it by hand
- * - Create a Downtime
+ * -   Mute it by hand
+ * -   Create a Downtime
  *
  * Both of these actions add a new value to the `silenced` map. This can be problematic if the `silenced` attribute doesn't contain them in your application, as they would be removed on next `pulumi up` invocation. In order to prevent that from happening, you can add following to your monitor:
  *
@@ -140,6 +140,7 @@ export class Monitor extends pulumi.CustomResource {
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults
      */
     public readonly notifyNoData!: pulumi.Output<boolean | undefined>;
+    public readonly priority!: pulumi.Output<number | undefined>;
     public readonly query!: pulumi.Output<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -150,7 +151,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
      *
      * @deprecated use Downtime Resource instead
      */
@@ -198,6 +199,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["noDataTimeframe"] = state ? state.noDataTimeframe : undefined;
             inputs["notifyAudit"] = state ? state.notifyAudit : undefined;
             inputs["notifyNoData"] = state ? state.notifyNoData : undefined;
+            inputs["priority"] = state ? state.priority : undefined;
             inputs["query"] = state ? state.query : undefined;
             inputs["renotifyInterval"] = state ? state.renotifyInterval : undefined;
             inputs["requireFullWindow"] = state ? state.requireFullWindow : undefined;
@@ -234,6 +236,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["noDataTimeframe"] = args ? args.noDataTimeframe : undefined;
             inputs["notifyAudit"] = args ? args.notifyAudit : undefined;
             inputs["notifyNoData"] = args ? args.notifyNoData : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["renotifyInterval"] = args ? args.renotifyInterval : undefined;
             inputs["requireFullWindow"] = args ? args.requireFullWindow : undefined;
@@ -299,6 +302,7 @@ export interface MonitorState {
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    readonly priority?: pulumi.Input<number>;
     readonly query?: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -309,7 +313,7 @@ export interface MonitorState {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
      *
      * @deprecated use Downtime Resource instead
      */
@@ -377,6 +381,7 @@ export interface MonitorArgs {
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    readonly priority?: pulumi.Input<number>;
     readonly query: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -387,7 +392,7 @@ export interface MonitorArgs {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource.
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
      *
      * @deprecated use Downtime Resource instead
      */

@@ -73,7 +73,7 @@ type ServiceLevelObjective struct {
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       pulumi.StringArrayOutput                  `pulumi:"tags"`
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
 	Type       pulumi.StringOutput                       `pulumi:"type"`
@@ -126,7 +126,7 @@ type serviceLevelObjectiveState struct {
 	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	Type       *string                          `pulumi:"type"`
@@ -143,7 +143,7 @@ type ServiceLevelObjectiveState struct {
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	Type       pulumi.StringPtrInput
@@ -164,7 +164,7 @@ type serviceLevelObjectiveArgs struct {
 	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	Type       string                           `pulumi:"type"`
@@ -182,7 +182,7 @@ type ServiceLevelObjectiveArgs struct {
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// - `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	Type       pulumi.StringInput

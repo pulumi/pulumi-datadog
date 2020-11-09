@@ -11,9 +11,7 @@ import (
 )
 
 type IntegrationService struct {
-	// Your Service name associated service key in Pagerduty.
-	ServiceKey string `pulumi:"serviceKey"`
-	// Your Service name in PagerDuty.
+	ServiceKey  string `pulumi:"serviceKey"`
 	ServiceName string `pulumi:"serviceName"`
 }
 
@@ -29,9 +27,7 @@ type IntegrationServiceInput interface {
 }
 
 type IntegrationServiceArgs struct {
-	// Your Service name associated service key in Pagerduty.
-	ServiceKey pulumi.StringInput `pulumi:"serviceKey"`
-	// Your Service name in PagerDuty.
+	ServiceKey  pulumi.StringInput `pulumi:"serviceKey"`
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
@@ -86,12 +82,10 @@ func (o IntegrationServiceOutput) ToIntegrationServiceOutputWithContext(ctx cont
 	return o
 }
 
-// Your Service name associated service key in Pagerduty.
 func (o IntegrationServiceOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationService) string { return v.ServiceKey }).(pulumi.StringOutput)
 }
 
-// Your Service name in PagerDuty.
 func (o IntegrationServiceOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationService) string { return v.ServiceName }).(pulumi.StringOutput)
 }

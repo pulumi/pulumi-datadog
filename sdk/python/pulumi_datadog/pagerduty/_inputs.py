@@ -17,19 +17,12 @@ class IntegrationServiceArgs:
     def __init__(__self__, *,
                  service_key: pulumi.Input[str],
                  service_name: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] service_key: Your Service name associated service key in Pagerduty.
-        :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
-        """
         pulumi.set(__self__, "service_key", service_key)
         pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Input[str]:
-        """
-        Your Service name associated service key in Pagerduty.
-        """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
@@ -39,9 +32,6 @@ class IntegrationServiceArgs:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[str]:
-        """
-        Your Service name in PagerDuty.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
