@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -40,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// There must be at most one `datadog_logs_pipeline_order` resource. Pipeline order creation is not supported from logs config API. You can import the `datadog_logs_pipeline_order` or create a pipeline order (which is actually doing the update operation).
+//
+// ```sh
+//  $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
 // ```
 type LogsPipelineOrder struct {
 	pulumi.CustomResourceState
@@ -108,4 +117,43 @@ type LogsPipelineOrderArgs struct {
 
 func (LogsPipelineOrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsPipelineOrderArgs)(nil)).Elem()
+}
+
+type LogsPipelineOrderInput interface {
+	pulumi.Input
+
+	ToLogsPipelineOrderOutput() LogsPipelineOrderOutput
+	ToLogsPipelineOrderOutputWithContext(ctx context.Context) LogsPipelineOrderOutput
+}
+
+func (LogsPipelineOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsPipelineOrder)(nil)).Elem()
+}
+
+func (i LogsPipelineOrder) ToLogsPipelineOrderOutput() LogsPipelineOrderOutput {
+	return i.ToLogsPipelineOrderOutputWithContext(context.Background())
+}
+
+func (i LogsPipelineOrder) ToLogsPipelineOrderOutputWithContext(ctx context.Context) LogsPipelineOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderOutput)
+}
+
+type LogsPipelineOrderOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsPipelineOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsPipelineOrderOutput)(nil)).Elem()
+}
+
+func (o LogsPipelineOrderOutput) ToLogsPipelineOrderOutput() LogsPipelineOrderOutput {
+	return o
+}
+
+func (o LogsPipelineOrderOutput) ToLogsPipelineOrderOutputWithContext(ctx context.Context) LogsPipelineOrderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogsPipelineOrderOutput{})
 }

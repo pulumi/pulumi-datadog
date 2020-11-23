@@ -35,6 +35,14 @@ class IntegrationLogCollection(pulumi.CustomResource):
             services=["lambda"])
         ```
 
+        ## Import
+
+        Amazon Web Services log collection integrations can be imported using the `account ID`.
+
+        ```sh
+         $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

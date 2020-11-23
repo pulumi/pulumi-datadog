@@ -33,6 +33,12 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         python = datadog.LogsIntegrationPipeline("python", is_enabled=True)
         ```
 
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

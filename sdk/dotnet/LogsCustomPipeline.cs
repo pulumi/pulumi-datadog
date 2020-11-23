@@ -269,6 +269,12 @@ namespace Pulumi.Datadog
     /// ## Important Notes
     /// 
     /// Each `datadog.LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `datadog.LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `datadog.LogsPipelineOrder` resource.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline For the previously created custom pipelines, you can include them in Terraform with the `import` operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them. Use `&lt;resource.name&gt; &lt;pipelineID&gt;` for each existing pipeline.
+    /// ```
     /// </summary>
     public partial class LogsCustomPipeline : Pulumi.CustomResource
     {

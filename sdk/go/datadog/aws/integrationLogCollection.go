@@ -4,6 +4,7 @@
 package aws
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Amazon Web Services log collection integrations can be imported using the `account ID`.
+//
+// ```sh
+//  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
 // ```
 type IntegrationLogCollection struct {
 	pulumi.CustomResourceState
@@ -104,4 +113,43 @@ type IntegrationLogCollectionArgs struct {
 
 func (IntegrationLogCollectionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationLogCollectionArgs)(nil)).Elem()
+}
+
+type IntegrationLogCollectionInput interface {
+	pulumi.Input
+
+	ToIntegrationLogCollectionOutput() IntegrationLogCollectionOutput
+	ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput
+}
+
+func (IntegrationLogCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationLogCollection)(nil)).Elem()
+}
+
+func (i IntegrationLogCollection) ToIntegrationLogCollectionOutput() IntegrationLogCollectionOutput {
+	return i.ToIntegrationLogCollectionOutputWithContext(context.Background())
+}
+
+func (i IntegrationLogCollection) ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionOutput)
+}
+
+type IntegrationLogCollectionOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationLogCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationLogCollectionOutput)(nil)).Elem()
+}
+
+func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutput() IntegrationLogCollectionOutput {
+	return o
+}
+
+func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationLogCollectionOutput{})
 }

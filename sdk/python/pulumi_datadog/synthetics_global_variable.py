@@ -44,6 +44,14 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         Secure global variables are not supported for now.
 
+        ## Import
+
+        Synthetics global variables can be imported using their string ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -80,6 +79,14 @@ import * as utilities from "./utilities";
  *     ],
  *     type: "monitor",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Service Level Objectives can be imported using their string ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
  * ```
  */
 export class ServiceLevelObjective extends pulumi.CustomResource {

@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // ## Secure global variables
 //
 // Secure global variables are not supported for now.
+//
+// ## Import
+//
+// Synthetics global variables can be imported using their string ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+// ```
 type SyntheticsGlobalVariable struct {
 	pulumi.CustomResourceState
 
@@ -120,4 +129,43 @@ type SyntheticsGlobalVariableArgs struct {
 
 func (SyntheticsGlobalVariableArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*syntheticsGlobalVariableArgs)(nil)).Elem()
+}
+
+type SyntheticsGlobalVariableInput interface {
+	pulumi.Input
+
+	ToSyntheticsGlobalVariableOutput() SyntheticsGlobalVariableOutput
+	ToSyntheticsGlobalVariableOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOutput
+}
+
+func (SyntheticsGlobalVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariable)(nil)).Elem()
+}
+
+func (i SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutput() SyntheticsGlobalVariableOutput {
+	return i.ToSyntheticsGlobalVariableOutputWithContext(context.Background())
+}
+
+func (i SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOutput)
+}
+
+type SyntheticsGlobalVariableOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyntheticsGlobalVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariableOutput)(nil)).Elem()
+}
+
+func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariableOutput() SyntheticsGlobalVariableOutput {
+	return o
+}
+
+func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariableOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SyntheticsGlobalVariableOutput{})
 }

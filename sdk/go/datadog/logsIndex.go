@@ -4,12 +4,18 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+//  $ pulumi import datadog:index/logsIndex:LogsIndex The current Datadog Terraform provider version does not support the creation and deletion of indexes. To manage the existing indexes, do `<datadog_logs_index.name> <indexName>` to import them to Terraform. If you create a resource which does not match the name of any existing index, `terraform apply` will throw `Not Found` error code.
+// ```
 type LogsIndex struct {
 	pulumi.CustomResourceState
 
@@ -82,4 +88,43 @@ type LogsIndexArgs struct {
 
 func (LogsIndexArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIndexArgs)(nil)).Elem()
+}
+
+type LogsIndexInput interface {
+	pulumi.Input
+
+	ToLogsIndexOutput() LogsIndexOutput
+	ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput
+}
+
+func (LogsIndex) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIndex)(nil)).Elem()
+}
+
+func (i LogsIndex) ToLogsIndexOutput() LogsIndexOutput {
+	return i.ToLogsIndexOutputWithContext(context.Background())
+}
+
+func (i LogsIndex) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOutput)
+}
+
+type LogsIndexOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIndexOutput)(nil)).Elem()
+}
+
+func (o LogsIndexOutput) ToLogsIndexOutput() LogsIndexOutput {
+	return o
+}
+
+func (o LogsIndexOutput) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogsIndexOutput{})
 }

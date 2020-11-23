@@ -33,6 +33,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// users can be imported using their handle, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/user:User example_user existing@example.com
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

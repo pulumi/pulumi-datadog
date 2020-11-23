@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,6 +39,12 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ```sh
+//  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `<datadog_logs_index_order.name> <name>` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.
 // ```
 type LogsIndexOrder struct {
 	pulumi.CustomResourceState
@@ -106,4 +113,43 @@ type LogsIndexOrderArgs struct {
 
 func (LogsIndexOrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIndexOrderArgs)(nil)).Elem()
+}
+
+type LogsIndexOrderInput interface {
+	pulumi.Input
+
+	ToLogsIndexOrderOutput() LogsIndexOrderOutput
+	ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput
+}
+
+func (LogsIndexOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIndexOrder)(nil)).Elem()
+}
+
+func (i LogsIndexOrder) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
+	return i.ToLogsIndexOrderOutputWithContext(context.Background())
+}
+
+func (i LogsIndexOrder) ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderOutput)
+}
+
+type LogsIndexOrderOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsIndexOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIndexOrderOutput)(nil)).Elem()
+}
+
+func (o LogsIndexOrderOutput) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
+	return o
+}
+
+func (o LogsIndexOrderOutput) ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogsIndexOrderOutput{})
 }

@@ -40,6 +40,12 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `&lt;datadog_logs_index_order.name&gt; &lt;name&gt;` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.
+    /// ```
     /// </summary>
     public partial class LogsIndexOrder : Pulumi.CustomResource
     {

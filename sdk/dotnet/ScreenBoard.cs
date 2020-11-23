@@ -543,6 +543,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// screenboards can be imported using their numeric ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/screenBoard:ScreenBoard my_service_screenboard 2081
+    /// ```
     /// </summary>
     public partial class ScreenBoard : Pulumi.CustomResource
     {

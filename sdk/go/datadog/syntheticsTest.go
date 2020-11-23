@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -298,6 +299,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Synthetics tests can be imported using their public string ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
+// ```
 type SyntheticsTest struct {
 	pulumi.CustomResourceState
 
@@ -467,4 +476,43 @@ type SyntheticsTestArgs struct {
 
 func (SyntheticsTestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*syntheticsTestArgs)(nil)).Elem()
+}
+
+type SyntheticsTestInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestOutput() SyntheticsTestOutput
+	ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput
+}
+
+func (SyntheticsTest) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTest)(nil)).Elem()
+}
+
+func (i SyntheticsTest) ToSyntheticsTestOutput() SyntheticsTestOutput {
+	return i.ToSyntheticsTestOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTest) ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOutput)
+}
+
+type SyntheticsTestOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyntheticsTestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTestOutput)(nil)).Elem()
+}
+
+func (o SyntheticsTestOutput) ToSyntheticsTestOutput() SyntheticsTestOutput {
+	return o
+}
+
+func (o SyntheticsTestOutput) ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SyntheticsTestOutput{})
 }

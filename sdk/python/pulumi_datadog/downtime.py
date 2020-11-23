@@ -70,6 +70,14 @@ class Downtime(pulumi.CustomResource):
             start=1483308000)
         ```
 
+        ## Import
+
+        Downtimes can be imported using their numeric ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied

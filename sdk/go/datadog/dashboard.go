@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -711,6 +712,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// dashboards can be imported using their ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+// ```
 type Dashboard struct {
 	pulumi.CustomResourceState
 
@@ -877,4 +886,43 @@ type DashboardArgs struct {
 
 func (DashboardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardArgs)(nil)).Elem()
+}
+
+type DashboardInput interface {
+	pulumi.Input
+
+	ToDashboardOutput() DashboardOutput
+	ToDashboardOutputWithContext(ctx context.Context) DashboardOutput
+}
+
+func (Dashboard) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dashboard)(nil)).Elem()
+}
+
+func (i Dashboard) ToDashboardOutput() DashboardOutput {
+	return i.ToDashboardOutputWithContext(context.Background())
+}
+
+func (i Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardOutput)
+}
+
+type DashboardOutput struct {
+	*pulumi.OutputState
+}
+
+func (DashboardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardOutput)(nil)).Elem()
+}
+
+func (o DashboardOutput) ToDashboardOutput() DashboardOutput {
+	return o
+}
+
+func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DashboardOutput{})
 }

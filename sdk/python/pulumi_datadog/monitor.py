@@ -108,6 +108,14 @@ class Monitor(pulumi.CustomResource):
             type="composite")
         ```
 
+        ## Import
+
+        Monitors can be imported using their numeric ID, e.g. console
+
+        ```sh
+         $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
@@ -167,7 +175,7 @@ class Monitor(pulumi.CustomResource):
             __props__['renotify_interval'] = renotify_interval
             __props__['require_full_window'] = require_full_window
             if silenced is not None:
-                warnings.warn("use Downtime Resource instead", DeprecationWarning)
+                warnings.warn("""use Downtime Resource instead""", DeprecationWarning)
                 pulumi.log.warn("silenced is deprecated: use Downtime Resource instead")
             __props__['silenced'] = silenced
             __props__['tags'] = tags

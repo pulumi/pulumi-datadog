@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -73,6 +74,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Downtimes can be imported using their numeric ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
 // ```
 type Downtime struct {
 	pulumi.CustomResourceState
@@ -238,4 +247,43 @@ type DowntimeArgs struct {
 
 func (DowntimeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*downtimeArgs)(nil)).Elem()
+}
+
+type DowntimeInput interface {
+	pulumi.Input
+
+	ToDowntimeOutput() DowntimeOutput
+	ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput
+}
+
+func (Downtime) ElementType() reflect.Type {
+	return reflect.TypeOf((*Downtime)(nil)).Elem()
+}
+
+func (i Downtime) ToDowntimeOutput() DowntimeOutput {
+	return i.ToDowntimeOutputWithContext(context.Background())
+}
+
+func (i Downtime) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DowntimeOutput)
+}
+
+type DowntimeOutput struct {
+	*pulumi.OutputState
+}
+
+func (DowntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DowntimeOutput)(nil)).Elem()
+}
+
+func (o DowntimeOutput) ToDowntimeOutput() DowntimeOutput {
+	return o
+}
+
+func (o DowntimeOutput) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DowntimeOutput{})
 }

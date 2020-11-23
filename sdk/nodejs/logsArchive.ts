@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -27,6 +26,14 @@ import * as utilities from "./utilities";
  *         role_name: "my-role-name",
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Logs archives can be imported using their public string ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
  * ```
  */
 export class LogsArchive extends pulumi.CustomResource {

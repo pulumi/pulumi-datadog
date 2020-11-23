@@ -19,6 +19,12 @@ import * as utilities from "./utilities";
  *     isEnabled: true,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>`
+ * ```
  */
 export class LogsIntegrationPipeline extends pulumi.CustomResource {
     /**

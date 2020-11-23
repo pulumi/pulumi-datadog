@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -13,6 +14,14 @@ import (
 // Provides a Datadog screenboard resource. This can be used to create and manage Datadog screenboards.
 //
 // > **Note:** This resource is outdated. Use the new `Dashboard` resource instead.
+//
+// ## Import
+//
+// screenboards can be imported using their numeric ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/screenBoard:ScreenBoard my_service_screenboard 2081
+// ```
 type ScreenBoard struct {
 	pulumi.CustomResourceState
 
@@ -135,4 +144,43 @@ type ScreenBoardArgs struct {
 
 func (ScreenBoardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*screenBoardArgs)(nil)).Elem()
+}
+
+type ScreenBoardInput interface {
+	pulumi.Input
+
+	ToScreenBoardOutput() ScreenBoardOutput
+	ToScreenBoardOutputWithContext(ctx context.Context) ScreenBoardOutput
+}
+
+func (ScreenBoard) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScreenBoard)(nil)).Elem()
+}
+
+func (i ScreenBoard) ToScreenBoardOutput() ScreenBoardOutput {
+	return i.ToScreenBoardOutputWithContext(context.Background())
+}
+
+func (i ScreenBoard) ToScreenBoardOutputWithContext(ctx context.Context) ScreenBoardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScreenBoardOutput)
+}
+
+type ScreenBoardOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScreenBoardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScreenBoardOutput)(nil)).Elem()
+}
+
+func (o ScreenBoardOutput) ToScreenBoardOutput() ScreenBoardOutput {
+	return o
+}
+
+func (o ScreenBoardOutput) ToScreenBoardOutputWithContext(ctx context.Context) ScreenBoardOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScreenBoardOutput{})
 }

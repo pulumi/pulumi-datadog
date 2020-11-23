@@ -4,12 +4,21 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
+//
+// ## Import
+//
+// There must be at most one `datadog_logs_archive_order` resource. You can import the `datadog_logs_archive_order` or create an archive order.
+//
+// ```sh
+//  $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
+// ```
 type LogsArchiveOrder struct {
 	pulumi.CustomResourceState
 
@@ -66,4 +75,43 @@ type LogsArchiveOrderArgs struct {
 
 func (LogsArchiveOrderArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsArchiveOrderArgs)(nil)).Elem()
+}
+
+type LogsArchiveOrderInput interface {
+	pulumi.Input
+
+	ToLogsArchiveOrderOutput() LogsArchiveOrderOutput
+	ToLogsArchiveOrderOutputWithContext(ctx context.Context) LogsArchiveOrderOutput
+}
+
+func (LogsArchiveOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveOrder)(nil)).Elem()
+}
+
+func (i LogsArchiveOrder) ToLogsArchiveOrderOutput() LogsArchiveOrderOutput {
+	return i.ToLogsArchiveOrderOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveOrder) ToLogsArchiveOrderOutputWithContext(ctx context.Context) LogsArchiveOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderOutput)
+}
+
+type LogsArchiveOrderOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsArchiveOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveOrderOutput)(nil)).Elem()
+}
+
+func (o LogsArchiveOrderOutput) ToLogsArchiveOrderOutput() LogsArchiveOrderOutput {
+	return o
+}
+
+func (o LogsArchiveOrderOutput) ToLogsArchiveOrderOutputWithContext(ctx context.Context) LogsArchiveOrderOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogsArchiveOrderOutput{})
 }

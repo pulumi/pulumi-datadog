@@ -32,6 +32,12 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name&gt; &lt;pipelineID&gt;`
+    /// ```
     /// </summary>
     public partial class LogsIntegrationPipeline : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -109,6 +110,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Monitors can be imported using their numeric ID, e.g. console
+//
+// ```sh
+//  $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState
@@ -378,4 +387,43 @@ type MonitorArgs struct {
 
 func (MonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorArgs)(nil)).Elem()
+}
+
+type MonitorInput interface {
+	pulumi.Input
+
+	ToMonitorOutput() MonitorOutput
+	ToMonitorOutputWithContext(ctx context.Context) MonitorOutput
+}
+
+func (Monitor) ElementType() reflect.Type {
+	return reflect.TypeOf((*Monitor)(nil)).Elem()
+}
+
+func (i Monitor) ToMonitorOutput() MonitorOutput {
+	return i.ToMonitorOutputWithContext(context.Background())
+}
+
+func (i Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorOutput)
+}
+
+type MonitorOutput struct {
+	*pulumi.OutputState
+}
+
+func (MonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorOutput)(nil)).Elem()
+}
+
+func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
+	return o
+}
+
+func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MonitorOutput{})
 }

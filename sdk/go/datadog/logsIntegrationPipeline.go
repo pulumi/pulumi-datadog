@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -34,6 +35,12 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// ```sh
+//  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>`
 // ```
 type LogsIntegrationPipeline struct {
 	pulumi.CustomResourceState
@@ -91,4 +98,43 @@ type LogsIntegrationPipelineArgs struct {
 
 func (LogsIntegrationPipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIntegrationPipelineArgs)(nil)).Elem()
+}
+
+type LogsIntegrationPipelineInput interface {
+	pulumi.Input
+
+	ToLogsIntegrationPipelineOutput() LogsIntegrationPipelineOutput
+	ToLogsIntegrationPipelineOutputWithContext(ctx context.Context) LogsIntegrationPipelineOutput
+}
+
+func (LogsIntegrationPipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIntegrationPipeline)(nil)).Elem()
+}
+
+func (i LogsIntegrationPipeline) ToLogsIntegrationPipelineOutput() LogsIntegrationPipelineOutput {
+	return i.ToLogsIntegrationPipelineOutputWithContext(context.Background())
+}
+
+func (i LogsIntegrationPipeline) ToLogsIntegrationPipelineOutputWithContext(ctx context.Context) LogsIntegrationPipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineOutput)
+}
+
+type LogsIntegrationPipelineOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsIntegrationPipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIntegrationPipelineOutput)(nil)).Elem()
+}
+
+func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutput() LogsIntegrationPipelineOutput {
+	return o
+}
+
+func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutputWithContext(ctx context.Context) LogsIntegrationPipelineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogsIntegrationPipelineOutput{})
 }

@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Timeboards can be imported using their numeric ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/timeBoard:TimeBoard my_service_timeboard 2081
+    /// ```
+    /// </summary>
     public partial class TimeBoard : Pulumi.CustomResource
     {
         /// <summary>

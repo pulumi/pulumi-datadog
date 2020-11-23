@@ -72,6 +72,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Downtimes can be imported using their numeric ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
+    /// ```
     /// </summary>
     public partial class Downtime : Pulumi.CustomResource
     {

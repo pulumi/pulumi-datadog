@@ -40,6 +40,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Logs archives can be imported using their public string ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
+    /// ```
     /// </summary>
     public partial class LogsArchive : Pulumi.CustomResource
     {

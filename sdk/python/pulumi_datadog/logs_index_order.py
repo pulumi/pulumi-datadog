@@ -35,6 +35,12 @@ class LogsIndexOrder(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=["datadog_logs_index.sample_index"]))
         ```
 
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `<datadog_logs_index_order.name> <name>` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

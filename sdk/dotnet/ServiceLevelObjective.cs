@@ -110,6 +110,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Service Level Objectives can be imported using their string ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
+    /// ```
     /// </summary>
     public partial class ServiceLevelObjective : Pulumi.CustomResource
     {

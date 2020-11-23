@@ -89,6 +89,14 @@ class DashboardList(pulumi.CustomResource):
                 ]))
         ```
 
+        ## Import
+
+        dashboard lists can be imported using their id, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashbaord items that belong to this list

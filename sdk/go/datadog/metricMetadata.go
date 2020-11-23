@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type MetricMetadataArgs struct {
 
 func (MetricMetadataArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricMetadataArgs)(nil)).Elem()
+}
+
+type MetricMetadataInput interface {
+	pulumi.Input
+
+	ToMetricMetadataOutput() MetricMetadataOutput
+	ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput
+}
+
+func (MetricMetadata) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricMetadata)(nil)).Elem()
+}
+
+func (i MetricMetadata) ToMetricMetadataOutput() MetricMetadataOutput {
+	return i.ToMetricMetadataOutputWithContext(context.Background())
+}
+
+func (i MetricMetadata) ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataOutput)
+}
+
+type MetricMetadataOutput struct {
+	*pulumi.OutputState
+}
+
+func (MetricMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricMetadataOutput)(nil)).Elem()
+}
+
+func (o MetricMetadataOutput) ToMetricMetadataOutput() MetricMetadataOutput {
+	return o
+}
+
+func (o MetricMetadataOutput) ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(MetricMetadataOutput{})
 }

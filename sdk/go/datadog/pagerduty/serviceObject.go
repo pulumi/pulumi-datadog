@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -109,4 +110,43 @@ type ServiceObjectArgs struct {
 
 func (ServiceObjectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceObjectArgs)(nil)).Elem()
+}
+
+type ServiceObjectInput interface {
+	pulumi.Input
+
+	ToServiceObjectOutput() ServiceObjectOutput
+	ToServiceObjectOutputWithContext(ctx context.Context) ServiceObjectOutput
+}
+
+func (ServiceObject) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceObject)(nil)).Elem()
+}
+
+func (i ServiceObject) ToServiceObjectOutput() ServiceObjectOutput {
+	return i.ToServiceObjectOutputWithContext(context.Background())
+}
+
+func (i ServiceObject) ToServiceObjectOutputWithContext(ctx context.Context) ServiceObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceObjectOutput)
+}
+
+type ServiceObjectOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceObjectOutput)(nil)).Elem()
+}
+
+func (o ServiceObjectOutput) ToServiceObjectOutput() ServiceObjectOutput {
+	return o
+}
+
+func (o ServiceObjectOutput) ToServiceObjectOutputWithContext(ctx context.Context) ServiceObjectOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceObjectOutput{})
 }

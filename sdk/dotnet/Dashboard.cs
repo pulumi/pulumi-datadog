@@ -872,6 +872,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// dashboards can be imported using their ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+    /// ```
     /// </summary>
     public partial class Dashboard : Pulumi.CustomResource
     {

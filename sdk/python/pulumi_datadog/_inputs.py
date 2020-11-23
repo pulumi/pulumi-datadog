@@ -11651,7 +11651,7 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs:
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if logset is not None:
-            warnings.warn("This parameter has been deprecated. Use 'indexes' instead", DeprecationWarning)
+            warnings.warn("""This parameter has been deprecated. Use 'indexes' instead""", DeprecationWarning)
             pulumi.log.warn("logset is deprecated: This parameter has been deprecated. Use 'indexes' instead")
         if logset is not None:
             pulumi.set(__self__, "logset", logset)
@@ -11846,7 +11846,7 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
         if count is not None:
-            warnings.warn("This parameter has been deprecated", DeprecationWarning)
+            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
             pulumi.log.warn("count is deprecated: This parameter has been deprecated")
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -11859,7 +11859,7 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
         if start is not None:
-            warnings.warn("This parameter has been deprecated", DeprecationWarning)
+            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
             pulumi.log.warn("start is deprecated: This parameter has been deprecated")
         if start is not None:
             pulumi.set(__self__, "start", start)
@@ -25068,7 +25068,7 @@ class DashboardWidgetLogStreamDefinitionArgs:
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if logset is not None:
-            warnings.warn("This parameter has been deprecated. Use 'indexes' instead", DeprecationWarning)
+            warnings.warn("""This parameter has been deprecated. Use 'indexes' instead""", DeprecationWarning)
             pulumi.log.warn("logset is deprecated: This parameter has been deprecated. Use 'indexes' instead")
         if logset is not None:
             pulumi.set(__self__, "logset", logset)
@@ -25263,7 +25263,7 @@ class DashboardWidgetManageStatusDefinitionArgs:
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
         if count is not None:
-            warnings.warn("This parameter has been deprecated", DeprecationWarning)
+            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
             pulumi.log.warn("count is deprecated: This parameter has been deprecated")
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -25276,7 +25276,7 @@ class DashboardWidgetManageStatusDefinitionArgs:
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
         if start is not None:
-            warnings.warn("This parameter has been deprecated", DeprecationWarning)
+            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
             pulumi.log.warn("start is deprecated: This parameter has been deprecated")
         if start is not None:
             pulumi.set(__self__, "start", start)

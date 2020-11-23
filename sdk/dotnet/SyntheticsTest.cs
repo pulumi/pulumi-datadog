@@ -387,6 +387,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Synthetics tests can be imported using their public string ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
+    /// ```
     /// </summary>
     public partial class SyntheticsTest : Pulumi.CustomResource
     {
