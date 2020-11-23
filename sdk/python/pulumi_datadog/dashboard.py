@@ -671,6 +671,14 @@ class Dashboard(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        dashboards can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.

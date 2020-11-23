@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -60,6 +61,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Service Level Objectives can be imported using their string ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
 // ```
 type ServiceLevelObjective struct {
 	pulumi.CustomResourceState
@@ -191,4 +200,43 @@ type ServiceLevelObjectiveArgs struct {
 
 func (ServiceLevelObjectiveArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLevelObjectiveArgs)(nil)).Elem()
+}
+
+type ServiceLevelObjectiveInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput
+	ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput
+}
+
+func (ServiceLevelObjective) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjective)(nil)).Elem()
+}
+
+func (i ServiceLevelObjective) ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput {
+	return i.ToServiceLevelObjectiveOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjective) ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput)
+}
+
+type ServiceLevelObjectiveOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceLevelObjectiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveOutput)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceLevelObjectiveOutput{})
 }

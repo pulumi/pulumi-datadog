@@ -26,6 +26,14 @@ import * as utilities from "../utilities";
  *     projectId: "awesome-project-id",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Google Cloud Platform integrations can be imported using their project ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
+ * ```
  */
 export class Integration extends pulumi.CustomResource {
     /**

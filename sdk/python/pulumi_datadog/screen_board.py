@@ -421,6 +421,14 @@ class ScreenBoard(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        screenboards can be imported using their numeric ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/screenBoard:ScreenBoard my_service_screenboard 2081
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] height: Height of the screenboard

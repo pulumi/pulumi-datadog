@@ -101,6 +101,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Monitors can be imported using their numeric ID, e.g. console
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
+    /// ```
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {

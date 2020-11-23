@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -71,6 +70,14 @@ import * as utilities from "./utilities";
  *     query: pulumi.interpolate`${datadog_monitor_foo.id} || ${datadog_synthetics_test_foo.monitorId}`,
  *     type: "composite",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Monitors can be imported using their numeric ID, e.g. console
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
  * ```
  */
 export class Monitor extends pulumi.CustomResource {

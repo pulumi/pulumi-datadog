@@ -24,7 +24,12 @@ class LogsIndex(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a LogsIndex resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/logsIndex:LogsIndex The current Datadog Terraform provider version does not support the creation and deletion of indexes. To manage the existing indexes, do `<datadog_logs_index.name> <indexName>` to import them to Terraform. If you create a resource which does not match the name of any existing index, `terraform apply` will throw `Not Found` error code.
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

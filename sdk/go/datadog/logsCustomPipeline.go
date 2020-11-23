@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -222,6 +223,12 @@ import (
 // ## Important Notes
 //
 // Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
+//
+// ## Import
+//
+// ```sh
+//  $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline For the previously created custom pipelines, you can include them in Terraform with the `import` operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them. Use `<resource.name> <pipelineID>` for each existing pipeline.
+// ```
 type LogsCustomPipeline struct {
 	pulumi.CustomResourceState
 
@@ -299,4 +306,43 @@ type LogsCustomPipelineArgs struct {
 
 func (LogsCustomPipelineArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsCustomPipelineArgs)(nil)).Elem()
+}
+
+type LogsCustomPipelineInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineOutput() LogsCustomPipelineOutput
+	ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput
+}
+
+func (LogsCustomPipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipeline)(nil)).Elem()
+}
+
+func (i LogsCustomPipeline) ToLogsCustomPipelineOutput() LogsCustomPipelineOutput {
+	return i.ToLogsCustomPipelineOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipeline) ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineOutput)
+}
+
+type LogsCustomPipelineOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsCustomPipelineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineOutput)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutput() LogsCustomPipelineOutput {
+	return o
+}
+
+func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogsCustomPipelineOutput{})
 }

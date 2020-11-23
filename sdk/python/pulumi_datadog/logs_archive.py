@@ -49,6 +49,14 @@ class LogsArchive(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Logs archives can be imported using their public string ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """

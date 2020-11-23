@@ -103,6 +103,14 @@ class ServiceLevelObjective(pulumi.CustomResource):
             type="monitor")
         ```
 
+        ## Import
+
+        Service Level Objectives can be imported using their string ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs

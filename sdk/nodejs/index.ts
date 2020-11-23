@@ -34,4 +34,12 @@ import * as config from "./config";
 import * as gcp from "./gcp";
 import * as pagerduty from "./pagerduty";
 import * as types from "./types";
-export {aws, azure, config, gcp, pagerduty, types};
+
+export {
+    aws,
+    azure,
+    config,
+    gcp,
+    pagerduty,
+    types,
+};

@@ -26,7 +26,14 @@ class TimeBoard(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a TimeBoard resource with the given unique name, props, and options.
+        ## Import
+
+        Timeboards can be imported using their numeric ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/timeBoard:TimeBoard my_service_timeboard 2081
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.

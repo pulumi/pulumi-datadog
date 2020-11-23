@@ -4,6 +4,7 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -42,6 +43,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Logs archives can be imported using their public string ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
 // ```
 type LogsArchive struct {
 	pulumi.CustomResourceState
@@ -135,4 +144,43 @@ type LogsArchiveArgs struct {
 
 func (LogsArchiveArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsArchiveArgs)(nil)).Elem()
+}
+
+type LogsArchiveInput interface {
+	pulumi.Input
+
+	ToLogsArchiveOutput() LogsArchiveOutput
+	ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput
+}
+
+func (LogsArchive) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchive)(nil)).Elem()
+}
+
+func (i LogsArchive) ToLogsArchiveOutput() LogsArchiveOutput {
+	return i.ToLogsArchiveOutputWithContext(context.Background())
+}
+
+func (i LogsArchive) ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOutput)
+}
+
+type LogsArchiveOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsArchiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveOutput)(nil)).Elem()
+}
+
+func (o LogsArchiveOutput) ToLogsArchiveOutput() LogsArchiveOutput {
+	return o
+}
+
+func (o LogsArchiveOutput) ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(LogsArchiveOutput{})
 }

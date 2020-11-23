@@ -20,6 +20,14 @@ import * as utilities from "./utilities";
  *     name: "New User",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * users can be imported using their handle, e.g.
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/user:User example_user existing@example.com
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

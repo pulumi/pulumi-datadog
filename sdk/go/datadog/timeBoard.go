@@ -4,12 +4,20 @@
 package datadog
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// ## Import
+//
+// Timeboards can be imported using their numeric ID, e.g.
+//
+// ```sh
+//  $ pulumi import datadog:index/timeBoard:TimeBoard my_service_timeboard 2081
+// ```
 type TimeBoard struct {
 	pulumi.CustomResourceState
 
@@ -115,4 +123,43 @@ type TimeBoardArgs struct {
 
 func (TimeBoardArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*timeBoardArgs)(nil)).Elem()
+}
+
+type TimeBoardInput interface {
+	pulumi.Input
+
+	ToTimeBoardOutput() TimeBoardOutput
+	ToTimeBoardOutputWithContext(ctx context.Context) TimeBoardOutput
+}
+
+func (TimeBoard) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeBoard)(nil)).Elem()
+}
+
+func (i TimeBoard) ToTimeBoardOutput() TimeBoardOutput {
+	return i.ToTimeBoardOutputWithContext(context.Background())
+}
+
+func (i TimeBoard) ToTimeBoardOutputWithContext(ctx context.Context) TimeBoardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeBoardOutput)
+}
+
+type TimeBoardOutput struct {
+	*pulumi.OutputState
+}
+
+func (TimeBoardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeBoardOutput)(nil)).Elem()
+}
+
+func (o TimeBoardOutput) ToTimeBoardOutput() TimeBoardOutput {
+	return o
+}
+
+func (o TimeBoardOutput) ToTimeBoardOutputWithContext(ctx context.Context) TimeBoardOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TimeBoardOutput{})
 }

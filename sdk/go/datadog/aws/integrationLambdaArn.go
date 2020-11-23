@@ -4,6 +4,7 @@
 package aws
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,6 +37,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Amazon Web Services Lambda ARN integrations can be imported using their `account_id` and `lambda_arn` separated with a space (` `).
+//
+// ```sh
+//  $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
 // ```
 type IntegrationLambdaArn struct {
 	pulumi.CustomResourceState
@@ -104,4 +113,43 @@ type IntegrationLambdaArnArgs struct {
 
 func (IntegrationLambdaArnArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationLambdaArnArgs)(nil)).Elem()
+}
+
+type IntegrationLambdaArnInput interface {
+	pulumi.Input
+
+	ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput
+	ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput
+}
+
+func (IntegrationLambdaArn) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationLambdaArn)(nil)).Elem()
+}
+
+func (i IntegrationLambdaArn) ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput {
+	return i.ToIntegrationLambdaArnOutputWithContext(context.Background())
+}
+
+func (i IntegrationLambdaArn) ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnOutput)
+}
+
+type IntegrationLambdaArnOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationLambdaArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationLambdaArnOutput)(nil)).Elem()
+}
+
+func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput {
+	return o
+}
+
+func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IntegrationLambdaArnOutput{})
 }

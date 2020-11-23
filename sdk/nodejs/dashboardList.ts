@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -70,6 +69,14 @@ import * as utilities from "./utilities";
  *     ],
  *     name: "TF Created List",
  * }, { dependsOn: [screen, time] });
+ * ```
+ *
+ * ## Import
+ *
+ * dashboard lists can be imported using their id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
  * ```
  */
 export class DashboardList extends pulumi.CustomResource {

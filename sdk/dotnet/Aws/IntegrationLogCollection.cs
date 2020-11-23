@@ -35,6 +35,14 @@ namespace Pulumi.Datadog.Aws
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Amazon Web Services log collection integrations can be imported using the `account ID`.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
+    /// ```
     /// </summary>
     public partial class IntegrationLogCollection : Pulumi.CustomResource
     {

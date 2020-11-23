@@ -107,6 +107,14 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// dashboard lists can be imported using their id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
+    /// ```
     /// </summary>
     public partial class DashboardList : Pulumi.CustomResource
     {

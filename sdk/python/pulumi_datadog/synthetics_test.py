@@ -285,6 +285,14 @@ class SyntheticsTest(pulumi.CustomResource):
         ])
         ```
 
+        ## Import
+
+        Synthetics tests can be imported using their public string ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -306,7 +314,7 @@ class SyntheticsTest(pulumi.CustomResource):
             __props__ = dict()
 
             if assertions is not None:
-                warnings.warn("Use assertion instead", DeprecationWarning)
+                warnings.warn("""Use assertion instead""", DeprecationWarning)
                 pulumi.log.warn("assertions is deprecated: Use assertion instead")
             __props__['assertions'] = assertions
             __props__['device_ids'] = device_ids
@@ -318,7 +326,7 @@ class SyntheticsTest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if options is not None:
-                warnings.warn("This parameter is deprecated, please use `options_list`", DeprecationWarning)
+                warnings.warn("""This parameter is deprecated, please use `options_list`""", DeprecationWarning)
                 pulumi.log.warn("options is deprecated: This parameter is deprecated, please use `options_list`")
             __props__['options'] = options
             __props__['options_list'] = options_list
