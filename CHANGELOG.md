@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.11.0 (2020-11-24)
 * Upgrade to v2.16.0 of the datadog Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.13.2  
   * This adds support for import specific examples in documentation
-
----
 
 ## 2.10.0 (2020-10-28)
 * Upgrade to v2.14.0 of the datadog Terraform Provider
