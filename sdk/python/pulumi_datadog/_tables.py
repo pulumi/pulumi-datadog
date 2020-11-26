@@ -82,6 +82,7 @@ SNAKE_TO_CAMEL_CASE_TABLE = {
     "tick_every": "tickEvery",
     "timeout_h": "timeoutH",
     "trigger_window": "triggerWindow",
+    "user_count": "userCount",
     "warning_recovery": "warningRecovery",
 }
 
@@ -165,5 +166,6 @@ CAMEL_TO_SNAKE_CASE_TABLE = {
     "tickEvery": "tick_every",
     "timeoutH": "timeout_h",
     "triggerWindow": "trigger_window",
+    "userCount": "user_count",
     "warningRecovery": "warning_recovery",
 }

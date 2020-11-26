@@ -79,92 +79,45 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"datadog_dashboard": {
-				Tok: makeResource(datadogMod, "Dashboard"),
-			},
-			"datadog_downtime": {
-				Tok: makeResource(datadogMod, "Downtime"),
-			},
-			"datadog_metric_metadata": {
-				Tok: makeResource(datadogMod, "MetricMetadata"),
-			},
-			"datadog_monitor": {
-				Tok: makeResource(datadogMod, "Monitor"),
-			},
-			"datadog_timeboard": {
-				Tok: makeResource(datadogMod, "TimeBoard"),
-			},
-			"datadog_screenboard": {
-				Tok: makeResource(datadogMod, "ScreenBoard"),
-			},
-			"datadog_user": {
-				Tok: makeResource(datadogMod, "User"),
-			},
+			"datadog_dashboard":       {Tok: makeResource(datadogMod, "Dashboard")},
+			"datadog_downtime":        {Tok: makeResource(datadogMod, "Downtime")},
+			"datadog_metric_metadata": {Tok: makeResource(datadogMod, "MetricMetadata")},
+			"datadog_monitor":         {Tok: makeResource(datadogMod, "Monitor")},
+			"datadog_timeboard":       {Tok: makeResource(datadogMod, "TimeBoard")},
+			"datadog_screenboard":     {Tok: makeResource(datadogMod, "ScreenBoard")},
+			"datadog_user":            {Tok: makeResource(datadogMod, "User")},
 			"datadog_synthetics_test": {
 				Tok: makeResource(datadogMod, "SyntheticsTest"),
 				Docs: &tfbridge.DocInfo{
 					Source: "synthetics.html.markdown",
 				},
 			},
-			"datadog_synthetics_global_variable": {
-				Tok: makeResource(datadogMod, "SyntheticsGlobalVariable"),
-			},
-			"datadog_dashboard_list": {
-				Tok: makeResource(datadogMod, "DashboardList"),
-			},
-			"datadog_service_level_objective": {
-				Tok: makeResource(datadogMod, "ServiceLevelObjective"),
-			},
-			"datadog_logs_custom_pipeline": {
-				Tok: makeResource(datadogMod, "LogsCustomPipeline"),
-			},
-			"datadog_logs_index": {
-				Tok: makeResource(datadogMod, "LogsIndex"),
-			},
-			"datadog_logs_archive": {
-				Tok: makeResource(datadogMod, "LogsArchive"),
-			},
-			"datadog_logs_index_order": {
-				Tok: makeResource(datadogMod, "LogsIndexOrder"),
-			},
-			"datadog_logs_integration_pipeline": {
-				Tok: makeResource(datadogMod, "LogsIntegrationPipeline"),
-			},
-			"datadog_logs_pipeline_order": {
-				Tok: makeResource(datadogMod, "LogsPipelineOrder"),
-			},
-			"datadog_logs_archive_order": {
-				Tok: makeResource(datadogMod, "LogsArchiveOrder"),
-			},
+			"datadog_synthetics_global_variable": {Tok: makeResource(datadogMod, "SyntheticsGlobalVariable")},
+			"datadog_dashboard_list":             {Tok: makeResource(datadogMod, "DashboardList")},
+			"datadog_service_level_objective":    {Tok: makeResource(datadogMod, "ServiceLevelObjective")},
+			"datadog_logs_custom_pipeline":       {Tok: makeResource(datadogMod, "LogsCustomPipeline")},
+			"datadog_logs_index":                 {Tok: makeResource(datadogMod, "LogsIndex")},
+			"datadog_logs_archive":               {Tok: makeResource(datadogMod, "LogsArchive")},
+			"datadog_logs_index_order":           {Tok: makeResource(datadogMod, "LogsIndexOrder")},
+			"datadog_logs_integration_pipeline":  {Tok: makeResource(datadogMod, "LogsIntegrationPipeline")},
+			"datadog_logs_pipeline_order":        {Tok: makeResource(datadogMod, "LogsPipelineOrder")},
+			"datadog_logs_archive_order":         {Tok: makeResource(datadogMod, "LogsArchiveOrder")},
+			"datadog_role":                       {Tok: makeResource(datadogMod, "Role")},
 
 			// GCP Integrations
-			"datadog_integration_gcp": {
-				Tok: makeResource(gcpMod, "Integration"),
-			},
+			"datadog_integration_gcp": {Tok: makeResource(gcpMod, "Integration")},
 
 			// Azure Integrations
-			"datadog_integration_azure": {
-				Tok: makeResource(azureMod, "Integration"),
-			},
+			"datadog_integration_azure": {Tok: makeResource(azureMod, "Integration")},
 
 			// AWS Integrations
-			"datadog_integration_aws": {
-				Tok: makeResource(awsMod, "Integration"),
-			},
-			"datadog_integration_aws_lambda_arn": {
-				Tok: makeResource(awsMod, "IntegrationLambdaArn"),
-			},
-			"datadog_integration_aws_log_collection": {
-				Tok: makeResource(awsMod, "IntegrationLogCollection"),
-			},
+			"datadog_integration_aws":                {Tok: makeResource(awsMod, "Integration")},
+			"datadog_integration_aws_lambda_arn":     {Tok: makeResource(awsMod, "IntegrationLambdaArn")},
+			"datadog_integration_aws_log_collection": {Tok: makeResource(awsMod, "IntegrationLogCollection")},
 
 			// PagerDuty Integrations
-			"datadog_integration_pagerduty": {
-				Tok: makeResource(pdMod, "Integration"),
-			},
-			"datadog_integration_pagerduty_service_object": {
-				Tok: makeResource(pdMod, "ServiceObject"),
-			},
+			"datadog_integration_pagerduty":                {Tok: makeResource(pdMod, "Integration")},
+			"datadog_integration_pagerduty_service_object": {Tok: makeResource(pdMod, "ServiceObject")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_ip_ranges": {
@@ -176,6 +129,8 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_dashboard_list":       {Tok: makeDataSource(datadogMod, "getDashboardList")},
 			"datadog_dashboard":            {Tok: makeDataSource(datadogMod, "getDashboard")},
 			"datadog_synthetics_locations": {Tok: makeDataSource(datadogMod, "getSyntheticsLocations")},
+			"datadog_permissions":          {Tok: makeDataSource(datadogMod, "getPermissions")},
+			"datadog_role":                 {Tok: makeDataSource(datadogMod, "getRole")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

@@ -161,7 +161,7 @@ class SyntheticsTest(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        test_tcp = datadog.SyntheticsTest("testTcp",
+        test_dns = datadog.SyntheticsTest("testDns",
             assertions=[{
                 "operator": "is",
                 "property": "A",

@@ -10,6 +10,8 @@ from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_ip_ranges import *
 from .get_monitor import *
+from .get_permissions import *
+from .get_role import *
 from .get_synthetics_locations import *
 from .logs_archive import *
 from .logs_archive_order import *
@@ -21,6 +23,7 @@ from .logs_pipeline_order import *
 from .metric_metadata import *
 from .monitor import *
 from .provider import *
+from .role import *
 from .screen_board import *
 from .service_level_objective import *
 from .synthetics_global_variable import *

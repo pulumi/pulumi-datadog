@@ -5128,6 +5128,11 @@ export interface MonitorThresholds {
     warningRecovery?: pulumi.Input<number>;
 }
 
+export interface RolePermission {
+    id: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
 export interface ScreenBoardTemplateVariable {
     default?: pulumi.Input<string>;
     name: pulumi.Input<string>;

@@ -131,7 +131,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testTcp = new datadog.SyntheticsTest("test_tcp", {
+ * const testDns = new datadog.SyntheticsTest("test_dns", {
  *     assertions: [{
  *         operator: "is",
  *         property: "A",

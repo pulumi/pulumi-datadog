@@ -5142,6 +5142,11 @@ export interface MonitorThresholds {
     warningRecovery?: number;
 }
 
+export interface RolePermission {
+    id: string;
+    name: string;
+}
+
 export interface ScreenBoardTemplateVariable {
     default?: string;
     name: string;
