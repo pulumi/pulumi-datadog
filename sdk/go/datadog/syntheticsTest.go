@@ -190,7 +190,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsTest(ctx, "testTcp", &datadog.SyntheticsTestArgs{
+// 		_, err := datadog.NewSyntheticsTest(ctx, "testDns", &datadog.SyntheticsTestArgs{
 // 			Assertions: pulumi.StringMapArray{
 // 				pulumi.StringMap{
 // 					"operator": pulumi.String("is"),

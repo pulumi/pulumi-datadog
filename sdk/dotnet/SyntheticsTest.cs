@@ -196,7 +196,7 @@ namespace Pulumi.Datadog
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testTcp = new Datadog.SyntheticsTest("testTcp", new Datadog.SyntheticsTestArgs
+    ///         var testDns = new Datadog.SyntheticsTest("testDns", new Datadog.SyntheticsTestArgs
     ///         {
     ///             Assertions = 
     ///             {

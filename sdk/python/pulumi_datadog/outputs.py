@@ -787,6 +787,7 @@ __all__ = [
     'LogsIndexFilter',
     'MonitorThresholdWindows',
     'MonitorThresholds',
+    'RolePermission',
     'ScreenBoardTemplateVariable',
     'ScreenBoardWidget',
     'ScreenBoardWidgetRule',
@@ -28431,6 +28432,29 @@ class MonitorThresholds(dict):
     @pulumi.getter(name="warningRecovery")
     def warning_recovery(self) -> Optional[float]:
         return pulumi.get(self, "warning_recovery")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RolePermission(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
