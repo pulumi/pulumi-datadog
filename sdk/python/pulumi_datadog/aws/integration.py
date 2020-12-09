@@ -80,14 +80,14 @@ class Integration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_id is None:
+            if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__['account_id'] = account_id
             __props__['account_specific_namespace_rules'] = account_specific_namespace_rules
             __props__['excluded_regions'] = excluded_regions
             __props__['filter_tags'] = filter_tags
             __props__['host_tags'] = host_tags
-            if role_name is None:
+            if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
             __props__['role_name'] = role_name
             __props__['external_id'] = None

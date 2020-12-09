@@ -12,6 +12,7 @@ from .get_ip_ranges import *
 from .get_monitor import *
 from .get_permissions import *
 from .get_role import *
+from .get_security_monitoring_rules import *
 from .get_synthetics_locations import *
 from .logs_archive import *
 from .logs_archive_order import *
@@ -25,8 +26,10 @@ from .monitor import *
 from .provider import *
 from .role import *
 from .screen_board import *
+from .security_monitoring_rule import *
 from .service_level_objective import *
 from .synthetics_global_variable import *
+from .synthetics_private_location import *
 from .synthetics_test import *
 from .time_board import *
 from .user import *
@@ -41,3 +44,101 @@ from . import (
     gcp,
     pagerduty,
 )
+
+def _register_module():
+    import pulumi
+    from . import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "datadog:index/dashboard:Dashboard":
+                return Dashboard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/dashboardList:DashboardList":
+                return DashboardList(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/downtime:Downtime":
+                return Downtime(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsArchive:LogsArchive":
+                return LogsArchive(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsArchiveOrder:LogsArchiveOrder":
+                return LogsArchiveOrder(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsCustomPipeline:LogsCustomPipeline":
+                return LogsCustomPipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsIndex:LogsIndex":
+                return LogsIndex(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsIndexOrder:LogsIndexOrder":
+                return LogsIndexOrder(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline":
+                return LogsIntegrationPipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsPipelineOrder:LogsPipelineOrder":
+                return LogsPipelineOrder(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/metricMetadata:MetricMetadata":
+                return MetricMetadata(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/monitor:Monitor":
+                return Monitor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/role:Role":
+                return Role(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/screenBoard:ScreenBoard":
+                return ScreenBoard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
+                return SecurityMonitoringRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/serviceLevelObjective:ServiceLevelObjective":
+                return ServiceLevelObjective(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
+                return SyntheticsGlobalVariable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
+                return SyntheticsPrivateLocation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/syntheticsTest:SyntheticsTest":
+                return SyntheticsTest(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/timeBoard:TimeBoard":
+                return TimeBoard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/user:User":
+                return User(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("datadog", "index/dashboard", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/dashboardList", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/downtime", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsArchive", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsArchiveOrder", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsCustomPipeline", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsIndex", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsIndexOrder", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsIntegrationPipeline", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsPipelineOrder", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/metricMetadata", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/monitor", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/role", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/screenBoard", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/securityMonitoringRule", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/serviceLevelObjective", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/syntheticsGlobalVariable", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/syntheticsPrivateLocation", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/syntheticsTest", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/timeBoard", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/user", _module_instance)
+
+
+    class Package(pulumi.runtime.ResourcePackage):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Package._version
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:datadog":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("datadog", Package())
+
+_register_module()

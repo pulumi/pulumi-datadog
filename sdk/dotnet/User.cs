@@ -22,12 +22,18 @@ namespace Pulumi.Datadog
     /// {
     ///     public MyStack()
     ///     {
+    ///         var roRole = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs
+    ///         {
+    ///             Filter = "Datadog Read Only Role",
+    ///         }));
     ///         // Create a new Datadog user
     ///         var foo = new Datadog.User("foo", new Datadog.UserArgs
     ///         {
     ///             Email = "new@example.com",
-    ///             Handle = "new@example.com",
-    ///             Name = "New User",
+    ///             Roles = 
+    ///             {
+    ///                 roRole.Apply(roRole =&gt; roRole.Id),
+    ///             },
     ///         });
     ///     }
     /// 
@@ -36,10 +42,10 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
-    /// users can be imported using their handle, e.g.
+    /// users can be imported using their ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/user:User example_user existing@example.com
+    ///  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
     /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
@@ -54,16 +60,19 @@ namespace Pulumi.Datadog
         public Output<string> Email { get; private set; } = null!;
 
         [Output("handle")]
-        public Output<string> Handle { get; private set; } = null!;
+        public Output<string?> Handle { get; private set; } = null!;
 
         [Output("isAdmin")]
         public Output<bool> IsAdmin { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
+
+        [Output("roles")]
+        public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
         [Output("verified")]
         public Output<bool> Verified { get; private set; } = null!;
@@ -123,17 +132,25 @@ namespace Pulumi.Datadog
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
-        [Input("handle", required: true)]
-        public Input<string> Handle { get; set; } = null!;
+        [Input("handle")]
+        public Input<string>? Handle { get; set; }
 
         [Input("isAdmin")]
         public Input<bool>? IsAdmin { get; set; }
 
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("role")]
         public Input<string>? Role { get; set; }
+
+        [Input("roles")]
+        private InputList<string>? _roles;
+        public InputList<string> Roles
+        {
+            get => _roles ?? (_roles = new InputList<string>());
+            set => _roles = value;
+        }
 
         public UserArgs()
         {
@@ -162,6 +179,14 @@ namespace Pulumi.Datadog
 
         [Input("role")]
         public Input<string>? Role { get; set; }
+
+        [Input("roles")]
+        private InputList<string>? _roles;
+        public InputList<string> Roles
+        {
+            get => _roles ?? (_roles = new InputList<string>());
+            set => _roles = value;
+        }
 
         [Input("verified")]
         public Input<bool>? Verified { get; set; }

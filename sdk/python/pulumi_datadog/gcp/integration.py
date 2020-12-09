@@ -75,20 +75,20 @@ class Integration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if client_email is None:
+            if client_email is None and not opts.urn:
                 raise TypeError("Missing required property 'client_email'")
             __props__['client_email'] = client_email
-            if client_id is None:
+            if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__['client_id'] = client_id
             __props__['host_filters'] = host_filters
-            if private_key is None:
+            if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
             __props__['private_key'] = private_key
-            if private_key_id is None:
+            if private_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key_id'")
             __props__['private_key_id'] = private_key_id
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
         super(Integration, __self__).__init__(

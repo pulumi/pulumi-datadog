@@ -5335,6 +5335,28 @@ export interface ScreenBoardWidgetTileDefRequestProcessQuery {
     searchBy?: pulumi.Input<string>;
 }
 
+export interface SecurityMonitoringRuleCase {
+    condition?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    notifications?: pulumi.Input<pulumi.Input<string>[]>;
+    status: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleOptions {
+    evaluationWindow: pulumi.Input<number>;
+    keepAlive: pulumi.Input<number>;
+    maxSignalDuration: pulumi.Input<number>;
+}
+
+export interface SecurityMonitoringRuleQuery {
+    aggregation?: pulumi.Input<string>;
+    distinctFields?: pulumi.Input<pulumi.Input<string>[]>;
+    groupByFields?: pulumi.Input<pulumi.Input<string>[]>;
+    metric?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
 export interface ServiceLevelObjectiveQuery {
     denominator: pulumi.Input<string>;
     numerator: pulumi.Input<string>;

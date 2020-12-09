@@ -56,14 +56,15 @@ type IntegrationLambdaArn struct {
 // NewIntegrationLambdaArn registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationLambdaArn(ctx *pulumi.Context,
 	name string, args *IntegrationLambdaArnArgs, opts ...pulumi.ResourceOption) (*IntegrationLambdaArn, error) {
-	if args == nil || args.AccountId == nil {
-		return nil, errors.New("missing required argument 'AccountId'")
-	}
-	if args == nil || args.LambdaArn == nil {
-		return nil, errors.New("missing required argument 'LambdaArn'")
-	}
 	if args == nil {
-		args = &IntegrationLambdaArnArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountId == nil {
+		return nil, errors.New("invalid value for required argument 'AccountId'")
+	}
+	if args.LambdaArn == nil {
+		return nil, errors.New("invalid value for required argument 'LambdaArn'")
 	}
 	var resource IntegrationLambdaArn
 	err := ctx.RegisterResource("datadog:aws/integrationLambdaArn:IntegrationLambdaArn", name, args, &resource, opts...)

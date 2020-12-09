@@ -313,37 +313,37 @@ class SyntheticsTest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assertions is not None:
+            if assertions is not None and not opts.urn:
                 warnings.warn("""Use assertion instead""", DeprecationWarning)
                 pulumi.log.warn("assertions is deprecated: Use assertion instead")
             __props__['assertions'] = assertions
             __props__['device_ids'] = device_ids
-            if locations is None:
+            if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
             __props__['message'] = message
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if options is not None:
+            if options is not None and not opts.urn:
                 warnings.warn("""This parameter is deprecated, please use `options_list`""", DeprecationWarning)
                 pulumi.log.warn("options is deprecated: This parameter is deprecated, please use `options_list`")
             __props__['options'] = options
             __props__['options_list'] = options_list
-            if request is None:
+            if request is None and not opts.urn:
                 raise TypeError("Missing required property 'request'")
             __props__['request'] = request
             __props__['request_basicauth'] = request_basicauth
             __props__['request_client_certificate'] = request_client_certificate
             __props__['request_headers'] = request_headers
             __props__['request_query'] = request_query
-            if status is None:
+            if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
             __props__['steps'] = steps
             __props__['subtype'] = subtype
             __props__['tags'] = tags
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['variables'] = variables

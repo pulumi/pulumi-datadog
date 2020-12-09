@@ -43,14 +43,15 @@ type ScreenBoard struct {
 // NewScreenBoard registers a new resource with the given unique name, arguments, and options.
 func NewScreenBoard(ctx *pulumi.Context,
 	name string, args *ScreenBoardArgs, opts ...pulumi.ResourceOption) (*ScreenBoard, error) {
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
-	if args == nil || args.Widgets == nil {
-		return nil, errors.New("missing required argument 'Widgets'")
-	}
 	if args == nil {
-		args = &ScreenBoardArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
+	}
+	if args.Widgets == nil {
+		return nil, errors.New("invalid value for required argument 'Widgets'")
 	}
 	var resource ScreenBoard
 	err := ctx.RegisterResource("datadog:index/screenBoard:ScreenBoard", name, args, &resource, opts...)

@@ -119,6 +119,11 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
 
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+     */
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    /**
      * A static set of groups to filter monitor-based SLOs
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
@@ -133,7 +138,6 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     public readonly query!: pulumi.Output<outputs.ServiceLevelObjectiveQuery | undefined>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly thresholds!: pulumi.Output<outputs.ServiceLevelObjectiveThreshold[]>;
@@ -153,6 +157,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ServiceLevelObjectiveState | undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["forceDelete"] = state ? state.forceDelete : undefined;
             inputs["groups"] = state ? state.groups : undefined;
             inputs["monitorIds"] = state ? state.monitorIds : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -163,16 +168,17 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             inputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as ServiceLevelObjectiveArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.thresholds === undefined) {
+            if ((!args || args.thresholds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'thresholds'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["description"] = args ? args.description : undefined;
+            inputs["forceDelete"] = args ? args.forceDelete : undefined;
             inputs["groups"] = args ? args.groups : undefined;
             inputs["monitorIds"] = args ? args.monitorIds : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -199,6 +205,11 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
 export interface ServiceLevelObjectiveState {
     readonly description?: pulumi.Input<string>;
     /**
+     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+     */
+    readonly forceDelete?: pulumi.Input<boolean>;
+    /**
      * A static set of groups to filter monitor-based SLOs
      */
     readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -213,7 +224,6 @@ export interface ServiceLevelObjectiveState {
     readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
@@ -226,6 +236,11 @@ export interface ServiceLevelObjectiveState {
  */
 export interface ServiceLevelObjectiveArgs {
     readonly description?: pulumi.Input<string>;
+    /**
+     * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+     */
+    readonly forceDelete?: pulumi.Input<boolean>;
     /**
      * A static set of groups to filter monitor-based SLOs
      */
@@ -241,7 +256,6 @@ export interface ServiceLevelObjectiveArgs {
     readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-     * -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;

@@ -60,14 +60,15 @@ type LogsPipelineOrder struct {
 // NewLogsPipelineOrder registers a new resource with the given unique name, arguments, and options.
 func NewLogsPipelineOrder(ctx *pulumi.Context,
 	name string, args *LogsPipelineOrderArgs, opts ...pulumi.ResourceOption) (*LogsPipelineOrder, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Pipelines == nil {
-		return nil, errors.New("missing required argument 'Pipelines'")
-	}
 	if args == nil {
-		args = &LogsPipelineOrderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Pipelines == nil {
+		return nil, errors.New("invalid value for required argument 'Pipelines'")
 	}
 	var resource LogsPipelineOrder
 	err := ctx.RegisterResource("datadog:index/logsPipelineOrder:LogsPipelineOrder", name, args, &resource, opts...)

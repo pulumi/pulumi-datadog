@@ -459,10 +459,10 @@ class ScreenBoard(pulumi.CustomResource):
             __props__['read_only'] = read_only
             __props__['shared'] = shared
             __props__['template_variables'] = template_variables
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
-            if widgets is None:
+            if widgets is None and not opts.urn:
                 raise TypeError("Missing required property 'widgets'")
             __props__['widgets'] = widgets
             __props__['width'] = width

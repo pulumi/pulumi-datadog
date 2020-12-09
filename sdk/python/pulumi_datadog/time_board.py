@@ -58,15 +58,15 @@ class TimeBoard(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if description is None:
+            if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__['description'] = description
-            if graphs is None:
+            if graphs is None and not opts.urn:
                 raise TypeError("Missing required property 'graphs'")
             __props__['graphs'] = graphs
             __props__['read_only'] = read_only
             __props__['template_variables'] = template_variables
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
         super(TimeBoard, __self__).__init__(

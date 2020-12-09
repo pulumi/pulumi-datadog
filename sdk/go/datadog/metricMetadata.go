@@ -54,11 +54,12 @@ type MetricMetadata struct {
 // NewMetricMetadata registers a new resource with the given unique name, arguments, and options.
 func NewMetricMetadata(ctx *pulumi.Context,
 	name string, args *MetricMetadataArgs, opts ...pulumi.ResourceOption) (*MetricMetadata, error) {
-	if args == nil || args.Metric == nil {
-		return nil, errors.New("missing required argument 'Metric'")
-	}
 	if args == nil {
-		args = &MetricMetadataArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Metric == nil {
+		return nil, errors.New("invalid value for required argument 'Metric'")
 	}
 	var resource MetricMetadata
 	err := ctx.RegisterResource("datadog:index/metricMetadata:MetricMetadata", name, args, &resource, opts...)

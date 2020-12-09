@@ -17,6 +17,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -31,7 +32,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        test_api = datadog.SyntheticsGlobalVariable("testApi",
+        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
             description="Description of the variable",
             name="EXAMPLE_VARIABLE",
             tags=[
@@ -40,9 +41,6 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             ],
             value="variable-value")
         ```
-        ## Secure global variables
-
-        Secure global variables are not supported for now.
 
         ## Import
 
@@ -73,11 +71,12 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['secure'] = secure
             __props__['tags'] = tags
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
         super(SyntheticsGlobalVariable, __self__).__init__(
@@ -92,6 +91,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            secure: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'SyntheticsGlobalVariable':
         """
@@ -108,6 +108,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         __props__["description"] = description
         __props__["name"] = name
+        __props__["secure"] = secure
         __props__["tags"] = tags
         __props__["value"] = value
         return SyntheticsGlobalVariable(resource_name, opts=opts, __props__=__props__)
@@ -121,6 +122,11 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def secure(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "secure")
 
     @property
     @pulumi.getter

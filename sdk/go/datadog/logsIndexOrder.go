@@ -56,14 +56,15 @@ type LogsIndexOrder struct {
 // NewLogsIndexOrder registers a new resource with the given unique name, arguments, and options.
 func NewLogsIndexOrder(ctx *pulumi.Context,
 	name string, args *LogsIndexOrderArgs, opts ...pulumi.ResourceOption) (*LogsIndexOrder, error) {
-	if args == nil || args.Indexes == nil {
-		return nil, errors.New("missing required argument 'Indexes'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &LogsIndexOrderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Indexes == nil {
+		return nil, errors.New("invalid value for required argument 'Indexes'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource LogsIndexOrder
 	err := ctx.RegisterResource("datadog:index/logsIndexOrder:LogsIndexOrder", name, args, &resource, opts...)

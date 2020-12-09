@@ -76,10 +76,10 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
             inputs["lambdaArn"] = state ? state.lambdaArn : undefined;
         } else {
             const args = argsOrState as IntegrationLambdaArnArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.lambdaArn === undefined) {
+            if ((!args || args.lambdaArn === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lambdaArn'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

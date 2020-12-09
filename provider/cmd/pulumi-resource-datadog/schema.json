@@ -30255,6 +30255,145 @@
                 "metric"
             ]
         },
+        "datadog:index/SecurityMonitoringRuleCase:SecurityMonitoringRuleCase": {
+            "properties": {
+                "condition": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "status"
+            ]
+        },
+        "datadog:index/SecurityMonitoringRuleOptions:SecurityMonitoringRuleOptions": {
+            "properties": {
+                "evaluationWindow": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "keepAlive": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maxSignalDuration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "evaluationWindow",
+                "keepAlive",
+                "maxSignalDuration"
+            ]
+        },
+        "datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "distinctFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupByFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
         "datadog:index/ServiceLevelObjectiveQuery:ServiceLevelObjectiveQuery": {
             "properties": {
                 "denominator": {
@@ -31595,6 +31734,241 @@
                 }
             }
         },
+        "datadog:index/getSecurityMonitoringRulesRule:getSecurityMonitoringRulesRule": {
+            "properties": {
+                "cases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRuleCase:getSecurityMonitoringRulesRuleCase"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "options": {
+                    "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRuleOptions:getSecurityMonitoringRulesRuleOptions",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRuleQuery:getSecurityMonitoringRulesRuleQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cases",
+                "message",
+                "name",
+                "queries"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getSecurityMonitoringRulesRuleCase:getSecurityMonitoringRulesRuleCase": {
+            "properties": {
+                "condition": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "notifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getSecurityMonitoringRulesRuleOptions:getSecurityMonitoringRulesRuleOptions": {
+            "properties": {
+                "evaluationWindow": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "keepAlive": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maxSignalDuration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "evaluationWindow",
+                "keepAlive",
+                "maxSignalDuration"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "datadog:index/getSecurityMonitoringRulesRuleQuery:getSecurityMonitoringRulesRuleQuery": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "distinctFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupByFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "datadog:pagerduty/IntegrationService:IntegrationService": {
             "properties": {
                 "serviceKey": {
@@ -32204,7 +32578,7 @@
             }
         },
         "datadog:index/dashboardList:DashboardList": {
-            "description": "Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nCreate a new Dashboard list with two dashboards\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst time = new datadog.Dashboard(\"time\", {\n    description: \"Created using the Datadog provider in TF\",\n    isReadOnly: true,\n    layoutType: \"ordered\",\n    title: \"TF Test Layout Dashboard\",\n    widgets: [{\n        alertGraphDefinition: {\n            alertId: \"1234\",\n            time: {\n                live_span: \"1h\",\n            },\n            title: \"Widget Title\",\n            vizType: \"timeseries\",\n        },\n    }],\n});\nconst screen = new datadog.Dashboard(\"screen\", {\n    description: \"Created using the Datadog provider in TF\",\n    isReadOnly: false,\n    layoutType: \"free\",\n    title: \"TF Test Free Layout Dashboard\",\n    widgets: [{\n        eventStreamDefinition: {\n            eventSize: \"l\",\n            query: \"*\",\n            time: {\n                live_span: \"1h\",\n            },\n            title: \"Widget Title\",\n            titleAlign: \"left\",\n            titleSize: \"16\",\n        },\n        layout: {\n            height: 43,\n            width: 32,\n            x: 5,\n            y: 5,\n        },\n    }],\n});\nconst newList = new datadog.DashboardList(\"new_list\", {\n    dashItems: [\n        {\n            dashId: time.id,\n            type: \"custom_timeboard\",\n        },\n        {\n            dashId: screen.id,\n            type: \"custom_screenboard\",\n        },\n    ],\n    name: \"TF Created List\",\n}, { dependsOn: [screen, time] });\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntime = datadog.Dashboard(\"time\",\n    description=\"Created using the Datadog provider in TF\",\n    is_read_only=True,\n    layout_type=\"ordered\",\n    title=\"TF Test Layout Dashboard\",\n    widgets=[datadog.DashboardWidgetArgs(\n        alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(\n            alert_id=\"1234\",\n            time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(\n                live_span=\"1h\",\n            ),\n            title=\"Widget Title\",\n            viz_type=\"timeseries\",\n        ),\n    )])\nscreen = datadog.Dashboard(\"screen\",\n    description=\"Created using the Datadog provider in TF\",\n    is_read_only=False,\n    layout_type=\"free\",\n    title=\"TF Test Free Layout Dashboard\",\n    widgets=[datadog.DashboardWidgetArgs(\n        event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(\n            event_size=\"l\",\n            query=\"*\",\n            time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(\n                live_span=\"1h\",\n            ),\n            title=\"Widget Title\",\n            title_align=\"left\",\n            title_size=\"16\",\n        ),\n        layout=datadog.DashboardWidgetLayoutArgs(\n            height=43,\n            width=32,\n            x=5,\n            y=5,\n        ),\n    )])\nnew_list = datadog.DashboardList(\"newList\",\n    dash_items=[\n        datadog.DashboardListDashItemArgs(\n            dash_id=time.id,\n            type=\"custom_timeboard\",\n        ),\n        datadog.DashboardListDashItemArgs(\n            dash_id=screen.id,\n            type=\"custom_screenboard\",\n        ),\n    ],\n    name=\"TF Created List\",\n    opts=ResourceOptions(depends_on=[\n            \"datadog_dashboard.screen\",\n            \"datadog_dashboard.time\",\n        ]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var time = new Datadog.Dashboard(\"time\", new Datadog.DashboardArgs\n        {\n            Description = \"Created using the Datadog provider in TF\",\n            IsReadOnly = true,\n            LayoutType = \"ordered\",\n            Title = \"TF Test Layout Dashboard\",\n            Widgets = \n            {\n                new Datadog.Inputs.DashboardWidgetArgs\n                {\n                    AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs\n                    {\n                        AlertId = \"1234\",\n                        Time = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionTimeArgs\n                        {\n                            LiveSpan = \"1h\",\n                        },\n                        Title = \"Widget Title\",\n                        VizType = \"timeseries\",\n                    },\n                },\n            },\n        });\n        var screen = new Datadog.Dashboard(\"screen\", new Datadog.DashboardArgs\n        {\n            Description = \"Created using the Datadog provider in TF\",\n            IsReadOnly = false,\n            LayoutType = \"free\",\n            Title = \"TF Test Free Layout Dashboard\",\n            Widgets = \n            {\n                new Datadog.Inputs.DashboardWidgetArgs\n                {\n                    EventStreamDefinition = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionArgs\n                    {\n                        EventSize = \"l\",\n                        Query = \"*\",\n                        Time = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionTimeArgs\n                        {\n                            LiveSpan = \"1h\",\n                        },\n                        Title = \"Widget Title\",\n                        TitleAlign = \"left\",\n                        TitleSize = \"16\",\n                    },\n                    Layout = new Datadog.Inputs.DashboardWidgetLayoutArgs\n                    {\n                        Height = 43,\n                        Width = 32,\n                        X = 5,\n                        Y = 5,\n                    },\n                },\n            },\n        });\n        var newList = new Datadog.DashboardList(\"newList\", new Datadog.DashboardListArgs\n        {\n            DashItems = \n            {\n                new Datadog.Inputs.DashboardListDashItemArgs\n                {\n                    DashId = time.Id,\n                    Type = \"custom_timeboard\",\n                },\n                new Datadog.Inputs.DashboardListDashItemArgs\n                {\n                    DashId = screen.Id,\n                    Type = \"custom_screenboard\",\n                },\n            },\n            Name = \"TF Created List\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_dashboard.screen\",\n                \"datadog_dashboard.time\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttime, err := datadog.NewDashboard(ctx, \"time\", \u0026datadog.DashboardArgs{\n\t\t\tDescription: pulumi.String(\"Created using the Datadog provider in TF\"),\n\t\t\tIsReadOnly:  pulumi.Bool(true),\n\t\t\tLayoutType:  pulumi.String(\"ordered\"),\n\t\t\tTitle:       pulumi.String(\"TF Test Layout Dashboard\"),\n\t\t\tWidgets: datadog.DashboardWidgetArray{\n\t\t\t\t\u0026datadog.DashboardWidgetArgs{\n\t\t\t\t\tAlertGraphDefinition: \u0026datadog.DashboardWidgetAlertGraphDefinitionArgs{\n\t\t\t\t\t\tAlertId: pulumi.String(\"1234\"),\n\t\t\t\t\t\tTime: \u0026datadog.DashboardWidgetAlertGraphDefinitionTimeArgs{\n\t\t\t\t\t\t\tLiveSpan: pulumi.String(\"1h\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTitle:   pulumi.String(\"Widget Title\"),\n\t\t\t\t\t\tVizType: pulumi.String(\"timeseries\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tscreen, err := datadog.NewDashboard(ctx, \"screen\", \u0026datadog.DashboardArgs{\n\t\t\tDescription: pulumi.String(\"Created using the Datadog provider in TF\"),\n\t\t\tIsReadOnly:  pulumi.Bool(false),\n\t\t\tLayoutType:  pulumi.String(\"free\"),\n\t\t\tTitle:       pulumi.String(\"TF Test Free Layout Dashboard\"),\n\t\t\tWidgets: datadog.DashboardWidgetArray{\n\t\t\t\t\u0026datadog.DashboardWidgetArgs{\n\t\t\t\t\tEventStreamDefinition: \u0026datadog.DashboardWidgetEventStreamDefinitionArgs{\n\t\t\t\t\t\tEventSize: pulumi.String(\"l\"),\n\t\t\t\t\t\tQuery:     pulumi.String(\"*\"),\n\t\t\t\t\t\tTime: \u0026datadog.DashboardWidgetEventStreamDefinitionTimeArgs{\n\t\t\t\t\t\t\tLiveSpan: pulumi.String(\"1h\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTitle:      pulumi.String(\"Widget Title\"),\n\t\t\t\t\t\tTitleAlign: pulumi.String(\"left\"),\n\t\t\t\t\t\tTitleSize:  pulumi.String(\"16\"),\n\t\t\t\t\t},\n\t\t\t\t\tLayout: \u0026datadog.DashboardWidgetLayoutArgs{\n\t\t\t\t\t\tHeight: pulumi.Float64(43),\n\t\t\t\t\t\tWidth:  pulumi.Float64(32),\n\t\t\t\t\t\tX:      pulumi.Float64(5),\n\t\t\t\t\t\tY:      pulumi.Float64(5),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewDashboardList(ctx, \"newList\", \u0026datadog.DashboardListArgs{\n\t\t\tDashItems: datadog.DashboardListDashItemArray{\n\t\t\t\t\u0026datadog.DashboardListDashItemArgs{\n\t\t\t\t\tDashId: time.ID(),\n\t\t\t\t\tType:   pulumi.String(\"custom_timeboard\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.DashboardListDashItemArgs{\n\t\t\t\t\tDashId: screen.ID(),\n\t\t\t\t\tType:   pulumi.String(\"custom_screenboard\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tName: pulumi.String(\"TF Created List\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_dashboard.screen\",\n\t\t\t\"datadog_dashboard.time\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\ndashboard lists can be imported using their id, e.g.\n\n```sh\n $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456\n```\n\n ",
+            "description": "Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nCreate a new Dashboard list with two dashboards\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst time = new datadog.Dashboard(\"time\", {\n    description: \"Created using the Datadog provider in TF\",\n    isReadOnly: true,\n    layoutType: \"ordered\",\n    title: \"TF Test Layout Dashboard\",\n    widgets: [{\n        alertGraphDefinition: {\n            alertId: \"1234\",\n            time: {\n                live_span: \"1h\",\n            },\n            title: \"Widget Title\",\n            vizType: \"timeseries\",\n        },\n    }],\n});\nconst screen = new datadog.Dashboard(\"screen\", {\n    description: \"Created using the Datadog provider in TF\",\n    isReadOnly: false,\n    layoutType: \"free\",\n    title: \"TF Test Free Layout Dashboard\",\n    widgets: [{\n        eventStreamDefinition: {\n            eventSize: \"l\",\n            query: \"*\",\n            time: {\n                live_span: \"1h\",\n            },\n            title: \"Widget Title\",\n            titleAlign: \"left\",\n            titleSize: \"16\",\n        },\n        layout: {\n            height: 43,\n            width: 32,\n            x: 5,\n            y: 5,\n        },\n    }],\n});\nconst newList = new datadog.DashboardList(\"new_list\", {\n    dashItems: [\n        {\n            dashId: time.id,\n            type: \"custom_timeboard\",\n        },\n        {\n            dashId: screen.id,\n            type: \"custom_screenboard\",\n        },\n    ],\n    name: \"TF Created List\",\n}, { dependsOn: [screen, time] });\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntime = datadog.Dashboard(\"time\",\n    description=\"Created using the Datadog provider in TF\",\n    is_read_only=True,\n    layout_type=\"ordered\",\n    title=\"TF Test Layout Dashboard\",\n    widgets=[datadog.DashboardWidgetArgs(\n        alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(\n            alert_id=\"1234\",\n            time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(\n                live_span=\"1h\",\n            ),\n            title=\"Widget Title\",\n            viz_type=\"timeseries\",\n        ),\n    )])\nscreen = datadog.Dashboard(\"screen\",\n    description=\"Created using the Datadog provider in TF\",\n    is_read_only=False,\n    layout_type=\"free\",\n    title=\"TF Test Free Layout Dashboard\",\n    widgets=[datadog.DashboardWidgetArgs(\n        event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(\n            event_size=\"l\",\n            query=\"*\",\n            time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(\n                live_span=\"1h\",\n            ),\n            title=\"Widget Title\",\n            title_align=\"left\",\n            title_size=\"16\",\n        ),\n        layout=datadog.DashboardWidgetLayoutArgs(\n            height=43,\n            width=32,\n            x=5,\n            y=5,\n        ),\n    )])\nnew_list = datadog.DashboardList(\"newList\",\n    dash_items=[\n        datadog.DashboardListDashItemArgs(\n            dash_id=time.id,\n            type=\"custom_timeboard\",\n        ),\n        datadog.DashboardListDashItemArgs(\n            dash_id=screen.id,\n            type=\"custom_screenboard\",\n        ),\n    ],\n    name=\"TF Created List\",\n    opts=pulumi.ResourceOptions(depends_on=[\n            \"datadog_dashboard.screen\",\n            \"datadog_dashboard.time\",\n        ]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var time = new Datadog.Dashboard(\"time\", new Datadog.DashboardArgs\n        {\n            Description = \"Created using the Datadog provider in TF\",\n            IsReadOnly = true,\n            LayoutType = \"ordered\",\n            Title = \"TF Test Layout Dashboard\",\n            Widgets = \n            {\n                new Datadog.Inputs.DashboardWidgetArgs\n                {\n                    AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs\n                    {\n                        AlertId = \"1234\",\n                        Time = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionTimeArgs\n                        {\n                            LiveSpan = \"1h\",\n                        },\n                        Title = \"Widget Title\",\n                        VizType = \"timeseries\",\n                    },\n                },\n            },\n        });\n        var screen = new Datadog.Dashboard(\"screen\", new Datadog.DashboardArgs\n        {\n            Description = \"Created using the Datadog provider in TF\",\n            IsReadOnly = false,\n            LayoutType = \"free\",\n            Title = \"TF Test Free Layout Dashboard\",\n            Widgets = \n            {\n                new Datadog.Inputs.DashboardWidgetArgs\n                {\n                    EventStreamDefinition = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionArgs\n                    {\n                        EventSize = \"l\",\n                        Query = \"*\",\n                        Time = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionTimeArgs\n                        {\n                            LiveSpan = \"1h\",\n                        },\n                        Title = \"Widget Title\",\n                        TitleAlign = \"left\",\n                        TitleSize = \"16\",\n                    },\n                    Layout = new Datadog.Inputs.DashboardWidgetLayoutArgs\n                    {\n                        Height = 43,\n                        Width = 32,\n                        X = 5,\n                        Y = 5,\n                    },\n                },\n            },\n        });\n        var newList = new Datadog.DashboardList(\"newList\", new Datadog.DashboardListArgs\n        {\n            DashItems = \n            {\n                new Datadog.Inputs.DashboardListDashItemArgs\n                {\n                    DashId = time.Id,\n                    Type = \"custom_timeboard\",\n                },\n                new Datadog.Inputs.DashboardListDashItemArgs\n                {\n                    DashId = screen.Id,\n                    Type = \"custom_screenboard\",\n                },\n            },\n            Name = \"TF Created List\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_dashboard.screen\",\n                \"datadog_dashboard.time\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttime, err := datadog.NewDashboard(ctx, \"time\", \u0026datadog.DashboardArgs{\n\t\t\tDescription: pulumi.String(\"Created using the Datadog provider in TF\"),\n\t\t\tIsReadOnly:  pulumi.Bool(true),\n\t\t\tLayoutType:  pulumi.String(\"ordered\"),\n\t\t\tTitle:       pulumi.String(\"TF Test Layout Dashboard\"),\n\t\t\tWidgets: datadog.DashboardWidgetArray{\n\t\t\t\t\u0026datadog.DashboardWidgetArgs{\n\t\t\t\t\tAlertGraphDefinition: \u0026datadog.DashboardWidgetAlertGraphDefinitionArgs{\n\t\t\t\t\t\tAlertId: pulumi.String(\"1234\"),\n\t\t\t\t\t\tTime: \u0026datadog.DashboardWidgetAlertGraphDefinitionTimeArgs{\n\t\t\t\t\t\t\tLiveSpan: pulumi.String(\"1h\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTitle:   pulumi.String(\"Widget Title\"),\n\t\t\t\t\t\tVizType: pulumi.String(\"timeseries\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tscreen, err := datadog.NewDashboard(ctx, \"screen\", \u0026datadog.DashboardArgs{\n\t\t\tDescription: pulumi.String(\"Created using the Datadog provider in TF\"),\n\t\t\tIsReadOnly:  pulumi.Bool(false),\n\t\t\tLayoutType:  pulumi.String(\"free\"),\n\t\t\tTitle:       pulumi.String(\"TF Test Free Layout Dashboard\"),\n\t\t\tWidgets: datadog.DashboardWidgetArray{\n\t\t\t\t\u0026datadog.DashboardWidgetArgs{\n\t\t\t\t\tEventStreamDefinition: \u0026datadog.DashboardWidgetEventStreamDefinitionArgs{\n\t\t\t\t\t\tEventSize: pulumi.String(\"l\"),\n\t\t\t\t\t\tQuery:     pulumi.String(\"*\"),\n\t\t\t\t\t\tTime: \u0026datadog.DashboardWidgetEventStreamDefinitionTimeArgs{\n\t\t\t\t\t\t\tLiveSpan: pulumi.String(\"1h\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tTitle:      pulumi.String(\"Widget Title\"),\n\t\t\t\t\t\tTitleAlign: pulumi.String(\"left\"),\n\t\t\t\t\t\tTitleSize:  pulumi.String(\"16\"),\n\t\t\t\t\t},\n\t\t\t\t\tLayout: \u0026datadog.DashboardWidgetLayoutArgs{\n\t\t\t\t\t\tHeight: pulumi.Float64(43),\n\t\t\t\t\t\tWidth:  pulumi.Float64(32),\n\t\t\t\t\t\tX:      pulumi.Float64(5),\n\t\t\t\t\t\tY:      pulumi.Float64(5),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewDashboardList(ctx, \"newList\", \u0026datadog.DashboardListArgs{\n\t\t\tDashItems: datadog.DashboardListDashItemArray{\n\t\t\t\t\u0026datadog.DashboardListDashItemArgs{\n\t\t\t\t\tDashId: time.ID(),\n\t\t\t\t\tType:   pulumi.String(\"custom_timeboard\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.DashboardListDashItemArgs{\n\t\t\t\t\tDashId: screen.ID(),\n\t\t\t\t\tType:   pulumi.String(\"custom_screenboard\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tName: pulumi.String(\"TF Created List\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_dashboard.screen\",\n\t\t\t\"datadog_dashboard.time\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\ndashboard lists can be imported using their id, e.g.\n\n```sh\n $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456\n```\n\n ",
             "properties": {
                 "dashItems": {
                     "type": "array",
@@ -32699,7 +33073,7 @@
             }
         },
         "datadog:index/logsIndexOrder:LogsIndexOrder": {
-            "description": "Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleIndexOrder = new datadog.LogsIndexOrder(\"sampleIndexOrder\", {\n    name: \"sample_index_order\",\n    indexes: [datadog_logs_index.sample_index.id],\n}, {\n    dependsOn: [\"datadog_logs_index.sample_index\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_index_order = datadog.LogsIndexOrder(\"sampleIndexOrder\",\n    name=\"sample_index_order\",\n    indexes=[datadog_logs_index[\"sample_index\"][\"id\"]],\n    opts=ResourceOptions(depends_on=[\"datadog_logs_index.sample_index\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleIndexOrder = new Datadog.LogsIndexOrder(\"sampleIndexOrder\", new Datadog.LogsIndexOrderArgs\n        {\n            Name = \"sample_index_order\",\n            Indexes = \n            {\n                datadog_logs_index.Sample_index.Id,\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_logs_index.sample_index\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsIndexOrder(ctx, \"sampleIndexOrder\", \u0026datadog.LogsIndexOrderArgs{\n\t\t\tName: pulumi.String(\"sample_index_order\"),\n\t\t\tIndexes: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_index.Sample_index.Id),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_logs_index.sample_index\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `\u003cdatadog_logs_index_order.name\u003e \u003cname\u003e` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.\n```\n\n ",
+            "description": "Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst sampleIndexOrder = new datadog.LogsIndexOrder(\"sampleIndexOrder\", {\n    name: \"sample_index_order\",\n    indexes: [datadog_logs_index.sample_index.id],\n}, {\n    dependsOn: [\"datadog_logs_index.sample_index\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_index_order = datadog.LogsIndexOrder(\"sampleIndexOrder\",\n    name=\"sample_index_order\",\n    indexes=[datadog_logs_index[\"sample_index\"][\"id\"]],\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_logs_index.sample_index\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sampleIndexOrder = new Datadog.LogsIndexOrder(\"sampleIndexOrder\", new Datadog.LogsIndexOrderArgs\n        {\n            Name = \"sample_index_order\",\n            Indexes = \n            {\n                datadog_logs_index.Sample_index.Id,\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_logs_index.sample_index\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsIndexOrder(ctx, \"sampleIndexOrder\", \u0026datadog.LogsIndexOrderArgs{\n\t\t\tName: pulumi.String(\"sample_index_order\"),\n\t\t\tIndexes: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_index.Sample_index.Id),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_logs_index.sample_index\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `\u003cdatadog_logs_index_order.name\u003e \u003cname\u003e` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.\n```\n\n ",
             "properties": {
                 "indexes": {
                     "type": "array",
@@ -32769,7 +33143,7 @@
             }
         },
         "datadog:index/logsPipelineOrder:LogsPipelineOrder": {
-            "description": "Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to manage Datadog log pipelines order.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst samplePipelineOrder = new datadog.LogsPipelineOrder(\"samplePipelineOrder\", {\n    name: \"sample_pipeline_order\",\n    pipelines: [\n        datadog_logs_custom_pipeline.sample_pipeline.id,\n        datadog_logs_integration_pipeline.python.id,\n    ],\n}, {\n    dependsOn: [\n        \"datadog_logs_custom_pipeline.sample_pipeline\",\n        \"datadog_logs_integration_pipeline.python\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_pipeline_order = datadog.LogsPipelineOrder(\"samplePipelineOrder\",\n    name=\"sample_pipeline_order\",\n    pipelines=[\n        datadog_logs_custom_pipeline[\"sample_pipeline\"][\"id\"],\n        datadog_logs_integration_pipeline[\"python\"][\"id\"],\n    ],\n    opts=ResourceOptions(depends_on=[\n            \"datadog_logs_custom_pipeline.sample_pipeline\",\n            \"datadog_logs_integration_pipeline.python\",\n        ]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePipelineOrder = new Datadog.LogsPipelineOrder(\"samplePipelineOrder\", new Datadog.LogsPipelineOrderArgs\n        {\n            Name = \"sample_pipeline_order\",\n            Pipelines = \n            {\n                datadog_logs_custom_pipeline.Sample_pipeline.Id,\n                datadog_logs_integration_pipeline.Python.Id,\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_logs_custom_pipeline.sample_pipeline\",\n                \"datadog_logs_integration_pipeline.python\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsPipelineOrder(ctx, \"samplePipelineOrder\", \u0026datadog.LogsPipelineOrderArgs{\n\t\t\tName: pulumi.String(\"sample_pipeline_order\"),\n\t\t\tPipelines: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),\n\t\t\t\tpulumi.Any(datadog_logs_integration_pipeline.Python.Id),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_logs_custom_pipeline.sample_pipeline\",\n\t\t\t\"datadog_logs_integration_pipeline.python\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThere must be at most one `datadog_logs_pipeline_order` resource. Pipeline order creation is not supported from logs config API. You can import the `datadog_logs_pipeline_order` or create a pipeline order (which is actually doing the update operation).\n\n```sh\n $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name\u003e \u003cname\u003e\n```\n\n ",
+            "description": "Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to manage Datadog log pipelines order.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst samplePipelineOrder = new datadog.LogsPipelineOrder(\"samplePipelineOrder\", {\n    name: \"sample_pipeline_order\",\n    pipelines: [\n        datadog_logs_custom_pipeline.sample_pipeline.id,\n        datadog_logs_integration_pipeline.python.id,\n    ],\n}, {\n    dependsOn: [\n        \"datadog_logs_custom_pipeline.sample_pipeline\",\n        \"datadog_logs_integration_pipeline.python\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nsample_pipeline_order = datadog.LogsPipelineOrder(\"samplePipelineOrder\",\n    name=\"sample_pipeline_order\",\n    pipelines=[\n        datadog_logs_custom_pipeline[\"sample_pipeline\"][\"id\"],\n        datadog_logs_integration_pipeline[\"python\"][\"id\"],\n    ],\n    opts=pulumi.ResourceOptions(depends_on=[\n            \"datadog_logs_custom_pipeline.sample_pipeline\",\n            \"datadog_logs_integration_pipeline.python\",\n        ]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var samplePipelineOrder = new Datadog.LogsPipelineOrder(\"samplePipelineOrder\", new Datadog.LogsPipelineOrderArgs\n        {\n            Name = \"sample_pipeline_order\",\n            Pipelines = \n            {\n                datadog_logs_custom_pipeline.Sample_pipeline.Id,\n                datadog_logs_integration_pipeline.Python.Id,\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_logs_custom_pipeline.sample_pipeline\",\n                \"datadog_logs_integration_pipeline.python\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewLogsPipelineOrder(ctx, \"samplePipelineOrder\", \u0026datadog.LogsPipelineOrderArgs{\n\t\t\tName: pulumi.String(\"sample_pipeline_order\"),\n\t\t\tPipelines: pulumi.StringArray{\n\t\t\t\tpulumi.Any(datadog_logs_custom_pipeline.Sample_pipeline.Id),\n\t\t\t\tpulumi.Any(datadog_logs_integration_pipeline.Python.Id),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_logs_custom_pipeline.sample_pipeline\",\n\t\t\t\"datadog_logs_integration_pipeline.python\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nThere must be at most one `datadog_logs_pipeline_order` resource. Pipeline order creation is not supported from logs config API. You can import the `datadog_logs_pipeline_order` or create a pipeline order (which is actually doing the update operation).\n\n```sh\n $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name\u003e \u003cname\u003e\n```\n\n ",
             "properties": {
                 "name": {
                     "type": "string"
@@ -33381,11 +33755,151 @@
                 "type": "object"
             }
         },
+        "datadog:index/securityMonitoringRule:SecurityMonitoringRule": {
+            "description": "Provides a Datadog [Security Monitoring Rule API](https://docs.datadoghq.com/api/v2/security-monitoring/) resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use [datadog_security_default_rule](https://www.terraform.io/resources/security_monitoring_default_rule) instead.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nCreate a simple security monitoring rule.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst myrule = new datadog.SecurityMonitoringRule(\"myrule\", {\n    cases: [{\n        condition: \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        notifications: [\"@user\"],\n        status: \"high\",\n    }],\n    enabled: true,\n    message: \"The rule has triggered.\",\n    name: \"My rule\",\n    options: {\n        evaluationWindow: 300,\n        keepAlive: 600,\n        maxSignalDuration: 900,\n    },\n    queries: [\n        {\n            aggregation: \"count\",\n            groupByFields: [\"host\"],\n            name: \"errors\",\n            query: \"status:error\",\n        },\n        {\n            aggregation: \"count\",\n            groupByFields: [\"host\"],\n            name: \"warnings\",\n            query: \"status:warning\",\n        },\n    ],\n    tags: [\"type:dos\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nmyrule = datadog.SecurityMonitoringRule(\"myrule\",\n    cases=[datadog.SecurityMonitoringRuleCaseArgs(\n        condition=\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n        notifications=[\"@user\"],\n        status=\"high\",\n    )],\n    enabled=True,\n    message=\"The rule has triggered.\",\n    name=\"My rule\",\n    options=datadog.SecurityMonitoringRuleOptionsArgs(\n        evaluation_window=300,\n        keep_alive=600,\n        max_signal_duration=900,\n    ),\n    queries=[\n        datadog.SecurityMonitoringRuleQueryArgs(\n            aggregation=\"count\",\n            group_by_fields=[\"host\"],\n            name=\"errors\",\n            query=\"status:error\",\n        ),\n        datadog.SecurityMonitoringRuleQueryArgs(\n            aggregation=\"count\",\n            group_by_fields=[\"host\"],\n            name=\"warnings\",\n            query=\"status:warning\",\n        ),\n    ],\n    tags=[\"type:dos\"])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var myrule = new Datadog.SecurityMonitoringRule(\"myrule\", new Datadog.SecurityMonitoringRuleArgs\n        {\n            Cases = \n            {\n                new Datadog.Inputs.SecurityMonitoringRuleCaseArgs\n                {\n                    Condition = \"errors \u003e 3 \u0026\u0026 warnings \u003e 10\",\n                    Notifications = \n                    {\n                        \"@user\",\n                    },\n                    Status = \"high\",\n                },\n            },\n            Enabled = true,\n            Message = \"The rule has triggered.\",\n            Name = \"My rule\",\n            Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs\n            {\n                EvaluationWindow = 300,\n                KeepAlive = 600,\n                MaxSignalDuration = 900,\n            },\n            Queries = \n            {\n                new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n                {\n                    Aggregation = \"count\",\n                    GroupByFields = \n                    {\n                        \"host\",\n                    },\n                    Name = \"errors\",\n                    Query = \"status:error\",\n                },\n                new Datadog.Inputs.SecurityMonitoringRuleQueryArgs\n                {\n                    Aggregation = \"count\",\n                    GroupByFields = \n                    {\n                        \"host\",\n                    },\n                    Name = \"warnings\",\n                    Query = \"status:warning\",\n                },\n            },\n            Tags = \n            {\n                \"type:dos\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSecurityMonitoringRule(ctx, \"myrule\", \u0026datadog.SecurityMonitoringRuleArgs{\n\t\t\tCases: datadog.SecurityMonitoringRuleCaseArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleCaseArgs{\n\t\t\t\t\tCondition: pulumi.String(\"errors \u003e 3 \u0026\u0026 warnings \u003e 10\"),\n\t\t\t\t\tNotifications: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"@user\"),\n\t\t\t\t\t},\n\t\t\t\t\tStatus: pulumi.String(\"high\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t\tMessage: pulumi.String(\"The rule has triggered.\"),\n\t\t\tName:    pulumi.String(\"My rule\"),\n\t\t\tOptions: \u0026datadog.SecurityMonitoringRuleOptionsArgs{\n\t\t\t\tEvaluationWindow:  pulumi.Int(300),\n\t\t\t\tKeepAlive:         pulumi.Int(600),\n\t\t\t\tMaxSignalDuration: pulumi.Int(900),\n\t\t\t},\n\t\t\tQueries: datadog.SecurityMonitoringRuleQueryArray{\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t\tName:  pulumi.String(\"errors\"),\n\t\t\t\t\tQuery: pulumi.String(\"status:error\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.SecurityMonitoringRuleQueryArgs{\n\t\t\t\t\tAggregation: pulumi.String(\"count\"),\n\t\t\t\t\tGroupByFields: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"host\"),\n\t\t\t\t\t},\n\t\t\t\t\tName:  pulumi.String(\"warnings\"),\n\t\t\t\t\tQuery: pulumi.String(\"status:warning\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"type:dos\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSecurity monitoring rules can be imported using ID, e.g. console\n\n```sh\n $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_monitor m0o-hto-lkb\n```\n\n ",
+            "properties": {
+                "cases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleCase:SecurityMonitoringRuleCase"
+                    },
+                    "description": "Cases for generating signals.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the rule is enabled.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Message for generated signals.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule.\n"
+                },
+                "options": {
+                    "$ref": "#/types/datadog:index/SecurityMonitoringRuleOptions:SecurityMonitoringRuleOptions",
+                    "description": "Options on rules.\n"
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery"
+                    },
+                    "description": "Queries for selecting logs which are part of the rule.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags for generated signals.\n"
+                }
+            },
+            "required": [
+                "cases",
+                "message",
+                "name",
+                "queries"
+            ],
+            "inputProperties": {
+                "cases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleCase:SecurityMonitoringRuleCase"
+                    },
+                    "description": "Cases for generating signals.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether the rule is enabled.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Message for generated signals.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule.\n"
+                },
+                "options": {
+                    "$ref": "#/types/datadog:index/SecurityMonitoringRuleOptions:SecurityMonitoringRuleOptions",
+                    "description": "Options on rules.\n"
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery"
+                    },
+                    "description": "Queries for selecting logs which are part of the rule.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags for generated signals.\n"
+                }
+            },
+            "requiredInputs": [
+                "cases",
+                "message",
+                "name",
+                "queries"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SecurityMonitoringRule resources.\n",
+                "properties": {
+                    "cases": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/SecurityMonitoringRuleCase:SecurityMonitoringRuleCase"
+                        },
+                        "description": "Cases for generating signals.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether the rule is enabled.\n"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Message for generated signals.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the rule.\n"
+                    },
+                    "options": {
+                        "$ref": "#/types/datadog:index/SecurityMonitoringRuleOptions:SecurityMonitoringRuleOptions",
+                        "description": "Options on rules.\n"
+                    },
+                    "queries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/SecurityMonitoringRuleQuery:SecurityMonitoringRuleQuery"
+                        },
+                        "description": "Queries for selecting logs which are part of the rule.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags for generated signals.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "datadog:index/serviceLevelObjective:ServiceLevelObjective": {
             "description": "Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Metric-Based SLO\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog service level objective\nconst foo = new datadog.ServiceLevelObjective(\"foo\", {\n    description: \"My custom metric SLO\",\n    name: \"Example Metric SLO\",\n    query: {\n        denominator: \"sum:my.custom.count.metric{*}.as_count()\",\n        numerator: \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    },\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            targetDisplay: \"99.900\",\n            timeframe: \"7d\",\n            warning: 99.99,\n            warningDisplay: \"99.990\",\n        },\n        {\n            target: 99.9,\n            targetDisplay: \"99.900\",\n            timeframe: \"30d\",\n            warning: 99.99,\n            warningDisplay: \"99.990\",\n        },\n    ],\n    type: \"metric\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog service level objective\nfoo = datadog.ServiceLevelObjective(\"foo\",\n    description=\"My custom metric SLO\",\n    name=\"Example Metric SLO\",\n    query=datadog.ServiceLevelObjectiveQueryArgs(\n        denominator=\"sum:my.custom.count.metric{*}.as_count()\",\n        numerator=\"sum:my.custom.count.metric{type:good_events}.as_count()\",\n    ),\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            target_display=\"99.900\",\n            timeframe=\"7d\",\n            warning=99.99,\n            warning_display=\"99.990\",\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            target_display=\"99.900\",\n            timeframe=\"30d\",\n            warning=99.99,\n            warning_display=\"99.990\",\n        ),\n    ],\n    type=\"metric\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog service level objective\n        var foo = new Datadog.ServiceLevelObjective(\"foo\", new Datadog.ServiceLevelObjectiveArgs\n        {\n            Description = \"My custom metric SLO\",\n            Name = \"Example Metric SLO\",\n            Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs\n            {\n                Denominator = \"sum:my.custom.count.metric{*}.as_count()\",\n                Numerator = \"sum:my.custom.count.metric{type:good_events}.as_count()\",\n            },\n            Tags = \n            {\n                \"foo:bar\",\n                \"baz\",\n            },\n            Thresholds = \n            {\n                new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n                {\n                    Target = 99.9,\n                    TargetDisplay = \"99.900\",\n                    Timeframe = \"7d\",\n                    Warning = 99.99,\n                    WarningDisplay = \"99.990\",\n                },\n                new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n                {\n                    Target = 99.9,\n                    TargetDisplay = \"99.900\",\n                    Timeframe = \"30d\",\n                    Warning = 99.99,\n                    WarningDisplay = \"99.990\",\n                },\n            },\n            Type = \"metric\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceLevelObjective(ctx, \"foo\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"My custom metric SLO\"),\n\t\t\tName:        pulumi.String(\"Example Metric SLO\"),\n\t\t\tQuery: \u0026datadog.ServiceLevelObjectiveQueryArgs{\n\t\t\t\tDenominator: pulumi.String(\"sum:my.custom.count.metric{*}.as_count()\"),\n\t\t\t\tNumerator:   pulumi.String(\"sum:my.custom.count.metric{type:good_events}.as_count()\"),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"baz\"),\n\t\t\t},\n\t\t\tThresholds: datadog.ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:         pulumi.Float64(99.9),\n\t\t\t\t\tTargetDisplay:  pulumi.String(\"99.900\"),\n\t\t\t\t\tTimeframe:      pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:        pulumi.Float64(99.99),\n\t\t\t\t\tWarningDisplay: pulumi.String(\"99.990\"),\n\t\t\t\t},\n\t\t\t\t\u0026datadog.ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:         pulumi.Float64(99.9),\n\t\t\t\t\tTargetDisplay:  pulumi.String(\"99.900\"),\n\t\t\t\t\tTimeframe:      pulumi.String(\"30d\"),\n\t\t\t\t\tWarning:        pulumi.Float64(99.99),\n\t\t\t\t\tWarningDisplay: pulumi.String(\"99.990\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"metric\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Monitor-Based SLO\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog service level objective\nconst bar = new datadog.ServiceLevelObjective(\"bar\", {\n    description: \"My custom monitor SLO\",\n    monitorIds: [\n        1,\n        2,\n        3,\n    ],\n    name: \"Example Monitor SLO\",\n    tags: [\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds: [\n        {\n            target: 99.9,\n            timeframe: \"7d\",\n            warning: 99.99,\n        },\n        {\n            target: 99.9,\n            timeframe: \"30d\",\n            warning: 99.99,\n        },\n    ],\n    type: \"monitor\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog service level objective\nbar = datadog.ServiceLevelObjective(\"bar\",\n    description=\"My custom monitor SLO\",\n    monitor_ids=[\n        1,\n        2,\n        3,\n    ],\n    name=\"Example Monitor SLO\",\n    tags=[\n        \"foo:bar\",\n        \"baz\",\n    ],\n    thresholds=[\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"7d\",\n            warning=99.99,\n        ),\n        datadog.ServiceLevelObjectiveThresholdArgs(\n            target=99.9,\n            timeframe=\"30d\",\n            warning=99.99,\n        ),\n    ],\n    type=\"monitor\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog service level objective\n        var bar = new Datadog.ServiceLevelObjective(\"bar\", new Datadog.ServiceLevelObjectiveArgs\n        {\n            Description = \"My custom monitor SLO\",\n            MonitorIds = \n            {\n                1,\n                2,\n                3,\n            },\n            Name = \"Example Monitor SLO\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"baz\",\n            },\n            Thresholds = \n            {\n                new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n                {\n                    Target = 99.9,\n                    Timeframe = \"7d\",\n                    Warning = 99.99,\n                },\n                new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n                {\n                    Target = 99.9,\n                    Timeframe = \"30d\",\n                    Warning = 99.99,\n                },\n            },\n            Type = \"monitor\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nService Level Objectives can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string"
+                },
+                "forceDelete": {
+                    "type": "boolean",
+                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).\n-   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
                 },
                 "groups": {
                     "type": "array",
@@ -33413,7 +33927,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n-   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
+                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
                 },
                 "thresholds": {
                     "type": "array",
@@ -33437,6 +33951,10 @@
                 "description": {
                     "type": "string"
                 },
+                "forceDelete": {
+                    "type": "boolean",
+                    "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).\n-   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
+                },
                 "groups": {
                     "type": "array",
                     "items": {
@@ -33463,7 +33981,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n-   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
+                    "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
                 },
                 "thresholds": {
                     "type": "array",
@@ -33488,6 +34006,10 @@
                 "properties": {
                     "description": {
                         "type": "string"
+                    },
+                    "forceDelete": {
+                        "type": "boolean",
+                        "description": "A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).\n-   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
                     },
                     "groups": {
                         "type": "array",
@@ -33515,7 +34037,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n-   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.\n"
+                        "description": "A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API\n"
                     },
                     "thresholds": {
                         "type": "array",
@@ -33534,13 +34056,16 @@
             }
         },
         "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": {
-            "description": "Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testApi = new datadog.SyntheticsGlobalVariable(\"test_api\", {\n    description: \"Description of the variable\",\n    name: \"EXAMPLE_VARIABLE\",\n    tags: [\n        \"foo:bar\",\n        \"env:test\",\n    ],\n    value: \"variable-value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_api = datadog.SyntheticsGlobalVariable(\"testApi\",\n    description=\"Description of the variable\",\n    name=\"EXAMPLE_VARIABLE\",\n    tags=[\n        \"foo:bar\",\n        \"env:test\",\n    ],\n    value=\"variable-value\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testApi = new Datadog.SyntheticsGlobalVariable(\"testApi\", new Datadog.SyntheticsGlobalVariableArgs\n        {\n            Description = \"Description of the variable\",\n            Name = \"EXAMPLE_VARIABLE\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"env:test\",\n            },\n            Value = \"variable-value\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsGlobalVariable(ctx, \"testApi\", \u0026datadog.SyntheticsGlobalVariableArgs{\n\t\t\tDescription: pulumi.String(\"Description of the variable\"),\n\t\t\tName:        pulumi.String(\"EXAMPLE_VARIABLE\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t\tValue: pulumi.String(\"variable-value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Secure global variables\n\nSecure global variables are not supported for now.\n\n\n## Import\n\nSynthetics global variables can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv\n```\n\n ",
+            "description": "Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst testVariable = new datadog.SyntheticsGlobalVariable(\"test_variable\", {\n    description: \"Description of the variable\",\n    name: \"EXAMPLE_VARIABLE\",\n    tags: [\n        \"foo:bar\",\n        \"env:test\",\n    ],\n    value: \"variable-value\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest_variable = datadog.SyntheticsGlobalVariable(\"testVariable\",\n    description=\"Description of the variable\",\n    name=\"EXAMPLE_VARIABLE\",\n    tags=[\n        \"foo:bar\",\n        \"env:test\",\n    ],\n    value=\"variable-value\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testVariable = new Datadog.SyntheticsGlobalVariable(\"testVariable\", new Datadog.SyntheticsGlobalVariableArgs\n        {\n            Description = \"Description of the variable\",\n            Name = \"EXAMPLE_VARIABLE\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"env:test\",\n            },\n            Value = \"variable-value\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsGlobalVariable(ctx, \"testVariable\", \u0026datadog.SyntheticsGlobalVariableArgs{\n\t\t\tDescription: pulumi.String(\"Description of the variable\"),\n\t\t\tName:        pulumi.String(\"EXAMPLE_VARIABLE\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t\tValue: pulumi.String(\"variable-value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSynthetics global variables can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
+                },
+                "secure": {
+                    "type": "boolean"
                 },
                 "tags": {
                     "type": "array",
@@ -33562,6 +34087,9 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "secure": {
+                    "type": "boolean"
                 },
                 "tags": {
                     "type": "array",
@@ -33586,6 +34114,9 @@
                     "name": {
                         "type": "string"
                     },
+                    "secure": {
+                        "type": "boolean"
+                    },
                     "tags": {
                         "type": "array",
                         "items": {
@@ -33594,6 +34125,68 @@
                     },
                     "value": {
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation": {
+            "description": "Provides a Datadog synthetics private location resource. This can be used to create and manage Datadog synthetics private locations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst privateLocation = new datadog.SyntheticsPrivateLocation(\"private_location\", {\n    description: \"Description of the private location\",\n    name: \"First private location\",\n    tags: [\n        \"foo:bar\",\n        \"env:test\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nprivate_location = datadog.SyntheticsPrivateLocation(\"privateLocation\",\n    description=\"Description of the private location\",\n    name=\"First private location\",\n    tags=[\n        \"foo:bar\",\n        \"env:test\",\n    ])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var privateLocation = new Datadog.SyntheticsPrivateLocation(\"privateLocation\", new Datadog.SyntheticsPrivateLocationArgs\n        {\n            Description = \"Description of the private location\",\n            Name = \"First private location\",\n            Tags = \n            {\n                \"foo:bar\",\n                \"env:test\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewSyntheticsPrivateLocation(ctx, \"privateLocation\", \u0026datadog.SyntheticsPrivateLocationArgs{\n\t\t\tDescription: pulumi.String(\"Description of the private location\"),\n\t\t\tName:        pulumi.String(\"First private location\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t\tpulumi.String(\"env:test\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSynthetics private locations can be imported using their string ID, e.g.\n\n```sh\n $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456\n```\n\n ",
+            "properties": {
+                "config": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "config",
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SyntheticsPrivateLocation resources.\n",
+                "properties": {
+                    "config": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "type": "object"
@@ -33981,7 +34574,7 @@
             }
         },
         "datadog:index/user:User": {
-            "description": "Provides a Datadog user resource. This can be used to create and manage Datadog users.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog user\nconst foo = new datadog.User(\"foo\", {\n    email: \"new@example.com\",\n    handle: \"new@example.com\",\n    name: \"New User\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog user\nfoo = datadog.User(\"foo\",\n    email=\"new@example.com\",\n    handle=\"new@example.com\",\n    name=\"New User\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog user\n        var foo = new Datadog.User(\"foo\", new Datadog.UserArgs\n        {\n            Email = \"new@example.com\",\n            Handle = \"new@example.com\",\n            Name = \"New User\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewUser(ctx, \"foo\", \u0026datadog.UserArgs{\n\t\t\tEmail:  pulumi.String(\"new@example.com\"),\n\t\t\tHandle: pulumi.String(\"new@example.com\"),\n\t\t\tName:   pulumi.String(\"New User\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nusers can be imported using their handle, e.g.\n\n```sh\n $ pulumi import datadog:index/user:User example_user existing@example.com\n```\n\n ",
+            "description": "Provides a Datadog user resource. This can be used to create and manage Datadog users.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst roRole = datadog.getRole({\n    filter: \"Datadog Read Only Role\",\n});\n// Create a new Datadog user\nconst foo = new datadog.User(\"foo\", {\n    email: \"new@example.com\",\n    roles: [roRole.then(roRole =\u003e roRole.id)],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nro_role = datadog.get_role(filter=\"Datadog Read Only Role\")\n# Create a new Datadog user\nfoo = datadog.User(\"foo\",\n    email=\"new@example.com\",\n    roles=[ro_role.id])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var roRole = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs\n        {\n            Filter = \"Datadog Read Only Role\",\n        }));\n        // Create a new Datadog user\n        var foo = new Datadog.User(\"foo\", new Datadog.UserArgs\n        {\n            Email = \"new@example.com\",\n            Roles = \n            {\n                roRole.Apply(roRole =\u003e roRole.Id),\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\troRole, err := datadog.LookupRole(ctx, \u0026datadog.LookupRoleArgs{\n\t\t\tFilter: \"Datadog Read Only Role\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewUser(ctx, \"foo\", \u0026datadog.UserArgs{\n\t\t\tEmail: pulumi.String(\"new@example.com\"),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(roRole.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nusers can be imported using their ID, e.g.\n\n```sh\n $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4\n```\n\n ",
             "properties": {
                 "accessRole": {
                     "type": "string"
@@ -33993,11 +34586,12 @@
                     "type": "string"
                 },
                 "handle": {
-                    "type": "string"
+                    "type": "string",
+                    "deprecationMessage": "This parameter is deprecated and will be removed from the next Major version"
                 },
                 "isAdmin": {
                     "type": "boolean",
-                    "deprecationMessage": "This parameter will be replaced by `access_role` and will be removed from the next Major version"
+                    "deprecationMessage": "This parameter is replaced by `roles` and will be removed from the next Major version"
                 },
                 "name": {
                     "type": "string"
@@ -34006,15 +34600,19 @@
                     "type": "string",
                     "deprecationMessage": "This parameter was removed from the API and has no effect"
                 },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "verified": {
                     "type": "boolean"
                 }
             },
             "required": [
                 "email",
-                "handle",
                 "isAdmin",
-                "name",
                 "verified"
             ],
             "inputProperties": {
@@ -34028,11 +34626,12 @@
                     "type": "string"
                 },
                 "handle": {
-                    "type": "string"
+                    "type": "string",
+                    "deprecationMessage": "This parameter is deprecated and will be removed from the next Major version"
                 },
                 "isAdmin": {
                     "type": "boolean",
-                    "deprecationMessage": "This parameter will be replaced by `access_role` and will be removed from the next Major version"
+                    "deprecationMessage": "This parameter is replaced by `roles` and will be removed from the next Major version"
                 },
                 "name": {
                     "type": "string"
@@ -34040,12 +34639,16 @@
                 "role": {
                     "type": "string",
                     "deprecationMessage": "This parameter was removed from the API and has no effect"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
             "requiredInputs": [
-                "email",
-                "handle",
-                "name"
+                "email"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering User resources.\n",
@@ -34060,11 +34663,12 @@
                         "type": "string"
                     },
                     "handle": {
-                        "type": "string"
+                        "type": "string",
+                        "deprecationMessage": "This parameter is deprecated and will be removed from the next Major version"
                     },
                     "isAdmin": {
                         "type": "boolean",
-                        "deprecationMessage": "This parameter will be replaced by `access_role` and will be removed from the next Major version"
+                        "deprecationMessage": "This parameter is replaced by `roles` and will be removed from the next Major version"
                     },
                     "name": {
                         "type": "string"
@@ -34072,6 +34676,12 @@
                     "role": {
                         "type": "string",
                         "deprecationMessage": "This parameter was removed from the API and has no effect"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "verified": {
                         "type": "boolean"
@@ -34081,7 +34691,7 @@
             }
         },
         "datadog:pagerduty/integration:Integration": {
-            "description": "Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Services as Individual Resources\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    apiToken: \"38457822378273432587234242874\",\n    individualServices: true,\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n});\nconst testingFoo = new datadog.pagerduty.ServiceObject(\"testing_foo\", {\n    serviceKey: \"9876543210123456789\",\n    serviceName: \"testing_foo\",\n}, { dependsOn: [pd] });\nconst testingBar = new datadog.pagerduty.ServiceObject(\"testing_bar\", {\n    serviceKey: \"54321098765432109876\",\n    serviceName: \"testing_bar\",\n}, { dependsOn: [pd] });\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npd = datadog.pagerduty.Integration(\"pd\",\n    api_token=\"38457822378273432587234242874\",\n    individual_services=True,\n    schedules=[\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain=\"ddog\")\ntesting_foo = datadog.pagerduty.ServiceObject(\"testingFoo\",\n    service_key=\"9876543210123456789\",\n    service_name=\"testing_foo\",\n    opts=ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\ntesting_bar = datadog.pagerduty.ServiceObject(\"testingBar\",\n    service_key=\"54321098765432109876\",\n    service_name=\"testing_bar\",\n    opts=ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pd = new Datadog.PagerDuty.Integration(\"pd\", new Datadog.PagerDuty.IntegrationArgs\n        {\n            ApiToken = \"38457822378273432587234242874\",\n            IndividualServices = true,\n            Schedules = \n            {\n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\",\n            },\n            Subdomain = \"ddog\",\n        });\n        var testingFoo = new Datadog.PagerDuty.ServiceObject(\"testingFoo\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"9876543210123456789\",\n            ServiceName = \"testing_foo\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n        var testingBar = new Datadog.PagerDuty.ServiceObject(\"testingBar\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"54321098765432109876\",\n            ServiceName = \"testing_bar\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIntegration(ctx, \"pd\", \u0026pagerduty.IntegrationArgs{\n\t\t\tApiToken:           pulumi.String(\"38457822378273432587234242874\"),\n\t\t\tIndividualServices: pulumi.Bool(true),\n\t\t\tSchedules: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X123VF\"),\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X321XX\"),\n\t\t\t},\n\t\t\tSubdomain: pulumi.String(\"ddog\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingFoo\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"9876543210123456789\"),\n\t\t\tServiceName: pulumi.String(\"testing_foo\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingBar\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"54321098765432109876\"),\n\t\t\tServiceName: pulumi.String(\"testing_bar\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Inline Services\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pdServices = {\n    testing_foo: \"9876543210123456789\",\n    testing_bar: \"54321098765432109876\",\n};\n// Create a new Datadog - PagerDuty integration\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    dynamic: [{\n        forEach: pdServices,\n        content: [{\n            serviceName: services.key,\n            serviceKey: services.value,\n        }],\n    }],\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n    apiToken: \"38457822378273432587234242874\",\n});\n```\n{{% /example %}}\n{{% example %}}\n### Migrating from Inline Services to Individual Resources\n\nMigrating from usage of inline services to individual resources is very simple. The following example shows how to convert an existing inline services configuration to configuration using individual resources. Doing analogous change and running `pulumi up` after every step is all that's necessary to migrate.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pdServices = {\n    testing_foo: \"9876543210123456789\",\n    testing_bar: \"54321098765432109876\",\n};\n// Create a new Datadog - PagerDuty integration\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    dynamic: [{\n        forEach: pdServices,\n        content: [{\n            serviceName: services.key,\n            serviceKey: services.value,\n        }],\n    }],\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n    apiToken: \"38457822378273432587234242874\",\n});\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Second step - this will remove the inline-defined service objects\n// Note that during this step, `individual_services` must not be defined\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    apiToken: \"38457822378273432587234242874\",\n    // `services` was removed\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Second step - this will remove the inline-defined service objects\n# Note that during this step, `individual_services` must not be defined\npd = datadog.pagerduty.Integration(\"pd\",\n    api_token=\"38457822378273432587234242874\",\n    schedules=[\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain=\"ddog\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Second step - this will remove the inline-defined service objects\n        // Note that during this step, `individual_services` must not be defined\n        var pd = new Datadog.PagerDuty.Integration(\"pd\", new Datadog.PagerDuty.IntegrationArgs\n        {\n            ApiToken = \"38457822378273432587234242874\",\n            Schedules = \n            {\n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\",\n            },\n            Subdomain = \"ddog\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIntegration(ctx, \"pd\", \u0026pagerduty.IntegrationArgs{\n\t\t\tApiToken: pulumi.String(\"38457822378273432587234242874\"),\n\t\t\tSchedules: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X123VF\"),\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X321XX\"),\n\t\t\t},\n\t\t\tSubdomain: pulumi.String(\"ddog\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    apiToken: \"38457822378273432587234242874\",\n    // `individual_services = true` was added\n    individualServices: true,\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n});\nconst testingFoo = new datadog.pagerduty.ServiceObject(\"testing_foo\", {\n    serviceKey: \"9876543210123456789\",\n    serviceName: \"testing_foo\",\n}, { dependsOn: [pd] });\nconst testingBar = new datadog.pagerduty.ServiceObject(\"testing_bar\", {\n    serviceKey: \"54321098765432109876\",\n    serviceName: \"testing_bar\",\n}, { dependsOn: [pd] });\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npd = datadog.pagerduty.Integration(\"pd\",\n    api_token=\"38457822378273432587234242874\",\n    individual_services=True,\n    schedules=[\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain=\"ddog\")\ntesting_foo = datadog.pagerduty.ServiceObject(\"testingFoo\",\n    service_key=\"9876543210123456789\",\n    service_name=\"testing_foo\",\n    opts=ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\ntesting_bar = datadog.pagerduty.ServiceObject(\"testingBar\",\n    service_key=\"54321098765432109876\",\n    service_name=\"testing_bar\",\n    opts=ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pd = new Datadog.PagerDuty.Integration(\"pd\", new Datadog.PagerDuty.IntegrationArgs\n        {\n            ApiToken = \"38457822378273432587234242874\",\n            IndividualServices = true,\n            Schedules = \n            {\n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\",\n            },\n            Subdomain = \"ddog\",\n        });\n        var testingFoo = new Datadog.PagerDuty.ServiceObject(\"testingFoo\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"9876543210123456789\",\n            ServiceName = \"testing_foo\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n        var testingBar = new Datadog.PagerDuty.ServiceObject(\"testingBar\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"54321098765432109876\",\n            ServiceName = \"testing_bar\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIntegration(ctx, \"pd\", \u0026pagerduty.IntegrationArgs{\n\t\t\tApiToken:           pulumi.String(\"38457822378273432587234242874\"),\n\t\t\tIndividualServices: pulumi.Bool(true),\n\t\t\tSchedules: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X123VF\"),\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X321XX\"),\n\t\t\t},\n\t\t\tSubdomain: pulumi.String(\"ddog\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingFoo\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"9876543210123456789\"),\n\t\t\tServiceName: pulumi.String(\"testing_foo\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingBar\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"54321098765432109876\"),\n\t\t\tServiceName: pulumi.String(\"testing_bar\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Services as Individual Resources\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    apiToken: \"38457822378273432587234242874\",\n    individualServices: true,\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n});\nconst testingFoo = new datadog.pagerduty.ServiceObject(\"testing_foo\", {\n    serviceKey: \"9876543210123456789\",\n    serviceName: \"testing_foo\",\n}, { dependsOn: [pd] });\nconst testingBar = new datadog.pagerduty.ServiceObject(\"testing_bar\", {\n    serviceKey: \"54321098765432109876\",\n    serviceName: \"testing_bar\",\n}, { dependsOn: [pd] });\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npd = datadog.pagerduty.Integration(\"pd\",\n    api_token=\"38457822378273432587234242874\",\n    individual_services=True,\n    schedules=[\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain=\"ddog\")\ntesting_foo = datadog.pagerduty.ServiceObject(\"testingFoo\",\n    service_key=\"9876543210123456789\",\n    service_name=\"testing_foo\",\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\ntesting_bar = datadog.pagerduty.ServiceObject(\"testingBar\",\n    service_key=\"54321098765432109876\",\n    service_name=\"testing_bar\",\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pd = new Datadog.PagerDuty.Integration(\"pd\", new Datadog.PagerDuty.IntegrationArgs\n        {\n            ApiToken = \"38457822378273432587234242874\",\n            IndividualServices = true,\n            Schedules = \n            {\n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\",\n            },\n            Subdomain = \"ddog\",\n        });\n        var testingFoo = new Datadog.PagerDuty.ServiceObject(\"testingFoo\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"9876543210123456789\",\n            ServiceName = \"testing_foo\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n        var testingBar = new Datadog.PagerDuty.ServiceObject(\"testingBar\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"54321098765432109876\",\n            ServiceName = \"testing_bar\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIntegration(ctx, \"pd\", \u0026pagerduty.IntegrationArgs{\n\t\t\tApiToken:           pulumi.String(\"38457822378273432587234242874\"),\n\t\t\tIndividualServices: pulumi.Bool(true),\n\t\t\tSchedules: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X123VF\"),\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X321XX\"),\n\t\t\t},\n\t\t\tSubdomain: pulumi.String(\"ddog\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingFoo\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"9876543210123456789\"),\n\t\t\tServiceName: pulumi.String(\"testing_foo\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingBar\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"54321098765432109876\"),\n\t\t\tServiceName: pulumi.String(\"testing_bar\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Inline Services\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pdServices = {\n    testing_foo: \"9876543210123456789\",\n    testing_bar: \"54321098765432109876\",\n};\n// Create a new Datadog - PagerDuty integration\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    dynamic: [{\n        forEach: pdServices,\n        content: [{\n            serviceName: services.key,\n            serviceKey: services.value,\n        }],\n    }],\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n    apiToken: \"38457822378273432587234242874\",\n});\n```\n{{% /example %}}\n{{% example %}}\n### Migrating from Inline Services to Individual Resources\n\nMigrating from usage of inline services to individual resources is very simple. The following example shows how to convert an existing inline services configuration to configuration using individual resources. Doing analogous change and running `pulumi up` after every step is all that's necessary to migrate.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pdServices = {\n    testing_foo: \"9876543210123456789\",\n    testing_bar: \"54321098765432109876\",\n};\n// Create a new Datadog - PagerDuty integration\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    dynamic: [{\n        forEach: pdServices,\n        content: [{\n            serviceName: services.key,\n            serviceKey: services.value,\n        }],\n    }],\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n    apiToken: \"38457822378273432587234242874\",\n});\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Second step - this will remove the inline-defined service objects\n// Note that during this step, `individual_services` must not be defined\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    apiToken: \"38457822378273432587234242874\",\n    // `services` was removed\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Second step - this will remove the inline-defined service objects\n# Note that during this step, `individual_services` must not be defined\npd = datadog.pagerduty.Integration(\"pd\",\n    api_token=\"38457822378273432587234242874\",\n    schedules=[\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain=\"ddog\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Second step - this will remove the inline-defined service objects\n        // Note that during this step, `individual_services` must not be defined\n        var pd = new Datadog.PagerDuty.Integration(\"pd\", new Datadog.PagerDuty.IntegrationArgs\n        {\n            ApiToken = \"38457822378273432587234242874\",\n            Schedules = \n            {\n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\",\n            },\n            Subdomain = \"ddog\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIntegration(ctx, \"pd\", \u0026pagerduty.IntegrationArgs{\n\t\t\tApiToken: pulumi.String(\"38457822378273432587234242874\"),\n\t\t\tSchedules: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X123VF\"),\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X321XX\"),\n\t\t\t},\n\t\t\tSubdomain: pulumi.String(\"ddog\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst pd = new datadog.pagerduty.Integration(\"pd\", {\n    apiToken: \"38457822378273432587234242874\",\n    // `individual_services = true` was added\n    individualServices: true,\n    schedules: [\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain: \"ddog\",\n});\nconst testingFoo = new datadog.pagerduty.ServiceObject(\"testing_foo\", {\n    serviceKey: \"9876543210123456789\",\n    serviceName: \"testing_foo\",\n}, { dependsOn: [pd] });\nconst testingBar = new datadog.pagerduty.ServiceObject(\"testing_bar\", {\n    serviceKey: \"54321098765432109876\",\n    serviceName: \"testing_bar\",\n}, { dependsOn: [pd] });\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npd = datadog.pagerduty.Integration(\"pd\",\n    api_token=\"38457822378273432587234242874\",\n    individual_services=True,\n    schedules=[\n        \"https://ddog.pagerduty.com/schedules/X123VF\",\n        \"https://ddog.pagerduty.com/schedules/X321XX\",\n    ],\n    subdomain=\"ddog\")\ntesting_foo = datadog.pagerduty.ServiceObject(\"testingFoo\",\n    service_key=\"9876543210123456789\",\n    service_name=\"testing_foo\",\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\ntesting_bar = datadog.pagerduty.ServiceObject(\"testingBar\",\n    service_key=\"54321098765432109876\",\n    service_name=\"testing_bar\",\n    opts=pulumi.ResourceOptions(depends_on=[\"datadog_integration_pagerduty.pd\"]))\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pd = new Datadog.PagerDuty.Integration(\"pd\", new Datadog.PagerDuty.IntegrationArgs\n        {\n            ApiToken = \"38457822378273432587234242874\",\n            IndividualServices = true,\n            Schedules = \n            {\n                \"https://ddog.pagerduty.com/schedules/X123VF\",\n                \"https://ddog.pagerduty.com/schedules/X321XX\",\n            },\n            Subdomain = \"ddog\",\n        });\n        var testingFoo = new Datadog.PagerDuty.ServiceObject(\"testingFoo\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"9876543210123456789\",\n            ServiceName = \"testing_foo\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n        var testingBar = new Datadog.PagerDuty.ServiceObject(\"testingBar\", new Datadog.PagerDuty.ServiceObjectArgs\n        {\n            ServiceKey = \"54321098765432109876\",\n            ServiceName = \"testing_bar\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                \"datadog_integration_pagerduty.pd\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIntegration(ctx, \"pd\", \u0026pagerduty.IntegrationArgs{\n\t\t\tApiToken:           pulumi.String(\"38457822378273432587234242874\"),\n\t\t\tIndividualServices: pulumi.Bool(true),\n\t\t\tSchedules: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X123VF\"),\n\t\t\t\tpulumi.String(\"https://ddog.pagerduty.com/schedules/X321XX\"),\n\t\t\t},\n\t\t\tSubdomain: pulumi.String(\"ddog\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingFoo\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"9876543210123456789\"),\n\t\t\tServiceName: pulumi.String(\"testing_foo\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceObject(ctx, \"testingBar\", \u0026pagerduty.ServiceObjectArgs{\n\t\t\tServiceKey:  pulumi.String(\"54321098765432109876\"),\n\t\t\tServiceName: pulumi.String(\"testing_bar\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\t\"datadog_integration_pagerduty.pd\",\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "apiToken": {
                     "type": "string"
@@ -34589,6 +35199,72 @@
                 ]
             }
         },
+        "datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules": {
+            "description": "Use this data source to retrieve information about existing security monitoring rules for use in other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = pulumi.output(datadog.getSecurityMonitoringRules({\n    defaultOnlyFilter: true,\n    nameFilter: \"attack\",\n    tagsFilters: [\"foo:bar\"],\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_security_monitoring_rules(default_only_filter=True,\n    name_filter=\"attack\",\n    tags_filters=[\"foo:bar\"])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetSecurityMonitoringRules.InvokeAsync(new Datadog.GetSecurityMonitoringRulesArgs\n        {\n            DefaultOnlyFilter = true,\n            NameFilter = \"attack\",\n            TagsFilters = \n            {\n                \"foo:bar\",\n            },\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := true\n\t\topt1 := \"attack\"\n\t\t_, err := datadog.GetSecurityMonitoringRules(ctx, \u0026datadog.GetSecurityMonitoringRulesArgs{\n\t\t\tDefaultOnlyFilter: \u0026opt0,\n\t\t\tNameFilter:        \u0026opt1,\n\t\t\tTagsFilters: []string{\n\t\t\t\t\"foo:bar\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSecurityMonitoringRules.\n",
+                "properties": {
+                    "defaultOnlyFilter": {
+                        "type": "boolean"
+                    },
+                    "nameFilter": {
+                        "type": "string"
+                    },
+                    "tagsFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "userOnlyFilter": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSecurityMonitoringRules.\n",
+                "properties": {
+                    "defaultOnlyFilter": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "nameFilter": {
+                        "type": "string"
+                    },
+                    "ruleIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getSecurityMonitoringRulesRule:getSecurityMonitoringRulesRule"
+                        }
+                    },
+                    "tagsFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "userOnlyFilter": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ruleIds",
+                    "rules",
+                    "id"
+                ]
+            }
+        },
         "datadog:index/getSyntheticsLocations:getSyntheticsLocations": {
             "description": "Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).\n",
             "outputs": {
@@ -34645,8 +35321,7 @@
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
             "requires": {
                 "pulumi": "\u003e=2.9.0,\u003c3.0.0"
-            },
-            "usesIOClasses": true
+            }
         }
     }
 }

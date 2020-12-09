@@ -158,10 +158,10 @@ class Monitor(pulumi.CustomResource):
             __props__['force_delete'] = force_delete
             __props__['include_tags'] = include_tags
             __props__['locked'] = locked
-            if message is None:
+            if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__['message'] = message
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['new_host_delay'] = new_host_delay
@@ -169,12 +169,12 @@ class Monitor(pulumi.CustomResource):
             __props__['notify_audit'] = notify_audit
             __props__['notify_no_data'] = notify_no_data
             __props__['priority'] = priority
-            if query is None:
+            if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
             __props__['renotify_interval'] = renotify_interval
             __props__['require_full_window'] = require_full_window
-            if silenced is not None:
+            if silenced is not None and not opts.urn:
                 warnings.warn("""use Downtime Resource instead""", DeprecationWarning)
                 pulumi.log.warn("silenced is deprecated: use Downtime Resource instead")
             __props__['silenced'] = silenced
@@ -182,7 +182,7 @@ class Monitor(pulumi.CustomResource):
             __props__['threshold_windows'] = threshold_windows
             __props__['thresholds'] = thresholds
             __props__['timeout_h'] = timeout_h
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['validate'] = validate

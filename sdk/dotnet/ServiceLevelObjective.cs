@@ -125,6 +125,13 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        /// </summary>
+        [Output("forceDelete")]
+        public Output<bool?> ForceDelete { get; private set; } = null!;
+
+        /// <summary>
         /// A static set of groups to filter monitor-based SLOs
         /// </summary>
         [Output("groups")]
@@ -147,7 +154,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -210,6 +216,13 @@ namespace Pulumi.Datadog
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        /// </summary>
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
+
         [Input("groups")]
         private InputList<string>? _groups;
 
@@ -248,7 +261,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         public InputList<string> Tags
         {
@@ -279,6 +291,13 @@ namespace Pulumi.Datadog
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        /// </summary>
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;
@@ -318,7 +337,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         public InputList<string> Tags
         {

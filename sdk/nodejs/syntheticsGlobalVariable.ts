@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testApi = new datadog.SyntheticsGlobalVariable("test_api", {
+ * const testVariable = new datadog.SyntheticsGlobalVariable("test_variable", {
  *     description: "Description of the variable",
  *     name: "EXAMPLE_VARIABLE",
  *     tags: [
@@ -23,9 +23,6 @@ import * as utilities from "./utilities";
  *     value: "variable-value",
  * });
  * ```
- * ## Secure global variables
- *
- * Secure global variables are not supported for now.
  *
  * ## Import
  *
@@ -65,6 +62,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
 
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
+    public readonly secure!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly value!: pulumi.Output<string>;
 
@@ -82,18 +80,20 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             const state = argsOrState as SyntheticsGlobalVariableState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["secure"] = state ? state.secure : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as SyntheticsGlobalVariableArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.value === undefined) {
+            if ((!args || args.value === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'value'");
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["secure"] = args ? args.secure : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
@@ -114,6 +114,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
 export interface SyntheticsGlobalVariableState {
     readonly description?: pulumi.Input<string>;
     readonly name?: pulumi.Input<string>;
+    readonly secure?: pulumi.Input<boolean>;
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly value?: pulumi.Input<string>;
 }
@@ -124,6 +125,7 @@ export interface SyntheticsGlobalVariableState {
 export interface SyntheticsGlobalVariableArgs {
     readonly description?: pulumi.Input<string>;
     readonly name: pulumi.Input<string>;
+    readonly secure?: pulumi.Input<boolean>;
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     readonly value: pulumi.Input<string>;
 }

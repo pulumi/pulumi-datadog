@@ -482,10 +482,10 @@ export class ScreenBoard extends pulumi.CustomResource {
             inputs["width"] = state ? state.width : undefined;
         } else {
             const args = argsOrState as ScreenBoardArgs | undefined;
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
-            if (!args || args.widgets === undefined) {
+            if ((!args || args.widgets === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'widgets'");
             }
             inputs["height"] = args ? args.height : undefined;

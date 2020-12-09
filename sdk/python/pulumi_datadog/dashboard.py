@@ -712,17 +712,17 @@ class Dashboard(pulumi.CustomResource):
             __props__['dashboard_lists'] = dashboard_lists
             __props__['description'] = description
             __props__['is_read_only'] = is_read_only
-            if layout_type is None:
+            if layout_type is None and not opts.urn:
                 raise TypeError("Missing required property 'layout_type'")
             __props__['layout_type'] = layout_type
             __props__['notify_lists'] = notify_lists
             __props__['template_variable_presets'] = template_variable_presets
             __props__['template_variables'] = template_variables
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
             __props__['url'] = url
-            if widgets is None:
+            if widgets is None and not opts.urn:
                 raise TypeError("Missing required property 'widgets'")
             __props__['widgets'] = widgets
             __props__['dashboard_lists_removeds'] = None

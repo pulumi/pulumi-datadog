@@ -53,14 +53,15 @@ type ServiceObject struct {
 // NewServiceObject registers a new resource with the given unique name, arguments, and options.
 func NewServiceObject(ctx *pulumi.Context,
 	name string, args *ServiceObjectArgs, opts ...pulumi.ResourceOption) (*ServiceObject, error) {
-	if args == nil || args.ServiceKey == nil {
-		return nil, errors.New("missing required argument 'ServiceKey'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &ServiceObjectArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ServiceKey == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceKey'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	var resource ServiceObject
 	err := ctx.RegisterResource("datadog:pagerduty/serviceObject:ServiceObject", name, args, &resource, opts...)

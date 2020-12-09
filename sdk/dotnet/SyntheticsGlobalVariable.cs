@@ -22,7 +22,7 @@ namespace Pulumi.Datadog
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testApi = new Datadog.SyntheticsGlobalVariable("testApi", new Datadog.SyntheticsGlobalVariableArgs
+    ///         var testVariable = new Datadog.SyntheticsGlobalVariable("testVariable", new Datadog.SyntheticsGlobalVariableArgs
     ///         {
     ///             Description = "Description of the variable",
     ///             Name = "EXAMPLE_VARIABLE",
@@ -37,9 +37,6 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// ## Secure global variables
-    /// 
-    /// Secure global variables are not supported for now.
     /// 
     /// ## Import
     /// 
@@ -56,6 +53,9 @@ namespace Pulumi.Datadog
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("secure")]
+        public Output<bool?> Secure { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -115,6 +115,9 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("secure")]
+        public Input<bool>? Secure { get; set; }
+
         [Input("tags")]
         private InputList<string>? _tags;
         public InputList<string> Tags
@@ -138,6 +141,9 @@ namespace Pulumi.Datadog
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("secure")]
+        public Input<bool>? Secure { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;

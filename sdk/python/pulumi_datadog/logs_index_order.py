@@ -32,7 +32,7 @@ class LogsIndexOrder(pulumi.CustomResource):
         sample_index_order = datadog.LogsIndexOrder("sampleIndexOrder",
             name="sample_index_order",
             indexes=[datadog_logs_index["sample_index"]["id"]],
-            opts=ResourceOptions(depends_on=["datadog_logs_index.sample_index"]))
+            opts=pulumi.ResourceOptions(depends_on=["datadog_logs_index.sample_index"]))
         ```
 
         ## Import
@@ -61,10 +61,10 @@ class LogsIndexOrder(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if indexes is None:
+            if indexes is None and not opts.urn:
                 raise TypeError("Missing required property 'indexes'")
             __props__['indexes'] = indexes
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
         super(LogsIndexOrder, __self__).__init__(

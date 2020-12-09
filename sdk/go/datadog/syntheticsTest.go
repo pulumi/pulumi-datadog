@@ -336,23 +336,24 @@ type SyntheticsTest struct {
 // NewSyntheticsTest registers a new resource with the given unique name, arguments, and options.
 func NewSyntheticsTest(ctx *pulumi.Context,
 	name string, args *SyntheticsTestArgs, opts ...pulumi.ResourceOption) (*SyntheticsTest, error) {
-	if args == nil || args.Locations == nil {
-		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Request == nil {
-		return nil, errors.New("missing required argument 'Request'")
-	}
-	if args == nil || args.Status == nil {
-		return nil, errors.New("missing required argument 'Status'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &SyntheticsTestArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Locations == nil {
+		return nil, errors.New("invalid value for required argument 'Locations'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Request == nil {
+		return nil, errors.New("invalid value for required argument 'Request'")
+	}
+	if args.Status == nil {
+		return nil, errors.New("invalid value for required argument 'Status'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource SyntheticsTest
 	err := ctx.RegisterResource("datadog:index/syntheticsTest:SyntheticsTest", name, args, &resource, opts...)

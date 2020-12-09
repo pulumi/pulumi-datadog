@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewSyntheticsGlobalVariable(ctx, "testApi", &datadog.SyntheticsGlobalVariableArgs{
+// 		_, err := datadog.NewSyntheticsGlobalVariable(ctx, "testVariable", &datadog.SyntheticsGlobalVariableArgs{
 // 			Description: pulumi.String("Description of the variable"),
 // 			Name:        pulumi.String("EXAMPLE_VARIABLE"),
 // 			Tags: pulumi.StringArray{
@@ -41,9 +41,6 @@ import (
 // 	})
 // }
 // ```
-// ## Secure global variables
-//
-// Secure global variables are not supported for now.
 //
 // ## Import
 //
@@ -57,6 +54,7 @@ type SyntheticsGlobalVariable struct {
 
 	Description pulumi.StringPtrOutput   `pulumi:"description"`
 	Name        pulumi.StringOutput      `pulumi:"name"`
+	Secure      pulumi.BoolPtrOutput     `pulumi:"secure"`
 	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
 	Value       pulumi.StringOutput      `pulumi:"value"`
 }
@@ -64,14 +62,15 @@ type SyntheticsGlobalVariable struct {
 // NewSyntheticsGlobalVariable registers a new resource with the given unique name, arguments, and options.
 func NewSyntheticsGlobalVariable(ctx *pulumi.Context,
 	name string, args *SyntheticsGlobalVariableArgs, opts ...pulumi.ResourceOption) (*SyntheticsGlobalVariable, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Value == nil {
-		return nil, errors.New("missing required argument 'Value'")
-	}
 	if args == nil {
-		args = &SyntheticsGlobalVariableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Value == nil {
+		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource SyntheticsGlobalVariable
 	err := ctx.RegisterResource("datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable", name, args, &resource, opts...)
@@ -97,6 +96,7 @@ func GetSyntheticsGlobalVariable(ctx *pulumi.Context,
 type syntheticsGlobalVariableState struct {
 	Description *string  `pulumi:"description"`
 	Name        *string  `pulumi:"name"`
+	Secure      *bool    `pulumi:"secure"`
 	Tags        []string `pulumi:"tags"`
 	Value       *string  `pulumi:"value"`
 }
@@ -104,6 +104,7 @@ type syntheticsGlobalVariableState struct {
 type SyntheticsGlobalVariableState struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
+	Secure      pulumi.BoolPtrInput
 	Tags        pulumi.StringArrayInput
 	Value       pulumi.StringPtrInput
 }
@@ -115,6 +116,7 @@ func (SyntheticsGlobalVariableState) ElementType() reflect.Type {
 type syntheticsGlobalVariableArgs struct {
 	Description *string  `pulumi:"description"`
 	Name        string   `pulumi:"name"`
+	Secure      *bool    `pulumi:"secure"`
 	Tags        []string `pulumi:"tags"`
 	Value       string   `pulumi:"value"`
 }
@@ -123,6 +125,7 @@ type syntheticsGlobalVariableArgs struct {
 type SyntheticsGlobalVariableArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringInput
+	Secure      pulumi.BoolPtrInput
 	Tags        pulumi.StringArrayInput
 	Value       pulumi.StringInput
 }

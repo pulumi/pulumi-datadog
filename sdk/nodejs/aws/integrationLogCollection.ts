@@ -75,10 +75,10 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
             inputs["services"] = state ? state.services : undefined;
         } else {
             const args = argsOrState as IntegrationLogCollectionArgs | undefined;
-            if (!args || args.accountId === undefined) {
+            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if (!args || args.services === undefined) {
+            if ((!args || args.services === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'services'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;

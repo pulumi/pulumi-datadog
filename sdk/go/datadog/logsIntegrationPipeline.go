@@ -54,6 +54,7 @@ func NewLogsIntegrationPipeline(ctx *pulumi.Context,
 	if args == nil {
 		args = &LogsIntegrationPipelineArgs{}
 	}
+
 	var resource LogsIntegrationPipeline
 	err := ctx.RegisterResource("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline", name, args, &resource, opts...)
 	if err != nil {

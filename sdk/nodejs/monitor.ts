@@ -219,16 +219,16 @@ export class Monitor extends pulumi.CustomResource {
             inputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if (!args || args.message === undefined) {
+            if ((!args || args.message === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'message'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.query === undefined) {
+            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'query'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["enableLogsSample"] = args ? args.enableLogsSample : undefined;

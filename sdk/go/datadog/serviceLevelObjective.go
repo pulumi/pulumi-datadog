@@ -74,6 +74,9 @@ type ServiceLevelObjective struct {
 	pulumi.CustomResourceState
 
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
@@ -82,7 +85,6 @@ type ServiceLevelObjective struct {
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       pulumi.StringArrayOutput                  `pulumi:"tags"`
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
 	Type       pulumi.StringOutput                       `pulumi:"type"`
@@ -92,17 +94,18 @@ type ServiceLevelObjective struct {
 // NewServiceLevelObjective registers a new resource with the given unique name, arguments, and options.
 func NewServiceLevelObjective(ctx *pulumi.Context,
 	name string, args *ServiceLevelObjectiveArgs, opts ...pulumi.ResourceOption) (*ServiceLevelObjective, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Thresholds == nil {
-		return nil, errors.New("missing required argument 'Thresholds'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &ServiceLevelObjectiveArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Thresholds == nil {
+		return nil, errors.New("invalid value for required argument 'Thresholds'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource ServiceLevelObjective
 	err := ctx.RegisterResource("datadog:index/serviceLevelObjective:ServiceLevelObjective", name, args, &resource, opts...)
@@ -127,6 +130,9 @@ func GetServiceLevelObjective(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceLevelObjective resources.
 type serviceLevelObjectiveState struct {
 	Description *string `pulumi:"description"`
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
@@ -135,7 +141,6 @@ type serviceLevelObjectiveState struct {
 	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	Type       *string                          `pulumi:"type"`
@@ -144,6 +149,9 @@ type serviceLevelObjectiveState struct {
 
 type ServiceLevelObjectiveState struct {
 	Description pulumi.StringPtrInput
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	ForceDelete pulumi.BoolPtrInput
 	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
@@ -152,7 +160,6 @@ type ServiceLevelObjectiveState struct {
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	Type       pulumi.StringPtrInput
@@ -165,6 +172,9 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 
 type serviceLevelObjectiveArgs struct {
 	Description *string `pulumi:"description"`
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
@@ -173,7 +183,6 @@ type serviceLevelObjectiveArgs struct {
 	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       []string                         `pulumi:"tags"`
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
 	Type       string                           `pulumi:"type"`
@@ -183,6 +192,9 @@ type serviceLevelObjectiveArgs struct {
 // The set of arguments for constructing a ServiceLevelObjective resource.
 type ServiceLevelObjectiveArgs struct {
 	Description pulumi.StringPtrInput
+	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+	ForceDelete pulumi.BoolPtrInput
 	// A static set of groups to filter monitor-based SLOs
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
@@ -191,7 +203,6 @@ type ServiceLevelObjectiveArgs struct {
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Tags       pulumi.StringArrayInput
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
 	Type       pulumi.StringInput

@@ -90,19 +90,19 @@ export class Integration extends pulumi.CustomResource {
             inputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if (!args || args.clientEmail === undefined) {
+            if ((!args || args.clientEmail === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientEmail'");
             }
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.privateKey === undefined) {
+            if ((!args || args.privateKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            if (!args || args.privateKeyId === undefined) {
+            if ((!args || args.privateKeyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateKeyId'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["clientEmail"] = args ? args.clientEmail : undefined;

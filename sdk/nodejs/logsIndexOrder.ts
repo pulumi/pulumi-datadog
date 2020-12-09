@@ -74,10 +74,10 @@ export class LogsIndexOrder extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogsIndexOrderArgs | undefined;
-            if (!args || args.indexes === undefined) {
+            if ((!args || args.indexes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'indexes'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["indexes"] = args ? args.indexes : undefined;

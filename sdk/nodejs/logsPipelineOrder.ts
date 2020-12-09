@@ -82,10 +82,10 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
             inputs["pipelines"] = state ? state.pipelines : undefined;
         } else {
             const args = argsOrState as LogsPipelineOrderArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.pipelines === undefined) {
+            if ((!args || args.pipelines === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pipelines'");
             }
             inputs["name"] = args ? args.name : undefined;

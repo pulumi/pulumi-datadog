@@ -35,17 +35,18 @@ type TimeBoard struct {
 // NewTimeBoard registers a new resource with the given unique name, arguments, and options.
 func NewTimeBoard(ctx *pulumi.Context,
 	name string, args *TimeBoardArgs, opts ...pulumi.ResourceOption) (*TimeBoard, error) {
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
-	if args == nil || args.Graphs == nil {
-		return nil, errors.New("missing required argument 'Graphs'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
 	if args == nil {
-		args = &TimeBoardArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.Graphs == nil {
+		return nil, errors.New("invalid value for required argument 'Graphs'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
 	}
 	var resource TimeBoard
 	err := ctx.RegisterResource("datadog:index/timeBoard:TimeBoard", name, args, &resource, opts...)

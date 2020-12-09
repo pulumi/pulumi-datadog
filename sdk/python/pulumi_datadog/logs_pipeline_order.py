@@ -35,7 +35,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
                 datadog_logs_custom_pipeline["sample_pipeline"]["id"],
                 datadog_logs_integration_pipeline["python"]["id"],
             ],
-            opts=ResourceOptions(depends_on=[
+            opts=pulumi.ResourceOptions(depends_on=[
                     "datadog_logs_custom_pipeline.sample_pipeline",
                     "datadog_logs_integration_pipeline.python",
                 ]))
@@ -69,10 +69,10 @@ class LogsPipelineOrder(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if pipelines is None:
+            if pipelines is None and not opts.urn:
                 raise TypeError("Missing required property 'pipelines'")
             __props__['pipelines'] = pipelines
         super(LogsPipelineOrder, __self__).__init__(

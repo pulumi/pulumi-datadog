@@ -355,19 +355,19 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as SyntheticsTestArgs | undefined;
-            if (!args || args.locations === undefined) {
+            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.request === undefined) {
+            if ((!args || args.request === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'request'");
             }
-            if (!args || args.status === undefined) {
+            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'status'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["assertions"] = args ? args.assertions : undefined;

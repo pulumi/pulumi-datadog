@@ -806,6 +806,9 @@ __all__ = [
     'ScreenBoardWidgetTileDefRequestLogQueryGroupBySortArgs',
     'ScreenBoardWidgetTileDefRequestLogQuerySearchArgs',
     'ScreenBoardWidgetTileDefRequestProcessQueryArgs',
+    'SecurityMonitoringRuleCaseArgs',
+    'SecurityMonitoringRuleOptionsArgs',
+    'SecurityMonitoringRuleQueryArgs',
     'ServiceLevelObjectiveQueryArgs',
     'ServiceLevelObjectiveThresholdArgs',
     'SyntheticsTestOptionsArgs',
@@ -39033,6 +39036,172 @@ class ScreenBoardWidgetTileDefRequestProcessQueryArgs:
     @search_by.setter
     def search_by(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "search_by", value)
+
+
+@pulumi.input_type
+class SecurityMonitoringRuleCaseArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str],
+                 condition: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "status", status)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "notifications")
+
+    @notifications.setter
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "notifications", value)
+
+
+@pulumi.input_type
+class SecurityMonitoringRuleOptionsArgs:
+    def __init__(__self__, *,
+                 evaluation_window: pulumi.Input[int],
+                 keep_alive: pulumi.Input[int],
+                 max_signal_duration: pulumi.Input[int]):
+        pulumi.set(__self__, "evaluation_window", evaluation_window)
+        pulumi.set(__self__, "keep_alive", keep_alive)
+        pulumi.set(__self__, "max_signal_duration", max_signal_duration)
+
+    @property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "evaluation_window")
+
+    @evaluation_window.setter
+    def evaluation_window(self, value: pulumi.Input[int]):
+        pulumi.set(self, "evaluation_window", value)
+
+    @property
+    @pulumi.getter(name="keepAlive")
+    def keep_alive(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "keep_alive")
+
+    @keep_alive.setter
+    def keep_alive(self, value: pulumi.Input[int]):
+        pulumi.set(self, "keep_alive", value)
+
+    @property
+    @pulumi.getter(name="maxSignalDuration")
+    def max_signal_duration(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_signal_duration")
+
+    @max_signal_duration.setter
+    def max_signal_duration(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_signal_duration", value)
+
+
+@pulumi.input_type
+class SecurityMonitoringRuleQueryArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[str],
+                 aggregation: Optional[pulumi.Input[str]] = None,
+                 distinct_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_by_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metric: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "query", query)
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if distinct_fields is not None:
+            pulumi.set(__self__, "distinct_fields", distinct_fields)
+        if group_by_fields is not None:
+            pulumi.set(__self__, "group_by_fields", group_by_fields)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aggregation")
+
+    @aggregation.setter
+    def aggregation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aggregation", value)
+
+    @property
+    @pulumi.getter(name="distinctFields")
+    def distinct_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "distinct_fields")
+
+    @distinct_fields.setter
+    def distinct_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "distinct_fields", value)
+
+    @property
+    @pulumi.getter(name="groupByFields")
+    def group_by_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "group_by_fields")
+
+    @group_by_fields.setter
+    def group_by_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_by_fields", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
