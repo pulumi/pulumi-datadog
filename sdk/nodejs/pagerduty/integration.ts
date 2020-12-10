@@ -189,7 +189,7 @@ export class Integration extends pulumi.CustomResource {
             inputs["subdomain"] = state ? state.subdomain : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if (!args || args.subdomain === undefined) {
+            if ((!args || args.subdomain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subdomain'");
             }
             inputs["apiToken"] = args ? args.apiToken : undefined;

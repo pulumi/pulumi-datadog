@@ -31,6 +31,7 @@ func NewLogsArchiveOrder(ctx *pulumi.Context,
 	if args == nil {
 		args = &LogsArchiveOrderArgs{}
 	}
+
 	var resource LogsArchiveOrder
 	err := ctx.RegisterResource("datadog:index/logsArchiveOrder:LogsArchiveOrder", name, args, &resource, opts...)
 	if err != nil {

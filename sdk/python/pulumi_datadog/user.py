@@ -22,6 +22,7 @@ class User(pulumi.CustomResource):
                  is_admin: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,19 +35,19 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        ro_role = datadog.get_role(filter="Datadog Read Only Role")
         # Create a new Datadog user
         foo = datadog.User("foo",
             email="new@example.com",
-            handle="new@example.com",
-            name="New User")
+            roles=[ro_role.id])
         ```
 
         ## Import
 
-        users can be imported using their handle, e.g.
+        users can be imported using their ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/user:User example_user existing@example.com
+         $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
         ```
 
         :param str resource_name: The name of the resource.
@@ -71,23 +72,23 @@ class User(pulumi.CustomResource):
 
             __props__['access_role'] = access_role
             __props__['disabled'] = disabled
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
-            if handle is None:
-                raise TypeError("Missing required property 'handle'")
+            if handle is not None and not opts.urn:
+                warnings.warn("""This parameter is deprecated and will be removed from the next Major version""", DeprecationWarning)
+                pulumi.log.warn("handle is deprecated: This parameter is deprecated and will be removed from the next Major version")
             __props__['handle'] = handle
-            if is_admin is not None:
-                warnings.warn("""This parameter will be replaced by `access_role` and will be removed from the next Major version""", DeprecationWarning)
-                pulumi.log.warn("is_admin is deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version")
+            if is_admin is not None and not opts.urn:
+                warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
+                pulumi.log.warn("is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version")
             __props__['is_admin'] = is_admin
-            if name is None:
-                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if role is not None:
+            if role is not None and not opts.urn:
                 warnings.warn("""This parameter was removed from the API and has no effect""", DeprecationWarning)
                 pulumi.log.warn("role is deprecated: This parameter was removed from the API and has no effect")
             __props__['role'] = role
+            __props__['roles'] = roles
             __props__['verified'] = None
         super(User, __self__).__init__(
             'datadog:index/user:User',
@@ -106,6 +107,7 @@ class User(pulumi.CustomResource):
             is_admin: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
+            roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             verified: Optional[pulumi.Input[bool]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
@@ -126,6 +128,7 @@ class User(pulumi.CustomResource):
         __props__["is_admin"] = is_admin
         __props__["name"] = name
         __props__["role"] = role
+        __props__["roles"] = roles
         __props__["verified"] = verified
         return User(resource_name, opts=opts, __props__=__props__)
 
@@ -146,7 +149,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def handle(self) -> pulumi.Output[str]:
+    def handle(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "handle")
 
     @property
@@ -156,13 +159,18 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "roles")
 
     @property
     @pulumi.getter

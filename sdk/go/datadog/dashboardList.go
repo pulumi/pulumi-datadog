@@ -120,11 +120,12 @@ type DashboardList struct {
 // NewDashboardList registers a new resource with the given unique name, arguments, and options.
 func NewDashboardList(ctx *pulumi.Context,
 	name string, args *DashboardListArgs, opts ...pulumi.ResourceOption) (*DashboardList, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &DashboardListArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource DashboardList
 	err := ctx.RegisterResource("datadog:index/dashboardList:DashboardList", name, args, &resource, opts...)

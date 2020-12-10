@@ -24,6 +24,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+
 	if args.ApiKey == nil {
 		args.ApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "DATADOG_API_KEY").(string))
 	}

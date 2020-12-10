@@ -113,11 +113,12 @@ type Downtime struct {
 // NewDowntime registers a new resource with the given unique name, arguments, and options.
 func NewDowntime(ctx *pulumi.Context,
 	name string, args *DowntimeArgs, opts ...pulumi.ResourceOption) (*Downtime, error) {
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
 	if args == nil {
-		args = &DowntimeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
 	var resource Downtime
 	err := ctx.RegisterResource("datadog:index/downtime:Downtime", name, args, &resource, opts...)

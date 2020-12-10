@@ -25,10 +25,17 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewUser(ctx, "foo", &datadog.UserArgs{
-// 			Email:  pulumi.String("new@example.com"),
-// 			Handle: pulumi.String("new@example.com"),
-// 			Name:   pulumi.String("New User"),
+// 		roRole, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
+// 			Filter: "Datadog Read Only Role",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datadog.NewUser(ctx, "foo", &datadog.UserArgs{
+// 			Email: pulumi.String("new@example.com"),
+// 			Roles: pulumi.StringArray{
+// 				pulumi.String(roRole.Id),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -40,10 +47,10 @@ import (
 //
 // ## Import
 //
-// users can be imported using their handle, e.g.
+// users can be imported using their ID, e.g.
 //
 // ```sh
-//  $ pulumi import datadog:index/user:User example_user existing@example.com
+//  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -51,29 +58,26 @@ type User struct {
 	AccessRole pulumi.StringPtrOutput `pulumi:"accessRole"`
 	Disabled   pulumi.BoolPtrOutput   `pulumi:"disabled"`
 	Email      pulumi.StringOutput    `pulumi:"email"`
-	Handle     pulumi.StringOutput    `pulumi:"handle"`
-	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
-	IsAdmin pulumi.BoolOutput   `pulumi:"isAdmin"`
-	Name    pulumi.StringOutput `pulumi:"name"`
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	Handle pulumi.StringPtrOutput `pulumi:"handle"`
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	IsAdmin pulumi.BoolOutput      `pulumi:"isAdmin"`
+	Name    pulumi.StringPtrOutput `pulumi:"name"`
 	// Deprecated: This parameter was removed from the API and has no effect
-	Role     pulumi.StringPtrOutput `pulumi:"role"`
-	Verified pulumi.BoolOutput      `pulumi:"verified"`
+	Role     pulumi.StringPtrOutput   `pulumi:"role"`
+	Roles    pulumi.StringArrayOutput `pulumi:"roles"`
+	Verified pulumi.BoolOutput        `pulumi:"verified"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
-	if args == nil || args.Email == nil {
-		return nil, errors.New("missing required argument 'Email'")
-	}
-	if args == nil || args.Handle == nil {
-		return nil, errors.New("missing required argument 'Handle'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &UserArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Email == nil {
+		return nil, errors.New("invalid value for required argument 'Email'")
 	}
 	var resource User
 	err := ctx.RegisterResource("datadog:index/user:User", name, args, &resource, opts...)
@@ -100,25 +104,29 @@ type userState struct {
 	AccessRole *string `pulumi:"accessRole"`
 	Disabled   *bool   `pulumi:"disabled"`
 	Email      *string `pulumi:"email"`
-	Handle     *string `pulumi:"handle"`
-	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	Handle *string `pulumi:"handle"`
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
 	IsAdmin *bool   `pulumi:"isAdmin"`
 	Name    *string `pulumi:"name"`
 	// Deprecated: This parameter was removed from the API and has no effect
-	Role     *string `pulumi:"role"`
-	Verified *bool   `pulumi:"verified"`
+	Role     *string  `pulumi:"role"`
+	Roles    []string `pulumi:"roles"`
+	Verified *bool    `pulumi:"verified"`
 }
 
 type UserState struct {
 	AccessRole pulumi.StringPtrInput
 	Disabled   pulumi.BoolPtrInput
 	Email      pulumi.StringPtrInput
-	Handle     pulumi.StringPtrInput
-	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	Handle pulumi.StringPtrInput
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
 	IsAdmin pulumi.BoolPtrInput
 	Name    pulumi.StringPtrInput
 	// Deprecated: This parameter was removed from the API and has no effect
 	Role     pulumi.StringPtrInput
+	Roles    pulumi.StringArrayInput
 	Verified pulumi.BoolPtrInput
 }
 
@@ -130,12 +138,14 @@ type userArgs struct {
 	AccessRole *string `pulumi:"accessRole"`
 	Disabled   *bool   `pulumi:"disabled"`
 	Email      string  `pulumi:"email"`
-	Handle     string  `pulumi:"handle"`
-	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
-	IsAdmin *bool  `pulumi:"isAdmin"`
-	Name    string `pulumi:"name"`
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	Handle *string `pulumi:"handle"`
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	IsAdmin *bool   `pulumi:"isAdmin"`
+	Name    *string `pulumi:"name"`
 	// Deprecated: This parameter was removed from the API and has no effect
-	Role *string `pulumi:"role"`
+	Role  *string  `pulumi:"role"`
+	Roles []string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -143,12 +153,14 @@ type UserArgs struct {
 	AccessRole pulumi.StringPtrInput
 	Disabled   pulumi.BoolPtrInput
 	Email      pulumi.StringInput
-	Handle     pulumi.StringInput
-	// Deprecated: This parameter will be replaced by `access_role` and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	Handle pulumi.StringPtrInput
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
 	IsAdmin pulumi.BoolPtrInput
-	Name    pulumi.StringInput
+	Name    pulumi.StringPtrInput
 	// Deprecated: This parameter was removed from the API and has no effect
-	Role pulumi.StringPtrInput
+	Role  pulumi.StringPtrInput
+	Roles pulumi.StringArrayInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

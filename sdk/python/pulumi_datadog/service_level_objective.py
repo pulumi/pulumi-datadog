@@ -18,6 +18,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -113,11 +114,12 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+               -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-               -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,17 +139,18 @@ class ServiceLevelObjective(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
+            __props__['force_delete'] = force_delete
             __props__['groups'] = groups
             __props__['monitor_ids'] = monitor_ids
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['query'] = query
             __props__['tags'] = tags
-            if thresholds is None:
+            if thresholds is None and not opts.urn:
                 raise TypeError("Missing required property 'thresholds'")
             __props__['thresholds'] = thresholds
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['validate'] = validate
@@ -162,6 +165,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
+            force_delete: Optional[pulumi.Input[bool]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -177,17 +181,19 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+               -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
         :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-               -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
         __props__["description"] = description
+        __props__["force_delete"] = force_delete
         __props__["groups"] = groups
         __props__["monitor_ids"] = monitor_ids
         __props__["name"] = name
@@ -202,6 +208,15 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        """
+        return pulumi.get(self, "force_delete")
 
     @property
     @pulumi.getter
@@ -237,7 +252,6 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         """
         return pulumi.get(self, "tags")
 

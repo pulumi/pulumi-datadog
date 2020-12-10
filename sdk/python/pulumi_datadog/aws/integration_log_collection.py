@@ -63,10 +63,10 @@ class IntegrationLogCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_id is None:
+            if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__['account_id'] = account_id
-            if services is None:
+            if services is None and not opts.urn:
                 raise TypeError("Missing required property 'services'")
             __props__['services'] = services
         super(IntegrationLogCollection, __self__).__init__(

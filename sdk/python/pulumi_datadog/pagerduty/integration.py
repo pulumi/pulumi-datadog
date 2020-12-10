@@ -46,11 +46,11 @@ class Integration(pulumi.CustomResource):
         testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
             service_key="9876543210123456789",
             service_name="testing_foo",
-            opts=ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
+            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
         testing_bar = datadog.pagerduty.ServiceObject("testingBar",
             service_key="54321098765432109876",
             service_name="testing_bar",
-            opts=ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
+            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -77,11 +77,11 @@ class Integration(pulumi.CustomResource):
             __props__['api_token'] = api_token
             __props__['individual_services'] = individual_services
             __props__['schedules'] = schedules
-            if services is not None:
+            if services is not None and not opts.urn:
                 warnings.warn("""set \"individual_services\" to true and use datadog_pagerduty_integration_service_object""", DeprecationWarning)
                 pulumi.log.warn("services is deprecated: set \"individual_services\" to true and use datadog_pagerduty_integration_service_object")
             __props__['services'] = services
-            if subdomain is None:
+            if subdomain is None and not opts.urn:
                 raise TypeError("Missing required property 'subdomain'")
             __props__['subdomain'] = subdomain
         super(Integration, __self__).__init__(

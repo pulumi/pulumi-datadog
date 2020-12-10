@@ -807,6 +807,9 @@ __all__ = [
     'ScreenBoardWidgetTileDefRequestLogQueryGroupBySort',
     'ScreenBoardWidgetTileDefRequestLogQuerySearch',
     'ScreenBoardWidgetTileDefRequestProcessQuery',
+    'SecurityMonitoringRuleCase',
+    'SecurityMonitoringRuleOptions',
+    'SecurityMonitoringRuleQuery',
     'ServiceLevelObjectiveQuery',
     'ServiceLevelObjectiveThreshold',
     'SyntheticsTestOptions',
@@ -838,6 +841,10 @@ __all__ = [
     'TimeBoardTemplateVariable',
     'GetMonitorThresholdWindowsResult',
     'GetMonitorThresholdsResult',
+    'GetSecurityMonitoringRulesRuleResult',
+    'GetSecurityMonitoringRulesRuleCaseResult',
+    'GetSecurityMonitoringRulesRuleOptionsResult',
+    'GetSecurityMonitoringRulesRuleQueryResult',
 ]
 
 @pulumi.output_type
@@ -29748,6 +29755,129 @@ class ScreenBoardWidgetTileDefRequestProcessQuery(dict):
 
 
 @pulumi.output_type
+class SecurityMonitoringRuleCase(dict):
+    def __init__(__self__, *,
+                 status: str,
+                 condition: Optional[str] = None,
+                 name: Optional[str] = None,
+                 notifications: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "status", status)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[str]:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "notifications")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityMonitoringRuleOptions(dict):
+    def __init__(__self__, *,
+                 evaluation_window: int,
+                 keep_alive: int,
+                 max_signal_duration: int):
+        pulumi.set(__self__, "evaluation_window", evaluation_window)
+        pulumi.set(__self__, "keep_alive", keep_alive)
+        pulumi.set(__self__, "max_signal_duration", max_signal_duration)
+
+    @property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> int:
+        return pulumi.get(self, "evaluation_window")
+
+    @property
+    @pulumi.getter(name="keepAlive")
+    def keep_alive(self) -> int:
+        return pulumi.get(self, "keep_alive")
+
+    @property
+    @pulumi.getter(name="maxSignalDuration")
+    def max_signal_duration(self) -> int:
+        return pulumi.get(self, "max_signal_duration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SecurityMonitoringRuleQuery(dict):
+    def __init__(__self__, *,
+                 query: str,
+                 aggregation: Optional[str] = None,
+                 distinct_fields: Optional[Sequence[str]] = None,
+                 group_by_fields: Optional[Sequence[str]] = None,
+                 metric: Optional[str] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "query", query)
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if distinct_fields is not None:
+            pulumi.set(__self__, "distinct_fields", distinct_fields)
+        if group_by_fields is not None:
+            pulumi.set(__self__, "group_by_fields", group_by_fields)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[str]:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter(name="distinctFields")
+    def distinct_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "distinct_fields")
+
+    @property
+    @pulumi.getter(name="groupByFields")
+    def group_by_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "group_by_fields")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ServiceLevelObjectiveQuery(dict):
     def __init__(__self__, *,
                  denominator: str,
@@ -31033,5 +31163,176 @@ class GetMonitorThresholdsResult(dict):
     @pulumi.getter(name="warningRecovery")
     def warning_recovery(self) -> float:
         return pulumi.get(self, "warning_recovery")
+
+
+@pulumi.output_type
+class GetSecurityMonitoringRulesRuleResult(dict):
+    def __init__(__self__, *,
+                 cases: Sequence['outputs.GetSecurityMonitoringRulesRuleCaseResult'],
+                 message: str,
+                 name: str,
+                 queries: Sequence['outputs.GetSecurityMonitoringRulesRuleQueryResult'],
+                 enabled: Optional[bool] = None,
+                 options: Optional['outputs.GetSecurityMonitoringRulesRuleOptionsResult'] = None,
+                 tags: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "cases", cases)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "queries", queries)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def cases(self) -> Sequence['outputs.GetSecurityMonitoringRulesRuleCaseResult']:
+        return pulumi.get(self, "cases")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def queries(self) -> Sequence['outputs.GetSecurityMonitoringRulesRuleQueryResult']:
+        return pulumi.get(self, "queries")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.GetSecurityMonitoringRulesRuleOptionsResult']:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetSecurityMonitoringRulesRuleCaseResult(dict):
+    def __init__(__self__, *,
+                 status: str,
+                 condition: Optional[str] = None,
+                 name: Optional[str] = None,
+                 notifications: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "status", status)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notifications is not None:
+            pulumi.set(__self__, "notifications", notifications)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[str]:
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notifications(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "notifications")
+
+
+@pulumi.output_type
+class GetSecurityMonitoringRulesRuleOptionsResult(dict):
+    def __init__(__self__, *,
+                 evaluation_window: int,
+                 keep_alive: int,
+                 max_signal_duration: int):
+        pulumi.set(__self__, "evaluation_window", evaluation_window)
+        pulumi.set(__self__, "keep_alive", keep_alive)
+        pulumi.set(__self__, "max_signal_duration", max_signal_duration)
+
+    @property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> int:
+        return pulumi.get(self, "evaluation_window")
+
+    @property
+    @pulumi.getter(name="keepAlive")
+    def keep_alive(self) -> int:
+        return pulumi.get(self, "keep_alive")
+
+    @property
+    @pulumi.getter(name="maxSignalDuration")
+    def max_signal_duration(self) -> int:
+        return pulumi.get(self, "max_signal_duration")
+
+
+@pulumi.output_type
+class GetSecurityMonitoringRulesRuleQueryResult(dict):
+    def __init__(__self__, *,
+                 query: str,
+                 aggregation: Optional[str] = None,
+                 distinct_fields: Optional[Sequence[str]] = None,
+                 group_by_fields: Optional[Sequence[str]] = None,
+                 metric: Optional[str] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "query", query)
+        if aggregation is not None:
+            pulumi.set(__self__, "aggregation", aggregation)
+        if distinct_fields is not None:
+            pulumi.set(__self__, "distinct_fields", distinct_fields)
+        if group_by_fields is not None:
+            pulumi.set(__self__, "group_by_fields", group_by_fields)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> Optional[str]:
+        return pulumi.get(self, "aggregation")
+
+    @property
+    @pulumi.getter(name="distinctFields")
+    def distinct_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "distinct_fields")
+
+    @property
+    @pulumi.getter(name="groupByFields")
+    def group_by_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "group_by_fields")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[str]:
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 

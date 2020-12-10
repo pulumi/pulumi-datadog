@@ -93,10 +93,10 @@ export class LogsArchive extends pulumi.CustomResource {
             inputs["s3"] = state ? state.s3 : undefined;
         } else {
             const args = argsOrState as LogsArchiveArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.query === undefined) {
+            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'query'");
             }
             inputs["azure"] = args ? args.azure : undefined;

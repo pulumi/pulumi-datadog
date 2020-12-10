@@ -67,14 +67,15 @@ type LogsArchive struct {
 // NewLogsArchive registers a new resource with the given unique name, arguments, and options.
 func NewLogsArchive(ctx *pulumi.Context,
 	name string, args *LogsArchiveArgs, opts ...pulumi.ResourceOption) (*LogsArchive, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Query == nil {
-		return nil, errors.New("missing required argument 'Query'")
-	}
 	if args == nil {
-		args = &LogsArchiveArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Query == nil {
+		return nil, errors.New("invalid value for required argument 'Query'")
 	}
 	var resource LogsArchive
 	err := ctx.RegisterResource("datadog:index/logsArchive:LogsArchive", name, args, &resource, opts...)

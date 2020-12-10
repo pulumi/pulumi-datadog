@@ -754,13 +754,13 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["widgets"] = state ? state.widgets : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
-            if (!args || args.layoutType === undefined) {
+            if ((!args || args.layoutType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'layoutType'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
-            if (!args || args.widgets === undefined) {
+            if ((!args || args.widgets === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'widgets'");
             }
             inputs["dashboardLists"] = args ? args.dashboardLists : undefined;

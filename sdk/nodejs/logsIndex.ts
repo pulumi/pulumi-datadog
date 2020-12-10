@@ -61,10 +61,10 @@ export class LogsIndex extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogsIndexArgs | undefined;
-            if (!args || args.filters === undefined) {
+            if ((!args || args.filters === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'filters'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;

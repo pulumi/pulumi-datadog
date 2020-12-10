@@ -83,7 +83,7 @@ class DashboardList(pulumi.CustomResource):
                 ),
             ],
             name="TF Created List",
-            opts=ResourceOptions(depends_on=[
+            opts=pulumi.ResourceOptions(depends_on=[
                     "datadog_dashboard.screen",
                     "datadog_dashboard.time",
                 ]))
@@ -120,7 +120,7 @@ class DashboardList(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['dash_items'] = dash_items
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
         super(DashboardList, __self__).__init__(

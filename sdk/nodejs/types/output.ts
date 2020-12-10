@@ -4795,6 +4795,38 @@ export interface GetMonitorThresholds {
     warningRecovery: number;
 }
 
+export interface GetSecurityMonitoringRulesRule {
+    cases: outputs.GetSecurityMonitoringRulesRuleCase[];
+    enabled?: boolean;
+    message: string;
+    name: string;
+    options?: outputs.GetSecurityMonitoringRulesRuleOptions;
+    queries: outputs.GetSecurityMonitoringRulesRuleQuery[];
+    tags?: string[];
+}
+
+export interface GetSecurityMonitoringRulesRuleCase {
+    condition?: string;
+    name?: string;
+    notifications?: string[];
+    status: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleOptions {
+    evaluationWindow: number;
+    keepAlive: number;
+    maxSignalDuration: number;
+}
+
+export interface GetSecurityMonitoringRulesRuleQuery {
+    aggregation?: string;
+    distinctFields?: string[];
+    groupByFields?: string[];
+    metric?: string;
+    name?: string;
+    query: string;
+}
+
 export interface LogsArchiveAzure {
     clientId: string;
     container: string;
@@ -5347,6 +5379,28 @@ export interface ScreenBoardWidgetTileDefRequestProcessQuery {
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface SecurityMonitoringRuleCase {
+    condition?: string;
+    name?: string;
+    notifications?: string[];
+    status: string;
+}
+
+export interface SecurityMonitoringRuleOptions {
+    evaluationWindow: number;
+    keepAlive: number;
+    maxSignalDuration: number;
+}
+
+export interface SecurityMonitoringRuleQuery {
+    aggregation?: string;
+    distinctFields?: string[];
+    groupByFields?: string[];
+    metric?: string;
+    name?: string;
+    query: string;
 }
 
 export interface ServiceLevelObjectiveQuery {

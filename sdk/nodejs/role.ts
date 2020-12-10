@@ -95,7 +95,7 @@ export class Role extends pulumi.CustomResource {
             inputs["userCount"] = state ? state.userCount : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["name"] = args ? args.name : undefined;

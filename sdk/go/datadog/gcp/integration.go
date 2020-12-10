@@ -64,23 +64,24 @@ type Integration struct {
 // NewIntegration registers a new resource with the given unique name, arguments, and options.
 func NewIntegration(ctx *pulumi.Context,
 	name string, args *IntegrationArgs, opts ...pulumi.ResourceOption) (*Integration, error) {
-	if args == nil || args.ClientEmail == nil {
-		return nil, errors.New("missing required argument 'ClientEmail'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.PrivateKey == nil {
-		return nil, errors.New("missing required argument 'PrivateKey'")
-	}
-	if args == nil || args.PrivateKeyId == nil {
-		return nil, errors.New("missing required argument 'PrivateKeyId'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &IntegrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClientEmail == nil {
+		return nil, errors.New("invalid value for required argument 'ClientEmail'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.PrivateKey == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateKey'")
+	}
+	if args.PrivateKeyId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateKeyId'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource Integration
 	err := ctx.RegisterResource("datadog:gcp/integration:Integration", name, args, &resource, opts...)

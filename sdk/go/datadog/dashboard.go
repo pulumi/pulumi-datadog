@@ -750,17 +750,18 @@ type Dashboard struct {
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
 func NewDashboard(ctx *pulumi.Context,
 	name string, args *DashboardArgs, opts ...pulumi.ResourceOption) (*Dashboard, error) {
-	if args == nil || args.LayoutType == nil {
-		return nil, errors.New("missing required argument 'LayoutType'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
-	if args == nil || args.Widgets == nil {
-		return nil, errors.New("missing required argument 'Widgets'")
-	}
 	if args == nil {
-		args = &DashboardArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LayoutType == nil {
+		return nil, errors.New("invalid value for required argument 'LayoutType'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
+	}
+	if args.Widgets == nil {
+		return nil, errors.New("invalid value for required argument 'Widgets'")
 	}
 	var resource Dashboard
 	err := ctx.RegisterResource("datadog:index/dashboard:Dashboard", name, args, &resource, opts...)

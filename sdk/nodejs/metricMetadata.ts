@@ -80,7 +80,7 @@ export class MetricMetadata extends pulumi.CustomResource {
             inputs["unit"] = state ? state.unit : undefined;
         } else {
             const args = argsOrState as MetricMetadataArgs | undefined;
-            if (!args || args.metric === undefined) {
+            if ((!args || args.metric === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metric'");
             }
             inputs["description"] = args ? args.description : undefined;

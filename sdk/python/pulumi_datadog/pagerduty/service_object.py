@@ -57,10 +57,10 @@ class ServiceObject(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if service_key is None:
+            if service_key is None and not opts.urn:
                 raise TypeError("Missing required property 'service_key'")
             __props__['service_key'] = service_key
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
         super(ServiceObject, __self__).__init__(

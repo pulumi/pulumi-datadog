@@ -116,7 +116,7 @@ class Downtime(pulumi.CustomResource):
             __props__['monitor_id'] = monitor_id
             __props__['monitor_tags'] = monitor_tags
             __props__['recurrence'] = recurrence
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             __props__['start'] = start

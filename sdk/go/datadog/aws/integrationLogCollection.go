@@ -56,14 +56,15 @@ type IntegrationLogCollection struct {
 // NewIntegrationLogCollection registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationLogCollection(ctx *pulumi.Context,
 	name string, args *IntegrationLogCollectionArgs, opts ...pulumi.ResourceOption) (*IntegrationLogCollection, error) {
-	if args == nil || args.AccountId == nil {
-		return nil, errors.New("missing required argument 'AccountId'")
-	}
-	if args == nil || args.Services == nil {
-		return nil, errors.New("missing required argument 'Services'")
-	}
 	if args == nil {
-		args = &IntegrationLogCollectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountId == nil {
+		return nil, errors.New("invalid value for required argument 'AccountId'")
+	}
+	if args.Services == nil {
+		return nil, errors.New("invalid value for required argument 'Services'")
 	}
 	var resource IntegrationLogCollection
 	err := ctx.RegisterResource("datadog:aws/integrationLogCollection:IntegrationLogCollection", name, args, &resource, opts...)

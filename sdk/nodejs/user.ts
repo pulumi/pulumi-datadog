@@ -13,20 +13,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * const roRole = datadog.getRole({
+ *     filter: "Datadog Read Only Role",
+ * });
  * // Create a new Datadog user
  * const foo = new datadog.User("foo", {
  *     email: "new@example.com",
- *     handle: "new@example.com",
- *     name: "New User",
+ *     roles: [roRole.then(roRole => roRole.id)],
  * });
  * ```
  *
  * ## Import
  *
- * users can be imported using their handle, e.g.
+ * users can be imported using their ID, e.g.
  *
  * ```sh
- *  $ pulumi import datadog:index/user:User example_user existing@example.com
+ *  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
  * ```
  */
 export class User extends pulumi.CustomResource {
@@ -60,16 +62,20 @@ export class User extends pulumi.CustomResource {
     public readonly accessRole!: pulumi.Output<string | undefined>;
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     public readonly email!: pulumi.Output<string>;
-    public readonly handle!: pulumi.Output<string>;
     /**
-     * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
+     * @deprecated This parameter is deprecated and will be removed from the next Major version
+     */
+    public readonly handle!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     public readonly isAdmin!: pulumi.Output<boolean>;
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * @deprecated This parameter was removed from the API and has no effect
      */
     public readonly role!: pulumi.Output<string | undefined>;
+    public readonly roles!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly verified!: pulumi.Output<boolean>;
 
     /**
@@ -91,17 +97,12 @@ export class User extends pulumi.CustomResource {
             inputs["isAdmin"] = state ? state.isAdmin : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["role"] = state ? state.role : undefined;
+            inputs["roles"] = state ? state.roles : undefined;
             inputs["verified"] = state ? state.verified : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
-            }
-            if (!args || args.handle === undefined) {
-                throw new Error("Missing required property 'handle'");
-            }
-            if (!args || args.name === undefined) {
-                throw new Error("Missing required property 'name'");
             }
             inputs["accessRole"] = args ? args.accessRole : undefined;
             inputs["disabled"] = args ? args.disabled : undefined;
@@ -110,6 +111,7 @@ export class User extends pulumi.CustomResource {
             inputs["isAdmin"] = args ? args.isAdmin : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["role"] = args ? args.role : undefined;
+            inputs["roles"] = args ? args.roles : undefined;
             inputs["verified"] = undefined /*out*/;
         }
         if (!opts) {
@@ -130,9 +132,12 @@ export interface UserState {
     readonly accessRole?: pulumi.Input<string>;
     readonly disabled?: pulumi.Input<boolean>;
     readonly email?: pulumi.Input<string>;
+    /**
+     * @deprecated This parameter is deprecated and will be removed from the next Major version
+     */
     readonly handle?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
+     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
     readonly name?: pulumi.Input<string>;
@@ -140,6 +145,7 @@ export interface UserState {
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
+    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
     readonly verified?: pulumi.Input<boolean>;
 }
 
@@ -150,14 +156,18 @@ export interface UserArgs {
     readonly accessRole?: pulumi.Input<string>;
     readonly disabled?: pulumi.Input<boolean>;
     readonly email: pulumi.Input<string>;
-    readonly handle: pulumi.Input<string>;
     /**
-     * @deprecated This parameter will be replaced by `access_role` and will be removed from the next Major version
+     * @deprecated This parameter is deprecated and will be removed from the next Major version
+     */
+    readonly handle?: pulumi.Input<string>;
+    /**
+     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
-    readonly name: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
+    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
 }
