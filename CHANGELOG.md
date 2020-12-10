@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.18.1.0 of the datadog Terraform Provider
-* Upgrade to pulumi-terraform-bridge v2.15.3
+_(none)_
 
 ---
+
+## 2.13.0 (2020-12-10)
+* Upgrade to v2.18.1.0 of the datadog Terraform Provider
+* Upgrade to pulumi-terraform-bridge v2.15.3
 
 ## 2.12.0 (2020-12-08)
 * Upgrade to v2.17.0 of the datadog Terraform Provider
