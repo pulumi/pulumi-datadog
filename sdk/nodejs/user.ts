@@ -59,23 +59,58 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+     * `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+     */
     public readonly accessRole!: pulumi.Output<string | undefined>;
+    /**
+     * Whether the user is disabled.
+     */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Email address for user.
+     */
     public readonly email!: pulumi.Output<string>;
     /**
+     * The user handle, must be a valid email.
+     *
      * @deprecated This parameter is deprecated and will be removed from the next Major version
      */
     public readonly handle!: pulumi.Output<string | undefined>;
     /**
+     * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+     * argument would always trigger an execution plan.
+     *
      * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     public readonly isAdmin!: pulumi.Output<boolean>;
+    /**
+     * Name for user.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+     * would always trigger an execution plan.
+     *
      * @deprecated This parameter was removed from the API and has no effect
      */
     public readonly role!: pulumi.Output<string | undefined>;
+    /**
+     * A list a role IDs to assign to the user.
+     */
     public readonly roles!: pulumi.Output<string[] | undefined>;
+    /**
+     * Whether an invitation email should be sent when the user is created.
+     */
+    public readonly sendUserInvitation!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ID of the user invitation that was sent when creating the user.
+     */
+    public /*out*/ readonly userInvitationId!: pulumi.Output<string>;
+    /**
+     * Returns true if Datadog user is verified.
+     */
     public /*out*/ readonly verified!: pulumi.Output<boolean>;
 
     /**
@@ -98,6 +133,8 @@ export class User extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["role"] = state ? state.role : undefined;
             inputs["roles"] = state ? state.roles : undefined;
+            inputs["sendUserInvitation"] = state ? state.sendUserInvitation : undefined;
+            inputs["userInvitationId"] = state ? state.userInvitationId : undefined;
             inputs["verified"] = state ? state.verified : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
@@ -112,6 +149,8 @@ export class User extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["roles"] = args ? args.roles : undefined;
+            inputs["sendUserInvitation"] = args ? args.sendUserInvitation : undefined;
+            inputs["userInvitationId"] = undefined /*out*/;
             inputs["verified"] = undefined /*out*/;
         }
         if (!opts) {
@@ -129,23 +168,58 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
+    /**
+     * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+     * `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+     */
     readonly accessRole?: pulumi.Input<string>;
+    /**
+     * Whether the user is disabled.
+     */
     readonly disabled?: pulumi.Input<boolean>;
+    /**
+     * Email address for user.
+     */
     readonly email?: pulumi.Input<string>;
     /**
+     * The user handle, must be a valid email.
+     *
      * @deprecated This parameter is deprecated and will be removed from the next Major version
      */
     readonly handle?: pulumi.Input<string>;
     /**
+     * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+     * argument would always trigger an execution plan.
+     *
      * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
+    /**
+     * Name for user.
+     */
     readonly name?: pulumi.Input<string>;
     /**
+     * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+     * would always trigger an execution plan.
+     *
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
+    /**
+     * A list a role IDs to assign to the user.
+     */
     readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether an invitation email should be sent when the user is created.
+     */
+    readonly sendUserInvitation?: pulumi.Input<boolean>;
+    /**
+     * The ID of the user invitation that was sent when creating the user.
+     */
+    readonly userInvitationId?: pulumi.Input<string>;
+    /**
+     * Returns true if Datadog user is verified.
+     */
     readonly verified?: pulumi.Input<boolean>;
 }
 
@@ -153,21 +227,49 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+     * `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+     */
     readonly accessRole?: pulumi.Input<string>;
+    /**
+     * Whether the user is disabled.
+     */
     readonly disabled?: pulumi.Input<boolean>;
+    /**
+     * Email address for user.
+     */
     readonly email: pulumi.Input<string>;
     /**
+     * The user handle, must be a valid email.
+     *
      * @deprecated This parameter is deprecated and will be removed from the next Major version
      */
     readonly handle?: pulumi.Input<string>;
     /**
+     * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+     * argument would always trigger an execution plan.
+     *
      * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     readonly isAdmin?: pulumi.Input<boolean>;
+    /**
+     * Name for user.
+     */
     readonly name?: pulumi.Input<string>;
     /**
+     * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+     * would always trigger an execution plan.
+     *
      * @deprecated This parameter was removed from the API and has no effect
      */
     readonly role?: pulumi.Input<string>;
+    /**
+     * A list a role IDs to assign to the user.
+     */
     readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether an invitation email should be sent when the user is created.
+     */
+    readonly sendUserInvitation?: pulumi.Input<boolean>;
 }

@@ -59,9 +59,22 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SyntheticsPrivateLocation.__pulumiType;
     }
 
+    /**
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
+     * this configuration.
+     */
     public /*out*/ readonly config!: pulumi.Output<string>;
+    /**
+     * Description of the private location.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Synthetics private location name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of tags to associate with your synthetics private location.
+     */
     public readonly tags!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -105,9 +118,22 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
  */
 export interface SyntheticsPrivateLocationState {
+    /**
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
+     * this configuration.
+     */
     readonly config?: pulumi.Input<string>;
+    /**
+     * Description of the private location.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Synthetics private location name.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A list of tags to associate with your synthetics private location.
+     */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -115,7 +141,16 @@ export interface SyntheticsPrivateLocationState {
  * The set of arguments for constructing a SyntheticsPrivateLocation resource.
  */
 export interface SyntheticsPrivateLocationArgs {
+    /**
+     * Description of the private location.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Synthetics private location name.
+     */
     readonly name: pulumi.Input<string>;
+    /**
+     * A list of tags to associate with your synthetics private location.
+     */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
 }

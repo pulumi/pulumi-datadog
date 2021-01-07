@@ -73,6 +73,7 @@ import (
 type ServiceLevelObjective struct {
 	pulumi.CustomResourceState
 
+	// A description of this service level objective.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
 	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
@@ -81,14 +82,21 @@ type ServiceLevelObjective struct {
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayOutput `pulumi:"monitorIds"`
-	Name       pulumi.StringOutput   `pulumi:"name"`
+	// Name of Datadog service level objective
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrOutput `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags       pulumi.StringArrayOutput                  `pulumi:"tags"`
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayOutput `pulumi:"thresholds"`
-	Type       pulumi.StringOutput                       `pulumi:"type"`
-	Validate   pulumi.BoolPtrOutput                      `pulumi:"validate"`
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+	// found in the Datadog API [documentation
+	// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+	// are: `metric` and `monitor`.
+	Type pulumi.StringOutput `pulumi:"type"`
+	// Whether or not to validate the SLO.
+	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 }
 
 // NewServiceLevelObjective registers a new resource with the given unique name, arguments, and options.
@@ -129,6 +137,7 @@ func GetServiceLevelObjective(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceLevelObjective resources.
 type serviceLevelObjectiveState struct {
+	// A description of this service level objective.
 	Description *string `pulumi:"description"`
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
 	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
@@ -136,18 +145,26 @@ type serviceLevelObjectiveState struct {
 	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
-	MonitorIds []int   `pulumi:"monitorIds"`
-	Name       *string `pulumi:"name"`
+	MonitorIds []int `pulumi:"monitorIds"`
+	// Name of Datadog service level objective
+	Name *string `pulumi:"name"`
 	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags       []string                         `pulumi:"tags"`
+	Tags []string `pulumi:"tags"`
+	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	Type       *string                          `pulumi:"type"`
-	Validate   *bool                            `pulumi:"validate"`
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+	// found in the Datadog API [documentation
+	// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+	// are: `metric` and `monitor`.
+	Type *string `pulumi:"type"`
+	// Whether or not to validate the SLO.
+	Validate *bool `pulumi:"validate"`
 }
 
 type ServiceLevelObjectiveState struct {
+	// A description of this service level objective.
 	Description pulumi.StringPtrInput
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
 	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
@@ -156,14 +173,21 @@ type ServiceLevelObjectiveState struct {
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	Name       pulumi.StringPtrInput
+	// Name of Datadog service level objective
+	Name pulumi.StringPtrInput
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags       pulumi.StringArrayInput
+	Tags pulumi.StringArrayInput
+	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	Type       pulumi.StringPtrInput
-	Validate   pulumi.BoolPtrInput
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+	// found in the Datadog API [documentation
+	// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+	// are: `metric` and `monitor`.
+	Type pulumi.StringPtrInput
+	// Whether or not to validate the SLO.
+	Validate pulumi.BoolPtrInput
 }
 
 func (ServiceLevelObjectiveState) ElementType() reflect.Type {
@@ -171,6 +195,7 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 }
 
 type serviceLevelObjectiveArgs struct {
+	// A description of this service level objective.
 	Description *string `pulumi:"description"`
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
 	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
@@ -178,19 +203,27 @@ type serviceLevelObjectiveArgs struct {
 	// A static set of groups to filter monitor-based SLOs
 	Groups []string `pulumi:"groups"`
 	// A static set of monitor IDs to use as part of the SLO
-	MonitorIds []int  `pulumi:"monitorIds"`
-	Name       string `pulumi:"name"`
+	MonitorIds []int `pulumi:"monitorIds"`
+	// Name of Datadog service level objective
+	Name string `pulumi:"name"`
 	// The metric query of good / total events
 	Query *ServiceLevelObjectiveQuery `pulumi:"query"`
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags       []string                         `pulumi:"tags"`
+	Tags []string `pulumi:"tags"`
+	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds []ServiceLevelObjectiveThreshold `pulumi:"thresholds"`
-	Type       string                           `pulumi:"type"`
-	Validate   *bool                            `pulumi:"validate"`
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+	// found in the Datadog API [documentation
+	// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+	// are: `metric` and `monitor`.
+	Type string `pulumi:"type"`
+	// Whether or not to validate the SLO.
+	Validate *bool `pulumi:"validate"`
 }
 
 // The set of arguments for constructing a ServiceLevelObjective resource.
 type ServiceLevelObjectiveArgs struct {
+	// A description of this service level objective.
 	Description pulumi.StringPtrInput
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
 	// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
@@ -199,14 +232,21 @@ type ServiceLevelObjectiveArgs struct {
 	Groups pulumi.StringArrayInput
 	// A static set of monitor IDs to use as part of the SLO
 	MonitorIds pulumi.IntArrayInput
-	Name       pulumi.StringInput
+	// Name of Datadog service level objective
+	Name pulumi.StringInput
 	// The metric query of good / total events
 	Query ServiceLevelObjectiveQueryPtrInput
 	// A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-	Tags       pulumi.StringArrayInput
+	Tags pulumi.StringArrayInput
+	// A list of thresholds and targets that define the service level objectives from the provided SLIs.
 	Thresholds ServiceLevelObjectiveThresholdArrayInput
-	Type       pulumi.StringInput
-	Validate   pulumi.BoolPtrInput
+	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+	// found in the Datadog API [documentation
+	// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+	// are: `metric` and `monitor`.
+	Type pulumi.StringInput
+	// Whether or not to validate the SLO.
+	Validate pulumi.BoolPtrInput
 }
 
 func (ServiceLevelObjectiveArgs) ElementType() reflect.Type {

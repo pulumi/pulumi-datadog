@@ -38,24 +38,45 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class MetricMetadata : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A description of the metric.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         [Output("metric")]
         public Output<string> Metric { get; private set; } = null!;
 
+        /// <summary>
+        /// Per unit of the metric such as `second` in `bytes per second`.
+        /// </summary>
         [Output("perUnit")]
         public Output<string?> PerUnit { get; private set; } = null!;
 
+        /// <summary>
+        /// A short name of the metric.
+        /// </summary>
         [Output("shortName")]
         public Output<string?> ShortName { get; private set; } = null!;
 
+        /// <summary>
+        /// If applicable, statsd flush interval in seconds for the metric.
+        /// </summary>
         [Output("statsdInterval")]
         public Output<int?> StatsdInterval { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the metric.
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Primary unit of the metric such as `byte` or `operation`.
+        /// </summary>
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
 
@@ -105,24 +126,45 @@ namespace Pulumi.Datadog
 
     public sealed class MetricMetadataArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the metric.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
 
+        /// <summary>
+        /// Per unit of the metric such as `second` in `bytes per second`.
+        /// </summary>
         [Input("perUnit")]
         public Input<string>? PerUnit { get; set; }
 
+        /// <summary>
+        /// A short name of the metric.
+        /// </summary>
         [Input("shortName")]
         public Input<string>? ShortName { get; set; }
 
+        /// <summary>
+        /// If applicable, statsd flush interval in seconds for the metric.
+        /// </summary>
         [Input("statsdInterval")]
         public Input<int>? StatsdInterval { get; set; }
 
+        /// <summary>
+        /// Type of the metric.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// Primary unit of the metric such as `byte` or `operation`.
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
@@ -133,24 +175,45 @@ namespace Pulumi.Datadog
 
     public sealed class MetricMetadataState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the metric.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the metric.
+        /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
+        /// <summary>
+        /// Per unit of the metric such as `second` in `bytes per second`.
+        /// </summary>
         [Input("perUnit")]
         public Input<string>? PerUnit { get; set; }
 
+        /// <summary>
+        /// A short name of the metric.
+        /// </summary>
         [Input("shortName")]
         public Input<string>? ShortName { get; set; }
 
+        /// <summary>
+        /// If applicable, statsd flush interval in seconds for the metric.
+        /// </summary>
         [Input("statsdInterval")]
         public Input<int>? StatsdInterval { get; set; }
 
+        /// <summary>
+        /// Type of the metric.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// Primary unit of the metric such as `byte` or `operation`.
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

@@ -63,7 +63,15 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsPipelineOrder.__pulumiType;
     }
 
+    /**
+     * The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+     * value as the resource name. No related field is available in [Logs Pipeline
+     * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+     */
     public readonly pipelines!: pulumi.Output<string[]>;
 
     /**
@@ -106,7 +114,15 @@ export class LogsPipelineOrder extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsPipelineOrder resources.
  */
 export interface LogsPipelineOrderState {
+    /**
+     * The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+     * value as the resource name. No related field is available in [Logs Pipeline
+     * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+     */
     readonly pipelines?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -114,6 +130,14 @@ export interface LogsPipelineOrderState {
  * The set of arguments for constructing a LogsPipelineOrder resource.
  */
 export interface LogsPipelineOrderArgs {
+    /**
+     * The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+     * value as the resource name. No related field is available in [Logs Pipeline
+     * API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+     */
     readonly name: pulumi.Input<string>;
+    /**
+     * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+     */
     readonly pipelines: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -51,24 +51,46 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class LogsArchive : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Definition of an azure archive.
+        /// </summary>
         [Output("azure")]
         public Output<Outputs.LogsArchiveAzure?> Azure { get; private set; } = null!;
 
+        /// <summary>
+        /// Definition of a GCS archive.
+        /// </summary>
         [Output("gcs")]
         public Output<Outputs.LogsArchiveGcs?> Gcs { get; private set; } = null!;
 
+        /// <summary>
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+        /// are sent to the archive.
+        /// </summary>
         [Output("includeTags")]
         public Output<bool?> IncludeTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Your archive name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The archive query/filter. Logs matching this query are included in the archive.
+        /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of tags to add to rehydrated logs from an archive.
+        /// </summary>
         [Output("rehydrationTags")]
         public Output<ImmutableArray<string>> RehydrationTags { get; private set; } = null!;
 
+        /// <summary>
+        /// Definition of an s3 archive.
+        /// </summary>
         [Output("s3")]
         public Output<Outputs.LogsArchiveS3?> S3 { get; private set; } = null!;
 
@@ -118,29 +140,52 @@ namespace Pulumi.Datadog
 
     public sealed class LogsArchiveArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Definition of an azure archive.
+        /// </summary>
         [Input("azure")]
         public Input<Inputs.LogsArchiveAzureArgs>? Azure { get; set; }
 
+        /// <summary>
+        /// Definition of a GCS archive.
+        /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsArgs>? Gcs { get; set; }
 
+        /// <summary>
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+        /// are sent to the archive.
+        /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
 
+        /// <summary>
+        /// Your archive name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The archive query/filter. Logs matching this query are included in the archive.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
         [Input("rehydrationTags")]
         private InputList<string>? _rehydrationTags;
+
+        /// <summary>
+        /// An array of tags to add to rehydrated logs from an archive.
+        /// </summary>
         public InputList<string> RehydrationTags
         {
             get => _rehydrationTags ?? (_rehydrationTags = new InputList<string>());
             set => _rehydrationTags = value;
         }
 
+        /// <summary>
+        /// Definition of an s3 archive.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3Args>? S3 { get; set; }
 
@@ -151,29 +196,52 @@ namespace Pulumi.Datadog
 
     public sealed class LogsArchiveState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Definition of an azure archive.
+        /// </summary>
         [Input("azure")]
         public Input<Inputs.LogsArchiveAzureGetArgs>? Azure { get; set; }
 
+        /// <summary>
+        /// Definition of a GCS archive.
+        /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsGetArgs>? Gcs { get; set; }
 
+        /// <summary>
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+        /// are sent to the archive.
+        /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
 
+        /// <summary>
+        /// Your archive name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The archive query/filter. Logs matching this query are included in the archive.
+        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
         [Input("rehydrationTags")]
         private InputList<string>? _rehydrationTags;
+
+        /// <summary>
+        /// An array of tags to add to rehydrated logs from an archive.
+        /// </summary>
         public InputList<string> RehydrationTags
         {
             get => _rehydrationTags ?? (_rehydrationTags = new InputList<string>());
             set => _rehydrationTags = value;
         }
 
+        /// <summary>
+        /// Definition of an s3 archive.
+        /// </summary>
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3GetArgs>? S3 { get; set; }
 

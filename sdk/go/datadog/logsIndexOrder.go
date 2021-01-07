@@ -49,8 +49,11 @@ import (
 type LogsIndexOrder struct {
 	pulumi.CustomResourceState
 
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes pulumi.StringArrayOutput `pulumi:"indexes"`
-	Name    pulumi.StringOutput      `pulumi:"name"`
+	// The unique name of the index order resource.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewLogsIndexOrder registers a new resource with the given unique name, arguments, and options.
@@ -88,13 +91,19 @@ func GetLogsIndexOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsIndexOrder resources.
 type logsIndexOrderState struct {
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes []string `pulumi:"indexes"`
-	Name    *string  `pulumi:"name"`
+	// The unique name of the index order resource.
+	Name *string `pulumi:"name"`
 }
 
 type LogsIndexOrderState struct {
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes pulumi.StringArrayInput
-	Name    pulumi.StringPtrInput
+	// The unique name of the index order resource.
+	Name pulumi.StringPtrInput
 }
 
 func (LogsIndexOrderState) ElementType() reflect.Type {
@@ -102,14 +111,20 @@ func (LogsIndexOrderState) ElementType() reflect.Type {
 }
 
 type logsIndexOrderArgs struct {
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes []string `pulumi:"indexes"`
-	Name    string   `pulumi:"name"`
+	// The unique name of the index order resource.
+	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a LogsIndexOrder resource.
 type LogsIndexOrderArgs struct {
+	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+	// list.
 	Indexes pulumi.StringArrayInput
-	Name    pulumi.StringInput
+	// The unique name of the index order resource.
+	Name pulumi.StringInput
 }
 
 func (LogsIndexOrderArgs) ElementType() reflect.Type {

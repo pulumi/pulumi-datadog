@@ -51,6 +51,10 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+               value as the resource name. No related field is available in [Logs Pipeline
+               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,6 +98,10 @@ class LogsPipelineOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+               value as the resource name. No related field is available in [Logs Pipeline
+               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -106,11 +114,19 @@ class LogsPipelineOrder(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+        value as the resource name. No related field is available in [Logs Pipeline
+        API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def pipelines(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        """
         return pulumi.get(self, "pipelines")
 
     def translate_output_property(self, prop):

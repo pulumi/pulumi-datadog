@@ -57,7 +57,13 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
         return obj['__pulumiType'] === IntegrationLambdaArn.__pulumiType;
     }
 
+    /**
+     * Your AWS Account ID without dashes.
+     */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * The ARN of the Datadog forwarder Lambda.
+     */
     public readonly lambdaArn!: pulumi.Output<string>;
 
     /**
@@ -100,7 +106,13 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IntegrationLambdaArn resources.
  */
 export interface IntegrationLambdaArnState {
+    /**
+     * Your AWS Account ID without dashes.
+     */
     readonly accountId?: pulumi.Input<string>;
+    /**
+     * The ARN of the Datadog forwarder Lambda.
+     */
     readonly lambdaArn?: pulumi.Input<string>;
 }
 
@@ -108,6 +120,12 @@ export interface IntegrationLambdaArnState {
  * The set of arguments for constructing a IntegrationLambdaArn resource.
  */
 export interface IntegrationLambdaArnArgs {
+    /**
+     * Your AWS Account ID without dashes.
+     */
     readonly accountId: pulumi.Input<string>;
+    /**
+     * The ARN of the Datadog forwarder Lambda.
+     */
     readonly lambdaArn: pulumi.Input<string>;
 }

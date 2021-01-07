@@ -69,12 +69,39 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
+    /**
+     * Your AWS Account ID without dashes.
+     */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
+     * found at the [available namespace rules API
+     * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+     */
     public readonly accountSpecificNamespaceRules!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * An array of AWS regions to exclude from metrics collection.
+     */
     public readonly excludedRegions!: pulumi.Output<string[] | undefined>;
+    /**
+     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
+     * Terraform.
+     */
     public /*out*/ readonly externalId!: pulumi.Output<string>;
+    /**
+     * Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
+     * such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
+     * defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
+     * adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+     */
     public readonly filterTags!: pulumi.Output<string[] | undefined>;
+    /**
+     * Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+     */
     public readonly hostTags!: pulumi.Output<string[] | undefined>;
+    /**
+     * Your Datadog role delegation name.
+     */
     public readonly roleName!: pulumi.Output<string>;
 
     /**
@@ -127,12 +154,39 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
+    /**
+     * Your AWS Account ID without dashes.
+     */
     readonly accountId?: pulumi.Input<string>;
+    /**
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
+     * found at the [available namespace rules API
+     * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+     */
     readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * An array of AWS regions to exclude from metrics collection.
+     */
     readonly excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
+     * Terraform.
+     */
     readonly externalId?: pulumi.Input<string>;
+    /**
+     * Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
+     * such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
+     * defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
+     * adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+     */
     readonly filterTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+     */
     readonly hostTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Your Datadog role delegation name.
+     */
     readonly roleName?: pulumi.Input<string>;
 }
 
@@ -140,10 +194,33 @@ export interface IntegrationState {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
+    /**
+     * Your AWS Account ID without dashes.
+     */
     readonly accountId: pulumi.Input<string>;
+    /**
+     * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
+     * found at the [available namespace rules API
+     * endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+     */
     readonly accountSpecificNamespaceRules?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * An array of AWS regions to exclude from metrics collection.
+     */
     readonly excludedRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
+     * such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
+     * defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
+     * adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+     */
     readonly filterTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+     */
     readonly hostTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Your Datadog role delegation name.
+     */
     readonly roleName: pulumi.Input<string>;
 }

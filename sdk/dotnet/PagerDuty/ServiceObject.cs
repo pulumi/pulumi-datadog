@@ -39,9 +39,20 @@ namespace Pulumi.Datadog.PagerDuty
     /// </summary>
     public partial class ServiceObject : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+        /// impossible to detect
+        /// [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+        /// The best way to solve a drift is to manually mark the Service Object resource with [terraform
+        /// taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+        /// have it destroyed and recreated.
+        /// </summary>
         [Output("serviceKey")]
         public Output<string> ServiceKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Your Service name in PagerDuty.
+        /// </summary>
         [Output("serviceName")]
         public Output<string> ServiceName { get; private set; } = null!;
 
@@ -91,9 +102,20 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class ServiceObjectArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+        /// impossible to detect
+        /// [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+        /// The best way to solve a drift is to manually mark the Service Object resource with [terraform
+        /// taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+        /// have it destroyed and recreated.
+        /// </summary>
         [Input("serviceKey", required: true)]
         public Input<string> ServiceKey { get; set; } = null!;
 
+        /// <summary>
+        /// Your Service name in PagerDuty.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
@@ -104,9 +126,20 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class ServiceObjectState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+        /// impossible to detect
+        /// [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+        /// The best way to solve a drift is to manually mark the Service Object resource with [terraform
+        /// taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+        /// have it destroyed and recreated.
+        /// </summary>
         [Input("serviceKey")]
         public Input<string>? ServiceKey { get; set; }
 
+        /// <summary>
+        /// Your Service name in PagerDuty.
+        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 

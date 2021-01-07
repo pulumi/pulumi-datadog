@@ -45,6 +45,7 @@ import (
 type LogsIntegrationPipeline struct {
 	pulumi.CustomResourceState
 
+	// Boolean value to enable your pipeline.
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 }
 
@@ -77,10 +78,12 @@ func GetLogsIntegrationPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsIntegrationPipeline resources.
 type logsIntegrationPipelineState struct {
+	// Boolean value to enable your pipeline.
 	IsEnabled *bool `pulumi:"isEnabled"`
 }
 
 type LogsIntegrationPipelineState struct {
+	// Boolean value to enable your pipeline.
 	IsEnabled pulumi.BoolPtrInput
 }
 
@@ -89,11 +92,13 @@ func (LogsIntegrationPipelineState) ElementType() reflect.Type {
 }
 
 type logsIntegrationPipelineArgs struct {
+	// Boolean value to enable your pipeline.
 	IsEnabled *bool `pulumi:"isEnabled"`
 }
 
 // The set of arguments for constructing a LogsIntegrationPipeline resource.
 type LogsIntegrationPipelineArgs struct {
+	// Boolean value to enable your pipeline.
 	IsEnabled pulumi.BoolPtrInput
 }
 

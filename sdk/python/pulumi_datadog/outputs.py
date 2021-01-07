@@ -812,6 +812,8 @@ __all__ = [
     'SecurityMonitoringRuleQuery',
     'ServiceLevelObjectiveQuery',
     'ServiceLevelObjectiveThreshold',
+    'SyntheticsTestBrowserVariable',
+    'SyntheticsTestConfigVariable',
     'SyntheticsTestOptions',
     'SyntheticsTestOptionsList',
     'SyntheticsTestOptionsListMonitorOptions',
@@ -29960,6 +29962,90 @@ class ServiceLevelObjectiveThreshold(dict):
     @pulumi.getter(name="warningDisplay")
     def warning_display(self) -> Optional[str]:
         return pulumi.get(self, "warning_display")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyntheticsTestBrowserVariable(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 example: Optional[str] = None,
+                 id: Optional[str] = None,
+                 pattern: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if example is not None:
+            pulumi.set(__self__, "example", example)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def example(self) -> Optional[str]:
+        return pulumi.get(self, "example")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        return pulumi.get(self, "pattern")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyntheticsTestConfigVariable(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 example: Optional[str] = None,
+                 pattern: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if example is not None:
+            pulumi.set(__self__, "example", example)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def example(self) -> Optional[str]:
+        return pulumi.get(self, "example")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        return pulumi.get(self, "pattern")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

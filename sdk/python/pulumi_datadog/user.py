@@ -23,6 +23,7 @@ class User(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 send_user_invitation: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -52,6 +53,18 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_role: Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+               `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        :param pulumi.Input[bool] disabled: Whether the user is disabled.
+        :param pulumi.Input[str] email: Email address for user.
+        :param pulumi.Input[str] handle: The user handle, must be a valid email.
+        :param pulumi.Input[bool] is_admin: Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+               argument would always trigger an execution plan.
+        :param pulumi.Input[str] name: Name for user.
+        :param pulumi.Input[str] role: Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+               would always trigger an execution plan.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
+        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,6 +102,8 @@ class User(pulumi.CustomResource):
                 pulumi.log.warn("role is deprecated: This parameter was removed from the API and has no effect")
             __props__['role'] = role
             __props__['roles'] = roles
+            __props__['send_user_invitation'] = send_user_invitation
+            __props__['user_invitation_id'] = None
             __props__['verified'] = None
         super(User, __self__).__init__(
             'datadog:index/user:User',
@@ -108,6 +123,8 @@ class User(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            send_user_invitation: Optional[pulumi.Input[bool]] = None,
+            user_invitation_id: Optional[pulumi.Input[str]] = None,
             verified: Optional[pulumi.Input[bool]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
@@ -116,6 +133,20 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_role: Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+               `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        :param pulumi.Input[bool] disabled: Whether the user is disabled.
+        :param pulumi.Input[str] email: Email address for user.
+        :param pulumi.Input[str] handle: The user handle, must be a valid email.
+        :param pulumi.Input[bool] is_admin: Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+               argument would always trigger an execution plan.
+        :param pulumi.Input[str] name: Name for user.
+        :param pulumi.Input[str] role: Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+               would always trigger an execution plan.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
+        :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
+        :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
+        :param pulumi.Input[bool] verified: Returns true if Datadog user is verified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -129,52 +160,100 @@ class User(pulumi.CustomResource):
         __props__["name"] = name
         __props__["role"] = role
         __props__["roles"] = roles
+        __props__["send_user_invitation"] = send_user_invitation
+        __props__["user_invitation_id"] = user_invitation_id
         __props__["verified"] = verified
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="accessRole")
     def access_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+        `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        """
         return pulumi.get(self, "access_role")
 
     @property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the user is disabled.
+        """
         return pulumi.get(self, "disabled")
 
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
+        """
+        Email address for user.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def handle(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user handle, must be a valid email.
+        """
         return pulumi.get(self, "handle")
 
     @property
     @pulumi.getter(name="isAdmin")
     def is_admin(self) -> pulumi.Output[bool]:
+        """
+        Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+        argument would always trigger an execution plan.
+        """
         return pulumi.get(self, "is_admin")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name for user.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
+        """
+        Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+        would always trigger an execution plan.
+        """
         return pulumi.get(self, "role")
 
     @property
     @pulumi.getter
     def roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list a role IDs to assign to the user.
+        """
         return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="sendUserInvitation")
+    def send_user_invitation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether an invitation email should be sent when the user is created.
+        """
+        return pulumi.get(self, "send_user_invitation")
+
+    @property
+    @pulumi.getter(name="userInvitationId")
+    def user_invitation_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the user invitation that was sent when creating the user.
+        """
+        return pulumi.get(self, "user_invitation_id")
 
     @property
     @pulumi.getter
     def verified(self) -> pulumi.Output[bool]:
+        """
+        Returns true if Datadog user is verified.
+        """
         return pulumi.get(self, "verified")
 
     def translate_output_property(self, prop):

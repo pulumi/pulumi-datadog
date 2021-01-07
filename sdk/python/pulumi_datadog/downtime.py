@@ -83,12 +83,14 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
+        :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
+        :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC
         """
         if __name__ is not None:
@@ -154,12 +156,14 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
+        :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
+        :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -207,6 +211,9 @@ class Downtime(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        String representing date and time to end the downtime in RFC3339 format.
+        """
         return pulumi.get(self, "end_date")
 
     @property
@@ -260,6 +267,9 @@ class Downtime(pulumi.CustomResource):
     @property
     @pulumi.getter(name="startDate")
     def start_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        String representing date and time to start the downtime in RFC3339 format.
+        """
         return pulumi.get(self, "start_date")
 
     @property

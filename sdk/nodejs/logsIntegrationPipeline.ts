@@ -54,6 +54,9 @@ export class LogsIntegrationPipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsIntegrationPipeline.__pulumiType;
     }
 
+    /**
+     * Boolean value to enable your pipeline.
+     */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -88,6 +91,9 @@ export class LogsIntegrationPipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsIntegrationPipeline resources.
  */
 export interface LogsIntegrationPipelineState {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     readonly isEnabled?: pulumi.Input<boolean>;
 }
 
@@ -95,5 +101,8 @@ export interface LogsIntegrationPipelineState {
  * The set of arguments for constructing a LogsIntegrationPipeline resource.
  */
 export interface LogsIntegrationPipelineArgs {
+    /**
+     * Boolean value to enable your pipeline.
+     */
     readonly isEnabled?: pulumi.Input<boolean>;
 }

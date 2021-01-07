@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  *     escalationMessage: "Escalation message @pagerduty",
  *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
  *     thresholds: {
- *         ok: 0,
  *         warning: 2,
  *         warning_recovery: 1,
  *         critical: 4,
@@ -112,6 +111,9 @@ export class Monitor extends pulumi.CustomResource {
      * A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
      */
     public readonly enableLogsSample!: pulumi.Output<boolean | undefined>;
+    /**
+     * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+     */
     public readonly escalationMessage!: pulumi.Output<string | undefined>;
     /**
      * Time (in seconds) to delay evaluation, as a non-negative integer.
@@ -129,7 +131,14 @@ export class Monitor extends pulumi.CustomResource {
      * A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
      */
     public readonly locked!: pulumi.Output<boolean | undefined>;
+    /**
+     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+     * same `@username` notation as events.
+     */
     public readonly message!: pulumi.Output<string>;
+    /**
+     * Name of Datadog monitor.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * Time (in seconds) to allow a host to boot and
@@ -147,7 +156,15 @@ export class Monitor extends pulumi.CustomResource {
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults
      */
     public readonly notifyNoData!: pulumi.Output<boolean | undefined>;
+    /**
+     * Integer from 1 (high) to 5 (low) indicating alert severity.
+     */
     public readonly priority!: pulumi.Output<number | undefined>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+     * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+     * details. Warning: `terraform plan` won't perform any validation of the query contents.
+     */
     public readonly query!: pulumi.Output<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -158,7 +175,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
      *
      * @deprecated use Downtime Resource instead
      */
@@ -176,6 +193,11 @@ export class Monitor extends pulumi.CustomResource {
      * The number of hours of the monitor not reporting data before it will automatically resolve
      */
     public readonly timeoutH!: pulumi.Output<number | undefined>;
+    /**
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+     * Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+     * are below. Note: The monitor type cannot be changed after a monitor is created.
+     */
     public readonly type!: pulumi.Output<string>;
     /**
      * If set to false, skip the validation call done during `plan` .
@@ -274,6 +296,9 @@ export interface MonitorState {
      * A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
      */
     readonly enableLogsSample?: pulumi.Input<boolean>;
+    /**
+     * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+     */
     readonly escalationMessage?: pulumi.Input<string>;
     /**
      * Time (in seconds) to delay evaluation, as a non-negative integer.
@@ -291,7 +316,14 @@ export interface MonitorState {
      * A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
      */
     readonly locked?: pulumi.Input<boolean>;
+    /**
+     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+     * same `@username` notation as events.
+     */
     readonly message?: pulumi.Input<string>;
+    /**
+     * Name of Datadog monitor.
+     */
     readonly name?: pulumi.Input<string>;
     /**
      * Time (in seconds) to allow a host to boot and
@@ -309,7 +341,15 @@ export interface MonitorState {
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    /**
+     * Integer from 1 (high) to 5 (low) indicating alert severity.
+     */
     readonly priority?: pulumi.Input<number>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+     * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+     * details. Warning: `terraform plan` won't perform any validation of the query contents.
+     */
     readonly query?: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -320,7 +360,7 @@ export interface MonitorState {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
      *
      * @deprecated use Downtime Resource instead
      */
@@ -338,6 +378,11 @@ export interface MonitorState {
      * The number of hours of the monitor not reporting data before it will automatically resolve
      */
     readonly timeoutH?: pulumi.Input<number>;
+    /**
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+     * Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+     * are below. Note: The monitor type cannot be changed after a monitor is created.
+     */
     readonly type?: pulumi.Input<string>;
     /**
      * If set to false, skip the validation call done during `plan` .
@@ -353,6 +398,9 @@ export interface MonitorArgs {
      * A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
      */
     readonly enableLogsSample?: pulumi.Input<boolean>;
+    /**
+     * A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+     */
     readonly escalationMessage?: pulumi.Input<string>;
     /**
      * Time (in seconds) to delay evaluation, as a non-negative integer.
@@ -370,7 +418,14 @@ export interface MonitorArgs {
      * A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
      */
     readonly locked?: pulumi.Input<boolean>;
+    /**
+     * A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+     * same `@username` notation as events.
+     */
     readonly message: pulumi.Input<string>;
+    /**
+     * Name of Datadog monitor.
+     */
     readonly name: pulumi.Input<string>;
     /**
      * Time (in seconds) to allow a host to boot and
@@ -388,7 +443,15 @@ export interface MonitorArgs {
      * A boolean indicating whether this monitor will notify when data stops reporting. Defaults
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    /**
+     * Integer from 1 (high) to 5 (low) indicating alert severity.
+     */
     readonly priority?: pulumi.Input<number>;
+    /**
+     * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+     * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+     * details. Warning: `terraform plan` won't perform any validation of the query contents.
+     */
     readonly query: pulumi.Input<string>;
     /**
      * The number of minutes after the last notification before a monitor will re-notify
@@ -399,7 +462,7 @@ export interface MonitorArgs {
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+     * Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
      *
      * @deprecated use Downtime Resource instead
      */
@@ -417,6 +480,11 @@ export interface MonitorArgs {
      * The number of hours of the monitor not reporting data before it will automatically resolve
      */
     readonly timeoutH?: pulumi.Input<number>;
+    /**
+     * The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+     * Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+     * are below. Note: The monitor type cannot be changed after a monitor is created.
+     */
     readonly type: pulumi.Input<string>;
     /**
      * If set to false, skip the validation call done during `plan` .

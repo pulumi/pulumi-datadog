@@ -41,6 +41,9 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class LogsIntegrationPipeline : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.Datadog
 
     public sealed class LogsIntegrationPipelineArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
@@ -100,6 +106,9 @@ namespace Pulumi.Datadog
 
     public sealed class LogsIntegrationPipelineState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean value to enable your pipeline.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 

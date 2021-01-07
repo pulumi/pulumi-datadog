@@ -101,6 +101,9 @@ namespace Pulumi.Datadog
         [Output("end")]
         public Output<int?> End { get; private set; } = null!;
 
+        /// <summary>
+        /// String representing date and time to end the downtime in RFC3339 format.
+        /// </summary>
         [Output("endDate")]
         public Output<string?> EndDate { get; private set; } = null!;
 
@@ -140,6 +143,9 @@ namespace Pulumi.Datadog
         [Output("start")]
         public Output<int?> Start { get; private set; } = null!;
 
+        /// <summary>
+        /// String representing date and time to start the downtime in RFC3339 format.
+        /// </summary>
         [Output("startDate")]
         public Output<string?> StartDate { get; private set; } = null!;
 
@@ -213,6 +219,9 @@ namespace Pulumi.Datadog
         [Input("end")]
         public Input<int>? End { get; set; }
 
+        /// <summary>
+        /// String representing date and time to end the downtime in RFC3339 format.
+        /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
@@ -264,6 +273,9 @@ namespace Pulumi.Datadog
         [Input("start")]
         public Input<int>? Start { get; set; }
 
+        /// <summary>
+        /// String representing date and time to start the downtime in RFC3339 format.
+        /// </summary>
         [Input("startDate")]
         public Input<string>? StartDate { get; set; }
 
@@ -298,6 +310,9 @@ namespace Pulumi.Datadog
         [Input("end")]
         public Input<int>? End { get; set; }
 
+        /// <summary>
+        /// String representing date and time to end the downtime in RFC3339 format.
+        /// </summary>
         [Input("endDate")]
         public Input<string>? EndDate { get; set; }
 
@@ -349,6 +364,9 @@ namespace Pulumi.Datadog
         [Input("start")]
         public Input<int>? Start { get; set; }
 
+        /// <summary>
+        /// String representing date and time to start the downtime in RFC3339 format.
+        /// </summary>
         [Input("startDate")]
         public Input<string>? StartDate { get; set; }
 

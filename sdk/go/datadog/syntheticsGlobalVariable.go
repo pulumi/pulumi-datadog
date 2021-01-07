@@ -52,11 +52,16 @@ import (
 type SyntheticsGlobalVariable struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	Secure      pulumi.BoolPtrOutput     `pulumi:"secure"`
-	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
-	Value       pulumi.StringOutput      `pulumi:"value"`
+	// Description of the global variable.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Synthetics global variable name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Sets the variable as secure. Defaults to `false`.
+	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
+	// A list of tags to associate with your synthetics global variable.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// The value of the global variable.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewSyntheticsGlobalVariable registers a new resource with the given unique name, arguments, and options.
@@ -94,19 +99,29 @@ func GetSyntheticsGlobalVariable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
 type syntheticsGlobalVariableState struct {
-	Description *string  `pulumi:"description"`
-	Name        *string  `pulumi:"name"`
-	Secure      *bool    `pulumi:"secure"`
-	Tags        []string `pulumi:"tags"`
-	Value       *string  `pulumi:"value"`
+	// Description of the global variable.
+	Description *string `pulumi:"description"`
+	// Synthetics global variable name.
+	Name *string `pulumi:"name"`
+	// Sets the variable as secure. Defaults to `false`.
+	Secure *bool `pulumi:"secure"`
+	// A list of tags to associate with your synthetics global variable.
+	Tags []string `pulumi:"tags"`
+	// The value of the global variable.
+	Value *string `pulumi:"value"`
 }
 
 type SyntheticsGlobalVariableState struct {
+	// Description of the global variable.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Secure      pulumi.BoolPtrInput
-	Tags        pulumi.StringArrayInput
-	Value       pulumi.StringPtrInput
+	// Synthetics global variable name.
+	Name pulumi.StringPtrInput
+	// Sets the variable as secure. Defaults to `false`.
+	Secure pulumi.BoolPtrInput
+	// A list of tags to associate with your synthetics global variable.
+	Tags pulumi.StringArrayInput
+	// The value of the global variable.
+	Value pulumi.StringPtrInput
 }
 
 func (SyntheticsGlobalVariableState) ElementType() reflect.Type {
@@ -114,20 +129,30 @@ func (SyntheticsGlobalVariableState) ElementType() reflect.Type {
 }
 
 type syntheticsGlobalVariableArgs struct {
-	Description *string  `pulumi:"description"`
-	Name        string   `pulumi:"name"`
-	Secure      *bool    `pulumi:"secure"`
-	Tags        []string `pulumi:"tags"`
-	Value       string   `pulumi:"value"`
+	// Description of the global variable.
+	Description *string `pulumi:"description"`
+	// Synthetics global variable name.
+	Name string `pulumi:"name"`
+	// Sets the variable as secure. Defaults to `false`.
+	Secure *bool `pulumi:"secure"`
+	// A list of tags to associate with your synthetics global variable.
+	Tags []string `pulumi:"tags"`
+	// The value of the global variable.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a SyntheticsGlobalVariable resource.
 type SyntheticsGlobalVariableArgs struct {
+	// Description of the global variable.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringInput
-	Secure      pulumi.BoolPtrInput
-	Tags        pulumi.StringArrayInput
-	Value       pulumi.StringInput
+	// Synthetics global variable name.
+	Name pulumi.StringInput
+	// Sets the variable as secure. Defaults to `false`.
+	Secure pulumi.BoolPtrInput
+	// A list of tags to associate with your synthetics global variable.
+	Tags pulumi.StringArrayInput
+	// The value of the global variable.
+	Value pulumi.StringInput
 }
 
 func (SyntheticsGlobalVariableArgs) ElementType() reflect.Type {

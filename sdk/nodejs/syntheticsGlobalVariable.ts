@@ -60,10 +60,25 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
         return obj['__pulumiType'] === SyntheticsGlobalVariable.__pulumiType;
     }
 
+    /**
+     * Description of the global variable.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Synthetics global variable name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Sets the variable as secure. Defaults to `false`.
+     */
     public readonly secure!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of tags to associate with your synthetics global variable.
+     */
     public readonly tags!: pulumi.Output<string[] | undefined>;
+    /**
+     * The value of the global variable.
+     */
     public readonly value!: pulumi.Output<string>;
 
     /**
@@ -112,10 +127,25 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
  */
 export interface SyntheticsGlobalVariableState {
+    /**
+     * Description of the global variable.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Synthetics global variable name.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Sets the variable as secure. Defaults to `false`.
+     */
     readonly secure?: pulumi.Input<boolean>;
+    /**
+     * A list of tags to associate with your synthetics global variable.
+     */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The value of the global variable.
+     */
     readonly value?: pulumi.Input<string>;
 }
 
@@ -123,9 +153,24 @@ export interface SyntheticsGlobalVariableState {
  * The set of arguments for constructing a SyntheticsGlobalVariable resource.
  */
 export interface SyntheticsGlobalVariableArgs {
+    /**
+     * Description of the global variable.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Synthetics global variable name.
+     */
     readonly name: pulumi.Input<string>;
+    /**
+     * Sets the variable as secure. Defaults to `false`.
+     */
     readonly secure?: pulumi.Input<boolean>;
+    /**
+     * A list of tags to associate with your synthetics global variable.
+     */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The value of the global variable.
+     */
     readonly value: pulumi.Input<string>;
 }

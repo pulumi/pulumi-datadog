@@ -91,7 +91,8 @@ type Downtime struct {
 	// When true indicates this downtime is not being applied
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// Optionally specify an end date when this downtime should expire
-	End     pulumi.IntPtrOutput    `pulumi:"end"`
+	End pulumi.IntPtrOutput `pulumi:"end"`
+	// String representing date and time to end the downtime in RFC3339 format.
 	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
 	// An optional message to provide when creating the downtime, can include notification handles
 	Message pulumi.StringPtrOutput `pulumi:"message"`
@@ -104,7 +105,8 @@ type Downtime struct {
 	// specify the group scope to which this downtime applies. For everything use '*'
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// Specify when this downtime should start
-	Start     pulumi.IntPtrOutput    `pulumi:"start"`
+	Start pulumi.IntPtrOutput `pulumi:"start"`
+	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
 	// The timezone for the downtime, default UTC
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
@@ -147,7 +149,8 @@ type downtimeState struct {
 	// When true indicates this downtime is not being applied
 	Disabled *bool `pulumi:"disabled"`
 	// Optionally specify an end date when this downtime should expire
-	End     *int    `pulumi:"end"`
+	End *int `pulumi:"end"`
+	// String representing date and time to end the downtime in RFC3339 format.
 	EndDate *string `pulumi:"endDate"`
 	// An optional message to provide when creating the downtime, can include notification handles
 	Message *string `pulumi:"message"`
@@ -160,7 +163,8 @@ type downtimeState struct {
 	// specify the group scope to which this downtime applies. For everything use '*'
 	Scopes []string `pulumi:"scopes"`
 	// Specify when this downtime should start
-	Start     *int    `pulumi:"start"`
+	Start *int `pulumi:"start"`
+	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate *string `pulumi:"startDate"`
 	// The timezone for the downtime, default UTC
 	Timezone *string `pulumi:"timezone"`
@@ -172,7 +176,8 @@ type DowntimeState struct {
 	// When true indicates this downtime is not being applied
 	Disabled pulumi.BoolPtrInput
 	// Optionally specify an end date when this downtime should expire
-	End     pulumi.IntPtrInput
+	End pulumi.IntPtrInput
+	// String representing date and time to end the downtime in RFC3339 format.
 	EndDate pulumi.StringPtrInput
 	// An optional message to provide when creating the downtime, can include notification handles
 	Message pulumi.StringPtrInput
@@ -185,7 +190,8 @@ type DowntimeState struct {
 	// specify the group scope to which this downtime applies. For everything use '*'
 	Scopes pulumi.StringArrayInput
 	// Specify when this downtime should start
-	Start     pulumi.IntPtrInput
+	Start pulumi.IntPtrInput
+	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate pulumi.StringPtrInput
 	// The timezone for the downtime, default UTC
 	Timezone pulumi.StringPtrInput
@@ -201,7 +207,8 @@ type downtimeArgs struct {
 	// When true indicates this downtime is not being applied
 	Disabled *bool `pulumi:"disabled"`
 	// Optionally specify an end date when this downtime should expire
-	End     *int    `pulumi:"end"`
+	End *int `pulumi:"end"`
+	// String representing date and time to end the downtime in RFC3339 format.
 	EndDate *string `pulumi:"endDate"`
 	// An optional message to provide when creating the downtime, can include notification handles
 	Message *string `pulumi:"message"`
@@ -214,7 +221,8 @@ type downtimeArgs struct {
 	// specify the group scope to which this downtime applies. For everything use '*'
 	Scopes []string `pulumi:"scopes"`
 	// Specify when this downtime should start
-	Start     *int    `pulumi:"start"`
+	Start *int `pulumi:"start"`
+	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate *string `pulumi:"startDate"`
 	// The timezone for the downtime, default UTC
 	Timezone *string `pulumi:"timezone"`
@@ -227,7 +235,8 @@ type DowntimeArgs struct {
 	// When true indicates this downtime is not being applied
 	Disabled pulumi.BoolPtrInput
 	// Optionally specify an end date when this downtime should expire
-	End     pulumi.IntPtrInput
+	End pulumi.IntPtrInput
+	// String representing date and time to end the downtime in RFC3339 format.
 	EndDate pulumi.StringPtrInput
 	// An optional message to provide when creating the downtime, can include notification handles
 	Message pulumi.StringPtrInput
@@ -240,7 +249,8 @@ type DowntimeArgs struct {
 	// specify the group scope to which this downtime applies. For everything use '*'
 	Scopes pulumi.StringArrayInput
 	// Specify when this downtime should start
-	Start     pulumi.IntPtrInput
+	Start pulumi.IntPtrInput
+	// String representing date and time to start the downtime in RFC3339 format.
 	StartDate pulumi.StringPtrInput
 	// The timezone for the downtime, default UTC
 	Timezone pulumi.StringPtrInput

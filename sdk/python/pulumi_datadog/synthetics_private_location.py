@@ -49,6 +49,9 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the private location.
+        :param pulumi.Input[str] name: Synthetics private location name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,6 +97,11 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use
+               this configuration.
+        :param pulumi.Input[str] description: Description of the private location.
+        :param pulumi.Input[str] name: Synthetics private location name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -108,21 +116,34 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def config(self) -> pulumi.Output[str]:
+        """
+        Configuration skeleton for the private location. See installation instructions of the private location on how to use
+        this configuration.
+        """
         return pulumi.get(self, "config")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the private location.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Synthetics private location name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of tags to associate with your synthetics private location.
+        """
         return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):

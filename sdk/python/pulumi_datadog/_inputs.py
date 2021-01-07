@@ -811,6 +811,8 @@ __all__ = [
     'SecurityMonitoringRuleQueryArgs',
     'ServiceLevelObjectiveQueryArgs',
     'ServiceLevelObjectiveThresholdArgs',
+    'SyntheticsTestBrowserVariableArgs',
+    'SyntheticsTestConfigVariableArgs',
     'SyntheticsTestOptionsArgs',
     'SyntheticsTestOptionsListArgs',
     'SyntheticsTestOptionsListMonitorOptionsArgs',
@@ -11655,8 +11657,8 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs:
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if logset is not None:
-            warnings.warn("""This parameter has been deprecated. Use 'indexes' instead""", DeprecationWarning)
-            pulumi.log.warn("logset is deprecated: This parameter has been deprecated. Use 'indexes' instead")
+            warnings.warn("""This parameter has been deprecated. Use `indexes` instead.""", DeprecationWarning)
+            pulumi.log.warn("logset is deprecated: This parameter has been deprecated. Use `indexes` instead.")
         if logset is not None:
             pulumi.set(__self__, "logset", logset)
         if message_display is not None:
@@ -11850,8 +11852,8 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
         if count is not None:
-            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("count is deprecated: This parameter has been deprecated")
+            warnings.warn("""This parameter has been deprecated.""", DeprecationWarning)
+            pulumi.log.warn("count is deprecated: This parameter has been deprecated.")
         if count is not None:
             pulumi.set(__self__, "count", count)
         if display_format is not None:
@@ -11863,8 +11865,8 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs:
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
         if start is not None:
-            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("start is deprecated: This parameter has been deprecated")
+            warnings.warn("""This parameter has been deprecated.""", DeprecationWarning)
+            pulumi.log.warn("start is deprecated: This parameter has been deprecated.")
         if start is not None:
             pulumi.set(__self__, "start", start)
         if summary_type is not None:
@@ -25072,8 +25074,8 @@ class DashboardWidgetLogStreamDefinitionArgs:
         if indexes is not None:
             pulumi.set(__self__, "indexes", indexes)
         if logset is not None:
-            warnings.warn("""This parameter has been deprecated. Use 'indexes' instead""", DeprecationWarning)
-            pulumi.log.warn("logset is deprecated: This parameter has been deprecated. Use 'indexes' instead")
+            warnings.warn("""This parameter has been deprecated. Use `indexes` instead.""", DeprecationWarning)
+            pulumi.log.warn("logset is deprecated: This parameter has been deprecated. Use `indexes` instead.")
         if logset is not None:
             pulumi.set(__self__, "logset", logset)
         if message_display is not None:
@@ -25267,8 +25269,8 @@ class DashboardWidgetManageStatusDefinitionArgs:
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
         if count is not None:
-            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("count is deprecated: This parameter has been deprecated")
+            warnings.warn("""This parameter has been deprecated.""", DeprecationWarning)
+            pulumi.log.warn("count is deprecated: This parameter has been deprecated.")
         if count is not None:
             pulumi.set(__self__, "count", count)
         if display_format is not None:
@@ -25280,8 +25282,8 @@ class DashboardWidgetManageStatusDefinitionArgs:
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
         if start is not None:
-            warnings.warn("""This parameter has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("start is deprecated: This parameter has been deprecated")
+            warnings.warn("""This parameter has been deprecated.""", DeprecationWarning)
+            pulumi.log.warn("start is deprecated: This parameter has been deprecated.")
         if start is not None:
             pulumi.set(__self__, "start", start)
         if summary_type is not None:
@@ -39312,6 +39314,120 @@ class ServiceLevelObjectiveThresholdArgs:
     @warning_display.setter
     def warning_display(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "warning_display", value)
+
+
+@pulumi.input_type
+class SyntheticsTestBrowserVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 example: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if example is not None:
+            pulumi.set(__self__, "example", example)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def example(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "example")
+
+    @example.setter
+    def example(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "example", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
+
+
+@pulumi.input_type
+class SyntheticsTestConfigVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 example: Optional[pulumi.Input[str]] = None,
+                 pattern: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if example is not None:
+            pulumi.set(__self__, "example", example)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def example(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "example")
+
+    @example.setter
+    def example(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "example", value)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
 
 
 @pulumi.input_type

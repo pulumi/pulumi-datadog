@@ -51,21 +51,40 @@ namespace Pulumi.Datadog.Gcp
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Your email found in your JSON service account key.
+        /// </summary>
         [Output("clientEmail")]
         public Output<string> ClientEmail { get; private set; } = null!;
 
+        /// <summary>
+        /// Your ID found in your JSON service account key.
+        /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        /// imported into Datadog.
+        /// </summary>
         [Output("hostFilters")]
         public Output<string?> HostFilters { get; private set; } = null!;
 
+        /// <summary>
+        /// Your private key name found in your JSON service account key.
+        /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Your private key ID found in your JSON service account key.
+        /// </summary>
         [Output("privateKeyId")]
         public Output<string> PrivateKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// Your Google Cloud project ID found in your JSON service account key.
+        /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
@@ -115,21 +134,40 @@ namespace Pulumi.Datadog.Gcp
 
     public sealed class IntegrationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your email found in your JSON service account key.
+        /// </summary>
         [Input("clientEmail", required: true)]
         public Input<string> ClientEmail { get; set; } = null!;
 
+        /// <summary>
+        /// Your ID found in your JSON service account key.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        /// imported into Datadog.
+        /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
 
+        /// <summary>
+        /// Your private key name found in your JSON service account key.
+        /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
+        /// <summary>
+        /// Your private key ID found in your JSON service account key.
+        /// </summary>
         [Input("privateKeyId", required: true)]
         public Input<string> PrivateKeyId { get; set; } = null!;
 
+        /// <summary>
+        /// Your Google Cloud project ID found in your JSON service account key.
+        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
@@ -140,21 +178,40 @@ namespace Pulumi.Datadog.Gcp
 
     public sealed class IntegrationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your email found in your JSON service account key.
+        /// </summary>
         [Input("clientEmail")]
         public Input<string>? ClientEmail { get; set; }
 
+        /// <summary>
+        /// Your ID found in your JSON service account key.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        /// <summary>
+        /// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        /// imported into Datadog.
+        /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
 
+        /// <summary>
+        /// Your private key name found in your JSON service account key.
+        /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
+        /// <summary>
+        /// Your private key ID found in your JSON service account key.
+        /// </summary>
         [Input("privateKeyId")]
         public Input<string>? PrivateKeyId { get; set; }
 
+        /// <summary>
+        /// Your Google Cloud project ID found in your JSON service account key.
+        /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 

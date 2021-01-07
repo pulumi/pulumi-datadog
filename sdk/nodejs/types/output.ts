@@ -1530,7 +1530,7 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     columns?: string[];
     indexes?: string[];
     /**
-     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     * @deprecated This parameter has been deprecated. Use `indexes` instead.
      */
     logset?: string;
     messageDisplay?: string;
@@ -1556,7 +1556,7 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     colorPreference?: string;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     count?: number;
     displayFormat?: string;
@@ -1565,7 +1565,7 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     showLastTriggered?: boolean;
     sort?: string;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     start?: number;
     summaryType?: string;
@@ -3437,7 +3437,7 @@ export interface DashboardWidgetLogStreamDefinition {
     columns?: string[];
     indexes?: string[];
     /**
-     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     * @deprecated This parameter has been deprecated. Use `indexes` instead.
      */
     logset?: string;
     messageDisplay?: string;
@@ -3463,7 +3463,7 @@ export interface DashboardWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetManageStatusDefinition {
     colorPreference?: string;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     count?: number;
     displayFormat?: string;
@@ -3472,7 +3472,7 @@ export interface DashboardWidgetManageStatusDefinition {
     showLastTriggered?: boolean;
     sort?: string;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     start?: number;
     summaryType?: string;
@@ -5424,6 +5424,21 @@ export interface ServiceLevelObjectiveThreshold {
     timeframe: string;
     warning?: number;
     warningDisplay?: string;
+}
+
+export interface SyntheticsTestBrowserVariable {
+    example?: string;
+    id?: string;
+    name: string;
+    pattern?: string;
+    type: string;
+}
+
+export interface SyntheticsTestConfigVariable {
+    example?: string;
+    name: string;
+    pattern?: string;
+    type: string;
 }
 
 export interface SyntheticsTestOptions {

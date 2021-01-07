@@ -58,9 +58,23 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
+    /**
+     * Your Azure web application ID.
+     */
     public readonly clientId!: pulumi.Output<string>;
+    /**
+     * (Required for Initial Creation) Your Azure web application secret key.
+     */
     public readonly clientSecret!: pulumi.Output<string>;
+    /**
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     */
     public readonly hostFilters!: pulumi.Output<string | undefined>;
+    /**
+     * Your Azure Active Directory ID.
+     */
     public readonly tenantName!: pulumi.Output<string>;
 
     /**
@@ -110,9 +124,23 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
+    /**
+     * Your Azure web application ID.
+     */
     readonly clientId?: pulumi.Input<string>;
+    /**
+     * (Required for Initial Creation) Your Azure web application secret key.
+     */
     readonly clientSecret?: pulumi.Input<string>;
+    /**
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     */
     readonly hostFilters?: pulumi.Input<string>;
+    /**
+     * Your Azure Active Directory ID.
+     */
     readonly tenantName?: pulumi.Input<string>;
 }
 
@@ -120,8 +148,22 @@ export interface IntegrationState {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
+    /**
+     * Your Azure web application ID.
+     */
     readonly clientId: pulumi.Input<string>;
+    /**
+     * (Required for Initial Creation) Your Azure web application secret key.
+     */
     readonly clientSecret: pulumi.Input<string>;
+    /**
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     */
     readonly hostFilters?: pulumi.Input<string>;
+    /**
+     * Your Azure Active Directory ID.
+     */
     readonly tenantName: pulumi.Input<string>;
 }

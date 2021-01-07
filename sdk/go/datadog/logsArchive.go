@@ -55,13 +55,21 @@ import (
 type LogsArchive struct {
 	pulumi.CustomResourceState
 
-	Azure           LogsArchiveAzurePtrOutput `pulumi:"azure"`
-	Gcs             LogsArchiveGcsPtrOutput   `pulumi:"gcs"`
-	IncludeTags     pulumi.BoolPtrOutput      `pulumi:"includeTags"`
-	Name            pulumi.StringOutput       `pulumi:"name"`
-	Query           pulumi.StringOutput       `pulumi:"query"`
-	RehydrationTags pulumi.StringArrayOutput  `pulumi:"rehydrationTags"`
-	S3              LogsArchiveS3PtrOutput    `pulumi:"s3"`
+	// Definition of an azure archive.
+	Azure LogsArchiveAzurePtrOutput `pulumi:"azure"`
+	// Definition of a GCS archive.
+	Gcs LogsArchiveGcsPtrOutput `pulumi:"gcs"`
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
+	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
+	// Your archive name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The archive query/filter. Logs matching this query are included in the archive.
+	Query pulumi.StringOutput `pulumi:"query"`
+	// An array of tags to add to rehydrated logs from an archive.
+	RehydrationTags pulumi.StringArrayOutput `pulumi:"rehydrationTags"`
+	// Definition of an s3 archive.
+	S3 LogsArchiveS3PtrOutput `pulumi:"s3"`
 }
 
 // NewLogsArchive registers a new resource with the given unique name, arguments, and options.
@@ -99,23 +107,39 @@ func GetLogsArchive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsArchive resources.
 type logsArchiveState struct {
-	Azure           *LogsArchiveAzure `pulumi:"azure"`
-	Gcs             *LogsArchiveGcs   `pulumi:"gcs"`
-	IncludeTags     *bool             `pulumi:"includeTags"`
-	Name            *string           `pulumi:"name"`
-	Query           *string           `pulumi:"query"`
-	RehydrationTags []string          `pulumi:"rehydrationTags"`
-	S3              *LogsArchiveS3    `pulumi:"s3"`
+	// Definition of an azure archive.
+	Azure *LogsArchiveAzure `pulumi:"azure"`
+	// Definition of a GCS archive.
+	Gcs *LogsArchiveGcs `pulumi:"gcs"`
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
+	IncludeTags *bool `pulumi:"includeTags"`
+	// Your archive name.
+	Name *string `pulumi:"name"`
+	// The archive query/filter. Logs matching this query are included in the archive.
+	Query *string `pulumi:"query"`
+	// An array of tags to add to rehydrated logs from an archive.
+	RehydrationTags []string `pulumi:"rehydrationTags"`
+	// Definition of an s3 archive.
+	S3 *LogsArchiveS3 `pulumi:"s3"`
 }
 
 type LogsArchiveState struct {
-	Azure           LogsArchiveAzurePtrInput
-	Gcs             LogsArchiveGcsPtrInput
-	IncludeTags     pulumi.BoolPtrInput
-	Name            pulumi.StringPtrInput
-	Query           pulumi.StringPtrInput
+	// Definition of an azure archive.
+	Azure LogsArchiveAzurePtrInput
+	// Definition of a GCS archive.
+	Gcs LogsArchiveGcsPtrInput
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
+	IncludeTags pulumi.BoolPtrInput
+	// Your archive name.
+	Name pulumi.StringPtrInput
+	// The archive query/filter. Logs matching this query are included in the archive.
+	Query pulumi.StringPtrInput
+	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
-	S3              LogsArchiveS3PtrInput
+	// Definition of an s3 archive.
+	S3 LogsArchiveS3PtrInput
 }
 
 func (LogsArchiveState) ElementType() reflect.Type {
@@ -123,24 +147,40 @@ func (LogsArchiveState) ElementType() reflect.Type {
 }
 
 type logsArchiveArgs struct {
-	Azure           *LogsArchiveAzure `pulumi:"azure"`
-	Gcs             *LogsArchiveGcs   `pulumi:"gcs"`
-	IncludeTags     *bool             `pulumi:"includeTags"`
-	Name            string            `pulumi:"name"`
-	Query           string            `pulumi:"query"`
-	RehydrationTags []string          `pulumi:"rehydrationTags"`
-	S3              *LogsArchiveS3    `pulumi:"s3"`
+	// Definition of an azure archive.
+	Azure *LogsArchiveAzure `pulumi:"azure"`
+	// Definition of a GCS archive.
+	Gcs *LogsArchiveGcs `pulumi:"gcs"`
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
+	IncludeTags *bool `pulumi:"includeTags"`
+	// Your archive name.
+	Name string `pulumi:"name"`
+	// The archive query/filter. Logs matching this query are included in the archive.
+	Query string `pulumi:"query"`
+	// An array of tags to add to rehydrated logs from an archive.
+	RehydrationTags []string `pulumi:"rehydrationTags"`
+	// Definition of an s3 archive.
+	S3 *LogsArchiveS3 `pulumi:"s3"`
 }
 
 // The set of arguments for constructing a LogsArchive resource.
 type LogsArchiveArgs struct {
-	Azure           LogsArchiveAzurePtrInput
-	Gcs             LogsArchiveGcsPtrInput
-	IncludeTags     pulumi.BoolPtrInput
-	Name            pulumi.StringInput
-	Query           pulumi.StringInput
+	// Definition of an azure archive.
+	Azure LogsArchiveAzurePtrInput
+	// Definition of a GCS archive.
+	Gcs LogsArchiveGcsPtrInput
+	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+	// are sent to the archive.
+	IncludeTags pulumi.BoolPtrInput
+	// Your archive name.
+	Name pulumi.StringInput
+	// The archive query/filter. Logs matching this query are included in the archive.
+	Query pulumi.StringInput
+	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
-	S3              LogsArchiveS3PtrInput
+	// Definition of an s3 archive.
+	S3 LogsArchiveS3PtrInput
 }
 
 func (LogsArchiveArgs) ElementType() reflect.Type {

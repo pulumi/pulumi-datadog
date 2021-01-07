@@ -439,6 +439,9 @@ export class ScreenBoard extends pulumi.CustomResource {
      * Height of the screenboard
      */
     public readonly height!: pulumi.Output<string | undefined>;
+    /**
+     * The read-only status of the screenboard. Default is `false`.
+     */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
      * Whether the screenboard is shared or not
@@ -515,6 +518,9 @@ export interface ScreenBoardState {
      * Height of the screenboard
      */
     readonly height?: pulumi.Input<string>;
+    /**
+     * The read-only status of the screenboard. Default is `false`.
+     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
      * Whether the screenboard is shared or not
@@ -546,6 +552,9 @@ export interface ScreenBoardArgs {
      * Height of the screenboard
      */
     readonly height?: pulumi.Input<string>;
+    /**
+     * The read-only status of the screenboard. Default is `false`.
+     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
      * Whether the screenboard is shared or not

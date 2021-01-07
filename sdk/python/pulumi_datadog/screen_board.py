@@ -432,6 +432,7 @@ class ScreenBoard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] height: Height of the screenboard
+        :param pulumi.Input[bool] read_only: The read-only status of the screenboard. Default is `false`.
         :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: Name of the screenboard
@@ -491,6 +492,7 @@ class ScreenBoard(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] height: Height of the screenboard
+        :param pulumi.Input[bool] read_only: The read-only status of the screenboard. Default is `false`.
         :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScreenBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: Name of the screenboard
@@ -521,6 +523,9 @@ class ScreenBoard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The read-only status of the screenboard. Default is `false`.
+        """
         return pulumi.get(self, "read_only")
 
     @property

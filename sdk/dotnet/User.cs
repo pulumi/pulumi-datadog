@@ -50,30 +50,72 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+        /// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        /// </summary>
         [Output("accessRole")]
         public Output<string?> AccessRole { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the user is disabled.
+        /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Email address for user.
+        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// The user handle, must be a valid email.
+        /// </summary>
         [Output("handle")]
         public Output<string?> Handle { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+        /// argument would always trigger an execution plan.
+        /// </summary>
         [Output("isAdmin")]
         public Output<bool> IsAdmin { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for user.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+        /// would always trigger an execution plan.
+        /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
+        /// <summary>
+        /// A list a role IDs to assign to the user.
+        /// </summary>
         [Output("roles")]
         public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether an invitation email should be sent when the user is created.
+        /// </summary>
+        [Output("sendUserInvitation")]
+        public Output<bool?> SendUserInvitation { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the user invitation that was sent when creating the user.
+        /// </summary>
+        [Output("userInvitationId")]
+        public Output<string> UserInvitationId { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns true if Datadog user is verified.
+        /// </summary>
         [Output("verified")]
         public Output<bool> Verified { get; private set; } = null!;
 
@@ -123,34 +165,68 @@ namespace Pulumi.Datadog
 
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+        /// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        /// </summary>
         [Input("accessRole")]
         public Input<string>? AccessRole { get; set; }
 
+        /// <summary>
+        /// Whether the user is disabled.
+        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
+        /// <summary>
+        /// Email address for user.
+        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
+        /// <summary>
+        /// The user handle, must be a valid email.
+        /// </summary>
         [Input("handle")]
         public Input<string>? Handle { get; set; }
 
+        /// <summary>
+        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+        /// argument would always trigger an execution plan.
+        /// </summary>
         [Input("isAdmin")]
         public Input<bool>? IsAdmin { get; set; }
 
+        /// <summary>
+        /// Name for user.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+        /// would always trigger an execution plan.
+        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;
+
+        /// <summary>
+        /// A list a role IDs to assign to the user.
+        /// </summary>
         public InputList<string> Roles
         {
             get => _roles ?? (_roles = new InputList<string>());
             set => _roles = value;
         }
+
+        /// <summary>
+        /// Whether an invitation email should be sent when the user is created.
+        /// </summary>
+        [Input("sendUserInvitation")]
+        public Input<bool>? SendUserInvitation { get; set; }
 
         public UserArgs()
         {
@@ -159,35 +235,78 @@ namespace Pulumi.Datadog
 
     public sealed class UserState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
+        /// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        /// </summary>
         [Input("accessRole")]
         public Input<string>? AccessRole { get; set; }
 
+        /// <summary>
+        /// Whether the user is disabled.
+        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
+        /// <summary>
+        /// Email address for user.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// The user handle, must be a valid email.
+        /// </summary>
         [Input("handle")]
         public Input<string>? Handle { get; set; }
 
+        /// <summary>
+        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
+        /// argument would always trigger an execution plan.
+        /// </summary>
         [Input("isAdmin")]
         public Input<bool>? IsAdmin { get; set; }
 
+        /// <summary>
+        /// Name for user.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
+        /// would always trigger an execution plan.
+        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;
+
+        /// <summary>
+        /// A list a role IDs to assign to the user.
+        /// </summary>
         public InputList<string> Roles
         {
             get => _roles ?? (_roles = new InputList<string>());
             set => _roles = value;
         }
 
+        /// <summary>
+        /// Whether an invitation email should be sent when the user is created.
+        /// </summary>
+        [Input("sendUserInvitation")]
+        public Input<bool>? SendUserInvitation { get; set; }
+
+        /// <summary>
+        /// The ID of the user invitation that was sent when creating the user.
+        /// </summary>
+        [Input("userInvitationId")]
+        public Input<string>? UserInvitationId { get; set; }
+
+        /// <summary>
+        /// Returns true if Datadog user is verified.
+        /// </summary>
         [Input("verified")]
         public Input<bool>? Verified { get; set; }
 

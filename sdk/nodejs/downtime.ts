@@ -93,6 +93,9 @@ export class Downtime extends pulumi.CustomResource {
      * Optionally specify an end date when this downtime should expire
      */
     public readonly end!: pulumi.Output<number | undefined>;
+    /**
+     * String representing date and time to end the downtime in RFC3339 format.
+     */
     public readonly endDate!: pulumi.Output<string | undefined>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
@@ -118,6 +121,9 @@ export class Downtime extends pulumi.CustomResource {
      * Specify when this downtime should start
      */
     public readonly start!: pulumi.Output<number | undefined>;
+    /**
+     * String representing date and time to start the downtime in RFC3339 format.
+     */
     public readonly startDate!: pulumi.Output<string | undefined>;
     /**
      * The timezone for the downtime, default UTC
@@ -193,6 +199,9 @@ export interface DowntimeState {
      * Optionally specify an end date when this downtime should expire
      */
     readonly end?: pulumi.Input<number>;
+    /**
+     * String representing date and time to end the downtime in RFC3339 format.
+     */
     readonly endDate?: pulumi.Input<string>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
@@ -218,6 +227,9 @@ export interface DowntimeState {
      * Specify when this downtime should start
      */
     readonly start?: pulumi.Input<number>;
+    /**
+     * String representing date and time to start the downtime in RFC3339 format.
+     */
     readonly startDate?: pulumi.Input<string>;
     /**
      * The timezone for the downtime, default UTC
@@ -241,6 +253,9 @@ export interface DowntimeArgs {
      * Optionally specify an end date when this downtime should expire
      */
     readonly end?: pulumi.Input<number>;
+    /**
+     * String representing date and time to end the downtime in RFC3339 format.
+     */
     readonly endDate?: pulumi.Input<string>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
@@ -266,6 +281,9 @@ export interface DowntimeArgs {
      * Specify when this downtime should start
      */
     readonly start?: pulumi.Input<number>;
+    /**
+     * String representing date and time to start the downtime in RFC3339 format.
+     */
     readonly startDate?: pulumi.Input<string>;
     /**
      * The timezone for the downtime, default UTC

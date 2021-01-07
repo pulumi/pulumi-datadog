@@ -63,12 +63,23 @@ namespace Pulumi.Datadog.PagerDuty
     /// </summary>
     public partial class Integration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Your PagerDuty API token.
+        /// </summary>
         [Output("apiToken")]
         public Output<string?> ApiToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean to specify whether or not individual service objects specified by
+        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
+        /// resource are to be used. Mutually exclusive with `services` key.
+        /// </summary>
         [Output("individualServices")]
         public Output<bool?> IndividualServices { get; private set; } = null!;
 
+        /// <summary>
+        /// Array of your schedule URLs.
+        /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<string>> Schedules { get; private set; } = null!;
 
@@ -78,6 +89,9 @@ namespace Pulumi.Datadog.PagerDuty
         [Output("services")]
         public Output<ImmutableArray<Outputs.IntegrationService>> Services { get; private set; } = null!;
 
+        /// <summary>
+        /// Your PagerDuty account’s personalized subdomain name.
+        /// </summary>
         [Output("subdomain")]
         public Output<string> Subdomain { get; private set; } = null!;
 
@@ -127,14 +141,26 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class IntegrationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your PagerDuty API token.
+        /// </summary>
         [Input("apiToken")]
         public Input<string>? ApiToken { get; set; }
 
+        /// <summary>
+        /// Boolean to specify whether or not individual service objects specified by
+        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
+        /// resource are to be used. Mutually exclusive with `services` key.
+        /// </summary>
         [Input("individualServices")]
         public Input<bool>? IndividualServices { get; set; }
 
         [Input("schedules")]
         private InputList<string>? _schedules;
+
+        /// <summary>
+        /// Array of your schedule URLs.
+        /// </summary>
         public InputList<string> Schedules
         {
             get => _schedules ?? (_schedules = new InputList<string>());
@@ -154,6 +180,9 @@ namespace Pulumi.Datadog.PagerDuty
             set => _services = value;
         }
 
+        /// <summary>
+        /// Your PagerDuty account’s personalized subdomain name.
+        /// </summary>
         [Input("subdomain", required: true)]
         public Input<string> Subdomain { get; set; } = null!;
 
@@ -164,14 +193,26 @@ namespace Pulumi.Datadog.PagerDuty
 
     public sealed class IntegrationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your PagerDuty API token.
+        /// </summary>
         [Input("apiToken")]
         public Input<string>? ApiToken { get; set; }
 
+        /// <summary>
+        /// Boolean to specify whether or not individual service objects specified by
+        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
+        /// resource are to be used. Mutually exclusive with `services` key.
+        /// </summary>
         [Input("individualServices")]
         public Input<bool>? IndividualServices { get; set; }
 
         [Input("schedules")]
         private InputList<string>? _schedules;
+
+        /// <summary>
+        /// Array of your schedule URLs.
+        /// </summary>
         public InputList<string> Schedules
         {
             get => _schedules ?? (_schedules = new InputList<string>());
@@ -191,6 +232,9 @@ namespace Pulumi.Datadog.PagerDuty
             set => _services = value;
         }
 
+        /// <summary>
+        /// Your PagerDuty account’s personalized subdomain name.
+        /// </summary>
         [Input("subdomain")]
         public Input<string>? Subdomain { get; set; }
 

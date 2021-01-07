@@ -44,9 +44,15 @@ namespace Pulumi.Datadog.Aws
     /// </summary>
     public partial class IntegrationLambdaArn : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Your AWS Account ID without dashes.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the Datadog forwarder Lambda.
+        /// </summary>
         [Output("lambdaArn")]
         public Output<string> LambdaArn { get; private set; } = null!;
 
@@ -96,9 +102,15 @@ namespace Pulumi.Datadog.Aws
 
     public sealed class IntegrationLambdaArnArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your AWS Account ID without dashes.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the Datadog forwarder Lambda.
+        /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;
 
@@ -109,9 +121,15 @@ namespace Pulumi.Datadog.Aws
 
     public sealed class IntegrationLambdaArnState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your AWS Account ID without dashes.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The ARN of the Datadog forwarder Lambda.
+        /// </summary>
         [Input("lambdaArn")]
         public Input<string>? LambdaArn { get; set; }
 

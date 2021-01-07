@@ -560,6 +560,9 @@ namespace Pulumi.Datadog
         [Output("height")]
         public Output<string?> Height { get; private set; } = null!;
 
+        /// <summary>
+        /// The read-only status of the screenboard. Default is `false`.
+        /// </summary>
         [Output("readOnly")]
         public Output<bool?> ReadOnly { get; private set; } = null!;
 
@@ -645,6 +648,9 @@ namespace Pulumi.Datadog
         [Input("height")]
         public Input<string>? Height { get; set; }
 
+        /// <summary>
+        /// The read-only status of the screenboard. Default is `false`.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
@@ -703,6 +709,9 @@ namespace Pulumi.Datadog
         [Input("height")]
         public Input<string>? Height { get; set; }
 
+        /// <summary>
+        /// The read-only status of the screenboard. Default is `false`.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 

@@ -80,8 +80,8 @@ github.com/Azure/go-autorest/logger v0.1.0/go.mod h1:oExouG+K6PryycPJfVSxi/koC6L
 github.com/Azure/go-autorest/tracing v0.5.0/go.mod h1:r/s2XiOKccPW3HrqB+W0TQzfbtp2fGCgRFtBroKn4Dk=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/DataDog/datadog-api-client-go v1.0.0-beta.12 h1:qWUzuaQlPp2PhTqV3I5SFSTy8Bo2rubfZtmrlGyvyew=
-github.com/DataDog/datadog-api-client-go v1.0.0-beta.12/go.mod h1:/bMeu+q33QzX2JuO5PkGkhU1VYOXIXKEPF6Ck4yR06M=
+github.com/DataDog/datadog-api-client-go v1.0.0-beta.13 h1:2g9CVf8r9VZoVFq87+7hZzh0fQrIWyTLfeRxkmA4R6U=
+github.com/DataDog/datadog-api-client-go v1.0.0-beta.13/go.mod h1:/bMeu+q33QzX2JuO5PkGkhU1VYOXIXKEPF6Ck4yR06M=
 github.com/DataDog/datadog-go v3.6.0+incompatible h1:ILg7c5Y1KvZFDOaVS0higGmJ5Fal5O1KQrkrT9j6dSM=
 github.com/DataDog/datadog-go v3.6.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/GoogleCloudPlatform/cloudsql-proxy v0.0.0-20191009163259-e802c2cb94ae/go.mod h1:mjwGPas4yKduTyubHvD1Atl9r1rUq8DfVy+gkVvZ+oo=
@@ -545,8 +545,8 @@ github.com/pulumi/pulumi/pkg/v2 v2.15.1-0.20201202214525-260620430c4c/go.mod h1:
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
 github.com/pulumi/pulumi/sdk/v2 v2.15.1-0.20201202214525-260620430c4c h1:nYFMU38MKDY+CuU8LpIw6AaX/wwXMNzINqXvjw5MUtQ=
 github.com/pulumi/pulumi/sdk/v2 v2.15.1-0.20201202214525-260620430c4c/go.mod h1:Z9ifPo/Q0+hUpAyguVx2gp5Sx+CBumnWvYQDhrM8l3E=
-github.com/pulumi/terraform-provider-datadog v1.9.1-0.20201209144352-20c188b79ea9 h1:8aegJRd4Yc1/3GI1zt8bMdBm+cCBe+j+e2gZl2tmJkI=
-github.com/pulumi/terraform-provider-datadog v1.9.1-0.20201209144352-20c188b79ea9/go.mod h1:qH4Hb5QwEJCd5tGMyuQIfXuPinO0NTEhe0Shu3DuHdg=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210107155503-1e66dec2a2cc h1:0B5vtycrLhoODyBrpiBy/5HVhzCE0F3Cjv5K7Ip1d9U=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210107155503-1e66dec2a2cc/go.mod h1:Qo4bf7CjT4SE8+/8UPj+JpTITeRLYlMF3zDzK/CFZA0=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=

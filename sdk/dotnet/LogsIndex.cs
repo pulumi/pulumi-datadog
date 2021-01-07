@@ -18,12 +18,21 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class LogsIndex : Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of exclusion filters.
+        /// </summary>
         [Output("exclusionFilters")]
         public Output<ImmutableArray<Outputs.LogsIndexExclusionFilter>> ExclusionFilters { get; private set; } = null!;
 
+        /// <summary>
+        /// Logs filter
+        /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.LogsIndexFilter>> Filters { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -75,6 +84,10 @@ namespace Pulumi.Datadog
     {
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterArgs>? _exclusionFilters;
+
+        /// <summary>
+        /// List of exclusion filters.
+        /// </summary>
         public InputList<Inputs.LogsIndexExclusionFilterArgs> ExclusionFilters
         {
             get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFilterArgs>());
@@ -83,12 +96,19 @@ namespace Pulumi.Datadog
 
         [Input("filters", required: true)]
         private InputList<Inputs.LogsIndexFilterArgs>? _filters;
+
+        /// <summary>
+        /// Logs filter
+        /// </summary>
         public InputList<Inputs.LogsIndexFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.LogsIndexFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -101,6 +121,10 @@ namespace Pulumi.Datadog
     {
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterGetArgs>? _exclusionFilters;
+
+        /// <summary>
+        /// List of exclusion filters.
+        /// </summary>
         public InputList<Inputs.LogsIndexExclusionFilterGetArgs> ExclusionFilters
         {
             get => _exclusionFilters ?? (_exclusionFilters = new InputList<Inputs.LogsIndexExclusionFilterGetArgs>());
@@ -109,12 +133,19 @@ namespace Pulumi.Datadog
 
         [Input("filters")]
         private InputList<Inputs.LogsIndexFilterGetArgs>? _filters;
+
+        /// <summary>
+        /// Logs filter
+        /// </summary>
         public InputList<Inputs.LogsIndexFilterGetArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.LogsIndexFilterGetArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// The name of the index.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

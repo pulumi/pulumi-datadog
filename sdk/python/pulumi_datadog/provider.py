@@ -30,6 +30,13 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        :param pulumi.Input[str] api_url: The API Url. This can be also be set via the DD_HOST environment variable. Note that this URL must not end with the
+               /api/ path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And
+               if you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+        :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+               and app_keywon't be checked.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

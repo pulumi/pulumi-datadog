@@ -50,6 +50,9 @@ export class TimeBoard extends pulumi.CustomResource {
      * A list of graph definitions.
      */
     public readonly graphs!: pulumi.Output<outputs.TimeBoardGraph[]>;
+    /**
+     * The read-only status of the timeboard. Default is false.
+     */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
      * A list of template variables for using Dashboard templating.
@@ -117,6 +120,9 @@ export interface TimeBoardState {
      * A list of graph definitions.
      */
     readonly graphs?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
+    /**
+     * The read-only status of the timeboard. Default is false.
+     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
      * A list of template variables for using Dashboard templating.
@@ -140,6 +146,9 @@ export interface TimeBoardArgs {
      * A list of graph definitions.
      */
     readonly graphs: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
+    /**
+     * The read-only status of the timeboard. Default is false.
+     */
     readonly readOnly?: pulumi.Input<boolean>;
     /**
      * A list of template variables for using Dashboard templating.

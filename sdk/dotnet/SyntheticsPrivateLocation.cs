@@ -47,15 +47,28 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class SyntheticsPrivateLocation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+        /// this configuration.
+        /// </summary>
         [Output("config")]
         public Output<string> Config { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the private location.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Synthetics private location name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags to associate with your synthetics private location.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
@@ -105,14 +118,24 @@ namespace Pulumi.Datadog
 
     public sealed class SyntheticsPrivateLocationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the private location.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Synthetics private location name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags to associate with your synthetics private location.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
@@ -126,17 +149,31 @@ namespace Pulumi.Datadog
 
     public sealed class SyntheticsPrivateLocationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
+        /// this configuration.
+        /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
 
+        /// <summary>
+        /// Description of the private location.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Synthetics private location name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags to associate with your synthetics private location.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());

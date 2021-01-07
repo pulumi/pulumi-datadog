@@ -49,9 +49,16 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class LogsIndexOrder : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        /// list.
+        /// </summary>
         [Output("indexes")]
         public Output<ImmutableArray<string>> Indexes { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the index order resource.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -103,12 +110,20 @@ namespace Pulumi.Datadog
     {
         [Input("indexes", required: true)]
         private InputList<string>? _indexes;
+
+        /// <summary>
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        /// list.
+        /// </summary>
         public InputList<string> Indexes
         {
             get => _indexes ?? (_indexes = new InputList<string>());
             set => _indexes = value;
         }
 
+        /// <summary>
+        /// The unique name of the index order resource.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -121,12 +136,20 @@ namespace Pulumi.Datadog
     {
         [Input("indexes")]
         private InputList<string>? _indexes;
+
+        /// <summary>
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        /// list.
+        /// </summary>
         public InputList<string> Indexes
         {
             get => _indexes ?? (_indexes = new InputList<string>());
             set => _indexes = value;
         }
 
+        /// <summary>
+        /// The unique name of the index order resource.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
