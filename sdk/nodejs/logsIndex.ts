@@ -40,8 +40,17 @@ export class LogsIndex extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsIndex.__pulumiType;
     }
 
+    /**
+     * List of exclusion filters.
+     */
     public readonly exclusionFilters!: pulumi.Output<outputs.LogsIndexExclusionFilter[] | undefined>;
+    /**
+     * Logs filter
+     */
     public readonly filters!: pulumi.Output<outputs.LogsIndexFilter[]>;
+    /**
+     * The name of the index.
+     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -86,8 +95,17 @@ export class LogsIndex extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsIndex resources.
  */
 export interface LogsIndexState {
+    /**
+     * List of exclusion filters.
+     */
     readonly exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
+    /**
+     * Logs filter
+     */
     readonly filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
+    /**
+     * The name of the index.
+     */
     readonly name?: pulumi.Input<string>;
 }
 
@@ -95,7 +113,16 @@ export interface LogsIndexState {
  * The set of arguments for constructing a LogsIndex resource.
  */
 export interface LogsIndexArgs {
+    /**
+     * List of exclusion filters.
+     */
     readonly exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
+    /**
+     * Logs filter
+     */
     readonly filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
+    /**
+     * The name of the index.
+     */
     readonly name: pulumi.Input<string>;
 }

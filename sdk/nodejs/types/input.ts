@@ -1530,7 +1530,7 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     * @deprecated This parameter has been deprecated. Use `indexes` instead.
      */
     logset?: pulumi.Input<string>;
     messageDisplay?: pulumi.Input<string>;
@@ -1556,7 +1556,7 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     colorPreference?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     count?: pulumi.Input<number>;
     displayFormat?: pulumi.Input<string>;
@@ -1565,7 +1565,7 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
@@ -3437,7 +3437,7 @@ export interface DashboardWidgetLogStreamDefinition {
     columns?: pulumi.Input<pulumi.Input<string>[]>;
     indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This parameter has been deprecated. Use 'indexes' instead
+     * @deprecated This parameter has been deprecated. Use `indexes` instead.
      */
     logset?: pulumi.Input<string>;
     messageDisplay?: pulumi.Input<string>;
@@ -3463,7 +3463,7 @@ export interface DashboardWidgetLogStreamDefinitionTime {
 export interface DashboardWidgetManageStatusDefinition {
     colorPreference?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     count?: pulumi.Input<number>;
     displayFormat?: pulumi.Input<string>;
@@ -3472,7 +3472,7 @@ export interface DashboardWidgetManageStatusDefinition {
     showLastTriggered?: pulumi.Input<boolean>;
     sort?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter has been deprecated
+     * @deprecated This parameter has been deprecated.
      */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
@@ -5378,6 +5378,21 @@ export interface ServiceLevelObjectiveThreshold {
     timeframe: pulumi.Input<string>;
     warning?: pulumi.Input<number>;
     warningDisplay?: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestBrowserVariable {
+    example?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
+export interface SyntheticsTestConfigVariable {
+    example?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    pattern?: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestOptions {

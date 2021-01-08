@@ -32,6 +32,9 @@ namespace Pulumi.Datadog
         [Output("graphs")]
         public Output<ImmutableArray<Outputs.TimeBoardGraph>> Graphs { get; private set; } = null!;
 
+        /// <summary>
+        /// The read-only status of the timeboard. Default is false.
+        /// </summary>
         [Output("readOnly")]
         public Output<bool?> ReadOnly { get; private set; } = null!;
 
@@ -111,6 +114,9 @@ namespace Pulumi.Datadog
             set => _graphs = value;
         }
 
+        /// <summary>
+        /// The read-only status of the timeboard. Default is false.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
@@ -157,6 +163,9 @@ namespace Pulumi.Datadog
             set => _graphs = value;
         }
 
+        /// <summary>
+        /// The read-only status of the timeboard. Default is false.
+        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 

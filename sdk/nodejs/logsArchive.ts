@@ -64,12 +64,34 @@ export class LogsArchive extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsArchive.__pulumiType;
     }
 
+    /**
+     * Definition of an azure archive.
+     */
     public readonly azure!: pulumi.Output<outputs.LogsArchiveAzure | undefined>;
+    /**
+     * Definition of a GCS archive.
+     */
     public readonly gcs!: pulumi.Output<outputs.LogsArchiveGcs | undefined>;
+    /**
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+     * are sent to the archive.
+     */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
+    /**
+     * Your archive name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The archive query/filter. Logs matching this query are included in the archive.
+     */
     public readonly query!: pulumi.Output<string>;
+    /**
+     * An array of tags to add to rehydrated logs from an archive.
+     */
     public readonly rehydrationTags!: pulumi.Output<string[] | undefined>;
+    /**
+     * Definition of an s3 archive.
+     */
     public readonly s3!: pulumi.Output<outputs.LogsArchiveS3 | undefined>;
 
     /**
@@ -122,12 +144,34 @@ export class LogsArchive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsArchive resources.
  */
 export interface LogsArchiveState {
+    /**
+     * Definition of an azure archive.
+     */
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
+    /**
+     * Definition of a GCS archive.
+     */
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    /**
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+     * are sent to the archive.
+     */
     readonly includeTags?: pulumi.Input<boolean>;
+    /**
+     * Your archive name.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The archive query/filter. Logs matching this query are included in the archive.
+     */
     readonly query?: pulumi.Input<string>;
+    /**
+     * An array of tags to add to rehydrated logs from an archive.
+     */
     readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Definition of an s3 archive.
+     */
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
 }
 
@@ -135,11 +179,33 @@ export interface LogsArchiveState {
  * The set of arguments for constructing a LogsArchive resource.
  */
 export interface LogsArchiveArgs {
+    /**
+     * Definition of an azure archive.
+     */
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
+    /**
+     * Definition of a GCS archive.
+     */
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    /**
+     * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
+     * are sent to the archive.
+     */
     readonly includeTags?: pulumi.Input<boolean>;
+    /**
+     * Your archive name.
+     */
     readonly name: pulumi.Input<string>;
+    /**
+     * The archive query/filter. Logs matching this query are included in the archive.
+     */
     readonly query: pulumi.Input<string>;
+    /**
+     * An array of tags to add to rehydrated logs from an archive.
+     */
     readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Definition of an s3 archive.
+     */
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
 }

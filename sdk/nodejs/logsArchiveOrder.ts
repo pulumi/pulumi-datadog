@@ -57,6 +57,11 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogsArchiveOrder.__pulumiType;
     }
 
+    /**
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
+     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
+     * will try to update the order.
+     */
     public readonly archiveIds!: pulumi.Output<string[]>;
 
     /**
@@ -91,6 +96,11 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsArchiveOrder resources.
  */
 export interface LogsArchiveOrderState {
+    /**
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
+     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
+     * will try to update the order.
+     */
     readonly archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -98,5 +108,10 @@ export interface LogsArchiveOrderState {
  * The set of arguments for constructing a LogsArchiveOrder resource.
  */
 export interface LogsArchiveOrderArgs {
+    /**
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
+     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
+     * will try to update the order.
+     */
     readonly archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

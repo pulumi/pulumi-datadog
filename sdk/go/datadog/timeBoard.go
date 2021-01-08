@@ -24,8 +24,9 @@ type TimeBoard struct {
 	// A description of the dashboard's content.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A list of graph definitions.
-	Graphs   TimeBoardGraphArrayOutput `pulumi:"graphs"`
-	ReadOnly pulumi.BoolPtrOutput      `pulumi:"readOnly"`
+	Graphs TimeBoardGraphArrayOutput `pulumi:"graphs"`
+	// The read-only status of the timeboard. Default is false.
+	ReadOnly pulumi.BoolPtrOutput `pulumi:"readOnly"`
 	// A list of template variables for using Dashboard templating.
 	TemplateVariables TimeBoardTemplateVariableArrayOutput `pulumi:"templateVariables"`
 	// The name of the dashboard.
@@ -73,8 +74,9 @@ type timeBoardState struct {
 	// A description of the dashboard's content.
 	Description *string `pulumi:"description"`
 	// A list of graph definitions.
-	Graphs   []TimeBoardGraph `pulumi:"graphs"`
-	ReadOnly *bool            `pulumi:"readOnly"`
+	Graphs []TimeBoardGraph `pulumi:"graphs"`
+	// The read-only status of the timeboard. Default is false.
+	ReadOnly *bool `pulumi:"readOnly"`
 	// A list of template variables for using Dashboard templating.
 	TemplateVariables []TimeBoardTemplateVariable `pulumi:"templateVariables"`
 	// The name of the dashboard.
@@ -85,7 +87,8 @@ type TimeBoardState struct {
 	// A description of the dashboard's content.
 	Description pulumi.StringPtrInput
 	// A list of graph definitions.
-	Graphs   TimeBoardGraphArrayInput
+	Graphs TimeBoardGraphArrayInput
+	// The read-only status of the timeboard. Default is false.
 	ReadOnly pulumi.BoolPtrInput
 	// A list of template variables for using Dashboard templating.
 	TemplateVariables TimeBoardTemplateVariableArrayInput
@@ -101,8 +104,9 @@ type timeBoardArgs struct {
 	// A description of the dashboard's content.
 	Description string `pulumi:"description"`
 	// A list of graph definitions.
-	Graphs   []TimeBoardGraph `pulumi:"graphs"`
-	ReadOnly *bool            `pulumi:"readOnly"`
+	Graphs []TimeBoardGraph `pulumi:"graphs"`
+	// The read-only status of the timeboard. Default is false.
+	ReadOnly *bool `pulumi:"readOnly"`
 	// A list of template variables for using Dashboard templating.
 	TemplateVariables []TimeBoardTemplateVariable `pulumi:"templateVariables"`
 	// The name of the dashboard.
@@ -114,7 +118,8 @@ type TimeBoardArgs struct {
 	// A description of the dashboard's content.
 	Description pulumi.StringInput
 	// A list of graph definitions.
-	Graphs   TimeBoardGraphArrayInput
+	Graphs TimeBoardGraphArrayInput
+	// The read-only status of the timeboard. Default is false.
 	ReadOnly pulumi.BoolPtrInput
 	// A list of template variables for using Dashboard templating.
 	TemplateVariables TimeBoardTemplateVariableArrayInput

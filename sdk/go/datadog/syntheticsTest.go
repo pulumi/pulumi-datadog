@@ -288,7 +288,7 @@ import (
 // 				pulumi.StringMap{
 // 					"operator": pulumi.String("lessThan"),
 // 					"target":   pulumi.String("1000"),
-// 					"type":     pulumi.String("responsTime"),
+// 					"type":     pulumi.String("responseTime"),
 // 				},
 // 			},
 // 		})
@@ -310,27 +310,57 @@ import (
 type SyntheticsTest struct {
 	pulumi.CustomResourceState
 
+	// List of assertions.
+	//
 	// Deprecated: Use assertion instead
-	Assertions pulumi.MapArrayOutput    `pulumi:"assertions"`
-	DeviceIds  pulumi.StringArrayOutput `pulumi:"deviceIds"`
-	Locations  pulumi.StringArrayOutput `pulumi:"locations"`
-	Message    pulumi.StringPtrOutput   `pulumi:"message"`
-	MonitorId  pulumi.IntOutput         `pulumi:"monitorId"`
-	Name       pulumi.StringOutput      `pulumi:"name"`
+	Assertions pulumi.MapArrayOutput `pulumi:"assertions"`
+	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+	BrowserVariables SyntheticsTestBrowserVariableArrayOutput `pulumi:"browserVariables"`
+	// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+	ConfigVariables SyntheticsTestConfigVariableArrayOutput `pulumi:"configVariables"`
+	// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
+	// (only available for `browser` tests).
+	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
+	// Array of locations used to run the test. Refer to [Datadog
+	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+	// `aws:eu-central-1`).
+	Locations pulumi.StringArrayOutput `pulumi:"locations"`
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+	// using the same `@username` notation as events.
+	Message pulumi.StringPtrOutput `pulumi:"message"`
+	// ID of the monitor associated with the Datadog synthetics test.
+	MonitorId pulumi.IntOutput `pulumi:"monitorId"`
+	// Name of Datadog synthetics test.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options                  SyntheticsTestOptionsPtrOutput                  `pulumi:"options"`
-	OptionsList              SyntheticsTestOptionsListPtrOutput              `pulumi:"optionsList"`
-	Request                  SyntheticsTestRequestOutput                     `pulumi:"request"`
-	RequestBasicauth         SyntheticsTestRequestBasicauthPtrOutput         `pulumi:"requestBasicauth"`
+	Options     SyntheticsTestOptionsPtrOutput     `pulumi:"options"`
+	OptionsList SyntheticsTestOptionsListPtrOutput `pulumi:"optionsList"`
+	// The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+	Request SyntheticsTestRequestOutput `pulumi:"request"`
+	// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+	RequestBasicauth SyntheticsTestRequestBasicauthPtrOutput `pulumi:"requestBasicauth"`
+	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+	// below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrOutput `pulumi:"requestClientCertificate"`
-	RequestHeaders           pulumi.MapOutput                                `pulumi:"requestHeaders"`
-	RequestQuery             pulumi.MapOutput                                `pulumi:"requestQuery"`
-	Status                   pulumi.StringOutput                             `pulumi:"status"`
-	Steps                    SyntheticsTestStepArrayOutput                   `pulumi:"steps"`
-	Subtype                  pulumi.StringPtrOutput                          `pulumi:"subtype"`
-	Tags                     pulumi.StringArrayOutput                        `pulumi:"tags"`
-	Type                     pulumi.StringOutput                             `pulumi:"type"`
-	Variables                SyntheticsTestVariableArrayOutput               `pulumi:"variables"`
+	// Header name and value map.
+	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
+	// Query arguments name and value map.
+	RequestQuery pulumi.MapOutput `pulumi:"requestQuery"`
+	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Steps for browser tests.
+	Steps SyntheticsTestStepArrayOutput `pulumi:"steps"`
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
+	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+	// synthetics page of the UI. Default is an empty list (`[]`).
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// Synthetics test type (`api` or `browser`).
+	Type pulumi.StringOutput `pulumi:"type"`
+	// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+	//
+	// Deprecated: This parameter is deprecated, please use `browser_variable`
+	Variables SyntheticsTestVariableArrayOutput `pulumi:"variables"`
 }
 
 // NewSyntheticsTest registers a new resource with the given unique name, arguments, and options.
@@ -377,51 +407,111 @@ func GetSyntheticsTest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsTest resources.
 type syntheticsTestState struct {
+	// List of assertions.
+	//
 	// Deprecated: Use assertion instead
 	Assertions []map[string]interface{} `pulumi:"assertions"`
-	DeviceIds  []string                 `pulumi:"deviceIds"`
-	Locations  []string                 `pulumi:"locations"`
-	Message    *string                  `pulumi:"message"`
-	MonitorId  *int                     `pulumi:"monitorId"`
-	Name       *string                  `pulumi:"name"`
+	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+	BrowserVariables []SyntheticsTestBrowserVariable `pulumi:"browserVariables"`
+	// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
+	// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
+	// (only available for `browser` tests).
+	DeviceIds []string `pulumi:"deviceIds"`
+	// Array of locations used to run the test. Refer to [Datadog
+	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+	// `aws:eu-central-1`).
+	Locations []string `pulumi:"locations"`
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+	// using the same `@username` notation as events.
+	Message *string `pulumi:"message"`
+	// ID of the monitor associated with the Datadog synthetics test.
+	MonitorId *int `pulumi:"monitorId"`
+	// Name of Datadog synthetics test.
+	Name *string `pulumi:"name"`
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options                  *SyntheticsTestOptions                  `pulumi:"options"`
-	OptionsList              *SyntheticsTestOptionsList              `pulumi:"optionsList"`
-	Request                  *SyntheticsTestRequest                  `pulumi:"request"`
-	RequestBasicauth         *SyntheticsTestRequestBasicauth         `pulumi:"requestBasicauth"`
+	Options     *SyntheticsTestOptions     `pulumi:"options"`
+	OptionsList *SyntheticsTestOptionsList `pulumi:"optionsList"`
+	// The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+	Request *SyntheticsTestRequest `pulumi:"request"`
+	// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
+	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+	// below.
 	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
-	RequestHeaders           map[string]interface{}                  `pulumi:"requestHeaders"`
-	RequestQuery             map[string]interface{}                  `pulumi:"requestQuery"`
-	Status                   *string                                 `pulumi:"status"`
-	Steps                    []SyntheticsTestStep                    `pulumi:"steps"`
-	Subtype                  *string                                 `pulumi:"subtype"`
-	Tags                     []string                                `pulumi:"tags"`
-	Type                     *string                                 `pulumi:"type"`
-	Variables                []SyntheticsTestVariable                `pulumi:"variables"`
+	// Header name and value map.
+	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// Query arguments name and value map.
+	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
+	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+	Status *string `pulumi:"status"`
+	// Steps for browser tests.
+	Steps []SyntheticsTestStep `pulumi:"steps"`
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+	Subtype *string `pulumi:"subtype"`
+	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+	// synthetics page of the UI. Default is an empty list (`[]`).
+	Tags []string `pulumi:"tags"`
+	// Synthetics test type (`api` or `browser`).
+	Type *string `pulumi:"type"`
+	// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+	//
+	// Deprecated: This parameter is deprecated, please use `browser_variable`
+	Variables []SyntheticsTestVariable `pulumi:"variables"`
 }
 
 type SyntheticsTestState struct {
+	// List of assertions.
+	//
 	// Deprecated: Use assertion instead
 	Assertions pulumi.MapArrayInput
-	DeviceIds  pulumi.StringArrayInput
-	Locations  pulumi.StringArrayInput
-	Message    pulumi.StringPtrInput
-	MonitorId  pulumi.IntPtrInput
-	Name       pulumi.StringPtrInput
+	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+	BrowserVariables SyntheticsTestBrowserVariableArrayInput
+	// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+	ConfigVariables SyntheticsTestConfigVariableArrayInput
+	// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
+	// (only available for `browser` tests).
+	DeviceIds pulumi.StringArrayInput
+	// Array of locations used to run the test. Refer to [Datadog
+	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+	// `aws:eu-central-1`).
+	Locations pulumi.StringArrayInput
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+	// using the same `@username` notation as events.
+	Message pulumi.StringPtrInput
+	// ID of the monitor associated with the Datadog synthetics test.
+	MonitorId pulumi.IntPtrInput
+	// Name of Datadog synthetics test.
+	Name pulumi.StringPtrInput
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options                  SyntheticsTestOptionsPtrInput
-	OptionsList              SyntheticsTestOptionsListPtrInput
-	Request                  SyntheticsTestRequestPtrInput
-	RequestBasicauth         SyntheticsTestRequestBasicauthPtrInput
+	Options     SyntheticsTestOptionsPtrInput
+	OptionsList SyntheticsTestOptionsListPtrInput
+	// The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+	Request SyntheticsTestRequestPtrInput
+	// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
+	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+	// below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
-	RequestHeaders           pulumi.MapInput
-	RequestQuery             pulumi.MapInput
-	Status                   pulumi.StringPtrInput
-	Steps                    SyntheticsTestStepArrayInput
-	Subtype                  pulumi.StringPtrInput
-	Tags                     pulumi.StringArrayInput
-	Type                     pulumi.StringPtrInput
-	Variables                SyntheticsTestVariableArrayInput
+	// Header name and value map.
+	RequestHeaders pulumi.MapInput
+	// Query arguments name and value map.
+	RequestQuery pulumi.MapInput
+	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+	Status pulumi.StringPtrInput
+	// Steps for browser tests.
+	Steps SyntheticsTestStepArrayInput
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+	Subtype pulumi.StringPtrInput
+	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+	// synthetics page of the UI. Default is an empty list (`[]`).
+	Tags pulumi.StringArrayInput
+	// Synthetics test type (`api` or `browser`).
+	Type pulumi.StringPtrInput
+	// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+	//
+	// Deprecated: This parameter is deprecated, please use `browser_variable`
+	Variables SyntheticsTestVariableArrayInput
 }
 
 func (SyntheticsTestState) ElementType() reflect.Type {
@@ -429,50 +519,108 @@ func (SyntheticsTestState) ElementType() reflect.Type {
 }
 
 type syntheticsTestArgs struct {
+	// List of assertions.
+	//
 	// Deprecated: Use assertion instead
 	Assertions []map[string]interface{} `pulumi:"assertions"`
-	DeviceIds  []string                 `pulumi:"deviceIds"`
-	Locations  []string                 `pulumi:"locations"`
-	Message    *string                  `pulumi:"message"`
-	Name       string                   `pulumi:"name"`
+	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+	BrowserVariables []SyntheticsTestBrowserVariable `pulumi:"browserVariables"`
+	// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
+	// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
+	// (only available for `browser` tests).
+	DeviceIds []string `pulumi:"deviceIds"`
+	// Array of locations used to run the test. Refer to [Datadog
+	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+	// `aws:eu-central-1`).
+	Locations []string `pulumi:"locations"`
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+	// using the same `@username` notation as events.
+	Message *string `pulumi:"message"`
+	// Name of Datadog synthetics test.
+	Name string `pulumi:"name"`
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options                  *SyntheticsTestOptions                  `pulumi:"options"`
-	OptionsList              *SyntheticsTestOptionsList              `pulumi:"optionsList"`
-	Request                  SyntheticsTestRequest                   `pulumi:"request"`
-	RequestBasicauth         *SyntheticsTestRequestBasicauth         `pulumi:"requestBasicauth"`
+	Options     *SyntheticsTestOptions     `pulumi:"options"`
+	OptionsList *SyntheticsTestOptionsList `pulumi:"optionsList"`
+	// The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+	Request SyntheticsTestRequest `pulumi:"request"`
+	// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
+	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+	// below.
 	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
-	RequestHeaders           map[string]interface{}                  `pulumi:"requestHeaders"`
-	RequestQuery             map[string]interface{}                  `pulumi:"requestQuery"`
-	Status                   string                                  `pulumi:"status"`
-	Steps                    []SyntheticsTestStep                    `pulumi:"steps"`
-	Subtype                  *string                                 `pulumi:"subtype"`
-	Tags                     []string                                `pulumi:"tags"`
-	Type                     string                                  `pulumi:"type"`
-	Variables                []SyntheticsTestVariable                `pulumi:"variables"`
+	// Header name and value map.
+	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
+	// Query arguments name and value map.
+	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
+	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+	Status string `pulumi:"status"`
+	// Steps for browser tests.
+	Steps []SyntheticsTestStep `pulumi:"steps"`
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+	Subtype *string `pulumi:"subtype"`
+	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+	// synthetics page of the UI. Default is an empty list (`[]`).
+	Tags []string `pulumi:"tags"`
+	// Synthetics test type (`api` or `browser`).
+	Type string `pulumi:"type"`
+	// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+	//
+	// Deprecated: This parameter is deprecated, please use `browser_variable`
+	Variables []SyntheticsTestVariable `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a SyntheticsTest resource.
 type SyntheticsTestArgs struct {
+	// List of assertions.
+	//
 	// Deprecated: Use assertion instead
 	Assertions pulumi.MapArrayInput
-	DeviceIds  pulumi.StringArrayInput
-	Locations  pulumi.StringArrayInput
-	Message    pulumi.StringPtrInput
-	Name       pulumi.StringInput
+	// Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+	BrowserVariables SyntheticsTestBrowserVariableArrayInput
+	// Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+	ConfigVariables SyntheticsTestConfigVariableArrayInput
+	// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
+	// (only available for `browser` tests).
+	DeviceIds pulumi.StringArrayInput
+	// Array of locations used to run the test. Refer to [Datadog
+	// documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+	// `aws:eu-central-1`).
+	Locations pulumi.StringArrayInput
+	// A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+	// using the same `@username` notation as events.
+	Message pulumi.StringPtrInput
+	// Name of Datadog synthetics test.
+	Name pulumi.StringInput
 	// Deprecated: This parameter is deprecated, please use `options_list`
-	Options                  SyntheticsTestOptionsPtrInput
-	OptionsList              SyntheticsTestOptionsListPtrInput
-	Request                  SyntheticsTestRequestInput
-	RequestBasicauth         SyntheticsTestRequestBasicauthPtrInput
+	Options     SyntheticsTestOptionsPtrInput
+	OptionsList SyntheticsTestOptionsListPtrInput
+	// The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+	Request SyntheticsTestRequestInput
+	// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
+	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+	// below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
-	RequestHeaders           pulumi.MapInput
-	RequestQuery             pulumi.MapInput
-	Status                   pulumi.StringInput
-	Steps                    SyntheticsTestStepArrayInput
-	Subtype                  pulumi.StringPtrInput
-	Tags                     pulumi.StringArrayInput
-	Type                     pulumi.StringInput
-	Variables                SyntheticsTestVariableArrayInput
+	// Header name and value map.
+	RequestHeaders pulumi.MapInput
+	// Query arguments name and value map.
+	RequestQuery pulumi.MapInput
+	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+	Status pulumi.StringInput
+	// Steps for browser tests.
+	Steps SyntheticsTestStepArrayInput
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+	Subtype pulumi.StringPtrInput
+	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+	// synthetics page of the UI. Default is an empty list (`[]`).
+	Tags pulumi.StringArrayInput
+	// Synthetics test type (`api` or `browser`).
+	Type pulumi.StringInput
+	// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+	//
+	// Deprecated: This parameter is deprecated, please use `browser_variable`
+	Variables SyntheticsTestVariableArrayInput
 }
 
 func (SyntheticsTestArgs) ElementType() reflect.Type {

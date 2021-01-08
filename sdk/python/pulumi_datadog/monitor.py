@@ -60,7 +60,6 @@ class Monitor(pulumi.CustomResource):
             escalation_message="Escalation message @pagerduty",
             query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
             thresholds=datadog.MonitorThresholdsArgs(
-                ok=0,
                 warning=2,
                 warning_recovery=1,
                 critical=4,
@@ -119,20 +118,31 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
+        :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
         :param pulumi.Input[int] evaluation_delay: Time (in seconds) to delay evaluation, as a non-negative integer.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
+        :param pulumi.Input[str] message: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+               same `@username` notation as events.
+        :param pulumi.Input[str] name: Name of Datadog monitor.
         :param pulumi.Input[int] new_host_delay: Time (in seconds) to allow a host to boot and
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults
+        :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+               details. Warning: `terraform plan` won't perform any validation of the query contents.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve
+        :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+               Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+               are below. Note: The monitor type cannot be changed after a monitor is created.
         :param pulumi.Input[bool] validate: If set to false, skip the validation call done during `plan` .
         """
         if __name__ is not None:
@@ -227,20 +237,31 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
+        :param pulumi.Input[str] escalation_message: A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
         :param pulumi.Input[int] evaluation_delay: Time (in seconds) to delay evaluation, as a non-negative integer.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO, composite monitor).
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
         :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
+        :param pulumi.Input[str] message: A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+               same `@username` notation as events.
+        :param pulumi.Input[str] name: Name of Datadog monitor.
         :param pulumi.Input[int] new_host_delay: Time (in seconds) to allow a host to boot and
         :param pulumi.Input[int] no_data_timeframe: The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
         :param pulumi.Input[bool] notify_audit: A boolean indicating whether tagged users will be notified on changes to this monitor.
         :param pulumi.Input[bool] notify_no_data: A boolean indicating whether this monitor will notify when data stops reporting. Defaults
+        :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
+        :param pulumi.Input[str] query: The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+               on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+               details. Warning: `terraform plan` won't perform any validation of the query contents.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve
+        :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+               Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+               are below. Note: The monitor type cannot be changed after a monitor is created.
         :param pulumi.Input[bool] validate: If set to false, skip the validation call done during `plan` .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -283,6 +304,9 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="escalationMessage")
     def escalation_message(self) -> pulumi.Output[Optional[str]]:
+        """
+        A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+        """
         return pulumi.get(self, "escalation_message")
 
     @property
@@ -320,11 +344,18 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter
     def message(self) -> pulumi.Output[str]:
+        """
+        A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        same `@username` notation as events.
+        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of Datadog monitor.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -362,11 +393,19 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[int]]:
+        """
+        Integer from 1 (high) to 5 (low) indicating alert severity.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def query(self) -> pulumi.Output[str]:
+        """
+        The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+        on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+        details. Warning: `terraform plan` won't perform any validation of the query contents.
+        """
         return pulumi.get(self, "query")
 
     @property
@@ -389,7 +428,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def silenced(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+        Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
         """
         return pulumi.get(self, "silenced")
 
@@ -425,6 +464,11 @@ class Monitor(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+        Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+        are below. Note: The monitor type cannot be changed after a monitor is created.
+        """
         return pulumi.get(self, "type")
 
     @property

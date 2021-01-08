@@ -38,6 +38,7 @@ class TimeBoard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
+        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: The name of the dashboard.
         """
@@ -93,6 +94,7 @@ class TimeBoard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the dashboard's content.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardGraphArgs']]]] graphs: A list of graph definitions.
+        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeBoardTemplateVariableArgs']]]] template_variables: A list of template variables for using Dashboard templating.
         :param pulumi.Input[str] title: The name of the dashboard.
         """
@@ -126,6 +128,9 @@ class TimeBoard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The read-only status of the timeboard. Default is false.
+        """
         return pulumi.get(self, "read_only")
 
     @property

@@ -43,17 +43,31 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiKey   *string `pulumi:"apiKey"`
-	ApiUrl   *string `pulumi:"apiUrl"`
-	AppKey   *string `pulumi:"appKey"`
-	Validate *bool   `pulumi:"validate"`
+	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+	ApiKey *string `pulumi:"apiKey"`
+	// The API Url. This can be also be set via the DD_HOST environment variable. Note that this URL must not end with the
+	// /api/ path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And
+	// if you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+	ApiUrl *string `pulumi:"apiUrl"`
+	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+	AppKey *string `pulumi:"appKey"`
+	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+	// and app_keywon't be checked.
+	Validate *bool `pulumi:"validate"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	ApiKey   pulumi.StringPtrInput
-	ApiUrl   pulumi.StringPtrInput
-	AppKey   pulumi.StringPtrInput
+	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+	ApiKey pulumi.StringPtrInput
+	// The API Url. This can be also be set via the DD_HOST environment variable. Note that this URL must not end with the
+	// /api/ path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And
+	// if you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+	ApiUrl pulumi.StringPtrInput
+	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+	AppKey pulumi.StringPtrInput
+	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+	// and app_keywon't be checked.
 	Validate pulumi.BoolPtrInput
 }
 

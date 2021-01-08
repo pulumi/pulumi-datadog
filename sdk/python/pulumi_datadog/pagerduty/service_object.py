@@ -39,6 +39,13 @@ class ServiceObject(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+               impossible to detect
+               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+               The best way to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+               have it destroyed and recreated.
+        :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,6 +89,13 @@ class ServiceObject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+               impossible to detect
+               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+               The best way to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+               have it destroyed and recreated.
+        :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -94,11 +108,22 @@ class ServiceObject(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Output[str]:
+        """
+        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+        impossible to detect
+        [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+        The best way to solve a drift is to manually mark the Service Object resource with [terraform
+        taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+        have it destroyed and recreated.
+        """
         return pulumi.get(self, "service_key")
 
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[str]:
+        """
+        Your Service name in PagerDuty.
+        """
         return pulumi.get(self, "service_name")
 
     def translate_output_property(self, prop):

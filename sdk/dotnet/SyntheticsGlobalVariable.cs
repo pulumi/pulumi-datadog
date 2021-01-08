@@ -48,18 +48,33 @@ namespace Pulumi.Datadog
     /// </summary>
     public partial class SyntheticsGlobalVariable : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Description of the global variable.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Synthetics global variable name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the variable as secure. Defaults to `false`.
+        /// </summary>
         [Output("secure")]
         public Output<bool?> Secure { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags to associate with your synthetics global variable.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The value of the global variable.
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -109,23 +124,39 @@ namespace Pulumi.Datadog
 
     public sealed class SyntheticsGlobalVariableArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the global variable.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Synthetics global variable name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Sets the variable as secure. Defaults to `false`.
+        /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags to associate with your synthetics global variable.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The value of the global variable.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
@@ -136,23 +167,39 @@ namespace Pulumi.Datadog
 
     public sealed class SyntheticsGlobalVariableState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the global variable.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Synthetics global variable name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Sets the variable as secure. Defaults to `false`.
+        /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags to associate with your synthetics global variable.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The value of the global variable.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -159,8 +159,19 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
+    /**
+     * Your PagerDuty API token.
+     */
     public readonly apiToken!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean to specify whether or not individual service objects specified by
+     * [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
+     * resource are to be used. Mutually exclusive with `services` key.
+     */
     public readonly individualServices!: pulumi.Output<boolean | undefined>;
+    /**
+     * Array of your schedule URLs.
+     */
     public readonly schedules!: pulumi.Output<string[] | undefined>;
     /**
      * A list of service names and service keys.
@@ -168,6 +179,9 @@ export class Integration extends pulumi.CustomResource {
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
     public readonly services!: pulumi.Output<outputs.pagerduty.IntegrationService[] | undefined>;
+    /**
+     * Your PagerDuty account’s personalized subdomain name.
+     */
     public readonly subdomain!: pulumi.Output<string>;
 
     /**
@@ -213,8 +227,19 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
+    /**
+     * Your PagerDuty API token.
+     */
     readonly apiToken?: pulumi.Input<string>;
+    /**
+     * Boolean to specify whether or not individual service objects specified by
+     * [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
+     * resource are to be used. Mutually exclusive with `services` key.
+     */
     readonly individualServices?: pulumi.Input<boolean>;
+    /**
+     * Array of your schedule URLs.
+     */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of service names and service keys.
@@ -222,6 +247,9 @@ export interface IntegrationState {
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
     readonly services?: pulumi.Input<pulumi.Input<inputs.pagerduty.IntegrationService>[]>;
+    /**
+     * Your PagerDuty account’s personalized subdomain name.
+     */
     readonly subdomain?: pulumi.Input<string>;
 }
 
@@ -229,8 +257,19 @@ export interface IntegrationState {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
+    /**
+     * Your PagerDuty API token.
+     */
     readonly apiToken?: pulumi.Input<string>;
+    /**
+     * Boolean to specify whether or not individual service objects specified by
+     * [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
+     * resource are to be used. Mutually exclusive with `services` key.
+     */
     readonly individualServices?: pulumi.Input<boolean>;
+    /**
+     * Array of your schedule URLs.
+     */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of service names and service keys.
@@ -238,5 +277,8 @@ export interface IntegrationArgs {
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
     readonly services?: pulumi.Input<pulumi.Input<inputs.pagerduty.IntegrationService>[]>;
+    /**
+     * Your PagerDuty account’s personalized subdomain name.
+     */
     readonly subdomain: pulumi.Input<string>;
 }

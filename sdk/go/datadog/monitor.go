@@ -32,7 +32,6 @@ import (
 // 			EscalationMessage: pulumi.String("Escalation message @pagerduty"),
 // 			Query:             pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
 // 			Thresholds: &datadog.MonitorThresholdsArgs{
-// 				Ok:                pulumi.Float64(0),
 // 				Warning:           pulumi.Float64(2),
 // 				Warning_recovery:  pulumi.Float64(1),
 // 				Critical:          pulumi.Float64(4),
@@ -123,7 +122,8 @@ type Monitor struct {
 	pulumi.CustomResourceState
 
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-	EnableLogsSample  pulumi.BoolPtrOutput   `pulumi:"enableLogsSample"`
+	EnableLogsSample pulumi.BoolPtrOutput `pulumi:"enableLogsSample"`
+	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrOutput `pulumi:"escalationMessage"`
 	// Time (in seconds) to delay evaluation, as a non-negative integer.
 	EvaluationDelay pulumi.IntOutput `pulumi:"evaluationDelay"`
@@ -132,9 +132,12 @@ type Monitor struct {
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-	Locked  pulumi.BoolPtrOutput `pulumi:"locked"`
-	Message pulumi.StringOutput  `pulumi:"message"`
-	Name    pulumi.StringOutput  `pulumi:"name"`
+	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
+	Message pulumi.StringOutput `pulumi:"message"`
+	// Name of Datadog monitor.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Time (in seconds) to allow a host to boot and
 	NewHostDelay pulumi.IntPtrOutput `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
@@ -143,13 +146,17 @@ type Monitor struct {
 	NotifyAudit pulumi.BoolPtrOutput `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
-	Priority     pulumi.IntPtrOutput  `pulumi:"priority"`
-	Query        pulumi.StringOutput  `pulumi:"query"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority pulumi.IntPtrOutput `pulumi:"priority"`
+	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	Query pulumi.StringOutput `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapOutput `pulumi:"silenced"`
@@ -160,7 +167,10 @@ type Monitor struct {
 	Thresholds       MonitorThresholdsPtrOutput       `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	TimeoutH pulumi.IntPtrOutput `pulumi:"timeoutH"`
-	Type     pulumi.StringOutput `pulumi:"type"`
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+	// are below. Note: The monitor type cannot be changed after a monitor is created.
+	Type pulumi.StringOutput `pulumi:"type"`
 	// If set to false, skip the validation call done during `plan` .
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 }
@@ -207,7 +217,8 @@ func GetMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-	EnableLogsSample  *bool   `pulumi:"enableLogsSample"`
+	EnableLogsSample *bool `pulumi:"enableLogsSample"`
+	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
 	// Time (in seconds) to delay evaluation, as a non-negative integer.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
@@ -216,9 +227,12 @@ type monitorState struct {
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-	Locked  *bool   `pulumi:"locked"`
+	Locked *bool `pulumi:"locked"`
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message *string `pulumi:"message"`
-	Name    *string `pulumi:"name"`
+	// Name of Datadog monitor.
+	Name *string `pulumi:"name"`
 	// Time (in seconds) to allow a host to boot and
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
@@ -226,14 +240,18 @@ type monitorState struct {
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
-	NotifyNoData *bool   `pulumi:"notifyNoData"`
-	Priority     *int    `pulumi:"priority"`
-	Query        *string `pulumi:"query"`
+	NotifyNoData *bool `pulumi:"notifyNoData"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority *int `pulumi:"priority"`
+	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	Query *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced map[string]interface{} `pulumi:"silenced"`
@@ -243,15 +261,19 @@ type monitorState struct {
 	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
 	Thresholds       *MonitorThresholds       `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve
-	TimeoutH *int    `pulumi:"timeoutH"`
-	Type     *string `pulumi:"type"`
+	TimeoutH *int `pulumi:"timeoutH"`
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+	// are below. Note: The monitor type cannot be changed after a monitor is created.
+	Type *string `pulumi:"type"`
 	// If set to false, skip the validation call done during `plan` .
 	Validate *bool `pulumi:"validate"`
 }
 
 type MonitorState struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-	EnableLogsSample  pulumi.BoolPtrInput
+	EnableLogsSample pulumi.BoolPtrInput
+	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
 	// Time (in seconds) to delay evaluation, as a non-negative integer.
 	EvaluationDelay pulumi.IntPtrInput
@@ -260,9 +282,12 @@ type MonitorState struct {
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-	Locked  pulumi.BoolPtrInput
+	Locked pulumi.BoolPtrInput
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message pulumi.StringPtrInput
-	Name    pulumi.StringPtrInput
+	// Name of Datadog monitor.
+	Name pulumi.StringPtrInput
 	// Time (in seconds) to allow a host to boot and
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
@@ -271,13 +296,17 @@ type MonitorState struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData pulumi.BoolPtrInput
-	Priority     pulumi.IntPtrInput
-	Query        pulumi.StringPtrInput
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority pulumi.IntPtrInput
+	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	Query pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval pulumi.IntPtrInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow pulumi.BoolPtrInput
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapInput
@@ -288,7 +317,10 @@ type MonitorState struct {
 	Thresholds       MonitorThresholdsPtrInput
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	TimeoutH pulumi.IntPtrInput
-	Type     pulumi.StringPtrInput
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+	// are below. Note: The monitor type cannot be changed after a monitor is created.
+	Type pulumi.StringPtrInput
 	// If set to false, skip the validation call done during `plan` .
 	Validate pulumi.BoolPtrInput
 }
@@ -299,7 +331,8 @@ func (MonitorState) ElementType() reflect.Type {
 
 type monitorArgs struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-	EnableLogsSample  *bool   `pulumi:"enableLogsSample"`
+	EnableLogsSample *bool `pulumi:"enableLogsSample"`
+	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage *string `pulumi:"escalationMessage"`
 	// Time (in seconds) to delay evaluation, as a non-negative integer.
 	EvaluationDelay *int `pulumi:"evaluationDelay"`
@@ -308,9 +341,12 @@ type monitorArgs struct {
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags *bool `pulumi:"includeTags"`
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-	Locked  *bool  `pulumi:"locked"`
+	Locked *bool `pulumi:"locked"`
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message string `pulumi:"message"`
-	Name    string `pulumi:"name"`
+	// Name of Datadog monitor.
+	Name string `pulumi:"name"`
 	// Time (in seconds) to allow a host to boot and
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
@@ -318,14 +354,18 @@ type monitorArgs struct {
 	// A boolean indicating whether tagged users will be notified on changes to this monitor.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
-	NotifyNoData *bool  `pulumi:"notifyNoData"`
-	Priority     *int   `pulumi:"priority"`
-	Query        string `pulumi:"query"`
+	NotifyNoData *bool `pulumi:"notifyNoData"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority *int `pulumi:"priority"`
+	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	Query string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow *bool `pulumi:"requireFullWindow"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced map[string]interface{} `pulumi:"silenced"`
@@ -335,8 +375,11 @@ type monitorArgs struct {
 	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
 	Thresholds       *MonitorThresholds       `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve
-	TimeoutH *int   `pulumi:"timeoutH"`
-	Type     string `pulumi:"type"`
+	TimeoutH *int `pulumi:"timeoutH"`
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+	// are below. Note: The monitor type cannot be changed after a monitor is created.
+	Type string `pulumi:"type"`
 	// If set to false, skip the validation call done during `plan` .
 	Validate *bool `pulumi:"validate"`
 }
@@ -344,7 +387,8 @@ type monitorArgs struct {
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
 	// A boolean indicating whether or not to include a list of log values which triggered the alert. Defaults to false. This is only used by log monitors.
-	EnableLogsSample  pulumi.BoolPtrInput
+	EnableLogsSample pulumi.BoolPtrInput
+	// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
 	EscalationMessage pulumi.StringPtrInput
 	// Time (in seconds) to delay evaluation, as a non-negative integer.
 	EvaluationDelay pulumi.IntPtrInput
@@ -353,9 +397,12 @@ type MonitorArgs struct {
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title. Defaults to true.
 	IncludeTags pulumi.BoolPtrInput
 	// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to False.
-	Locked  pulumi.BoolPtrInput
+	Locked pulumi.BoolPtrInput
+	// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+	// same `@username` notation as events.
 	Message pulumi.StringInput
-	Name    pulumi.StringInput
+	// Name of Datadog monitor.
+	Name pulumi.StringInput
 	// Time (in seconds) to allow a host to boot and
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes.
@@ -364,13 +411,17 @@ type MonitorArgs struct {
 	NotifyAudit pulumi.BoolPtrInput
 	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults
 	NotifyNoData pulumi.BoolPtrInput
-	Priority     pulumi.IntPtrInput
-	Query        pulumi.StringInput
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority pulumi.IntPtrInput
+	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	Query pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify
 	RenotifyInterval pulumi.IntPtrInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated.
 	RequireFullWindow pulumi.BoolPtrInput
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+	// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
 	//
 	// Deprecated: use Downtime Resource instead
 	Silenced pulumi.MapInput
@@ -381,7 +432,10 @@ type MonitorArgs struct {
 	Thresholds       MonitorThresholdsPtrInput
 	// The number of hours of the monitor not reporting data before it will automatically resolve
 	TimeoutH pulumi.IntPtrInput
-	Type     pulumi.StringInput
+	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+	// are below. Note: The monitor type cannot be changed after a monitor is created.
+	Type pulumi.StringInput
 	// If set to false, skip the validation call done during `plan` .
 	Validate pulumi.BoolPtrInput
 }

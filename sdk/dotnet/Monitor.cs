@@ -32,7 +32,6 @@ namespace Pulumi.Datadog
     ///             Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
     ///             Thresholds = new Datadog.Inputs.MonitorThresholdsArgs
     ///             {
-    ///                 Ok = 0,
     ///                 Warning = 2,
     ///                 Warning_recovery = 1,
     ///                 Critical = 4,
@@ -118,6 +117,9 @@ namespace Pulumi.Datadog
         [Output("enableLogsSample")]
         public Output<bool?> EnableLogsSample { get; private set; } = null!;
 
+        /// <summary>
+        /// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+        /// </summary>
         [Output("escalationMessage")]
         public Output<string?> EscalationMessage { get; private set; } = null!;
 
@@ -145,9 +147,16 @@ namespace Pulumi.Datadog
         [Output("locked")]
         public Output<bool?> Locked { get; private set; } = null!;
 
+        /// <summary>
+        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        /// same `@username` notation as events.
+        /// </summary>
         [Output("message")]
         public Output<string> Message { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of Datadog monitor.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -175,9 +184,17 @@ namespace Pulumi.Datadog
         [Output("notifyNoData")]
         public Output<bool?> NotifyNoData { get; private set; } = null!;
 
+        /// <summary>
+        /// Integer from 1 (high) to 5 (low) indicating alert severity.
+        /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+        /// details. Warning: `terraform plan` won't perform any validation of the query contents.
+        /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
@@ -194,7 +211,7 @@ namespace Pulumi.Datadog
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
         /// </summary>
         [Output("silenced")]
         public Output<ImmutableDictionary<string, object>?> Silenced { get; private set; } = null!;
@@ -220,6 +237,11 @@ namespace Pulumi.Datadog
         [Output("timeoutH")]
         public Output<int?> TimeoutH { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+        /// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+        /// are below. Note: The monitor type cannot be changed after a monitor is created.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -281,6 +303,9 @@ namespace Pulumi.Datadog
         [Input("enableLogsSample")]
         public Input<bool>? EnableLogsSample { get; set; }
 
+        /// <summary>
+        /// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+        /// </summary>
         [Input("escalationMessage")]
         public Input<string>? EscalationMessage { get; set; }
 
@@ -308,9 +333,16 @@ namespace Pulumi.Datadog
         [Input("locked")]
         public Input<bool>? Locked { get; set; }
 
+        /// <summary>
+        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        /// same `@username` notation as events.
+        /// </summary>
         [Input("message", required: true)]
         public Input<string> Message { get; set; } = null!;
 
+        /// <summary>
+        /// Name of Datadog monitor.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -338,9 +370,17 @@ namespace Pulumi.Datadog
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
 
+        /// <summary>
+        /// Integer from 1 (high) to 5 (low) indicating alert severity.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+        /// details. Warning: `terraform plan` won't perform any validation of the query contents.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -360,7 +400,7 @@ namespace Pulumi.Datadog
         private InputMap<object>? _silenced;
 
         /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
         /// </summary>
         [Obsolete(@"use Downtime Resource instead")]
         public InputMap<object> Silenced
@@ -396,6 +436,11 @@ namespace Pulumi.Datadog
         [Input("timeoutH")]
         public Input<int>? TimeoutH { get; set; }
 
+        /// <summary>
+        /// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+        /// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+        /// are below. Note: The monitor type cannot be changed after a monitor is created.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -418,6 +463,9 @@ namespace Pulumi.Datadog
         [Input("enableLogsSample")]
         public Input<bool>? EnableLogsSample { get; set; }
 
+        /// <summary>
+        /// A message to include with a re-notification. Supports the `@username` notification allowed elsewhere.
+        /// </summary>
         [Input("escalationMessage")]
         public Input<string>? EscalationMessage { get; set; }
 
@@ -445,9 +493,16 @@ namespace Pulumi.Datadog
         [Input("locked")]
         public Input<bool>? Locked { get; set; }
 
+        /// <summary>
+        /// A message to include with notifications for this monitor. Email notifications can be sent to specific users by using the
+        /// same `@username` notation as events.
+        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
+        /// <summary>
+        /// Name of Datadog monitor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -475,9 +530,17 @@ namespace Pulumi.Datadog
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
 
+        /// <summary>
+        /// Integer from 1 (high) to 5 (low) indicating alert severity.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
+        /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
+        /// details. Warning: `terraform plan` won't perform any validation of the query contents.
+        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
@@ -497,7 +560,7 @@ namespace Pulumi.Datadog
         private InputMap<object>? _silenced;
 
         /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider Provider.
+        /// Each scope will be muted until the given POSIX timestamp or forever if the value is 0. Use `-1` if you want to unmute the scope. **Deprecated** The `silenced` parameter is being deprecated in favor of the downtime resource. This will be removed in the next major version of the provider.
         /// </summary>
         [Obsolete(@"use Downtime Resource instead")]
         public InputMap<object> Silenced
@@ -533,6 +596,11 @@ namespace Pulumi.Datadog
         [Input("timeoutH")]
         public Input<int>? TimeoutH { get; set; }
 
+        /// <summary>
+        /// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
+        /// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). The available options
+        /// are below. Note: The monitor type cannot be changed after a monitor is created.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

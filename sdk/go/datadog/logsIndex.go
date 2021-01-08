@@ -19,9 +19,12 @@ import (
 type LogsIndex struct {
 	pulumi.CustomResourceState
 
+	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
-	Filters          LogsIndexFilterArrayOutput          `pulumi:"filters"`
-	Name             pulumi.StringOutput                 `pulumi:"name"`
+	// Logs filter
+	Filters LogsIndexFilterArrayOutput `pulumi:"filters"`
+	// The name of the index.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewLogsIndex registers a new resource with the given unique name, arguments, and options.
@@ -59,15 +62,21 @@ func GetLogsIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsIndex resources.
 type logsIndexState struct {
+	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
-	Filters          []LogsIndexFilter          `pulumi:"filters"`
-	Name             *string                    `pulumi:"name"`
+	// Logs filter
+	Filters []LogsIndexFilter `pulumi:"filters"`
+	// The name of the index.
+	Name *string `pulumi:"name"`
 }
 
 type LogsIndexState struct {
+	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
-	Filters          LogsIndexFilterArrayInput
-	Name             pulumi.StringPtrInput
+	// Logs filter
+	Filters LogsIndexFilterArrayInput
+	// The name of the index.
+	Name pulumi.StringPtrInput
 }
 
 func (LogsIndexState) ElementType() reflect.Type {
@@ -75,16 +84,22 @@ func (LogsIndexState) ElementType() reflect.Type {
 }
 
 type logsIndexArgs struct {
+	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
-	Filters          []LogsIndexFilter          `pulumi:"filters"`
-	Name             string                     `pulumi:"name"`
+	// Logs filter
+	Filters []LogsIndexFilter `pulumi:"filters"`
+	// The name of the index.
+	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a LogsIndex resource.
 type LogsIndexArgs struct {
+	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
-	Filters          LogsIndexFilterArrayInput
-	Name             pulumi.StringInput
+	// Logs filter
+	Filters LogsIndexFilterArrayInput
+	// The name of the index.
+	Name pulumi.StringInput
 }
 
 func (LogsIndexArgs) ElementType() reflect.Type {

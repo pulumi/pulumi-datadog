@@ -43,6 +43,9 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+               list.
+        :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,6 +89,9 @@ class LogsIndexOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+               list.
+        :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -98,11 +104,18 @@ class LogsIndexOrder(pulumi.CustomResource):
     @property
     @pulumi.getter
     def indexes(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        list.
+        """
         return pulumi.get(self, "indexes")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The unique name of the index order resource.
+        """
         return pulumi.get(self, "name")
 
     def translate_output_property(self, prop):

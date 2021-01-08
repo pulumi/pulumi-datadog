@@ -51,7 +51,18 @@ export class ServiceObject extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceObject.__pulumiType;
     }
 
+    /**
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+     * impossible to detect
+     * [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+     * The best way to solve a drift is to manually mark the Service Object resource with [terraform
+     * taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+     * have it destroyed and recreated.
+     */
     public readonly serviceKey!: pulumi.Output<string>;
+    /**
+     * Your Service name in PagerDuty.
+     */
     public readonly serviceName!: pulumi.Output<string>;
 
     /**
@@ -94,7 +105,18 @@ export class ServiceObject extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceObject resources.
  */
 export interface ServiceObjectState {
+    /**
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+     * impossible to detect
+     * [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+     * The best way to solve a drift is to manually mark the Service Object resource with [terraform
+     * taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+     * have it destroyed and recreated.
+     */
     readonly serviceKey?: pulumi.Input<string>;
+    /**
+     * Your Service name in PagerDuty.
+     */
     readonly serviceName?: pulumi.Input<string>;
 }
 
@@ -102,6 +124,17 @@ export interface ServiceObjectState {
  * The set of arguments for constructing a ServiceObject resource.
  */
 export interface ServiceObjectArgs {
+    /**
+     * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+     * impossible to detect
+     * [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+     * The best way to solve a drift is to manually mark the Service Object resource with [terraform
+     * taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+     * have it destroyed and recreated.
+     */
     readonly serviceKey: pulumi.Input<string>;
+    /**
+     * Your Service name in PagerDuty.
+     */
     readonly serviceName: pulumi.Input<string>;
 }
