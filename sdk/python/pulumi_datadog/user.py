@@ -42,10 +42,32 @@ class User(pulumi.CustomResource):
             email="new@example.com",
             roles=[ro_role.id])
         ```
+        ## Schema
+
+        ### Required
+
+        - **email** (String) Email address for user.
+
+        ### Optional
+
+        - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        - **disabled** (Boolean) Whether the user is disabled.
+        - **handle** (String, Deprecated) The user handle, must be a valid email.
+        - **id** (String) The ID of this resource.
+        - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        - **name** (String) Name for user.
+        - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        - **roles** (Set of String) A list a role IDs to assign to the user.
+        - **send_user_invitation** (Boolean) Whether an invitation email should be sent when the user is created.
+
+        ### Read-only
+
+        - **user_invitation_id** (String) The ID of the user invitation that was sent when creating the user.
+        - **verified** (Boolean) Returns true if Datadog user is verified.
 
         ## Import
 
-        users can be imported using their ID, e.g.
+        Import is supported using the following syntax
 
         ```sh
          $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
@@ -83,6 +105,9 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if access_role is not None and not opts.urn:
+                warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
+                pulumi.log.warn("access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version")
             __props__['access_role'] = access_role
             __props__['disabled'] = disabled
             if email is None and not opts.urn:

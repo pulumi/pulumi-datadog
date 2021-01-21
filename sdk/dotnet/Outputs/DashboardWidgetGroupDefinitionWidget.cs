@@ -23,6 +23,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition? FreeTextDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition? HeatmapDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition? HostmapDefinition;
+        public readonly int? Id;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition? IframeDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition? ImageDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLayout? Layout;
@@ -59,6 +60,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition? heatmapDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition? hostmapDefinition,
+
+            int? id,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition? iframeDefinition,
 
@@ -98,6 +101,7 @@ namespace Pulumi.Datadog.Outputs
             FreeTextDefinition = freeTextDefinition;
             HeatmapDefinition = heatmapDefinition;
             HostmapDefinition = hostmapDefinition;
+            Id = id;
             IframeDefinition = iframeDefinition;
             ImageDefinition = imageDefinition;
             Layout = layout;

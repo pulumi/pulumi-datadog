@@ -6,11 +6,9 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to create and manage Datadog logs archives.
+ * Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
  *
  * ## Example Usage
- *
- * Create a Datadog logs archive:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -19,18 +17,70 @@ import * as utilities from "./utilities";
  * const myS3Archive = new datadog.LogsArchive("my_s3_archive", {
  *     name: "my s3 archive",
  *     query: "service:myservice",
- *     s3: {
- *         account_id: "001234567888",
+ *     s3Archive: {
+ *         accountId: "001234567888",
  *         bucket: "my-bucket",
  *         path: "/path/foo",
- *         role_name: "my-role-name",
+ *         roleName: "my-role-name",
  *     },
  * });
  * ```
+ * ## Schema
+ *
+ * ### Required
+ *
+ * - **name** (String, Required) Your archive name.
+ * - **query** (String, Required) The archive query/filter. Logs matching this query are included in the archive.
+ *
+ * ### Optional
+ *
+ * - **azure** (Map of String, Optional, Deprecated) Definition of an azure archive.
+ * - **azure_archive** (Block List, Max: 1) Definition of an azure archive. (see below for nested schema)
+ * - **gcs** (Map of String, Optional, Deprecated) Definition of a GCS archive.
+ * - **gcs_archive** (Block List, Max: 1) Definition of a GCS archive. (see below for nested schema)
+ * - **id** (String, Optional) The ID of this resource.
+ * - **include_tags** (Boolean, Optional) To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+ * - **rehydration_tags** (List of String, Optional) An array of tags to add to rehydrated logs from an archive.
+ * - **s3** (Map of String, Optional, Deprecated) Definition of an s3 archive.
+ * - **s3_archive** (Block List, Max: 1) Definition of an s3 archive. (see below for nested schema)
+ *
+ * <a id="nestedblock--azure_archive"></a>
+ * ### Nested Schema for `azureArchive`
+ *
+ * Required:
+ *
+ * - **client_id** (String, Required) Your client id.
+ * - **container** (String, Required) The container where the archive will be stored.
+ * - **storage_account** (String, Required) The associated storage account.
+ * - **tenant_id** (String, Required) Your tenant id.
+ *
+ * Optional:
+ *
+ * - **path** (String, Optional) The path where the archive will be stored.
+ *
+ * <a id="nestedblock--gcs_archive"></a>
+ * ### Nested Schema for `gcsArchive`
+ *
+ * Required:
+ *
+ * - **bucket** (String, Required) Name of your GCS bucket.
+ * - **client_email** (String, Required) Your client email.
+ * - **path** (String, Required) Path where the archive will be stored.
+ * - **project_id** (String, Required) Your project id.
+ *
+ * <a id="nestedblock--s3_archive"></a>
+ * ### Nested Schema for `s3Archive`
+ *
+ * Required:
+ *
+ * - **account_id** (String, Required) Your AWS account id.
+ * - **bucket** (String, Required) Name of your s3 bucket.
+ * - **path** (String, Required) Path where the archive will be stored.
+ * - **role_name** (String, Required) Your AWS role name
  *
  * ## Import
  *
- * Logs archives can be imported using their public string ID, e.g.
+ * Import is supported using the following syntax
  *
  * ```sh
  *  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
@@ -66,12 +116,24 @@ export class LogsArchive extends pulumi.CustomResource {
 
     /**
      * Definition of an azure archive.
+     *
+     * @deprecated Define `azure_archive` list with one element instead.
      */
     public readonly azure!: pulumi.Output<outputs.LogsArchiveAzure | undefined>;
     /**
+     * Definition of an azure archive.
+     */
+    public readonly azureArchive!: pulumi.Output<outputs.LogsArchiveAzureArchive | undefined>;
+    /**
      * Definition of a GCS archive.
+     *
+     * @deprecated Define `gcs_archive` list with one element instead.
      */
     public readonly gcs!: pulumi.Output<outputs.LogsArchiveGcs | undefined>;
+    /**
+     * Definition of a GCS archive.
+     */
+    public readonly gcsArchive!: pulumi.Output<outputs.LogsArchiveGcsArchive | undefined>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
      * are sent to the archive.
@@ -91,8 +153,14 @@ export class LogsArchive extends pulumi.CustomResource {
     public readonly rehydrationTags!: pulumi.Output<string[] | undefined>;
     /**
      * Definition of an s3 archive.
+     *
+     * @deprecated Define `s3_archive` list with one element instead.
      */
     public readonly s3!: pulumi.Output<outputs.LogsArchiveS3 | undefined>;
+    /**
+     * Definition of an s3 archive.
+     */
+    public readonly s3Archive!: pulumi.Output<outputs.LogsArchiveS3Archive | undefined>;
 
     /**
      * Create a LogsArchive resource with the given unique name, arguments, and options.
@@ -107,12 +175,15 @@ export class LogsArchive extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as LogsArchiveState | undefined;
             inputs["azure"] = state ? state.azure : undefined;
+            inputs["azureArchive"] = state ? state.azureArchive : undefined;
             inputs["gcs"] = state ? state.gcs : undefined;
+            inputs["gcsArchive"] = state ? state.gcsArchive : undefined;
             inputs["includeTags"] = state ? state.includeTags : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["query"] = state ? state.query : undefined;
             inputs["rehydrationTags"] = state ? state.rehydrationTags : undefined;
             inputs["s3"] = state ? state.s3 : undefined;
+            inputs["s3Archive"] = state ? state.s3Archive : undefined;
         } else {
             const args = argsOrState as LogsArchiveArgs | undefined;
             if ((!args || args.name === undefined) && !(opts && opts.urn)) {
@@ -122,12 +193,15 @@ export class LogsArchive extends pulumi.CustomResource {
                 throw new Error("Missing required property 'query'");
             }
             inputs["azure"] = args ? args.azure : undefined;
+            inputs["azureArchive"] = args ? args.azureArchive : undefined;
             inputs["gcs"] = args ? args.gcs : undefined;
+            inputs["gcsArchive"] = args ? args.gcsArchive : undefined;
             inputs["includeTags"] = args ? args.includeTags : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
             inputs["s3"] = args ? args.s3 : undefined;
+            inputs["s3Archive"] = args ? args.s3Archive : undefined;
         }
         if (!opts) {
             opts = {}
@@ -146,12 +220,24 @@ export class LogsArchive extends pulumi.CustomResource {
 export interface LogsArchiveState {
     /**
      * Definition of an azure archive.
+     *
+     * @deprecated Define `azure_archive` list with one element instead.
      */
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
     /**
+     * Definition of an azure archive.
+     */
+    readonly azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
+    /**
      * Definition of a GCS archive.
+     *
+     * @deprecated Define `gcs_archive` list with one element instead.
      */
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    /**
+     * Definition of a GCS archive.
+     */
+    readonly gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
      * are sent to the archive.
@@ -171,8 +257,14 @@ export interface LogsArchiveState {
     readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Definition of an s3 archive.
+     *
+     * @deprecated Define `s3_archive` list with one element instead.
      */
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
+    /**
+     * Definition of an s3 archive.
+     */
+    readonly s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
 }
 
 /**
@@ -181,12 +273,24 @@ export interface LogsArchiveState {
 export interface LogsArchiveArgs {
     /**
      * Definition of an azure archive.
+     *
+     * @deprecated Define `azure_archive` list with one element instead.
      */
     readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
     /**
+     * Definition of an azure archive.
+     */
+    readonly azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
+    /**
      * Definition of a GCS archive.
+     *
+     * @deprecated Define `gcs_archive` list with one element instead.
      */
     readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    /**
+     * Definition of a GCS archive.
+     */
+    readonly gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
      * are sent to the archive.
@@ -206,6 +310,12 @@ export interface LogsArchiveArgs {
     readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Definition of an s3 archive.
+     *
+     * @deprecated Define `s3_archive` list with one element instead.
      */
     readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
+    /**
+     * Definition of an s3 archive.
+     */
+    readonly s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
 }

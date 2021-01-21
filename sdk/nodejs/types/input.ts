@@ -37,6 +37,7 @@ export interface DashboardWidget {
     groupDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinition>;
     heatmapDefinition?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinition>;
     hostmapDefinition?: pulumi.Input<inputs.DashboardWidgetHostmapDefinition>;
+    id?: pulumi.Input<number>;
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetIframeDefinition>;
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetImageDefinition>;
     layout?: pulumi.Input<inputs.DashboardWidgetLayout>;
@@ -506,6 +507,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     freeTextDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition>;
     heatmapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition>;
     hostmapDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition>;
+    id?: pulumi.Input<number>;
     iframeDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition>;
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetImageDefinition>;
     layout?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLayout>;
@@ -4789,7 +4791,22 @@ export interface LogsArchiveAzure {
     tenantId: pulumi.Input<string>;
 }
 
+export interface LogsArchiveAzureArchive {
+    clientId: pulumi.Input<string>;
+    container: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
+    storageAccount: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
+}
+
 export interface LogsArchiveGcs {
+    bucket: pulumi.Input<string>;
+    clientEmail: pulumi.Input<string>;
+    path: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
+}
+
+export interface LogsArchiveGcsArchive {
     bucket: pulumi.Input<string>;
     clientEmail: pulumi.Input<string>;
     path: pulumi.Input<string>;
@@ -4799,9 +4816,14 @@ export interface LogsArchiveGcs {
 export interface LogsArchiveS3 {
     accountId: pulumi.Input<string>;
     bucket: pulumi.Input<string>;
-    clientEmail: pulumi.Input<string>;
     path: pulumi.Input<string>;
-    projectId: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
+}
+
+export interface LogsArchiveS3Archive {
+    accountId: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
+    path: pulumi.Input<string>;
     roleName: pulumi.Input<string>;
 }
 
@@ -5108,14 +5130,36 @@ export interface LogsIndexFilter {
     query: pulumi.Input<string>;
 }
 
-export interface MonitorThresholdWindows {
-    /**
-     * describes how long an anomalous metric must be normal before the alert recovers.
-     */
+export interface LogsMetricCompute {
+    aggregationType: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
+}
+
+export interface LogsMetricFilter {
+    query: pulumi.Input<string>;
+}
+
+export interface LogsMetricGroupBy {
+    path: pulumi.Input<string>;
+    tagName: pulumi.Input<string>;
+}
+
+export interface MonitorMonitorThresholdWindows {
     recoveryWindow?: pulumi.Input<string>;
-    /**
-     * describes how long a metric must be anomalous before an alert triggers.
-     */
+    triggerWindow?: pulumi.Input<string>;
+}
+
+export interface MonitorMonitorThresholds {
+    critical?: pulumi.Input<string>;
+    criticalRecovery?: pulumi.Input<string>;
+    ok?: pulumi.Input<string>;
+    unknown?: pulumi.Input<string>;
+    warning?: pulumi.Input<string>;
+    warningRecovery?: pulumi.Input<string>;
+}
+
+export interface MonitorThresholdWindows {
+    recoveryWindow?: pulumi.Input<string>;
     triggerWindow?: pulumi.Input<string>;
 }
 
@@ -5378,6 +5422,17 @@ export interface ServiceLevelObjectiveThreshold {
     timeframe: pulumi.Input<string>;
     warning?: pulumi.Input<number>;
     warningDisplay?: pulumi.Input<string>;
+}
+
+export interface SyntheticsGlobalVariableParseTestOptions {
+    field?: pulumi.Input<string>;
+    parser: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptionsParser>;
+    type: pulumi.Input<string>;
+}
+
+export interface SyntheticsGlobalVariableParseTestOptionsParser {
+    type: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestBrowserVariable {

@@ -24,6 +24,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinition? GroupDefinition;
         public readonly Outputs.DashboardWidgetHeatmapDefinition? HeatmapDefinition;
         public readonly Outputs.DashboardWidgetHostmapDefinition? HostmapDefinition;
+        public readonly int? Id;
         public readonly Outputs.DashboardWidgetIframeDefinition? IframeDefinition;
         public readonly Outputs.DashboardWidgetImageDefinition? ImageDefinition;
         public readonly Outputs.DashboardWidgetLayout? Layout;
@@ -62,6 +63,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetHeatmapDefinition? heatmapDefinition,
 
             Outputs.DashboardWidgetHostmapDefinition? hostmapDefinition,
+
+            int? id,
 
             Outputs.DashboardWidgetIframeDefinition? iframeDefinition,
 
@@ -102,6 +105,7 @@ namespace Pulumi.Datadog.Outputs
             GroupDefinition = groupDefinition;
             HeatmapDefinition = heatmapDefinition;
             HostmapDefinition = hostmapDefinition;
+            Id = id;
             IframeDefinition = iframeDefinition;
             ImageDefinition = imageDefinition;
             Layout = layout;

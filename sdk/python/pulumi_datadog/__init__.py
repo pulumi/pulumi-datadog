@@ -20,6 +20,7 @@ from .logs_custom_pipeline import *
 from .logs_index import *
 from .logs_index_order import *
 from .logs_integration_pipeline import *
+from .logs_metric import *
 from .logs_pipeline_order import *
 from .metric_metadata import *
 from .monitor import *
@@ -75,6 +76,8 @@ def _register_module():
                 return LogsIndexOrder(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline":
                 return LogsIntegrationPipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/logsMetric:LogsMetric":
+                return LogsMetric(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/logsPipelineOrder:LogsPipelineOrder":
                 return LogsPipelineOrder(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/metricMetadata:MetricMetadata":
@@ -113,6 +116,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("datadog", "index/logsIndex", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/logsIndexOrder", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/logsIntegrationPipeline", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/logsMetric", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/logsPipelineOrder", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/metricMetadata", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/monitor", _module_instance)

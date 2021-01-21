@@ -18,14 +18,8 @@ namespace Pulumi.Datadog.Inputs
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        [Input("clientEmail", required: true)]
-        public Input<string> ClientEmail { get; set; } = null!;
-
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
-
-        [Input("projectId", required: true)]
-        public Input<string> ProjectId { get; set; } = null!;
 
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;

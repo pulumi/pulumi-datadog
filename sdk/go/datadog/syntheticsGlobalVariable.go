@@ -56,6 +56,10 @@ type SyntheticsGlobalVariable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Synthetics global variable name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Id of the Synthetics test to use for a variable from test.
+	ParseTestId pulumi.StringPtrOutput `pulumi:"parseTestId"`
+	// ID of the Synthetics test to use a source of the global variable value.
+	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrOutput `pulumi:"parseTestOptions"`
 	// Sets the variable as secure. Defaults to `false`.
 	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
@@ -103,6 +107,10 @@ type syntheticsGlobalVariableState struct {
 	Description *string `pulumi:"description"`
 	// Synthetics global variable name.
 	Name *string `pulumi:"name"`
+	// Id of the Synthetics test to use for a variable from test.
+	ParseTestId *string `pulumi:"parseTestId"`
+	// ID of the Synthetics test to use a source of the global variable value.
+	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
 	// Sets the variable as secure. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
@@ -116,6 +124,10 @@ type SyntheticsGlobalVariableState struct {
 	Description pulumi.StringPtrInput
 	// Synthetics global variable name.
 	Name pulumi.StringPtrInput
+	// Id of the Synthetics test to use for a variable from test.
+	ParseTestId pulumi.StringPtrInput
+	// ID of the Synthetics test to use a source of the global variable value.
+	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
 	// Sets the variable as secure. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
@@ -133,6 +145,10 @@ type syntheticsGlobalVariableArgs struct {
 	Description *string `pulumi:"description"`
 	// Synthetics global variable name.
 	Name string `pulumi:"name"`
+	// Id of the Synthetics test to use for a variable from test.
+	ParseTestId *string `pulumi:"parseTestId"`
+	// ID of the Synthetics test to use a source of the global variable value.
+	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
 	// Sets the variable as secure. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
@@ -147,6 +163,10 @@ type SyntheticsGlobalVariableArgs struct {
 	Description pulumi.StringPtrInput
 	// Synthetics global variable name.
 	Name pulumi.StringInput
+	// Id of the Synthetics test to use for a variable from test.
+	ParseTestId pulumi.StringPtrInput
+	// ID of the Synthetics test to use a source of the global variable value.
+	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
 	// Sets the variable as secure. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.

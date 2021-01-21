@@ -22,10 +22,32 @@ import * as utilities from "./utilities";
  *     roles: [roRole.then(roRole => roRole.id)],
  * });
  * ```
+ * ## Schema
+ *
+ * ### Required
+ *
+ * - **email** (String) Email address for user.
+ *
+ * ### Optional
+ *
+ * - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+ * - **disabled** (Boolean) Whether the user is disabled.
+ * - **handle** (String, Deprecated) The user handle, must be a valid email.
+ * - **id** (String) The ID of this resource.
+ * - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+ * - **name** (String) Name for user.
+ * - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+ * - **roles** (Set of String) A list a role IDs to assign to the user.
+ * - **send_user_invitation** (Boolean) Whether an invitation email should be sent when the user is created.
+ *
+ * ### Read-only
+ *
+ * - **user_invitation_id** (String) The ID of the user invitation that was sent when creating the user.
+ * - **verified** (Boolean) Returns true if Datadog user is verified.
  *
  * ## Import
  *
- * users can be imported using their ID, e.g.
+ * Import is supported using the following syntax
  *
  * ```sh
  *  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
@@ -62,6 +84,8 @@ export class User extends pulumi.CustomResource {
     /**
      * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
      * `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+     *
+     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     public readonly accessRole!: pulumi.Output<string | undefined>;
     /**
@@ -171,6 +195,8 @@ export interface UserState {
     /**
      * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
      * `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+     *
+     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     readonly accessRole?: pulumi.Input<string>;
     /**
@@ -230,6 +256,8 @@ export interface UserArgs {
     /**
      * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
      * `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+     *
+     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version
      */
     readonly accessRole?: pulumi.Input<string>;
     /**

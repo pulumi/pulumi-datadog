@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SyntheticsGlobalVariable']
 
@@ -17,6 +19,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parse_test_id: Optional[pulumi.Input[str]] = None,
+                 parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
                  secure: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -54,6 +58,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
         :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
+        :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
@@ -79,6 +85,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['parse_test_id'] = parse_test_id
+            __props__['parse_test_options'] = parse_test_options
             __props__['secure'] = secure
             __props__['tags'] = tags
             if value is None and not opts.urn:
@@ -96,6 +104,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            parse_test_id: Optional[pulumi.Input[str]] = None,
+            parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
             secure: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'SyntheticsGlobalVariable':
@@ -108,6 +118,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the global variable.
         :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
+        :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
@@ -118,6 +130,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
 
         __props__["description"] = description
         __props__["name"] = name
+        __props__["parse_test_id"] = parse_test_id
+        __props__["parse_test_options"] = parse_test_options
         __props__["secure"] = secure
         __props__["tags"] = tags
         __props__["value"] = value
@@ -138,6 +152,22 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         Synthetics global variable name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parseTestId")
+    def parse_test_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Id of the Synthetics test to use for a variable from test.
+        """
+        return pulumi.get(self, "parse_test_id")
+
+    @property
+    @pulumi.getter(name="parseTestOptions")
+    def parse_test_options(self) -> pulumi.Output[Optional['outputs.SyntheticsGlobalVariableParseTestOptions']]:
+        """
+        ID of the Synthetics test to use a source of the global variable value.
+        """
+        return pulumi.get(self, "parse_test_options")
 
     @property
     @pulumi.getter

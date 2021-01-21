@@ -10,11 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to create and manage Datadog logs archives.
+    /// Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
     /// 
     /// ## Example Usage
-    /// 
-    /// Create a Datadog logs archive:
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -28,22 +26,74 @@ namespace Pulumi.Datadog
     ///         {
     ///             Name = "my s3 archive",
     ///             Query = "service:myservice",
-    ///             S3 = new Datadog.Inputs.LogsArchiveS3Args
+    ///             S3Archive = new Datadog.Inputs.LogsArchiveS3ArchiveArgs
     ///             {
-    ///                 Account_id = "001234567888",
+    ///                 AccountId = "001234567888",
     ///                 Bucket = "my-bucket",
     ///                 Path = "/path/foo",
-    ///                 Role_name = "my-role-name",
+    ///                 RoleName = "my-role-name",
     ///             },
     ///         });
     ///     }
     /// 
     /// }
     /// ```
+    /// ## Schema
+    /// 
+    /// ### Required
+    /// 
+    /// - **name** (String, Required) Your archive name.
+    /// - **query** (String, Required) The archive query/filter. Logs matching this query are included in the archive.
+    /// 
+    /// ### Optional
+    /// 
+    /// - **azure** (Map of String, Optional, Deprecated) Definition of an azure archive.
+    /// - **azure_archive** (Block List, Max: 1) Definition of an azure archive. (see below for nested schema)
+    /// - **gcs** (Map of String, Optional, Deprecated) Definition of a GCS archive.
+    /// - **gcs_archive** (Block List, Max: 1) Definition of a GCS archive. (see below for nested schema)
+    /// - **id** (String, Optional) The ID of this resource.
+    /// - **include_tags** (Boolean, Optional) To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+    /// - **rehydration_tags** (List of String, Optional) An array of tags to add to rehydrated logs from an archive.
+    /// - **s3** (Map of String, Optional, Deprecated) Definition of an s3 archive.
+    /// - **s3_archive** (Block List, Max: 1) Definition of an s3 archive. (see below for nested schema)
+    /// 
+    /// &lt;a id="nestedblock--azure_archive"&gt;&lt;/a&gt;
+    /// ### Nested Schema for `azure_archive`
+    /// 
+    /// Required:
+    /// 
+    /// - **client_id** (String, Required) Your client id.
+    /// - **container** (String, Required) The container where the archive will be stored.
+    /// - **storage_account** (String, Required) The associated storage account.
+    /// - **tenant_id** (String, Required) Your tenant id.
+    /// 
+    /// Optional:
+    /// 
+    /// - **path** (String, Optional) The path where the archive will be stored.
+    /// 
+    /// &lt;a id="nestedblock--gcs_archive"&gt;&lt;/a&gt;
+    /// ### Nested Schema for `gcs_archive`
+    /// 
+    /// Required:
+    /// 
+    /// - **bucket** (String, Required) Name of your GCS bucket.
+    /// - **client_email** (String, Required) Your client email.
+    /// - **path** (String, Required) Path where the archive will be stored.
+    /// - **project_id** (String, Required) Your project id.
+    /// 
+    /// &lt;a id="nestedblock--s3_archive"&gt;&lt;/a&gt;
+    /// ### Nested Schema for `s3_archive`
+    /// 
+    /// Required:
+    /// 
+    /// - **account_id** (String, Required) Your AWS account id.
+    /// - **bucket** (String, Required) Name of your s3 bucket.
+    /// - **path** (String, Required) Path where the archive will be stored.
+    /// - **role_name** (String, Required) Your AWS role name
     /// 
     /// ## Import
     /// 
-    /// Logs archives can be imported using their public string ID, e.g.
+    /// Import is supported using the following syntax
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
@@ -58,10 +108,22 @@ namespace Pulumi.Datadog
         public Output<Outputs.LogsArchiveAzure?> Azure { get; private set; } = null!;
 
         /// <summary>
+        /// Definition of an azure archive.
+        /// </summary>
+        [Output("azureArchive")]
+        public Output<Outputs.LogsArchiveAzureArchive?> AzureArchive { get; private set; } = null!;
+
+        /// <summary>
         /// Definition of a GCS archive.
         /// </summary>
         [Output("gcs")]
         public Output<Outputs.LogsArchiveGcs?> Gcs { get; private set; } = null!;
+
+        /// <summary>
+        /// Definition of a GCS archive.
+        /// </summary>
+        [Output("gcsArchive")]
+        public Output<Outputs.LogsArchiveGcsArchive?> GcsArchive { get; private set; } = null!;
 
         /// <summary>
         /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
@@ -93,6 +155,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("s3")]
         public Output<Outputs.LogsArchiveS3?> S3 { get; private set; } = null!;
+
+        /// <summary>
+        /// Definition of an s3 archive.
+        /// </summary>
+        [Output("s3Archive")]
+        public Output<Outputs.LogsArchiveS3Archive?> S3Archive { get; private set; } = null!;
 
 
         /// <summary>
@@ -147,10 +215,22 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveAzureArgs>? Azure { get; set; }
 
         /// <summary>
+        /// Definition of an azure archive.
+        /// </summary>
+        [Input("azureArchive")]
+        public Input<Inputs.LogsArchiveAzureArchiveArgs>? AzureArchive { get; set; }
+
+        /// <summary>
         /// Definition of a GCS archive.
         /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsArgs>? Gcs { get; set; }
+
+        /// <summary>
+        /// Definition of a GCS archive.
+        /// </summary>
+        [Input("gcsArchive")]
+        public Input<Inputs.LogsArchiveGcsArchiveArgs>? GcsArchive { get; set; }
 
         /// <summary>
         /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
@@ -189,6 +269,12 @@ namespace Pulumi.Datadog
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3Args>? S3 { get; set; }
 
+        /// <summary>
+        /// Definition of an s3 archive.
+        /// </summary>
+        [Input("s3Archive")]
+        public Input<Inputs.LogsArchiveS3ArchiveArgs>? S3Archive { get; set; }
+
         public LogsArchiveArgs()
         {
         }
@@ -203,10 +289,22 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveAzureGetArgs>? Azure { get; set; }
 
         /// <summary>
+        /// Definition of an azure archive.
+        /// </summary>
+        [Input("azureArchive")]
+        public Input<Inputs.LogsArchiveAzureArchiveGetArgs>? AzureArchive { get; set; }
+
+        /// <summary>
         /// Definition of a GCS archive.
         /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsGetArgs>? Gcs { get; set; }
+
+        /// <summary>
+        /// Definition of a GCS archive.
+        /// </summary>
+        [Input("gcsArchive")]
+        public Input<Inputs.LogsArchiveGcsArchiveGetArgs>? GcsArchive { get; set; }
 
         /// <summary>
         /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
@@ -244,6 +342,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3GetArgs>? S3 { get; set; }
+
+        /// <summary>
+        /// Definition of an s3 archive.
+        /// </summary>
+        [Input("s3Archive")]
+        public Input<Inputs.LogsArchiveS3ArchiveGetArgs>? S3Archive { get; set; }
 
         public LogsArchiveState()
         {
