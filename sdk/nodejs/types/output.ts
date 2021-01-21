@@ -37,6 +37,7 @@ export interface DashboardWidget {
     groupDefinition?: outputs.DashboardWidgetGroupDefinition;
     heatmapDefinition?: outputs.DashboardWidgetHeatmapDefinition;
     hostmapDefinition?: outputs.DashboardWidgetHostmapDefinition;
+    id: number;
     iframeDefinition?: outputs.DashboardWidgetIframeDefinition;
     imageDefinition?: outputs.DashboardWidgetImageDefinition;
     layout?: outputs.DashboardWidgetLayout;
@@ -506,6 +507,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
     freeTextDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition;
     heatmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition;
     hostmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition;
+    id: number;
     iframeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition;
     imageDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition;
     layout?: outputs.DashboardWidgetGroupDefinitionWidgetLayout;
@@ -4781,6 +4783,20 @@ export interface DowntimeRecurrence {
     weekDays?: string[];
 }
 
+export interface GetMonitorMonitorThresholdWindows {
+    recoveryWindow: string;
+    triggerWindow: string;
+}
+
+export interface GetMonitorMonitorThresholds {
+    critical: string;
+    criticalRecovery: string;
+    ok: string;
+    unknown: string;
+    warning: string;
+    warningRecovery: string;
+}
+
 export interface GetMonitorThresholdWindows {
     recoveryWindow: string;
     triggerWindow: string;
@@ -4835,7 +4851,22 @@ export interface LogsArchiveAzure {
     tenantId: string;
 }
 
+export interface LogsArchiveAzureArchive {
+    clientId: string;
+    container: string;
+    path?: string;
+    storageAccount: string;
+    tenantId: string;
+}
+
 export interface LogsArchiveGcs {
+    bucket: string;
+    clientEmail: string;
+    path: string;
+    projectId: string;
+}
+
+export interface LogsArchiveGcsArchive {
     bucket: string;
     clientEmail: string;
     path: string;
@@ -4845,9 +4876,14 @@ export interface LogsArchiveGcs {
 export interface LogsArchiveS3 {
     accountId: string;
     bucket: string;
-    clientEmail: string;
     path: string;
-    projectId: string;
+    roleName: string;
+}
+
+export interface LogsArchiveS3Archive {
+    accountId: string;
+    bucket: string;
+    path: string;
     roleName: string;
 }
 
@@ -5154,14 +5190,36 @@ export interface LogsIndexFilter {
     query: string;
 }
 
-export interface MonitorThresholdWindows {
-    /**
-     * describes how long an anomalous metric must be normal before the alert recovers.
-     */
+export interface LogsMetricCompute {
+    aggregationType: string;
+    path?: string;
+}
+
+export interface LogsMetricFilter {
+    query: string;
+}
+
+export interface LogsMetricGroupBy {
+    path: string;
+    tagName: string;
+}
+
+export interface MonitorMonitorThresholdWindows {
     recoveryWindow?: string;
-    /**
-     * describes how long a metric must be anomalous before an alert triggers.
-     */
+    triggerWindow?: string;
+}
+
+export interface MonitorMonitorThresholds {
+    critical?: string;
+    criticalRecovery?: string;
+    ok?: string;
+    unknown?: string;
+    warning?: string;
+    warningRecovery?: string;
+}
+
+export interface MonitorThresholdWindows {
+    recoveryWindow?: string;
     triggerWindow?: string;
 }
 
@@ -5424,6 +5482,17 @@ export interface ServiceLevelObjectiveThreshold {
     timeframe: string;
     warning?: number;
     warningDisplay?: string;
+}
+
+export interface SyntheticsGlobalVariableParseTestOptions {
+    field?: string;
+    parser: outputs.SyntheticsGlobalVariableParseTestOptionsParser;
+    type: string;
+}
+
+export interface SyntheticsGlobalVariableParseTestOptionsParser {
+    type: string;
+    value?: string;
 }
 
 export interface SyntheticsTestBrowserVariable {

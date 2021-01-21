@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -69,6 +70,14 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Id of the Synthetics test to use for a variable from test.
+     */
+    public readonly parseTestId!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the Synthetics test to use a source of the global variable value.
+     */
+    public readonly parseTestOptions!: pulumi.Output<outputs.SyntheticsGlobalVariableParseTestOptions | undefined>;
+    /**
      * Sets the variable as secure. Defaults to `false`.
      */
     public readonly secure!: pulumi.Output<boolean | undefined>;
@@ -95,6 +104,8 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             const state = argsOrState as SyntheticsGlobalVariableState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["parseTestId"] = state ? state.parseTestId : undefined;
+            inputs["parseTestOptions"] = state ? state.parseTestOptions : undefined;
             inputs["secure"] = state ? state.secure : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
@@ -108,6 +119,8 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["parseTestId"] = args ? args.parseTestId : undefined;
+            inputs["parseTestOptions"] = args ? args.parseTestOptions : undefined;
             inputs["secure"] = args ? args.secure : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
@@ -136,6 +149,14 @@ export interface SyntheticsGlobalVariableState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * Id of the Synthetics test to use for a variable from test.
+     */
+    readonly parseTestId?: pulumi.Input<string>;
+    /**
+     * ID of the Synthetics test to use a source of the global variable value.
+     */
+    readonly parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
+    /**
      * Sets the variable as secure. Defaults to `false`.
      */
     readonly secure?: pulumi.Input<boolean>;
@@ -161,6 +182,14 @@ export interface SyntheticsGlobalVariableArgs {
      * Synthetics global variable name.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * Id of the Synthetics test to use for a variable from test.
+     */
+    readonly parseTestId?: pulumi.Input<string>;
+    /**
+     * ID of the Synthetics test to use a source of the global variable value.
+     */
+    readonly parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
     /**
      * Sets the variable as secure. Defaults to `false`.
      */

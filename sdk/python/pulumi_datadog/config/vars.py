@@ -24,9 +24,9 @@ api_key = __config__.get('apiKey') or _utilities.get_env('DATADOG_API_KEY')
 
 api_url = __config__.get('apiUrl') or _utilities.get_env('DATADOG_HOST')
 """
-The API Url. This can be also be set via the DD_HOST environment variable. Note that this URL must not end with the
-/api/ path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And
-if you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+The API Url. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
+you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
 """
 
 app_key = __config__.get('appKey') or _utilities.get_env('DATADOG_APP_KEY')
@@ -37,6 +37,6 @@ app_key = __config__.get('appKey') or _utilities.get_env('DATADOG_APP_KEY')
 validate = __config__.get('validate')
 """
 Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
-and app_keywon't be checked.
+and app_key won't be checked.
 """
 

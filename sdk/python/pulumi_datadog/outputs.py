@@ -741,8 +741,11 @@ __all__ = [
     'DashboardWidgetTraceServiceDefinitionTime',
     'DowntimeRecurrence',
     'LogsArchiveAzure',
+    'LogsArchiveAzureArchive',
     'LogsArchiveGcs',
+    'LogsArchiveGcsArchive',
     'LogsArchiveS3',
+    'LogsArchiveS3Archive',
     'LogsCustomPipelineFilter',
     'LogsCustomPipelineProcessor',
     'LogsCustomPipelineProcessorArithmeticProcessor',
@@ -785,6 +788,11 @@ __all__ = [
     'LogsIndexExclusionFilter',
     'LogsIndexExclusionFilterFilter',
     'LogsIndexFilter',
+    'LogsMetricCompute',
+    'LogsMetricFilter',
+    'LogsMetricGroupBy',
+    'MonitorMonitorThresholdWindows',
+    'MonitorMonitorThresholds',
     'MonitorThresholdWindows',
     'MonitorThresholds',
     'RolePermission',
@@ -812,6 +820,8 @@ __all__ = [
     'SecurityMonitoringRuleQuery',
     'ServiceLevelObjectiveQuery',
     'ServiceLevelObjectiveThreshold',
+    'SyntheticsGlobalVariableParseTestOptions',
+    'SyntheticsGlobalVariableParseTestOptionsParser',
     'SyntheticsTestBrowserVariable',
     'SyntheticsTestConfigVariable',
     'SyntheticsTestOptions',
@@ -841,6 +851,8 @@ __all__ = [
     'TimeBoardGraphRequestLogQuerySearch',
     'TimeBoardGraphRequestProcessQuery',
     'TimeBoardTemplateVariable',
+    'GetMonitorMonitorThresholdWindowsResult',
+    'GetMonitorMonitorThresholdsResult',
     'GetMonitorThresholdWindowsResult',
     'GetMonitorThresholdsResult',
     'GetSecurityMonitoringRulesRuleResult',
@@ -960,6 +972,7 @@ class DashboardWidget(dict):
                  group_definition: Optional['outputs.DashboardWidgetGroupDefinition'] = None,
                  heatmap_definition: Optional['outputs.DashboardWidgetHeatmapDefinition'] = None,
                  hostmap_definition: Optional['outputs.DashboardWidgetHostmapDefinition'] = None,
+                 id: Optional[int] = None,
                  iframe_definition: Optional['outputs.DashboardWidgetIframeDefinition'] = None,
                  image_definition: Optional['outputs.DashboardWidgetImageDefinition'] = None,
                  layout: Optional['outputs.DashboardWidgetLayout'] = None,
@@ -996,6 +1009,8 @@ class DashboardWidget(dict):
             pulumi.set(__self__, "heatmap_definition", heatmap_definition)
         if hostmap_definition is not None:
             pulumi.set(__self__, "hostmap_definition", hostmap_definition)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if iframe_definition is not None:
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
@@ -1079,6 +1094,11 @@ class DashboardWidget(dict):
     @pulumi.getter(name="hostmapDefinition")
     def hostmap_definition(self) -> Optional['outputs.DashboardWidgetHostmapDefinition']:
         return pulumi.get(self, "hostmap_definition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="iframeDefinition")
@@ -3537,6 +3557,7 @@ class DashboardWidgetGroupDefinitionWidget(dict):
                  free_text_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition'] = None,
                  heatmap_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition'] = None,
                  hostmap_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition'] = None,
+                 id: Optional[int] = None,
                  iframe_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition'] = None,
                  image_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition'] = None,
                  layout: Optional['outputs.DashboardWidgetGroupDefinitionWidgetLayout'] = None,
@@ -3571,6 +3592,8 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "heatmap_definition", heatmap_definition)
         if hostmap_definition is not None:
             pulumi.set(__self__, "hostmap_definition", hostmap_definition)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if iframe_definition is not None:
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
@@ -3649,6 +3672,11 @@ class DashboardWidgetGroupDefinitionWidget(dict):
     @pulumi.getter(name="hostmapDefinition")
     def hostmap_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition']:
         return pulumi.get(self, "hostmap_definition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="iframeDefinition")
@@ -26586,7 +26614,87 @@ class LogsArchiveAzure(dict):
 
 
 @pulumi.output_type
+class LogsArchiveAzureArchive(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 container: str,
+                 storage_account: str,
+                 tenant_id: str,
+                 path: Optional[str] = None):
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "storage_account", storage_account)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def container(self) -> str:
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> str:
+        return pulumi.get(self, "storage_account")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LogsArchiveGcs(dict):
+    def __init__(__self__, *,
+                 bucket: str,
+                 client_email: str,
+                 path: str,
+                 project_id: str):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> str:
+        return pulumi.get(self, "client_email")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        return pulumi.get(self, "project_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LogsArchiveGcsArchive(dict):
     def __init__(__self__, *,
                  bucket: str,
                  client_email: str,
@@ -26626,15 +26734,11 @@ class LogsArchiveS3(dict):
     def __init__(__self__, *,
                  account_id: str,
                  bucket: str,
-                 client_email: str,
                  path: str,
-                 project_id: str,
                  role_name: str):
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "client_email", client_email)
         pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "role_name", role_name)
 
     @property
@@ -26648,19 +26752,45 @@ class LogsArchiveS3(dict):
         return pulumi.get(self, "bucket")
 
     @property
-    @pulumi.getter(name="clientEmail")
-    def client_email(self) -> str:
-        return pulumi.get(self, "client_email")
-
-    @property
     @pulumi.getter
     def path(self) -> str:
         return pulumi.get(self, "path")
 
     @property
-    @pulumi.getter(name="projectId")
-    def project_id(self) -> str:
-        return pulumi.get(self, "project_id")
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> str:
+        return pulumi.get(self, "role_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LogsArchiveS3Archive(dict):
+    def __init__(__self__, *,
+                 account_id: str,
+                 bucket: str,
+                 path: str,
+                 role_name: str):
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "role_name", role_name)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="roleName")
@@ -28357,14 +28487,70 @@ class LogsIndexFilter(dict):
 
 
 @pulumi.output_type
-class MonitorThresholdWindows(dict):
+class LogsMetricCompute(dict):
+    def __init__(__self__, *,
+                 aggregation_type: str,
+                 path: Optional[str] = None):
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> str:
+        return pulumi.get(self, "aggregation_type")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LogsMetricFilter(dict):
+    def __init__(__self__, *,
+                 query: str):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        return pulumi.get(self, "query")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class LogsMetricGroupBy(dict):
+    def __init__(__self__, *,
+                 path: str,
+                 tag_name: str):
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "tag_name", tag_name)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="tagName")
+    def tag_name(self) -> str:
+        return pulumi.get(self, "tag_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MonitorMonitorThresholdWindows(dict):
     def __init__(__self__, *,
                  recovery_window: Optional[str] = None,
                  trigger_window: Optional[str] = None):
-        """
-        :param str recovery_window: describes how long an anomalous metric must be normal before the alert recovers.
-        :param str trigger_window: describes how long a metric must be anomalous before an alert triggers.
-        """
         if recovery_window is not None:
             pulumi.set(__self__, "recovery_window", recovery_window)
         if trigger_window is not None:
@@ -28373,17 +28559,91 @@ class MonitorThresholdWindows(dict):
     @property
     @pulumi.getter(name="recoveryWindow")
     def recovery_window(self) -> Optional[str]:
-        """
-        describes how long an anomalous metric must be normal before the alert recovers.
-        """
         return pulumi.get(self, "recovery_window")
 
     @property
     @pulumi.getter(name="triggerWindow")
     def trigger_window(self) -> Optional[str]:
-        """
-        describes how long a metric must be anomalous before an alert triggers.
-        """
+        return pulumi.get(self, "trigger_window")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MonitorMonitorThresholds(dict):
+    def __init__(__self__, *,
+                 critical: Optional[str] = None,
+                 critical_recovery: Optional[str] = None,
+                 ok: Optional[str] = None,
+                 unknown: Optional[str] = None,
+                 warning: Optional[str] = None,
+                 warning_recovery: Optional[str] = None):
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
+        if critical_recovery is not None:
+            pulumi.set(__self__, "critical_recovery", critical_recovery)
+        if ok is not None:
+            pulumi.set(__self__, "ok", ok)
+        if unknown is not None:
+            pulumi.set(__self__, "unknown", unknown)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+        if warning_recovery is not None:
+            pulumi.set(__self__, "warning_recovery", warning_recovery)
+
+    @property
+    @pulumi.getter
+    def critical(self) -> Optional[str]:
+        return pulumi.get(self, "critical")
+
+    @property
+    @pulumi.getter(name="criticalRecovery")
+    def critical_recovery(self) -> Optional[str]:
+        return pulumi.get(self, "critical_recovery")
+
+    @property
+    @pulumi.getter
+    def ok(self) -> Optional[str]:
+        return pulumi.get(self, "ok")
+
+    @property
+    @pulumi.getter
+    def unknown(self) -> Optional[str]:
+        return pulumi.get(self, "unknown")
+
+    @property
+    @pulumi.getter
+    def warning(self) -> Optional[str]:
+        return pulumi.get(self, "warning")
+
+    @property
+    @pulumi.getter(name="warningRecovery")
+    def warning_recovery(self) -> Optional[str]:
+        return pulumi.get(self, "warning_recovery")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MonitorThresholdWindows(dict):
+    def __init__(__self__, *,
+                 recovery_window: Optional[str] = None,
+                 trigger_window: Optional[str] = None):
+        if recovery_window is not None:
+            pulumi.set(__self__, "recovery_window", recovery_window)
+        if trigger_window is not None:
+            pulumi.set(__self__, "trigger_window", trigger_window)
+
+    @property
+    @pulumi.getter(name="recoveryWindow")
+    def recovery_window(self) -> Optional[str]:
+        return pulumi.get(self, "recovery_window")
+
+    @property
+    @pulumi.getter(name="triggerWindow")
+    def trigger_window(self) -> Optional[str]:
         return pulumi.get(self, "trigger_window")
 
     def _translate_property(self, prop):
@@ -29968,6 +30228,59 @@ class ServiceLevelObjectiveThreshold(dict):
 
 
 @pulumi.output_type
+class SyntheticsGlobalVariableParseTestOptions(dict):
+    def __init__(__self__, *,
+                 parser: 'outputs.SyntheticsGlobalVariableParseTestOptionsParser',
+                 type: str,
+                 field: Optional[str] = None):
+        pulumi.set(__self__, "parser", parser)
+        pulumi.set(__self__, "type", type)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def parser(self) -> 'outputs.SyntheticsGlobalVariableParseTestOptionsParser':
+        return pulumi.get(self, "parser")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        return pulumi.get(self, "field")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SyntheticsGlobalVariableParseTestOptionsParser(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: Optional[str] = None):
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SyntheticsTestBrowserVariable(dict):
     def __init__(__self__, *,
                  name: str,
@@ -31183,6 +31496,72 @@ class TimeBoardTemplateVariable(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetMonitorMonitorThresholdWindowsResult(dict):
+    def __init__(__self__, *,
+                 recovery_window: str,
+                 trigger_window: str):
+        pulumi.set(__self__, "recovery_window", recovery_window)
+        pulumi.set(__self__, "trigger_window", trigger_window)
+
+    @property
+    @pulumi.getter(name="recoveryWindow")
+    def recovery_window(self) -> str:
+        return pulumi.get(self, "recovery_window")
+
+    @property
+    @pulumi.getter(name="triggerWindow")
+    def trigger_window(self) -> str:
+        return pulumi.get(self, "trigger_window")
+
+
+@pulumi.output_type
+class GetMonitorMonitorThresholdsResult(dict):
+    def __init__(__self__, *,
+                 critical: str,
+                 critical_recovery: str,
+                 ok: str,
+                 unknown: str,
+                 warning: str,
+                 warning_recovery: str):
+        pulumi.set(__self__, "critical", critical)
+        pulumi.set(__self__, "critical_recovery", critical_recovery)
+        pulumi.set(__self__, "ok", ok)
+        pulumi.set(__self__, "unknown", unknown)
+        pulumi.set(__self__, "warning", warning)
+        pulumi.set(__self__, "warning_recovery", warning_recovery)
+
+    @property
+    @pulumi.getter
+    def critical(self) -> str:
+        return pulumi.get(self, "critical")
+
+    @property
+    @pulumi.getter(name="criticalRecovery")
+    def critical_recovery(self) -> str:
+        return pulumi.get(self, "critical_recovery")
+
+    @property
+    @pulumi.getter
+    def ok(self) -> str:
+        return pulumi.get(self, "ok")
+
+    @property
+    @pulumi.getter
+    def unknown(self) -> str:
+        return pulumi.get(self, "unknown")
+
+    @property
+    @pulumi.getter
+    def warning(self) -> str:
+        return pulumi.get(self, "warning")
+
+    @property
+    @pulumi.getter(name="warningRecovery")
+    def warning_recovery(self) -> str:
+        return pulumi.get(self, "warning_recovery")
 
 
 @pulumi.output_type

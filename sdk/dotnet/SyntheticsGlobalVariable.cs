@@ -61,6 +61,18 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Id of the Synthetics test to use for a variable from test.
+        /// </summary>
+        [Output("parseTestId")]
+        public Output<string?> ParseTestId { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the Synthetics test to use a source of the global variable value.
+        /// </summary>
+        [Output("parseTestOptions")]
+        public Output<Outputs.SyntheticsGlobalVariableParseTestOptions?> ParseTestOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Sets the variable as secure. Defaults to `false`.
         /// </summary>
         [Output("secure")]
@@ -137,6 +149,18 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Id of the Synthetics test to use for a variable from test.
+        /// </summary>
+        [Input("parseTestId")]
+        public Input<string>? ParseTestId { get; set; }
+
+        /// <summary>
+        /// ID of the Synthetics test to use a source of the global variable value.
+        /// </summary>
+        [Input("parseTestOptions")]
+        public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsArgs>? ParseTestOptions { get; set; }
+
+        /// <summary>
         /// Sets the variable as secure. Defaults to `false`.
         /// </summary>
         [Input("secure")]
@@ -178,6 +202,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Id of the Synthetics test to use for a variable from test.
+        /// </summary>
+        [Input("parseTestId")]
+        public Input<string>? ParseTestId { get; set; }
+
+        /// <summary>
+        /// ID of the Synthetics test to use a source of the global variable value.
+        /// </summary>
+        [Input("parseTestOptions")]
+        public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsGetArgs>? ParseTestOptions { get; set; }
 
         /// <summary>
         /// Sets the variable as secure. Defaults to `false`.

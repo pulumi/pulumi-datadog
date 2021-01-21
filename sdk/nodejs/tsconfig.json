@@ -41,6 +41,7 @@
         "logsIndex.ts",
         "logsIndexOrder.ts",
         "logsIntegrationPipeline.ts",
+        "logsMetric.ts",
         "logsPipelineOrder.ts",
         "metricMetadata.ts",
         "monitor.ts",

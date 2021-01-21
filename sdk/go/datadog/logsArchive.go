@@ -11,11 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to create and manage Datadog logs archives.
+// Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
 //
 // ## Example Usage
-//
-// Create a Datadog logs archive:
 //
 // ```go
 // package main
@@ -30,11 +28,11 @@ import (
 // 		_, err := datadog.NewLogsArchive(ctx, "myS3Archive", &datadog.LogsArchiveArgs{
 // 			Name:  pulumi.String("my s3 archive"),
 // 			Query: pulumi.String("service:myservice"),
-// 			S3: &datadog.LogsArchiveS3Args{
-// 				Account_id: pulumi.String("001234567888"),
-// 				Bucket:     pulumi.String("my-bucket"),
-// 				Path:       pulumi.String("/path/foo"),
-// 				Role_name:  pulumi.String("my-role-name"),
+// 			S3Archive: &datadog.LogsArchiveS3ArchiveArgs{
+// 				AccountId: pulumi.String("001234567888"),
+// 				Bucket:    pulumi.String("my-bucket"),
+// 				Path:      pulumi.String("/path/foo"),
+// 				RoleName:  pulumi.String("my-role-name"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -44,10 +42,62 @@ import (
 // 	})
 // }
 // ```
+// ## Schema
+//
+// ### Required
+//
+// - **name** (String, Required) Your archive name.
+// - **query** (String, Required) The archive query/filter. Logs matching this query are included in the archive.
+//
+// ### Optional
+//
+// - **azure** (Map of String, Optional, Deprecated) Definition of an azure archive.
+// - **azure_archive** (Block List, Max: 1) Definition of an azure archive. (see below for nested schema)
+// - **gcs** (Map of String, Optional, Deprecated) Definition of a GCS archive.
+// - **gcs_archive** (Block List, Max: 1) Definition of a GCS archive. (see below for nested schema)
+// - **id** (String, Optional) The ID of this resource.
+// - **include_tags** (Boolean, Optional) To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
+// - **rehydration_tags** (List of String, Optional) An array of tags to add to rehydrated logs from an archive.
+// - **s3** (Map of String, Optional, Deprecated) Definition of an s3 archive.
+// - **s3_archive** (Block List, Max: 1) Definition of an s3 archive. (see below for nested schema)
+//
+// <a id="nestedblock--azure_archive"></a>
+// ### Nested Schema for `azureArchive`
+//
+// Required:
+//
+// - **client_id** (String, Required) Your client id.
+// - **container** (String, Required) The container where the archive will be stored.
+// - **storage_account** (String, Required) The associated storage account.
+// - **tenant_id** (String, Required) Your tenant id.
+//
+// Optional:
+//
+// - **path** (String, Optional) The path where the archive will be stored.
+//
+// <a id="nestedblock--gcs_archive"></a>
+// ### Nested Schema for `gcsArchive`
+//
+// Required:
+//
+// - **bucket** (String, Required) Name of your GCS bucket.
+// - **client_email** (String, Required) Your client email.
+// - **path** (String, Required) Path where the archive will be stored.
+// - **project_id** (String, Required) Your project id.
+//
+// <a id="nestedblock--s3_archive"></a>
+// ### Nested Schema for `s3Archive`
+//
+// Required:
+//
+// - **account_id** (String, Required) Your AWS account id.
+// - **bucket** (String, Required) Name of your s3 bucket.
+// - **path** (String, Required) Path where the archive will be stored.
+// - **role_name** (String, Required) Your AWS role name
 //
 // ## Import
 //
-// Logs archives can be imported using their public string ID, e.g.
+// Import is supported using the following syntax
 //
 // ```sh
 //  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
@@ -56,9 +106,17 @@ type LogsArchive struct {
 	pulumi.CustomResourceState
 
 	// Definition of an azure archive.
+	//
+	// Deprecated: Define `azure_archive` list with one element instead.
 	Azure LogsArchiveAzurePtrOutput `pulumi:"azure"`
+	// Definition of an azure archive.
+	AzureArchive LogsArchiveAzureArchivePtrOutput `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
+	//
+	// Deprecated: Define `gcs_archive` list with one element instead.
 	Gcs LogsArchiveGcsPtrOutput `pulumi:"gcs"`
+	// Definition of a GCS archive.
+	GcsArchive LogsArchiveGcsArchivePtrOutput `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
 	// are sent to the archive.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
@@ -69,7 +127,11 @@ type LogsArchive struct {
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayOutput `pulumi:"rehydrationTags"`
 	// Definition of an s3 archive.
+	//
+	// Deprecated: Define `s3_archive` list with one element instead.
 	S3 LogsArchiveS3PtrOutput `pulumi:"s3"`
+	// Definition of an s3 archive.
+	S3Archive LogsArchiveS3ArchivePtrOutput `pulumi:"s3Archive"`
 }
 
 // NewLogsArchive registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +170,17 @@ func GetLogsArchive(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LogsArchive resources.
 type logsArchiveState struct {
 	// Definition of an azure archive.
+	//
+	// Deprecated: Define `azure_archive` list with one element instead.
 	Azure *LogsArchiveAzure `pulumi:"azure"`
+	// Definition of an azure archive.
+	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
+	//
+	// Deprecated: Define `gcs_archive` list with one element instead.
 	Gcs *LogsArchiveGcs `pulumi:"gcs"`
+	// Definition of a GCS archive.
+	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
 	// are sent to the archive.
 	IncludeTags *bool `pulumi:"includeTags"`
@@ -121,14 +191,26 @@ type logsArchiveState struct {
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags []string `pulumi:"rehydrationTags"`
 	// Definition of an s3 archive.
+	//
+	// Deprecated: Define `s3_archive` list with one element instead.
 	S3 *LogsArchiveS3 `pulumi:"s3"`
+	// Definition of an s3 archive.
+	S3Archive *LogsArchiveS3Archive `pulumi:"s3Archive"`
 }
 
 type LogsArchiveState struct {
 	// Definition of an azure archive.
+	//
+	// Deprecated: Define `azure_archive` list with one element instead.
 	Azure LogsArchiveAzurePtrInput
+	// Definition of an azure archive.
+	AzureArchive LogsArchiveAzureArchivePtrInput
 	// Definition of a GCS archive.
+	//
+	// Deprecated: Define `gcs_archive` list with one element instead.
 	Gcs LogsArchiveGcsPtrInput
+	// Definition of a GCS archive.
+	GcsArchive LogsArchiveGcsArchivePtrInput
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
 	// are sent to the archive.
 	IncludeTags pulumi.BoolPtrInput
@@ -139,7 +221,11 @@ type LogsArchiveState struct {
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
 	// Definition of an s3 archive.
+	//
+	// Deprecated: Define `s3_archive` list with one element instead.
 	S3 LogsArchiveS3PtrInput
+	// Definition of an s3 archive.
+	S3Archive LogsArchiveS3ArchivePtrInput
 }
 
 func (LogsArchiveState) ElementType() reflect.Type {
@@ -148,9 +234,17 @@ func (LogsArchiveState) ElementType() reflect.Type {
 
 type logsArchiveArgs struct {
 	// Definition of an azure archive.
+	//
+	// Deprecated: Define `azure_archive` list with one element instead.
 	Azure *LogsArchiveAzure `pulumi:"azure"`
+	// Definition of an azure archive.
+	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
 	// Definition of a GCS archive.
+	//
+	// Deprecated: Define `gcs_archive` list with one element instead.
 	Gcs *LogsArchiveGcs `pulumi:"gcs"`
+	// Definition of a GCS archive.
+	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
 	// are sent to the archive.
 	IncludeTags *bool `pulumi:"includeTags"`
@@ -161,15 +255,27 @@ type logsArchiveArgs struct {
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags []string `pulumi:"rehydrationTags"`
 	// Definition of an s3 archive.
+	//
+	// Deprecated: Define `s3_archive` list with one element instead.
 	S3 *LogsArchiveS3 `pulumi:"s3"`
+	// Definition of an s3 archive.
+	S3Archive *LogsArchiveS3Archive `pulumi:"s3Archive"`
 }
 
 // The set of arguments for constructing a LogsArchive resource.
 type LogsArchiveArgs struct {
 	// Definition of an azure archive.
+	//
+	// Deprecated: Define `azure_archive` list with one element instead.
 	Azure LogsArchiveAzurePtrInput
+	// Definition of an azure archive.
+	AzureArchive LogsArchiveAzureArchivePtrInput
 	// Definition of a GCS archive.
+	//
+	// Deprecated: Define `gcs_archive` list with one element instead.
 	Gcs LogsArchiveGcsPtrInput
+	// Definition of a GCS archive.
+	GcsArchive LogsArchiveGcsArchivePtrInput
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
 	// are sent to the archive.
 	IncludeTags pulumi.BoolPtrInput
@@ -180,7 +286,11 @@ type LogsArchiveArgs struct {
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
 	// Definition of an s3 archive.
+	//
+	// Deprecated: Define `s3_archive` list with one element instead.
 	S3 LogsArchiveS3PtrInput
+	// Definition of an s3 archive.
+	S3Archive LogsArchiveS3ArchivePtrInput
 }
 
 func (LogsArchiveArgs) ElementType() reflect.Type {

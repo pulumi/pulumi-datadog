@@ -11,9 +11,9 @@ let __config = new pulumi.Config("datadog");
  */
 export let apiKey: string | undefined = __config.get("apiKey") || utilities.getEnv("DATADOG_API_KEY");
 /**
- * The API Url. This can be also be set via the DD_HOST environment variable. Note that this URL must not end with the
- * /api/ path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And
- * if you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+ * The API Url. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+ * path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
+ * you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
  */
 export let apiUrl: string | undefined = __config.get("apiUrl") || utilities.getEnv("DATADOG_HOST");
 /**
@@ -22,6 +22,6 @@ export let apiUrl: string | undefined = __config.get("apiUrl") || utilities.getE
 export let appKey: string | undefined = __config.get("appKey") || utilities.getEnv("DATADOG_APP_KEY");
 /**
  * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
- * and app_keywon't be checked.
+ * and app_key won't be checked.
  */
 export let validate: boolean | undefined = __config.getObject<boolean>("validate");

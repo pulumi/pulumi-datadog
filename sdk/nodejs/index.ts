@@ -22,6 +22,7 @@ export * from "./logsCustomPipeline";
 export * from "./logsIndex";
 export * from "./logsIndexOrder";
 export * from "./logsIntegrationPipeline";
+export * from "./logsMetric";
 export * from "./logsPipelineOrder";
 export * from "./metricMetadata";
 export * from "./monitor";
@@ -63,6 +64,7 @@ import { LogsCustomPipeline } from "./logsCustomPipeline";
 import { LogsIndex } from "./logsIndex";
 import { LogsIndexOrder } from "./logsIndexOrder";
 import { LogsIntegrationPipeline } from "./logsIntegrationPipeline";
+import { LogsMetric } from "./logsMetric";
 import { LogsPipelineOrder } from "./logsPipelineOrder";
 import { MetricMetadata } from "./metricMetadata";
 import { Monitor } from "./monitor";
@@ -98,6 +100,8 @@ const _module = {
                 return new LogsIndexOrder(name, <any>undefined, { urn })
             case "datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline":
                 return new LogsIntegrationPipeline(name, <any>undefined, { urn })
+            case "datadog:index/logsMetric:LogsMetric":
+                return new LogsMetric(name, <any>undefined, { urn })
             case "datadog:index/logsPipelineOrder:LogsPipelineOrder":
                 return new LogsPipelineOrder(name, <any>undefined, { urn })
             case "datadog:index/metricMetadata:MetricMetadata":
@@ -136,6 +140,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/logsCustomPipeline", _mo
 pulumi.runtime.registerResourceModule("datadog", "index/logsIndex", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsIndexOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsIntegrationPipeline", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/logsMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsPipelineOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/metricMetadata", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)

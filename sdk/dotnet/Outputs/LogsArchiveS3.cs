@@ -15,9 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string AccountId;
         public readonly string Bucket;
-        public readonly string ClientEmail;
         public readonly string Path;
-        public readonly string ProjectId;
         public readonly string RoleName;
 
         [OutputConstructor]
@@ -26,19 +24,13 @@ namespace Pulumi.Datadog.Outputs
 
             string bucket,
 
-            string clientEmail,
-
             string path,
-
-            string projectId,
 
             string roleName)
         {
             AccountId = accountId;
             Bucket = bucket;
-            ClientEmail = clientEmail;
             Path = path;
-            ProjectId = projectId;
             RoleName = roleName;
         }
     }

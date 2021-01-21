@@ -740,8 +740,11 @@ __all__ = [
     'DashboardWidgetTraceServiceDefinitionTimeArgs',
     'DowntimeRecurrenceArgs',
     'LogsArchiveAzureArgs',
+    'LogsArchiveAzureArchiveArgs',
     'LogsArchiveGcsArgs',
+    'LogsArchiveGcsArchiveArgs',
     'LogsArchiveS3Args',
+    'LogsArchiveS3ArchiveArgs',
     'LogsCustomPipelineFilterArgs',
     'LogsCustomPipelineProcessorArgs',
     'LogsCustomPipelineProcessorArithmeticProcessorArgs',
@@ -784,6 +787,11 @@ __all__ = [
     'LogsIndexExclusionFilterArgs',
     'LogsIndexExclusionFilterFilterArgs',
     'LogsIndexFilterArgs',
+    'LogsMetricComputeArgs',
+    'LogsMetricFilterArgs',
+    'LogsMetricGroupByArgs',
+    'MonitorMonitorThresholdWindowsArgs',
+    'MonitorMonitorThresholdsArgs',
     'MonitorThresholdWindowsArgs',
     'MonitorThresholdsArgs',
     'RolePermissionArgs',
@@ -811,6 +819,8 @@ __all__ = [
     'SecurityMonitoringRuleQueryArgs',
     'ServiceLevelObjectiveQueryArgs',
     'ServiceLevelObjectiveThresholdArgs',
+    'SyntheticsGlobalVariableParseTestOptionsArgs',
+    'SyntheticsGlobalVariableParseTestOptionsParserArgs',
     'SyntheticsTestBrowserVariableArgs',
     'SyntheticsTestConfigVariableArgs',
     'SyntheticsTestOptionsArgs',
@@ -977,6 +987,7 @@ class DashboardWidgetArgs:
                  group_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionArgs']] = None,
                  heatmap_definition: Optional[pulumi.Input['DashboardWidgetHeatmapDefinitionArgs']] = None,
                  hostmap_definition: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionArgs']] = None,
+                 id: Optional[pulumi.Input[int]] = None,
                  iframe_definition: Optional[pulumi.Input['DashboardWidgetIframeDefinitionArgs']] = None,
                  image_definition: Optional[pulumi.Input['DashboardWidgetImageDefinitionArgs']] = None,
                  layout: Optional[pulumi.Input['DashboardWidgetLayoutArgs']] = None,
@@ -1013,6 +1024,8 @@ class DashboardWidgetArgs:
             pulumi.set(__self__, "heatmap_definition", heatmap_definition)
         if hostmap_definition is not None:
             pulumi.set(__self__, "hostmap_definition", hostmap_definition)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if iframe_definition is not None:
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
@@ -1140,6 +1153,15 @@ class DashboardWidgetArgs:
     @hostmap_definition.setter
     def hostmap_definition(self, value: Optional[pulumi.Input['DashboardWidgetHostmapDefinitionArgs']]):
         pulumi.set(self, "hostmap_definition", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="iframeDefinition")
@@ -4384,6 +4406,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
                  free_text_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetFreeTextDefinitionArgs']] = None,
                  heatmap_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionArgs']] = None,
                  hostmap_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs']] = None,
+                 id: Optional[pulumi.Input[int]] = None,
                  iframe_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs']] = None,
                  image_definition: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs']] = None,
                  layout: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetLayoutArgs']] = None,
@@ -4418,6 +4441,8 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
             pulumi.set(__self__, "heatmap_definition", heatmap_definition)
         if hostmap_definition is not None:
             pulumi.set(__self__, "hostmap_definition", hostmap_definition)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if iframe_definition is not None:
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
@@ -4536,6 +4561,15 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @hostmap_definition.setter
     def hostmap_definition(self, value: Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetHostmapDefinitionArgs']]):
         pulumi.set(self, "hostmap_definition", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="iframeDefinition")
@@ -34700,7 +34734,117 @@ class LogsArchiveAzureArgs:
 
 
 @pulumi.input_type
+class LogsArchiveAzureArchiveArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 container: pulumi.Input[str],
+                 storage_account: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "storage_account", storage_account)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def container(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "storage_account")
+
+    @storage_account.setter
+    def storage_account(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
 class LogsArchiveGcsArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 client_email: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 project_id: pulumi.Input[str]):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_email")
+
+    @client_email.setter
+    def client_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_email", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+
+@pulumi.input_type
+class LogsArchiveGcsArchiveArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  client_email: pulumi.Input[str],
@@ -34753,15 +34897,11 @@ class LogsArchiveS3Args:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  bucket: pulumi.Input[str],
-                 client_email: pulumi.Input[str],
                  path: pulumi.Input[str],
-                 project_id: pulumi.Input[str],
                  role_name: pulumi.Input[str]):
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "client_email", client_email)
         pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "role_name", role_name)
 
     @property
@@ -34783,15 +34923,6 @@ class LogsArchiveS3Args:
         pulumi.set(self, "bucket", value)
 
     @property
-    @pulumi.getter(name="clientEmail")
-    def client_email(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "client_email")
-
-    @client_email.setter
-    def client_email(self, value: pulumi.Input[str]):
-        pulumi.set(self, "client_email", value)
-
-    @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         return pulumi.get(self, "path")
@@ -34801,13 +34932,53 @@ class LogsArchiveS3Args:
         pulumi.set(self, "path", value)
 
     @property
-    @pulumi.getter(name="projectId")
-    def project_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "project_id")
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_name")
 
-    @project_id.setter
-    def project_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "project_id", value)
+    @role_name.setter
+    def role_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_name", value)
+
+
+@pulumi.input_type
+class LogsArchiveS3ArchiveArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[str],
+                 bucket: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 role_name: pulumi.Input[str]):
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "role_name", role_name)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter(name="roleName")
@@ -37087,14 +37258,81 @@ class LogsIndexFilterArgs:
 
 
 @pulumi.input_type
-class MonitorThresholdWindowsArgs:
+class LogsMetricComputeArgs:
+    def __init__(__self__, *,
+                 aggregation_type: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aggregation_type")
+
+    @aggregation_type.setter
+    def aggregation_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aggregation_type", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class LogsMetricFilterArgs:
+    def __init__(__self__, *,
+                 query: pulumi.Input[str]):
+        pulumi.set(__self__, "query", query)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+
+@pulumi.input_type
+class LogsMetricGroupByArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 tag_name: pulumi.Input[str]):
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "tag_name", tag_name)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="tagName")
+    def tag_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tag_name")
+
+    @tag_name.setter
+    def tag_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_name", value)
+
+
+@pulumi.input_type
+class MonitorMonitorThresholdWindowsArgs:
     def __init__(__self__, *,
                  recovery_window: Optional[pulumi.Input[str]] = None,
                  trigger_window: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] recovery_window: describes how long an anomalous metric must be normal before the alert recovers.
-        :param pulumi.Input[str] trigger_window: describes how long a metric must be anomalous before an alert triggers.
-        """
         if recovery_window is not None:
             pulumi.set(__self__, "recovery_window", recovery_window)
         if trigger_window is not None:
@@ -37103,9 +37341,6 @@ class MonitorThresholdWindowsArgs:
     @property
     @pulumi.getter(name="recoveryWindow")
     def recovery_window(self) -> Optional[pulumi.Input[str]]:
-        """
-        describes how long an anomalous metric must be normal before the alert recovers.
-        """
         return pulumi.get(self, "recovery_window")
 
     @recovery_window.setter
@@ -37115,9 +37350,112 @@ class MonitorThresholdWindowsArgs:
     @property
     @pulumi.getter(name="triggerWindow")
     def trigger_window(self) -> Optional[pulumi.Input[str]]:
-        """
-        describes how long a metric must be anomalous before an alert triggers.
-        """
+        return pulumi.get(self, "trigger_window")
+
+    @trigger_window.setter
+    def trigger_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trigger_window", value)
+
+
+@pulumi.input_type
+class MonitorMonitorThresholdsArgs:
+    def __init__(__self__, *,
+                 critical: Optional[pulumi.Input[str]] = None,
+                 critical_recovery: Optional[pulumi.Input[str]] = None,
+                 ok: Optional[pulumi.Input[str]] = None,
+                 unknown: Optional[pulumi.Input[str]] = None,
+                 warning: Optional[pulumi.Input[str]] = None,
+                 warning_recovery: Optional[pulumi.Input[str]] = None):
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
+        if critical_recovery is not None:
+            pulumi.set(__self__, "critical_recovery", critical_recovery)
+        if ok is not None:
+            pulumi.set(__self__, "ok", ok)
+        if unknown is not None:
+            pulumi.set(__self__, "unknown", unknown)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+        if warning_recovery is not None:
+            pulumi.set(__self__, "warning_recovery", warning_recovery)
+
+    @property
+    @pulumi.getter
+    def critical(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "critical")
+
+    @critical.setter
+    def critical(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "critical", value)
+
+    @property
+    @pulumi.getter(name="criticalRecovery")
+    def critical_recovery(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "critical_recovery")
+
+    @critical_recovery.setter
+    def critical_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "critical_recovery", value)
+
+    @property
+    @pulumi.getter
+    def ok(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ok")
+
+    @ok.setter
+    def ok(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ok", value)
+
+    @property
+    @pulumi.getter
+    def unknown(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unknown")
+
+    @unknown.setter
+    def unknown(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unknown", value)
+
+    @property
+    @pulumi.getter
+    def warning(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "warning")
+
+    @warning.setter
+    def warning(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warning", value)
+
+    @property
+    @pulumi.getter(name="warningRecovery")
+    def warning_recovery(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "warning_recovery")
+
+    @warning_recovery.setter
+    def warning_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warning_recovery", value)
+
+
+@pulumi.input_type
+class MonitorThresholdWindowsArgs:
+    def __init__(__self__, *,
+                 recovery_window: Optional[pulumi.Input[str]] = None,
+                 trigger_window: Optional[pulumi.Input[str]] = None):
+        if recovery_window is not None:
+            pulumi.set(__self__, "recovery_window", recovery_window)
+        if trigger_window is not None:
+            pulumi.set(__self__, "trigger_window", trigger_window)
+
+    @property
+    @pulumi.getter(name="recoveryWindow")
+    def recovery_window(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "recovery_window")
+
+    @recovery_window.setter
+    def recovery_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_window", value)
+
+    @property
+    @pulumi.getter(name="triggerWindow")
+    def trigger_window(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "trigger_window")
 
     @trigger_window.setter
@@ -39314,6 +39652,73 @@ class ServiceLevelObjectiveThresholdArgs:
     @warning_display.setter
     def warning_display(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "warning_display", value)
+
+
+@pulumi.input_type
+class SyntheticsGlobalVariableParseTestOptionsArgs:
+    def __init__(__self__, *,
+                 parser: pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs'],
+                 type: pulumi.Input[str],
+                 field: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "parser", parser)
+        pulumi.set(__self__, "type", type)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def parser(self) -> pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']:
+        return pulumi.get(self, "parser")
+
+    @parser.setter
+    def parser(self, value: pulumi.Input['SyntheticsGlobalVariableParseTestOptionsParserArgs']):
+        pulumi.set(self, "parser", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field", value)
+
+
+@pulumi.input_type
+class SyntheticsGlobalVariableParseTestOptionsParserArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

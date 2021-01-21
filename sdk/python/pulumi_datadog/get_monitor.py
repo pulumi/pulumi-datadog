@@ -20,7 +20,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -45,6 +45,12 @@ class GetMonitorResult:
         if monitor_tags_filters and not isinstance(monitor_tags_filters, list):
             raise TypeError("Expected argument 'monitor_tags_filters' to be a list")
         pulumi.set(__self__, "monitor_tags_filters", monitor_tags_filters)
+        if monitor_threshold_windows and not isinstance(monitor_threshold_windows, dict):
+            raise TypeError("Expected argument 'monitor_threshold_windows' to be a dict")
+        pulumi.set(__self__, "monitor_threshold_windows", monitor_threshold_windows)
+        if monitor_thresholds and not isinstance(monitor_thresholds, dict):
+            raise TypeError("Expected argument 'monitor_thresholds' to be a dict")
+        pulumi.set(__self__, "monitor_thresholds", monitor_thresholds)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -80,9 +86,17 @@ class GetMonitorResult:
         pulumi.set(__self__, "tags_filters", tags_filters)
         if threshold_windows and not isinstance(threshold_windows, dict):
             raise TypeError("Expected argument 'threshold_windows' to be a dict")
+        if threshold_windows is not None:
+            warnings.warn("""Define `monitor_threshold_windows` list with one element instead.""", DeprecationWarning)
+            pulumi.log.warn("threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.")
+
         pulumi.set(__self__, "threshold_windows", threshold_windows)
         if thresholds and not isinstance(thresholds, dict):
             raise TypeError("Expected argument 'thresholds' to be a dict")
+        if thresholds is not None:
+            warnings.warn("""Define `monitor_thresholds` list with one element instead.""", DeprecationWarning)
+            pulumi.log.warn("thresholds is deprecated: Define `monitor_thresholds` list with one element instead.")
+
         pulumi.set(__self__, "thresholds", thresholds)
         if timeout_h and not isinstance(timeout_h, int):
             raise TypeError("Expected argument 'timeout_h' to be a int")
@@ -133,6 +147,16 @@ class GetMonitorResult:
     @pulumi.getter(name="monitorTagsFilters")
     def monitor_tags_filters(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "monitor_tags_filters")
+
+    @property
+    @pulumi.getter(name="monitorThresholdWindows")
+    def monitor_threshold_windows(self) -> 'outputs.GetMonitorMonitorThresholdWindowsResult':
+        return pulumi.get(self, "monitor_threshold_windows")
+
+    @property
+    @pulumi.getter(name="monitorThresholds")
+    def monitor_thresholds(self) -> 'outputs.GetMonitorMonitorThresholdsResult':
+        return pulumi.get(self, "monitor_thresholds")
 
     @property
     @pulumi.getter
@@ -224,6 +248,8 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             locked=self.locked,
             message=self.message,
             monitor_tags_filters=self.monitor_tags_filters,
+            monitor_threshold_windows=self.monitor_threshold_windows,
+            monitor_thresholds=self.monitor_thresholds,
             name=self.name,
             name_filter=self.name_filter,
             new_host_delay=self.new_host_delay,
@@ -257,6 +283,58 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
     test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
         name_filter="My awesome monitor")
     ```
+    ## Schema
+
+    ### Optional
+
+    - **id** (String) The ID of this resource.
+    - **monitor_tags_filter** (List of String) A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+    - **name_filter** (String) A monitor name to limit the search.
+    - **tags_filter** (List of String) A list of tags to limit the search. This filters on the monitor scope.
+
+    ### Read-only
+
+    - **enable_logs_sample** (Boolean) Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
+    - **escalation_message** (String) Message included with a re-notification for this monitor.
+    - **evaluation_delay** (Number) Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
+    - **include_tags** (Boolean) Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
+    - **locked** (Boolean) Whether or not changes to the monitor are restricted to the creator or admins.
+    - **message** (String) Message included with notifications for this monitor
+    - **monitor_threshold_windows** (List of Object) Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors. (see below for nested schema)
+    - **monitor_thresholds** (List of Object) Alert thresholds of the monitor. (see below for nested schema)
+    - **name** (String) Name of the monitor
+    - **new_host_delay** (Number) Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
+    - **no_data_timeframe** (Number) The number of minutes before the monitor notifies when data stops reporting.
+    - **notify_audit** (Boolean) Whether or not tagged users are notified on changes to the monitor.
+    - **notify_no_data** (Boolean) Whether or not this monitor notifies when data stops reporting.
+    - **query** (String) Query of the monitor.
+    - **renotify_interval** (Number) The number of minutes after the last notification before the monitor re-notifies on the current status.
+    - **require_full_window** (Boolean) Whether or not the monitor needs a full window of data before it is evaluated.
+    - **tags** (Set of String) List of tags associated with the monitor.
+    - **threshold_windows** (Map of String, Deprecated) Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+    - **thresholds** (Map of String, Deprecated) Alert thresholds of the monitor.
+    - **timeout_h** (Number) Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
+    - **type** (String) Type of the monitor.
+
+    <a id="nestedatt--monitor_threshold_windows"></a>
+    ### Nested Schema for `monitor_threshold_windows`
+
+    Read-only:
+
+    - **recovery_window** (String)
+    - **trigger_window** (String)
+
+    <a id="nestedatt--monitor_thresholds"></a>
+    ### Nested Schema for `monitor_thresholds`
+
+    Read-only:
+
+    - **critical** (String)
+    - **critical_recovery** (String)
+    - **ok** (String)
+    - **unknown** (String)
+    - **warning** (String)
+    - **warning_recovery** (String)
     """
     __args__ = dict()
     __args__['monitorTagsFilters'] = monitor_tags_filters
@@ -277,6 +355,8 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         locked=__ret__.locked,
         message=__ret__.message,
         monitor_tags_filters=__ret__.monitor_tags_filters,
+        monitor_threshold_windows=__ret__.monitor_threshold_windows,
+        monitor_thresholds=__ret__.monitor_thresholds,
         name=__ret__.name,
         name_filter=__ret__.name_filter,
         new_host_delay=__ret__.new_host_delay,

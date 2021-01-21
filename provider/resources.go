@@ -97,6 +97,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_service_level_objective":     {Tok: makeResource(datadogMod, "ServiceLevelObjective")},
 			"datadog_logs_custom_pipeline":        {Tok: makeResource(datadogMod, "LogsCustomPipeline")},
 			"datadog_logs_index":                  {Tok: makeResource(datadogMod, "LogsIndex")},
+			"datadog_logs_metric":                 {Tok: makeResource(datadogMod, "LogsMetric")},
 			"datadog_logs_archive":                {Tok: makeResource(datadogMod, "LogsArchive")},
 			"datadog_logs_index_order":            {Tok: makeResource(datadogMod, "LogsIndexOrder")},
 			"datadog_logs_integration_pipeline":   {Tok: makeResource(datadogMod, "LogsIntegrationPipeline")},

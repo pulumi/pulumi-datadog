@@ -42,6 +42,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("hostmapDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionGetArgs>? HostmapDefinition { get; set; }
 
+        [Input("id")]
+        public Input<int>? Id { get; set; }
+
         [Input("iframeDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetIframeDefinitionGetArgs>? IframeDefinition { get; set; }
 
