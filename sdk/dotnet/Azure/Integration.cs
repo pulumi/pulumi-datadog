@@ -43,6 +43,7 @@ namespace Pulumi.Datadog.Azure
     ///  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:azure/integration:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>

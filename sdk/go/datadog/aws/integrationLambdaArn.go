@@ -133,15 +133,15 @@ type IntegrationLambdaArnInput interface {
 	ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput
 }
 
-func (IntegrationLambdaArn) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationLambdaArn)(nil)).Elem()
+func (*IntegrationLambdaArn) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationLambdaArn)(nil))
 }
 
-func (i IntegrationLambdaArn) ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput {
+func (i *IntegrationLambdaArn) ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput {
 	return i.ToIntegrationLambdaArnOutputWithContext(context.Background())
 }
 
-func (i IntegrationLambdaArn) ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput {
+func (i *IntegrationLambdaArn) ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnOutput)
 }
 
@@ -150,7 +150,7 @@ type IntegrationLambdaArnOutput struct {
 }
 
 func (IntegrationLambdaArnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationLambdaArnOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationLambdaArn)(nil))
 }
 
 func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput {

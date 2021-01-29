@@ -16,6 +16,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/logsIndex:LogsIndex The current Datadog Terraform provider version does not support the creation and deletion of indexes. To manage the existing indexes, do `&lt;datadog_logs_index.name&gt; &lt;indexName&gt;` to import them to Terraform. If you create a resource which does not match the name of any existing index, `terraform apply` will throw `Not Found` error code.
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/logsIndex:LogsIndex")]
     public partial class LogsIndex : Pulumi.CustomResource
     {
         /// <summary>

@@ -1,10 +1,13 @@
 package datadog
 
 import (
+	"fmt"
+	"path/filepath"
 	"strings"
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/pulumi/pulumi-datadog/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
@@ -143,6 +146,15 @@ func Provider() tfbridge.ProviderInfo {
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25",
 			},
+		},
+		Golang: &tfbridge.GolangInfo{
+			ImportBasePath: filepath.Join(
+				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", datadogPkg),
+				tfbridge.GetModuleMajorVersion(version.Version),
+				"go",
+				datadogPkg,
+			),
+			GenerateResourceContainerTypes: true,
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{

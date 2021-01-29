@@ -60,6 +60,7 @@ namespace Pulumi.Datadog.Aws
     ///  $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:aws/integration:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>

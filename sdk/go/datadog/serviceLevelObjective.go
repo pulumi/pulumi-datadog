@@ -21,6 +21,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -260,15 +261,15 @@ type ServiceLevelObjectiveInput interface {
 	ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput
 }
 
-func (ServiceLevelObjective) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLevelObjective)(nil)).Elem()
+func (*ServiceLevelObjective) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjective)(nil))
 }
 
-func (i ServiceLevelObjective) ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput {
+func (i *ServiceLevelObjective) ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput {
 	return i.ToServiceLevelObjectiveOutputWithContext(context.Background())
 }
 
-func (i ServiceLevelObjective) ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput {
+func (i *ServiceLevelObjective) ToServiceLevelObjectiveOutputWithContext(ctx context.Context) ServiceLevelObjectiveOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput)
 }
 
@@ -277,7 +278,7 @@ type ServiceLevelObjectiveOutput struct {
 }
 
 func (ServiceLevelObjectiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLevelObjectiveOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceLevelObjective)(nil))
 }
 
 func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutput() ServiceLevelObjectiveOutput {

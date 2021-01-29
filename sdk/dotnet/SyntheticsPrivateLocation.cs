@@ -45,6 +45,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation")]
     public partial class SyntheticsPrivateLocation : Pulumi.CustomResource
     {
         /// <summary>

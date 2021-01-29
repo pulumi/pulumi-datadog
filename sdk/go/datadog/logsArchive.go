@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -304,15 +305,15 @@ type LogsArchiveInput interface {
 	ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput
 }
 
-func (LogsArchive) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchive)(nil)).Elem()
+func (*LogsArchive) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchive)(nil))
 }
 
-func (i LogsArchive) ToLogsArchiveOutput() LogsArchiveOutput {
+func (i *LogsArchive) ToLogsArchiveOutput() LogsArchiveOutput {
 	return i.ToLogsArchiveOutputWithContext(context.Background())
 }
 
-func (i LogsArchive) ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput {
+func (i *LogsArchive) ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOutput)
 }
 
@@ -321,7 +322,7 @@ type LogsArchiveOutput struct {
 }
 
 func (LogsArchiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogsArchive)(nil))
 }
 
 func (o LogsArchiveOutput) ToLogsArchiveOutput() LogsArchiveOutput {

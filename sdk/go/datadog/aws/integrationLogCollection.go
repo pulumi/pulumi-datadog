@@ -143,15 +143,15 @@ type IntegrationLogCollectionInput interface {
 	ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput
 }
 
-func (IntegrationLogCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationLogCollection)(nil)).Elem()
+func (*IntegrationLogCollection) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationLogCollection)(nil))
 }
 
-func (i IntegrationLogCollection) ToIntegrationLogCollectionOutput() IntegrationLogCollectionOutput {
+func (i *IntegrationLogCollection) ToIntegrationLogCollectionOutput() IntegrationLogCollectionOutput {
 	return i.ToIntegrationLogCollectionOutputWithContext(context.Background())
 }
 
-func (i IntegrationLogCollection) ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput {
+func (i *IntegrationLogCollection) ToIntegrationLogCollectionOutputWithContext(ctx context.Context) IntegrationLogCollectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionOutput)
 }
 
@@ -160,7 +160,7 @@ type IntegrationLogCollectionOutput struct {
 }
 
 func (IntegrationLogCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationLogCollectionOutput)(nil)).Elem()
+	return reflect.TypeOf((*IntegrationLogCollection)(nil))
 }
 
 func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutput() IntegrationLogCollectionOutput {

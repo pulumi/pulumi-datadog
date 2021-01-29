@@ -37,6 +37,7 @@ namespace Pulumi.Datadog.PagerDuty
     /// }
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:pagerduty/serviceObject:ServiceObject")]
     public partial class ServiceObject : Pulumi.CustomResource
     {
         /// <summary>

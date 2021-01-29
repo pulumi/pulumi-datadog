@@ -36,6 +36,7 @@ namespace Pulumi.Datadog
     /// }
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/metricMetadata:MetricMetadata")]
     public partial class MetricMetadata : Pulumi.CustomResource
     {
         /// <summary>

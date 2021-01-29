@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -204,15 +205,15 @@ type LogsMetricInput interface {
 	ToLogsMetricOutputWithContext(ctx context.Context) LogsMetricOutput
 }
 
-func (LogsMetric) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsMetric)(nil)).Elem()
+func (*LogsMetric) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsMetric)(nil))
 }
 
-func (i LogsMetric) ToLogsMetricOutput() LogsMetricOutput {
+func (i *LogsMetric) ToLogsMetricOutput() LogsMetricOutput {
 	return i.ToLogsMetricOutputWithContext(context.Background())
 }
 
-func (i LogsMetric) ToLogsMetricOutputWithContext(ctx context.Context) LogsMetricOutput {
+func (i *LogsMetric) ToLogsMetricOutputWithContext(ctx context.Context) LogsMetricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsMetricOutput)
 }
 
@@ -221,7 +222,7 @@ type LogsMetricOutput struct {
 }
 
 func (LogsMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsMetricOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogsMetric)(nil))
 }
 
 func (o LogsMetricOutput) ToLogsMetricOutput() LogsMetricOutput {

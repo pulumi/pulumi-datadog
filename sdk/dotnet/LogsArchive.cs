@@ -99,6 +99,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/logsArchive:LogsArchive")]
     public partial class LogsArchive : Pulumi.CustomResource
     {
         /// <summary>

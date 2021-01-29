@@ -44,6 +44,7 @@ namespace Pulumi.Datadog.Aws
     ///  $ pulumi import datadog:aws/integrationLogCollection:IntegrationLogCollection test 1234567890
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:aws/integrationLogCollection:IntegrationLogCollection")]
     public partial class IntegrationLogCollection : Pulumi.CustomResource
     {
         /// <summary>

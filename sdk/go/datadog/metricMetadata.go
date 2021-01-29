@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -173,15 +173,15 @@ type MetricMetadataInput interface {
 	ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput
 }
 
-func (MetricMetadata) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricMetadata)(nil)).Elem()
+func (*MetricMetadata) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricMetadata)(nil))
 }
 
-func (i MetricMetadata) ToMetricMetadataOutput() MetricMetadataOutput {
+func (i *MetricMetadata) ToMetricMetadataOutput() MetricMetadataOutput {
 	return i.ToMetricMetadataOutputWithContext(context.Background())
 }
 
-func (i MetricMetadata) ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput {
+func (i *MetricMetadata) ToMetricMetadataOutputWithContext(ctx context.Context) MetricMetadataOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataOutput)
 }
 
@@ -190,7 +190,7 @@ type MetricMetadataOutput struct {
 }
 
 func (MetricMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricMetadataOutput)(nil)).Elem()
+	return reflect.TypeOf((*MetricMetadata)(nil))
 }
 
 func (o MetricMetadataOutput) ToMetricMetadataOutput() MetricMetadataOutput {

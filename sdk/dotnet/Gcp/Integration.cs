@@ -49,6 +49,7 @@ namespace Pulumi.Datadog.Gcp
     ///  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:gcp/integration:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>

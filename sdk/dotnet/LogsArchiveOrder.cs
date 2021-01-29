@@ -43,6 +43,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name&gt; archiveOrderID
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/logsArchiveOrder:LogsArchiveOrder")]
     public partial class LogsArchiveOrder : Pulumi.CustomResource
     {
         /// <summary>

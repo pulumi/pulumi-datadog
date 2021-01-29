@@ -18,6 +18,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/timeBoard:TimeBoard my_service_timeboard 2081
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/timeBoard:TimeBoard")]
     public partial class TimeBoard : Pulumi.CustomResource
     {
         /// <summary>

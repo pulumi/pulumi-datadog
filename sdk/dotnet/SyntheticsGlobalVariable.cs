@@ -46,6 +46,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable")]
     public partial class SyntheticsGlobalVariable : Pulumi.CustomResource
     {
         /// <summary>

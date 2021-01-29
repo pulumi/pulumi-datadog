@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -138,15 +138,15 @@ type LogsIndexOrderInput interface {
 	ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput
 }
 
-func (LogsIndexOrder) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIndexOrder)(nil)).Elem()
+func (*LogsIndexOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIndexOrder)(nil))
 }
 
-func (i LogsIndexOrder) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
+func (i *LogsIndexOrder) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
 	return i.ToLogsIndexOrderOutputWithContext(context.Background())
 }
 
-func (i LogsIndexOrder) ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput {
+func (i *LogsIndexOrder) ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderOutput)
 }
 
@@ -155,7 +155,7 @@ type LogsIndexOrderOutput struct {
 }
 
 func (LogsIndexOrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIndexOrderOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogsIndexOrder)(nil))
 }
 
 func (o LogsIndexOrderOutput) ToLogsIndexOrderOutput() LogsIndexOrderOutput {

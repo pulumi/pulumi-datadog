@@ -22,6 +22,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -225,15 +226,15 @@ type SecurityMonitoringRuleInput interface {
 	ToSecurityMonitoringRuleOutputWithContext(ctx context.Context) SecurityMonitoringRuleOutput
 }
 
-func (SecurityMonitoringRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityMonitoringRule)(nil)).Elem()
+func (*SecurityMonitoringRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMonitoringRule)(nil))
 }
 
-func (i SecurityMonitoringRule) ToSecurityMonitoringRuleOutput() SecurityMonitoringRuleOutput {
+func (i *SecurityMonitoringRule) ToSecurityMonitoringRuleOutput() SecurityMonitoringRuleOutput {
 	return i.ToSecurityMonitoringRuleOutputWithContext(context.Background())
 }
 
-func (i SecurityMonitoringRule) ToSecurityMonitoringRuleOutputWithContext(ctx context.Context) SecurityMonitoringRuleOutput {
+func (i *SecurityMonitoringRule) ToSecurityMonitoringRuleOutputWithContext(ctx context.Context) SecurityMonitoringRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOutput)
 }
 
@@ -242,7 +243,7 @@ type SecurityMonitoringRuleOutput struct {
 }
 
 func (SecurityMonitoringRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityMonitoringRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*SecurityMonitoringRule)(nil))
 }
 
 func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRuleOutput() SecurityMonitoringRuleOutput {

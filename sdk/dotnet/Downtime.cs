@@ -81,6 +81,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/downtime:Downtime")]
     public partial class Downtime : Pulumi.CustomResource
     {
         /// <summary>

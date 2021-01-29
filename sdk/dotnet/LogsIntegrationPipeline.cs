@@ -39,6 +39,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name&gt; &lt;pipelineID&gt;`
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline")]
     public partial class LogsIntegrationPipeline : Pulumi.CustomResource
     {
         /// <summary>

@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -186,15 +186,15 @@ type SyntheticsGlobalVariableInput interface {
 	ToSyntheticsGlobalVariableOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOutput
 }
 
-func (SyntheticsGlobalVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsGlobalVariable)(nil)).Elem()
+func (*SyntheticsGlobalVariable) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsGlobalVariable)(nil))
 }
 
-func (i SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutput() SyntheticsGlobalVariableOutput {
+func (i *SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutput() SyntheticsGlobalVariableOutput {
 	return i.ToSyntheticsGlobalVariableOutputWithContext(context.Background())
 }
 
-func (i SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOutput {
+func (i *SyntheticsGlobalVariable) ToSyntheticsGlobalVariableOutputWithContext(ctx context.Context) SyntheticsGlobalVariableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableOutput)
 }
 
@@ -203,7 +203,7 @@ type SyntheticsGlobalVariableOutput struct {
 }
 
 func (SyntheticsGlobalVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsGlobalVariableOutput)(nil)).Elem()
+	return reflect.TypeOf((*SyntheticsGlobalVariable)(nil))
 }
 
 func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariableOutput() SyntheticsGlobalVariableOutput {
