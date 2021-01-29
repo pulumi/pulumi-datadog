@@ -94,6 +94,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/logsMetric:LogsMetric")]
     public partial class LogsMetric : Pulumi.CustomResource
     {
         /// <summary>

@@ -881,6 +881,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/dashboard:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>

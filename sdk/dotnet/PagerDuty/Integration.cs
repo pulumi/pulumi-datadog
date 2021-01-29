@@ -61,6 +61,7 @@ namespace Pulumi.Datadog.PagerDuty
     /// }
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:pagerduty/integration:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>

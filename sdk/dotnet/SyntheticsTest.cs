@@ -396,6 +396,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/syntheticsTest:SyntheticsTest")]
     public partial class SyntheticsTest : Pulumi.CustomResource
     {
         /// <summary>

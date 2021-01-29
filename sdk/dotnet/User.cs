@@ -70,6 +70,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

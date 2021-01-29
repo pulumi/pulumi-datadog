@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -151,15 +151,15 @@ type SyntheticsPrivateLocationInput interface {
 	ToSyntheticsPrivateLocationOutputWithContext(ctx context.Context) SyntheticsPrivateLocationOutput
 }
 
-func (SyntheticsPrivateLocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsPrivateLocation)(nil)).Elem()
+func (*SyntheticsPrivateLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsPrivateLocation)(nil))
 }
 
-func (i SyntheticsPrivateLocation) ToSyntheticsPrivateLocationOutput() SyntheticsPrivateLocationOutput {
+func (i *SyntheticsPrivateLocation) ToSyntheticsPrivateLocationOutput() SyntheticsPrivateLocationOutput {
 	return i.ToSyntheticsPrivateLocationOutputWithContext(context.Background())
 }
 
-func (i SyntheticsPrivateLocation) ToSyntheticsPrivateLocationOutputWithContext(ctx context.Context) SyntheticsPrivateLocationOutput {
+func (i *SyntheticsPrivateLocation) ToSyntheticsPrivateLocationOutputWithContext(ctx context.Context) SyntheticsPrivateLocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationOutput)
 }
 
@@ -168,7 +168,7 @@ type SyntheticsPrivateLocationOutput struct {
 }
 
 func (SyntheticsPrivateLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsPrivateLocationOutput)(nil)).Elem()
+	return reflect.TypeOf((*SyntheticsPrivateLocation)(nil))
 }
 
 func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationOutput() SyntheticsPrivateLocationOutput {

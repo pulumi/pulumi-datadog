@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -52,6 +53,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -267,15 +269,15 @@ type DowntimeInput interface {
 	ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput
 }
 
-func (Downtime) ElementType() reflect.Type {
-	return reflect.TypeOf((*Downtime)(nil)).Elem()
+func (*Downtime) ElementType() reflect.Type {
+	return reflect.TypeOf((*Downtime)(nil))
 }
 
-func (i Downtime) ToDowntimeOutput() DowntimeOutput {
+func (i *Downtime) ToDowntimeOutput() DowntimeOutput {
 	return i.ToDowntimeOutputWithContext(context.Background())
 }
 
-func (i Downtime) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput {
+func (i *Downtime) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeOutput)
 }
 
@@ -284,7 +286,7 @@ type DowntimeOutput struct {
 }
 
 func (DowntimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DowntimeOutput)(nil)).Elem()
+	return reflect.TypeOf((*Downtime)(nil))
 }
 
 func (o DowntimeOutput) ToDowntimeOutput() DowntimeOutput {

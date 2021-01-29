@@ -276,6 +276,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline For the previously created custom pipelines, you can include them in Terraform with the `import` operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them. Use `&lt;resource.name&gt; &lt;pipelineID&gt;` for each existing pipeline.
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/logsCustomPipeline:LogsCustomPipeline")]
     public partial class LogsCustomPipeline : Pulumi.CustomResource
     {
         [Output("filters")]

@@ -116,6 +116,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/dashboardList:DashboardList")]
     public partial class DashboardList : Pulumi.CustomResource
     {
         /// <summary>

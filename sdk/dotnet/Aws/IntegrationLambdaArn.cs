@@ -42,6 +42,7 @@ namespace Pulumi.Datadog.Aws
     ///  $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:aws/integrationLambdaArn:IntegrationLambdaArn")]
     public partial class IntegrationLambdaArn : Pulumi.CustomResource
     {
         /// <summary>

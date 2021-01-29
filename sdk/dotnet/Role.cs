@@ -52,6 +52,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/role:Role")]
     public partial class Role : Pulumi.CustomResource
     {
         /// <summary>

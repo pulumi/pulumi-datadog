@@ -88,6 +88,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_monitor m0o-hto-lkb
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/securityMonitoringRule:SecurityMonitoringRule")]
     public partial class SecurityMonitoringRule : Pulumi.CustomResource
     {
         /// <summary>

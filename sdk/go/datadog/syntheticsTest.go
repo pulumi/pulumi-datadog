@@ -23,6 +23,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -84,6 +85,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -135,6 +137,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -185,6 +188,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -238,7 +242,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -272,7 +276,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -634,15 +638,15 @@ type SyntheticsTestInput interface {
 	ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput
 }
 
-func (SyntheticsTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsTest)(nil)).Elem()
+func (*SyntheticsTest) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyntheticsTest)(nil))
 }
 
-func (i SyntheticsTest) ToSyntheticsTestOutput() SyntheticsTestOutput {
+func (i *SyntheticsTest) ToSyntheticsTestOutput() SyntheticsTestOutput {
 	return i.ToSyntheticsTestOutputWithContext(context.Background())
 }
 
-func (i SyntheticsTest) ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput {
+func (i *SyntheticsTest) ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOutput)
 }
 
@@ -651,7 +655,7 @@ type SyntheticsTestOutput struct {
 }
 
 func (SyntheticsTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsTestOutput)(nil)).Elem()
+	return reflect.TypeOf((*SyntheticsTest)(nil))
 }
 
 func (o SyntheticsTestOutput) ToSyntheticsTestOutput() SyntheticsTestOutput {

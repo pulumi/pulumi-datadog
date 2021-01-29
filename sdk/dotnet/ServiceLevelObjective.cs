@@ -119,6 +119,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/serviceLevelObjective:ServiceLevelObjective")]
     public partial class ServiceLevelObjective : Pulumi.CustomResource
     {
         /// <summary>

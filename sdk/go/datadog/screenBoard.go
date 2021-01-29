@@ -159,15 +159,15 @@ type ScreenBoardInput interface {
 	ToScreenBoardOutputWithContext(ctx context.Context) ScreenBoardOutput
 }
 
-func (ScreenBoard) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScreenBoard)(nil)).Elem()
+func (*ScreenBoard) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScreenBoard)(nil))
 }
 
-func (i ScreenBoard) ToScreenBoardOutput() ScreenBoardOutput {
+func (i *ScreenBoard) ToScreenBoardOutput() ScreenBoardOutput {
 	return i.ToScreenBoardOutputWithContext(context.Background())
 }
 
-func (i ScreenBoard) ToScreenBoardOutputWithContext(ctx context.Context) ScreenBoardOutput {
+func (i *ScreenBoard) ToScreenBoardOutputWithContext(ctx context.Context) ScreenBoardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScreenBoardOutput)
 }
 
@@ -176,7 +176,7 @@ type ScreenBoardOutput struct {
 }
 
 func (ScreenBoardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScreenBoardOutput)(nil)).Elem()
+	return reflect.TypeOf((*ScreenBoard)(nil))
 }
 
 func (o ScreenBoardOutput) ToScreenBoardOutput() ScreenBoardOutput {

@@ -552,6 +552,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/screenBoard:ScreenBoard my_service_screenboard 2081
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/screenBoard:ScreenBoard")]
     public partial class ScreenBoard : Pulumi.CustomResource
     {
         /// <summary>

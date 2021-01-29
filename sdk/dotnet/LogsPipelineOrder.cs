@@ -51,6 +51,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name&gt; &lt;name&gt;
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/logsPipelineOrder:LogsPipelineOrder")]
     public partial class LogsPipelineOrder : Pulumi.CustomResource
     {
         /// <summary>

@@ -22,6 +22,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -192,15 +193,15 @@ type DashboardListInput interface {
 	ToDashboardListOutputWithContext(ctx context.Context) DashboardListOutput
 }
 
-func (DashboardList) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardList)(nil)).Elem()
+func (*DashboardList) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardList)(nil))
 }
 
-func (i DashboardList) ToDashboardListOutput() DashboardListOutput {
+func (i *DashboardList) ToDashboardListOutput() DashboardListOutput {
 	return i.ToDashboardListOutputWithContext(context.Background())
 }
 
-func (i DashboardList) ToDashboardListOutputWithContext(ctx context.Context) DashboardListOutput {
+func (i *DashboardList) ToDashboardListOutputWithContext(ctx context.Context) DashboardListOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardListOutput)
 }
 
@@ -209,7 +210,7 @@ type DashboardListOutput struct {
 }
 
 func (DashboardListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardListOutput)(nil)).Elem()
+	return reflect.TypeOf((*DashboardList)(nil))
 }
 
 func (o DashboardListOutput) ToDashboardListOutput() DashboardListOutput {

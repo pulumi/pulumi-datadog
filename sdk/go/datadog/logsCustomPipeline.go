@@ -24,6 +24,7 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -316,15 +317,15 @@ type LogsCustomPipelineInput interface {
 	ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput
 }
 
-func (LogsCustomPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipeline)(nil)).Elem()
+func (*LogsCustomPipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipeline)(nil))
 }
 
-func (i LogsCustomPipeline) ToLogsCustomPipelineOutput() LogsCustomPipelineOutput {
+func (i *LogsCustomPipeline) ToLogsCustomPipelineOutput() LogsCustomPipelineOutput {
 	return i.ToLogsCustomPipelineOutputWithContext(context.Background())
 }
 
-func (i LogsCustomPipeline) ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput {
+func (i *LogsCustomPipeline) ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineOutput)
 }
 
@@ -333,7 +334,7 @@ type LogsCustomPipelineOutput struct {
 }
 
 func (LogsCustomPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogsCustomPipeline)(nil))
 }
 
 func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutput() LogsCustomPipelineOutput {

@@ -18,6 +18,7 @@ namespace Pulumi.Datadog
     ///  $ pulumi import datadog:index/monitor:Monitor bytes_received_localhost 2081
     /// ```
     /// </summary>
+    [DatadogResourceType("datadog:index/monitor:Monitor")]
     public partial class Monitor : Pulumi.CustomResource
     {
         /// <summary>

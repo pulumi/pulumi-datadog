@@ -155,15 +155,15 @@ type ServiceObjectInput interface {
 	ToServiceObjectOutputWithContext(ctx context.Context) ServiceObjectOutput
 }
 
-func (ServiceObject) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceObject)(nil)).Elem()
+func (*ServiceObject) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceObject)(nil))
 }
 
-func (i ServiceObject) ToServiceObjectOutput() ServiceObjectOutput {
+func (i *ServiceObject) ToServiceObjectOutput() ServiceObjectOutput {
 	return i.ToServiceObjectOutputWithContext(context.Background())
 }
 
-func (i ServiceObject) ToServiceObjectOutputWithContext(ctx context.Context) ServiceObjectOutput {
+func (i *ServiceObject) ToServiceObjectOutputWithContext(ctx context.Context) ServiceObjectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceObjectOutput)
 }
 
@@ -172,7 +172,7 @@ type ServiceObjectOutput struct {
 }
 
 func (ServiceObjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceObjectOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceObject)(nil))
 }
 
 func (o ServiceObjectOutput) ToServiceObjectOutput() ServiceObjectOutput {

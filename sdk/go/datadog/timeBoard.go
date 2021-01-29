@@ -138,15 +138,15 @@ type TimeBoardInput interface {
 	ToTimeBoardOutputWithContext(ctx context.Context) TimeBoardOutput
 }
 
-func (TimeBoard) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeBoard)(nil)).Elem()
+func (*TimeBoard) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeBoard)(nil))
 }
 
-func (i TimeBoard) ToTimeBoardOutput() TimeBoardOutput {
+func (i *TimeBoard) ToTimeBoardOutput() TimeBoardOutput {
 	return i.ToTimeBoardOutputWithContext(context.Background())
 }
 
-func (i TimeBoard) ToTimeBoardOutputWithContext(ctx context.Context) TimeBoardOutput {
+func (i *TimeBoard) ToTimeBoardOutputWithContext(ctx context.Context) TimeBoardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeBoardOutput)
 }
 
@@ -155,7 +155,7 @@ type TimeBoardOutput struct {
 }
 
 func (TimeBoardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeBoardOutput)(nil)).Elem()
+	return reflect.TypeOf((*TimeBoard)(nil))
 }
 
 func (o TimeBoardOutput) ToTimeBoardOutput() TimeBoardOutput {

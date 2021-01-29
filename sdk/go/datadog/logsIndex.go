@@ -113,15 +113,15 @@ type LogsIndexInput interface {
 	ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput
 }
 
-func (LogsIndex) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIndex)(nil)).Elem()
+func (*LogsIndex) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsIndex)(nil))
 }
 
-func (i LogsIndex) ToLogsIndexOutput() LogsIndexOutput {
+func (i *LogsIndex) ToLogsIndexOutput() LogsIndexOutput {
 	return i.ToLogsIndexOutputWithContext(context.Background())
 }
 
-func (i LogsIndex) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput {
+func (i *LogsIndex) ToLogsIndexOutputWithContext(ctx context.Context) LogsIndexOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOutput)
 }
 
@@ -130,7 +130,7 @@ type LogsIndexOutput struct {
 }
 
 func (LogsIndexOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIndexOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogsIndex)(nil))
 }
 
 func (o LogsIndexOutput) ToLogsIndexOutput() LogsIndexOutput {

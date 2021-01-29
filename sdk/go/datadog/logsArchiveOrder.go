@@ -100,15 +100,15 @@ type LogsArchiveOrderInput interface {
 	ToLogsArchiveOrderOutputWithContext(ctx context.Context) LogsArchiveOrderOutput
 }
 
-func (LogsArchiveOrder) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveOrder)(nil)).Elem()
+func (*LogsArchiveOrder) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveOrder)(nil))
 }
 
-func (i LogsArchiveOrder) ToLogsArchiveOrderOutput() LogsArchiveOrderOutput {
+func (i *LogsArchiveOrder) ToLogsArchiveOrderOutput() LogsArchiveOrderOutput {
 	return i.ToLogsArchiveOrderOutputWithContext(context.Background())
 }
 
-func (i LogsArchiveOrder) ToLogsArchiveOrderOutputWithContext(ctx context.Context) LogsArchiveOrderOutput {
+func (i *LogsArchiveOrder) ToLogsArchiveOrderOutputWithContext(ctx context.Context) LogsArchiveOrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderOutput)
 }
 
@@ -117,7 +117,7 @@ type LogsArchiveOrderOutput struct {
 }
 
 func (LogsArchiveOrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveOrderOutput)(nil)).Elem()
+	return reflect.TypeOf((*LogsArchiveOrder)(nil))
 }
 
 func (o LogsArchiveOrderOutput) ToLogsArchiveOrderOutput() LogsArchiveOrderOutput {
