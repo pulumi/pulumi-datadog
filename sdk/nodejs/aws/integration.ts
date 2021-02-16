@@ -114,7 +114,8 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
@@ -125,10 +126,10 @@ export class Integration extends pulumi.CustomResource {
             inputs["roleName"] = state ? state.roleName : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.accountId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.roleName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
             inputs["accountId"] = args ? args.accountId : undefined;
@@ -139,12 +140,8 @@ export class Integration extends pulumi.CustomResource {
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["externalId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Integration.__pulumiType, name, inputs, opts);
     }

@@ -73,7 +73,8 @@ export class TimeBoard extends pulumi.CustomResource {
     constructor(name: string, args: TimeBoardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TimeBoardArgs | TimeBoardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as TimeBoardState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["graphs"] = state ? state.graphs : undefined;
@@ -82,13 +83,13 @@ export class TimeBoard extends pulumi.CustomResource {
             inputs["title"] = state ? state.title : undefined;
         } else {
             const args = argsOrState as TimeBoardArgs | undefined;
-            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.graphs === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.graphs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'graphs'");
             }
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -97,12 +98,8 @@ export class TimeBoard extends pulumi.CustomResource {
             inputs["templateVariables"] = args ? args.templateVariables : undefined;
             inputs["title"] = args ? args.title : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(TimeBoard.__pulumiType, name, inputs, opts);
     }

@@ -87,7 +87,8 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["clientSecret"] = state ? state.clientSecret : undefined;
@@ -95,13 +96,13 @@ export class Integration extends pulumi.CustomResource {
             inputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientSecret === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.tenantName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.tenantName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantName'");
             }
             inputs["clientId"] = args ? args.clientId : undefined;
@@ -109,12 +110,8 @@ export class Integration extends pulumi.CustomResource {
             inputs["hostFilters"] = args ? args.hostFilters : undefined;
             inputs["tenantName"] = args ? args.tenantName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Integration.__pulumiType, name, inputs, opts);
     }

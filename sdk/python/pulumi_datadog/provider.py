@@ -55,14 +55,8 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_key is None:
-                api_key = _utilities.get_env('DATADOG_API_KEY')
             __props__['api_key'] = api_key
-            if api_url is None:
-                api_url = _utilities.get_env('DATADOG_HOST')
             __props__['api_url'] = api_url
-            if app_key is None:
-                app_key = _utilities.get_env('DATADOG_APP_KEY')
             __props__['app_key'] = app_key
             __props__['validate'] = pulumi.Output.from_input(validate).apply(pulumi.runtime.to_json) if validate is not None else None
         super(Provider, __self__).__init__(

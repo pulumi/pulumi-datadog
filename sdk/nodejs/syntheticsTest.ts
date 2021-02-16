@@ -398,7 +398,8 @@ export class SyntheticsTest extends pulumi.CustomResource {
     constructor(name: string, args: SyntheticsTestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyntheticsTestArgs | SyntheticsTestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SyntheticsTestState | undefined;
             inputs["assertions"] = state ? state.assertions : undefined;
             inputs["browserVariables"] = state ? state.browserVariables : undefined;
@@ -423,19 +424,19 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as SyntheticsTestArgs | undefined;
-            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.locations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.request === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.request === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'request'");
             }
-            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["assertions"] = args ? args.assertions : undefined;
@@ -460,12 +461,8 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["variables"] = args ? args.variables : undefined;
             inputs["monitorId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SyntheticsTest.__pulumiType, name, inputs, opts);
     }

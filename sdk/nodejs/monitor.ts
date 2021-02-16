@@ -179,7 +179,8 @@ export class Monitor extends pulumi.CustomResource {
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorArgs | MonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
             inputs["enableLogsSample"] = state ? state.enableLogsSample : undefined;
             inputs["escalationMessage"] = state ? state.escalationMessage : undefined;
@@ -208,16 +209,16 @@ export class Monitor extends pulumi.CustomResource {
             inputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if ((!args || args.message === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["enableLogsSample"] = args ? args.enableLogsSample : undefined;
@@ -246,12 +247,8 @@ export class Monitor extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["validate"] = args ? args.validate : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Monitor.__pulumiType, name, inputs, opts);
     }

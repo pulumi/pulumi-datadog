@@ -63,29 +63,26 @@ export class LogsIndex extends pulumi.CustomResource {
     constructor(name: string, args: LogsIndexArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsIndexArgs | LogsIndexState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogsIndexState | undefined;
             inputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogsIndexArgs | undefined;
-            if ((!args || args.filters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
             inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogsIndex.__pulumiType, name, inputs, opts);
     }

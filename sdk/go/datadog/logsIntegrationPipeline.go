@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -125,6 +125,85 @@ func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelineOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineOutput)
 }
 
+func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
+	return i.ToLogsIntegrationPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelinePtrOutput)
+}
+
+type LogsIntegrationPipelinePtrInput interface {
+	pulumi.Input
+
+	ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput
+	ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput
+}
+
+type logsIntegrationPipelinePtrType LogsIntegrationPipelineArgs
+
+func (*logsIntegrationPipelinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsIntegrationPipeline)(nil))
+}
+
+func (i *logsIntegrationPipelinePtrType) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
+	return i.ToLogsIntegrationPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *logsIntegrationPipelinePtrType) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelinePtrOutput)
+}
+
+// LogsIntegrationPipelineArrayInput is an input type that accepts LogsIntegrationPipelineArray and LogsIntegrationPipelineArrayOutput values.
+// You can construct a concrete instance of `LogsIntegrationPipelineArrayInput` via:
+//
+//          LogsIntegrationPipelineArray{ LogsIntegrationPipelineArgs{...} }
+type LogsIntegrationPipelineArrayInput interface {
+	pulumi.Input
+
+	ToLogsIntegrationPipelineArrayOutput() LogsIntegrationPipelineArrayOutput
+	ToLogsIntegrationPipelineArrayOutputWithContext(context.Context) LogsIntegrationPipelineArrayOutput
+}
+
+type LogsIntegrationPipelineArray []LogsIntegrationPipelineInput
+
+func (LogsIntegrationPipelineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogsIntegrationPipeline)(nil))
+}
+
+func (i LogsIntegrationPipelineArray) ToLogsIntegrationPipelineArrayOutput() LogsIntegrationPipelineArrayOutput {
+	return i.ToLogsIntegrationPipelineArrayOutputWithContext(context.Background())
+}
+
+func (i LogsIntegrationPipelineArray) ToLogsIntegrationPipelineArrayOutputWithContext(ctx context.Context) LogsIntegrationPipelineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineArrayOutput)
+}
+
+// LogsIntegrationPipelineMapInput is an input type that accepts LogsIntegrationPipelineMap and LogsIntegrationPipelineMapOutput values.
+// You can construct a concrete instance of `LogsIntegrationPipelineMapInput` via:
+//
+//          LogsIntegrationPipelineMap{ "key": LogsIntegrationPipelineArgs{...} }
+type LogsIntegrationPipelineMapInput interface {
+	pulumi.Input
+
+	ToLogsIntegrationPipelineMapOutput() LogsIntegrationPipelineMapOutput
+	ToLogsIntegrationPipelineMapOutputWithContext(context.Context) LogsIntegrationPipelineMapOutput
+}
+
+type LogsIntegrationPipelineMap map[string]LogsIntegrationPipelineInput
+
+func (LogsIntegrationPipelineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogsIntegrationPipeline)(nil))
+}
+
+func (i LogsIntegrationPipelineMap) ToLogsIntegrationPipelineMapOutput() LogsIntegrationPipelineMapOutput {
+	return i.ToLogsIntegrationPipelineMapOutputWithContext(context.Background())
+}
+
+func (i LogsIntegrationPipelineMap) ToLogsIntegrationPipelineMapOutputWithContext(ctx context.Context) LogsIntegrationPipelineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineMapOutput)
+}
+
 type LogsIntegrationPipelineOutput struct {
 	*pulumi.OutputState
 }
@@ -141,6 +220,75 @@ func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutputWithContex
 	return o
 }
 
+func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
+	return o.ToLogsIntegrationPipelinePtrOutputWithContext(context.Background())
+}
+
+func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
+	return o.ApplyT(func(v LogsIntegrationPipeline) *LogsIntegrationPipeline {
+		return &v
+	}).(LogsIntegrationPipelinePtrOutput)
+}
+
+type LogsIntegrationPipelinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsIntegrationPipelinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsIntegrationPipeline)(nil))
+}
+
+func (o LogsIntegrationPipelinePtrOutput) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
+	return o
+}
+
+func (o LogsIntegrationPipelinePtrOutput) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
+	return o
+}
+
+type LogsIntegrationPipelineArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsIntegrationPipelineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsIntegrationPipeline)(nil))
+}
+
+func (o LogsIntegrationPipelineArrayOutput) ToLogsIntegrationPipelineArrayOutput() LogsIntegrationPipelineArrayOutput {
+	return o
+}
+
+func (o LogsIntegrationPipelineArrayOutput) ToLogsIntegrationPipelineArrayOutputWithContext(ctx context.Context) LogsIntegrationPipelineArrayOutput {
+	return o
+}
+
+func (o LogsIntegrationPipelineArrayOutput) Index(i pulumi.IntInput) LogsIntegrationPipelineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsIntegrationPipeline {
+		return vs[0].([]LogsIntegrationPipeline)[vs[1].(int)]
+	}).(LogsIntegrationPipelineOutput)
+}
+
+type LogsIntegrationPipelineMapOutput struct{ *pulumi.OutputState }
+
+func (LogsIntegrationPipelineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogsIntegrationPipeline)(nil))
+}
+
+func (o LogsIntegrationPipelineMapOutput) ToLogsIntegrationPipelineMapOutput() LogsIntegrationPipelineMapOutput {
+	return o
+}
+
+func (o LogsIntegrationPipelineMapOutput) ToLogsIntegrationPipelineMapOutputWithContext(ctx context.Context) LogsIntegrationPipelineMapOutput {
+	return o
+}
+
+func (o LogsIntegrationPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsIntegrationPipelineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsIntegrationPipeline {
+		return vs[0].(map[string]LogsIntegrationPipeline)[vs[1].(string)]
+	}).(LogsIntegrationPipelineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogsIntegrationPipelineOutput{})
+	pulumi.RegisterOutputType(LogsIntegrationPipelinePtrOutput{})
+	pulumi.RegisterOutputType(LogsIntegrationPipelineArrayOutput{})
+	pulumi.RegisterOutputType(LogsIntegrationPipelineMapOutput{})
 }

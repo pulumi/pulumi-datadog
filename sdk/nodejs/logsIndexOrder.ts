@@ -75,27 +75,24 @@ export class LogsIndexOrder extends pulumi.CustomResource {
     constructor(name: string, args: LogsIndexOrderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsIndexOrderArgs | LogsIndexOrderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogsIndexOrderState | undefined;
             inputs["indexes"] = state ? state.indexes : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogsIndexOrderArgs | undefined;
-            if ((!args || args.indexes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.indexes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexes'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["indexes"] = args ? args.indexes : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogsIndexOrder.__pulumiType, name, inputs, opts);
     }

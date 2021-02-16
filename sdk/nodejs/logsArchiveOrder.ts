@@ -74,19 +74,16 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
     constructor(name: string, args?: LogsArchiveOrderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsArchiveOrderArgs | LogsArchiveOrderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogsArchiveOrderState | undefined;
             inputs["archiveIds"] = state ? state.archiveIds : undefined;
         } else {
             const args = argsOrState as LogsArchiveOrderArgs | undefined;
             inputs["archiveIds"] = args ? args.archiveIds : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogsArchiveOrder.__pulumiType, name, inputs, opts);
     }

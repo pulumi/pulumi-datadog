@@ -87,7 +87,8 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
     constructor(name: string, args: SyntheticsPrivateLocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyntheticsPrivateLocationArgs | SyntheticsPrivateLocationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SyntheticsPrivateLocationState | undefined;
             inputs["config"] = state ? state.config : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -95,7 +96,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SyntheticsPrivateLocationArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -103,12 +104,8 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["config"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SyntheticsPrivateLocation.__pulumiType, name, inputs, opts);
     }

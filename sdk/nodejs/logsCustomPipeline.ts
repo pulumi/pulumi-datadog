@@ -234,7 +234,8 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
     constructor(name: string, args: LogsCustomPipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsCustomPipelineArgs | LogsCustomPipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogsCustomPipelineState | undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["isEnabled"] = state ? state.isEnabled : undefined;
@@ -242,10 +243,10 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
             inputs["processors"] = state ? state.processors : undefined;
         } else {
             const args = argsOrState as LogsCustomPipelineArgs | undefined;
-            if ((!args || args.filters === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["filters"] = args ? args.filters : undefined;
@@ -253,12 +254,8 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["processors"] = args ? args.processors : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogsCustomPipeline.__pulumiType, name, inputs, opts);
     }

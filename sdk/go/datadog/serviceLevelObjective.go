@@ -21,7 +21,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -273,6 +272,85 @@ func (i *ServiceLevelObjective) ToServiceLevelObjectiveOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveOutput)
 }
 
+func (i *ServiceLevelObjective) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
+	return i.ToServiceLevelObjectivePtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceLevelObjective) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectivePtrOutput)
+}
+
+type ServiceLevelObjectivePtrInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput
+	ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput
+}
+
+type serviceLevelObjectivePtrType ServiceLevelObjectiveArgs
+
+func (*serviceLevelObjectivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjective)(nil))
+}
+
+func (i *serviceLevelObjectivePtrType) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
+	return i.ToServiceLevelObjectivePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLevelObjectivePtrType) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectivePtrOutput)
+}
+
+// ServiceLevelObjectiveArrayInput is an input type that accepts ServiceLevelObjectiveArray and ServiceLevelObjectiveArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveArrayInput` via:
+//
+//          ServiceLevelObjectiveArray{ ServiceLevelObjectiveArgs{...} }
+type ServiceLevelObjectiveArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput
+	ToServiceLevelObjectiveArrayOutputWithContext(context.Context) ServiceLevelObjectiveArrayOutput
+}
+
+type ServiceLevelObjectiveArray []ServiceLevelObjectiveInput
+
+func (ServiceLevelObjectiveArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceLevelObjective)(nil))
+}
+
+func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput {
+	return i.ToServiceLevelObjectiveArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveArrayOutput)
+}
+
+// ServiceLevelObjectiveMapInput is an input type that accepts ServiceLevelObjectiveMap and ServiceLevelObjectiveMapOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveMapInput` via:
+//
+//          ServiceLevelObjectiveMap{ "key": ServiceLevelObjectiveArgs{...} }
+type ServiceLevelObjectiveMapInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveMapOutput() ServiceLevelObjectiveMapOutput
+	ToServiceLevelObjectiveMapOutputWithContext(context.Context) ServiceLevelObjectiveMapOutput
+}
+
+type ServiceLevelObjectiveMap map[string]ServiceLevelObjectiveInput
+
+func (ServiceLevelObjectiveMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceLevelObjective)(nil))
+}
+
+func (i ServiceLevelObjectiveMap) ToServiceLevelObjectiveMapOutput() ServiceLevelObjectiveMapOutput {
+	return i.ToServiceLevelObjectiveMapOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveMap) ToServiceLevelObjectiveMapOutputWithContext(ctx context.Context) ServiceLevelObjectiveMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMapOutput)
+}
+
 type ServiceLevelObjectiveOutput struct {
 	*pulumi.OutputState
 }
@@ -289,6 +367,75 @@ func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutputWithContext(ct
 	return o
 }
 
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
+	return o.ToServiceLevelObjectivePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
+	return o.ApplyT(func(v ServiceLevelObjective) *ServiceLevelObjective {
+		return &v
+	}).(ServiceLevelObjectivePtrOutput)
+}
+
+type ServiceLevelObjectivePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceLevelObjectivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLevelObjective)(nil))
+}
+
+func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutput() ServiceLevelObjectivePtrOutput {
+	return o
+}
+
+func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
+	return o
+}
+
+type ServiceLevelObjectiveArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjective)(nil))
+}
+
+func (o ServiceLevelObjectiveArrayOutput) ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveArrayOutput) ToServiceLevelObjectiveArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjective {
+		return vs[0].([]ServiceLevelObjective)[vs[1].(int)]
+	}).(ServiceLevelObjectiveOutput)
+}
+
+type ServiceLevelObjectiveMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceLevelObjective)(nil))
+}
+
+func (o ServiceLevelObjectiveMapOutput) ToServiceLevelObjectiveMapOutput() ServiceLevelObjectiveMapOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMapOutput) ToServiceLevelObjectiveMapOutputWithContext(ctx context.Context) ServiceLevelObjectiveMapOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveMapOutput) MapIndex(k pulumi.StringInput) ServiceLevelObjectiveOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceLevelObjective {
+		return vs[0].(map[string]ServiceLevelObjective)[vs[1].(string)]
+	}).(ServiceLevelObjectiveOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceLevelObjectiveOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectivePtrOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveMapOutput{})
 }

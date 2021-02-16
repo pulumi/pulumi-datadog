@@ -11,19 +11,19 @@ namespace Pulumi.Datadog
         /// <summary>
         /// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
         /// </summary>
-        public static string? ApiKey { get; set; } = __config.Get("apiKey") ?? Utilities.GetEnv("DATADOG_API_KEY");
+        public static string? ApiKey { get; set; } = __config.Get("apiKey");
 
         /// <summary>
         /// The API Url. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
         /// path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
         /// you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
         /// </summary>
-        public static string? ApiUrl { get; set; } = __config.Get("apiUrl") ?? Utilities.GetEnv("DATADOG_HOST");
+        public static string? ApiUrl { get; set; } = __config.Get("apiUrl");
 
         /// <summary>
         /// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
         /// </summary>
-        public static string? AppKey { get; set; } = __config.Get("appKey") ?? Utilities.GetEnv("DATADOG_APP_KEY");
+        public static string? AppKey { get; set; } = __config.Get("appKey");
 
         /// <summary>
         /// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
