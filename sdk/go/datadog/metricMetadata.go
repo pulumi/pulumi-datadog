@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -185,6 +185,85 @@ func (i *MetricMetadata) ToMetricMetadataOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataOutput)
 }
 
+func (i *MetricMetadata) ToMetricMetadataPtrOutput() MetricMetadataPtrOutput {
+	return i.ToMetricMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *MetricMetadata) ToMetricMetadataPtrOutputWithContext(ctx context.Context) MetricMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataPtrOutput)
+}
+
+type MetricMetadataPtrInput interface {
+	pulumi.Input
+
+	ToMetricMetadataPtrOutput() MetricMetadataPtrOutput
+	ToMetricMetadataPtrOutputWithContext(ctx context.Context) MetricMetadataPtrOutput
+}
+
+type metricMetadataPtrType MetricMetadataArgs
+
+func (*metricMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricMetadata)(nil))
+}
+
+func (i *metricMetadataPtrType) ToMetricMetadataPtrOutput() MetricMetadataPtrOutput {
+	return i.ToMetricMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *metricMetadataPtrType) ToMetricMetadataPtrOutputWithContext(ctx context.Context) MetricMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataPtrOutput)
+}
+
+// MetricMetadataArrayInput is an input type that accepts MetricMetadataArray and MetricMetadataArrayOutput values.
+// You can construct a concrete instance of `MetricMetadataArrayInput` via:
+//
+//          MetricMetadataArray{ MetricMetadataArgs{...} }
+type MetricMetadataArrayInput interface {
+	pulumi.Input
+
+	ToMetricMetadataArrayOutput() MetricMetadataArrayOutput
+	ToMetricMetadataArrayOutputWithContext(context.Context) MetricMetadataArrayOutput
+}
+
+type MetricMetadataArray []MetricMetadataInput
+
+func (MetricMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*MetricMetadata)(nil))
+}
+
+func (i MetricMetadataArray) ToMetricMetadataArrayOutput() MetricMetadataArrayOutput {
+	return i.ToMetricMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i MetricMetadataArray) ToMetricMetadataArrayOutputWithContext(ctx context.Context) MetricMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataArrayOutput)
+}
+
+// MetricMetadataMapInput is an input type that accepts MetricMetadataMap and MetricMetadataMapOutput values.
+// You can construct a concrete instance of `MetricMetadataMapInput` via:
+//
+//          MetricMetadataMap{ "key": MetricMetadataArgs{...} }
+type MetricMetadataMapInput interface {
+	pulumi.Input
+
+	ToMetricMetadataMapOutput() MetricMetadataMapOutput
+	ToMetricMetadataMapOutputWithContext(context.Context) MetricMetadataMapOutput
+}
+
+type MetricMetadataMap map[string]MetricMetadataInput
+
+func (MetricMetadataMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*MetricMetadata)(nil))
+}
+
+func (i MetricMetadataMap) ToMetricMetadataMapOutput() MetricMetadataMapOutput {
+	return i.ToMetricMetadataMapOutputWithContext(context.Background())
+}
+
+func (i MetricMetadataMap) ToMetricMetadataMapOutputWithContext(ctx context.Context) MetricMetadataMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataMapOutput)
+}
+
 type MetricMetadataOutput struct {
 	*pulumi.OutputState
 }
@@ -201,6 +280,75 @@ func (o MetricMetadataOutput) ToMetricMetadataOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o MetricMetadataOutput) ToMetricMetadataPtrOutput() MetricMetadataPtrOutput {
+	return o.ToMetricMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o MetricMetadataOutput) ToMetricMetadataPtrOutputWithContext(ctx context.Context) MetricMetadataPtrOutput {
+	return o.ApplyT(func(v MetricMetadata) *MetricMetadata {
+		return &v
+	}).(MetricMetadataPtrOutput)
+}
+
+type MetricMetadataPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (MetricMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricMetadata)(nil))
+}
+
+func (o MetricMetadataPtrOutput) ToMetricMetadataPtrOutput() MetricMetadataPtrOutput {
+	return o
+}
+
+func (o MetricMetadataPtrOutput) ToMetricMetadataPtrOutputWithContext(ctx context.Context) MetricMetadataPtrOutput {
+	return o
+}
+
+type MetricMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricMetadata)(nil))
+}
+
+func (o MetricMetadataArrayOutput) ToMetricMetadataArrayOutput() MetricMetadataArrayOutput {
+	return o
+}
+
+func (o MetricMetadataArrayOutput) ToMetricMetadataArrayOutputWithContext(ctx context.Context) MetricMetadataArrayOutput {
+	return o
+}
+
+func (o MetricMetadataArrayOutput) Index(i pulumi.IntInput) MetricMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricMetadata {
+		return vs[0].([]MetricMetadata)[vs[1].(int)]
+	}).(MetricMetadataOutput)
+}
+
+type MetricMetadataMapOutput struct{ *pulumi.OutputState }
+
+func (MetricMetadataMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MetricMetadata)(nil))
+}
+
+func (o MetricMetadataMapOutput) ToMetricMetadataMapOutput() MetricMetadataMapOutput {
+	return o
+}
+
+func (o MetricMetadataMapOutput) ToMetricMetadataMapOutputWithContext(ctx context.Context) MetricMetadataMapOutput {
+	return o
+}
+
+func (o MetricMetadataMapOutput) MapIndex(k pulumi.StringInput) MetricMetadataOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MetricMetadata {
+		return vs[0].(map[string]MetricMetadata)[vs[1].(string)]
+	}).(MetricMetadataOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MetricMetadataOutput{})
+	pulumi.RegisterOutputType(MetricMetadataPtrOutput{})
+	pulumi.RegisterOutputType(MetricMetadataArrayOutput{})
+	pulumi.RegisterOutputType(MetricMetadataMapOutput{})
 }

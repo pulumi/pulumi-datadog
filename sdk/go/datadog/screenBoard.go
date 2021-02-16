@@ -171,6 +171,85 @@ func (i *ScreenBoard) ToScreenBoardOutputWithContext(ctx context.Context) Screen
 	return pulumi.ToOutputWithContext(ctx, i).(ScreenBoardOutput)
 }
 
+func (i *ScreenBoard) ToScreenBoardPtrOutput() ScreenBoardPtrOutput {
+	return i.ToScreenBoardPtrOutputWithContext(context.Background())
+}
+
+func (i *ScreenBoard) ToScreenBoardPtrOutputWithContext(ctx context.Context) ScreenBoardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScreenBoardPtrOutput)
+}
+
+type ScreenBoardPtrInput interface {
+	pulumi.Input
+
+	ToScreenBoardPtrOutput() ScreenBoardPtrOutput
+	ToScreenBoardPtrOutputWithContext(ctx context.Context) ScreenBoardPtrOutput
+}
+
+type screenBoardPtrType ScreenBoardArgs
+
+func (*screenBoardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScreenBoard)(nil))
+}
+
+func (i *screenBoardPtrType) ToScreenBoardPtrOutput() ScreenBoardPtrOutput {
+	return i.ToScreenBoardPtrOutputWithContext(context.Background())
+}
+
+func (i *screenBoardPtrType) ToScreenBoardPtrOutputWithContext(ctx context.Context) ScreenBoardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScreenBoardPtrOutput)
+}
+
+// ScreenBoardArrayInput is an input type that accepts ScreenBoardArray and ScreenBoardArrayOutput values.
+// You can construct a concrete instance of `ScreenBoardArrayInput` via:
+//
+//          ScreenBoardArray{ ScreenBoardArgs{...} }
+type ScreenBoardArrayInput interface {
+	pulumi.Input
+
+	ToScreenBoardArrayOutput() ScreenBoardArrayOutput
+	ToScreenBoardArrayOutputWithContext(context.Context) ScreenBoardArrayOutput
+}
+
+type ScreenBoardArray []ScreenBoardInput
+
+func (ScreenBoardArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ScreenBoard)(nil))
+}
+
+func (i ScreenBoardArray) ToScreenBoardArrayOutput() ScreenBoardArrayOutput {
+	return i.ToScreenBoardArrayOutputWithContext(context.Background())
+}
+
+func (i ScreenBoardArray) ToScreenBoardArrayOutputWithContext(ctx context.Context) ScreenBoardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScreenBoardArrayOutput)
+}
+
+// ScreenBoardMapInput is an input type that accepts ScreenBoardMap and ScreenBoardMapOutput values.
+// You can construct a concrete instance of `ScreenBoardMapInput` via:
+//
+//          ScreenBoardMap{ "key": ScreenBoardArgs{...} }
+type ScreenBoardMapInput interface {
+	pulumi.Input
+
+	ToScreenBoardMapOutput() ScreenBoardMapOutput
+	ToScreenBoardMapOutputWithContext(context.Context) ScreenBoardMapOutput
+}
+
+type ScreenBoardMap map[string]ScreenBoardInput
+
+func (ScreenBoardMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ScreenBoard)(nil))
+}
+
+func (i ScreenBoardMap) ToScreenBoardMapOutput() ScreenBoardMapOutput {
+	return i.ToScreenBoardMapOutputWithContext(context.Background())
+}
+
+func (i ScreenBoardMap) ToScreenBoardMapOutputWithContext(ctx context.Context) ScreenBoardMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScreenBoardMapOutput)
+}
+
 type ScreenBoardOutput struct {
 	*pulumi.OutputState
 }
@@ -187,6 +266,75 @@ func (o ScreenBoardOutput) ToScreenBoardOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o ScreenBoardOutput) ToScreenBoardPtrOutput() ScreenBoardPtrOutput {
+	return o.ToScreenBoardPtrOutputWithContext(context.Background())
+}
+
+func (o ScreenBoardOutput) ToScreenBoardPtrOutputWithContext(ctx context.Context) ScreenBoardPtrOutput {
+	return o.ApplyT(func(v ScreenBoard) *ScreenBoard {
+		return &v
+	}).(ScreenBoardPtrOutput)
+}
+
+type ScreenBoardPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScreenBoardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScreenBoard)(nil))
+}
+
+func (o ScreenBoardPtrOutput) ToScreenBoardPtrOutput() ScreenBoardPtrOutput {
+	return o
+}
+
+func (o ScreenBoardPtrOutput) ToScreenBoardPtrOutputWithContext(ctx context.Context) ScreenBoardPtrOutput {
+	return o
+}
+
+type ScreenBoardArrayOutput struct{ *pulumi.OutputState }
+
+func (ScreenBoardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScreenBoard)(nil))
+}
+
+func (o ScreenBoardArrayOutput) ToScreenBoardArrayOutput() ScreenBoardArrayOutput {
+	return o
+}
+
+func (o ScreenBoardArrayOutput) ToScreenBoardArrayOutputWithContext(ctx context.Context) ScreenBoardArrayOutput {
+	return o
+}
+
+func (o ScreenBoardArrayOutput) Index(i pulumi.IntInput) ScreenBoardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScreenBoard {
+		return vs[0].([]ScreenBoard)[vs[1].(int)]
+	}).(ScreenBoardOutput)
+}
+
+type ScreenBoardMapOutput struct{ *pulumi.OutputState }
+
+func (ScreenBoardMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ScreenBoard)(nil))
+}
+
+func (o ScreenBoardMapOutput) ToScreenBoardMapOutput() ScreenBoardMapOutput {
+	return o
+}
+
+func (o ScreenBoardMapOutput) ToScreenBoardMapOutputWithContext(ctx context.Context) ScreenBoardMapOutput {
+	return o
+}
+
+func (o ScreenBoardMapOutput) MapIndex(k pulumi.StringInput) ScreenBoardOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScreenBoard {
+		return vs[0].(map[string]ScreenBoard)[vs[1].(string)]
+	}).(ScreenBoardOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScreenBoardOutput{})
+	pulumi.RegisterOutputType(ScreenBoardPtrOutput{})
+	pulumi.RegisterOutputType(ScreenBoardArrayOutput{})
+	pulumi.RegisterOutputType(ScreenBoardMapOutput{})
 }

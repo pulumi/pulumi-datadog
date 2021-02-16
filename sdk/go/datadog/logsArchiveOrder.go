@@ -112,6 +112,85 @@ func (i *LogsArchiveOrder) ToLogsArchiveOrderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderOutput)
 }
 
+func (i *LogsArchiveOrder) ToLogsArchiveOrderPtrOutput() LogsArchiveOrderPtrOutput {
+	return i.ToLogsArchiveOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *LogsArchiveOrder) ToLogsArchiveOrderPtrOutputWithContext(ctx context.Context) LogsArchiveOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderPtrOutput)
+}
+
+type LogsArchiveOrderPtrInput interface {
+	pulumi.Input
+
+	ToLogsArchiveOrderPtrOutput() LogsArchiveOrderPtrOutput
+	ToLogsArchiveOrderPtrOutputWithContext(ctx context.Context) LogsArchiveOrderPtrOutput
+}
+
+type logsArchiveOrderPtrType LogsArchiveOrderArgs
+
+func (*logsArchiveOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveOrder)(nil))
+}
+
+func (i *logsArchiveOrderPtrType) ToLogsArchiveOrderPtrOutput() LogsArchiveOrderPtrOutput {
+	return i.ToLogsArchiveOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *logsArchiveOrderPtrType) ToLogsArchiveOrderPtrOutputWithContext(ctx context.Context) LogsArchiveOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderPtrOutput)
+}
+
+// LogsArchiveOrderArrayInput is an input type that accepts LogsArchiveOrderArray and LogsArchiveOrderArrayOutput values.
+// You can construct a concrete instance of `LogsArchiveOrderArrayInput` via:
+//
+//          LogsArchiveOrderArray{ LogsArchiveOrderArgs{...} }
+type LogsArchiveOrderArrayInput interface {
+	pulumi.Input
+
+	ToLogsArchiveOrderArrayOutput() LogsArchiveOrderArrayOutput
+	ToLogsArchiveOrderArrayOutputWithContext(context.Context) LogsArchiveOrderArrayOutput
+}
+
+type LogsArchiveOrderArray []LogsArchiveOrderInput
+
+func (LogsArchiveOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogsArchiveOrder)(nil))
+}
+
+func (i LogsArchiveOrderArray) ToLogsArchiveOrderArrayOutput() LogsArchiveOrderArrayOutput {
+	return i.ToLogsArchiveOrderArrayOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveOrderArray) ToLogsArchiveOrderArrayOutputWithContext(ctx context.Context) LogsArchiveOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderArrayOutput)
+}
+
+// LogsArchiveOrderMapInput is an input type that accepts LogsArchiveOrderMap and LogsArchiveOrderMapOutput values.
+// You can construct a concrete instance of `LogsArchiveOrderMapInput` via:
+//
+//          LogsArchiveOrderMap{ "key": LogsArchiveOrderArgs{...} }
+type LogsArchiveOrderMapInput interface {
+	pulumi.Input
+
+	ToLogsArchiveOrderMapOutput() LogsArchiveOrderMapOutput
+	ToLogsArchiveOrderMapOutputWithContext(context.Context) LogsArchiveOrderMapOutput
+}
+
+type LogsArchiveOrderMap map[string]LogsArchiveOrderInput
+
+func (LogsArchiveOrderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogsArchiveOrder)(nil))
+}
+
+func (i LogsArchiveOrderMap) ToLogsArchiveOrderMapOutput() LogsArchiveOrderMapOutput {
+	return i.ToLogsArchiveOrderMapOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveOrderMap) ToLogsArchiveOrderMapOutputWithContext(ctx context.Context) LogsArchiveOrderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderMapOutput)
+}
+
 type LogsArchiveOrderOutput struct {
 	*pulumi.OutputState
 }
@@ -128,6 +207,75 @@ func (o LogsArchiveOrderOutput) ToLogsArchiveOrderOutputWithContext(ctx context.
 	return o
 }
 
+func (o LogsArchiveOrderOutput) ToLogsArchiveOrderPtrOutput() LogsArchiveOrderPtrOutput {
+	return o.ToLogsArchiveOrderPtrOutputWithContext(context.Background())
+}
+
+func (o LogsArchiveOrderOutput) ToLogsArchiveOrderPtrOutputWithContext(ctx context.Context) LogsArchiveOrderPtrOutput {
+	return o.ApplyT(func(v LogsArchiveOrder) *LogsArchiveOrder {
+		return &v
+	}).(LogsArchiveOrderPtrOutput)
+}
+
+type LogsArchiveOrderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsArchiveOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveOrder)(nil))
+}
+
+func (o LogsArchiveOrderPtrOutput) ToLogsArchiveOrderPtrOutput() LogsArchiveOrderPtrOutput {
+	return o
+}
+
+func (o LogsArchiveOrderPtrOutput) ToLogsArchiveOrderPtrOutputWithContext(ctx context.Context) LogsArchiveOrderPtrOutput {
+	return o
+}
+
+type LogsArchiveOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsArchiveOrder)(nil))
+}
+
+func (o LogsArchiveOrderArrayOutput) ToLogsArchiveOrderArrayOutput() LogsArchiveOrderArrayOutput {
+	return o
+}
+
+func (o LogsArchiveOrderArrayOutput) ToLogsArchiveOrderArrayOutputWithContext(ctx context.Context) LogsArchiveOrderArrayOutput {
+	return o
+}
+
+func (o LogsArchiveOrderArrayOutput) Index(i pulumi.IntInput) LogsArchiveOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsArchiveOrder {
+		return vs[0].([]LogsArchiveOrder)[vs[1].(int)]
+	}).(LogsArchiveOrderOutput)
+}
+
+type LogsArchiveOrderMapOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveOrderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogsArchiveOrder)(nil))
+}
+
+func (o LogsArchiveOrderMapOutput) ToLogsArchiveOrderMapOutput() LogsArchiveOrderMapOutput {
+	return o
+}
+
+func (o LogsArchiveOrderMapOutput) ToLogsArchiveOrderMapOutputWithContext(ctx context.Context) LogsArchiveOrderMapOutput {
+	return o
+}
+
+func (o LogsArchiveOrderMapOutput) MapIndex(k pulumi.StringInput) LogsArchiveOrderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsArchiveOrder {
+		return vs[0].(map[string]LogsArchiveOrder)[vs[1].(string)]
+	}).(LogsArchiveOrderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogsArchiveOrderOutput{})
+	pulumi.RegisterOutputType(LogsArchiveOrderPtrOutput{})
+	pulumi.RegisterOutputType(LogsArchiveOrderArrayOutput{})
+	pulumi.RegisterOutputType(LogsArchiveOrderMapOutput{})
 }

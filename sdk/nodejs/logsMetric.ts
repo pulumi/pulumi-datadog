@@ -131,7 +131,8 @@ export class LogsMetric extends pulumi.CustomResource {
     constructor(name: string, args: LogsMetricArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsMetricArgs | LogsMetricState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogsMetricState | undefined;
             inputs["compute"] = state ? state.compute : undefined;
             inputs["filter"] = state ? state.filter : undefined;
@@ -139,13 +140,13 @@ export class LogsMetric extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogsMetricArgs | undefined;
-            if ((!args || args.compute === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.compute === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'compute'");
             }
-            if ((!args || args.filter === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.filter === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["compute"] = args ? args.compute : undefined;
@@ -153,12 +154,8 @@ export class LogsMetric extends pulumi.CustomResource {
             inputs["groupBies"] = args ? args.groupBies : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogsMetric.__pulumiType, name, inputs, opts);
     }

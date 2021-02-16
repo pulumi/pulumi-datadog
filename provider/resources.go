@@ -62,25 +62,8 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:    []string{"pulumi", "datadog"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
-		//GitHubOrg:   "DataDog",
-		Repository: "https://github.com/pulumi/pulumi-datadog",
-		Config: map[string]*tfbridge.SchemaInfo{
-			"api_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"DATADOG_API_KEY"},
-				},
-			},
-			"app_key": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"DATADOG_APP_KEY"},
-				},
-			},
-			"api_url": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"DATADOG_HOST"},
-				},
-			},
-		},
+		Repository:  "https://github.com/pulumi/pulumi-datadog",
+		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"datadog_dashboard":       {Tok: makeResource(datadogMod, "Dashboard")},
 			"datadog_downtime":        {Tok: makeResource(datadogMod, "Downtime")},

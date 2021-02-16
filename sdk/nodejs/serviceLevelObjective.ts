@@ -172,7 +172,8 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
     constructor(name: string, args: ServiceLevelObjectiveArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceLevelObjectiveArgs | ServiceLevelObjectiveState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceLevelObjectiveState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["forceDelete"] = state ? state.forceDelete : undefined;
@@ -186,13 +187,13 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             inputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as ServiceLevelObjectiveArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.thresholds === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.thresholds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thresholds'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -206,12 +207,8 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["validate"] = args ? args.validate : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceLevelObjective.__pulumiType, name, inputs, opts);
     }

@@ -17,19 +17,19 @@ __all__ = [
 
 __config__ = pulumi.Config('datadog')
 
-api_key = __config__.get('apiKey') or _utilities.get_env('DATADOG_API_KEY')
+api_key = __config__.get('apiKey')
 """
 (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 """
 
-api_url = __config__.get('apiUrl') or _utilities.get_env('DATADOG_HOST')
+api_url = __config__.get('apiUrl')
 """
 The API Url. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
 path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
 you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
 """
 
-app_key = __config__.get('appKey') or _utilities.get_env('DATADOG_APP_KEY')
+app_key = __config__.get('appKey')
 """
 (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 """

@@ -172,7 +172,8 @@ export class LogsArchive extends pulumi.CustomResource {
     constructor(name: string, args: LogsArchiveArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsArchiveArgs | LogsArchiveState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogsArchiveState | undefined;
             inputs["azure"] = state ? state.azure : undefined;
             inputs["azureArchive"] = state ? state.azureArchive : undefined;
@@ -186,10 +187,10 @@ export class LogsArchive extends pulumi.CustomResource {
             inputs["s3Archive"] = state ? state.s3Archive : undefined;
         } else {
             const args = argsOrState as LogsArchiveArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
             inputs["azure"] = args ? args.azure : undefined;
@@ -203,12 +204,8 @@ export class LogsArchive extends pulumi.CustomResource {
             inputs["s3"] = args ? args.s3 : undefined;
             inputs["s3Archive"] = args ? args.s3Archive : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogsArchive.__pulumiType, name, inputs, opts);
     }

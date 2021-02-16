@@ -126,24 +126,21 @@ export class DashboardList extends pulumi.CustomResource {
     constructor(name: string, args: DashboardListArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DashboardListArgs | DashboardListState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DashboardListState | undefined;
             inputs["dashItems"] = state ? state.dashItems : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DashboardListArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["dashItems"] = args ? args.dashItems : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DashboardList.__pulumiType, name, inputs, opts);
     }

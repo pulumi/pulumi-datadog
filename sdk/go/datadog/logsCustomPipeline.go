@@ -24,7 +24,6 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -329,6 +328,85 @@ func (i *LogsCustomPipeline) ToLogsCustomPipelineOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineOutput)
 }
 
+func (i *LogsCustomPipeline) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
+	return i.ToLogsCustomPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *LogsCustomPipeline) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelinePtrOutput)
+}
+
+type LogsCustomPipelinePtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput
+	ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput
+}
+
+type logsCustomPipelinePtrType LogsCustomPipelineArgs
+
+func (*logsCustomPipelinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipeline)(nil))
+}
+
+func (i *logsCustomPipelinePtrType) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
+	return i.ToLogsCustomPipelinePtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomPipelinePtrType) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelinePtrOutput)
+}
+
+// LogsCustomPipelineArrayInput is an input type that accepts LogsCustomPipelineArray and LogsCustomPipelineArrayOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineArrayInput` via:
+//
+//          LogsCustomPipelineArray{ LogsCustomPipelineArgs{...} }
+type LogsCustomPipelineArrayInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineArrayOutput() LogsCustomPipelineArrayOutput
+	ToLogsCustomPipelineArrayOutputWithContext(context.Context) LogsCustomPipelineArrayOutput
+}
+
+type LogsCustomPipelineArray []LogsCustomPipelineInput
+
+func (LogsCustomPipelineArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogsCustomPipeline)(nil))
+}
+
+func (i LogsCustomPipelineArray) ToLogsCustomPipelineArrayOutput() LogsCustomPipelineArrayOutput {
+	return i.ToLogsCustomPipelineArrayOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineArray) ToLogsCustomPipelineArrayOutputWithContext(ctx context.Context) LogsCustomPipelineArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineArrayOutput)
+}
+
+// LogsCustomPipelineMapInput is an input type that accepts LogsCustomPipelineMap and LogsCustomPipelineMapOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineMapInput` via:
+//
+//          LogsCustomPipelineMap{ "key": LogsCustomPipelineArgs{...} }
+type LogsCustomPipelineMapInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineMapOutput() LogsCustomPipelineMapOutput
+	ToLogsCustomPipelineMapOutputWithContext(context.Context) LogsCustomPipelineMapOutput
+}
+
+type LogsCustomPipelineMap map[string]LogsCustomPipelineInput
+
+func (LogsCustomPipelineMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogsCustomPipeline)(nil))
+}
+
+func (i LogsCustomPipelineMap) ToLogsCustomPipelineMapOutput() LogsCustomPipelineMapOutput {
+	return i.ToLogsCustomPipelineMapOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineMap) ToLogsCustomPipelineMapOutputWithContext(ctx context.Context) LogsCustomPipelineMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineMapOutput)
+}
+
 type LogsCustomPipelineOutput struct {
 	*pulumi.OutputState
 }
@@ -345,6 +423,75 @@ func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutputWithContext(ctx cont
 	return o
 }
 
+func (o LogsCustomPipelineOutput) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
+	return o.ToLogsCustomPipelinePtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomPipelineOutput) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
+	return o.ApplyT(func(v LogsCustomPipeline) *LogsCustomPipeline {
+		return &v
+	}).(LogsCustomPipelinePtrOutput)
+}
+
+type LogsCustomPipelinePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsCustomPipelinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipeline)(nil))
+}
+
+func (o LogsCustomPipelinePtrOutput) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelinePtrOutput) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
+	return o
+}
+
+type LogsCustomPipelineArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsCustomPipeline)(nil))
+}
+
+func (o LogsCustomPipelineArrayOutput) ToLogsCustomPipelineArrayOutput() LogsCustomPipelineArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineArrayOutput) ToLogsCustomPipelineArrayOutputWithContext(ctx context.Context) LogsCustomPipelineArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipeline {
+		return vs[0].([]LogsCustomPipeline)[vs[1].(int)]
+	}).(LogsCustomPipelineOutput)
+}
+
+type LogsCustomPipelineMapOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogsCustomPipeline)(nil))
+}
+
+func (o LogsCustomPipelineMapOutput) ToLogsCustomPipelineMapOutput() LogsCustomPipelineMapOutput {
+	return o
+}
+
+func (o LogsCustomPipelineMapOutput) ToLogsCustomPipelineMapOutputWithContext(ctx context.Context) LogsCustomPipelineMapOutput {
+	return o
+}
+
+func (o LogsCustomPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsCustomPipelineOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsCustomPipeline {
+		return vs[0].(map[string]LogsCustomPipeline)[vs[1].(string)]
+	}).(LogsCustomPipelineOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogsCustomPipelineOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelinePtrOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineArrayOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineMapOutput{})
 }

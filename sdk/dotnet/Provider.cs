@@ -74,9 +74,6 @@ namespace Pulumi.Datadog
 
         public ProviderArgs()
         {
-            ApiKey = Utilities.GetEnv("DATADOG_API_KEY");
-            ApiUrl = Utilities.GetEnv("DATADOG_HOST");
-            AppKey = Utilities.GetEnv("DATADOG_APP_KEY");
         }
     }
 }

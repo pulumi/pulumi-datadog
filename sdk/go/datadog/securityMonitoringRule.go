@@ -22,7 +22,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -238,6 +237,85 @@ func (i *SecurityMonitoringRule) ToSecurityMonitoringRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleOutput)
 }
 
+func (i *SecurityMonitoringRule) ToSecurityMonitoringRulePtrOutput() SecurityMonitoringRulePtrOutput {
+	return i.ToSecurityMonitoringRulePtrOutputWithContext(context.Background())
+}
+
+func (i *SecurityMonitoringRule) ToSecurityMonitoringRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRulePtrOutput)
+}
+
+type SecurityMonitoringRulePtrInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRulePtrOutput() SecurityMonitoringRulePtrOutput
+	ToSecurityMonitoringRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringRulePtrOutput
+}
+
+type securityMonitoringRulePtrType SecurityMonitoringRuleArgs
+
+func (*securityMonitoringRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRule)(nil))
+}
+
+func (i *securityMonitoringRulePtrType) ToSecurityMonitoringRulePtrOutput() SecurityMonitoringRulePtrOutput {
+	return i.ToSecurityMonitoringRulePtrOutputWithContext(context.Background())
+}
+
+func (i *securityMonitoringRulePtrType) ToSecurityMonitoringRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRulePtrOutput)
+}
+
+// SecurityMonitoringRuleArrayInput is an input type that accepts SecurityMonitoringRuleArray and SecurityMonitoringRuleArrayOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleArrayInput` via:
+//
+//          SecurityMonitoringRuleArray{ SecurityMonitoringRuleArgs{...} }
+type SecurityMonitoringRuleArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleArrayOutput() SecurityMonitoringRuleArrayOutput
+	ToSecurityMonitoringRuleArrayOutputWithContext(context.Context) SecurityMonitoringRuleArrayOutput
+}
+
+type SecurityMonitoringRuleArray []SecurityMonitoringRuleInput
+
+func (SecurityMonitoringRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SecurityMonitoringRule)(nil))
+}
+
+func (i SecurityMonitoringRuleArray) ToSecurityMonitoringRuleArrayOutput() SecurityMonitoringRuleArrayOutput {
+	return i.ToSecurityMonitoringRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleArray) ToSecurityMonitoringRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleArrayOutput)
+}
+
+// SecurityMonitoringRuleMapInput is an input type that accepts SecurityMonitoringRuleMap and SecurityMonitoringRuleMapOutput values.
+// You can construct a concrete instance of `SecurityMonitoringRuleMapInput` via:
+//
+//          SecurityMonitoringRuleMap{ "key": SecurityMonitoringRuleArgs{...} }
+type SecurityMonitoringRuleMapInput interface {
+	pulumi.Input
+
+	ToSecurityMonitoringRuleMapOutput() SecurityMonitoringRuleMapOutput
+	ToSecurityMonitoringRuleMapOutputWithContext(context.Context) SecurityMonitoringRuleMapOutput
+}
+
+type SecurityMonitoringRuleMap map[string]SecurityMonitoringRuleInput
+
+func (SecurityMonitoringRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SecurityMonitoringRule)(nil))
+}
+
+func (i SecurityMonitoringRuleMap) ToSecurityMonitoringRuleMapOutput() SecurityMonitoringRuleMapOutput {
+	return i.ToSecurityMonitoringRuleMapOutputWithContext(context.Background())
+}
+
+func (i SecurityMonitoringRuleMap) ToSecurityMonitoringRuleMapOutputWithContext(ctx context.Context) SecurityMonitoringRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleMapOutput)
+}
+
 type SecurityMonitoringRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -254,6 +332,75 @@ func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRuleOutputWithContext(
 	return o
 }
 
+func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRulePtrOutput() SecurityMonitoringRulePtrOutput {
+	return o.ToSecurityMonitoringRulePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringRulePtrOutput {
+	return o.ApplyT(func(v SecurityMonitoringRule) *SecurityMonitoringRule {
+		return &v
+	}).(SecurityMonitoringRulePtrOutput)
+}
+
+type SecurityMonitoringRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SecurityMonitoringRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityMonitoringRule)(nil))
+}
+
+func (o SecurityMonitoringRulePtrOutput) ToSecurityMonitoringRulePtrOutput() SecurityMonitoringRulePtrOutput {
+	return o
+}
+
+func (o SecurityMonitoringRulePtrOutput) ToSecurityMonitoringRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringRulePtrOutput {
+	return o
+}
+
+type SecurityMonitoringRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMonitoringRule)(nil))
+}
+
+func (o SecurityMonitoringRuleArrayOutput) ToSecurityMonitoringRuleArrayOutput() SecurityMonitoringRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleArrayOutput) ToSecurityMonitoringRuleArrayOutputWithContext(ctx context.Context) SecurityMonitoringRuleArrayOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringRule {
+		return vs[0].([]SecurityMonitoringRule)[vs[1].(int)]
+	}).(SecurityMonitoringRuleOutput)
+}
+
+type SecurityMonitoringRuleMapOutput struct{ *pulumi.OutputState }
+
+func (SecurityMonitoringRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurityMonitoringRule)(nil))
+}
+
+func (o SecurityMonitoringRuleMapOutput) ToSecurityMonitoringRuleMapOutput() SecurityMonitoringRuleMapOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleMapOutput) ToSecurityMonitoringRuleMapOutputWithContext(ctx context.Context) SecurityMonitoringRuleMapOutput {
+	return o
+}
+
+func (o SecurityMonitoringRuleMapOutput) MapIndex(k pulumi.StringInput) SecurityMonitoringRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityMonitoringRule {
+		return vs[0].(map[string]SecurityMonitoringRule)[vs[1].(string)]
+	}).(SecurityMonitoringRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityMonitoringRuleOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRulePtrOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMonitoringRuleMapOutput{})
 }

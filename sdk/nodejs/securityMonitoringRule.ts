@@ -123,7 +123,8 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
     constructor(name: string, args: SecurityMonitoringRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityMonitoringRuleArgs | SecurityMonitoringRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SecurityMonitoringRuleState | undefined;
             inputs["cases"] = state ? state.cases : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -134,16 +135,16 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringRuleArgs | undefined;
-            if ((!args || args.cases === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.cases === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cases'");
             }
-            if ((!args || args.message === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.queries === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.queries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queries'");
             }
             inputs["cases"] = args ? args.cases : undefined;
@@ -154,12 +155,8 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             inputs["queries"] = args ? args.queries : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SecurityMonitoringRule.__pulumiType, name, inputs, opts);
     }

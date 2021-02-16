@@ -150,6 +150,85 @@ func (i *TimeBoard) ToTimeBoardOutputWithContext(ctx context.Context) TimeBoardO
 	return pulumi.ToOutputWithContext(ctx, i).(TimeBoardOutput)
 }
 
+func (i *TimeBoard) ToTimeBoardPtrOutput() TimeBoardPtrOutput {
+	return i.ToTimeBoardPtrOutputWithContext(context.Background())
+}
+
+func (i *TimeBoard) ToTimeBoardPtrOutputWithContext(ctx context.Context) TimeBoardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeBoardPtrOutput)
+}
+
+type TimeBoardPtrInput interface {
+	pulumi.Input
+
+	ToTimeBoardPtrOutput() TimeBoardPtrOutput
+	ToTimeBoardPtrOutputWithContext(ctx context.Context) TimeBoardPtrOutput
+}
+
+type timeBoardPtrType TimeBoardArgs
+
+func (*timeBoardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimeBoard)(nil))
+}
+
+func (i *timeBoardPtrType) ToTimeBoardPtrOutput() TimeBoardPtrOutput {
+	return i.ToTimeBoardPtrOutputWithContext(context.Background())
+}
+
+func (i *timeBoardPtrType) ToTimeBoardPtrOutputWithContext(ctx context.Context) TimeBoardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeBoardPtrOutput)
+}
+
+// TimeBoardArrayInput is an input type that accepts TimeBoardArray and TimeBoardArrayOutput values.
+// You can construct a concrete instance of `TimeBoardArrayInput` via:
+//
+//          TimeBoardArray{ TimeBoardArgs{...} }
+type TimeBoardArrayInput interface {
+	pulumi.Input
+
+	ToTimeBoardArrayOutput() TimeBoardArrayOutput
+	ToTimeBoardArrayOutputWithContext(context.Context) TimeBoardArrayOutput
+}
+
+type TimeBoardArray []TimeBoardInput
+
+func (TimeBoardArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*TimeBoard)(nil))
+}
+
+func (i TimeBoardArray) ToTimeBoardArrayOutput() TimeBoardArrayOutput {
+	return i.ToTimeBoardArrayOutputWithContext(context.Background())
+}
+
+func (i TimeBoardArray) ToTimeBoardArrayOutputWithContext(ctx context.Context) TimeBoardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeBoardArrayOutput)
+}
+
+// TimeBoardMapInput is an input type that accepts TimeBoardMap and TimeBoardMapOutput values.
+// You can construct a concrete instance of `TimeBoardMapInput` via:
+//
+//          TimeBoardMap{ "key": TimeBoardArgs{...} }
+type TimeBoardMapInput interface {
+	pulumi.Input
+
+	ToTimeBoardMapOutput() TimeBoardMapOutput
+	ToTimeBoardMapOutputWithContext(context.Context) TimeBoardMapOutput
+}
+
+type TimeBoardMap map[string]TimeBoardInput
+
+func (TimeBoardMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*TimeBoard)(nil))
+}
+
+func (i TimeBoardMap) ToTimeBoardMapOutput() TimeBoardMapOutput {
+	return i.ToTimeBoardMapOutputWithContext(context.Background())
+}
+
+func (i TimeBoardMap) ToTimeBoardMapOutputWithContext(ctx context.Context) TimeBoardMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeBoardMapOutput)
+}
+
 type TimeBoardOutput struct {
 	*pulumi.OutputState
 }
@@ -166,6 +245,75 @@ func (o TimeBoardOutput) ToTimeBoardOutputWithContext(ctx context.Context) TimeB
 	return o
 }
 
+func (o TimeBoardOutput) ToTimeBoardPtrOutput() TimeBoardPtrOutput {
+	return o.ToTimeBoardPtrOutputWithContext(context.Background())
+}
+
+func (o TimeBoardOutput) ToTimeBoardPtrOutputWithContext(ctx context.Context) TimeBoardPtrOutput {
+	return o.ApplyT(func(v TimeBoard) *TimeBoard {
+		return &v
+	}).(TimeBoardPtrOutput)
+}
+
+type TimeBoardPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (TimeBoardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimeBoard)(nil))
+}
+
+func (o TimeBoardPtrOutput) ToTimeBoardPtrOutput() TimeBoardPtrOutput {
+	return o
+}
+
+func (o TimeBoardPtrOutput) ToTimeBoardPtrOutputWithContext(ctx context.Context) TimeBoardPtrOutput {
+	return o
+}
+
+type TimeBoardArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeBoardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeBoard)(nil))
+}
+
+func (o TimeBoardArrayOutput) ToTimeBoardArrayOutput() TimeBoardArrayOutput {
+	return o
+}
+
+func (o TimeBoardArrayOutput) ToTimeBoardArrayOutputWithContext(ctx context.Context) TimeBoardArrayOutput {
+	return o
+}
+
+func (o TimeBoardArrayOutput) Index(i pulumi.IntInput) TimeBoardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeBoard {
+		return vs[0].([]TimeBoard)[vs[1].(int)]
+	}).(TimeBoardOutput)
+}
+
+type TimeBoardMapOutput struct{ *pulumi.OutputState }
+
+func (TimeBoardMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TimeBoard)(nil))
+}
+
+func (o TimeBoardMapOutput) ToTimeBoardMapOutput() TimeBoardMapOutput {
+	return o
+}
+
+func (o TimeBoardMapOutput) ToTimeBoardMapOutputWithContext(ctx context.Context) TimeBoardMapOutput {
+	return o
+}
+
+func (o TimeBoardMapOutput) MapIndex(k pulumi.StringInput) TimeBoardOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TimeBoard {
+		return vs[0].(map[string]TimeBoard)[vs[1].(string)]
+	}).(TimeBoardOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TimeBoardOutput{})
+	pulumi.RegisterOutputType(TimeBoardPtrOutput{})
+	pulumi.RegisterOutputType(TimeBoardArrayOutput{})
+	pulumi.RegisterOutputType(TimeBoardMapOutput{})
 }

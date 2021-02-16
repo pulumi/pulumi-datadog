@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -150,6 +150,85 @@ func (i *LogsIndexOrder) ToLogsIndexOrderOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderOutput)
 }
 
+func (i *LogsIndexOrder) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
+	return i.ToLogsIndexOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *LogsIndexOrder) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderPtrOutput)
+}
+
+type LogsIndexOrderPtrInput interface {
+	pulumi.Input
+
+	ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput
+	ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput
+}
+
+type logsIndexOrderPtrType LogsIndexOrderArgs
+
+func (*logsIndexOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsIndexOrder)(nil))
+}
+
+func (i *logsIndexOrderPtrType) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
+	return i.ToLogsIndexOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *logsIndexOrderPtrType) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderPtrOutput)
+}
+
+// LogsIndexOrderArrayInput is an input type that accepts LogsIndexOrderArray and LogsIndexOrderArrayOutput values.
+// You can construct a concrete instance of `LogsIndexOrderArrayInput` via:
+//
+//          LogsIndexOrderArray{ LogsIndexOrderArgs{...} }
+type LogsIndexOrderArrayInput interface {
+	pulumi.Input
+
+	ToLogsIndexOrderArrayOutput() LogsIndexOrderArrayOutput
+	ToLogsIndexOrderArrayOutputWithContext(context.Context) LogsIndexOrderArrayOutput
+}
+
+type LogsIndexOrderArray []LogsIndexOrderInput
+
+func (LogsIndexOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogsIndexOrder)(nil))
+}
+
+func (i LogsIndexOrderArray) ToLogsIndexOrderArrayOutput() LogsIndexOrderArrayOutput {
+	return i.ToLogsIndexOrderArrayOutputWithContext(context.Background())
+}
+
+func (i LogsIndexOrderArray) ToLogsIndexOrderArrayOutputWithContext(ctx context.Context) LogsIndexOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderArrayOutput)
+}
+
+// LogsIndexOrderMapInput is an input type that accepts LogsIndexOrderMap and LogsIndexOrderMapOutput values.
+// You can construct a concrete instance of `LogsIndexOrderMapInput` via:
+//
+//          LogsIndexOrderMap{ "key": LogsIndexOrderArgs{...} }
+type LogsIndexOrderMapInput interface {
+	pulumi.Input
+
+	ToLogsIndexOrderMapOutput() LogsIndexOrderMapOutput
+	ToLogsIndexOrderMapOutputWithContext(context.Context) LogsIndexOrderMapOutput
+}
+
+type LogsIndexOrderMap map[string]LogsIndexOrderInput
+
+func (LogsIndexOrderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogsIndexOrder)(nil))
+}
+
+func (i LogsIndexOrderMap) ToLogsIndexOrderMapOutput() LogsIndexOrderMapOutput {
+	return i.ToLogsIndexOrderMapOutputWithContext(context.Background())
+}
+
+func (i LogsIndexOrderMap) ToLogsIndexOrderMapOutputWithContext(ctx context.Context) LogsIndexOrderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderMapOutput)
+}
+
 type LogsIndexOrderOutput struct {
 	*pulumi.OutputState
 }
@@ -166,6 +245,75 @@ func (o LogsIndexOrderOutput) ToLogsIndexOrderOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o LogsIndexOrderOutput) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
+	return o.ToLogsIndexOrderPtrOutputWithContext(context.Background())
+}
+
+func (o LogsIndexOrderOutput) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
+	return o.ApplyT(func(v LogsIndexOrder) *LogsIndexOrder {
+		return &v
+	}).(LogsIndexOrderPtrOutput)
+}
+
+type LogsIndexOrderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsIndexOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsIndexOrder)(nil))
+}
+
+func (o LogsIndexOrderPtrOutput) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
+	return o
+}
+
+func (o LogsIndexOrderPtrOutput) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
+	return o
+}
+
+type LogsIndexOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsIndexOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsIndexOrder)(nil))
+}
+
+func (o LogsIndexOrderArrayOutput) ToLogsIndexOrderArrayOutput() LogsIndexOrderArrayOutput {
+	return o
+}
+
+func (o LogsIndexOrderArrayOutput) ToLogsIndexOrderArrayOutputWithContext(ctx context.Context) LogsIndexOrderArrayOutput {
+	return o
+}
+
+func (o LogsIndexOrderArrayOutput) Index(i pulumi.IntInput) LogsIndexOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsIndexOrder {
+		return vs[0].([]LogsIndexOrder)[vs[1].(int)]
+	}).(LogsIndexOrderOutput)
+}
+
+type LogsIndexOrderMapOutput struct{ *pulumi.OutputState }
+
+func (LogsIndexOrderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogsIndexOrder)(nil))
+}
+
+func (o LogsIndexOrderMapOutput) ToLogsIndexOrderMapOutput() LogsIndexOrderMapOutput {
+	return o
+}
+
+func (o LogsIndexOrderMapOutput) ToLogsIndexOrderMapOutputWithContext(ctx context.Context) LogsIndexOrderMapOutput {
+	return o
+}
+
+func (o LogsIndexOrderMapOutput) MapIndex(k pulumi.StringInput) LogsIndexOrderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsIndexOrder {
+		return vs[0].(map[string]LogsIndexOrder)[vs[1].(string)]
+	}).(LogsIndexOrderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogsIndexOrderOutput{})
+	pulumi.RegisterOutputType(LogsIndexOrderPtrOutput{})
+	pulumi.RegisterOutputType(LogsIndexOrderArrayOutput{})
+	pulumi.RegisterOutputType(LogsIndexOrderMapOutput{})
 }

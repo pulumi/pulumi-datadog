@@ -99,7 +99,8 @@ export class Integration extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
             inputs["clientEmail"] = state ? state.clientEmail : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
@@ -109,19 +110,19 @@ export class Integration extends pulumi.CustomResource {
             inputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.clientEmail === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientEmail === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientEmail'");
             }
-            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.clientId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.privateKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            if ((!args || args.privateKeyId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.privateKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKeyId'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["clientEmail"] = args ? args.clientEmail : undefined;
@@ -131,12 +132,8 @@ export class Integration extends pulumi.CustomResource {
             inputs["privateKeyId"] = args ? args.privateKeyId : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Integration.__pulumiType, name, inputs, opts);
     }

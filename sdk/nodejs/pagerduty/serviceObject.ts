@@ -75,27 +75,24 @@ export class ServiceObject extends pulumi.CustomResource {
     constructor(name: string, args: ServiceObjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceObjectArgs | ServiceObjectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceObjectState | undefined;
             inputs["serviceKey"] = state ? state.serviceKey : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
         } else {
             const args = argsOrState as ServiceObjectArgs | undefined;
-            if ((!args || args.serviceKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceKey'");
             }
-            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["serviceKey"] = args ? args.serviceKey : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceObject.__pulumiType, name, inputs, opts);
     }

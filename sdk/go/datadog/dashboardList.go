@@ -22,7 +22,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -205,6 +204,85 @@ func (i *DashboardList) ToDashboardListOutputWithContext(ctx context.Context) Da
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardListOutput)
 }
 
+func (i *DashboardList) ToDashboardListPtrOutput() DashboardListPtrOutput {
+	return i.ToDashboardListPtrOutputWithContext(context.Background())
+}
+
+func (i *DashboardList) ToDashboardListPtrOutputWithContext(ctx context.Context) DashboardListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardListPtrOutput)
+}
+
+type DashboardListPtrInput interface {
+	pulumi.Input
+
+	ToDashboardListPtrOutput() DashboardListPtrOutput
+	ToDashboardListPtrOutputWithContext(ctx context.Context) DashboardListPtrOutput
+}
+
+type dashboardListPtrType DashboardListArgs
+
+func (*dashboardListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardList)(nil))
+}
+
+func (i *dashboardListPtrType) ToDashboardListPtrOutput() DashboardListPtrOutput {
+	return i.ToDashboardListPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardListPtrType) ToDashboardListPtrOutputWithContext(ctx context.Context) DashboardListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardListPtrOutput)
+}
+
+// DashboardListArrayInput is an input type that accepts DashboardListArray and DashboardListArrayOutput values.
+// You can construct a concrete instance of `DashboardListArrayInput` via:
+//
+//          DashboardListArray{ DashboardListArgs{...} }
+type DashboardListArrayInput interface {
+	pulumi.Input
+
+	ToDashboardListArrayOutput() DashboardListArrayOutput
+	ToDashboardListArrayOutputWithContext(context.Context) DashboardListArrayOutput
+}
+
+type DashboardListArray []DashboardListInput
+
+func (DashboardListArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DashboardList)(nil))
+}
+
+func (i DashboardListArray) ToDashboardListArrayOutput() DashboardListArrayOutput {
+	return i.ToDashboardListArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardListArray) ToDashboardListArrayOutputWithContext(ctx context.Context) DashboardListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardListArrayOutput)
+}
+
+// DashboardListMapInput is an input type that accepts DashboardListMap and DashboardListMapOutput values.
+// You can construct a concrete instance of `DashboardListMapInput` via:
+//
+//          DashboardListMap{ "key": DashboardListArgs{...} }
+type DashboardListMapInput interface {
+	pulumi.Input
+
+	ToDashboardListMapOutput() DashboardListMapOutput
+	ToDashboardListMapOutputWithContext(context.Context) DashboardListMapOutput
+}
+
+type DashboardListMap map[string]DashboardListInput
+
+func (DashboardListMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DashboardList)(nil))
+}
+
+func (i DashboardListMap) ToDashboardListMapOutput() DashboardListMapOutput {
+	return i.ToDashboardListMapOutputWithContext(context.Background())
+}
+
+func (i DashboardListMap) ToDashboardListMapOutputWithContext(ctx context.Context) DashboardListMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardListMapOutput)
+}
+
 type DashboardListOutput struct {
 	*pulumi.OutputState
 }
@@ -221,6 +299,75 @@ func (o DashboardListOutput) ToDashboardListOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o DashboardListOutput) ToDashboardListPtrOutput() DashboardListPtrOutput {
+	return o.ToDashboardListPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardListOutput) ToDashboardListPtrOutputWithContext(ctx context.Context) DashboardListPtrOutput {
+	return o.ApplyT(func(v DashboardList) *DashboardList {
+		return &v
+	}).(DashboardListPtrOutput)
+}
+
+type DashboardListPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DashboardListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardList)(nil))
+}
+
+func (o DashboardListPtrOutput) ToDashboardListPtrOutput() DashboardListPtrOutput {
+	return o
+}
+
+func (o DashboardListPtrOutput) ToDashboardListPtrOutputWithContext(ctx context.Context) DashboardListPtrOutput {
+	return o
+}
+
+type DashboardListArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardList)(nil))
+}
+
+func (o DashboardListArrayOutput) ToDashboardListArrayOutput() DashboardListArrayOutput {
+	return o
+}
+
+func (o DashboardListArrayOutput) ToDashboardListArrayOutputWithContext(ctx context.Context) DashboardListArrayOutput {
+	return o
+}
+
+func (o DashboardListArrayOutput) Index(i pulumi.IntInput) DashboardListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardList {
+		return vs[0].([]DashboardList)[vs[1].(int)]
+	}).(DashboardListOutput)
+}
+
+type DashboardListMapOutput struct{ *pulumi.OutputState }
+
+func (DashboardListMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DashboardList)(nil))
+}
+
+func (o DashboardListMapOutput) ToDashboardListMapOutput() DashboardListMapOutput {
+	return o
+}
+
+func (o DashboardListMapOutput) ToDashboardListMapOutputWithContext(ctx context.Context) DashboardListMapOutput {
+	return o
+}
+
+func (o DashboardListMapOutput) MapIndex(k pulumi.StringInput) DashboardListOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DashboardList {
+		return vs[0].(map[string]DashboardList)[vs[1].(string)]
+	}).(DashboardListOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DashboardListOutput{})
+	pulumi.RegisterOutputType(DashboardListPtrOutput{})
+	pulumi.RegisterOutputType(DashboardListArrayOutput{})
+	pulumi.RegisterOutputType(DashboardListMapOutput{})
 }

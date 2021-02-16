@@ -155,6 +155,85 @@ func (i *IntegrationLogCollection) ToIntegrationLogCollectionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionOutput)
 }
 
+func (i *IntegrationLogCollection) ToIntegrationLogCollectionPtrOutput() IntegrationLogCollectionPtrOutput {
+	return i.ToIntegrationLogCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i *IntegrationLogCollection) ToIntegrationLogCollectionPtrOutputWithContext(ctx context.Context) IntegrationLogCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionPtrOutput)
+}
+
+type IntegrationLogCollectionPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationLogCollectionPtrOutput() IntegrationLogCollectionPtrOutput
+	ToIntegrationLogCollectionPtrOutputWithContext(ctx context.Context) IntegrationLogCollectionPtrOutput
+}
+
+type integrationLogCollectionPtrType IntegrationLogCollectionArgs
+
+func (*integrationLogCollectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationLogCollection)(nil))
+}
+
+func (i *integrationLogCollectionPtrType) ToIntegrationLogCollectionPtrOutput() IntegrationLogCollectionPtrOutput {
+	return i.ToIntegrationLogCollectionPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationLogCollectionPtrType) ToIntegrationLogCollectionPtrOutputWithContext(ctx context.Context) IntegrationLogCollectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionPtrOutput)
+}
+
+// IntegrationLogCollectionArrayInput is an input type that accepts IntegrationLogCollectionArray and IntegrationLogCollectionArrayOutput values.
+// You can construct a concrete instance of `IntegrationLogCollectionArrayInput` via:
+//
+//          IntegrationLogCollectionArray{ IntegrationLogCollectionArgs{...} }
+type IntegrationLogCollectionArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationLogCollectionArrayOutput() IntegrationLogCollectionArrayOutput
+	ToIntegrationLogCollectionArrayOutputWithContext(context.Context) IntegrationLogCollectionArrayOutput
+}
+
+type IntegrationLogCollectionArray []IntegrationLogCollectionInput
+
+func (IntegrationLogCollectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IntegrationLogCollection)(nil))
+}
+
+func (i IntegrationLogCollectionArray) ToIntegrationLogCollectionArrayOutput() IntegrationLogCollectionArrayOutput {
+	return i.ToIntegrationLogCollectionArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationLogCollectionArray) ToIntegrationLogCollectionArrayOutputWithContext(ctx context.Context) IntegrationLogCollectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionArrayOutput)
+}
+
+// IntegrationLogCollectionMapInput is an input type that accepts IntegrationLogCollectionMap and IntegrationLogCollectionMapOutput values.
+// You can construct a concrete instance of `IntegrationLogCollectionMapInput` via:
+//
+//          IntegrationLogCollectionMap{ "key": IntegrationLogCollectionArgs{...} }
+type IntegrationLogCollectionMapInput interface {
+	pulumi.Input
+
+	ToIntegrationLogCollectionMapOutput() IntegrationLogCollectionMapOutput
+	ToIntegrationLogCollectionMapOutputWithContext(context.Context) IntegrationLogCollectionMapOutput
+}
+
+type IntegrationLogCollectionMap map[string]IntegrationLogCollectionInput
+
+func (IntegrationLogCollectionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IntegrationLogCollection)(nil))
+}
+
+func (i IntegrationLogCollectionMap) ToIntegrationLogCollectionMapOutput() IntegrationLogCollectionMapOutput {
+	return i.ToIntegrationLogCollectionMapOutputWithContext(context.Background())
+}
+
+func (i IntegrationLogCollectionMap) ToIntegrationLogCollectionMapOutputWithContext(ctx context.Context) IntegrationLogCollectionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionMapOutput)
+}
+
 type IntegrationLogCollectionOutput struct {
 	*pulumi.OutputState
 }
@@ -171,6 +250,75 @@ func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionOutputWithCont
 	return o
 }
 
+func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionPtrOutput() IntegrationLogCollectionPtrOutput {
+	return o.ToIntegrationLogCollectionPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionPtrOutputWithContext(ctx context.Context) IntegrationLogCollectionPtrOutput {
+	return o.ApplyT(func(v IntegrationLogCollection) *IntegrationLogCollection {
+		return &v
+	}).(IntegrationLogCollectionPtrOutput)
+}
+
+type IntegrationLogCollectionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IntegrationLogCollectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationLogCollection)(nil))
+}
+
+func (o IntegrationLogCollectionPtrOutput) ToIntegrationLogCollectionPtrOutput() IntegrationLogCollectionPtrOutput {
+	return o
+}
+
+func (o IntegrationLogCollectionPtrOutput) ToIntegrationLogCollectionPtrOutputWithContext(ctx context.Context) IntegrationLogCollectionPtrOutput {
+	return o
+}
+
+type IntegrationLogCollectionArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationLogCollectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationLogCollection)(nil))
+}
+
+func (o IntegrationLogCollectionArrayOutput) ToIntegrationLogCollectionArrayOutput() IntegrationLogCollectionArrayOutput {
+	return o
+}
+
+func (o IntegrationLogCollectionArrayOutput) ToIntegrationLogCollectionArrayOutputWithContext(ctx context.Context) IntegrationLogCollectionArrayOutput {
+	return o
+}
+
+func (o IntegrationLogCollectionArrayOutput) Index(i pulumi.IntInput) IntegrationLogCollectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationLogCollection {
+		return vs[0].([]IntegrationLogCollection)[vs[1].(int)]
+	}).(IntegrationLogCollectionOutput)
+}
+
+type IntegrationLogCollectionMapOutput struct{ *pulumi.OutputState }
+
+func (IntegrationLogCollectionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IntegrationLogCollection)(nil))
+}
+
+func (o IntegrationLogCollectionMapOutput) ToIntegrationLogCollectionMapOutput() IntegrationLogCollectionMapOutput {
+	return o
+}
+
+func (o IntegrationLogCollectionMapOutput) ToIntegrationLogCollectionMapOutputWithContext(ctx context.Context) IntegrationLogCollectionMapOutput {
+	return o
+}
+
+func (o IntegrationLogCollectionMapOutput) MapIndex(k pulumi.StringInput) IntegrationLogCollectionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationLogCollection {
+		return vs[0].(map[string]IntegrationLogCollection)[vs[1].(string)]
+	}).(IntegrationLogCollectionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationLogCollectionOutput{})
+	pulumi.RegisterOutputType(IntegrationLogCollectionPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationLogCollectionArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationLogCollectionMapOutput{})
 }

@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -159,6 +159,85 @@ func (i *LogsPipelineOrder) ToLogsPipelineOrderOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderOutput)
 }
 
+func (i *LogsPipelineOrder) ToLogsPipelineOrderPtrOutput() LogsPipelineOrderPtrOutput {
+	return i.ToLogsPipelineOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *LogsPipelineOrder) ToLogsPipelineOrderPtrOutputWithContext(ctx context.Context) LogsPipelineOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderPtrOutput)
+}
+
+type LogsPipelineOrderPtrInput interface {
+	pulumi.Input
+
+	ToLogsPipelineOrderPtrOutput() LogsPipelineOrderPtrOutput
+	ToLogsPipelineOrderPtrOutputWithContext(ctx context.Context) LogsPipelineOrderPtrOutput
+}
+
+type logsPipelineOrderPtrType LogsPipelineOrderArgs
+
+func (*logsPipelineOrderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsPipelineOrder)(nil))
+}
+
+func (i *logsPipelineOrderPtrType) ToLogsPipelineOrderPtrOutput() LogsPipelineOrderPtrOutput {
+	return i.ToLogsPipelineOrderPtrOutputWithContext(context.Background())
+}
+
+func (i *logsPipelineOrderPtrType) ToLogsPipelineOrderPtrOutputWithContext(ctx context.Context) LogsPipelineOrderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderPtrOutput)
+}
+
+// LogsPipelineOrderArrayInput is an input type that accepts LogsPipelineOrderArray and LogsPipelineOrderArrayOutput values.
+// You can construct a concrete instance of `LogsPipelineOrderArrayInput` via:
+//
+//          LogsPipelineOrderArray{ LogsPipelineOrderArgs{...} }
+type LogsPipelineOrderArrayInput interface {
+	pulumi.Input
+
+	ToLogsPipelineOrderArrayOutput() LogsPipelineOrderArrayOutput
+	ToLogsPipelineOrderArrayOutputWithContext(context.Context) LogsPipelineOrderArrayOutput
+}
+
+type LogsPipelineOrderArray []LogsPipelineOrderInput
+
+func (LogsPipelineOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*LogsPipelineOrder)(nil))
+}
+
+func (i LogsPipelineOrderArray) ToLogsPipelineOrderArrayOutput() LogsPipelineOrderArrayOutput {
+	return i.ToLogsPipelineOrderArrayOutputWithContext(context.Background())
+}
+
+func (i LogsPipelineOrderArray) ToLogsPipelineOrderArrayOutputWithContext(ctx context.Context) LogsPipelineOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderArrayOutput)
+}
+
+// LogsPipelineOrderMapInput is an input type that accepts LogsPipelineOrderMap and LogsPipelineOrderMapOutput values.
+// You can construct a concrete instance of `LogsPipelineOrderMapInput` via:
+//
+//          LogsPipelineOrderMap{ "key": LogsPipelineOrderArgs{...} }
+type LogsPipelineOrderMapInput interface {
+	pulumi.Input
+
+	ToLogsPipelineOrderMapOutput() LogsPipelineOrderMapOutput
+	ToLogsPipelineOrderMapOutputWithContext(context.Context) LogsPipelineOrderMapOutput
+}
+
+type LogsPipelineOrderMap map[string]LogsPipelineOrderInput
+
+func (LogsPipelineOrderMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*LogsPipelineOrder)(nil))
+}
+
+func (i LogsPipelineOrderMap) ToLogsPipelineOrderMapOutput() LogsPipelineOrderMapOutput {
+	return i.ToLogsPipelineOrderMapOutputWithContext(context.Background())
+}
+
+func (i LogsPipelineOrderMap) ToLogsPipelineOrderMapOutputWithContext(ctx context.Context) LogsPipelineOrderMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderMapOutput)
+}
+
 type LogsPipelineOrderOutput struct {
 	*pulumi.OutputState
 }
@@ -175,6 +254,75 @@ func (o LogsPipelineOrderOutput) ToLogsPipelineOrderOutputWithContext(ctx contex
 	return o
 }
 
+func (o LogsPipelineOrderOutput) ToLogsPipelineOrderPtrOutput() LogsPipelineOrderPtrOutput {
+	return o.ToLogsPipelineOrderPtrOutputWithContext(context.Background())
+}
+
+func (o LogsPipelineOrderOutput) ToLogsPipelineOrderPtrOutputWithContext(ctx context.Context) LogsPipelineOrderPtrOutput {
+	return o.ApplyT(func(v LogsPipelineOrder) *LogsPipelineOrder {
+		return &v
+	}).(LogsPipelineOrderPtrOutput)
+}
+
+type LogsPipelineOrderPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (LogsPipelineOrderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsPipelineOrder)(nil))
+}
+
+func (o LogsPipelineOrderPtrOutput) ToLogsPipelineOrderPtrOutput() LogsPipelineOrderPtrOutput {
+	return o
+}
+
+func (o LogsPipelineOrderPtrOutput) ToLogsPipelineOrderPtrOutputWithContext(ctx context.Context) LogsPipelineOrderPtrOutput {
+	return o
+}
+
+type LogsPipelineOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsPipelineOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsPipelineOrder)(nil))
+}
+
+func (o LogsPipelineOrderArrayOutput) ToLogsPipelineOrderArrayOutput() LogsPipelineOrderArrayOutput {
+	return o
+}
+
+func (o LogsPipelineOrderArrayOutput) ToLogsPipelineOrderArrayOutputWithContext(ctx context.Context) LogsPipelineOrderArrayOutput {
+	return o
+}
+
+func (o LogsPipelineOrderArrayOutput) Index(i pulumi.IntInput) LogsPipelineOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsPipelineOrder {
+		return vs[0].([]LogsPipelineOrder)[vs[1].(int)]
+	}).(LogsPipelineOrderOutput)
+}
+
+type LogsPipelineOrderMapOutput struct{ *pulumi.OutputState }
+
+func (LogsPipelineOrderMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LogsPipelineOrder)(nil))
+}
+
+func (o LogsPipelineOrderMapOutput) ToLogsPipelineOrderMapOutput() LogsPipelineOrderMapOutput {
+	return o
+}
+
+func (o LogsPipelineOrderMapOutput) ToLogsPipelineOrderMapOutputWithContext(ctx context.Context) LogsPipelineOrderMapOutput {
+	return o
+}
+
+func (o LogsPipelineOrderMapOutput) MapIndex(k pulumi.StringInput) LogsPipelineOrderOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsPipelineOrder {
+		return vs[0].(map[string]LogsPipelineOrder)[vs[1].(string)]
+	}).(LogsPipelineOrderOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogsPipelineOrderOutput{})
+	pulumi.RegisterOutputType(LogsPipelineOrderPtrOutput{})
+	pulumi.RegisterOutputType(LogsPipelineOrderArrayOutput{})
+	pulumi.RegisterOutputType(LogsPipelineOrderMapOutput{})
 }

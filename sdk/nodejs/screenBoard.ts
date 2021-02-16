@@ -474,7 +474,8 @@ export class ScreenBoard extends pulumi.CustomResource {
     constructor(name: string, args: ScreenBoardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScreenBoardArgs | ScreenBoardState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScreenBoardState | undefined;
             inputs["height"] = state ? state.height : undefined;
             inputs["readOnly"] = state ? state.readOnly : undefined;
@@ -485,10 +486,10 @@ export class ScreenBoard extends pulumi.CustomResource {
             inputs["width"] = state ? state.width : undefined;
         } else {
             const args = argsOrState as ScreenBoardArgs | undefined;
-            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.widgets === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.widgets === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'widgets'");
             }
             inputs["height"] = args ? args.height : undefined;
@@ -499,12 +500,8 @@ export class ScreenBoard extends pulumi.CustomResource {
             inputs["widgets"] = args ? args.widgets : undefined;
             inputs["width"] = args ? args.width : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ScreenBoard.__pulumiType, name, inputs, opts);
     }

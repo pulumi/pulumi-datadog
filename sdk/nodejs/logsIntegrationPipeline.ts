@@ -69,19 +69,16 @@ export class LogsIntegrationPipeline extends pulumi.CustomResource {
     constructor(name: string, args?: LogsIntegrationPipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsIntegrationPipelineArgs | LogsIntegrationPipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as LogsIntegrationPipelineState | undefined;
             inputs["isEnabled"] = state ? state.isEnabled : undefined;
         } else {
             const args = argsOrState as LogsIntegrationPipelineArgs | undefined;
             inputs["isEnabled"] = args ? args.isEnabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(LogsIntegrationPipeline.__pulumiType, name, inputs, opts);
     }

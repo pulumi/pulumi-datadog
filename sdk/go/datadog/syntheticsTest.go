@@ -23,7 +23,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -85,7 +84,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -137,7 +135,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -188,7 +185,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -242,7 +238,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -276,7 +272,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog/"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v2/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -650,6 +646,85 @@ func (i *SyntheticsTest) ToSyntheticsTestOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOutput)
 }
 
+func (i *SyntheticsTest) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
+	return i.ToSyntheticsTestPtrOutputWithContext(context.Background())
+}
+
+func (i *SyntheticsTest) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestPtrOutput)
+}
+
+type SyntheticsTestPtrInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput
+	ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput
+}
+
+type syntheticsTestPtrType SyntheticsTestArgs
+
+func (*syntheticsTestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTest)(nil))
+}
+
+func (i *syntheticsTestPtrType) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
+	return i.ToSyntheticsTestPtrOutputWithContext(context.Background())
+}
+
+func (i *syntheticsTestPtrType) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestPtrOutput)
+}
+
+// SyntheticsTestArrayInput is an input type that accepts SyntheticsTestArray and SyntheticsTestArrayOutput values.
+// You can construct a concrete instance of `SyntheticsTestArrayInput` via:
+//
+//          SyntheticsTestArray{ SyntheticsTestArgs{...} }
+type SyntheticsTestArrayInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestArrayOutput() SyntheticsTestArrayOutput
+	ToSyntheticsTestArrayOutputWithContext(context.Context) SyntheticsTestArrayOutput
+}
+
+type SyntheticsTestArray []SyntheticsTestInput
+
+func (SyntheticsTestArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SyntheticsTest)(nil))
+}
+
+func (i SyntheticsTestArray) ToSyntheticsTestArrayOutput() SyntheticsTestArrayOutput {
+	return i.ToSyntheticsTestArrayOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestArray) ToSyntheticsTestArrayOutputWithContext(ctx context.Context) SyntheticsTestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestArrayOutput)
+}
+
+// SyntheticsTestMapInput is an input type that accepts SyntheticsTestMap and SyntheticsTestMapOutput values.
+// You can construct a concrete instance of `SyntheticsTestMapInput` via:
+//
+//          SyntheticsTestMap{ "key": SyntheticsTestArgs{...} }
+type SyntheticsTestMapInput interface {
+	pulumi.Input
+
+	ToSyntheticsTestMapOutput() SyntheticsTestMapOutput
+	ToSyntheticsTestMapOutputWithContext(context.Context) SyntheticsTestMapOutput
+}
+
+type SyntheticsTestMap map[string]SyntheticsTestInput
+
+func (SyntheticsTestMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SyntheticsTest)(nil))
+}
+
+func (i SyntheticsTestMap) ToSyntheticsTestMapOutput() SyntheticsTestMapOutput {
+	return i.ToSyntheticsTestMapOutputWithContext(context.Background())
+}
+
+func (i SyntheticsTestMap) ToSyntheticsTestMapOutputWithContext(ctx context.Context) SyntheticsTestMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestMapOutput)
+}
+
 type SyntheticsTestOutput struct {
 	*pulumi.OutputState
 }
@@ -666,6 +741,75 @@ func (o SyntheticsTestOutput) ToSyntheticsTestOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o SyntheticsTestOutput) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
+	return o.ToSyntheticsTestPtrOutputWithContext(context.Background())
+}
+
+func (o SyntheticsTestOutput) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
+	return o.ApplyT(func(v SyntheticsTest) *SyntheticsTest {
+		return &v
+	}).(SyntheticsTestPtrOutput)
+}
+
+type SyntheticsTestPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SyntheticsTestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SyntheticsTest)(nil))
+}
+
+func (o SyntheticsTestPtrOutput) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
+	return o
+}
+
+func (o SyntheticsTestPtrOutput) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
+	return o
+}
+
+type SyntheticsTestArrayOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyntheticsTest)(nil))
+}
+
+func (o SyntheticsTestArrayOutput) ToSyntheticsTestArrayOutput() SyntheticsTestArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestArrayOutput) ToSyntheticsTestArrayOutputWithContext(ctx context.Context) SyntheticsTestArrayOutput {
+	return o
+}
+
+func (o SyntheticsTestArrayOutput) Index(i pulumi.IntInput) SyntheticsTestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTest {
+		return vs[0].([]SyntheticsTest)[vs[1].(int)]
+	}).(SyntheticsTestOutput)
+}
+
+type SyntheticsTestMapOutput struct{ *pulumi.OutputState }
+
+func (SyntheticsTestMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SyntheticsTest)(nil))
+}
+
+func (o SyntheticsTestMapOutput) ToSyntheticsTestMapOutput() SyntheticsTestMapOutput {
+	return o
+}
+
+func (o SyntheticsTestMapOutput) ToSyntheticsTestMapOutputWithContext(ctx context.Context) SyntheticsTestMapOutput {
+	return o
+}
+
+func (o SyntheticsTestMapOutput) MapIndex(k pulumi.StringInput) SyntheticsTestOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SyntheticsTest {
+		return vs[0].(map[string]SyntheticsTest)[vs[1].(string)]
+	}).(SyntheticsTestOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SyntheticsTestOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestPtrOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestArrayOutput{})
+	pulumi.RegisterOutputType(SyntheticsTestMapOutput{})
 }

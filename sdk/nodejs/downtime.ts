@@ -140,7 +140,8 @@ export class Downtime extends pulumi.CustomResource {
     constructor(name: string, args: DowntimeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DowntimeArgs | DowntimeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DowntimeState | undefined;
             inputs["active"] = state ? state.active : undefined;
             inputs["disabled"] = state ? state.disabled : undefined;
@@ -156,7 +157,7 @@ export class Downtime extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as DowntimeArgs | undefined;
-            if ((!args || args.scopes === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
             inputs["active"] = args ? args.active : undefined;
@@ -172,12 +173,8 @@ export class Downtime extends pulumi.CustomResource {
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Downtime.__pulumiType, name, inputs, opts);
     }

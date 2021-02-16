@@ -35,18 +35,15 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
+        opts = opts || {};
         {
-            inputs["apiKey"] = (args ? args.apiKey : undefined) || utilities.getEnv("DATADOG_API_KEY");
-            inputs["apiUrl"] = (args ? args.apiUrl : undefined) || utilities.getEnv("DATADOG_HOST");
-            inputs["appKey"] = (args ? args.appKey : undefined) || utilities.getEnv("DATADOG_APP_KEY");
+            inputs["apiKey"] = args ? args.apiKey : undefined;
+            inputs["apiUrl"] = args ? args.apiUrl : undefined;
+            inputs["appKey"] = args ? args.appKey : undefined;
             inputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provider.__pulumiType, name, inputs, opts);
     }
