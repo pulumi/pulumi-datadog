@@ -341,7 +341,7 @@ class SyntheticsTest(pulumi.CustomResource):
 
             if assertions is not None and not opts.urn:
                 warnings.warn("""Use assertion instead""", DeprecationWarning)
-                pulumi.log.warn("assertions is deprecated: Use assertion instead")
+                pulumi.log.warn("""assertions is deprecated: Use assertion instead""")
             __props__['assertions'] = assertions
             __props__['browser_variables'] = browser_variables
             __props__['config_variables'] = config_variables
@@ -355,7 +355,7 @@ class SyntheticsTest(pulumi.CustomResource):
             __props__['name'] = name
             if options is not None and not opts.urn:
                 warnings.warn("""This parameter is deprecated, please use `options_list`""", DeprecationWarning)
-                pulumi.log.warn("options is deprecated: This parameter is deprecated, please use `options_list`")
+                pulumi.log.warn("""options is deprecated: This parameter is deprecated, please use `options_list`""")
             __props__['options'] = options
             __props__['options_list'] = options_list
             if request is None and not opts.urn:
@@ -376,7 +376,7 @@ class SyntheticsTest(pulumi.CustomResource):
             __props__['type'] = type
             if variables is not None and not opts.urn:
                 warnings.warn("""This parameter is deprecated, please use `browser_variable`""", DeprecationWarning)
-                pulumi.log.warn("variables is deprecated: This parameter is deprecated, please use `browser_variable`")
+                pulumi.log.warn("""variables is deprecated: This parameter is deprecated, please use `browser_variable`""")
             __props__['variables'] = variables
             __props__['monitor_id'] = None
         super(SyntheticsTest, __self__).__init__(

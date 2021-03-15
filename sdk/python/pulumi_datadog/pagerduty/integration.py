@@ -85,7 +85,7 @@ class Integration(pulumi.CustomResource):
             __props__['schedules'] = schedules
             if services is not None and not opts.urn:
                 warnings.warn("""set \"individual_services\" to true and use datadog_pagerduty_integration_service_object""", DeprecationWarning)
-                pulumi.log.warn("services is deprecated: set \"individual_services\" to true and use datadog_pagerduty_integration_service_object")
+                pulumi.log.warn("""services is deprecated: set \"individual_services\" to true and use datadog_pagerduty_integration_service_object""")
             __props__['services'] = services
             if subdomain is None and not opts.urn:
                 raise TypeError("Missing required property 'subdomain'")

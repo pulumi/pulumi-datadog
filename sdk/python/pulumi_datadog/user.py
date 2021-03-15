@@ -107,7 +107,7 @@ class User(pulumi.CustomResource):
 
             if access_role is not None and not opts.urn:
                 warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-                pulumi.log.warn("access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version")
+                pulumi.log.warn("""access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
             __props__['access_role'] = access_role
             __props__['disabled'] = disabled
             if email is None and not opts.urn:
@@ -115,16 +115,16 @@ class User(pulumi.CustomResource):
             __props__['email'] = email
             if handle is not None and not opts.urn:
                 warnings.warn("""This parameter is deprecated and will be removed from the next Major version""", DeprecationWarning)
-                pulumi.log.warn("handle is deprecated: This parameter is deprecated and will be removed from the next Major version")
+                pulumi.log.warn("""handle is deprecated: This parameter is deprecated and will be removed from the next Major version""")
             __props__['handle'] = handle
             if is_admin is not None and not opts.urn:
                 warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-                pulumi.log.warn("is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version")
+                pulumi.log.warn("""is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
             __props__['is_admin'] = is_admin
             __props__['name'] = name
             if role is not None and not opts.urn:
                 warnings.warn("""This parameter was removed from the API and has no effect""", DeprecationWarning)
-                pulumi.log.warn("role is deprecated: This parameter was removed from the API and has no effect")
+                pulumi.log.warn("""role is deprecated: This parameter was removed from the API and has no effect""")
             __props__['role'] = role
             __props__['roles'] = roles
             __props__['send_user_invitation'] = send_user_invitation

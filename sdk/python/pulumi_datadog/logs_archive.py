@@ -143,12 +143,12 @@ class LogsArchive(pulumi.CustomResource):
 
             if azure is not None and not opts.urn:
                 warnings.warn("""Define `azure_archive` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("azure is deprecated: Define `azure_archive` list with one element instead.")
+                pulumi.log.warn("""azure is deprecated: Define `azure_archive` list with one element instead.""")
             __props__['azure'] = azure
             __props__['azure_archive'] = azure_archive
             if gcs is not None and not opts.urn:
                 warnings.warn("""Define `gcs_archive` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("gcs is deprecated: Define `gcs_archive` list with one element instead.")
+                pulumi.log.warn("""gcs is deprecated: Define `gcs_archive` list with one element instead.""")
             __props__['gcs'] = gcs
             __props__['gcs_archive'] = gcs_archive
             __props__['include_tags'] = include_tags
@@ -161,7 +161,7 @@ class LogsArchive(pulumi.CustomResource):
             __props__['rehydration_tags'] = rehydration_tags
             if s3 is not None and not opts.urn:
                 warnings.warn("""Define `s3_archive` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("s3 is deprecated: Define `s3_archive` list with one element instead.")
+                pulumi.log.warn("""s3 is deprecated: Define `s3_archive` list with one element instead.""")
             __props__['s3'] = s3
             __props__['s3_archive'] = s3_archive
         super(LogsArchive, __self__).__init__(

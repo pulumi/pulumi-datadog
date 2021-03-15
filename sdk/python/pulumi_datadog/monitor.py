@@ -147,16 +147,16 @@ class Monitor(pulumi.CustomResource):
             __props__['require_full_window'] = require_full_window
             if silenced is not None and not opts.urn:
                 warnings.warn("""use Downtime Resource instead""", DeprecationWarning)
-                pulumi.log.warn("silenced is deprecated: use Downtime Resource instead")
+                pulumi.log.warn("""silenced is deprecated: use Downtime Resource instead""")
             __props__['silenced'] = silenced
             __props__['tags'] = tags
             if threshold_windows is not None and not opts.urn:
                 warnings.warn("""Define `monitor_threshold_windows` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.")
+                pulumi.log.warn("""threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.""")
             __props__['threshold_windows'] = threshold_windows
             if thresholds is not None and not opts.urn:
                 warnings.warn("""Define `monitor_thresholds` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("thresholds is deprecated: Define `monitor_thresholds` list with one element instead.")
+                pulumi.log.warn("""thresholds is deprecated: Define `monitor_thresholds` list with one element instead.""")
             __props__['thresholds'] = thresholds
             __props__['timeout_h'] = timeout_h
             if type is None and not opts.urn:
