@@ -88,14 +88,14 @@ class GetMonitorResult:
             raise TypeError("Expected argument 'threshold_windows' to be a dict")
         if threshold_windows is not None:
             warnings.warn("""Define `monitor_threshold_windows` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.")
+            pulumi.log.warn("""threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.""")
 
         pulumi.set(__self__, "threshold_windows", threshold_windows)
         if thresholds and not isinstance(thresholds, dict):
             raise TypeError("Expected argument 'thresholds' to be a dict")
         if thresholds is not None:
             warnings.warn("""Define `monitor_thresholds` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("thresholds is deprecated: Define `monitor_thresholds` list with one element instead.")
+            pulumi.log.warn("""thresholds is deprecated: Define `monitor_thresholds` list with one element instead.""")
 
         pulumi.set(__self__, "thresholds", thresholds)
         if timeout_h and not isinstance(timeout_h, int):
