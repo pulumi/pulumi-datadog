@@ -5,13 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Integration']
+__all__ = ['IntegrationArgs', 'Integration']
+
+@pulumi.input_type
+class IntegrationArgs:
+    def __init__(__self__, *,
+                 client_email: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 private_key: pulumi.Input[str],
+                 private_key_id: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 host_filters: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Integration resource.
+        :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
+        :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
+        :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
+        :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
+        :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+               imported into Datadog.
+        """
+        pulumi.set(__self__, "client_email", client_email)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "private_key_id", private_key_id)
+        pulumi.set(__self__, "project_id", project_id)
+        if host_filters is not None:
+            pulumi.set(__self__, "host_filters", host_filters)
+
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> pulumi.Input[str]:
+        """
+        Your email found in your JSON service account key.
+        """
+        return pulumi.get(self, "client_email")
+
+    @client_email.setter
+    def client_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_email", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Your ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> pulumi.Input[str]:
+        """
+        Your private key name found in your JSON service account key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="privateKeyId")
+    def private_key_id(self) -> pulumi.Input[str]:
+        """
+        Your private key ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "private_key_id")
+
+    @private_key_id.setter
+    def private_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_key_id", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        Your Google Cloud project ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="hostFilters")
+    def host_filters(self) -> Optional[pulumi.Input[str]]:
+        """
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        imported into Datadog.
+        """
+        return pulumi.get(self, "host_filters")
+
+    @host_filters.setter
+    def host_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_filters", value)
 
 
 class Integration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +166,67 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IntegrationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog - Google Cloud Platform integration resource. This can be used to create and manage Datadog - Google Cloud Platform integration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Google Cloud Platform integration
+        awesome_gcp_project_integration = datadog.gcp.Integration("awesomeGcpProjectIntegration",
+            client_email="awesome-service-account@awesome-project-id.iam.gserviceaccount.com",
+            client_id="123456789012345678901",
+            host_filters="foo:bar,buzz:lightyear",
+            private_key=\"\"\"-----BEGIN PRIVATE KEY-----
+        ...
+        -----END PRIVATE KEY-----
+
+        \"\"\",
+            private_key_id="1234567890123456789012345678901234567890",
+            project_id="awesome-project-id")
+        ```
+
+        ## Import
+
+        Google Cloud Platform integrations can be imported using their project ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IntegrationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_email: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 host_filters: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
+                 private_key_id: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LogsCustomPipeline']
+__all__ = ['LogsCustomPipelineArgs', 'LogsCustomPipeline']
+
+@pulumi.input_type
+class LogsCustomPipelineArgs:
+    def __init__(__self__, *,
+                 filters: pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineFilterArgs']]],
+                 name: pulumi.Input[str],
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]] = None):
+        """
+        The set of arguments for constructing a LogsCustomPipeline resource.
+        """
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "name", name)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineFilterArgs']]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineFilterArgs']]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]]:
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsCustomPipelineProcessorArgs']]]]):
+        pulumi.set(self, "processors", value)
 
 
 class LogsCustomPipeline(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -212,6 +266,219 @@ class LogsCustomPipeline(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LogsCustomPipelineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
+
+        ## Example Usage
+
+        Create a Datadog logs pipeline:
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        sample_pipeline = datadog.LogsCustomPipeline("samplePipeline",
+            filters=[datadog.LogsCustomPipelineFilterArgs(
+                query="source:foo",
+            )],
+            is_enabled=True,
+            name="sample pipeline",
+            processors=[
+                datadog.LogsCustomPipelineProcessorArgs(
+                    arithmetic_processor=datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs(
+                        expression="(time1 - time2)*1000",
+                        is_enabled=True,
+                        is_replace_missing=True,
+                        name="sample arithmetic processor",
+                        target="my_arithmetic",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    attribute_remapper=datadog.LogsCustomPipelineProcessorAttributeRemapperArgs(
+                        is_enabled=True,
+                        name="sample attribute processor",
+                        override_on_conflict=False,
+                        preserve_source=True,
+                        source_type="tag",
+                        sources=["db.instance"],
+                        target="db",
+                        target_format="string",
+                        target_type="attribute",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    category_processor=datadog.LogsCustomPipelineProcessorCategoryProcessorArgs(
+                        category=[
+                            {
+                                "filter": {
+                                    "query": "@severity: \".\"",
+                                },
+                                "name": "debug",
+                            },
+                            {
+                                "filter": {
+                                    "query": "@severity: \"-\"",
+                                },
+                                "name": "verbose",
+                            },
+                        ],
+                        is_enabled=True,
+                        name="sample category processor",
+                        target="foo.severity",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    date_remapper=datadog.LogsCustomPipelineProcessorDateRemapperArgs(
+                        is_enabled=True,
+                        name="sample date remapper",
+                        sources=[
+                            "_timestamp",
+                            "published_date",
+                        ],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    geo_ip_parser=datadog.LogsCustomPipelineProcessorGeoIpParserArgs(
+                        is_enabled=True,
+                        name="sample geo ip parser",
+                        sources=["network.client.ip"],
+                        target="network.client.geoip",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    grok_parser=datadog.LogsCustomPipelineProcessorGrokParserArgs(
+                        grok=datadog.LogsCustomPipelineProcessorGrokParserGrokArgs(
+                            match_rules="Rule %{word:my_word2} %{number:my_float2}",
+                            support_rules="",
+                        ),
+                        is_enabled=True,
+                        name="sample grok parser",
+                        samples=["sample log 1"],
+                        source="message",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    lookup_processor=datadog.LogsCustomPipelineProcessorLookupProcessorArgs(
+                        default_lookup="unknown service",
+                        is_enabled=True,
+                        lookup_table=["1,my service"],
+                        name="sample lookup processor",
+                        source="service_id",
+                        target="service_name",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    message_remapper=datadog.LogsCustomPipelineProcessorMessageRemapperArgs(
+                        is_enabled=True,
+                        name="sample message remapper",
+                        sources=["msg"],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    pipeline=datadog.LogsCustomPipelineProcessorPipelineArgs(
+                        filter=[{
+                            "query": "source:foo",
+                        }],
+                        is_enabled=True,
+                        name="nested pipeline",
+                        processor=[{
+                            "urlParser": {
+                                "name": "sample url parser",
+                                "normalizeEndingSlashes": True,
+                                "sources": [
+                                    "url",
+                                    "extra",
+                                ],
+                                "target": "http_url",
+                            },
+                        }],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    service_remapper=datadog.LogsCustomPipelineProcessorServiceRemapperArgs(
+                        is_enabled=True,
+                        name="sample service remapper",
+                        sources=["service"],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    status_remapper=datadog.LogsCustomPipelineProcessorStatusRemapperArgs(
+                        is_enabled=True,
+                        name="sample status remapper",
+                        sources=[
+                            "info",
+                            "trace",
+                        ],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    string_builder_processor=datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs(
+                        is_enabled=True,
+                        is_replace_missing=False,
+                        name="sample string builder processor",
+                        target="user_activity",
+                        template="%{user.name} logged in at %{timestamp}",
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    trace_id_remapper=datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs(
+                        is_enabled=True,
+                        name="sample trace id remapper",
+                        sources=["dd.trace_id"],
+                    ),
+                ),
+                datadog.LogsCustomPipelineProcessorArgs(
+                    user_agent_parser=datadog.LogsCustomPipelineProcessorUserAgentParserArgs(
+                        is_enabled=True,
+                        is_encoded=False,
+                        name="sample user agent parser",
+                        sources=[
+                            "user",
+                            "agent",
+                        ],
+                        target="http_agent",
+                    ),
+                ),
+            ])
+        ```
+        ## Important Notes
+
+        Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
+
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline For the previously created custom pipelines, you can include them in Terraform with the `import` operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them. Use `<resource.name> <pipelineID>` for each existing pipeline.
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LogsCustomPipelineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LogsCustomPipelineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsCustomPipelineFilterArgs']]]]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

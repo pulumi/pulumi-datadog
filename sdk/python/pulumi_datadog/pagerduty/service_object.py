@@ -5,13 +5,61 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ServiceObject']
+__all__ = ['ServiceObjectArgs', 'ServiceObject']
+
+@pulumi.input_type
+class ServiceObjectArgs:
+    def __init__(__self__, *,
+                 service_key: pulumi.Input[str],
+                 service_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ServiceObject resource.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+               impossible to detect
+               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+               The best way to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+               have it destroyed and recreated.
+        :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
+        """
+        pulumi.set(__self__, "service_key", service_key)
+        pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter(name="serviceKey")
+    def service_key(self) -> pulumi.Input[str]:
+        """
+        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+        impossible to detect
+        [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+        The best way to solve a drift is to manually mark the Service Object resource with [terraform
+        taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+        have it destroyed and recreated.
+        """
+        return pulumi.get(self, "service_key")
+
+    @service_key.setter
+    def service_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_key", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[str]:
+        """
+        Your Service name in PagerDuty.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
 
 
 class ServiceObject(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +95,49 @@ class ServiceObject(pulumi.CustomResource):
                have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceObjectArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
+            service_key="9876543210123456789",
+            service_name="testing_foo")
+        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
+            service_key="54321098765432109876",
+            service_name="testing_bar")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceObjectArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceObjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 service_key: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

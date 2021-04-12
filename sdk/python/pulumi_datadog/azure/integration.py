@@ -5,13 +5,86 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Integration']
+__all__ = ['IntegrationArgs', 'Integration']
+
+@pulumi.input_type
+class IntegrationArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 tenant_name: pulumi.Input[str],
+                 host_filters: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Integration resource.
+        :param pulumi.Input[str] client_id: Your Azure web application ID.
+        :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
+        :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
+        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+               from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+               defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "tenant_name", tenant_name)
+        if host_filters is not None:
+            pulumi.set(__self__, "host_filters", host_filters)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Your Azure web application ID.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        (Required for Initial Creation) Your Azure web application secret key.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> pulumi.Input[str]:
+        """
+        Your Azure Active Directory ID.
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @tenant_name.setter
+    def tenant_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_name", value)
+
+    @property
+    @pulumi.getter(name="hostFilters")
+    def host_filters(self) -> Optional[pulumi.Input[str]]:
+        """
+        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+        from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+        defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        """
+        return pulumi.get(self, "host_filters")
+
+    @host_filters.setter
+    def host_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_filters", value)
 
 
 class Integration(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +129,59 @@ class Integration(pulumi.CustomResource):
                defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IntegrationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog - Microsoft Azure integration
+        sandbox = datadog.azure.Integration("sandbox",
+            client_id="<azure_client_id>",
+            client_secret="<azure_client_secret_key>",
+            host_filters="examplefilter:true,example:true",
+            tenant_name="<azure_tenant_name>")
+        ```
+
+        ## Import
+
+        Microsoft Azure integrations can be imported using their `tenant name` and `client id` separated with a colon (`:`).
+
+        ```sh
+         $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IntegrationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 host_filters: Optional[pulumi.Input[str]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

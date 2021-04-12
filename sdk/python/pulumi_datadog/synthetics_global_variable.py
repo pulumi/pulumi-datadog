@@ -5,15 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SyntheticsGlobalVariable']
+__all__ = ['SyntheticsGlobalVariableArgs', 'SyntheticsGlobalVariable']
+
+@pulumi.input_type
+class SyntheticsGlobalVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 parse_test_id: Optional[pulumi.Input[str]] = None,
+                 parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
+                 secure: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SyntheticsGlobalVariable resource.
+        :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] value: The value of the global variable.
+        :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
+        :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
+        :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parse_test_id is not None:
+            pulumi.set(__self__, "parse_test_id", parse_test_id)
+        if parse_test_options is not None:
+            pulumi.set(__self__, "parse_test_options", parse_test_options)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Synthetics global variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the global variable.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the global variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="parseTestId")
+    def parse_test_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the Synthetics test to use for a variable from test.
+        """
+        return pulumi.get(self, "parse_test_id")
+
+    @parse_test_id.setter
+    def parse_test_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parse_test_id", value)
+
+    @property
+    @pulumi.getter(name="parseTestOptions")
+    def parse_test_options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]:
+        """
+        ID of the Synthetics test to use a source of the global variable value.
+        """
+        return pulumi.get(self, "parse_test_options")
+
+    @parse_test_options.setter
+    def parse_test_options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]):
+        pulumi.set(self, "parse_test_options", value)
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Sets the variable as secure. Defaults to `false`.
+        """
+        return pulumi.get(self, "secure")
+
+    @secure.setter
+    def secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags to associate with your synthetics global variable.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SyntheticsGlobalVariable(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +182,64 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SyntheticsGlobalVariableArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog synthetics global variable resource. This can be used to create and manage Datadog synthetics global variables.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        test_variable = datadog.SyntheticsGlobalVariable("testVariable",
+            description="Description of the variable",
+            name="EXAMPLE_VARIABLE",
+            tags=[
+                "foo:bar",
+                "env:test",
+            ],
+            value="variable-value")
+        ```
+
+        ## Import
+
+        Synthetics global variables can be imported using their string ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable fizz abcde123-fghi-456-jkl-mnopqrstuv
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SyntheticsGlobalVariableArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SyntheticsGlobalVariableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parse_test_id: Optional[pulumi.Input[str]] = None,
+                 parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
+                 secure: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

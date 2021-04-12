@@ -5,13 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['LogsPipelineOrder']
+__all__ = ['LogsPipelineOrderArgs', 'LogsPipelineOrder']
+
+@pulumi.input_type
+class LogsPipelineOrderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 pipelines: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The set of arguments for constructing a LogsPipelineOrder resource.
+        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+               value as the resource name. No related field is available in [Logs Pipeline
+               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pipelines", pipelines)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+        value as the resource name. No related field is available in [Logs Pipeline
+        API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "pipelines", value)
 
 
 class LogsPipelineOrder(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +98,61 @@ class LogsPipelineOrder(pulumi.CustomResource):
                API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LogsPipelineOrderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to manage Datadog log pipelines order.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        sample_pipeline_order = datadog.LogsPipelineOrder("samplePipelineOrder",
+            name="sample_pipeline_order",
+            pipelines=[
+                datadog_logs_custom_pipeline["sample_pipeline"]["id"],
+                datadog_logs_integration_pipeline["python"]["id"],
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    "datadog_logs_custom_pipeline.sample_pipeline",
+                    "datadog_logs_integration_pipeline.python",
+                ]))
+        ```
+
+        ## Import
+
+        There must be at most one `datadog_logs_pipeline_order` resource. Pipeline order creation is not supported from logs config API. You can import the `datadog_logs_pipeline_order` or create a pipeline order (which is actually doing the update operation).
+
+        ```sh
+         $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LogsPipelineOrderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LogsPipelineOrderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
