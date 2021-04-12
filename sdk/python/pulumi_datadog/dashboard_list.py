@@ -5,15 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DashboardList']
+__all__ = ['DashboardListArgs', 'DashboardList']
+
+@pulumi.input_type
+class DashboardListArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None):
+        """
+        The set of arguments for constructing a DashboardList resource.
+        :param pulumi.Input[str] name: The name of the Dashboard List
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashbaord items that belong to this list
+        """
+        pulumi.set(__self__, "name", name)
+        if dash_items is not None:
+            pulumi.set(__self__, "dash_items", dash_items)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Dashboard List
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="dashItems")
+    def dash_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]]:
+        """
+        A set of dashbaord items that belong to this list
+        """
+        return pulumi.get(self, "dash_items")
+
+    @dash_items.setter
+    def dash_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]]):
+        pulumi.set(self, "dash_items", value)
 
 
 class DashboardList(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -102,6 +141,107 @@ class DashboardList(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashbaord items that belong to this list
         :param pulumi.Input[str] name: The name of the Dashboard List
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DashboardListArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog dashboard_list resource. This can be used to create and manage Datadog Dashboard Lists and the individual dashboards within them.
+
+        ## Example Usage
+
+        Create a new Dashboard list with two dashboards
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        time = datadog.Dashboard("time",
+            description="Created using the Datadog provider in TF",
+            is_read_only=True,
+            layout_type="ordered",
+            title="TF Test Layout Dashboard",
+            widgets=[datadog.DashboardWidgetArgs(
+                alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
+                    alert_id="1234",
+                    time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(
+                        live_span="1h",
+                    ),
+                    title="Widget Title",
+                    viz_type="timeseries",
+                ),
+            )])
+        screen = datadog.Dashboard("screen",
+            description="Created using the Datadog provider in TF",
+            is_read_only=False,
+            layout_type="free",
+            title="TF Test Free Layout Dashboard",
+            widgets=[datadog.DashboardWidgetArgs(
+                event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
+                    event_size="l",
+                    query="*",
+                    time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(
+                        live_span="1h",
+                    ),
+                    title="Widget Title",
+                    title_align="left",
+                    title_size="16",
+                ),
+                layout=datadog.DashboardWidgetLayoutArgs(
+                    height=43,
+                    width=32,
+                    x=5,
+                    y=5,
+                ),
+            )])
+        new_list = datadog.DashboardList("newList",
+            dash_items=[
+                datadog.DashboardListDashItemArgs(
+                    dash_id=time.id,
+                    type="custom_timeboard",
+                ),
+                datadog.DashboardListDashItemArgs(
+                    dash_id=screen.id,
+                    type="custom_screenboard",
+                ),
+            ],
+            name="TF Created List",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    "datadog_dashboard.screen",
+                    "datadog_dashboard.time",
+                ]))
+        ```
+
+        ## Import
+
+        dashboard lists can be imported using their id, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DashboardListArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DashboardListArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dash_items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

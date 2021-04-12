@@ -5,13 +5,53 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['LogsIndexOrder']
+__all__ = ['LogsIndexOrderArgs', 'LogsIndexOrder']
+
+@pulumi.input_type
+class LogsIndexOrderArgs:
+    def __init__(__self__, *,
+                 indexes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a LogsIndexOrder resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+               list.
+        :param pulumi.Input[str] name: The unique name of the index order resource.
+        """
+        pulumi.set(__self__, "indexes", indexes)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The index resource list. Logs are tested against the query filter of each index one by one following the order of the
+        list.
+        """
+        return pulumi.get(self, "indexes")
+
+    @indexes.setter
+    def indexes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The unique name of the index order resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 class LogsIndexOrder(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -47,6 +87,53 @@ class LogsIndexOrder(pulumi.CustomResource):
                list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LogsIndexOrderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        sample_index_order = datadog.LogsIndexOrder("sampleIndexOrder",
+            name="sample_index_order",
+            indexes=[datadog_logs_index["sample_index"]["id"]],
+            opts=pulumi.ResourceOptions(depends_on=["datadog_logs_index.sample_index"]))
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `<datadog_logs_index_order.name> <name>` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LogsIndexOrderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LogsIndexOrderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

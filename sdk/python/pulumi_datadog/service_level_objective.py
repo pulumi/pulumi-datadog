@@ -5,15 +5,188 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceLevelObjective']
+__all__ = ['ServiceLevelObjectiveArgs', 'ServiceLevelObjective']
+
+@pulumi.input_type
+class ServiceLevelObjectiveArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 thresholds: pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 query: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a ServiceLevelObjective resource.
+        :param pulumi.Input[str] name: Name of Datadog service level objective
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+               found in the Datadog API [documentation
+               page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+               are: `metric` and `monitor`.
+        :param pulumi.Input[str] description: A description of this service level objective.
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+               -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
+        :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "thresholds", thresholds)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if monitor_ids is not None:
+            pulumi.set(__self__, "monitor_ids", monitor_ids)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of Datadog service level objective
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def thresholds(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]:
+        """
+        A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        """
+        return pulumi.get(self, "thresholds")
+
+    @thresholds.setter
+    def thresholds(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]):
+        pulumi.set(self, "thresholds", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+        found in the Datadog API [documentation
+        page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+        are: `metric` and `monitor`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of this service level objective.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A static set of groups to filter monitor-based SLOs
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="monitorIds")
+    def monitor_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A static set of monitor IDs to use as part of the SLO
+        """
+        return pulumi.get(self, "monitor_ids")
+
+    @monitor_ids.setter
+    def monitor_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "monitor_ids", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]:
+        """
+        The metric query of good / total events
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to validate the SLO.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
 
 
 class ServiceLevelObjective(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -129,6 +302,122 @@ class ServiceLevelObjective(pulumi.CustomResource):
                are: `metric` and `monitor`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceLevelObjectiveArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
+
+        ## Example Usage
+        ### Metric-Based SLO
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog service level objective
+        foo = datadog.ServiceLevelObjective("foo",
+            description="My custom metric SLO",
+            name="Example Metric SLO",
+            query=datadog.ServiceLevelObjectiveQueryArgs(
+                denominator="sum:my.custom.count.metric{*}.as_count()",
+                numerator="sum:my.custom.count.metric{type:good_events}.as_count()",
+            ),
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    target_display="99.900",
+                    timeframe="7d",
+                    warning=99.99,
+                    warning_display="99.990",
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    target_display="99.900",
+                    timeframe="30d",
+                    warning=99.99,
+                    warning_display="99.990",
+                ),
+            ],
+            type="metric")
+        ```
+        ### Monitor-Based SLO
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        # Create a new Datadog service level objective
+        bar = datadog.ServiceLevelObjective("bar",
+            description="My custom monitor SLO",
+            monitor_ids=[
+                1,
+                2,
+                3,
+            ],
+            name="Example Monitor SLO",
+            tags=[
+                "foo:bar",
+                "baz",
+            ],
+            thresholds=[
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="7d",
+                    warning=99.99,
+                ),
+                datadog.ServiceLevelObjectiveThresholdArgs(
+                    target=99.9,
+                    timeframe="30d",
+                    warning=99.99,
+                ),
+            ],
+            type="monitor")
+        ```
+
+        ## Import
+
+        Service Level Objectives can be imported using their string ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceLevelObjectiveArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceLevelObjectiveArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

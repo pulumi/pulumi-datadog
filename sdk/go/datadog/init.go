@@ -21,53 +21,54 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "datadog:index/dashboard:Dashboard":
-		r, err = NewDashboard(ctx, name, nil, pulumi.URN_(urn))
+		r = &Dashboard{}
 	case "datadog:index/dashboardList:DashboardList":
-		r, err = NewDashboardList(ctx, name, nil, pulumi.URN_(urn))
+		r = &DashboardList{}
 	case "datadog:index/downtime:Downtime":
-		r, err = NewDowntime(ctx, name, nil, pulumi.URN_(urn))
+		r = &Downtime{}
 	case "datadog:index/logsArchive:LogsArchive":
-		r, err = NewLogsArchive(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsArchive{}
 	case "datadog:index/logsArchiveOrder:LogsArchiveOrder":
-		r, err = NewLogsArchiveOrder(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsArchiveOrder{}
 	case "datadog:index/logsCustomPipeline:LogsCustomPipeline":
-		r, err = NewLogsCustomPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsCustomPipeline{}
 	case "datadog:index/logsIndex:LogsIndex":
-		r, err = NewLogsIndex(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsIndex{}
 	case "datadog:index/logsIndexOrder:LogsIndexOrder":
-		r, err = NewLogsIndexOrder(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsIndexOrder{}
 	case "datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline":
-		r, err = NewLogsIntegrationPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsIntegrationPipeline{}
 	case "datadog:index/logsMetric:LogsMetric":
-		r, err = NewLogsMetric(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsMetric{}
 	case "datadog:index/logsPipelineOrder:LogsPipelineOrder":
-		r, err = NewLogsPipelineOrder(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogsPipelineOrder{}
 	case "datadog:index/metricMetadata:MetricMetadata":
-		r, err = NewMetricMetadata(ctx, name, nil, pulumi.URN_(urn))
+		r = &MetricMetadata{}
 	case "datadog:index/monitor:Monitor":
-		r, err = NewMonitor(ctx, name, nil, pulumi.URN_(urn))
+		r = &Monitor{}
 	case "datadog:index/role:Role":
-		r, err = NewRole(ctx, name, nil, pulumi.URN_(urn))
+		r = &Role{}
 	case "datadog:index/screenBoard:ScreenBoard":
-		r, err = NewScreenBoard(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScreenBoard{}
 	case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
-		r, err = NewSecurityMonitoringRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityMonitoringRule{}
 	case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
-		r, err = NewServiceLevelObjective(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceLevelObjective{}
 	case "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
-		r, err = NewSyntheticsGlobalVariable(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyntheticsGlobalVariable{}
 	case "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
-		r, err = NewSyntheticsPrivateLocation(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyntheticsPrivateLocation{}
 	case "datadog:index/syntheticsTest:SyntheticsTest":
-		r, err = NewSyntheticsTest(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyntheticsTest{}
 	case "datadog:index/timeBoard:TimeBoard":
-		r, err = NewTimeBoard(ctx, name, nil, pulumi.URN_(urn))
+		r = &TimeBoard{}
 	case "datadog:index/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -84,7 +85,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

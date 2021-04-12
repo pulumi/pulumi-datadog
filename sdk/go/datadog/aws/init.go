@@ -22,15 +22,16 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "datadog:aws/integration:Integration":
-		r, err = NewIntegration(ctx, name, nil, pulumi.URN_(urn))
+		r = &Integration{}
 	case "datadog:aws/integrationLambdaArn:IntegrationLambdaArn":
-		r, err = NewIntegrationLambdaArn(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationLambdaArn{}
 	case "datadog:aws/integrationLogCollection:IntegrationLogCollection":
-		r, err = NewIntegrationLogCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationLogCollection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

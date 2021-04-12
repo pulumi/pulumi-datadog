@@ -5,15 +5,131 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SecurityMonitoringRule']
+__all__ = ['SecurityMonitoringRuleArgs', 'SecurityMonitoringRule']
+
+@pulumi.input_type
+class SecurityMonitoringRuleArgs:
+    def __init__(__self__, *,
+                 cases: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]],
+                 message: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 queries: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SecurityMonitoringRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
+        :param pulumi.Input[str] message: Message for generated signals.
+        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
+        :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
+        """
+        pulumi.set(__self__, "cases", cases)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "queries", queries)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def cases(self) -> pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]:
+        """
+        Cases for generating signals.
+        """
+        return pulumi.get(self, "cases")
+
+    @cases.setter
+    def cases(self, value: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]):
+        pulumi.set(self, "cases", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[str]:
+        """
+        Message for generated signals.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[str]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]:
+        """
+        Queries for selecting logs which are part of the rule.
+        """
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]]):
+        pulumi.set(self, "queries", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the rule is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']]:
+        """
+        Options on rules.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags for generated signals.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SecurityMonitoringRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -87,6 +203,87 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SecurityMonitoringRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog [Security Monitoring Rule API](https://docs.datadoghq.com/api/v2/security-monitoring/) resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use [datadog_security_default_rule](https://www.terraform.io/resources/security_monitoring_default_rule) instead.
+
+        ## Example Usage
+
+        Create a simple security monitoring rule.
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        myrule = datadog.SecurityMonitoringRule("myrule",
+            cases=[datadog.SecurityMonitoringRuleCaseArgs(
+                condition="errors > 3 && warnings > 10",
+                notifications=["@user"],
+                status="high",
+            )],
+            enabled=True,
+            message="The rule has triggered.",
+            name="My rule",
+            options=datadog.SecurityMonitoringRuleOptionsArgs(
+                evaluation_window=300,
+                keep_alive=600,
+                max_signal_duration=900,
+            ),
+            queries=[
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    aggregation="count",
+                    group_by_fields=["host"],
+                    name="errors",
+                    query="status:error",
+                ),
+                datadog.SecurityMonitoringRuleQueryArgs(
+                    aggregation="count",
+                    group_by_fields=["host"],
+                    name="warnings",
+                    query="status:warning",
+                ),
+            ],
+            tags=["type:dos"])
+        ```
+
+        ## Import
+
+        Security monitoring rules can be imported using ID, e.g. console
+
+        ```sh
+         $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_monitor m0o-hto-lkb
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SecurityMonitoringRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityMonitoringRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']]] = None,
+                 queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

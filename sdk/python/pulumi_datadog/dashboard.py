@@ -5,15 +5,180 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Dashboard']
+__all__ = ['DashboardArgs', 'Dashboard']
+
+@pulumi.input_type
+class DashboardArgs:
+    def __init__(__self__, *,
+                 layout_type: pulumi.Input[str],
+                 title: pulumi.Input[str],
+                 widgets: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]],
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_read_only: Optional[pulumi.Input[bool]] = None,
+                 notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Dashboard resource.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[str] description: The description of the dashboard.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        """
+        pulumi.set(__self__, "layout_type", layout_type)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "widgets", widgets)
+        if dashboard_lists is not None:
+            pulumi.set(__self__, "dashboard_lists", dashboard_lists)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_read_only is not None:
+            pulumi.set(__self__, "is_read_only", is_read_only)
+        if notify_lists is not None:
+            pulumi.set(__self__, "notify_lists", notify_lists)
+        if template_variable_presets is not None:
+            pulumi.set(__self__, "template_variable_presets", template_variable_presets)
+        if template_variables is not None:
+            pulumi.set(__self__, "template_variables", template_variables)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="layoutType")
+    def layout_type(self) -> pulumi.Input[str]:
+        """
+        The layout type of the dashboard, either 'free' or 'ordered'.
+        """
+        return pulumi.get(self, "layout_type")
+
+    @layout_type.setter
+    def layout_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "layout_type", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def widgets(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]:
+        """
+        The list of widgets to display on the dashboard.
+        """
+        return pulumi.get(self, "widgets")
+
+    @widgets.setter
+    def widgets(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]):
+        pulumi.set(self, "widgets", value)
+
+    @property
+    @pulumi.getter(name="dashboardLists")
+    def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The list of dashboard lists this dashboard belongs to.
+        """
+        return pulumi.get(self, "dashboard_lists")
+
+    @dashboard_lists.setter
+    def dashboard_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "dashboard_lists", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the dashboard.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isReadOnly")
+    def is_read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this dashboard is read-only.
+        """
+        return pulumi.get(self, "is_read_only")
+
+    @is_read_only.setter
+    def is_read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_read_only", value)
+
+    @property
+    @pulumi.getter(name="notifyLists")
+    def notify_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of handles of users to notify when changes are made to this dashboard.
+        """
+        return pulumi.get(self, "notify_lists")
+
+    @notify_lists.setter
+    def notify_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "notify_lists", value)
+
+    @property
+    @pulumi.getter(name="templateVariablePresets")
+    def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
+        """
+        The list of selectable template variable presets for this dashboard.
+        """
+        return pulumi.get(self, "template_variable_presets")
+
+    @template_variable_presets.setter
+    def template_variable_presets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]):
+        pulumi.set(self, "template_variable_presets", value)
+
+    @property
+    @pulumi.getter(name="templateVariables")
+    def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]]:
+        """
+        The list of template variables for this dashboard.
+        """
+        return pulumi.get(self, "template_variables")
+
+    @template_variables.setter
+    def template_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]]):
+        pulumi.set(self, "template_variables", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the dashboard.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 class Dashboard(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -692,6 +857,689 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] url: The URL of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]] widgets: The list of widgets to display on the dashboard.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DashboardArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
+
+        > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/dashboards/widgets/group/). Additionally, this resource unifies `TimeBoard` and `ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
+
+        ## Example Usage
+        ### Create A New Datadog Dashboard - Ordered Layout
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        ordered_dashboard = datadog.Dashboard("orderedDashboard",
+            description="Created using the Datadog provider in Terraform",
+            is_read_only=True,
+            layout_type="ordered",
+            template_variables=[
+                datadog.DashboardTemplateVariableArgs(
+                    default="aws",
+                    name="var_1",
+                    prefix="host",
+                ),
+                datadog.DashboardTemplateVariableArgs(
+                    default="autoscaling",
+                    name="var_2",
+                    prefix="service_name",
+                ),
+            ],
+            template_variable_presets=[datadog.DashboardTemplateVariablePresetArgs(
+                name="preset_1",
+                template_variables=[
+                    {
+                        "name": "var_1",
+                        "value": "host.dc",
+                    },
+                    {
+                        "name": "var_2",
+                        "value": "my_service",
+                    },
+                ],
+            )],
+            title="Ordered Layout Dashboard",
+            widgets=[
+                datadog.DashboardWidgetArgs(
+                    alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
+                        alert_id="895605",
+                        time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                        viz_type="timeseries",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    alert_value_definition=datadog.DashboardWidgetAlertValueDefinitionArgs(
+                        alert_id="895605",
+                        precision=3,
+                        text_align="center",
+                        title="Widget Title",
+                        unit="b",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    alert_value_definition=datadog.DashboardWidgetAlertValueDefinitionArgs(
+                        alert_id="895605",
+                        precision=3,
+                        text_align="center",
+                        title="Widget Title",
+                        unit="b",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    change_definition=datadog.DashboardWidgetChangeDefinitionArgs(
+                        request=[{
+                            "changeType": "absolute",
+                            "compareTo": "week_before",
+                            "increaseGood": True,
+                            "orderBy": "name",
+                            "orderDir": "desc",
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                            "showPresent": True,
+                        }],
+                        time=datadog.DashboardWidgetChangeDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    distribution_definition=datadog.DashboardWidgetDistributionDefinitionArgs(
+                        request=[{
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                            "style": {
+                                "palette": "warm",
+                            },
+                        }],
+                        time=datadog.DashboardWidgetDistributionDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    check_status_definition=datadog.DashboardWidgetCheckStatusDefinitionArgs(
+                        check="aws.ecs.agent_connected",
+                        group_by=[
+                            "account",
+                            "cluster",
+                        ],
+                        grouping="cluster",
+                        tags=[
+                            "account:demo",
+                            "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk",
+                        ],
+                        time=datadog.DashboardWidgetCheckStatusDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    heatmap_definition=datadog.DashboardWidgetHeatmapDefinitionArgs(
+                        request=[{
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                            "style": {
+                                "palette": "warm",
+                            },
+                        }],
+                        time=datadog.DashboardWidgetHeatmapDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                        yaxis=datadog.DashboardWidgetHeatmapDefinitionYaxisArgs(
+                            include_zero=True,
+                            max="2",
+                            min="1",
+                            scale="sqrt",
+                        ),
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    hostmap_definition=datadog.DashboardWidgetHostmapDefinitionArgs(
+                        group=[
+                            "host",
+                            "region",
+                        ],
+                        no_group_hosts=True,
+                        no_metric_hosts=True,
+                        node_type="container",
+                        request=datadog.DashboardWidgetHostmapDefinitionRequestArgs(
+                            fill=[{
+                                "q": "avg:system.load.1{*} by {host}",
+                            }],
+                            size=[{
+                                "q": "avg:memcache.uptime{*} by {host}",
+                            }],
+                        ),
+                        scope=[
+                            "region:us-east-1",
+                            "aws_account:727006795293",
+                        ],
+                        style=datadog.DashboardWidgetHostmapDefinitionStyleArgs(
+                            fill_max="20",
+                            fill_min="10",
+                            palette="yellow_to_green",
+                            palette_flip=True,
+                        ),
+                        title="Widget Title",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    note_definition=datadog.DashboardWidgetNoteDefinitionArgs(
+                        background_color="pink",
+                        content="note text",
+                        font_size="14",
+                        show_tick=True,
+                        text_align="center",
+                        tick_edge="left",
+                        tick_pos="50%",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    query_value_definition=datadog.DashboardWidgetQueryValueDefinitionArgs(
+                        autoscale=True,
+                        custom_unit="xx",
+                        precision=4,
+                        request=[{
+                            "aggregator": "sum",
+                            "conditionalFormats": [
+                                {
+                                    "comparator": "<",
+                                    "palette": "white_on_green",
+                                    "value": "2",
+                                },
+                                {
+                                    "comparator": ">",
+                                    "palette": "white_on_red",
+                                    "value": "2.2",
+                                },
+                            ],
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                        }],
+                        text_align="right",
+                        time=datadog.DashboardWidgetQueryValueDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    query_table_definition=datadog.DashboardWidgetQueryTableDefinitionArgs(
+                        request=[{
+                            "aggregator": "sum",
+                            "conditionalFormats": [
+                                {
+                                    "comparator": "<",
+                                    "palette": "white_on_green",
+                                    "value": "2",
+                                },
+                                {
+                                    "comparator": ">",
+                                    "palette": "white_on_red",
+                                    "value": "2.2",
+                                },
+                            ],
+                            "limit": "10",
+                            "q": "avg:system.load.1{env:staging} by {account}",
+                        }],
+                        time=datadog.DashboardWidgetQueryTableDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    scatterplot_definition=datadog.DashboardWidgetScatterplotDefinitionArgs(
+                        color_by_groups=[
+                            "account",
+                            "apm-role-group",
+                        ],
+                        request=datadog.DashboardWidgetScatterplotDefinitionRequestArgs(
+                            x=[{
+                                "aggregator": "max",
+                                "q": "avg:system.cpu.user{*} by {service, account}",
+                            }],
+                            y=[{
+                                "aggregator": "min",
+                                "q": "avg:system.mem.used{*} by {service, account}",
+                            }],
+                        ),
+                        time=datadog.DashboardWidgetScatterplotDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                        xaxis=datadog.DashboardWidgetScatterplotDefinitionXaxisArgs(
+                            include_zero=True,
+                            label="x",
+                            max="2000",
+                            min="1",
+                            scale="pow",
+                        ),
+                        yaxis=datadog.DashboardWidgetScatterplotDefinitionYaxisArgs(
+                            include_zero=False,
+                            label="y",
+                            max="2222",
+                            min="5",
+                            scale="log",
+                        ),
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=43,
+                        width=32,
+                        x=5,
+                        y=5,
+                    ),
+                    servicemap_definition=datadog.DashboardWidgetServicemapDefinitionArgs(
+                        filters=[
+                            "env:prod",
+                            "datacenter:us1.prod.dog",
+                        ],
+                        service="master-db",
+                        title="env: prod, datacenter:us1.prod.dog, service: master-db",
+                        title_align="left",
+                        title_size="16",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
+                        event=[
+                            {
+                                "q": "sources:test tags:1",
+                            },
+                            {
+                                "q": "sources:test tags:2",
+                            },
+                        ],
+                        legend_size="2",
+                        marker=[
+                            {
+                                "displayType": "error dashed",
+                                "label": " z=6 ",
+                                "value": "y = 4",
+                            },
+                            {
+                                "displayType": "ok solid",
+                                "label": " x=8 ",
+                                "value": "10 < y < 999",
+                            },
+                        ],
+                        request=[
+                            {
+                                "displayType": "line",
+                                "metadata": [{
+                                    "aliasName": "Alpha",
+                                    "expression": "avg:system.cpu.user{app:general} by {env}",
+                                }],
+                                "q": "avg:system.cpu.user{app:general} by {env}",
+                                "style": {
+                                    "lineType": "dashed",
+                                    "lineWidth": "thin",
+                                    "palette": "warm",
+                                },
+                            },
+                            {
+                                "displayType": "area",
+                                "logQuery": {
+                                    "compute": {
+                                        "aggregation": "avg",
+                                        "facet": "@duration",
+                                        "interval": 5000,
+                                    },
+                                    "groupBy": [{
+                                        "facet": "host",
+                                        "limit": 10,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "facet": "@duration",
+                                            "order": "desc",
+                                        },
+                                    }],
+                                    "index": "mcnulty",
+                                    "search": {
+                                        "query": "status:info",
+                                    },
+                                },
+                            },
+                            {
+                                "apmQuery": {
+                                    "compute": {
+                                        "aggregation": "avg",
+                                        "facet": "@duration",
+                                        "interval": 5000,
+                                    },
+                                    "groupBy": [{
+                                        "facet": "resource_name",
+                                        "limit": 50,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "facet": "@string_query.interval",
+                                            "order": "desc",
+                                        },
+                                    }],
+                                    "index": "apm-search",
+                                    "search": {
+                                        "query": "type:web",
+                                    },
+                                },
+                                "displayType": "bars",
+                            },
+                            {
+                                "displayType": "area",
+                                "processQuery": {
+                                    "filterBy": ["active"],
+                                    "limit": 50,
+                                    "metric": "process.stat.cpu.total_pct",
+                                    "searchBy": "error",
+                                },
+                            },
+                        ],
+                        show_legend=True,
+                        time=datadog.DashboardWidgetTimeseriesDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                        yaxis=datadog.DashboardWidgetTimeseriesDefinitionYaxisArgs(
+                            include_zero=False,
+                            max="100",
+                            scale="log",
+                        ),
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    toplist_definition=datadog.DashboardWidgetToplistDefinitionArgs(
+                        request=[{
+                            "conditionalFormats": [
+                                {
+                                    "comparator": "<",
+                                    "palette": "white_on_green",
+                                    "value": "2",
+                                },
+                                {
+                                    "comparator": ">",
+                                    "palette": "white_on_red",
+                                    "value": "2.2",
+                                },
+                            ],
+                            "q": "avg:system.cpu.user{app:general} by {env}",
+                        }],
+                        title="Widget Title",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    group_definition=datadog.DashboardWidgetGroupDefinitionArgs(
+                        layout_type="ordered",
+                        title="Group Widget",
+                        widget=[
+                            {
+                                "noteDefinition": {
+                                    "backgroundColor": "pink",
+                                    "content": "cluster note widget",
+                                    "fontSize": "14",
+                                    "showTick": True,
+                                    "textAlign": "center",
+                                    "tickEdge": "left",
+                                    "tickPos": "50%",
+                                },
+                            },
+                            {
+                                "alertGraphDefinition": {
+                                    "alertId": "123",
+                                    "time": {
+                                        "liveSpan": "1h",
+                                    },
+                                    "title": "Alert Graph",
+                                    "vizType": "toplist",
+                                },
+                            },
+                        ],
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    service_level_objective_definition=datadog.DashboardWidgetServiceLevelObjectiveDefinitionArgs(
+                        show_error_budget=True,
+                        slo_id="56789",
+                        time_windows=[
+                            "7d",
+                            "previous_week",
+                        ],
+                        title="Widget Title",
+                        view_mode="overall",
+                        view_type="detail",
+                    ),
+                ),
+            ])
+        ```
+        ### Create A New Datadog Dashboard - Free Layout
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        free_dashboard = datadog.Dashboard("freeDashboard",
+            description="Created using the Datadog provider in Terraform",
+            is_read_only=False,
+            layout_type="free",
+            template_variables=[
+                datadog.DashboardTemplateVariableArgs(
+                    default="aws",
+                    name="var_1",
+                    prefix="host",
+                ),
+                datadog.DashboardTemplateVariableArgs(
+                    default="autoscaling",
+                    name="var_2",
+                    prefix="service_name",
+                ),
+            ],
+            template_variable_presets=[datadog.DashboardTemplateVariablePresetArgs(
+                name="preset_1",
+                template_variables=[
+                    {
+                        "name": "var_1",
+                        "value": "host.dc",
+                    },
+                    {
+                        "name": "var_2",
+                        "value": "my_service",
+                    },
+                ],
+            )],
+            title="Free Layout Dashboard",
+            widgets=[
+                datadog.DashboardWidgetArgs(
+                    event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
+                        event_size="l",
+                        query="*",
+                        time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                        title_align="left",
+                        title_size="16",
+                    ),
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=43,
+                        width=32,
+                        x=5,
+                        y=5,
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    event_timeline_definition=datadog.DashboardWidgetEventTimelineDefinitionArgs(
+                        query="*",
+                        time=datadog.DashboardWidgetEventTimelineDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="Widget Title",
+                        title_align="left",
+                        title_size="16",
+                    ),
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=9,
+                        width=65,
+                        x=42,
+                        y=73,
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    free_text_definition=datadog.DashboardWidgetFreeTextDefinitionArgs(
+                        color="#d00",
+                        font_size="88",
+                        text="free text content",
+                        text_align="left",
+                    ),
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=20,
+                        width=30,
+                        x=42,
+                        y=5,
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    iframe_definition=datadog.DashboardWidgetIframeDefinitionArgs(
+                        url="http://google.com",
+                    ),
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=46,
+                        width=39,
+                        x=111,
+                        y=8,
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    image_definition=datadog.DashboardWidgetImageDefinitionArgs(
+                        margin="small",
+                        sizing="fit",
+                        url="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
+                    ),
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=20,
+                        width=30,
+                        x=77,
+                        y=7,
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=36,
+                        width=32,
+                        x=5,
+                        y=51,
+                    ),
+                    log_stream_definition=datadog.DashboardWidgetLogStreamDefinitionArgs(
+                        columns=[
+                            "core_host",
+                            "core_service",
+                            "tag_source",
+                        ],
+                        indexes=["main"],
+                        message_display="expanded-md",
+                        query="error",
+                        show_date_column=True,
+                        show_message_column=True,
+                        sort=datadog.DashboardWidgetLogStreamDefinitionSortArgs(
+                            column="time",
+                            order="desc",
+                        ),
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=40,
+                        width=30,
+                        x=112,
+                        y=55,
+                    ),
+                    manage_status_definition=datadog.DashboardWidgetManageStatusDefinitionArgs(
+                        color_preference="text",
+                        display_format="countsAndList",
+                        hide_zero_counts=True,
+                        query="type:metric",
+                        show_last_triggered=False,
+                        sort="status,asc",
+                        summary_type="monitors",
+                        title="Widget Title",
+                        title_align="left",
+                        title_size="16",
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    layout=datadog.DashboardWidgetLayoutArgs(
+                        height=38,
+                        width=67,
+                        x=40,
+                        y=28,
+                    ),
+                    trace_service_definition=datadog.DashboardWidgetTraceServiceDefinitionArgs(
+                        display_format="three_column",
+                        env="datad0g.com",
+                        service="alerting-cassandra",
+                        show_breakdown=True,
+                        show_distribution=True,
+                        show_errors=True,
+                        show_hits=True,
+                        show_latency=False,
+                        show_resource_list=False,
+                        size_format="large",
+                        span_name="cassandra.query",
+                        time=datadog.DashboardWidgetTraceServiceDefinitionTimeArgs(
+                            live_span="1h",
+                        ),
+                        title="alerting-cassandra #env:datad0g.com",
+                        title_align="center",
+                        title_size="13",
+                    ),
+                ),
+            ])
+        ```
+
+        ## Import
+
+        dashboards can be imported using their ID, e.g.
+
+        ```sh
+         $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DashboardArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DashboardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_read_only: Optional[pulumi.Input[bool]] = None,
+                 layout_type: Optional[pulumi.Input[str]] = None,
+                 notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardWidgetArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

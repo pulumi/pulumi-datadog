@@ -5,15 +5,84 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LogsMetric']
+__all__ = ['LogsMetricArgs', 'LogsMetric']
+
+@pulumi.input_type
+class LogsMetricArgs:
+    def __init__(__self__, *,
+                 compute: pulumi.Input['LogsMetricComputeArgs'],
+                 filter: pulumi.Input['LogsMetricFilterArgs'],
+                 name: pulumi.Input[str],
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None):
+        """
+        The set of arguments for constructing a LogsMetric resource.
+        :param pulumi.Input['LogsMetricComputeArgs'] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
+        :param pulumi.Input['LogsMetricFilterArgs'] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        :param pulumi.Input[str] name: The name of the log-based metric. This field can't be updated after creation.
+        :param pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]] group_bies: The rules for the group by.
+        """
+        pulumi.set(__self__, "compute", compute)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "name", name)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+
+    @property
+    @pulumi.getter
+    def compute(self) -> pulumi.Input['LogsMetricComputeArgs']:
+        """
+        The compute rule to compute the log-based metric. This field can't be updated after creation.
+        """
+        return pulumi.get(self, "compute")
+
+    @compute.setter
+    def compute(self, value: pulumi.Input['LogsMetricComputeArgs']):
+        pulumi.set(self, "compute", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input['LogsMetricFilterArgs']:
+        """
+        The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input['LogsMetricFilterArgs']):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the log-based metric. This field can't be updated after creation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]:
+        """
+        The rules for the group by.
+        """
+        return pulumi.get(self, "group_bies")
+
+    @group_bies.setter
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]):
+        pulumi.set(self, "group_bies", value)
 
 
 class LogsMetric(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -101,6 +170,104 @@ class LogsMetric(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsMetricGroupByArgs']]]] group_bies: The rules for the group by.
         :param pulumi.Input[str] name: The name of the log-based metric. This field can't be updated after creation.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LogsMetricArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Resource for interacting with the logs_metric API
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        testing_logs_metric = datadog.LogsMetric("testingLogsMetric",
+            compute=datadog.LogsMetricComputeArgs(
+                aggregation_type="distribution",
+                path="@duration",
+            ),
+            filter=datadog.LogsMetricFilterArgs(
+                query="service:test",
+            ),
+            group_bies=[datadog.LogsMetricGroupByArgs(
+                path="@status",
+                tag_name="status",
+            )],
+            name="testing.logs.metric")
+        ```
+        ## Schema
+
+        ### Required
+
+        - **compute** (Block List, Min: 1, Max: 1) The compute rule to compute the log-based metric. This field can't be updated after creation. (see below for nested schema)
+        - **filter** (Block List, Min: 1, Max: 1) The log-based metric filter. Logs matching this filter will be aggregated in this metric. (see below for nested schema)
+        - **name** (String, Required) The name of the log-based metric. This field can't be updated after creation.
+
+        ### Optional
+
+        - **group_by** (Block List) The rules for the group by. (see below for nested schema)
+        - **id** (String, Optional) The ID of this resource.
+
+        <a id="nestedblock--compute"></a>
+        ### Nested Schema for `compute`
+
+        Required:
+
+        - **aggregation_type** (String, Required) The type of aggregation to use. This field can't be updated after creation.
+
+        Optional:
+
+        - **path** (String, Optional) The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+
+        <a id="nestedblock--filter"></a>
+        ### Nested Schema for `filter`
+
+        Required:
+
+        - **query** (String, Required) The search query - following the log search syntax.
+
+        <a id="nestedblock--group_by"></a>
+        ### Nested Schema for `group_by`
+
+        Required:
+
+        - **path** (String, Required) The path to the value the log-based metric will be aggregated over.
+        - **tag_name** (String, Required) Name of the tag that gets created.
+
+        ## Import
+
+        Import is supported using the following syntax
+
+        ```sh
+         $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LogsMetricArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LogsMetricArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 compute: Optional[pulumi.Input[pulumi.InputType['LogsMetricComputeArgs']]] = None,
+                 filter: Optional[pulumi.Input[pulumi.InputType['LogsMetricFilterArgs']]] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsMetricGroupByArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
