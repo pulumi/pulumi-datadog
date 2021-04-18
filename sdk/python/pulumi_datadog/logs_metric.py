@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -79,6 +79,78 @@ class LogsMetricArgs:
     @group_bies.setter
     def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]):
         pulumi.set(self, "group_bies", value)
+
+
+@pulumi.input_type
+class _LogsMetricState:
+    def __init__(__self__, *,
+                 compute: Optional[pulumi.Input['LogsMetricComputeArgs']] = None,
+                 filter: Optional[pulumi.Input['LogsMetricFilterArgs']] = None,
+                 group_bies: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LogsMetric resources.
+        :param pulumi.Input['LogsMetricComputeArgs'] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
+        :param pulumi.Input['LogsMetricFilterArgs'] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        :param pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]] group_bies: The rules for the group by.
+        :param pulumi.Input[str] name: The name of the log-based metric. This field can't be updated after creation.
+        """
+        if compute is not None:
+            pulumi.set(__self__, "compute", compute)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if group_bies is not None:
+            pulumi.set(__self__, "group_bies", group_bies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def compute(self) -> Optional[pulumi.Input['LogsMetricComputeArgs']]:
+        """
+        The compute rule to compute the log-based metric. This field can't be updated after creation.
+        """
+        return pulumi.get(self, "compute")
+
+    @compute.setter
+    def compute(self, value: Optional[pulumi.Input['LogsMetricComputeArgs']]):
+        pulumi.set(self, "compute", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['LogsMetricFilterArgs']]:
+        """
+        The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['LogsMetricFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="groupBies")
+    def group_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]:
+        """
+        The rules for the group by.
+        """
+        return pulumi.get(self, "group_bies")
+
+    @group_bies.setter
+    def group_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsMetricGroupByArgs']]]]):
+        pulumi.set(self, "group_bies", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the log-based metric. This field can't be updated after creation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class LogsMetric(pulumi.CustomResource):
@@ -283,18 +355,18 @@ class LogsMetric(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogsMetricArgs.__new__(LogsMetricArgs)
 
             if compute is None and not opts.urn:
                 raise TypeError("Missing required property 'compute'")
-            __props__['compute'] = compute
+            __props__.__dict__["compute"] = compute
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
-            __props__['filter'] = filter
-            __props__['group_bies'] = group_bies
+            __props__.__dict__["filter"] = filter
+            __props__.__dict__["group_bies"] = group_bies
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
         super(LogsMetric, __self__).__init__(
             'datadog:index/logsMetric:LogsMetric',
             resource_name,
@@ -323,12 +395,12 @@ class LogsMetric(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogsMetricState.__new__(_LogsMetricState)
 
-        __props__["compute"] = compute
-        __props__["filter"] = filter
-        __props__["group_bies"] = group_bies
-        __props__["name"] = name
+        __props__.__dict__["compute"] = compute
+        __props__.__dict__["filter"] = filter
+        __props__.__dict__["group_bies"] = group_bies
+        __props__.__dict__["name"] = name
         return LogsMetric(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -362,10 +434,4 @@ class LogsMetric(pulumi.CustomResource):
         The name of the log-based metric. This field can't be updated after creation.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

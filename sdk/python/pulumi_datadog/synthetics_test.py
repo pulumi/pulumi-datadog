@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -334,6 +334,363 @@ class SyntheticsTestArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestVariableArgs']]]]:
+        """
+        Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class _SyntheticsTestState:
+    def __init__(__self__, *,
+                 assertions: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 browser_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]] = None,
+                 config_variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]] = None,
+                 device_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 monitor_id: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 options: Optional[pulumi.Input['SyntheticsTestOptionsArgs']] = None,
+                 options_list: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']] = None,
+                 request: Optional[pulumi.Input['SyntheticsTestRequestArgs']] = None,
+                 request_basicauth: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']] = None,
+                 request_client_certificate: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']] = None,
+                 request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]]] = None,
+                 subtype: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestVariableArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering SyntheticsTest resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] assertions: List of assertions.
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] device_ids: Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
+               (only available for `browser` tests).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Array of locations used to run the test. Refer to [Datadog
+               documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+               `aws:eu-central-1`).
+        :param pulumi.Input[str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+               using the same `@username` notation as events.
+        :param pulumi.Input[int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
+        :param pulumi.Input[str] name: Name of Datadog synthetics test.
+        :param pulumi.Input['SyntheticsTestRequestArgs'] request: The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+        :param pulumi.Input['SyntheticsTestRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input['SyntheticsTestRequestClientCertificateArgs'] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+               below.
+        :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
+        :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
+        :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]] steps: Steps for browser tests.
+        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+               synthetics page of the UI. Default is an empty list (`[]`).
+        :param pulumi.Input[str] type: Synthetics test type (`api` or `browser`).
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestVariableArgs']]] variables: Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+        """
+        if assertions is not None:
+            warnings.warn("""Use assertion instead""", DeprecationWarning)
+            pulumi.log.warn("""assertions is deprecated: Use assertion instead""")
+        if assertions is not None:
+            pulumi.set(__self__, "assertions", assertions)
+        if browser_variables is not None:
+            pulumi.set(__self__, "browser_variables", browser_variables)
+        if config_variables is not None:
+            pulumi.set(__self__, "config_variables", config_variables)
+        if device_ids is not None:
+            pulumi.set(__self__, "device_ids", device_ids)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if monitor_id is not None:
+            pulumi.set(__self__, "monitor_id", monitor_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            warnings.warn("""This parameter is deprecated, please use `options_list`""", DeprecationWarning)
+            pulumi.log.warn("""options is deprecated: This parameter is deprecated, please use `options_list`""")
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if options_list is not None:
+            pulumi.set(__self__, "options_list", options_list)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+        if request_basicauth is not None:
+            pulumi.set(__self__, "request_basicauth", request_basicauth)
+        if request_client_certificate is not None:
+            pulumi.set(__self__, "request_client_certificate", request_client_certificate)
+        if request_headers is not None:
+            pulumi.set(__self__, "request_headers", request_headers)
+        if request_query is not None:
+            pulumi.set(__self__, "request_query", request_query)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if steps is not None:
+            pulumi.set(__self__, "steps", steps)
+        if subtype is not None:
+            pulumi.set(__self__, "subtype", subtype)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if variables is not None:
+            warnings.warn("""This parameter is deprecated, please use `browser_variable`""", DeprecationWarning)
+            pulumi.log.warn("""variables is deprecated: This parameter is deprecated, please use `browser_variable`""")
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter
+    def assertions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
+        """
+        List of assertions.
+        """
+        return pulumi.get(self, "assertions")
+
+    @assertions.setter
+    def assertions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
+        pulumi.set(self, "assertions", value)
+
+    @property
+    @pulumi.getter(name="browserVariables")
+    def browser_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]:
+        """
+        Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        """
+        return pulumi.get(self, "browser_variables")
+
+    @browser_variables.setter
+    def browser_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestBrowserVariableArgs']]]]):
+        pulumi.set(self, "browser_variables", value)
+
+    @property
+    @pulumi.getter(name="configVariables")
+    def config_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]:
+        """
+        Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        """
+        return pulumi.get(self, "config_variables")
+
+    @config_variables.setter
+    def config_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestConfigVariableArgs']]]]):
+        pulumi.set(self, "config_variables", value)
+
+    @property
+    @pulumi.getter(name="deviceIds")
+    def device_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
+        (only available for `browser` tests).
+        """
+        return pulumi.get(self, "device_ids")
+
+    @device_ids.setter
+    def device_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "device_ids", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of locations used to run the test. Refer to [Datadog
+        documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
+        `aws:eu-central-1`).
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
+        using the same `@username` notation as events.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        ID of the monitor associated with the Datadog synthetics test.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @monitor_id.setter
+    def monitor_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitor_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Datadog synthetics test.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['SyntheticsTestOptionsArgs']]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['SyntheticsTestOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="optionsList")
+    def options_list(self) -> Optional[pulumi.Input['SyntheticsTestOptionsListArgs']]:
+        return pulumi.get(self, "options_list")
+
+    @options_list.setter
+    def options_list(self, value: Optional[pulumi.Input['SyntheticsTestOptionsListArgs']]):
+        pulumi.set(self, "options_list", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> Optional[pulumi.Input['SyntheticsTestRequestArgs']]:
+        """
+        The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+        """
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: Optional[pulumi.Input['SyntheticsTestRequestArgs']]):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter(name="requestBasicauth")
+    def request_basicauth(self) -> Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']]:
+        """
+        The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+        """
+        return pulumi.get(self, "request_basicauth")
+
+    @request_basicauth.setter
+    def request_basicauth(self, value: Optional[pulumi.Input['SyntheticsTestRequestBasicauthArgs']]):
+        pulumi.set(self, "request_basicauth", value)
+
+    @property
+    @pulumi.getter(name="requestClientCertificate")
+    def request_client_certificate(self) -> Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]:
+        """
+        Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
+        below.
+        """
+        return pulumi.get(self, "request_client_certificate")
+
+    @request_client_certificate.setter
+    def request_client_certificate(self, value: Optional[pulumi.Input['SyntheticsTestRequestClientCertificateArgs']]):
+        pulumi.set(self, "request_client_certificate", value)
+
+    @property
+    @pulumi.getter(name="requestHeaders")
+    def request_headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Header name and value map.
+        """
+        return pulumi.get(self, "request_headers")
+
+    @request_headers.setter
+    def request_headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "request_headers", value)
+
+    @property
+    @pulumi.getter(name="requestQuery")
+    def request_query(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Query arguments name and value map.
+        """
+        return pulumi.get(self, "request_query")
+
+    @request_query.setter
+    def request_query(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "request_query", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]]]:
+        """
+        Steps for browser tests.
+        """
+        return pulumi.get(self, "steps")
+
+    @steps.setter
+    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]]]):
+        pulumi.set(self, "steps", value)
+
+    @property
+    @pulumi.getter
+    def subtype(self) -> Optional[pulumi.Input[str]]:
+        """
+        When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+        """
+        return pulumi.get(self, "subtype")
+
+    @subtype.setter
+    def subtype(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtype", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
+        synthetics page of the UI. Default is an empty list (`[]`).
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Synthetics test type (`api` or `browser`).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -972,48 +1329,48 @@ class SyntheticsTest(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SyntheticsTestArgs.__new__(SyntheticsTestArgs)
 
             if assertions is not None and not opts.urn:
                 warnings.warn("""Use assertion instead""", DeprecationWarning)
                 pulumi.log.warn("""assertions is deprecated: Use assertion instead""")
-            __props__['assertions'] = assertions
-            __props__['browser_variables'] = browser_variables
-            __props__['config_variables'] = config_variables
-            __props__['device_ids'] = device_ids
+            __props__.__dict__["assertions"] = assertions
+            __props__.__dict__["browser_variables"] = browser_variables
+            __props__.__dict__["config_variables"] = config_variables
+            __props__.__dict__["device_ids"] = device_ids
             if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
-            __props__['locations'] = locations
-            __props__['message'] = message
+            __props__.__dict__["locations"] = locations
+            __props__.__dict__["message"] = message
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if options is not None and not opts.urn:
                 warnings.warn("""This parameter is deprecated, please use `options_list`""", DeprecationWarning)
                 pulumi.log.warn("""options is deprecated: This parameter is deprecated, please use `options_list`""")
-            __props__['options'] = options
-            __props__['options_list'] = options_list
+            __props__.__dict__["options"] = options
+            __props__.__dict__["options_list"] = options_list
             if request is None and not opts.urn:
                 raise TypeError("Missing required property 'request'")
-            __props__['request'] = request
-            __props__['request_basicauth'] = request_basicauth
-            __props__['request_client_certificate'] = request_client_certificate
-            __props__['request_headers'] = request_headers
-            __props__['request_query'] = request_query
+            __props__.__dict__["request"] = request
+            __props__.__dict__["request_basicauth"] = request_basicauth
+            __props__.__dict__["request_client_certificate"] = request_client_certificate
+            __props__.__dict__["request_headers"] = request_headers
+            __props__.__dict__["request_query"] = request_query
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
-            __props__['status'] = status
-            __props__['steps'] = steps
-            __props__['subtype'] = subtype
-            __props__['tags'] = tags
+            __props__.__dict__["status"] = status
+            __props__.__dict__["steps"] = steps
+            __props__.__dict__["subtype"] = subtype
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
+            __props__.__dict__["type"] = type
             if variables is not None and not opts.urn:
                 warnings.warn("""This parameter is deprecated, please use `browser_variable`""", DeprecationWarning)
                 pulumi.log.warn("""variables is deprecated: This parameter is deprecated, please use `browser_variable`""")
-            __props__['variables'] = variables
-            __props__['monitor_id'] = None
+            __props__.__dict__["variables"] = variables
+            __props__.__dict__["monitor_id"] = None
         super(SyntheticsTest, __self__).__init__(
             'datadog:index/syntheticsTest:SyntheticsTest',
             resource_name,
@@ -1080,29 +1437,29 @@ class SyntheticsTest(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SyntheticsTestState.__new__(_SyntheticsTestState)
 
-        __props__["assertions"] = assertions
-        __props__["browser_variables"] = browser_variables
-        __props__["config_variables"] = config_variables
-        __props__["device_ids"] = device_ids
-        __props__["locations"] = locations
-        __props__["message"] = message
-        __props__["monitor_id"] = monitor_id
-        __props__["name"] = name
-        __props__["options"] = options
-        __props__["options_list"] = options_list
-        __props__["request"] = request
-        __props__["request_basicauth"] = request_basicauth
-        __props__["request_client_certificate"] = request_client_certificate
-        __props__["request_headers"] = request_headers
-        __props__["request_query"] = request_query
-        __props__["status"] = status
-        __props__["steps"] = steps
-        __props__["subtype"] = subtype
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["variables"] = variables
+        __props__.__dict__["assertions"] = assertions
+        __props__.__dict__["browser_variables"] = browser_variables
+        __props__.__dict__["config_variables"] = config_variables
+        __props__.__dict__["device_ids"] = device_ids
+        __props__.__dict__["locations"] = locations
+        __props__.__dict__["message"] = message
+        __props__.__dict__["monitor_id"] = monitor_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["options"] = options
+        __props__.__dict__["options_list"] = options_list
+        __props__.__dict__["request"] = request
+        __props__.__dict__["request_basicauth"] = request_basicauth
+        __props__.__dict__["request_client_certificate"] = request_client_certificate
+        __props__.__dict__["request_headers"] = request_headers
+        __props__.__dict__["request_query"] = request_query
+        __props__.__dict__["status"] = status
+        __props__.__dict__["steps"] = steps
+        __props__.__dict__["subtype"] = subtype
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
+        __props__.__dict__["variables"] = variables
         return SyntheticsTest(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1272,10 +1629,4 @@ class SyntheticsTest(pulumi.CustomResource):
         Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "variables")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -128,6 +128,126 @@ class SyntheticsGlobalVariableArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _SyntheticsGlobalVariableState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parse_test_id: Optional[pulumi.Input[str]] = None,
+                 parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
+                 secure: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SyntheticsGlobalVariable resources.
+        :param pulumi.Input[str] description: Description of the global variable.
+        :param pulumi.Input[str] name: Synthetics global variable name.
+        :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
+        :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
+        :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
+        :param pulumi.Input[str] value: The value of the global variable.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parse_test_id is not None:
+            pulumi.set(__self__, "parse_test_id", parse_test_id)
+        if parse_test_options is not None:
+            pulumi.set(__self__, "parse_test_options", parse_test_options)
+        if secure is not None:
+            pulumi.set(__self__, "secure", secure)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the global variable.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Synthetics global variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parseTestId")
+    def parse_test_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the Synthetics test to use for a variable from test.
+        """
+        return pulumi.get(self, "parse_test_id")
+
+    @parse_test_id.setter
+    def parse_test_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parse_test_id", value)
+
+    @property
+    @pulumi.getter(name="parseTestOptions")
+    def parse_test_options(self) -> Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]:
+        """
+        ID of the Synthetics test to use a source of the global variable value.
+        """
+        return pulumi.get(self, "parse_test_options")
+
+    @parse_test_options.setter
+    def parse_test_options(self, value: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']]):
+        pulumi.set(self, "parse_test_options", value)
+
+    @property
+    @pulumi.getter
+    def secure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Sets the variable as secure. Defaults to `false`.
+        """
+        return pulumi.get(self, "secure")
+
+    @secure.setter
+    def secure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags to associate with your synthetics global variable.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the global variable.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 class SyntheticsGlobalVariable(pulumi.CustomResource):
@@ -255,19 +375,19 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SyntheticsGlobalVariableArgs.__new__(SyntheticsGlobalVariableArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['parse_test_id'] = parse_test_id
-            __props__['parse_test_options'] = parse_test_options
-            __props__['secure'] = secure
-            __props__['tags'] = tags
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parse_test_id"] = parse_test_id
+            __props__.__dict__["parse_test_options"] = parse_test_options
+            __props__.__dict__["secure"] = secure
+            __props__.__dict__["tags"] = tags
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__['value'] = value
+            __props__.__dict__["value"] = value
         super(SyntheticsGlobalVariable, __self__).__init__(
             'datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable',
             resource_name,
@@ -302,15 +422,15 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SyntheticsGlobalVariableState.__new__(_SyntheticsGlobalVariableState)
 
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["parse_test_id"] = parse_test_id
-        __props__["parse_test_options"] = parse_test_options
-        __props__["secure"] = secure
-        __props__["tags"] = tags
-        __props__["value"] = value
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parse_test_id"] = parse_test_id
+        __props__.__dict__["parse_test_options"] = parse_test_options
+        __props__.__dict__["secure"] = secure
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["value"] = value
         return SyntheticsGlobalVariable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -368,10 +488,4 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         The value of the global variable.
         """
         return pulumi.get(self, "value")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

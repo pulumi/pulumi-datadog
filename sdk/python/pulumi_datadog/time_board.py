@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -97,6 +97,94 @@ class TimeBoardArgs:
         pulumi.set(self, "template_variables", value)
 
 
+@pulumi.input_type
+class _TimeBoardState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 graphs: Optional[pulumi.Input[Sequence[pulumi.Input['TimeBoardGraphArgs']]]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['TimeBoardTemplateVariableArgs']]]] = None,
+                 title: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TimeBoard resources.
+        :param pulumi.Input[str] description: A description of the dashboard's content.
+        :param pulumi.Input[Sequence[pulumi.Input['TimeBoardGraphArgs']]] graphs: A list of graph definitions.
+        :param pulumi.Input[bool] read_only: The read-only status of the timeboard. Default is false.
+        :param pulumi.Input[Sequence[pulumi.Input['TimeBoardTemplateVariableArgs']]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[str] title: The name of the dashboard.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if graphs is not None:
+            pulumi.set(__self__, "graphs", graphs)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if template_variables is not None:
+            pulumi.set(__self__, "template_variables", template_variables)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the dashboard's content.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def graphs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeBoardGraphArgs']]]]:
+        """
+        A list of graph definitions.
+        """
+        return pulumi.get(self, "graphs")
+
+    @graphs.setter
+    def graphs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeBoardGraphArgs']]]]):
+        pulumi.set(self, "graphs", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The read-only status of the timeboard. Default is false.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="templateVariables")
+    def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeBoardTemplateVariableArgs']]]]:
+        """
+        A list of template variables for using Dashboard templating.
+        """
+        return pulumi.get(self, "template_variables")
+
+    @template_variables.setter
+    def template_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeBoardTemplateVariableArgs']]]]):
+        pulumi.set(self, "template_variables", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+
 class TimeBoard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -180,19 +268,19 @@ class TimeBoard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TimeBoardArgs.__new__(TimeBoardArgs)
 
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if graphs is None and not opts.urn:
                 raise TypeError("Missing required property 'graphs'")
-            __props__['graphs'] = graphs
-            __props__['read_only'] = read_only
-            __props__['template_variables'] = template_variables
+            __props__.__dict__["graphs"] = graphs
+            __props__.__dict__["read_only"] = read_only
+            __props__.__dict__["template_variables"] = template_variables
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
-            __props__['title'] = title
+            __props__.__dict__["title"] = title
         super(TimeBoard, __self__).__init__(
             'datadog:index/timeBoard:TimeBoard',
             resource_name,
@@ -223,13 +311,13 @@ class TimeBoard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TimeBoardState.__new__(_TimeBoardState)
 
-        __props__["description"] = description
-        __props__["graphs"] = graphs
-        __props__["read_only"] = read_only
-        __props__["template_variables"] = template_variables
-        __props__["title"] = title
+        __props__.__dict__["description"] = description
+        __props__.__dict__["graphs"] = graphs
+        __props__.__dict__["read_only"] = read_only
+        __props__.__dict__["template_variables"] = template_variables
+        __props__.__dict__["title"] = title
         return TimeBoard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -271,10 +359,4 @@ class TimeBoard(pulumi.CustomResource):
         The name of the dashboard.
         """
         return pulumi.get(self, "title")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

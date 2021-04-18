@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -171,6 +171,182 @@ class ServiceLevelObjectiveArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to validate the SLO.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate", value)
+
+
+@pulumi.input_type
+class _ServiceLevelObjectiveState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 monitor_ids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 validate: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering ServiceLevelObjective resources.
+        :param pulumi.Input[str] description: A description of this service level objective.
+        :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+               -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
+        :param pulumi.Input[str] name: Name of Datadog service level objective
+        :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+               found in the Datadog API [documentation
+               page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+               are: `metric` and `monitor`.
+        :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if monitor_ids is not None:
+            pulumi.set(__self__, "monitor_ids", monitor_ids)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if thresholds is not None:
+            pulumi.set(__self__, "thresholds", thresholds)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of this service level objective.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
+        -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A static set of groups to filter monitor-based SLOs
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="monitorIds")
+    def monitor_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A static set of monitor IDs to use as part of the SLO
+        """
+        return pulumi.get(self, "monitor_ids")
+
+    @monitor_ids.setter
+    def monitor_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "monitor_ids", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Datadog service level objective
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]:
+        """
+        The metric query of good / total events
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input['ServiceLevelObjectiveQueryArgs']]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]]:
+        """
+        A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        """
+        return pulumi.get(self, "thresholds")
+
+    @thresholds.setter
+    def thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]]]):
+        pulumi.set(self, "thresholds", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
+        found in the Datadog API [documentation
+        page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
+        are: `metric` and `monitor`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -433,24 +609,24 @@ class ServiceLevelObjective(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceLevelObjectiveArgs.__new__(ServiceLevelObjectiveArgs)
 
-            __props__['description'] = description
-            __props__['force_delete'] = force_delete
-            __props__['groups'] = groups
-            __props__['monitor_ids'] = monitor_ids
+            __props__.__dict__["description"] = description
+            __props__.__dict__["force_delete"] = force_delete
+            __props__.__dict__["groups"] = groups
+            __props__.__dict__["monitor_ids"] = monitor_ids
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['query'] = query
-            __props__['tags'] = tags
+            __props__.__dict__["name"] = name
+            __props__.__dict__["query"] = query
+            __props__.__dict__["tags"] = tags
             if thresholds is None and not opts.urn:
                 raise TypeError("Missing required property 'thresholds'")
-            __props__['thresholds'] = thresholds
+            __props__.__dict__["thresholds"] = thresholds
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['validate'] = validate
+            __props__.__dict__["type"] = type
+            __props__.__dict__["validate"] = validate
         super(ServiceLevelObjective, __self__).__init__(
             'datadog:index/serviceLevelObjective:ServiceLevelObjective',
             resource_name,
@@ -495,18 +671,18 @@ class ServiceLevelObjective(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceLevelObjectiveState.__new__(_ServiceLevelObjectiveState)
 
-        __props__["description"] = description
-        __props__["force_delete"] = force_delete
-        __props__["groups"] = groups
-        __props__["monitor_ids"] = monitor_ids
-        __props__["name"] = name
-        __props__["query"] = query
-        __props__["tags"] = tags
-        __props__["thresholds"] = thresholds
-        __props__["type"] = type
-        __props__["validate"] = validate
+        __props__.__dict__["description"] = description
+        __props__.__dict__["force_delete"] = force_delete
+        __props__.__dict__["groups"] = groups
+        __props__.__dict__["monitor_ids"] = monitor_ids
+        __props__.__dict__["name"] = name
+        __props__.__dict__["query"] = query
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["thresholds"] = thresholds
+        __props__.__dict__["type"] = type
+        __props__.__dict__["validate"] = validate
         return ServiceLevelObjective(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -592,10 +768,4 @@ class ServiceLevelObjective(pulumi.CustomResource):
         Whether or not to validate the SLO.
         """
         return pulumi.get(self, "validate")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

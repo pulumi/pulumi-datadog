@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['MetricMetadataArgs', 'MetricMetadata']
 
@@ -67,6 +67,126 @@ class MetricMetadataArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="perUnit")
+    def per_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Per unit of the metric such as `second` in `bytes per second`.
+        """
+        return pulumi.get(self, "per_unit")
+
+    @per_unit.setter
+    def per_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "per_unit", value)
+
+    @property
+    @pulumi.getter(name="shortName")
+    def short_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short name of the metric.
+        """
+        return pulumi.get(self, "short_name")
+
+    @short_name.setter
+    def short_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "short_name", value)
+
+    @property
+    @pulumi.getter(name="statsdInterval")
+    def statsd_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        If applicable, statsd flush interval in seconds for the metric.
+        """
+        return pulumi.get(self, "statsd_interval")
+
+    @statsd_interval.setter
+    def statsd_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "statsd_interval", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the metric.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary unit of the metric such as `byte` or `operation`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class _MetricMetadataState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 metric: Optional[pulumi.Input[str]] = None,
+                 per_unit: Optional[pulumi.Input[str]] = None,
+                 short_name: Optional[pulumi.Input[str]] = None,
+                 statsd_interval: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MetricMetadata resources.
+        :param pulumi.Input[str] description: A description of the metric.
+        :param pulumi.Input[str] metric: The name of the metric.
+        :param pulumi.Input[str] per_unit: Per unit of the metric such as `second` in `bytes per second`.
+        :param pulumi.Input[str] short_name: A short name of the metric.
+        :param pulumi.Input[int] statsd_interval: If applicable, statsd flush interval in seconds for the metric.
+        :param pulumi.Input[str] type: Type of the metric.
+        :param pulumi.Input[str] unit: Primary unit of the metric such as `byte` or `operation`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if per_unit is not None:
+            pulumi.set(__self__, "per_unit", per_unit)
+        if short_name is not None:
+            pulumi.set(__self__, "short_name", short_name)
+        if statsd_interval is not None:
+            pulumi.set(__self__, "statsd_interval", statsd_interval)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the metric.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric", value)
 
     @property
     @pulumi.getter(name="perUnit")
@@ -236,17 +356,17 @@ class MetricMetadata(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MetricMetadataArgs.__new__(MetricMetadataArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if metric is None and not opts.urn:
                 raise TypeError("Missing required property 'metric'")
-            __props__['metric'] = metric
-            __props__['per_unit'] = per_unit
-            __props__['short_name'] = short_name
-            __props__['statsd_interval'] = statsd_interval
-            __props__['type'] = type
-            __props__['unit'] = unit
+            __props__.__dict__["metric"] = metric
+            __props__.__dict__["per_unit"] = per_unit
+            __props__.__dict__["short_name"] = short_name
+            __props__.__dict__["statsd_interval"] = statsd_interval
+            __props__.__dict__["type"] = type
+            __props__.__dict__["unit"] = unit
         super(MetricMetadata, __self__).__init__(
             'datadog:index/metricMetadata:MetricMetadata',
             resource_name,
@@ -281,15 +401,15 @@ class MetricMetadata(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MetricMetadataState.__new__(_MetricMetadataState)
 
-        __props__["description"] = description
-        __props__["metric"] = metric
-        __props__["per_unit"] = per_unit
-        __props__["short_name"] = short_name
-        __props__["statsd_interval"] = statsd_interval
-        __props__["type"] = type
-        __props__["unit"] = unit
+        __props__.__dict__["description"] = description
+        __props__.__dict__["metric"] = metric
+        __props__.__dict__["per_unit"] = per_unit
+        __props__.__dict__["short_name"] = short_name
+        __props__.__dict__["statsd_interval"] = statsd_interval
+        __props__.__dict__["type"] = type
+        __props__.__dict__["unit"] = unit
         return MetricMetadata(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -347,10 +467,4 @@ class MetricMetadata(pulumi.CustomResource):
         Primary unit of the metric such as `byte` or `operation`.
         """
         return pulumi.get(self, "unit")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

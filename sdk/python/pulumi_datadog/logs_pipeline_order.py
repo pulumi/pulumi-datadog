@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['LogsPipelineOrderArgs', 'LogsPipelineOrder']
 
@@ -49,6 +49,50 @@ class LogsPipelineOrderArgs:
 
     @pipelines.setter
     def pipelines(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "pipelines", value)
+
+
+@pulumi.input_type
+class _LogsPipelineOrderState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering LogsPipelineOrder resources.
+        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+               value as the resource name. No related field is available in [Logs Pipeline
+               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
+        value as the resource name. No related field is available in [Logs Pipeline
+        API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "pipelines", value)
 
 
@@ -168,14 +212,14 @@ class LogsPipelineOrder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogsPipelineOrderArgs.__new__(LogsPipelineOrderArgs)
 
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if pipelines is None and not opts.urn:
                 raise TypeError("Missing required property 'pipelines'")
-            __props__['pipelines'] = pipelines
+            __props__.__dict__["pipelines"] = pipelines
         super(LogsPipelineOrder, __self__).__init__(
             'datadog:index/logsPipelineOrder:LogsPipelineOrder',
             resource_name,
@@ -202,10 +246,10 @@ class LogsPipelineOrder(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogsPipelineOrderState.__new__(_LogsPipelineOrderState)
 
-        __props__["name"] = name
-        __props__["pipelines"] = pipelines
+        __props__.__dict__["name"] = name
+        __props__.__dict__["pipelines"] = pipelines
         return LogsPipelineOrder(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -225,10 +269,4 @@ class LogsPipelineOrder(pulumi.CustomResource):
         The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
         return pulumi.get(self, "pipelines")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
