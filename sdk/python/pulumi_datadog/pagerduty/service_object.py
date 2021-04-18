@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ServiceObjectArgs', 'ServiceObject']
 
@@ -55,6 +55,56 @@ class ServiceObjectArgs:
 
     @service_name.setter
     def service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_name", value)
+
+
+@pulumi.input_type
+class _ServiceObjectState:
+    def __init__(__self__, *,
+                 service_key: Optional[pulumi.Input[str]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServiceObject resources.
+        :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+               impossible to detect
+               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+               The best way to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+               have it destroyed and recreated.
+        :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
+        """
+        if service_key is not None:
+            pulumi.set(__self__, "service_key", service_key)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+
+    @property
+    @pulumi.getter(name="serviceKey")
+    def service_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
+        impossible to detect
+        [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
+        The best way to solve a drift is to manually mark the Service Object resource with [terraform
+        taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
+        have it destroyed and recreated.
+        """
+        return pulumi.get(self, "service_key")
+
+    @service_key.setter
+    def service_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_key", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your Service name in PagerDuty.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_name", value)
 
 
@@ -153,14 +203,14 @@ class ServiceObject(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceObjectArgs.__new__(ServiceObjectArgs)
 
             if service_key is None and not opts.urn:
                 raise TypeError("Missing required property 'service_key'")
-            __props__['service_key'] = service_key
+            __props__.__dict__["service_key"] = service_key
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
-            __props__['service_name'] = service_name
+            __props__.__dict__["service_name"] = service_name
         super(ServiceObject, __self__).__init__(
             'datadog:pagerduty/serviceObject:ServiceObject',
             resource_name,
@@ -190,10 +240,10 @@ class ServiceObject(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceObjectState.__new__(_ServiceObjectState)
 
-        __props__["service_key"] = service_key
-        __props__["service_name"] = service_name
+        __props__.__dict__["service_key"] = service_key
+        __props__.__dict__["service_name"] = service_name
         return ServiceObject(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -216,10 +266,4 @@ class ServiceObject(pulumi.CustomResource):
         Your Service name in PagerDuty.
         """
         return pulumi.get(self, "service_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

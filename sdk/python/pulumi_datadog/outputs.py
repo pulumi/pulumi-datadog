@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -863,6 +863,23 @@ __all__ = [
 
 @pulumi.output_type
 class DashboardListDashItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dashId":
+            suggest = "dash_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardListDashItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardListDashItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardListDashItem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dash_id: str,
                  type: str):
@@ -878,9 +895,6 @@ class DashboardListDashItem(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -910,12 +924,26 @@ class DashboardTemplateVariable(dict):
     def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardTemplateVariablePreset(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateVariables":
+            suggest = "template_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardTemplateVariablePreset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardTemplateVariablePreset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardTemplateVariablePreset.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  template_variables: Sequence['outputs.DashboardTemplateVariablePresetTemplateVariable']):
@@ -931,9 +959,6 @@ class DashboardTemplateVariablePreset(dict):
     @pulumi.getter(name="templateVariables")
     def template_variables(self) -> Sequence['outputs.DashboardTemplateVariablePresetTemplateVariable']:
         return pulumi.get(self, "template_variables")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -954,12 +979,72 @@ class DashboardTemplateVariablePresetTemplateVariable(dict):
     def value(self) -> str:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertGraphDefinition":
+            suggest = "alert_graph_definition"
+        elif key == "alertValueDefinition":
+            suggest = "alert_value_definition"
+        elif key == "changeDefinition":
+            suggest = "change_definition"
+        elif key == "checkStatusDefinition":
+            suggest = "check_status_definition"
+        elif key == "distributionDefinition":
+            suggest = "distribution_definition"
+        elif key == "eventStreamDefinition":
+            suggest = "event_stream_definition"
+        elif key == "eventTimelineDefinition":
+            suggest = "event_timeline_definition"
+        elif key == "freeTextDefinition":
+            suggest = "free_text_definition"
+        elif key == "groupDefinition":
+            suggest = "group_definition"
+        elif key == "heatmapDefinition":
+            suggest = "heatmap_definition"
+        elif key == "hostmapDefinition":
+            suggest = "hostmap_definition"
+        elif key == "iframeDefinition":
+            suggest = "iframe_definition"
+        elif key == "imageDefinition":
+            suggest = "image_definition"
+        elif key == "logStreamDefinition":
+            suggest = "log_stream_definition"
+        elif key == "manageStatusDefinition":
+            suggest = "manage_status_definition"
+        elif key == "noteDefinition":
+            suggest = "note_definition"
+        elif key == "queryTableDefinition":
+            suggest = "query_table_definition"
+        elif key == "queryValueDefinition":
+            suggest = "query_value_definition"
+        elif key == "scatterplotDefinition":
+            suggest = "scatterplot_definition"
+        elif key == "serviceLevelObjectiveDefinition":
+            suggest = "service_level_objective_definition"
+        elif key == "servicemapDefinition":
+            suggest = "servicemap_definition"
+        elif key == "timeseriesDefinition":
+            suggest = "timeseries_definition"
+        elif key == "toplistDefinition":
+            suggest = "toplist_definition"
+        elif key == "traceServiceDefinition":
+            suggest = "trace_service_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_graph_definition: Optional['outputs.DashboardWidgetAlertGraphDefinition'] = None,
                  alert_value_definition: Optional['outputs.DashboardWidgetAlertValueDefinition'] = None,
@@ -1170,12 +1255,32 @@ class DashboardWidget(dict):
     def trace_service_definition(self) -> Optional['outputs.DashboardWidgetTraceServiceDefinition']:
         return pulumi.get(self, "trace_service_definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetAlertGraphDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertId":
+            suggest = "alert_id"
+        elif key == "vizType":
+            suggest = "viz_type"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetAlertGraphDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetAlertGraphDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetAlertGraphDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_id: str,
                  viz_type: str,
@@ -1224,12 +1329,26 @@ class DashboardWidgetAlertGraphDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetAlertGraphDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetAlertGraphDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetAlertGraphDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetAlertGraphDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -1240,12 +1359,32 @@ class DashboardWidgetAlertGraphDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetAlertValueDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertId":
+            suggest = "alert_id"
+        elif key == "textAlign":
+            suggest = "text_align"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetAlertValueDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetAlertValueDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetAlertValueDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_id: str,
                  precision: Optional[int] = None,
@@ -1303,12 +1442,30 @@ class DashboardWidgetAlertValueDefinition(dict):
     def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequest']] = None,
@@ -1359,9 +1516,6 @@ class DashboardWidgetChangeDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionCustomLink(dict):
@@ -1381,12 +1535,46 @@ class DashboardWidgetChangeDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "changeType":
+            suggest = "change_type"
+        elif key == "compareTo":
+            suggest = "compare_to"
+        elif key == "increaseGood":
+            suggest = "increase_good"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "orderBy":
+            suggest = "order_by"
+        elif key == "orderDir":
+            suggest = "order_dir"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+        elif key == "showPresent":
+            suggest = "show_present"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQuery'] = None,
                  change_type: Optional[str] = None,
@@ -1485,12 +1673,28 @@ class DashboardWidgetChangeDefinitionRequest(dict):
     def show_present(self) -> Optional[bool]:
         return pulumi.get(self, "show_present")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryCompute'] = None,
@@ -1532,9 +1736,6 @@ class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestApmQueryCompute(dict):
@@ -1562,9 +1763,6 @@ class DashboardWidgetChangeDefinitionRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1595,9 +1793,6 @@ class DashboardWidgetChangeDefinitionRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort(dict):
@@ -1624,9 +1819,6 @@ class DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1656,9 +1848,6 @@ class DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestApmQuerySearch(dict):
@@ -1671,12 +1860,28 @@ class DashboardWidgetChangeDefinitionRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryCompute'] = None,
@@ -1718,9 +1923,6 @@ class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestLogQueryCompute(dict):
@@ -1748,9 +1950,6 @@ class DashboardWidgetChangeDefinitionRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1781,9 +1980,6 @@ class DashboardWidgetChangeDefinitionRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort(dict):
@@ -1810,9 +2006,6 @@ class DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1842,9 +2035,6 @@ class DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestLogQuerySearch(dict):
@@ -1857,12 +2047,28 @@ class DashboardWidgetChangeDefinitionRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -1896,12 +2102,28 @@ class DashboardWidgetChangeDefinitionRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryCompute'] = None,
@@ -1943,9 +2165,6 @@ class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestRumQueryCompute(dict):
@@ -1973,9 +2192,6 @@ class DashboardWidgetChangeDefinitionRequestRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2006,9 +2222,6 @@ class DashboardWidgetChangeDefinitionRequestRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort(dict):
@@ -2035,9 +2248,6 @@ class DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2067,9 +2277,6 @@ class DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestRumQuerySearch(dict):
@@ -2082,12 +2289,28 @@ class DashboardWidgetChangeDefinitionRequestRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryCompute'] = None,
@@ -2129,9 +2352,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
@@ -2159,9 +2379,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2192,9 +2409,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -2221,9 +2435,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2253,9 +2464,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestSecurityQuerySearch(dict):
@@ -2268,12 +2476,26 @@ class DashboardWidgetChangeDefinitionRequestSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -2284,12 +2506,30 @@ class DashboardWidgetChangeDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetCheckStatusDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetCheckStatusDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetCheckStatusDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetCheckStatusDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  check: str,
                  grouping: str,
@@ -2362,12 +2602,26 @@ class DashboardWidgetCheckStatusDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetCheckStatusDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetCheckStatusDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetCheckStatusDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetCheckStatusDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -2378,12 +2632,32 @@ class DashboardWidgetCheckStatusDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "legendSize":
+            suggest = "legend_size"
+        elif key == "showLegend":
+            suggest = "show_legend"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  legend_size: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequest']] = None,
@@ -2442,12 +2716,34 @@ class DashboardWidgetDistributionDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuery'] = None,
@@ -2506,12 +2802,28 @@ class DashboardWidgetDistributionDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute'] = None,
@@ -2553,9 +2865,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestApmQueryCompute(dict):
@@ -2583,9 +2892,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2616,9 +2922,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort(dict):
@@ -2645,9 +2948,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2677,9 +2977,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestApmQuerySearch(dict):
@@ -2692,12 +2989,28 @@ class DashboardWidgetDistributionDefinitionRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryCompute'] = None,
@@ -2739,9 +3052,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestLogQueryCompute(dict):
@@ -2769,9 +3079,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2802,9 +3109,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort(dict):
@@ -2831,9 +3135,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2863,9 +3164,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestLogQuerySearch(dict):
@@ -2878,12 +3176,28 @@ class DashboardWidgetDistributionDefinitionRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -2917,12 +3231,28 @@ class DashboardWidgetDistributionDefinitionRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryCompute'] = None,
@@ -2964,9 +3294,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestRumQueryCompute(dict):
@@ -2994,9 +3321,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3027,9 +3351,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort(dict):
@@ -3056,9 +3377,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3088,9 +3406,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestRumQuerySearch(dict):
@@ -3103,12 +3418,28 @@ class DashboardWidgetDistributionDefinitionRequestRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute'] = None,
@@ -3150,9 +3481,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
@@ -3180,9 +3508,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3213,9 +3538,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -3242,9 +3564,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort(dict)
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3274,9 +3593,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute(dict
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch(dict):
@@ -3288,9 +3604,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch(dict):
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3305,12 +3618,26 @@ class DashboardWidgetDistributionDefinitionRequestStyle(dict):
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetDistributionDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetDistributionDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetDistributionDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -3321,12 +3648,32 @@ class DashboardWidgetDistributionDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetEventStreamDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSize":
+            suggest = "event_size"
+        elif key == "tagsExecution":
+            suggest = "tags_execution"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetEventStreamDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetEventStreamDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetEventStreamDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  event_size: Optional[str] = None,
@@ -3384,12 +3731,26 @@ class DashboardWidgetEventStreamDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetEventStreamDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetEventStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetEventStreamDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetEventStreamDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -3400,12 +3761,30 @@ class DashboardWidgetEventStreamDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetEventTimelineDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagsExecution":
+            suggest = "tags_execution"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetEventTimelineDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetEventTimelineDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetEventTimelineDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  tags_execution: Optional[str] = None,
@@ -3455,12 +3834,26 @@ class DashboardWidgetEventTimelineDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetEventTimelineDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetEventTimelineDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetEventTimelineDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetEventTimelineDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -3471,12 +3864,28 @@ class DashboardWidgetEventTimelineDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetFreeTextDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fontSize":
+            suggest = "font_size"
+        elif key == "textAlign":
+            suggest = "text_align"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetFreeTextDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetFreeTextDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetFreeTextDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  text: str,
                  color: Optional[str] = None,
@@ -3510,12 +3919,26 @@ class DashboardWidgetFreeTextDefinition(dict):
     def text_align(self) -> Optional[str]:
         return pulumi.get(self, "text_align")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "layoutType":
+            suggest = "layout_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  layout_type: str,
                  widgets: Sequence['outputs.DashboardWidgetGroupDefinitionWidget'],
@@ -3540,12 +3963,70 @@ class DashboardWidgetGroupDefinition(dict):
     def title(self) -> Optional[str]:
         return pulumi.get(self, "title")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertGraphDefinition":
+            suggest = "alert_graph_definition"
+        elif key == "alertValueDefinition":
+            suggest = "alert_value_definition"
+        elif key == "changeDefinition":
+            suggest = "change_definition"
+        elif key == "checkStatusDefinition":
+            suggest = "check_status_definition"
+        elif key == "distributionDefinition":
+            suggest = "distribution_definition"
+        elif key == "eventStreamDefinition":
+            suggest = "event_stream_definition"
+        elif key == "eventTimelineDefinition":
+            suggest = "event_timeline_definition"
+        elif key == "freeTextDefinition":
+            suggest = "free_text_definition"
+        elif key == "heatmapDefinition":
+            suggest = "heatmap_definition"
+        elif key == "hostmapDefinition":
+            suggest = "hostmap_definition"
+        elif key == "iframeDefinition":
+            suggest = "iframe_definition"
+        elif key == "imageDefinition":
+            suggest = "image_definition"
+        elif key == "logStreamDefinition":
+            suggest = "log_stream_definition"
+        elif key == "manageStatusDefinition":
+            suggest = "manage_status_definition"
+        elif key == "noteDefinition":
+            suggest = "note_definition"
+        elif key == "queryTableDefinition":
+            suggest = "query_table_definition"
+        elif key == "queryValueDefinition":
+            suggest = "query_value_definition"
+        elif key == "scatterplotDefinition":
+            suggest = "scatterplot_definition"
+        elif key == "serviceLevelObjectiveDefinition":
+            suggest = "service_level_objective_definition"
+        elif key == "servicemapDefinition":
+            suggest = "servicemap_definition"
+        elif key == "timeseriesDefinition":
+            suggest = "timeseries_definition"
+        elif key == "toplistDefinition":
+            suggest = "toplist_definition"
+        elif key == "traceServiceDefinition":
+            suggest = "trace_service_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_graph_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition'] = None,
                  alert_value_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition'] = None,
@@ -3748,12 +4229,32 @@ class DashboardWidgetGroupDefinitionWidget(dict):
     def trace_service_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition']:
         return pulumi.get(self, "trace_service_definition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertId":
+            suggest = "alert_id"
+        elif key == "vizType":
+            suggest = "viz_type"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_id: str,
                  viz_type: str,
@@ -3802,12 +4303,26 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -3818,12 +4333,32 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertId":
+            suggest = "alert_id"
+        elif key == "textAlign":
+            suggest = "text_align"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetAlertValueDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetAlertValueDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetAlertValueDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_id: str,
                  precision: Optional[int] = None,
@@ -3881,12 +4416,30 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
     def unit(self) -> Optional[str]:
         return pulumi.get(self, "unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest']] = None,
@@ -3937,9 +4490,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink(dict):
@@ -3959,12 +4509,46 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "changeType":
+            suggest = "change_type"
+        elif key == "compareTo":
+            suggest = "compare_to"
+        elif key == "increaseGood":
+            suggest = "increase_good"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "orderBy":
+            suggest = "order_by"
+        elif key == "orderDir":
+            suggest = "order_dir"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+        elif key == "showPresent":
+            suggest = "show_present"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery'] = None,
                  change_type: Optional[str] = None,
@@ -4063,12 +4647,28 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest(dict):
     def show_present(self) -> Optional[bool]:
         return pulumi.get(self, "show_present")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute'] = None,
@@ -4110,9 +4710,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute(dict):
@@ -4140,9 +4737,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4173,9 +4767,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort(dict):
@@ -4202,9 +4793,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4234,9 +4822,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCo
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch(dict):
@@ -4249,12 +4834,28 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch(
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute'] = None,
@@ -4296,9 +4897,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute(dict):
@@ -4326,9 +4924,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4359,9 +4954,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort(dict):
@@ -4388,9 +4980,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4420,9 +5009,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCo
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch(dict):
@@ -4435,12 +5021,28 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch(
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -4474,12 +5076,28 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery(di
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute'] = None,
@@ -4521,9 +5139,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute(dict):
@@ -4551,9 +5166,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4584,9 +5196,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort(dict):
@@ -4613,9 +5222,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4645,9 +5251,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCo
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch(dict):
@@ -4660,12 +5263,28 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch(
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute'] = None,
@@ -4707,9 +5326,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(d
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
@@ -4737,9 +5353,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4770,9 +5383,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGr
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -4799,9 +5409,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGr
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4831,9 +5438,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch(dict):
@@ -4846,12 +5450,26 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySe
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -4862,12 +5480,30 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  check: str,
                  grouping: str,
@@ -4940,12 +5576,26 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -4956,12 +5606,32 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "legendSize":
+            suggest = "legend_size"
+        elif key == "showLegend":
+            suggest = "show_legend"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  legend_size: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest']] = None,
@@ -5020,12 +5690,34 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery'] = None,
@@ -5084,12 +5776,28 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute'] = None,
@@ -5131,9 +5839,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute(dict):
@@ -5161,9 +5866,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5194,9 +5896,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort(dict):
@@ -5223,9 +5922,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5255,9 +5951,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch(dict):
@@ -5270,12 +5963,28 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute'] = None,
@@ -5317,9 +6026,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute(dict):
@@ -5347,9 +6053,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5380,9 +6083,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort(dict):
@@ -5409,9 +6109,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5441,9 +6138,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch(dict):
@@ -5456,12 +6150,28 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -5495,12 +6205,28 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQu
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute'] = None,
@@ -5542,9 +6268,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute(dict):
@@ -5572,9 +6295,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5605,9 +6325,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort(dict):
@@ -5634,9 +6351,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5666,9 +6380,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch(dict):
@@ -5681,12 +6392,28 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute'] = None,
@@ -5728,9 +6455,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
@@ -5758,9 +6482,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5791,9 +6512,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -5820,9 +6538,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5852,9 +6567,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch(dict):
@@ -5866,9 +6578,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5883,12 +6592,26 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle(dic
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -5899,12 +6622,32 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSize":
+            suggest = "event_size"
+        elif key == "tagsExecution":
+            suggest = "tags_execution"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetEventStreamDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventStreamDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventStreamDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  event_size: Optional[str] = None,
@@ -5962,12 +6705,26 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -5978,12 +6735,30 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagsExecution":
+            suggest = "tags_execution"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  tags_execution: Optional[str] = None,
@@ -6033,12 +6808,26 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -6049,12 +6838,28 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetFreeTextDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fontSize":
+            suggest = "font_size"
+        elif key == "textAlign":
+            suggest = "text_align"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetFreeTextDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetFreeTextDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetFreeTextDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  text: str,
                  color: Optional[str] = None,
@@ -6088,12 +6893,34 @@ class DashboardWidgetGroupDefinitionWidgetFreeTextDefinition(dict):
     def text_align(self) -> Optional[str]:
         return pulumi.get(self, "text_align")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "legendSize":
+            suggest = "legend_size"
+        elif key == "showLegend":
+            suggest = "show_legend"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent']] = None,
@@ -6176,9 +7003,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
     def yaxis(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink(dict):
@@ -6198,12 +7022,26 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagsExecution":
+            suggest = "tags_execution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  q: str,
                  tags_execution: Optional[str] = None):
@@ -6221,12 +7059,34 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent(dict):
     def tags_execution(self) -> Optional[str]:
         return pulumi.get(self, "tags_execution")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery'] = None,
@@ -6285,12 +7145,28 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute'] = None,
@@ -6332,9 +7208,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery(dict)
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
@@ -6362,9 +7235,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComput
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6395,9 +7265,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupB
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort(dict):
@@ -6424,9 +7291,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupB
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6456,9 +7320,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiC
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch(dict):
@@ -6471,12 +7332,28 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute'] = None,
@@ -6518,9 +7395,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict)
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
@@ -6548,9 +7422,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComput
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6581,9 +7452,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupB
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort(dict):
@@ -6610,9 +7478,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupB
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6642,9 +7507,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiC
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch(dict):
@@ -6657,12 +7519,28 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -6696,12 +7574,28 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery(d
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute'] = None,
@@ -6743,9 +7637,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery(dict)
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
@@ -6773,9 +7664,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComput
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6806,9 +7694,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupB
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort(dict):
@@ -6835,9 +7720,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupB
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6867,9 +7749,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiC
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch(dict):
@@ -6882,12 +7761,28 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute'] = None,
@@ -6929,9 +7824,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
@@ -6959,9 +7851,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -6992,9 +7881,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -7021,9 +7907,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7053,9 +7936,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch(dict):
@@ -7067,9 +7947,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryS
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7084,12 +7961,26 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle(dict):
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -7100,12 +7991,26 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -7148,12 +8053,36 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "noGroupHosts":
+            suggest = "no_group_hosts"
+        elif key == "noMetricHosts":
+            suggest = "no_metric_hosts"
+        elif key == "nodeType":
+            suggest = "node_type"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink']] = None,
                  groups: Optional[Sequence[str]] = None,
@@ -7244,9 +8173,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink(dict):
@@ -7265,9 +8191,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink(dict):
     @pulumi.getter
     def link(self) -> str:
         return pulumi.get(self, "link")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7290,12 +8213,34 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest(dict):
     def sizes(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize']]:
         return pulumi.get(self, "sizes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery'] = None,
@@ -7346,12 +8291,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute'] = None,
@@ -7393,9 +8354,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery(d
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
@@ -7423,9 +8381,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7456,9 +8411,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGr
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort(dict):
@@ -7485,9 +8437,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGr
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7517,9 +8466,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch(dict):
@@ -7532,12 +8478,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySe
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute'] = None,
@@ -7579,9 +8541,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(d
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
@@ -7609,9 +8568,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7642,9 +8598,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGr
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort(dict):
@@ -7671,9 +8624,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGr
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7703,9 +8653,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch(dict):
@@ -7718,12 +8665,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySe
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -7757,12 +8720,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQue
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute'] = None,
@@ -7804,9 +8783,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(d
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
@@ -7834,9 +8810,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7867,9 +8840,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGr
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort(dict):
@@ -7896,9 +8866,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGr
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -7928,9 +8895,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch(dict):
@@ -7943,12 +8907,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySe
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute'] = None,
@@ -7990,9 +8970,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
@@ -8020,9 +8997,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8053,9 +9027,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort(dict):
@@ -8082,9 +9053,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8114,9 +9082,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch(dict):
@@ -8129,12 +9094,34 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery'] = None,
@@ -8185,12 +9172,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute'] = None,
@@ -8232,9 +9235,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery(d
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
@@ -8262,9 +9262,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8295,9 +9292,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGr
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort(dict):
@@ -8324,9 +9318,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGr
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8356,9 +9347,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch(dict):
@@ -8371,12 +9359,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySe
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute'] = None,
@@ -8418,9 +9422,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(d
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
@@ -8448,9 +9449,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8481,9 +9479,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGr
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort(dict):
@@ -8510,9 +9505,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGr
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8542,9 +9534,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch(dict):
@@ -8557,12 +9546,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySe
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -8596,12 +9601,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQue
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute'] = None,
@@ -8643,9 +9664,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery(d
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
@@ -8673,9 +9691,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8706,9 +9721,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGr
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort(dict):
@@ -8735,9 +9747,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGr
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8767,9 +9776,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch(dict):
@@ -8782,12 +9788,28 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySe
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute'] = None,
@@ -8829,9 +9851,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
@@ -8859,9 +9878,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8892,9 +9908,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort(dict):
@@ -8921,9 +9934,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -8953,9 +9963,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch(dict):
@@ -8968,12 +9975,30 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fillMax":
+            suggest = "fill_max"
+        elif key == "fillMin":
+            suggest = "fill_min"
+        elif key == "paletteFlip":
+            suggest = "palette_flip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fill_max: Optional[str] = None,
                  fill_min: Optional[str] = None,
@@ -9008,9 +10033,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle(dict):
     def palette_flip(self) -> Optional[bool]:
         return pulumi.get(self, "palette_flip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetIframeDefinition(dict):
@@ -9022,9 +10044,6 @@ class DashboardWidgetGroupDefinitionWidgetIframeDefinition(dict):
     @pulumi.getter
     def url(self) -> str:
         return pulumi.get(self, "url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9053,9 +10072,6 @@ class DashboardWidgetGroupDefinitionWidgetImageDefinition(dict):
     @pulumi.getter
     def sizing(self) -> Optional[str]:
         return pulumi.get(self, "sizing")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9090,12 +10106,34 @@ class DashboardWidgetGroupDefinitionWidgetLayout(dict):
     def y(self) -> float:
         return pulumi.get(self, "y")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageDisplay":
+            suggest = "message_display"
+        elif key == "showDateColumn":
+            suggest = "show_date_column"
+        elif key == "showMessageColumn":
+            suggest = "show_message_column"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetLogStreamDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetLogStreamDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetLogStreamDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  columns: Optional[Sequence[str]] = None,
                  indexes: Optional[Sequence[str]] = None,
@@ -9194,9 +10232,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort(dict):
@@ -9216,12 +10251,26 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort(dict):
     def order(self) -> str:
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -9232,12 +10281,38 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorPreference":
+            suggest = "color_preference"
+        elif key == "displayFormat":
+            suggest = "display_format"
+        elif key == "hideZeroCounts":
+            suggest = "hide_zero_counts"
+        elif key == "showLastTriggered":
+            suggest = "show_last_triggered"
+        elif key == "summaryType":
+            suggest = "summary_type"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetManageStatusDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetManageStatusDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetManageStatusDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  color_preference: Optional[str] = None,
@@ -9335,12 +10410,36 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetNoteDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "fontSize":
+            suggest = "font_size"
+        elif key == "showTick":
+            suggest = "show_tick"
+        elif key == "textAlign":
+            suggest = "text_align"
+        elif key == "tickEdge":
+            suggest = "tick_edge"
+        elif key == "tickPos":
+            suggest = "tick_pos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetNoteDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetNoteDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetNoteDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  background_color: Optional[str] = None,
@@ -9398,12 +10497,32 @@ class DashboardWidgetGroupDefinitionWidgetNoteDefinition(dict):
     def tick_pos(self) -> Optional[str]:
         return pulumi.get(self, "tick_pos")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "hasSearchBar":
+            suggest = "has_search_bar"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink']] = None,
                  has_search_bar: Optional[str] = None,
@@ -9462,9 +10581,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink(dict):
@@ -9484,12 +10600,40 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "apmStatsQuery":
+            suggest = "apm_stats_query"
+        elif key == "cellDisplayModes":
+            suggest = "cell_display_modes"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  alias: Optional[str] = None,
@@ -9596,12 +10740,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute'] = None,
@@ -9643,9 +10803,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
@@ -9673,9 +10830,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9706,9 +10860,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort(dict):
@@ -9735,9 +10886,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -9767,9 +10915,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch(dict):
@@ -9782,12 +10927,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryTag":
+            suggest = "primary_tag"
+        elif key == "rowType":
+            suggest = "row_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  env: str,
                  name: str,
@@ -9841,12 +11002,26 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQue
     def resource(self) -> Optional[str]:
         return pulumi.get(self, "resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  alias: Optional[str] = None,
@@ -9880,12 +11055,32 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQue
     def order(self) -> Optional[str]:
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  palette: str,
@@ -9957,12 +11152,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditional
     def timeframe(self) -> Optional[str]:
         return pulumi.get(self, "timeframe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute'] = None,
@@ -10004,9 +11215,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
@@ -10034,9 +11242,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10067,9 +11272,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort(dict):
@@ -10096,9 +11298,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10128,9 +11327,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch(dict):
@@ -10143,12 +11339,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -10182,12 +11394,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuer
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute'] = None,
@@ -10229,9 +11457,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
@@ -10259,9 +11484,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10292,9 +11514,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort(dict):
@@ -10321,9 +11540,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10353,9 +11569,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch(dict):
@@ -10368,12 +11581,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute'] = None,
@@ -10415,9 +11644,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
@@ -10445,9 +11671,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10478,9 +11701,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -10507,9 +11727,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10539,9 +11756,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch(dict):
@@ -10554,12 +11768,26 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -10570,12 +11798,34 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "customUnit":
+            suggest = "custom_unit"
+        elif key == "textAlign":
+            suggest = "text_align"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  autoscale: Optional[bool] = None,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink']] = None,
@@ -10658,9 +11908,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink(dict):
@@ -10680,12 +11927,36 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery'] = None,
@@ -10752,12 +12023,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute'] = None,
@@ -10799,9 +12086,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
@@ -10829,9 +12113,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10862,9 +12143,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort(dict):
@@ -10891,9 +12169,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -10923,9 +12198,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch(dict):
@@ -10938,12 +12210,32 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  palette: str,
@@ -11015,12 +12307,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditional
     def timeframe(self) -> Optional[str]:
         return pulumi.get(self, "timeframe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute'] = None,
@@ -11062,9 +12370,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
@@ -11092,9 +12397,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11125,9 +12427,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort(dict):
@@ -11154,9 +12453,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11186,9 +12482,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch(dict):
@@ -11201,12 +12494,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -11240,12 +12549,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuer
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute'] = None,
@@ -11287,9 +12612,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
@@ -11317,9 +12639,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11350,9 +12669,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort(dict):
@@ -11379,9 +12695,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11411,9 +12724,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch(dict):
@@ -11426,12 +12736,28 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute'] = None,
@@ -11473,9 +12799,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
@@ -11503,9 +12826,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11536,9 +12856,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -11565,9 +12882,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11597,9 +12911,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch(dict):
@@ -11612,12 +12923,26 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -11628,12 +12953,32 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorByGroups":
+            suggest = "color_by_groups"
+        elif key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  color_by_groups: Optional[Sequence[str]] = None,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink']] = None,
@@ -11708,9 +13053,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
     def yaxis(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink(dict):
@@ -11729,9 +13071,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink(dict):
     @pulumi.getter
     def link(self) -> str:
         return pulumi.get(self, "link")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11754,12 +13093,34 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest(dict):
     def ys(self) -> Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY']]:
         return pulumi.get(self, "ys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery'] = None,
@@ -11818,12 +13179,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute'] = None,
@@ -11865,9 +13242,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
@@ -11895,9 +13269,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11928,9 +13299,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort(dict):
@@ -11957,9 +13325,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -11989,9 +13354,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch(dict):
@@ -12004,12 +13366,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute'] = None,
@@ -12051,9 +13429,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
@@ -12081,9 +13456,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12114,9 +13486,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort(dict):
@@ -12143,9 +13512,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12175,9 +13541,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch(dict):
@@ -12190,12 +13553,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -12229,12 +13608,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQu
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute'] = None,
@@ -12276,9 +13671,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
@@ -12306,9 +13698,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12339,9 +13728,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort(dict):
@@ -12368,9 +13754,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12400,9 +13783,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch(dict):
@@ -12415,12 +13795,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute'] = None,
@@ -12462,9 +13858,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
@@ -12492,9 +13885,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12525,9 +13915,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort(dict):
@@ -12554,9 +13941,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12586,9 +13970,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch(dict):
@@ -12601,12 +13982,34 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery'] = None,
@@ -12665,12 +14068,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute'] = None,
@@ -12712,9 +14131,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
@@ -12742,9 +14158,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12775,9 +14188,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort(dict):
@@ -12804,9 +14214,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12836,9 +14243,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch(dict):
@@ -12851,12 +14255,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute'] = None,
@@ -12898,9 +14318,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
@@ -12928,9 +14345,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -12961,9 +14375,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort(dict):
@@ -12990,9 +14401,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -13022,9 +14430,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch(dict):
@@ -13037,12 +14442,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -13076,12 +14497,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQu
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute'] = None,
@@ -13123,9 +14560,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
@@ -13153,9 +14587,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -13186,9 +14617,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort(dict):
@@ -13215,9 +14643,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -13247,9 +14672,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch(dict):
@@ -13262,12 +14684,28 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryS
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute'] = None,
@@ -13309,9 +14747,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
@@ -13339,9 +14774,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -13372,9 +14804,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort(dict):
@@ -13401,9 +14830,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -13433,9 +14859,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch(dict):
@@ -13448,12 +14871,26 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -13464,12 +14901,26 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -13511,13 +14962,27 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis(dict):
     @pulumi.getter
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -13560,12 +15025,38 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sloId":
+            suggest = "slo_id"
+        elif key == "timeWindows":
+            suggest = "time_windows"
+        elif key == "viewMode":
+            suggest = "view_mode"
+        elif key == "viewType":
+            suggest = "view_type"
+        elif key == "showErrorBudget":
+            suggest = "show_error_budget"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  slo_id: str,
                  time_windows: Sequence[str],
@@ -13628,12 +15119,30 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetServicemapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetServicemapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetServicemapDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filters: Sequence[str],
                  service: str,
@@ -13682,9 +15191,6 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink(dict):
@@ -13704,12 +15210,36 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "legendSize":
+            suggest = "legend_size"
+        elif key == "rightYaxis":
+            suggest = "right_yaxis"
+        elif key == "showLegend":
+            suggest = "show_legend"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent']] = None,
@@ -13808,9 +15338,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
     def yaxis(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink(dict):
@@ -13830,12 +15357,26 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagsExecution":
+            suggest = "tags_execution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  q: str,
                  tags_execution: Optional[str] = None):
@@ -13853,12 +15394,26 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent(dict):
     def tags_execution(self) -> Optional[str]:
         return pulumi.get(self, "tags_execution")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayType":
+            suggest = "display_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  value: str,
                  display_type: Optional[str] = None,
@@ -13884,12 +15439,40 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker(dict):
     def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "displayType":
+            suggest = "display_type"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "networkQuery":
+            suggest = "network_query"
+        elif key == "onRightYaxis":
+            suggest = "on_right_yaxis"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery'] = None,
                  display_type: Optional[str] = None,
@@ -13980,12 +15563,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute'] = None,
@@ -14027,9 +15626,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
@@ -14057,9 +15653,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14090,9 +15683,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort(dict):
@@ -14119,9 +15709,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14151,9 +15738,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch(dict):
@@ -14166,12 +15750,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute'] = None,
@@ -14213,9 +15813,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
@@ -14243,9 +15840,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14276,9 +15870,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort(dict):
@@ -14305,9 +15896,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14337,9 +15925,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch(dict):
@@ -14352,12 +15937,26 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aliasName":
+            suggest = "alias_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  alias_name: Optional[str] = None):
@@ -14375,12 +15974,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata(di
     def alias_name(self) -> Optional[str]:
         return pulumi.get(self, "alias_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute'] = None,
@@ -14422,9 +16037,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
@@ -14452,9 +16064,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14485,9 +16094,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort(dict):
@@ -14514,9 +16120,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14546,9 +16149,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch(dict):
@@ -14561,12 +16161,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -14600,12 +16216,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuer
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute'] = None,
@@ -14647,9 +16279,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery(di
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
@@ -14677,9 +16306,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCom
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14710,9 +16336,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGro
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort(dict):
@@ -14739,9 +16362,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGro
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14771,9 +16391,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMul
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch(dict):
@@ -14786,12 +16403,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySea
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute'] = None,
@@ -14833,9 +16466,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
@@ -14863,9 +16493,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14896,9 +16523,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -14925,9 +16549,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -14957,9 +16578,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch(dict):
@@ -14972,12 +16590,28 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lineType":
+            suggest = "line_type"
+        elif key == "lineWidth":
+            suggest = "line_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  line_type: Optional[str] = None,
                  line_width: Optional[str] = None,
@@ -15004,12 +16638,26 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle(dict)
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -15052,12 +16700,26 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -15068,12 +16730,26 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -15116,12 +16792,30 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest']] = None,
@@ -15172,9 +16866,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink(dict):
@@ -15194,12 +16885,36 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery'] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat']] = None,
@@ -15266,12 +16981,28 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute'] = None,
@@ -15313,9 +17044,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(dict)
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute(dict):
@@ -15343,9 +17071,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComput
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15376,9 +17101,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupB
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort(dict):
@@ -15405,9 +17127,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupB
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15437,9 +17156,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiC
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch(dict):
@@ -15452,12 +17168,32 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  palette: str,
@@ -15529,12 +17265,28 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFor
     def timeframe(self) -> Optional[str]:
         return pulumi.get(self, "timeframe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute'] = None,
@@ -15576,9 +17328,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery(dict)
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute(dict):
@@ -15606,9 +17355,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComput
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15639,9 +17385,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupB
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort(dict):
@@ -15668,9 +17411,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupB
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15700,9 +17440,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiC
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch(dict):
@@ -15715,12 +17452,28 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -15754,12 +17507,28 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery(d
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute'] = None,
@@ -15801,9 +17570,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery(dict)
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute(dict):
@@ -15831,9 +17597,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComput
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15864,9 +17627,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupB
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort(dict):
@@ -15893,9 +17653,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupB
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -15925,9 +17682,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiC
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch(dict):
@@ -15940,12 +17694,28 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute'] = None,
@@ -15987,9 +17757,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(
     def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
@@ -16017,9 +17784,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16050,9 +17814,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryG
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -16079,9 +17840,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryG
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16111,9 +17869,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryM
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch(dict):
@@ -16125,9 +17880,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryS
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16142,12 +17894,26 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle(dict):
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -16158,12 +17924,46 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spanName":
+            suggest = "span_name"
+        elif key == "displayFormat":
+            suggest = "display_format"
+        elif key == "showBreakdown":
+            suggest = "show_breakdown"
+        elif key == "showDistribution":
+            suggest = "show_distribution"
+        elif key == "showErrors":
+            suggest = "show_errors"
+        elif key == "showHits":
+            suggest = "show_hits"
+        elif key == "showLatency":
+            suggest = "show_latency"
+        elif key == "showResourceList":
+            suggest = "show_resource_list"
+        elif key == "sizeFormat":
+            suggest = "size_format"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  env: str,
                  service: str,
@@ -16283,12 +18083,26 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -16299,12 +18113,34 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "legendSize":
+            suggest = "legend_size"
+        elif key == "showLegend":
+            suggest = "show_legend"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionEvent']] = None,
@@ -16387,9 +18223,6 @@ class DashboardWidgetHeatmapDefinition(dict):
     def yaxis(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionCustomLink(dict):
@@ -16409,12 +18242,26 @@ class DashboardWidgetHeatmapDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagsExecution":
+            suggest = "tags_execution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionEvent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  q: str,
                  tags_execution: Optional[str] = None):
@@ -16432,12 +18279,34 @@ class DashboardWidgetHeatmapDefinitionEvent(dict):
     def tags_execution(self) -> Optional[str]:
         return pulumi.get(self, "tags_execution")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQuery'] = None,
@@ -16496,12 +18365,28 @@ class DashboardWidgetHeatmapDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute'] = None,
@@ -16543,9 +18428,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
@@ -16573,9 +18455,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16606,9 +18485,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort(dict):
@@ -16635,9 +18511,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16667,9 +18540,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestApmQuerySearch(dict):
@@ -16682,12 +18552,28 @@ class DashboardWidgetHeatmapDefinitionRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute'] = None,
@@ -16729,9 +18615,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
@@ -16759,9 +18642,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16792,9 +18672,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort(dict):
@@ -16821,9 +18698,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -16853,9 +18727,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestLogQuerySearch(dict):
@@ -16868,12 +18739,28 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -16907,12 +18794,28 @@ class DashboardWidgetHeatmapDefinitionRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryCompute'] = None,
@@ -16954,9 +18857,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
@@ -16984,9 +18884,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17017,9 +18914,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort(dict):
@@ -17046,9 +18940,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17078,9 +18969,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestRumQuerySearch(dict):
@@ -17093,12 +18981,28 @@ class DashboardWidgetHeatmapDefinitionRequestRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute'] = None,
@@ -17140,9 +19044,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
@@ -17170,9 +19071,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17203,9 +19101,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -17232,9 +19127,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17264,9 +19156,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch(dict):
@@ -17278,9 +19167,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch(dict):
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17295,12 +19181,26 @@ class DashboardWidgetHeatmapDefinitionRequestStyle(dict):
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -17311,12 +19211,26 @@ class DashboardWidgetHeatmapDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -17359,12 +19273,36 @@ class DashboardWidgetHeatmapDefinitionYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "noGroupHosts":
+            suggest = "no_group_hosts"
+        elif key == "noMetricHosts":
+            suggest = "no_metric_hosts"
+        elif key == "nodeType":
+            suggest = "node_type"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionCustomLink']] = None,
                  groups: Optional[Sequence[str]] = None,
@@ -17455,9 +19393,6 @@ class DashboardWidgetHostmapDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionCustomLink(dict):
@@ -17476,9 +19411,6 @@ class DashboardWidgetHostmapDefinitionCustomLink(dict):
     @pulumi.getter
     def link(self) -> str:
         return pulumi.get(self, "link")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17501,12 +19433,34 @@ class DashboardWidgetHostmapDefinitionRequest(dict):
     def sizes(self) -> Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSize']]:
         return pulumi.get(self, "sizes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFill(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFill. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFill.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFill.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuery'] = None,
@@ -17557,12 +19511,28 @@ class DashboardWidgetHostmapDefinitionRequestFill(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute'] = None,
@@ -17604,9 +19574,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
@@ -17634,9 +19601,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17667,9 +19631,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort(dict):
@@ -17696,9 +19657,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17728,9 +19686,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch(dict):
@@ -17743,12 +19698,28 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute'] = None,
@@ -17790,9 +19761,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
@@ -17820,9 +19788,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17853,9 +19818,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort(dict):
@@ -17882,9 +19844,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -17914,9 +19873,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch(dict):
@@ -17929,12 +19885,28 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -17968,12 +19940,28 @@ class DashboardWidgetHostmapDefinitionRequestFillProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute'] = None,
@@ -18015,9 +20003,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
@@ -18045,9 +20030,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18078,9 +20060,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort(dict):
@@ -18107,9 +20086,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18139,9 +20115,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch(dict):
@@ -18154,12 +20127,28 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestFillSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestFillSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute'] = None,
@@ -18201,9 +20190,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
@@ -18231,9 +20217,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18264,9 +20247,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort(dict):
@@ -18293,9 +20273,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18325,9 +20302,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute(dict)
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch(dict):
@@ -18340,12 +20314,34 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSize(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSize.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuery'] = None,
                  log_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuery'] = None,
@@ -18396,12 +20392,28 @@ class DashboardWidgetHostmapDefinitionRequestSize(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute'] = None,
@@ -18443,9 +20455,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
@@ -18473,9 +20482,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18506,9 +20512,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort(dict):
@@ -18535,9 +20538,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18567,9 +20567,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch(dict):
@@ -18582,12 +20579,28 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute'] = None,
@@ -18629,9 +20642,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
@@ -18659,9 +20669,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18692,9 +20699,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort(dict):
@@ -18721,9 +20725,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18753,9 +20754,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch(dict):
@@ -18768,12 +20766,28 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -18807,12 +20821,28 @@ class DashboardWidgetHostmapDefinitionRequestSizeProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute'] = None,
@@ -18854,9 +20884,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
@@ -18884,9 +20911,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18917,9 +20941,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort(dict):
@@ -18946,9 +20967,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -18978,9 +20996,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch(dict):
@@ -18993,12 +21008,28 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute'] = None,
@@ -19040,9 +21071,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
@@ -19070,9 +21098,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -19103,9 +21128,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort(dict):
@@ -19132,9 +21154,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -19164,9 +21183,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute(dict)
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch(dict):
@@ -19179,12 +21195,30 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fillMax":
+            suggest = "fill_max"
+        elif key == "fillMin":
+            suggest = "fill_min"
+        elif key == "paletteFlip":
+            suggest = "palette_flip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionStyle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fill_max: Optional[str] = None,
                  fill_min: Optional[str] = None,
@@ -19219,9 +21253,6 @@ class DashboardWidgetHostmapDefinitionStyle(dict):
     def palette_flip(self) -> Optional[bool]:
         return pulumi.get(self, "palette_flip")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetIframeDefinition(dict):
@@ -19233,9 +21264,6 @@ class DashboardWidgetIframeDefinition(dict):
     @pulumi.getter
     def url(self) -> str:
         return pulumi.get(self, "url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -19264,9 +21292,6 @@ class DashboardWidgetImageDefinition(dict):
     @pulumi.getter
     def sizing(self) -> Optional[str]:
         return pulumi.get(self, "sizing")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -19301,12 +21326,34 @@ class DashboardWidgetLayout(dict):
     def y(self) -> float:
         return pulumi.get(self, "y")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetLogStreamDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageDisplay":
+            suggest = "message_display"
+        elif key == "showDateColumn":
+            suggest = "show_date_column"
+        elif key == "showMessageColumn":
+            suggest = "show_message_column"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetLogStreamDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetLogStreamDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetLogStreamDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  columns: Optional[Sequence[str]] = None,
                  indexes: Optional[Sequence[str]] = None,
@@ -19405,9 +21452,6 @@ class DashboardWidgetLogStreamDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetLogStreamDefinitionSort(dict):
@@ -19427,12 +21471,26 @@ class DashboardWidgetLogStreamDefinitionSort(dict):
     def order(self) -> str:
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetLogStreamDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetLogStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetLogStreamDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetLogStreamDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -19443,12 +21501,38 @@ class DashboardWidgetLogStreamDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetManageStatusDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorPreference":
+            suggest = "color_preference"
+        elif key == "displayFormat":
+            suggest = "display_format"
+        elif key == "hideZeroCounts":
+            suggest = "hide_zero_counts"
+        elif key == "showLastTriggered":
+            suggest = "show_last_triggered"
+        elif key == "summaryType":
+            suggest = "summary_type"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetManageStatusDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetManageStatusDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetManageStatusDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  color_preference: Optional[str] = None,
@@ -19546,12 +21630,36 @@ class DashboardWidgetManageStatusDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetNoteDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "fontSize":
+            suggest = "font_size"
+        elif key == "showTick":
+            suggest = "show_tick"
+        elif key == "textAlign":
+            suggest = "text_align"
+        elif key == "tickEdge":
+            suggest = "tick_edge"
+        elif key == "tickPos":
+            suggest = "tick_pos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetNoteDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetNoteDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetNoteDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content: str,
                  background_color: Optional[str] = None,
@@ -19609,12 +21717,32 @@ class DashboardWidgetNoteDefinition(dict):
     def tick_pos(self) -> Optional[str]:
         return pulumi.get(self, "tick_pos")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "hasSearchBar":
+            suggest = "has_search_bar"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionCustomLink']] = None,
                  has_search_bar: Optional[str] = None,
@@ -19673,9 +21801,6 @@ class DashboardWidgetQueryTableDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionCustomLink(dict):
@@ -19695,12 +21820,40 @@ class DashboardWidgetQueryTableDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "apmStatsQuery":
+            suggest = "apm_stats_query"
+        elif key == "cellDisplayModes":
+            suggest = "cell_display_modes"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  alias: Optional[str] = None,
@@ -19807,12 +21960,28 @@ class DashboardWidgetQueryTableDefinitionRequest(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute'] = None,
@@ -19854,9 +22023,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
@@ -19884,9 +22050,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -19917,9 +22080,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort(dict):
@@ -19946,9 +22106,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -19978,9 +22135,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestApmQuerySearch(dict):
@@ -19993,12 +22147,28 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryTag":
+            suggest = "primary_tag"
+        elif key == "rowType":
+            suggest = "row_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestApmStatsQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestApmStatsQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  env: str,
                  name: str,
@@ -20052,12 +22222,26 @@ class DashboardWidgetQueryTableDefinitionRequestApmStatsQuery(dict):
     def resource(self) -> Optional[str]:
         return pulumi.get(self, "resource")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cellDisplayMode":
+            suggest = "cell_display_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  alias: Optional[str] = None,
@@ -20091,12 +22275,32 @@ class DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn(dict):
     def order(self) -> Optional[str]:
         return pulumi.get(self, "order")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  palette: str,
@@ -20168,12 +22372,28 @@ class DashboardWidgetQueryTableDefinitionRequestConditionalFormat(dict):
     def timeframe(self) -> Optional[str]:
         return pulumi.get(self, "timeframe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute'] = None,
@@ -20215,9 +22435,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
@@ -20245,9 +22462,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -20278,9 +22492,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort(dict):
@@ -20307,9 +22518,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -20339,9 +22547,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestLogQuerySearch(dict):
@@ -20354,12 +22559,28 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -20393,12 +22614,28 @@ class DashboardWidgetQueryTableDefinitionRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryCompute'] = None,
@@ -20440,9 +22677,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
@@ -20470,9 +22704,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -20503,9 +22734,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort(dict):
@@ -20532,9 +22760,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -20564,9 +22789,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestRumQuerySearch(dict):
@@ -20579,12 +22801,28 @@ class DashboardWidgetQueryTableDefinitionRequestRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute'] = None,
@@ -20626,9 +22864,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
@@ -20656,9 +22891,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -20689,9 +22921,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -20718,9 +22947,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -20750,9 +22976,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch(dict):
@@ -20765,12 +22988,26 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -20781,12 +23018,34 @@ class DashboardWidgetQueryTableDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "customUnit":
+            suggest = "custom_unit"
+        elif key == "textAlign":
+            suggest = "text_align"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  autoscale: Optional[bool] = None,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionCustomLink']] = None,
@@ -20869,9 +23128,6 @@ class DashboardWidgetQueryValueDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionCustomLink(dict):
@@ -20891,12 +23147,36 @@ class DashboardWidgetQueryValueDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery'] = None,
@@ -20963,12 +23243,28 @@ class DashboardWidgetQueryValueDefinitionRequest(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute'] = None,
@@ -21010,9 +23306,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
@@ -21040,9 +23333,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21073,9 +23363,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort(dict):
@@ -21102,9 +23389,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21134,9 +23418,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestApmQuerySearch(dict):
@@ -21149,12 +23430,32 @@ class DashboardWidgetQueryValueDefinitionRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  palette: str,
@@ -21226,12 +23527,28 @@ class DashboardWidgetQueryValueDefinitionRequestConditionalFormat(dict):
     def timeframe(self) -> Optional[str]:
         return pulumi.get(self, "timeframe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryCompute'] = None,
@@ -21273,9 +23590,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
@@ -21303,9 +23617,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21336,9 +23647,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort(dict):
@@ -21365,9 +23673,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21397,9 +23702,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestLogQuerySearch(dict):
@@ -21412,12 +23714,28 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -21451,12 +23769,28 @@ class DashboardWidgetQueryValueDefinitionRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryCompute'] = None,
@@ -21498,9 +23832,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
@@ -21528,9 +23859,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21561,9 +23889,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort(dict):
@@ -21590,9 +23915,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21622,9 +23944,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestRumQuerySearch(dict):
@@ -21637,12 +23956,28 @@ class DashboardWidgetQueryValueDefinitionRequestRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute'] = None,
@@ -21684,9 +24019,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
@@ -21714,9 +24046,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21747,9 +24076,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -21776,9 +24102,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21808,9 +24131,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch(dict):
@@ -21823,12 +24143,26 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -21839,12 +24173,32 @@ class DashboardWidgetQueryValueDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorByGroups":
+            suggest = "color_by_groups"
+        elif key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  color_by_groups: Optional[Sequence[str]] = None,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionCustomLink']] = None,
@@ -21919,9 +24273,6 @@ class DashboardWidgetScatterplotDefinition(dict):
     def yaxis(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionCustomLink(dict):
@@ -21940,9 +24291,6 @@ class DashboardWidgetScatterplotDefinitionCustomLink(dict):
     @pulumi.getter
     def link(self) -> str:
         return pulumi.get(self, "link")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -21965,12 +24313,34 @@ class DashboardWidgetScatterplotDefinitionRequest(dict):
     def ys(self) -> Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestY']]:
         return pulumi.get(self, "ys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestX(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestX. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestX.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestX.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuery'] = None,
@@ -22029,12 +24399,28 @@ class DashboardWidgetScatterplotDefinitionRequestX(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute'] = None,
@@ -22076,9 +24462,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
@@ -22106,9 +24489,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22139,9 +24519,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort(dict):
@@ -22168,9 +24545,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22200,9 +24574,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch(dict):
@@ -22215,12 +24586,28 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute'] = None,
@@ -22262,9 +24649,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
@@ -22292,9 +24676,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22325,9 +24706,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort(dict):
@@ -22354,9 +24732,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22386,9 +24761,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch(dict):
@@ -22401,12 +24773,28 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -22440,12 +24828,28 @@ class DashboardWidgetScatterplotDefinitionRequestXProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute'] = None,
@@ -22487,9 +24891,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
@@ -22517,9 +24918,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22550,9 +24948,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort(dict):
@@ -22579,9 +24974,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22611,9 +25003,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch(dict):
@@ -22626,12 +25015,28 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestXSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestXSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute'] = None,
@@ -22673,9 +25078,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
@@ -22703,9 +25105,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22736,9 +25135,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort(dict):
@@ -22765,9 +25161,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort(dict)
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22797,9 +25190,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute(dict
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch(dict):
@@ -22812,12 +25202,34 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestY(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestY. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestY.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestY.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuery'] = None,
@@ -22876,12 +25288,28 @@ class DashboardWidgetScatterplotDefinitionRequestY(dict):
     def security_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuery']:
         return pulumi.get(self, "security_query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute'] = None,
@@ -22923,9 +25351,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
@@ -22953,9 +25378,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -22986,9 +25408,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort(dict):
@@ -23015,9 +25434,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -23047,9 +25463,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch(dict):
@@ -23062,12 +25475,28 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute'] = None,
@@ -23109,9 +25538,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
@@ -23139,9 +25565,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -23172,9 +25595,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort(dict):
@@ -23201,9 +25621,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -23233,9 +25650,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch(dict):
@@ -23248,12 +25662,28 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -23287,12 +25717,28 @@ class DashboardWidgetScatterplotDefinitionRequestYProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute'] = None,
@@ -23334,9 +25780,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
@@ -23364,9 +25807,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -23397,9 +25837,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort(dict):
@@ -23426,9 +25863,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -23458,9 +25892,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch(dict):
@@ -23473,12 +25904,28 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionRequestYSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionRequestYSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute'] = None,
@@ -23520,9 +25967,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
@@ -23550,9 +25994,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -23583,9 +26024,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort(dict):
@@ -23612,9 +26050,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort(dict)
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -23644,9 +26079,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute(dict
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch(dict):
@@ -23659,12 +26091,26 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -23675,12 +26121,26 @@ class DashboardWidgetScatterplotDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionXaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionXaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionXaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionXaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -23722,13 +26182,27 @@ class DashboardWidgetScatterplotDefinitionXaxis(dict):
     @pulumi.getter
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -23771,12 +26245,38 @@ class DashboardWidgetScatterplotDefinitionYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetServiceLevelObjectiveDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sloId":
+            suggest = "slo_id"
+        elif key == "timeWindows":
+            suggest = "time_windows"
+        elif key == "viewMode":
+            suggest = "view_mode"
+        elif key == "viewType":
+            suggest = "view_type"
+        elif key == "showErrorBudget":
+            suggest = "show_error_budget"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetServiceLevelObjectiveDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetServiceLevelObjectiveDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetServiceLevelObjectiveDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  slo_id: str,
                  time_windows: Sequence[str],
@@ -23839,12 +26339,30 @@ class DashboardWidgetServiceLevelObjectiveDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetServicemapDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetServicemapDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetServicemapDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetServicemapDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filters: Sequence[str],
                  service: str,
@@ -23893,9 +26411,6 @@ class DashboardWidgetServicemapDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetServicemapDefinitionCustomLink(dict):
@@ -23915,12 +26430,36 @@ class DashboardWidgetServicemapDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "legendSize":
+            suggest = "legend_size"
+        elif key == "rightYaxis":
+            suggest = "right_yaxis"
+        elif key == "showLegend":
+            suggest = "show_legend"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionCustomLink']] = None,
                  events: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionEvent']] = None,
@@ -24019,9 +26558,6 @@ class DashboardWidgetTimeseriesDefinition(dict):
     def yaxis(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionYaxis']:
         return pulumi.get(self, "yaxis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionCustomLink(dict):
@@ -24041,12 +26577,26 @@ class DashboardWidgetTimeseriesDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionEvent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagsExecution":
+            suggest = "tags_execution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionEvent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionEvent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionEvent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  q: str,
                  tags_execution: Optional[str] = None):
@@ -24064,12 +26614,26 @@ class DashboardWidgetTimeseriesDefinitionEvent(dict):
     def tags_execution(self) -> Optional[str]:
         return pulumi.get(self, "tags_execution")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionMarker(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayType":
+            suggest = "display_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionMarker. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionMarker.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionMarker.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  value: str,
                  display_type: Optional[str] = None,
@@ -24095,12 +26659,40 @@ class DashboardWidgetTimeseriesDefinitionMarker(dict):
     def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "displayType":
+            suggest = "display_type"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "networkQuery":
+            suggest = "network_query"
+        elif key == "onRightYaxis":
+            suggest = "on_right_yaxis"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery'] = None,
                  display_type: Optional[str] = None,
@@ -24191,12 +26783,28 @@ class DashboardWidgetTimeseriesDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute'] = None,
@@ -24238,9 +26846,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
@@ -24268,9 +26873,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24301,9 +26903,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort(dict):
@@ -24330,9 +26929,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24362,9 +26958,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch(dict):
@@ -24377,12 +26970,28 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute'] = None,
@@ -24424,9 +27033,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
@@ -24454,9 +27060,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24487,9 +27090,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort(dict):
@@ -24516,9 +27116,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24548,9 +27145,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch(dict):
@@ -24563,12 +27157,26 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aliasName":
+            suggest = "alias_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestMetadata.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  alias_name: Optional[str] = None):
@@ -24586,12 +27194,28 @@ class DashboardWidgetTimeseriesDefinitionRequestMetadata(dict):
     def alias_name(self) -> Optional[str]:
         return pulumi.get(self, "alias_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestNetworkQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestNetworkQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute'] = None,
@@ -24633,9 +27257,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
@@ -24663,9 +27284,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24696,9 +27314,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort(dict):
@@ -24725,9 +27340,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24757,9 +27369,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch(dict):
@@ -24772,12 +27381,28 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -24811,12 +27436,28 @@ class DashboardWidgetTimeseriesDefinitionRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute'] = None,
@@ -24858,9 +27499,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
@@ -24888,9 +27526,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24921,9 +27556,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort(dict):
@@ -24950,9 +27582,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -24982,9 +27611,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch(dict):
@@ -24997,12 +27623,28 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute'] = None,
@@ -25044,9 +27686,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
@@ -25074,9 +27713,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -25107,9 +27743,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -25136,9 +27769,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -25168,9 +27798,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch(dict):
@@ -25183,12 +27810,28 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lineType":
+            suggest = "line_type"
+        elif key == "lineWidth":
+            suggest = "line_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRequestStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRequestStyle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  line_type: Optional[str] = None,
                  line_width: Optional[str] = None,
@@ -25215,12 +27858,26 @@ class DashboardWidgetTimeseriesDefinitionRequestStyle(dict):
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRightYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionRightYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionRightYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionRightYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -25263,12 +27920,26 @@ class DashboardWidgetTimeseriesDefinitionRightYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -25279,12 +27950,26 @@ class DashboardWidgetTimeseriesDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionYaxis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeZero":
+            suggest = "include_zero"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionYaxis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionYaxis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionYaxis.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  include_zero: Optional[bool] = None,
                  label: Optional[str] = None,
@@ -25327,12 +28012,30 @@ class DashboardWidgetTimeseriesDefinitionYaxis(dict):
     def scale(self) -> Optional[str]:
         return pulumi.get(self, "scale")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLinks":
+            suggest = "custom_links"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_links: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionCustomLink']] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequest']] = None,
@@ -25383,9 +28086,6 @@ class DashboardWidgetToplistDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionCustomLink(dict):
@@ -25405,12 +28105,36 @@ class DashboardWidgetToplistDefinitionCustomLink(dict):
     def link(self) -> str:
         return pulumi.get(self, "link")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "rumQuery":
+            suggest = "rum_query"
+        elif key == "securityQuery":
+            suggest = "security_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  apm_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuery'] = None,
                  conditional_formats: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat']] = None,
@@ -25477,12 +28201,28 @@ class DashboardWidgetToplistDefinitionRequest(dict):
     def style(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestStyle']:
         return pulumi.get(self, "style")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryCompute'] = None,
@@ -25524,9 +28264,6 @@ class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestApmQueryCompute(dict):
@@ -25554,9 +28291,6 @@ class DashboardWidgetToplistDefinitionRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -25587,9 +28321,6 @@ class DashboardWidgetToplistDefinitionRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort(dict):
@@ -25616,9 +28347,6 @@ class DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -25648,9 +28376,6 @@ class DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestApmQuerySearch(dict):
@@ -25663,12 +28388,32 @@ class DashboardWidgetToplistDefinitionRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+        elif key == "hideValue":
+            suggest = "hide_value"
+        elif key == "imageUrl":
+            suggest = "image_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  palette: str,
@@ -25740,12 +28485,28 @@ class DashboardWidgetToplistDefinitionRequestConditionalFormat(dict):
     def timeframe(self) -> Optional[str]:
         return pulumi.get(self, "timeframe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute'] = None,
@@ -25787,9 +28548,6 @@ class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestLogQueryCompute(dict):
@@ -25817,9 +28575,6 @@ class DashboardWidgetToplistDefinitionRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -25850,9 +28605,6 @@ class DashboardWidgetToplistDefinitionRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort(dict):
@@ -25879,9 +28631,6 @@ class DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -25911,9 +28660,6 @@ class DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestLogQuerySearch(dict):
@@ -25926,12 +28672,28 @@ class DashboardWidgetToplistDefinitionRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -25965,12 +28727,28 @@ class DashboardWidgetToplistDefinitionRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestRumQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestRumQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestRumQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryCompute'] = None,
@@ -26012,9 +28790,6 @@ class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestRumQueryCompute(dict):
@@ -26042,9 +28817,6 @@ class DashboardWidgetToplistDefinitionRequestRumQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -26075,9 +28847,6 @@ class DashboardWidgetToplistDefinitionRequestRumQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort(dict):
@@ -26104,9 +28873,6 @@ class DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -26136,9 +28902,6 @@ class DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestRumQuerySearch(dict):
@@ -26151,12 +28914,28 @@ class DashboardWidgetToplistDefinitionRequestRumQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+        elif key == "multiComputes":
+            suggest = "multi_computes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionRequestSecurityQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionRequestSecurityQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  index: str,
                  compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryCompute'] = None,
@@ -26198,9 +28977,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
     def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
@@ -26228,9 +29004,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -26261,9 +29034,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort(dict):
@@ -26290,9 +29060,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort(dict):
     @pulumi.getter
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -26322,9 +29089,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestSecurityQuerySearch(dict):
@@ -26336,9 +29100,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQuerySearch(dict):
     @pulumi.getter
     def query(self) -> str:
         return pulumi.get(self, "query")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -26353,12 +29114,26 @@ class DashboardWidgetToplistDefinitionRequestStyle(dict):
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -26369,12 +29144,46 @@ class DashboardWidgetToplistDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTraceServiceDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "spanName":
+            suggest = "span_name"
+        elif key == "displayFormat":
+            suggest = "display_format"
+        elif key == "showBreakdown":
+            suggest = "show_breakdown"
+        elif key == "showDistribution":
+            suggest = "show_distribution"
+        elif key == "showErrors":
+            suggest = "show_errors"
+        elif key == "showHits":
+            suggest = "show_hits"
+        elif key == "showLatency":
+            suggest = "show_latency"
+        elif key == "showResourceList":
+            suggest = "show_resource_list"
+        elif key == "sizeFormat":
+            suggest = "size_format"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTraceServiceDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTraceServiceDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTraceServiceDefinition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  env: str,
                  service: str,
@@ -26494,12 +29303,26 @@ class DashboardWidgetTraceServiceDefinition(dict):
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DashboardWidgetTraceServiceDefinitionTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "liveSpan":
+            suggest = "live_span"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTraceServiceDefinitionTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTraceServiceDefinitionTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTraceServiceDefinitionTime.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  live_span: Optional[str] = None):
         if live_span is not None:
@@ -26510,12 +29333,30 @@ class DashboardWidgetTraceServiceDefinitionTime(dict):
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DowntimeRecurrence(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "untilDate":
+            suggest = "until_date"
+        elif key == "untilOccurrences":
+            suggest = "until_occurrences"
+        elif key == "weekDays":
+            suggest = "week_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DowntimeRecurrence. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DowntimeRecurrence.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DowntimeRecurrence.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  period: Optional[int] = None,
@@ -26565,12 +29406,30 @@ class DowntimeRecurrence(dict):
     def week_days(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "week_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsArchiveAzure(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "storageAccount":
+            suggest = "storage_account"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveAzure. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsArchiveAzure.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsArchiveAzure.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  container: str,
@@ -26608,13 +29467,31 @@ class LogsArchiveAzure(dict):
     @pulumi.getter
     def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsArchiveAzureArchive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "storageAccount":
+            suggest = "storage_account"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveAzureArchive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsArchiveAzureArchive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsArchiveAzureArchive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  container: str,
@@ -26653,12 +29530,28 @@ class LogsArchiveAzureArchive(dict):
     def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsArchiveGcs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientEmail":
+            suggest = "client_email"
+        elif key == "projectId":
+            suggest = "project_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveGcs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsArchiveGcs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsArchiveGcs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
                  client_email: str,
@@ -26688,13 +29581,29 @@ class LogsArchiveGcs(dict):
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
         return pulumi.get(self, "project_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsArchiveGcsArchive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientEmail":
+            suggest = "client_email"
+        elif key == "projectId":
+            suggest = "project_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveGcsArchive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsArchiveGcsArchive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsArchiveGcsArchive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
                  client_email: str,
@@ -26725,12 +29634,28 @@ class LogsArchiveGcsArchive(dict):
     def project_id(self) -> str:
         return pulumi.get(self, "project_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsArchiveS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "roleName":
+            suggest = "role_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsArchiveS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsArchiveS3.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: str,
                  bucket: str,
@@ -26760,13 +29685,29 @@ class LogsArchiveS3(dict):
     @pulumi.getter(name="roleName")
     def role_name(self) -> str:
         return pulumi.get(self, "role_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsArchiveS3Archive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "roleName":
+            suggest = "role_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveS3Archive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsArchiveS3Archive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsArchiveS3Archive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_id: str,
                  bucket: str,
@@ -26796,9 +29737,6 @@ class LogsArchiveS3Archive(dict):
     @pulumi.getter(name="roleName")
     def role_name(self) -> str:
         return pulumi.get(self, "role_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -26812,12 +29750,52 @@ class LogsCustomPipelineFilter(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arithmeticProcessor":
+            suggest = "arithmetic_processor"
+        elif key == "attributeRemapper":
+            suggest = "attribute_remapper"
+        elif key == "categoryProcessor":
+            suggest = "category_processor"
+        elif key == "dateRemapper":
+            suggest = "date_remapper"
+        elif key == "geoIpParser":
+            suggest = "geo_ip_parser"
+        elif key == "grokParser":
+            suggest = "grok_parser"
+        elif key == "lookupProcessor":
+            suggest = "lookup_processor"
+        elif key == "messageRemapper":
+            suggest = "message_remapper"
+        elif key == "serviceRemapper":
+            suggest = "service_remapper"
+        elif key == "statusRemapper":
+            suggest = "status_remapper"
+        elif key == "stringBuilderProcessor":
+            suggest = "string_builder_processor"
+        elif key == "traceIdRemapper":
+            suggest = "trace_id_remapper"
+        elif key == "urlParser":
+            suggest = "url_parser"
+        elif key == "userAgentParser":
+            suggest = "user_agent_parser"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arithmetic_processor: Optional['outputs.LogsCustomPipelineProcessorArithmeticProcessor'] = None,
                  attribute_remapper: Optional['outputs.LogsCustomPipelineProcessorAttributeRemapper'] = None,
@@ -26940,12 +29918,28 @@ class LogsCustomPipelineProcessor(dict):
     def user_agent_parser(self) -> Optional['outputs.LogsCustomPipelineProcessorUserAgentParser']:
         return pulumi.get(self, "user_agent_parser")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorArithmeticProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "isReplaceMissing":
+            suggest = "is_replace_missing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorArithmeticProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorArithmeticProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorArithmeticProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  target: str,
@@ -26986,12 +29980,36 @@ class LogsCustomPipelineProcessorArithmeticProcessor(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorAttributeRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceType":
+            suggest = "source_type"
+        elif key == "targetType":
+            suggest = "target_type"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "overrideOnConflict":
+            suggest = "override_on_conflict"
+        elif key == "preserveSource":
+            suggest = "preserve_source"
+        elif key == "targetFormat":
+            suggest = "target_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorAttributeRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorAttributeRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorAttributeRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_type: str,
                  sources: Sequence[str],
@@ -27062,12 +30080,26 @@ class LogsCustomPipelineProcessorAttributeRemapper(dict):
     def target_format(self) -> Optional[str]:
         return pulumi.get(self, "target_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorCategoryProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorCategoryProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorCategoryProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorCategoryProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  categories: Sequence['outputs.LogsCustomPipelineProcessorCategoryProcessorCategory'],
                  target: str,
@@ -27100,9 +30132,6 @@ class LogsCustomPipelineProcessorCategoryProcessor(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorCategoryProcessorCategory(dict):
@@ -27122,9 +30151,6 @@ class LogsCustomPipelineProcessorCategoryProcessorCategory(dict):
     def name(self) -> str:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorCategoryProcessorCategoryFilter(dict):
@@ -27137,12 +30163,26 @@ class LogsCustomPipelineProcessorCategoryProcessorCategoryFilter(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorDateRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorDateRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorDateRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorDateRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -27168,12 +30208,26 @@ class LogsCustomPipelineProcessorDateRemapper(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorGeoIpParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorGeoIpParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorGeoIpParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorGeoIpParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  target: str,
@@ -27206,12 +30260,26 @@ class LogsCustomPipelineProcessorGeoIpParser(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorGrokParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorGrokParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorGrokParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorGrokParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  grok: 'outputs.LogsCustomPipelineProcessorGrokParserGrok',
                  source: str,
@@ -27252,12 +30320,28 @@ class LogsCustomPipelineProcessorGrokParser(dict):
     def samples(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "samples")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorGrokParserGrok(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchRules":
+            suggest = "match_rules"
+        elif key == "supportRules":
+            suggest = "support_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorGrokParserGrok. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorGrokParserGrok.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorGrokParserGrok.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_rules: str,
                  support_rules: str):
@@ -27274,12 +30358,30 @@ class LogsCustomPipelineProcessorGrokParserGrok(dict):
     def support_rules(self) -> str:
         return pulumi.get(self, "support_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorLookupProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookupTables":
+            suggest = "lookup_tables"
+        elif key == "defaultLookup":
+            suggest = "default_lookup"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorLookupProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorLookupProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorLookupProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lookup_tables: Sequence[str],
                  source: str,
@@ -27327,12 +30429,26 @@ class LogsCustomPipelineProcessorLookupProcessor(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorMessageRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorMessageRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorMessageRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorMessageRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -27358,12 +30474,26 @@ class LogsCustomPipelineProcessorMessageRemapper(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipeline(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipeline. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipeline.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipeline.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filters: Sequence['outputs.LogsCustomPipelineProcessorPipelineFilter'],
                  name: str,
@@ -27396,9 +30526,6 @@ class LogsCustomPipelineProcessorPipeline(dict):
     def processors(self) -> Optional[Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessor']]:
         return pulumi.get(self, "processors")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineFilter(dict):
@@ -27411,12 +30538,52 @@ class LogsCustomPipelineProcessorPipelineFilter(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arithmeticProcessor":
+            suggest = "arithmetic_processor"
+        elif key == "attributeRemapper":
+            suggest = "attribute_remapper"
+        elif key == "categoryProcessor":
+            suggest = "category_processor"
+        elif key == "dateRemapper":
+            suggest = "date_remapper"
+        elif key == "geoIpParser":
+            suggest = "geo_ip_parser"
+        elif key == "grokParser":
+            suggest = "grok_parser"
+        elif key == "lookupProcessor":
+            suggest = "lookup_processor"
+        elif key == "messageRemapper":
+            suggest = "message_remapper"
+        elif key == "serviceRemapper":
+            suggest = "service_remapper"
+        elif key == "statusRemapper":
+            suggest = "status_remapper"
+        elif key == "stringBuilderProcessor":
+            suggest = "string_builder_processor"
+        elif key == "traceIdRemapper":
+            suggest = "trace_id_remapper"
+        elif key == "urlParser":
+            suggest = "url_parser"
+        elif key == "userAgentParser":
+            suggest = "user_agent_parser"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  arithmetic_processor: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor'] = None,
                  attribute_remapper: Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper'] = None,
@@ -27531,12 +30698,28 @@ class LogsCustomPipelineProcessorPipelineProcessor(dict):
     def user_agent_parser(self) -> Optional['outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser']:
         return pulumi.get(self, "user_agent_parser")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "isReplaceMissing":
+            suggest = "is_replace_missing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expression: str,
                  target: str,
@@ -27577,12 +30760,36 @@ class LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceType":
+            suggest = "source_type"
+        elif key == "targetType":
+            suggest = "target_type"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "overrideOnConflict":
+            suggest = "override_on_conflict"
+        elif key == "preserveSource":
+            suggest = "preserve_source"
+        elif key == "targetFormat":
+            suggest = "target_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_type: str,
                  sources: Sequence[str],
@@ -27653,12 +30860,26 @@ class LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper(dict):
     def target_format(self) -> Optional[str]:
         return pulumi.get(self, "target_format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  categories: Sequence['outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory'],
                  target: str,
@@ -27691,9 +30912,6 @@ class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory(dict):
@@ -27713,9 +30931,6 @@ class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategory(dict
     def name(self) -> str:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter(dict):
@@ -27728,12 +30943,26 @@ class LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilte
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorDateRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorDateRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorDateRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorDateRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -27759,12 +30988,26 @@ class LogsCustomPipelineProcessorPipelineProcessorDateRemapper(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorGeoIpParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorGeoIpParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorGeoIpParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorGeoIpParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  target: str,
@@ -27797,12 +31040,26 @@ class LogsCustomPipelineProcessorPipelineProcessorGeoIpParser(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorGrokParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorGrokParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorGrokParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorGrokParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  grok: 'outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok',
                  source: str,
@@ -27843,12 +31100,28 @@ class LogsCustomPipelineProcessorPipelineProcessorGrokParser(dict):
     def samples(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "samples")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchRules":
+            suggest = "match_rules"
+        elif key == "supportRules":
+            suggest = "support_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_rules: str,
                  support_rules: str):
@@ -27865,12 +31138,30 @@ class LogsCustomPipelineProcessorPipelineProcessorGrokParserGrok(dict):
     def support_rules(self) -> str:
         return pulumi.get(self, "support_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookupTables":
+            suggest = "lookup_tables"
+        elif key == "defaultLookup":
+            suggest = "default_lookup"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorLookupProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorLookupProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorLookupProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  lookup_tables: Sequence[str],
                  source: str,
@@ -27918,12 +31209,26 @@ class LogsCustomPipelineProcessorPipelineProcessorLookupProcessor(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorMessageRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorMessageRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorMessageRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorMessageRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -27948,13 +31253,27 @@ class LogsCustomPipelineProcessorPipelineProcessorMessageRemapper(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorServiceRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorServiceRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorServiceRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -27979,13 +31298,27 @@ class LogsCustomPipelineProcessorPipelineProcessorServiceRemapper(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorStatusRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorStatusRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorStatusRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorStatusRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -28010,13 +31343,29 @@ class LogsCustomPipelineProcessorPipelineProcessorStatusRemapper(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "isReplaceMissing":
+            suggest = "is_replace_missing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target: str,
                  template: str,
@@ -28056,13 +31405,27 @@ class LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -28088,12 +31451,28 @@ class LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorUrlParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "normalizeEndingSlashes":
+            suggest = "normalize_ending_slashes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorUrlParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorUrlParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorUrlParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  target: str,
@@ -28134,12 +31513,28 @@ class LogsCustomPipelineProcessorPipelineProcessorUrlParser(dict):
     def normalize_ending_slashes(self) -> Optional[bool]:
         return pulumi.get(self, "normalize_ending_slashes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "isEncoded":
+            suggest = "is_encoded"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorPipelineProcessorUserAgentParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorUserAgentParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorPipelineProcessorUserAgentParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  target: str,
@@ -28180,12 +31575,26 @@ class LogsCustomPipelineProcessorPipelineProcessorUserAgentParser(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorServiceRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorServiceRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorServiceRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorServiceRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -28210,13 +31619,27 @@ class LogsCustomPipelineProcessorServiceRemapper(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorStatusRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorStatusRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorStatusRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorStatusRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -28242,12 +31665,28 @@ class LogsCustomPipelineProcessorStatusRemapper(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorStringBuilderProcessor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "isReplaceMissing":
+            suggest = "is_replace_missing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorStringBuilderProcessor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorStringBuilderProcessor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorStringBuilderProcessor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target: str,
                  template: str,
@@ -28288,12 +31727,26 @@ class LogsCustomPipelineProcessorStringBuilderProcessor(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorTraceIdRemapper(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorTraceIdRemapper. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorTraceIdRemapper.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorTraceIdRemapper.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  is_enabled: Optional[bool] = None,
@@ -28319,12 +31772,28 @@ class LogsCustomPipelineProcessorTraceIdRemapper(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorUrlParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "normalizeEndingSlashes":
+            suggest = "normalize_ending_slashes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorUrlParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorUrlParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorUrlParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  target: str,
@@ -28365,12 +31834,28 @@ class LogsCustomPipelineProcessorUrlParser(dict):
     def normalize_ending_slashes(self) -> Optional[bool]:
         return pulumi.get(self, "normalize_ending_slashes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsCustomPipelineProcessorUserAgentParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "isEncoded":
+            suggest = "is_encoded"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsCustomPipelineProcessorUserAgentParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsCustomPipelineProcessorUserAgentParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsCustomPipelineProcessorUserAgentParser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  sources: Sequence[str],
                  target: str,
@@ -28411,12 +31896,26 @@ class LogsCustomPipelineProcessorUserAgentParser(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsIndexExclusionFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsIndexExclusionFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsIndexExclusionFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsIndexExclusionFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.LogsIndexExclusionFilterFilter']] = None,
                  is_enabled: Optional[bool] = None,
@@ -28443,12 +31942,26 @@ class LogsIndexExclusionFilter(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsIndexExclusionFilterFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sampleRate":
+            suggest = "sample_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsIndexExclusionFilterFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsIndexExclusionFilterFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsIndexExclusionFilterFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: Optional[str] = None,
                  sample_rate: Optional[float] = None):
@@ -28467,9 +31980,6 @@ class LogsIndexExclusionFilterFilter(dict):
     def sample_rate(self) -> Optional[float]:
         return pulumi.get(self, "sample_rate")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsIndexFilter(dict):
@@ -28482,12 +31992,26 @@ class LogsIndexFilter(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsMetricCompute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationType":
+            suggest = "aggregation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsMetricCompute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsMetricCompute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsMetricCompute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregation_type: str,
                  path: Optional[str] = None):
@@ -28505,9 +32029,6 @@ class LogsMetricCompute(dict):
     def path(self) -> Optional[str]:
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsMetricFilter(dict):
@@ -28520,12 +32041,26 @@ class LogsMetricFilter(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LogsMetricGroupBy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagName":
+            suggest = "tag_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogsMetricGroupBy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogsMetricGroupBy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogsMetricGroupBy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  path: str,
                  tag_name: str):
@@ -28542,12 +32077,28 @@ class LogsMetricGroupBy(dict):
     def tag_name(self) -> str:
         return pulumi.get(self, "tag_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitorMonitorThresholdWindows(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recoveryWindow":
+            suggest = "recovery_window"
+        elif key == "triggerWindow":
+            suggest = "trigger_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorMonitorThresholdWindows. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorMonitorThresholdWindows.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorMonitorThresholdWindows.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recovery_window: Optional[str] = None,
                  trigger_window: Optional[str] = None):
@@ -28566,12 +32117,28 @@ class MonitorMonitorThresholdWindows(dict):
     def trigger_window(self) -> Optional[str]:
         return pulumi.get(self, "trigger_window")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitorMonitorThresholds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "criticalRecovery":
+            suggest = "critical_recovery"
+        elif key == "warningRecovery":
+            suggest = "warning_recovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorMonitorThresholds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorMonitorThresholds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorMonitorThresholds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  critical: Optional[str] = None,
                  critical_recovery: Optional[str] = None,
@@ -28622,12 +32189,28 @@ class MonitorMonitorThresholds(dict):
     def warning_recovery(self) -> Optional[str]:
         return pulumi.get(self, "warning_recovery")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitorThresholdWindows(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recoveryWindow":
+            suggest = "recovery_window"
+        elif key == "triggerWindow":
+            suggest = "trigger_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorThresholdWindows. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorThresholdWindows.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorThresholdWindows.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recovery_window: Optional[str] = None,
                  trigger_window: Optional[str] = None):
@@ -28646,12 +32229,28 @@ class MonitorThresholdWindows(dict):
     def trigger_window(self) -> Optional[str]:
         return pulumi.get(self, "trigger_window")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MonitorThresholds(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "criticalRecovery":
+            suggest = "critical_recovery"
+        elif key == "warningRecovery":
+            suggest = "warning_recovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorThresholds. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorThresholds.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorThresholds.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  critical: Optional[float] = None,
                  critical_recovery: Optional[float] = None,
@@ -28702,9 +32301,6 @@ class MonitorThresholds(dict):
     def warning_recovery(self) -> Optional[float]:
         return pulumi.get(self, "warning_recovery")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RolePermission(dict):
@@ -28724,9 +32320,6 @@ class RolePermission(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -28756,12 +32349,90 @@ class ScreenBoardTemplateVariable(dict):
     def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertId":
+            suggest = "alert_id"
+        elif key == "autoRefresh":
+            suggest = "auto_refresh"
+        elif key == "colorPreference":
+            suggest = "color_preference"
+        elif key == "displayFormat":
+            suggest = "display_format"
+        elif key == "eventSize":
+            suggest = "event_size"
+        elif key == "fontSize":
+            suggest = "font_size"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "hideZeroCounts":
+            suggest = "hide_zero_counts"
+        elif key == "layoutVersion":
+            suggest = "layout_version"
+        elif key == "legendSize":
+            suggest = "legend_size"
+        elif key == "manageStatusShowTitle":
+            suggest = "manage_status_show_title"
+        elif key == "manageStatusTitleAlign":
+            suggest = "manage_status_title_align"
+        elif key == "manageStatusTitleSize":
+            suggest = "manage_status_title_size"
+        elif key == "manageStatusTitleText":
+            suggest = "manage_status_title_text"
+        elif key == "mustShowBreakdown":
+            suggest = "must_show_breakdown"
+        elif key == "mustShowDistribution":
+            suggest = "must_show_distribution"
+        elif key == "mustShowErrors":
+            suggest = "must_show_errors"
+        elif key == "mustShowHits":
+            suggest = "must_show_hits"
+        elif key == "mustShowLatency":
+            suggest = "must_show_latency"
+        elif key == "mustShowResourceList":
+            suggest = "must_show_resource_list"
+        elif key == "serviceName":
+            suggest = "service_name"
+        elif key == "serviceService":
+            suggest = "service_service"
+        elif key == "showLastTriggered":
+            suggest = "show_last_triggered"
+        elif key == "sizeVersion":
+            suggest = "size_version"
+        elif key == "summaryType":
+            suggest = "summary_type"
+        elif key == "textAlign":
+            suggest = "text_align"
+        elif key == "textSize":
+            suggest = "text_size"
+        elif key == "tickEdge":
+            suggest = "tick_edge"
+        elif key == "tickPos":
+            suggest = "tick_pos"
+        elif key == "tileDeves":
+            suggest = "tile_deves"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+        elif key == "vizType":
+            suggest = "viz_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScreenBoardWidget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScreenBoardWidget.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  x: int,
@@ -29265,9 +32936,6 @@ class ScreenBoardWidget(dict):
     def width(self) -> Optional[int]:
         return pulumi.get(self, "width")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetRule(dict):
@@ -29297,12 +32965,34 @@ class ScreenBoardWidgetRule(dict):
     def timeframe(self) -> Optional[str]:
         return pulumi.get(self, "timeframe")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDef(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customUnit":
+            suggest = "custom_unit"
+        elif key == "noGroupHosts":
+            suggest = "no_group_hosts"
+        elif key == "noMetricHosts":
+            suggest = "no_metric_hosts"
+        elif key == "nodeType":
+            suggest = "node_type"
+        elif key == "textAlign":
+            suggest = "text_align"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDef. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScreenBoardWidgetTileDef.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScreenBoardWidgetTileDef.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  requests: Sequence['outputs.ScreenBoardWidgetTileDefRequest'],
                  viz: str,
@@ -29415,9 +33105,6 @@ class ScreenBoardWidgetTileDef(dict):
     def text_align(self) -> Optional[str]:
         return pulumi.get(self, "text_align")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefEvent(dict):
@@ -29429,9 +33116,6 @@ class ScreenBoardWidgetTileDefEvent(dict):
     @pulumi.getter
     def q(self) -> str:
         return pulumi.get(self, "q")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -29460,12 +33144,52 @@ class ScreenBoardWidgetTileDefMarker(dict):
     def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "changeType":
+            suggest = "change_type"
+        elif key == "compareTo":
+            suggest = "compare_to"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "extraCol":
+            suggest = "extra_col"
+        elif key == "increaseGood":
+            suggest = "increase_good"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "metadataJson":
+            suggest = "metadata_json"
+        elif key == "orderBy":
+            suggest = "order_by"
+        elif key == "orderDir":
+            suggest = "order_dir"
+        elif key == "processQuery":
+            suggest = "process_query"
+        elif key == "queryType":
+            suggest = "query_type"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+        elif key == "textFilter":
+            suggest = "text_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScreenBoardWidgetTileDefRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScreenBoardWidgetTileDefRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuery'] = None,
@@ -29628,12 +33352,26 @@ class ScreenBoardWidgetTileDefRequest(dict):
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScreenBoardWidgetTileDefRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScreenBoardWidgetTileDefRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute: 'outputs.ScreenBoardWidgetTileDefRequestApmQueryCompute',
                  index: str,
@@ -29666,9 +33404,6 @@ class ScreenBoardWidgetTileDefRequestApmQuery(dict):
     def search(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestApmQueryCompute(dict):
@@ -29696,9 +33431,6 @@ class ScreenBoardWidgetTileDefRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[str]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -29728,9 +33460,6 @@ class ScreenBoardWidgetTileDefRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestApmQueryGroupBySort(dict):
@@ -29758,9 +33487,6 @@ class ScreenBoardWidgetTileDefRequestApmQueryGroupBySort(dict):
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestApmQuerySearch(dict):
@@ -29773,12 +33499,26 @@ class ScreenBoardWidgetTileDefRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScreenBoardWidgetTileDefRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScreenBoardWidgetTileDefRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  color: Optional[str] = None,
@@ -29828,12 +33568,26 @@ class ScreenBoardWidgetTileDefRequestConditionalFormat(dict):
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScreenBoardWidgetTileDefRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScreenBoardWidgetTileDefRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute: 'outputs.ScreenBoardWidgetTileDefRequestLogQueryCompute',
                  index: str,
@@ -29866,9 +33620,6 @@ class ScreenBoardWidgetTileDefRequestLogQuery(dict):
     def search(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestLogQueryCompute(dict):
@@ -29896,9 +33647,6 @@ class ScreenBoardWidgetTileDefRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[str]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -29928,9 +33676,6 @@ class ScreenBoardWidgetTileDefRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestLogQueryGroupBySort(dict):
@@ -29958,9 +33703,6 @@ class ScreenBoardWidgetTileDefRequestLogQueryGroupBySort(dict):
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestLogQuerySearch(dict):
@@ -29973,12 +33715,28 @@ class ScreenBoardWidgetTileDefRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScreenBoardWidgetTileDefRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScreenBoardWidgetTileDefRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScreenBoardWidgetTileDefRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -30011,9 +33769,6 @@ class ScreenBoardWidgetTileDefRequestProcessQuery(dict):
     @pulumi.getter(name="searchBy")
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -30051,12 +33806,30 @@ class SecurityMonitoringRuleCase(dict):
     def notifications(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "notifications")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityMonitoringRuleOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationWindow":
+            suggest = "evaluation_window"
+        elif key == "keepAlive":
+            suggest = "keep_alive"
+        elif key == "maxSignalDuration":
+            suggest = "max_signal_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityMonitoringRuleOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityMonitoringRuleOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityMonitoringRuleOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  evaluation_window: int,
                  keep_alive: int,
@@ -30080,12 +33853,28 @@ class SecurityMonitoringRuleOptions(dict):
     def max_signal_duration(self) -> int:
         return pulumi.get(self, "max_signal_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityMonitoringRuleQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distinctFields":
+            suggest = "distinct_fields"
+        elif key == "groupByFields":
+            suggest = "group_by_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityMonitoringRuleQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityMonitoringRuleQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityMonitoringRuleQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  query: str,
                  aggregation: Optional[str] = None,
@@ -30135,9 +33924,6 @@ class SecurityMonitoringRuleQuery(dict):
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceLevelObjectiveQuery(dict):
@@ -30157,12 +33943,28 @@ class ServiceLevelObjectiveQuery(dict):
     def numerator(self) -> str:
         return pulumi.get(self, "numerator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceLevelObjectiveThreshold(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetDisplay":
+            suggest = "target_display"
+        elif key == "warningDisplay":
+            suggest = "warning_display"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveThreshold. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveThreshold.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveThreshold.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target: float,
                  timeframe: str,
@@ -30223,9 +34025,6 @@ class ServiceLevelObjectiveThreshold(dict):
     def warning_display(self) -> Optional[str]:
         return pulumi.get(self, "warning_display")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsGlobalVariableParseTestOptions(dict):
@@ -30253,9 +34052,6 @@ class SyntheticsGlobalVariableParseTestOptions(dict):
     def field(self) -> Optional[str]:
         return pulumi.get(self, "field")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsGlobalVariableParseTestOptionsParser(dict):
@@ -30275,9 +34071,6 @@ class SyntheticsGlobalVariableParseTestOptionsParser(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -30322,9 +34115,6 @@ class SyntheticsTestBrowserVariable(dict):
     def pattern(self) -> Optional[str]:
         return pulumi.get(self, "pattern")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestConfigVariable(dict):
@@ -30360,12 +34150,40 @@ class SyntheticsTestConfigVariable(dict):
     def pattern(self) -> Optional[str]:
         return pulumi.get(self, "pattern")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tickEvery":
+            suggest = "tick_every"
+        elif key == "acceptSelfSigned":
+            suggest = "accept_self_signed"
+        elif key == "allowInsecure":
+            suggest = "allow_insecure"
+        elif key == "followRedirects":
+            suggest = "follow_redirects"
+        elif key == "minFailureDuration":
+            suggest = "min_failure_duration"
+        elif key == "minLocationFailed":
+            suggest = "min_location_failed"
+        elif key == "retryCount":
+            suggest = "retry_count"
+        elif key == "retryInterval":
+            suggest = "retry_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  tick_every: int,
                  accept_self_signed: Optional[bool] = None,
@@ -30431,12 +34249,38 @@ class SyntheticsTestOptions(dict):
     def retry_interval(self) -> Optional[int]:
         return pulumi.get(self, "retry_interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestOptionsList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptSelfSigned":
+            suggest = "accept_self_signed"
+        elif key == "allowInsecure":
+            suggest = "allow_insecure"
+        elif key == "followRedirects":
+            suggest = "follow_redirects"
+        elif key == "minFailureDuration":
+            suggest = "min_failure_duration"
+        elif key == "minLocationFailed":
+            suggest = "min_location_failed"
+        elif key == "monitorOptions":
+            suggest = "monitor_options"
+        elif key == "tickEvery":
+            suggest = "tick_every"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestOptionsList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestOptionsList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestOptionsList.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  accept_self_signed: Optional[bool] = None,
                  allow_insecure: Optional[bool] = None,
@@ -30503,12 +34347,26 @@ class SyntheticsTestOptionsList(dict):
     def tick_every(self) -> Optional[int]:
         return pulumi.get(self, "tick_every")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestOptionsListMonitorOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "renotifyInterval":
+            suggest = "renotify_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestOptionsListMonitorOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestOptionsListMonitorOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestOptionsListMonitorOptions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  renotify_interval: Optional[int] = None):
         if renotify_interval is not None:
@@ -30518,9 +34376,6 @@ class SyntheticsTestOptionsListMonitorOptions(dict):
     @pulumi.getter(name="renotifyInterval")
     def renotify_interval(self) -> Optional[int]:
         return pulumi.get(self, "renotify_interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -30543,12 +34398,26 @@ class SyntheticsTestOptionsListRetry(dict):
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServer":
+            suggest = "dns_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  body: Optional[str] = None,
                  dns_server: Optional[str] = None,
@@ -30607,9 +34476,6 @@ class SyntheticsTestRequest(dict):
     def url(self) -> Optional[str]:
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestRequestBasicauth(dict):
@@ -30629,9 +34495,6 @@ class SyntheticsTestRequestBasicauth(dict):
     def username(self) -> str:
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestRequestClientCertificate(dict):
@@ -30650,9 +34513,6 @@ class SyntheticsTestRequestClientCertificate(dict):
     @pulumi.getter
     def key(self) -> 'outputs.SyntheticsTestRequestClientCertificateKey':
         return pulumi.get(self, "key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -30674,9 +34534,6 @@ class SyntheticsTestRequestClientCertificateCert(dict):
     def filename(self) -> Optional[str]:
         return pulumi.get(self, "filename")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestRequestClientCertificateKey(dict):
@@ -30697,12 +34554,26 @@ class SyntheticsTestRequestClientCertificateKey(dict):
     def filename(self) -> Optional[str]:
         return pulumi.get(self, "filename")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SyntheticsTestStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowFailure":
+            suggest = "allow_failure"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyntheticsTestStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyntheticsTestStep.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  params: str,
@@ -30741,9 +34612,6 @@ class SyntheticsTestStep(dict):
     @pulumi.getter
     def timeout(self) -> Optional[int]:
         return pulumi.get(self, "timeout")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -30788,12 +34656,34 @@ class SyntheticsTestVariable(dict):
     def pattern(self) -> Optional[str]:
         return pulumi.get(self, "pattern")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraph(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customUnit":
+            suggest = "custom_unit"
+        elif key == "includeNoMetricHosts":
+            suggest = "include_no_metric_hosts"
+        elif key == "includeUngroupedHosts":
+            suggest = "include_ungrouped_hosts"
+        elif key == "nodeType":
+            suggest = "node_type"
+        elif key == "textAlign":
+            suggest = "text_align"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraph. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeBoardGraph.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeBoardGraph.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  requests: Sequence['outputs.TimeBoardGraphRequest'],
                  title: str,
@@ -30921,9 +34811,6 @@ class TimeBoardGraph(dict):
     def yaxis(self) -> Optional[Mapping[str, Any]]:
         return pulumi.get(self, "yaxis")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphMarker(dict):
@@ -30951,12 +34838,46 @@ class TimeBoardGraphMarker(dict):
     def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apmQuery":
+            suggest = "apm_query"
+        elif key == "changeType":
+            suggest = "change_type"
+        elif key == "compareTo":
+            suggest = "compare_to"
+        elif key == "conditionalFormats":
+            suggest = "conditional_formats"
+        elif key == "extraCol":
+            suggest = "extra_col"
+        elif key == "increaseGood":
+            suggest = "increase_good"
+        elif key == "logQuery":
+            suggest = "log_query"
+        elif key == "metadataJson":
+            suggest = "metadata_json"
+        elif key == "orderBy":
+            suggest = "order_by"
+        elif key == "orderDirection":
+            suggest = "order_direction"
+        elif key == "processQuery":
+            suggest = "process_query"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeBoardGraphRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeBoardGraphRequest.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregator: Optional[str] = None,
                  apm_query: Optional['outputs.TimeBoardGraphRequestApmQuery'] = None,
@@ -31087,12 +35008,26 @@ class TimeBoardGraphRequest(dict):
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestApmQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeBoardGraphRequestApmQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeBoardGraphRequestApmQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute: 'outputs.TimeBoardGraphRequestApmQueryCompute',
                  index: str,
@@ -31125,9 +35060,6 @@ class TimeBoardGraphRequestApmQuery(dict):
     def search(self) -> Optional['outputs.TimeBoardGraphRequestApmQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestApmQueryCompute(dict):
@@ -31155,9 +35087,6 @@ class TimeBoardGraphRequestApmQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -31187,9 +35116,6 @@ class TimeBoardGraphRequestApmQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.TimeBoardGraphRequestApmQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestApmQueryGroupBySort(dict):
@@ -31217,9 +35143,6 @@ class TimeBoardGraphRequestApmQueryGroupBySort(dict):
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestApmQuerySearch(dict):
@@ -31232,12 +35155,28 @@ class TimeBoardGraphRequestApmQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestConditionalFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customBgColor":
+            suggest = "custom_bg_color"
+        elif key == "customFgColor":
+            suggest = "custom_fg_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeBoardGraphRequestConditionalFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeBoardGraphRequestConditionalFormat.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comparator: str,
                  custom_bg_color: Optional[str] = None,
@@ -31279,12 +35218,26 @@ class TimeBoardGraphRequestConditionalFormat(dict):
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestLogQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupBies":
+            suggest = "group_bies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeBoardGraphRequestLogQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeBoardGraphRequestLogQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  compute: 'outputs.TimeBoardGraphRequestLogQueryCompute',
                  index: str,
@@ -31317,9 +35270,6 @@ class TimeBoardGraphRequestLogQuery(dict):
     def search(self) -> Optional['outputs.TimeBoardGraphRequestLogQuerySearch']:
         return pulumi.get(self, "search")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestLogQueryCompute(dict):
@@ -31347,9 +35297,6 @@ class TimeBoardGraphRequestLogQueryCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -31379,9 +35326,6 @@ class TimeBoardGraphRequestLogQueryGroupBy(dict):
     def sort(self) -> Optional['outputs.TimeBoardGraphRequestLogQueryGroupBySort']:
         return pulumi.get(self, "sort")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestLogQueryGroupBySort(dict):
@@ -31409,9 +35353,6 @@ class TimeBoardGraphRequestLogQueryGroupBySort(dict):
     def facet(self) -> Optional[str]:
         return pulumi.get(self, "facet")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestLogQuerySearch(dict):
@@ -31424,12 +35365,28 @@ class TimeBoardGraphRequestLogQuerySearch(dict):
     def query(self) -> str:
         return pulumi.get(self, "query")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardGraphRequestProcessQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterBies":
+            suggest = "filter_bies"
+        elif key == "searchBy":
+            suggest = "search_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeBoardGraphRequestProcessQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeBoardGraphRequestProcessQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric: str,
                  filter_bies: Optional[Sequence[str]] = None,
@@ -31463,9 +35420,6 @@ class TimeBoardGraphRequestProcessQuery(dict):
     def search_by(self) -> Optional[str]:
         return pulumi.get(self, "search_by")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeBoardTemplateVariable(dict):
@@ -31493,9 +35447,6 @@ class TimeBoardTemplateVariable(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         return pulumi.get(self, "prefix")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

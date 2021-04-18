@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'IntegrationService',
@@ -14,6 +14,25 @@ __all__ = [
 
 @pulumi.output_type
 class IntegrationService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceKey":
+            suggest = "service_key"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service_key: str,
                  service_name: str):
@@ -29,8 +48,5 @@ class IntegrationService(dict):
     @pulumi.getter(name="serviceName")
     def service_name(self) -> str:
         return pulumi.get(self, "service_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

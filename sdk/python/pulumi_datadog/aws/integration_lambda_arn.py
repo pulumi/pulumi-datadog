@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IntegrationLambdaArnArgs', 'IntegrationLambdaArn']
 
@@ -45,6 +45,46 @@ class IntegrationLambdaArnArgs:
 
     @lambda_arn.setter
     def lambda_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_arn", value)
+
+
+@pulumi.input_type
+class _IntegrationLambdaArnState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 lambda_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering IntegrationLambdaArn resources.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
+        :param pulumi.Input[str] lambda_arn: The ARN of the Datadog forwarder Lambda.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your AWS Account ID without dashes.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Datadog forwarder Lambda.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lambda_arn", value)
 
 
@@ -152,14 +192,14 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationLambdaArnArgs.__new__(IntegrationLambdaArnArgs)
 
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
-            __props__['account_id'] = account_id
+            __props__.__dict__["account_id"] = account_id
             if lambda_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'lambda_arn'")
-            __props__['lambda_arn'] = lambda_arn
+            __props__.__dict__["lambda_arn"] = lambda_arn
         super(IntegrationLambdaArn, __self__).__init__(
             'datadog:aws/integrationLambdaArn:IntegrationLambdaArn',
             resource_name,
@@ -184,10 +224,10 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IntegrationLambdaArnState.__new__(_IntegrationLambdaArnState)
 
-        __props__["account_id"] = account_id
-        __props__["lambda_arn"] = lambda_arn
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["lambda_arn"] = lambda_arn
         return IntegrationLambdaArn(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -205,10 +245,4 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         The ARN of the Datadog forwarder Lambda.
         """
         return pulumi.get(self, "lambda_arn")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['SyntheticsPrivateLocationArgs', 'SyntheticsPrivateLocation']
 
@@ -51,6 +51,80 @@ class SyntheticsPrivateLocationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags to associate with your synthetics private location.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _SyntheticsPrivateLocationState:
+    def __init__(__self__, *,
+                 config: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
+        :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use
+               this configuration.
+        :param pulumi.Input[str] description: Description of the private location.
+        :param pulumi.Input[str] name: Synthetics private location name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
+        """
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configuration skeleton for the private location. See installation instructions of the private location on how to use
+        this configuration.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the private location.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Synthetics private location name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -176,14 +250,14 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SyntheticsPrivateLocationArgs.__new__(SyntheticsPrivateLocationArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['config'] = None
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["config"] = None
         super(SyntheticsPrivateLocation, __self__).__init__(
             'datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation',
             resource_name,
@@ -213,12 +287,12 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SyntheticsPrivateLocationState.__new__(_SyntheticsPrivateLocationState)
 
-        __props__["config"] = config
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["tags"] = tags
+        __props__.__dict__["config"] = config
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
         return SyntheticsPrivateLocation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -253,10 +327,4 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         A list of tags to associate with your synthetics private location.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IntegrationArgs', 'Integration']
 
@@ -120,6 +120,138 @@ class IntegrationArgs:
     @host_tags.setter
     def host_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "host_tags", value)
+
+
+@pulumi.input_type
+class _IntegrationState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
+        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
+               found at the [available namespace rules API
+               endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
+        :param pulumi.Input[str] external_id: AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
+               Terraform.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
+               such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
+               defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
+               adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[str] role_name: Your Datadog role delegation name.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if account_specific_namespace_rules is not None:
+            pulumi.set(__self__, "account_specific_namespace_rules", account_specific_namespace_rules)
+        if excluded_regions is not None:
+            pulumi.set(__self__, "excluded_regions", excluded_regions)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if filter_tags is not None:
+            pulumi.set(__self__, "filter_tags", filter_tags)
+        if host_tags is not None:
+            pulumi.set(__self__, "host_tags", host_tags)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your AWS Account ID without dashes.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="accountSpecificNamespaceRules")
+    def account_specific_namespace_rules(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
+        found at the [available namespace rules API
+        endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        """
+        return pulumi.get(self, "account_specific_namespace_rules")
+
+    @account_specific_namespace_rules.setter
+    def account_specific_namespace_rules(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "account_specific_namespace_rules", value)
+
+    @property
+    @pulumi.getter(name="excludedRegions")
+    def excluded_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array of AWS regions to exclude from metrics collection.
+        """
+        return pulumi.get(self, "excluded_regions")
+
+    @excluded_regions.setter
+    def excluded_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_regions", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
+        Terraform.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter(name="filterTags")
+    def filter_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
+        such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
+        defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
+        adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        """
+        return pulumi.get(self, "filter_tags")
+
+    @filter_tags.setter
+    def filter_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filter_tags", value)
+
+    @property
+    @pulumi.getter(name="hostTags")
+    def host_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        """
+        return pulumi.get(self, "host_tags")
+
+    @host_tags.setter
+    def host_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "host_tags", value)
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your Datadog role delegation name.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_name", value)
 
 
 class Integration(pulumi.CustomResource):
@@ -267,19 +399,19 @@ class Integration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
-            __props__['account_id'] = account_id
-            __props__['account_specific_namespace_rules'] = account_specific_namespace_rules
-            __props__['excluded_regions'] = excluded_regions
-            __props__['filter_tags'] = filter_tags
-            __props__['host_tags'] = host_tags
+            __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["account_specific_namespace_rules"] = account_specific_namespace_rules
+            __props__.__dict__["excluded_regions"] = excluded_regions
+            __props__.__dict__["filter_tags"] = filter_tags
+            __props__.__dict__["host_tags"] = host_tags
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
-            __props__['role_name'] = role_name
-            __props__['external_id'] = None
+            __props__.__dict__["role_name"] = role_name
+            __props__.__dict__["external_id"] = None
         super(Integration, __self__).__init__(
             'datadog:aws/integration:Integration',
             resource_name,
@@ -320,15 +452,15 @@ class Integration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IntegrationState.__new__(_IntegrationState)
 
-        __props__["account_id"] = account_id
-        __props__["account_specific_namespace_rules"] = account_specific_namespace_rules
-        __props__["excluded_regions"] = excluded_regions
-        __props__["external_id"] = external_id
-        __props__["filter_tags"] = filter_tags
-        __props__["host_tags"] = host_tags
-        __props__["role_name"] = role_name
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["account_specific_namespace_rules"] = account_specific_namespace_rules
+        __props__.__dict__["excluded_regions"] = excluded_regions
+        __props__.__dict__["external_id"] = external_id
+        __props__.__dict__["filter_tags"] = filter_tags
+        __props__.__dict__["host_tags"] = host_tags
+        __props__.__dict__["role_name"] = role_name
         return Integration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -392,10 +524,4 @@ class Integration(pulumi.CustomResource):
         Your Datadog role delegation name.
         """
         return pulumi.get(self, "role_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -116,6 +116,126 @@ class ScreenBoardArgs:
     @template_variables.setter
     def template_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScreenBoardTemplateVariableArgs']]]]):
         pulumi.set(self, "template_variables", value)
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[pulumi.Input[str]]:
+        """
+        Width of the screenboard
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "width", value)
+
+
+@pulumi.input_type
+class _ScreenBoardState:
+    def __init__(__self__, *,
+                 height: Optional[pulumi.Input[str]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None,
+                 shared: Optional[pulumi.Input[bool]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ScreenBoardTemplateVariableArgs']]]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['ScreenBoardWidgetArgs']]]] = None,
+                 width: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ScreenBoard resources.
+        :param pulumi.Input[str] height: Height of the screenboard
+        :param pulumi.Input[bool] read_only: The read-only status of the screenboard. Default is `false`.
+        :param pulumi.Input[bool] shared: Whether the screenboard is shared or not
+        :param pulumi.Input[Sequence[pulumi.Input['ScreenBoardTemplateVariableArgs']]] template_variables: A list of template variables for using Dashboard templating.
+        :param pulumi.Input[str] title: Name of the screenboard
+        :param pulumi.Input[Sequence[pulumi.Input['ScreenBoardWidgetArgs']]] widgets: A list of widget definitions.
+        :param pulumi.Input[str] width: Width of the screenboard
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if shared is not None:
+            pulumi.set(__self__, "shared", shared)
+        if template_variables is not None:
+            pulumi.set(__self__, "template_variables", template_variables)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if widgets is not None:
+            pulumi.set(__self__, "widgets", widgets)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[pulumi.Input[str]]:
+        """
+        Height of the screenboard
+        """
+        return pulumi.get(self, "height")
+
+    @height.setter
+    def height(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "height", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The read-only status of the screenboard. Default is `false`.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter
+    def shared(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the screenboard is shared or not
+        """
+        return pulumi.get(self, "shared")
+
+    @shared.setter
+    def shared(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shared", value)
+
+    @property
+    @pulumi.getter(name="templateVariables")
+    def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScreenBoardTemplateVariableArgs']]]]:
+        """
+        A list of template variables for using Dashboard templating.
+        """
+        return pulumi.get(self, "template_variables")
+
+    @template_variables.setter
+    def template_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScreenBoardTemplateVariableArgs']]]]):
+        pulumi.set(self, "template_variables", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the screenboard
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScreenBoardWidgetArgs']]]]:
+        """
+        A list of widget definitions.
+        """
+        return pulumi.get(self, "widgets")
+
+    @widgets.setter
+    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScreenBoardWidgetArgs']]]]):
+        pulumi.set(self, "widgets", value)
 
     @property
     @pulumi.getter
@@ -1005,19 +1125,19 @@ class ScreenBoard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ScreenBoardArgs.__new__(ScreenBoardArgs)
 
-            __props__['height'] = height
-            __props__['read_only'] = read_only
-            __props__['shared'] = shared
-            __props__['template_variables'] = template_variables
+            __props__.__dict__["height"] = height
+            __props__.__dict__["read_only"] = read_only
+            __props__.__dict__["shared"] = shared
+            __props__.__dict__["template_variables"] = template_variables
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
-            __props__['title'] = title
+            __props__.__dict__["title"] = title
             if widgets is None and not opts.urn:
                 raise TypeError("Missing required property 'widgets'")
-            __props__['widgets'] = widgets
-            __props__['width'] = width
+            __props__.__dict__["widgets"] = widgets
+            __props__.__dict__["width"] = width
         super(ScreenBoard, __self__).__init__(
             'datadog:index/screenBoard:ScreenBoard',
             resource_name,
@@ -1052,15 +1172,15 @@ class ScreenBoard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ScreenBoardState.__new__(_ScreenBoardState)
 
-        __props__["height"] = height
-        __props__["read_only"] = read_only
-        __props__["shared"] = shared
-        __props__["template_variables"] = template_variables
-        __props__["title"] = title
-        __props__["widgets"] = widgets
-        __props__["width"] = width
+        __props__.__dict__["height"] = height
+        __props__.__dict__["read_only"] = read_only
+        __props__.__dict__["shared"] = shared
+        __props__.__dict__["template_variables"] = template_variables
+        __props__.__dict__["title"] = title
+        __props__.__dict__["widgets"] = widgets
+        __props__.__dict__["width"] = width
         return ScreenBoard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1118,10 +1238,4 @@ class ScreenBoard(pulumi.CustomResource):
         Width of the screenboard
         """
         return pulumi.get(self, "width")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

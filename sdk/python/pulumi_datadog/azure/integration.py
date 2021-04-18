@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IntegrationArgs', 'Integration']
 
@@ -81,6 +81,82 @@ class IntegrationArgs:
     @host_filters.setter
     def host_filters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_filters", value)
+
+
+@pulumi.input_type
+class _IntegrationState:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 host_filters: Optional[pulumi.Input[str]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[str] client_id: Your Azure web application ID.
+        :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
+        :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+               from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+               defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if host_filters is not None:
+            pulumi.set(__self__, "host_filters", host_filters)
+        if tenant_name is not None:
+            pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your Azure web application ID.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required for Initial Creation) Your Azure web application secret key.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="hostFilters")
+    def host_filters(self) -> Optional[pulumi.Input[str]]:
+        """
+        String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
+        from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
+        defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        """
+        return pulumi.get(self, "host_filters")
+
+    @host_filters.setter
+    def host_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_filters", value)
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your Azure Active Directory ID.
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @tenant_name.setter
+    def tenant_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_name", value)
 
 
 class Integration(pulumi.CustomResource):
@@ -197,18 +273,18 @@ class Integration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__['client_secret'] = client_secret
-            __props__['host_filters'] = host_filters
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["host_filters"] = host_filters
             if tenant_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_name'")
-            __props__['tenant_name'] = tenant_name
+            __props__.__dict__["tenant_name"] = tenant_name
         super(Integration, __self__).__init__(
             'datadog:azure/integration:Integration',
             resource_name,
@@ -239,12 +315,12 @@ class Integration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IntegrationState.__new__(_IntegrationState)
 
-        __props__["client_id"] = client_id
-        __props__["client_secret"] = client_secret
-        __props__["host_filters"] = host_filters
-        __props__["tenant_name"] = tenant_name
+        __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["client_secret"] = client_secret
+        __props__.__dict__["host_filters"] = host_filters
+        __props__.__dict__["tenant_name"] = tenant_name
         return Integration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -280,10 +356,4 @@ class Integration(pulumi.CustomResource):
         Your Azure Active Directory ID.
         """
         return pulumi.get(self, "tenant_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

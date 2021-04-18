@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IntegrationLogCollectionArgs', 'IntegrationLogCollection']
 
@@ -49,6 +49,50 @@ class IntegrationLogCollectionArgs:
 
     @services.setter
     def services(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "services", value)
+
+
+@pulumi.input_type
+class _IntegrationLogCollectionState:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering IntegrationLogCollection resources.
+        :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of services to collect logs from. See the [api
+               docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+               which services are supported.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your AWS Account ID without dashes.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of services to collect logs from. See the [api
+        docs](https://docs.datadoghq.com/api/v1/aws-logs-integration/#get-list-of-aws-log-ready-services) for more details on
+        which services are supported.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "services", value)
 
 
@@ -156,14 +200,14 @@ class IntegrationLogCollection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationLogCollectionArgs.__new__(IntegrationLogCollectionArgs)
 
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
-            __props__['account_id'] = account_id
+            __props__.__dict__["account_id"] = account_id
             if services is None and not opts.urn:
                 raise TypeError("Missing required property 'services'")
-            __props__['services'] = services
+            __props__.__dict__["services"] = services
         super(IntegrationLogCollection, __self__).__init__(
             'datadog:aws/integrationLogCollection:IntegrationLogCollection',
             resource_name,
@@ -190,10 +234,10 @@ class IntegrationLogCollection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IntegrationLogCollectionState.__new__(_IntegrationLogCollectionState)
 
-        __props__["account_id"] = account_id
-        __props__["services"] = services
+        __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["services"] = services
         return IntegrationLogCollection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -213,10 +257,4 @@ class IntegrationLogCollection(pulumi.CustomResource):
         which services are supported.
         """
         return pulumi.get(self, "services")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

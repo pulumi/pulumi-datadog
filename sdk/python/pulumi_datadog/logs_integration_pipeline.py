@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['LogsIntegrationPipelineArgs', 'LogsIntegrationPipeline']
 
@@ -16,6 +16,30 @@ class LogsIntegrationPipelineArgs:
                  is_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LogsIntegrationPipeline resource.
+        :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value to enable your pipeline.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+
+@pulumi.input_type
+class _LogsIntegrationPipelineState:
+    def __init__(__self__, *,
+                 is_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering LogsIntegrationPipeline resources.
         :param pulumi.Input[bool] is_enabled: Boolean value to enable your pipeline.
         """
         if is_enabled is not None:
@@ -127,9 +151,9 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogsIntegrationPipelineArgs.__new__(LogsIntegrationPipelineArgs)
 
-            __props__['is_enabled'] = is_enabled
+            __props__.__dict__["is_enabled"] = is_enabled
         super(LogsIntegrationPipeline, __self__).__init__(
             'datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline',
             resource_name,
@@ -152,9 +176,9 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogsIntegrationPipelineState.__new__(_LogsIntegrationPipelineState)
 
-        __props__["is_enabled"] = is_enabled
+        __props__.__dict__["is_enabled"] = is_enabled
         return LogsIntegrationPipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -164,10 +188,4 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         Boolean value to enable your pipeline.
         """
         return pulumi.get(self, "is_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

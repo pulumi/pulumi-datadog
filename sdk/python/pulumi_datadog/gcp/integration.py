@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IntegrationArgs', 'Integration']
 
@@ -109,6 +109,112 @@ class IntegrationArgs:
     @host_filters.setter
     def host_filters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_filters", value)
+
+
+@pulumi.input_type
+class _IntegrationState:
+    def __init__(__self__, *,
+                 client_email: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 host_filters: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
+                 private_key_id: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
+        :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+               imported into Datadog.
+        :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
+        :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
+        :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
+        """
+        if client_email is not None:
+            pulumi.set(__self__, "client_email", client_email)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if host_filters is not None:
+            pulumi.set(__self__, "host_filters", host_filters)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if private_key_id is not None:
+            pulumi.set(__self__, "private_key_id", private_key_id)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your email found in your JSON service account key.
+        """
+        return pulumi.get(self, "client_email")
+
+    @client_email.setter
+    def client_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_email", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="hostFilters")
+    def host_filters(self) -> Optional[pulumi.Input[str]]:
+        """
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
+        imported into Datadog.
+        """
+        return pulumi.get(self, "host_filters")
+
+    @host_filters.setter
+    def host_filters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_filters", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your private key name found in your JSON service account key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="privateKeyId")
+    def private_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your private key ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "private_key_id")
+
+    @private_key_id.setter
+    def private_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key_id", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your Google Cloud project ID found in your JSON service account key.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
 
 
 class Integration(pulumi.CustomResource):
@@ -242,24 +348,24 @@ class Integration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
             if client_email is None and not opts.urn:
                 raise TypeError("Missing required property 'client_email'")
-            __props__['client_email'] = client_email
+            __props__.__dict__["client_email"] = client_email
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
-            __props__['host_filters'] = host_filters
+            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["host_filters"] = host_filters
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
-            __props__['private_key'] = private_key
+            __props__.__dict__["private_key"] = private_key
             if private_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key_id'")
-            __props__['private_key_id'] = private_key_id
+            __props__.__dict__["private_key_id"] = private_key_id
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
         super(Integration, __self__).__init__(
             'datadog:gcp/integration:Integration',
             resource_name,
@@ -293,14 +399,14 @@ class Integration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IntegrationState.__new__(_IntegrationState)
 
-        __props__["client_email"] = client_email
-        __props__["client_id"] = client_id
-        __props__["host_filters"] = host_filters
-        __props__["private_key"] = private_key
-        __props__["private_key_id"] = private_key_id
-        __props__["project_id"] = project_id
+        __props__.__dict__["client_email"] = client_email
+        __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["host_filters"] = host_filters
+        __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["private_key_id"] = private_key_id
+        __props__.__dict__["project_id"] = project_id
         return Integration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,10 +457,4 @@ class Integration(pulumi.CustomResource):
         Your Google Cloud project ID found in your JSON service account key.
         """
         return pulumi.get(self, "project_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

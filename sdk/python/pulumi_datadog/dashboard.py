@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -175,6 +175,190 @@ class DashboardArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class _DashboardState:
+    def __init__(__self__, *,
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 dashboard_lists_removeds: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_read_only: Optional[pulumi.Input[bool]] = None,
+                 layout_type: Optional[pulumi.Input[str]] = None,
+                 notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
+                 template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering Dashboard resources.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input[str] description: The description of the dashboard.
+        :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[str] title: The title of the dashboard.
+        :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
+        """
+        if dashboard_lists is not None:
+            pulumi.set(__self__, "dashboard_lists", dashboard_lists)
+        if dashboard_lists_removeds is not None:
+            pulumi.set(__self__, "dashboard_lists_removeds", dashboard_lists_removeds)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_read_only is not None:
+            pulumi.set(__self__, "is_read_only", is_read_only)
+        if layout_type is not None:
+            pulumi.set(__self__, "layout_type", layout_type)
+        if notify_lists is not None:
+            pulumi.set(__self__, "notify_lists", notify_lists)
+        if template_variable_presets is not None:
+            pulumi.set(__self__, "template_variable_presets", template_variable_presets)
+        if template_variables is not None:
+            pulumi.set(__self__, "template_variables", template_variables)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if widgets is not None:
+            pulumi.set(__self__, "widgets", widgets)
+
+    @property
+    @pulumi.getter(name="dashboardLists")
+    def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The list of dashboard lists this dashboard belongs to.
+        """
+        return pulumi.get(self, "dashboard_lists")
+
+    @dashboard_lists.setter
+    def dashboard_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "dashboard_lists", value)
+
+    @property
+    @pulumi.getter(name="dashboardListsRemoveds")
+    def dashboard_lists_removeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The list of dashboard lists this dashboard should be removed from. Internal only.
+        """
+        return pulumi.get(self, "dashboard_lists_removeds")
+
+    @dashboard_lists_removeds.setter
+    def dashboard_lists_removeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "dashboard_lists_removeds", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the dashboard.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isReadOnly")
+    def is_read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this dashboard is read-only.
+        """
+        return pulumi.get(self, "is_read_only")
+
+    @is_read_only.setter
+    def is_read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_read_only", value)
+
+    @property
+    @pulumi.getter(name="layoutType")
+    def layout_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The layout type of the dashboard, either 'free' or 'ordered'.
+        """
+        return pulumi.get(self, "layout_type")
+
+    @layout_type.setter
+    def layout_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "layout_type", value)
+
+    @property
+    @pulumi.getter(name="notifyLists")
+    def notify_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of handles of users to notify when changes are made to this dashboard.
+        """
+        return pulumi.get(self, "notify_lists")
+
+    @notify_lists.setter
+    def notify_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "notify_lists", value)
+
+    @property
+    @pulumi.getter(name="templateVariablePresets")
+    def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
+        """
+        The list of selectable template variable presets for this dashboard.
+        """
+        return pulumi.get(self, "template_variable_presets")
+
+    @template_variable_presets.setter
+    def template_variable_presets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]):
+        pulumi.set(self, "template_variable_presets", value)
+
+    @property
+    @pulumi.getter(name="templateVariables")
+    def template_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]]:
+        """
+        The list of template variables for this dashboard.
+        """
+        return pulumi.get(self, "template_variables")
+
+    @template_variables.setter
+    def template_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]]):
+        pulumi.set(self, "template_variables", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The title of the dashboard.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the dashboard.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
+        """
+        The list of widgets to display on the dashboard.
+        """
+        return pulumi.get(self, "widgets")
+
+    @widgets.setter
+    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]):
+        pulumi.set(self, "widgets", value)
 
 
 class Dashboard(pulumi.CustomResource):
@@ -1555,25 +1739,25 @@ class Dashboard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DashboardArgs.__new__(DashboardArgs)
 
-            __props__['dashboard_lists'] = dashboard_lists
-            __props__['description'] = description
-            __props__['is_read_only'] = is_read_only
+            __props__.__dict__["dashboard_lists"] = dashboard_lists
+            __props__.__dict__["description"] = description
+            __props__.__dict__["is_read_only"] = is_read_only
             if layout_type is None and not opts.urn:
                 raise TypeError("Missing required property 'layout_type'")
-            __props__['layout_type'] = layout_type
-            __props__['notify_lists'] = notify_lists
-            __props__['template_variable_presets'] = template_variable_presets
-            __props__['template_variables'] = template_variables
+            __props__.__dict__["layout_type"] = layout_type
+            __props__.__dict__["notify_lists"] = notify_lists
+            __props__.__dict__["template_variable_presets"] = template_variable_presets
+            __props__.__dict__["template_variables"] = template_variables
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
-            __props__['title'] = title
-            __props__['url'] = url
+            __props__.__dict__["title"] = title
+            __props__.__dict__["url"] = url
             if widgets is None and not opts.urn:
                 raise TypeError("Missing required property 'widgets'")
-            __props__['widgets'] = widgets
-            __props__['dashboard_lists_removeds'] = None
+            __props__.__dict__["widgets"] = widgets
+            __props__.__dict__["dashboard_lists_removeds"] = None
         super(Dashboard, __self__).__init__(
             'datadog:index/dashboard:Dashboard',
             resource_name,
@@ -1616,19 +1800,19 @@ class Dashboard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DashboardState.__new__(_DashboardState)
 
-        __props__["dashboard_lists"] = dashboard_lists
-        __props__["dashboard_lists_removeds"] = dashboard_lists_removeds
-        __props__["description"] = description
-        __props__["is_read_only"] = is_read_only
-        __props__["layout_type"] = layout_type
-        __props__["notify_lists"] = notify_lists
-        __props__["template_variable_presets"] = template_variable_presets
-        __props__["template_variables"] = template_variables
-        __props__["title"] = title
-        __props__["url"] = url
-        __props__["widgets"] = widgets
+        __props__.__dict__["dashboard_lists"] = dashboard_lists
+        __props__.__dict__["dashboard_lists_removeds"] = dashboard_lists_removeds
+        __props__.__dict__["description"] = description
+        __props__.__dict__["is_read_only"] = is_read_only
+        __props__.__dict__["layout_type"] = layout_type
+        __props__.__dict__["notify_lists"] = notify_lists
+        __props__.__dict__["template_variable_presets"] = template_variable_presets
+        __props__.__dict__["template_variables"] = template_variables
+        __props__.__dict__["title"] = title
+        __props__.__dict__["url"] = url
+        __props__.__dict__["widgets"] = widgets
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1718,10 +1902,4 @@ class Dashboard(pulumi.CustomResource):
         The list of widgets to display on the dashboard.
         """
         return pulumi.get(self, "widgets")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

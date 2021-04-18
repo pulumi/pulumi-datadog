@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -64,6 +64,62 @@ class LogsIndexArgs:
     @exclusion_filters.setter
     def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]):
         pulumi.set(self, "exclusion_filters", value)
+
+
+@pulumi.input_type
+class _LogsIndexState:
+    def __init__(__self__, *,
+                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LogsIndex resources.
+        :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
+        :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
+        :param pulumi.Input[str] name: The name of the index.
+        """
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]:
+        """
+        List of exclusion filters.
+        """
+        return pulumi.get(self, "exclusion_filters")
+
+    @exclusion_filters.setter
+    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]):
+        pulumi.set(self, "exclusion_filters", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]]:
+        """
+        Logs filter
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the index.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class LogsIndex(pulumi.CustomResource):
@@ -139,15 +195,15 @@ class LogsIndex(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LogsIndexArgs.__new__(LogsIndexArgs)
 
-            __props__['exclusion_filters'] = exclusion_filters
+            __props__.__dict__["exclusion_filters"] = exclusion_filters
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
-            __props__['filters'] = filters
+            __props__.__dict__["filters"] = filters
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
         super(LogsIndex, __self__).__init__(
             'datadog:index/logsIndex:LogsIndex',
             resource_name,
@@ -174,11 +230,11 @@ class LogsIndex(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LogsIndexState.__new__(_LogsIndexState)
 
-        __props__["exclusion_filters"] = exclusion_filters
-        __props__["filters"] = filters
-        __props__["name"] = name
+        __props__.__dict__["exclusion_filters"] = exclusion_filters
+        __props__.__dict__["filters"] = filters
+        __props__.__dict__["name"] = name
         return LogsIndex(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -204,10 +260,4 @@ class LogsIndex(pulumi.CustomResource):
         The name of the index.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

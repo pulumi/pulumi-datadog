@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -49,6 +49,46 @@ class DashboardListArgs:
     @dash_items.setter
     def dash_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]]):
         pulumi.set(self, "dash_items", value)
+
+
+@pulumi.input_type
+class _DashboardListState:
+    def __init__(__self__, *,
+                 dash_items: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DashboardList resources.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashbaord items that belong to this list
+        :param pulumi.Input[str] name: The name of the Dashboard List
+        """
+        if dash_items is not None:
+            pulumi.set(__self__, "dash_items", dash_items)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="dashItems")
+    def dash_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]]:
+        """
+        A set of dashbaord items that belong to this list
+        """
+        return pulumi.get(self, "dash_items")
+
+    @dash_items.setter
+    def dash_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]]):
+        pulumi.set(self, "dash_items", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Dashboard List
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class DashboardList(pulumi.CustomResource):
@@ -257,12 +297,12 @@ class DashboardList(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DashboardListArgs.__new__(DashboardListArgs)
 
-            __props__['dash_items'] = dash_items
+            __props__.__dict__["dash_items"] = dash_items
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
         super(DashboardList, __self__).__init__(
             'datadog:index/dashboardList:DashboardList',
             resource_name,
@@ -287,10 +327,10 @@ class DashboardList(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DashboardListState.__new__(_DashboardListState)
 
-        __props__["dash_items"] = dash_items
-        __props__["name"] = name
+        __props__.__dict__["dash_items"] = dash_items
+        __props__.__dict__["name"] = name
         return DashboardList(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -308,10 +348,4 @@ class DashboardList(pulumi.CustomResource):
         The name of the Dashboard List
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
