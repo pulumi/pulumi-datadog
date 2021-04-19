@@ -260,9 +260,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']]] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Provides a Datadog [Security Monitoring Rule API](https://docs.datadoghq.com/api/v2/security-monitoring/) resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use [datadog_security_default_rule](https://www.terraform.io/resources/security_monitoring_default_rule) instead.
 
@@ -401,15 +399,7 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']]] = None,
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleQueryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

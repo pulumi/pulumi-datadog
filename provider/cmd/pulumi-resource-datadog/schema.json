@@ -36362,6 +36362,7 @@
     },
     "language": {
         "csharp": {
+            "compatibility": "tfbridge20",
             "namespaces": {
                 "aws": "Aws",
                 "azure": "Azure",
@@ -36380,6 +36381,7 @@
             "importBasePath": "github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
         },
         "nodejs": {
+            "compatibility": "tfbridge20",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0-alpha.0"
             },
@@ -36393,6 +36395,7 @@
             "typescriptVersion": ""
         },
         "python": {
+            "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-datadog)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-datadog` repo](https://github.com/pulumi/pulumi-datadog/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-datadog` repo](https://github.com/terraform-providers/terraform-provider-datadog/issues).",
             "requires": {
                 "pulumi": "\u003e=3.0.0a1,\u003c4.0.0"
