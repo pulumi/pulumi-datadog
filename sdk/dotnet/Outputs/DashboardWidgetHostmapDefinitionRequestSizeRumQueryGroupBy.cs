@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Facet;
         public readonly int? Limit;
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort? Sort;
+        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery? SortQuery;
 
         [OutputConstructor]
         private DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy(
@@ -23,11 +24,14 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort? sort)
+            Outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort? sort,
+
+            Outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery? sortQuery)
         {
             Facet = facet;
             Limit = limit;
             Sort = sort;
+            SortQuery = sortQuery;
         }
     }
 }

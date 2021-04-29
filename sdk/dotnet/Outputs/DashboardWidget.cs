@@ -15,30 +15,80 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.DashboardWidgetAlertGraphDefinition? AlertGraphDefinition;
         public readonly Outputs.DashboardWidgetAlertValueDefinition? AlertValueDefinition;
+        /// <summary>
+        /// The definition for a Change  widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinition? ChangeDefinition;
         public readonly Outputs.DashboardWidgetCheckStatusDefinition? CheckStatusDefinition;
+        /// <summary>
+        /// The definition for a Distribution widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinition? DistributionDefinition;
         public readonly Outputs.DashboardWidgetEventStreamDefinition? EventStreamDefinition;
         public readonly Outputs.DashboardWidgetEventTimelineDefinition? EventTimelineDefinition;
         public readonly Outputs.DashboardWidgetFreeTextDefinition? FreeTextDefinition;
+        /// <summary>
+        /// The definition for a Geomap widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGeomapDefinition? GeomapDefinition;
+        /// <summary>
+        /// The definition for a Group widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinition? GroupDefinition;
+        /// <summary>
+        /// The definition for a Heatmap widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHeatmapDefinition? HeatmapDefinition;
+        /// <summary>
+        /// The definition for a Hostmap widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinition? HostmapDefinition;
+        /// <summary>
+        /// The ID of the widget.
+        /// </summary>
         public readonly int? Id;
+        /// <summary>
+        /// The definition for an Iframe widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetIframeDefinition? IframeDefinition;
+        /// <summary>
+        /// The definition for an Image widget
+        /// </summary>
         public readonly Outputs.DashboardWidgetImageDefinition? ImageDefinition;
+        /// <summary>
+        /// The layout of the widget on a 'free' dashboard.  Define widget_layout list with one element instead.
+        /// </summary>
         public readonly Outputs.DashboardWidgetLayout? Layout;
         public readonly Outputs.DashboardWidgetLogStreamDefinition? LogStreamDefinition;
         public readonly Outputs.DashboardWidgetManageStatusDefinition? ManageStatusDefinition;
+        /// <summary>
+        /// The definition for a Note widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetNoteDefinition? NoteDefinition;
         public readonly Outputs.DashboardWidgetQueryTableDefinition? QueryTableDefinition;
         public readonly Outputs.DashboardWidgetQueryValueDefinition? QueryValueDefinition;
+        /// <summary>
+        /// The definition for a Scatterplot widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetScatterplotDefinition? ScatterplotDefinition;
         public readonly Outputs.DashboardWidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
+        /// <summary>
+        /// The definition for a Service Map widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetServicemapDefinition? ServicemapDefinition;
+        /// <summary>
+        /// The definition for a Timeseries widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinition? TimeseriesDefinition;
+        /// <summary>
+        /// The definition for a Toplist widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetToplistDefinition? ToplistDefinition;
         public readonly Outputs.DashboardWidgetTraceServiceDefinition? TraceServiceDefinition;
+        /// <summary>
+        /// The layout of the widget on a 'free' dashboard.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetWidgetLayout? WidgetLayout;
 
         [OutputConstructor]
         private DashboardWidget(
@@ -57,6 +107,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetEventTimelineDefinition? eventTimelineDefinition,
 
             Outputs.DashboardWidgetFreeTextDefinition? freeTextDefinition,
+
+            Outputs.DashboardWidgetGeomapDefinition? geomapDefinition,
 
             Outputs.DashboardWidgetGroupDefinition? groupDefinition,
 
@@ -92,7 +144,9 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetToplistDefinition? toplistDefinition,
 
-            Outputs.DashboardWidgetTraceServiceDefinition? traceServiceDefinition)
+            Outputs.DashboardWidgetTraceServiceDefinition? traceServiceDefinition,
+
+            Outputs.DashboardWidgetWidgetLayout? widgetLayout)
         {
             AlertGraphDefinition = alertGraphDefinition;
             AlertValueDefinition = alertValueDefinition;
@@ -102,6 +156,7 @@ namespace Pulumi.Datadog.Outputs
             EventStreamDefinition = eventStreamDefinition;
             EventTimelineDefinition = eventTimelineDefinition;
             FreeTextDefinition = freeTextDefinition;
+            GeomapDefinition = geomapDefinition;
             GroupDefinition = groupDefinition;
             HeatmapDefinition = heatmapDefinition;
             HostmapDefinition = hostmapDefinition;
@@ -120,6 +175,7 @@ namespace Pulumi.Datadog.Outputs
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
             TraceServiceDefinition = traceServiceDefinition;
+            WidgetLayout = widgetLayout;
         }
     }
 }

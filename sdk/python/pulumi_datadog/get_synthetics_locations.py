@@ -54,6 +54,13 @@ class AwaitableGetSyntheticsLocationsResult(GetSyntheticsLocationsResult):
 def get_synthetics_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyntheticsLocationsResult:
     """
     Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
+
+    ## Schema
+
+    ### Read-Only
+
+    - **id** (String) The ID of this resource.
+    - **locations** (Map of String) A map of available Synthetics location IDs to names for Synthetics tests.
     """
     __args__ = dict()
     if opts is None:

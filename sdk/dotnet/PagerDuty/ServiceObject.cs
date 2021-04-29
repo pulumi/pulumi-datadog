@@ -9,44 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.PagerDuty
 {
-    /// <summary>
-    /// Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "9876543210123456789",
-    ///             ServiceName = "testing_foo",
-    ///         });
-    ///         var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "54321098765432109876",
-    ///             ServiceName = "testing_bar",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     [DatadogResourceType("datadog:pagerduty/serviceObject:ServiceObject")]
     public partial class ServiceObject : Pulumi.CustomResource
     {
         /// <summary>
         /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        /// impossible to detect
-        /// [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-        /// The best way to solve a drift is to manually mark the Service Object resource with [terraform
-        /// taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-        /// have it destroyed and recreated.
+        /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+        /// to solve a drift is to manually mark the Service Object resource with [terraform
+        /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         /// </summary>
         [Output("serviceKey")]
         public Output<string> ServiceKey { get; private set; } = null!;
@@ -105,11 +75,9 @@ namespace Pulumi.Datadog.PagerDuty
     {
         /// <summary>
         /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        /// impossible to detect
-        /// [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-        /// The best way to solve a drift is to manually mark the Service Object resource with [terraform
-        /// taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-        /// have it destroyed and recreated.
+        /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+        /// to solve a drift is to manually mark the Service Object resource with [terraform
+        /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         /// </summary>
         [Input("serviceKey", required: true)]
         public Input<string> ServiceKey { get; set; } = null!;
@@ -129,11 +97,9 @@ namespace Pulumi.Datadog.PagerDuty
     {
         /// <summary>
         /// Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        /// impossible to detect
-        /// [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-        /// The best way to solve a drift is to manually mark the Service Object resource with [terraform
-        /// taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-        /// have it destroyed and recreated.
+        /// impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+        /// to solve a drift is to manually mark the Service Object resource with [terraform
+        /// taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         /// </summary>
         [Input("serviceKey")]
         public Input<string>? ServiceKey { get; set; }

@@ -20,6 +20,9 @@ namespace Pulumi.Datadog.Inputs
             set => _customLinks = value;
         }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs> Requests

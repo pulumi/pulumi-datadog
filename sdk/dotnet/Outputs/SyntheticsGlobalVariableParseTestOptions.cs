@@ -13,8 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsGlobalVariableParseTestOptions
     {
+        /// <summary>
+        /// Required when type = http_header. Defines the header to use to extract the value
+        /// </summary>
         public readonly string? Field;
         public readonly Outputs.SyntheticsGlobalVariableParseTestOptionsParser Parser;
+        /// <summary>
+        /// Defines the source to use to extract the value. Allowed enum values: http_body, http_header.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

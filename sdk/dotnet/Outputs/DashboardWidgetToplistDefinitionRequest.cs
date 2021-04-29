@@ -15,9 +15,11 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestApmQuery? ApmQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat> ConditionalFormats;
+        public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestStyle? Style;
@@ -28,11 +30,15 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats,
 
+            ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestFormula> formulas,
+
             Outputs.DashboardWidgetToplistDefinitionRequestLogQuery? logQuery,
 
             Outputs.DashboardWidgetToplistDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestQuery> queries,
 
             Outputs.DashboardWidgetToplistDefinitionRequestRumQuery? rumQuery,
 
@@ -42,9 +48,11 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmQuery = apmQuery;
             ConditionalFormats = conditionalFormats;
+            Formulas = formulas;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             Style = style;

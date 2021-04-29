@@ -13,10 +13,7 @@ import (
 
 // Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 //
-// > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/dashboards/widgets/group/). Additionally, this resource unifies `TimeBoard` and `ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
-//
 // ## Example Usage
-// ### Create A New Datadog Dashboard - Ordered Layout
 //
 // ```go
 // package main
@@ -65,12 +62,10 @@ import (
 // 			Widgets: datadog.DashboardWidgetArray{
 // 				&datadog.DashboardWidgetArgs{
 // 					AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
-// 						AlertId: pulumi.String("895605"),
-// 						Time: &datadog.DashboardWidgetAlertGraphDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
-// 						},
-// 						Title:   pulumi.String("Widget Title"),
-// 						VizType: pulumi.String("timeseries"),
+// 						AlertId:  pulumi.String("895605"),
+// 						LiveSpan: pulumi.String("1h"),
+// 						Title:    pulumi.String("Widget Title"),
+// 						VizType:  pulumi.String("timeseries"),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -93,6 +88,7 @@ import (
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					ChangeDefinition: &datadog.DashboardWidgetChangeDefinitionArgs{
+// 						LiveSpan: pulumi.String("1h"),
 // 						Request: pulumi.MapArray{
 // 							pulumi.Map{
 // 								"changeType":   pulumi.String("absolute"),
@@ -104,14 +100,12 @@ import (
 // 								"showPresent":  pulumi.Bool(true),
 // 							},
 // 						},
-// 						Time: &datadog.DashboardWidgetChangeDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
-// 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					DistributionDefinition: &datadog.DashboardWidgetDistributionDefinitionArgs{
+// 						LiveSpan: pulumi.String("1h"),
 // 						Request: pulumi.MapArray{
 // 							pulumi.Map{
 // 								"q": pulumi.String("avg:system.load.1{env:staging} by {account}"),
@@ -119,9 +113,6 @@ import (
 // 									"palette": pulumi.String("warm"),
 // 								},
 // 							},
-// 						},
-// 						Time: &datadog.DashboardWidgetDistributionDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
@@ -134,18 +125,17 @@ import (
 // 							pulumi.String("cluster"),
 // 						},
 // 						Grouping: pulumi.String("cluster"),
+// 						LiveSpan: pulumi.String("1h"),
 // 						Tags: pulumi.StringArray{
 // 							pulumi.String("account:demo"),
 // 							pulumi.String("cluster:awseb-ruthebdog-env-8-dn3m6u3gvk"),
-// 						},
-// 						Time: &datadog.DashboardWidgetCheckStatusDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					HeatmapDefinition: &datadog.DashboardWidgetHeatmapDefinitionArgs{
+// 						LiveSpan: pulumi.String("1h"),
 // 						Request: pulumi.MapArray{
 // 							pulumi.Map{
 // 								"q": pulumi.String("avg:system.load.1{env:staging} by {account}"),
@@ -153,9 +143,6 @@ import (
 // 									"palette": pulumi.String("warm"),
 // 								},
 // 							},
-// 						},
-// 						Time: &datadog.DashboardWidgetHeatmapDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 						Yaxis: &datadog.DashboardWidgetHeatmapDefinitionYaxisArgs{
@@ -215,6 +202,7 @@ import (
 // 					QueryValueDefinition: &datadog.DashboardWidgetQueryValueDefinitionArgs{
 // 						Autoscale:  pulumi.Bool(true),
 // 						CustomUnit: pulumi.String("xx"),
+// 						LiveSpan:   pulumi.String("1h"),
 // 						Precision:  pulumi.Int(4),
 // 						Request: pulumi.MapArray{
 // 							pulumi.Map{
@@ -235,14 +223,12 @@ import (
 // 							},
 // 						},
 // 						TextAlign: pulumi.String("right"),
-// 						Time: &datadog.DashboardWidgetQueryValueDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
-// 						},
-// 						Title: pulumi.String("Widget Title"),
+// 						Title:     pulumi.String("Widget Title"),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					QueryTableDefinition: &datadog.DashboardWidgetQueryTableDefinitionArgs{
+// 						LiveSpan: pulumi.String("1h"),
 // 						Request: pulumi.MapArray{
 // 							pulumi.Map{
 // 								"aggregator": pulumi.String("sum"),
@@ -262,9 +248,6 @@ import (
 // 								"q":     pulumi.String("avg:system.load.1{env:staging} by {account}"),
 // 							},
 // 						},
-// 						Time: &datadog.DashboardWidgetQueryTableDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
-// 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
@@ -274,6 +257,7 @@ import (
 // 							pulumi.String("account"),
 // 							pulumi.String("apm-role-group"),
 // 						},
+// 						LiveSpan: pulumi.String("1h"),
 // 						Request: &datadog.DashboardWidgetScatterplotDefinitionRequestArgs{
 // 							X: pulumi.StringMapArray{
 // 								pulumi.StringMap{
@@ -287,9 +271,6 @@ import (
 // 									"q":          pulumi.String("avg:system.mem.used{*} by {service, account}"),
 // 								},
 // 							},
-// 						},
-// 						Time: &datadog.DashboardWidgetScatterplotDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 						Xaxis: &datadog.DashboardWidgetScatterplotDefinitionXaxisArgs{
@@ -309,12 +290,6 @@ import (
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(43),
-// 						Width:  pulumi.Float64(32),
-// 						X:      pulumi.Float64(5),
-// 						Y:      pulumi.Float64(5),
-// 					},
 // 					ServicemapDefinition: &datadog.DashboardWidgetServicemapDefinitionArgs{
 // 						Filters: pulumi.StringArray{
 // 							pulumi.String("env:prod"),
@@ -337,6 +312,7 @@ import (
 // 							},
 // 						},
 // 						LegendSize: pulumi.String("2"),
+// 						LiveSpan:   pulumi.String("1h"),
 // 						Marker: pulumi.StringMapArray{
 // 							pulumi.StringMap{
 // 								"displayType": pulumi.String("error dashed"),
@@ -368,7 +344,7 @@ import (
 // 							pulumi.Map{
 // 								"displayType": pulumi.String("area"),
 // 								"logQuery": pulumi.Map{
-// 									"compute": pulumi.Map{
+// 									"computeQuery": pulumi.Map{
 // 										"aggregation": pulumi.String("avg"),
 // 										"facet":       pulumi.String("@duration"),
 // 										"interval":    pulumi.Float64(5000),
@@ -377,22 +353,20 @@ import (
 // 										pulumi.Map{
 // 											"facet": pulumi.String("host"),
 // 											"limit": pulumi.Float64(10),
-// 											"sort": pulumi.StringMap{
+// 											"sortQuery": pulumi.StringMap{
 // 												"aggregation": pulumi.String("avg"),
 // 												"facet":       pulumi.String("@duration"),
 // 												"order":       pulumi.String("desc"),
 // 											},
 // 										},
 // 									},
-// 									"index": pulumi.String("mcnulty"),
-// 									"search": pulumi.StringMap{
-// 										"query": pulumi.String("status:info"),
-// 									},
+// 									"index":       pulumi.String("mcnulty"),
+// 									"searchQuery": pulumi.String("status:info"),
 // 								},
 // 							},
 // 							pulumi.Map{
 // 								"apmQuery": pulumi.Map{
-// 									"compute": pulumi.Map{
+// 									"computeQuery": pulumi.Map{
 // 										"aggregation": pulumi.String("avg"),
 // 										"facet":       pulumi.String("@duration"),
 // 										"interval":    pulumi.Float64(5000),
@@ -401,17 +375,15 @@ import (
 // 										pulumi.Map{
 // 											"facet": pulumi.String("resource_name"),
 // 											"limit": pulumi.Float64(50),
-// 											"sort": pulumi.StringMap{
+// 											"sortQuery": pulumi.StringMap{
 // 												"aggregation": pulumi.String("avg"),
 // 												"facet":       pulumi.String("@string_query.interval"),
 // 												"order":       pulumi.String("desc"),
 // 											},
 // 										},
 // 									},
-// 									"index": pulumi.String("apm-search"),
-// 									"search": pulumi.StringMap{
-// 										"query": pulumi.String("type:web"),
-// 									},
+// 									"index":       pulumi.String("apm-search"),
+// 									"searchQuery": pulumi.String("type:web"),
 // 								},
 // 								"displayType": pulumi.String("bars"),
 // 							},
@@ -428,10 +400,7 @@ import (
 // 							},
 // 						},
 // 						ShowLegend: pulumi.Bool(true),
-// 						Time: &datadog.DashboardWidgetTimeseriesDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
-// 						},
-// 						Title: pulumi.String("Widget Title"),
+// 						Title:      pulumi.String("Widget Title"),
 // 						Yaxis: &datadog.DashboardWidgetTimeseriesDefinitionYaxisArgs{
 // 							IncludeZero: pulumi.Bool(false),
 // 							Max:         pulumi.String("100"),
@@ -477,14 +446,12 @@ import (
 // 									"tickPos":         pulumi.String(fmt.Sprintf("%v%v", "50", "%")),
 // 								},
 // 							},
-// 							pulumi.MapMap{
-// 								"alertGraphDefinition": pulumi.Map{
-// 									"alertId": pulumi.String("123"),
-// 									"time": pulumi.StringMap{
-// 										"liveSpan": pulumi.String("1h"),
-// 									},
-// 									"title":   pulumi.String("Alert Graph"),
-// 									"vizType": pulumi.String("toplist"),
+// 							pulumi.StringMapMap{
+// 								"alertGraphDefinition": pulumi.StringMap{
+// 									"alertId":  pulumi.String("123"),
+// 									"liveSpan": pulumi.String("1h"),
+// 									"title":    pulumi.String("Alert Graph"),
+// 									"vizType":  pulumi.String("toplist"),
 // 								},
 // 							},
 // 						},
@@ -508,23 +475,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Create A New Datadog Dashboard - Free Layout
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewDashboard(ctx, "freeDashboard", &datadog.DashboardArgs{
+// 		_, err = datadog.NewDashboard(ctx, "freeDashboard", &datadog.DashboardArgs{
 // 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
 // 			IsReadOnly:  pulumi.Bool(false),
 // 			LayoutType:  pulumi.String("free"),
@@ -559,37 +510,33 @@ import (
 // 			Widgets: datadog.DashboardWidgetArray{
 // 				&datadog.DashboardWidgetArgs{
 // 					EventStreamDefinition: &datadog.DashboardWidgetEventStreamDefinitionArgs{
-// 						EventSize: pulumi.String("l"),
-// 						Query:     pulumi.String("*"),
-// 						Time: &datadog.DashboardWidgetEventStreamDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
-// 						},
+// 						EventSize:  pulumi.String("l"),
+// 						LiveSpan:   pulumi.String("1h"),
+// 						Query:      pulumi.String("*"),
 // 						Title:      pulumi.String("Widget Title"),
 // 						TitleAlign: pulumi.String("left"),
 // 						TitleSize:  pulumi.String("16"),
 // 					},
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(43),
-// 						Width:  pulumi.Float64(32),
-// 						X:      pulumi.Float64(5),
-// 						Y:      pulumi.Float64(5),
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(43),
+// 						Width:  pulumi.Int(32),
+// 						X:      pulumi.Int(5),
+// 						Y:      pulumi.Int(5),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					EventTimelineDefinition: &datadog.DashboardWidgetEventTimelineDefinitionArgs{
-// 						Query: pulumi.String("*"),
-// 						Time: &datadog.DashboardWidgetEventTimelineDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
-// 						},
+// 						LiveSpan:   pulumi.String("1h"),
+// 						Query:      pulumi.String("*"),
 // 						Title:      pulumi.String("Widget Title"),
 // 						TitleAlign: pulumi.String("left"),
 // 						TitleSize:  pulumi.String("16"),
 // 					},
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(9),
-// 						Width:  pulumi.Float64(65),
-// 						X:      pulumi.Float64(42),
-// 						Y:      pulumi.Float64(73),
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(9),
+// 						Width:  pulumi.Int(65),
+// 						X:      pulumi.Int(42),
+// 						Y:      pulumi.Int(73),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -599,22 +546,22 @@ import (
 // 						Text:      pulumi.String("free text content"),
 // 						TextAlign: pulumi.String("left"),
 // 					},
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(20),
-// 						Width:  pulumi.Float64(30),
-// 						X:      pulumi.Float64(42),
-// 						Y:      pulumi.Float64(5),
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(20),
+// 						Width:  pulumi.Int(30),
+// 						X:      pulumi.Int(42),
+// 						Y:      pulumi.Int(5),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					IframeDefinition: &datadog.DashboardWidgetIframeDefinitionArgs{
 // 						Url: pulumi.String("http://google.com"),
 // 					},
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(46),
-// 						Width:  pulumi.Float64(39),
-// 						X:      pulumi.Float64(111),
-// 						Y:      pulumi.Float64(8),
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(46),
+// 						Width:  pulumi.Int(39),
+// 						X:      pulumi.Int(111),
+// 						Y:      pulumi.Int(8),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -623,20 +570,14 @@ import (
 // 						Sizing: pulumi.String("fit"),
 // 						Url:    pulumi.String("https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350"),
 // 					},
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(20),
-// 						Width:  pulumi.Float64(30),
-// 						X:      pulumi.Float64(77),
-// 						Y:      pulumi.Float64(7),
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(20),
+// 						Width:  pulumi.Int(30),
+// 						X:      pulumi.Int(77),
+// 						Y:      pulumi.Int(7),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(36),
-// 						Width:  pulumi.Float64(32),
-// 						X:      pulumi.Float64(5),
-// 						Y:      pulumi.Float64(51),
-// 					},
 // 					LogStreamDefinition: &datadog.DashboardWidgetLogStreamDefinitionArgs{
 // 						Columns: pulumi.StringArray{
 // 							pulumi.String("core_host"),
@@ -655,14 +596,14 @@ import (
 // 							Order:  pulumi.String("desc"),
 // 						},
 // 					},
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(36),
+// 						Width:  pulumi.Int(32),
+// 						X:      pulumi.Int(5),
+// 						Y:      pulumi.Int(51),
+// 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(40),
-// 						Width:  pulumi.Float64(30),
-// 						X:      pulumi.Float64(112),
-// 						Y:      pulumi.Float64(55),
-// 					},
 // 					ManageStatusDefinition: &datadog.DashboardWidgetManageStatusDefinitionArgs{
 // 						ColorPreference:   pulumi.String("text"),
 // 						DisplayFormat:     pulumi.String("countsAndList"),
@@ -675,17 +616,18 @@ import (
 // 						TitleAlign:        pulumi.String("left"),
 // 						TitleSize:         pulumi.String("16"),
 // 					},
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(40),
+// 						Width:  pulumi.Int(30),
+// 						X:      pulumi.Int(112),
+// 						Y:      pulumi.Int(55),
+// 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
-// 					Layout: &datadog.DashboardWidgetLayoutArgs{
-// 						Height: pulumi.Float64(38),
-// 						Width:  pulumi.Float64(67),
-// 						X:      pulumi.Float64(40),
-// 						Y:      pulumi.Float64(28),
-// 					},
 // 					TraceServiceDefinition: &datadog.DashboardWidgetTraceServiceDefinitionArgs{
 // 						DisplayFormat:    pulumi.String("three_column"),
 // 						Env:              pulumi.String("datad0g.com"),
+// 						LiveSpan:         pulumi.String("1h"),
 // 						Service:          pulumi.String("alerting-cassandra"),
 // 						ShowBreakdown:    pulumi.Bool(true),
 // 						ShowDistribution: pulumi.Bool(true),
@@ -695,12 +637,112 @@ import (
 // 						ShowResourceList: pulumi.Bool(false),
 // 						SizeFormat:       pulumi.String("large"),
 // 						SpanName:         pulumi.String("cassandra.query"),
-// 						Time: &datadog.DashboardWidgetTraceServiceDefinitionTimeArgs{
-// 							LiveSpan: pulumi.String("1h"),
+// 						Title:            pulumi.String("alerting-cassandra #env:datad0g.com"),
+// 						TitleAlign:       pulumi.String("center"),
+// 						TitleSize:        pulumi.String("13"),
+// 					},
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(38),
+// 						Width:  pulumi.Int(67),
+// 						X:      pulumi.Int(40),
+// 						Y:      pulumi.Int(28),
+// 					},
+// 				},
+// 				&datadog.DashboardWidgetArgs{
+// 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
+// 						Request: pulumi.ArrayMapArray{
+// 							pulumi.ArrayMap{
+// 								"formula": pulumi.Array{
+// 									pulumi.StringMap{
+// 										"alias":             pulumi.String("my ff query"),
+// 										"formulaExpression": pulumi.String("my_query_1 + my_query_2"),
+// 									},
+// 									pulumi.Map{
+// 										"alias":             pulumi.String("my second ff query"),
+// 										"formulaExpression": pulumi.String("my_query_1 * my_query_2"),
+// 										"limit": pulumi.Map{
+// 											"count": pulumi.Float64(5),
+// 											"order": pulumi.String("desc"),
+// 										},
+// 									},
+// 								},
+// 								"query": pulumi.Array{
+// 									pulumi.StringMapMap{
+// 										"metricQuery": pulumi.StringMap{
+// 											"aggregator": pulumi.String("sum"),
+// 											"dataSource": pulumi.String("metrics"),
+// 											"name":       pulumi.String("my_query_1"),
+// 											"query":      pulumi.String("avg:system.cpu.user{app:general} by {env}"),
+// 										},
+// 									},
+// 									pulumi.StringMapMap{
+// 										"metricQuery": pulumi.StringMap{
+// 											"aggregator": pulumi.String("sum"),
+// 											"name":       pulumi.String("my_query_2"),
+// 											"query":      pulumi.String("avg:system.cpu.user{app:general} by {env}"),
+// 										},
+// 									},
+// 								},
+// 							},
 // 						},
-// 						Title:      pulumi.String("alerting-cassandra #env:datad0g.com"),
-// 						TitleAlign: pulumi.String("center"),
-// 						TitleSize:  pulumi.String("13"),
+// 					},
+// 				},
+// 				&datadog.DashboardWidgetArgs{
+// 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
+// 						Request: pulumi.MapMapArrayMapArray{
+// 							pulumi.MapMapArrayMap{
+// 								"query": pulumi.MapMapArray{
+// 									pulumi.MapMap{
+// 										"eventQuery": pulumi.Map{
+// 											"compute": pulumi.StringMapArray{
+// 												pulumi.StringMap{
+// 													"aggregation": pulumi.String("count"),
+// 												},
+// 											},
+// 											"dataSource": pulumi.String("logs"),
+// 											"groupBy": pulumi.MapArray{
+// 												pulumi.Map{
+// 													"facet": pulumi.String("host"),
+// 													"limit": pulumi.Float64(10),
+// 													"sort": pulumi.StringMap{
+// 														"aggregation": pulumi.String("avg"),
+// 														"metric":      pulumi.String("@lambda.max_memory_used"),
+// 													},
+// 												},
+// 											},
+// 											"indexes": pulumi.StringArray{
+// 												pulumi.String("days-3"),
+// 											},
+// 										},
+// 									},
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 				&datadog.DashboardWidgetArgs{
+// 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
+// 						Request: pulumi.MapMapArrayMapArray{
+// 							pulumi.MapMapArrayMap{
+// 								"query": pulumi.MapMapArray{
+// 									pulumi.MapMap{
+// 										"processQuery": pulumi.Map{
+// 											"aggregator":      pulumi.String("sum"),
+// 											"dataSource":      pulumi.String("process"),
+// 											"isNormalizedCpu": pulumi.Bool(true),
+// 											"limit":           pulumi.Float64(10),
+// 											"metric":          pulumi.String("process.stat.cpu.total_pct"),
+// 											"name":            pulumi.String("my_process_query"),
+// 											"sort":            pulumi.String("asc"),
+// 											"tagFilters": pulumi.StringArray{
+// 												pulumi.String("some_filter"),
+// 											},
+// 											"textFilter": pulumi.String("abc"),
+// 										},
+// 									},
+// 								},
+// 							},
+// 						},
 // 					},
 // 				},
 // 			},
@@ -713,9 +755,36 @@ import (
 // }
 // ```
 //
+// <!-- schema generated by tfplugindocs -->
+// ## Schema
+//
+// ### Required
+//
+// - **layout_type** (String) The layout type of the dashboard, either 'free' or 'ordered'.
+// - **title** (String) The title of the dashboard.
+// - **widget** (Block List, Min: 1) The list of widgets to display on the dashboard. (see below for nested schema)
+//
+// ### Optional
+//
+// - **dashboard_lists** (Set of Number) The list of dashboard lists this dashboard belongs to.
+// - **description** (String) The description of the dashboard.
+// - **is_read_only** (Boolean) Whether this dashboard is read-only.
+// - **notify_list** (List of String) The list of handles of users to notify when changes are made to this dashboard.
+// - **reflow_type** (String) The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+// - **template_variable** (Block List) The list of template variables for this dashboard. (see below for nested schema)
+// - **template_variable_preset** (Block List) The list of selectable template variable presets for this dashboard. (see below for nested schema)
+// - **url** (String) The URL of the dashboard.
+//
+// ### Read-Only
+//
+// - **dashboard_lists_removed** (Set of Number) The list of dashboard lists this dashboard should be removed from. Internal only.
+// - **id** (String) The ID of this resource.
+//
+// <a id="nestedblock--widget"></a>
+//
 // ## Import
 //
-// dashboards can be imported using their ID, e.g.
+// Import is supported using the following syntax
 //
 // ```sh
 //  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
@@ -735,6 +804,10 @@ type Dashboard struct {
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
+	// The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+	// ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+	// layouts.
+	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayOutput `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -797,6 +870,10 @@ type dashboardState struct {
 	LayoutType *string `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
+	// The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+	// ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+	// layouts.
+	ReflowType *string `pulumi:"reflowType"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -822,6 +899,10 @@ type DashboardState struct {
 	LayoutType pulumi.StringPtrInput
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
+	// The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+	// ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+	// layouts.
+	ReflowType pulumi.StringPtrInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
@@ -849,6 +930,10 @@ type dashboardArgs struct {
 	LayoutType string `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
+	// The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+	// ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+	// layouts.
+	ReflowType *string `pulumi:"reflowType"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -873,6 +958,10 @@ type DashboardArgs struct {
 	LayoutType pulumi.StringInput
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
+	// The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+	// ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+	// layouts.
+	ReflowType pulumi.StringPtrInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.

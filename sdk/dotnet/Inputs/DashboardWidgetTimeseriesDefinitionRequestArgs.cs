@@ -18,6 +18,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }
 
+        [Input("formulas")]
+        private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs>? _formulas;
+        public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs> Formulas
+        {
+            get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs>());
+            set => _formulas = value;
+        }
+
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
 
@@ -40,6 +48,14 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("q")]
         public Input<string>? Q { get; set; }
+
+        [Input("queries")]
+        private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs>? _queries;
+        public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs>());
+            set => _queries = value;
+        }
 
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs>? RumQuery { get; set; }

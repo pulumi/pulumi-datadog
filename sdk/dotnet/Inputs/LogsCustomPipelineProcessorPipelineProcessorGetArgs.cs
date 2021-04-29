@@ -12,33 +12,60 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorPipelineProcessorGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Arithmetic Processor. More information can be found in the
+        /// </summary>
         [Input("arithmeticProcessor")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorGetArgs>? ArithmeticProcessor { get; set; }
 
+        /// <summary>
+        /// Attribute Remapper Processor. More information can be found in the
+        /// </summary>
         [Input("attributeRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperGetArgs>? AttributeRemapper { get; set; }
 
+        /// <summary>
+        /// Category Processor. More information can be found in the
+        /// </summary>
         [Input("categoryProcessor")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorGetArgs>? CategoryProcessor { get; set; }
 
+        /// <summary>
+        /// Date Remapper Processor. More information can be found in the
+        /// </summary>
         [Input("dateRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapperGetArgs>? DateRemapper { get; set; }
 
         [Input("geoIpParser")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParserGetArgs>? GeoIpParser { get; set; }
 
+        /// <summary>
+        /// Grok Processor. More information can be found in the
+        /// </summary>
         [Input("grokParser")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserGetArgs>? GrokParser { get; set; }
 
+        /// <summary>
+        /// Lookup Processor. More information can be found in the
+        /// </summary>
         [Input("lookupProcessor")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessorGetArgs>? LookupProcessor { get; set; }
 
+        /// <summary>
+        /// Message Remapper Processor. More information can be found in the
+        /// </summary>
         [Input("messageRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapperGetArgs>? MessageRemapper { get; set; }
 
+        /// <summary>
+        /// Service Remapper Processor. More information can be found in the
+        /// </summary>
         [Input("serviceRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapperGetArgs>? ServiceRemapper { get; set; }
 
+        /// <summary>
+        /// Status Remapper Processor. More information can be found in the
+        /// </summary>
         [Input("statusRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapperGetArgs>? StatusRemapper { get; set; }
 
@@ -48,6 +75,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("traceIdRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperGetArgs>? TraceIdRemapper { get; set; }
 
+        /// <summary>
+        /// URL Parser Processor. More information can be found in the
+        /// </summary>
         [Input("urlParser")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorUrlParserGetArgs>? UrlParser { get; set; }
 

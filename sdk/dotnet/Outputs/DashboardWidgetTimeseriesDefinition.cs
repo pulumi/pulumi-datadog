@@ -15,7 +15,10 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> Events;
+        public readonly ImmutableArray<string> LegendColumns;
+        public readonly string? LegendLayout;
         public readonly string? LegendSize;
+        public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionMarker> Markers;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRightYaxis? RightYaxis;
@@ -32,7 +35,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionEvent> events,
 
+            ImmutableArray<string> legendColumns,
+
+            string? legendLayout,
+
             string? legendSize,
+
+            string? liveSpan,
 
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionMarker> markers,
 
@@ -54,7 +63,10 @@ namespace Pulumi.Datadog.Outputs
         {
             CustomLinks = customLinks;
             Events = events;
+            LegendColumns = legendColumns;
+            LegendLayout = legendLayout;
             LegendSize = legendSize;
+            LiveSpan = liveSpan;
             Markers = markers;
             Requests = requests;
             RightYaxis = rightYaxis;

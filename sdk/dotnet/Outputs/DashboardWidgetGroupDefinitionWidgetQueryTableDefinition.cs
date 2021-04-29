@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink> CustomLinks;
         public readonly string? HasSearchBar;
+        public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime? Time;
         public readonly string? Title;
@@ -26,6 +27,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink> customLinks,
 
             string? hasSearchBar,
+
+            string? liveSpan,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest> requests,
 
@@ -39,6 +42,7 @@ namespace Pulumi.Datadog.Outputs
         {
             CustomLinks = customLinks;
             HasSearchBar = hasSearchBar;
+            LiveSpan = liveSpan;
             Requests = requests;
             Time = time;
             Title = title;

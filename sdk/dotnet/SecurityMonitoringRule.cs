@@ -10,11 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog [Security Monitoring Rule API](https://docs.datadoghq.com/api/v2/security-monitoring/) resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use [datadog_security_default_rule](https://www.terraform.io/resources/security_monitoring_default_rule) instead.
+    /// Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
     /// 
     /// ## Example Usage
-    /// 
-    /// Create a simple security monitoring rule.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -79,13 +77,30 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
+    /// ## Schema
+    /// 
+    /// ### Required
+    /// 
+    /// - **case** (Block List, Min: 1, Max: 5) Cases for generating signals. (see below for nested schema)
+    /// - **message** (String, Required) Message for generated signals.
+    /// - **name** (String, Required) The name of the rule.
+    /// - **query** (Block List, Min: 1) Queries for selecting logs which are part of the rule. (see below for nested schema)
+    /// 
+    /// ### Optional
+    /// 
+    /// - **enabled** (Boolean, Optional) Whether the rule is enabled.
+    /// - **id** (String, Optional) The ID of this resource.
+    /// - **options** (Block List, Max: 1) Options on rules. (see below for nested schema)
+    /// - **tags** (List of String, Optional) Tags for generated signals.
+    /// 
+    /// &lt;a id="nestedblock--case"&gt;&lt;/a&gt;
     /// 
     /// ## Import
     /// 
-    /// Security monitoring rules can be imported using ID, e.g. console
+    /// Import is supported using the following syntax# Security monitoring rules can be imported using ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_monitor m0o-hto-lkb
+    ///  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/securityMonitoringRule:SecurityMonitoringRule")]

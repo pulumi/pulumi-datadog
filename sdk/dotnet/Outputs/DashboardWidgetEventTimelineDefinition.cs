@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetEventTimelineDefinition
     {
+        public readonly string? LiveSpan;
         public readonly string Query;
         public readonly string? TagsExecution;
         public readonly Outputs.DashboardWidgetEventTimelineDefinitionTime? Time;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetEventTimelineDefinition(
+            string? liveSpan,
+
             string query,
 
             string? tagsExecution,
@@ -34,6 +37,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            LiveSpan = liveSpan;
             Query = query;
             TagsExecution = tagsExecution;
             Time = time;

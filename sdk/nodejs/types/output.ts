@@ -5,57 +5,137 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
 export interface DashboardListDashItem {
+    /**
+     * The ID of the dashboard to add
+     */
     dashId: string;
+    /**
+     * The type of this dashboard. Available options are: custom_timeboard, custom_screenboard, integration_screenboard, integration_timeboard, and host_timeboard
+     */
     type: string;
 }
 
 export interface DashboardTemplateVariable {
+    /**
+     * The default value for the template variable on dashboard load.
+     */
     default?: string;
+    /**
+     * The name of the variable.
+     */
     name: string;
+    /**
+     * The tag prefix associated with the variable. Only tags with this prefix will appear in the variable dropdown.
+     */
     prefix?: string;
 }
 
 export interface DashboardTemplateVariablePreset {
-    name: string;
-    templateVariables: outputs.DashboardTemplateVariablePresetTemplateVariable[];
+    /**
+     * The name of the preset.
+     */
+    name?: string;
+    /**
+     * The template variable names and assumed values under the given preset
+     */
+    templateVariables?: outputs.DashboardTemplateVariablePresetTemplateVariable[];
 }
 
 export interface DashboardTemplateVariablePresetTemplateVariable {
-    name: string;
-    value: string;
+    /**
+     * The name of the variable.
+     */
+    name?: string;
+    value?: string;
 }
 
 export interface DashboardWidget {
     alertGraphDefinition?: outputs.DashboardWidgetAlertGraphDefinition;
     alertValueDefinition?: outputs.DashboardWidgetAlertValueDefinition;
+    /**
+     * The definition for a Change  widget.
+     */
     changeDefinition?: outputs.DashboardWidgetChangeDefinition;
     checkStatusDefinition?: outputs.DashboardWidgetCheckStatusDefinition;
+    /**
+     * The definition for a Distribution widget.
+     */
     distributionDefinition?: outputs.DashboardWidgetDistributionDefinition;
     eventStreamDefinition?: outputs.DashboardWidgetEventStreamDefinition;
     eventTimelineDefinition?: outputs.DashboardWidgetEventTimelineDefinition;
     freeTextDefinition?: outputs.DashboardWidgetFreeTextDefinition;
+    /**
+     * The definition for a Geomap widget.
+     */
+    geomapDefinition?: outputs.DashboardWidgetGeomapDefinition;
+    /**
+     * The definition for a Group widget.
+     */
     groupDefinition?: outputs.DashboardWidgetGroupDefinition;
+    /**
+     * The definition for a Heatmap widget.
+     */
     heatmapDefinition?: outputs.DashboardWidgetHeatmapDefinition;
+    /**
+     * The definition for a Hostmap widget.
+     */
     hostmapDefinition?: outputs.DashboardWidgetHostmapDefinition;
+    /**
+     * The ID of the widget.
+     */
     id: number;
+    /**
+     * The definition for an Iframe widget.
+     */
     iframeDefinition?: outputs.DashboardWidgetIframeDefinition;
+    /**
+     * The definition for an Image widget
+     */
     imageDefinition?: outputs.DashboardWidgetImageDefinition;
+    /**
+     * The layout of the widget on a 'free' dashboard.  Define widgetLayout list with one element instead.
+     *
+     * @deprecated Define `widget_layout` list with one element instead.
+     */
     layout?: outputs.DashboardWidgetLayout;
     logStreamDefinition?: outputs.DashboardWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetManageStatusDefinition;
+    /**
+     * The definition for a Note widget.
+     */
     noteDefinition?: outputs.DashboardWidgetNoteDefinition;
     queryTableDefinition?: outputs.DashboardWidgetQueryTableDefinition;
     queryValueDefinition?: outputs.DashboardWidgetQueryValueDefinition;
+    /**
+     * The definition for a Scatterplot widget.
+     */
     scatterplotDefinition?: outputs.DashboardWidgetScatterplotDefinition;
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetServiceLevelObjectiveDefinition;
+    /**
+     * The definition for a Service Map widget.
+     */
     servicemapDefinition?: outputs.DashboardWidgetServicemapDefinition;
+    /**
+     * The definition for a Timeseries widget.
+     */
     timeseriesDefinition?: outputs.DashboardWidgetTimeseriesDefinition;
+    /**
+     * The definition for a Toplist widget.
+     */
     toplistDefinition?: outputs.DashboardWidgetToplistDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetTraceServiceDefinition;
+    /**
+     * The layout of the widget on a 'free' dashboard.
+     */
+    widgetLayout?: outputs.DashboardWidgetWidgetLayout;
 }
 
 export interface DashboardWidgetAlertGraphDefinition {
     alertId: string;
+    liveSpan?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetAlertGraphDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -79,7 +159,11 @@ export interface DashboardWidgetAlertValueDefinition {
 
 export interface DashboardWidgetChangeDefinition {
     customLinks?: outputs.DashboardWidgetChangeDefinitionCustomLink[];
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetChangeDefinitionRequest[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetChangeDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -107,11 +191,19 @@ export interface DashboardWidgetChangeDefinitionRequest {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetChangeDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryCompute {
@@ -120,13 +212,29 @@ export interface DashboardWidgetChangeDefinitionRequestApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -143,11 +251,19 @@ export interface DashboardWidgetChangeDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetChangeDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryCompute {
@@ -156,13 +272,29 @@ export interface DashboardWidgetChangeDefinitionRequestLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -186,11 +318,19 @@ export interface DashboardWidgetChangeDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetChangeDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQueryCompute {
@@ -199,13 +339,29 @@ export interface DashboardWidgetChangeDefinitionRequestRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetChangeDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -222,11 +378,19 @@ export interface DashboardWidgetChangeDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQueryCompute {
@@ -235,13 +399,29 @@ export interface DashboardWidgetChangeDefinitionRequestSecurityQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -266,7 +446,11 @@ export interface DashboardWidgetCheckStatusDefinition {
     group?: string;
     groupBies?: string[];
     grouping: string;
+    liveSpan?: string;
     tags?: string[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetCheckStatusDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -279,8 +463,12 @@ export interface DashboardWidgetCheckStatusDefinitionTime {
 
 export interface DashboardWidgetDistributionDefinition {
     legendSize?: string;
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetDistributionDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -298,11 +486,19 @@ export interface DashboardWidgetDistributionDefinitionRequest {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryCompute {
@@ -311,13 +507,29 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -334,11 +546,19 @@ export interface DashboardWidgetDistributionDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetDistributionDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryCompute {
@@ -347,13 +567,29 @@ export interface DashboardWidgetDistributionDefinitionRequestLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -377,11 +613,19 @@ export interface DashboardWidgetDistributionDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQueryCompute {
@@ -390,13 +634,29 @@ export interface DashboardWidgetDistributionDefinitionRequestRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -413,11 +673,19 @@ export interface DashboardWidgetDistributionDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute {
@@ -426,13 +694,29 @@ export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryComput
     interval?: number;
 }
 
+export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -458,8 +742,12 @@ export interface DashboardWidgetDistributionDefinitionTime {
 
 export interface DashboardWidgetEventStreamDefinition {
     eventSize?: string;
+    liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetEventStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -471,8 +759,12 @@ export interface DashboardWidgetEventStreamDefinitionTime {
 }
 
 export interface DashboardWidgetEventTimelineDefinition {
+    liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetEventTimelineDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -490,6 +782,226 @@ export interface DashboardWidgetFreeTextDefinition {
     textAlign?: string;
 }
 
+export interface DashboardWidgetGeomapDefinition {
+    customLinks?: outputs.DashboardWidgetGeomapDefinitionCustomLink[];
+    liveSpan?: string;
+    requests?: outputs.DashboardWidgetGeomapDefinitionRequest[];
+    style?: outputs.DashboardWidgetGeomapDefinitionStyle;
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+    view: outputs.DashboardWidgetGeomapDefinitionView;
+}
+
+export interface DashboardWidgetGeomapDefinitionCustomLink {
+    label: string;
+    link: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequest {
+    formulas?: outputs.DashboardWidgetGeomapDefinitionRequestFormula[];
+    logQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQuery;
+    q?: string;
+    queries?: outputs.DashboardWidgetGeomapDefinitionRequestQuery[];
+    rumQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQuery;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
+    compute?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
+    search?: outputs.DashboardWidgetGeomapDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
+    sort?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestLogQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
+    compute?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
+    search?: outputs.DashboardWidgetGeomapDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
+    sort?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestRumQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionStyle {
+    palette: string;
+    paletteFlip: boolean;
+}
+
+export interface DashboardWidgetGeomapDefinitionView {
+    focus: string;
+}
+
 export interface DashboardWidgetGroupDefinition {
     layoutType: string;
     title?: string;
@@ -499,33 +1011,86 @@ export interface DashboardWidgetGroupDefinition {
 export interface DashboardWidgetGroupDefinitionWidget {
     alertGraphDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition;
     alertValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition;
+    /**
+     * The definition for a Change  widget.
+     */
     changeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition;
     checkStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition;
+    /**
+     * The definition for a Distribution widget.
+     */
     distributionDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition;
     eventStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition;
     eventTimelineDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition;
     freeTextDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition;
+    /**
+     * The definition for a Geomap widget.
+     */
+    geomapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition;
+    /**
+     * The definition for a Heatmap widget.
+     */
     heatmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition;
+    /**
+     * The definition for a Hostmap widget.
+     */
     hostmapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition;
+    /**
+     * The ID of the widget.
+     */
     id: number;
+    /**
+     * The definition for an Iframe widget.
+     */
     iframeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition;
+    /**
+     * The definition for an Image widget
+     */
     imageDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition;
+    /**
+     * The layout of the widget on a 'free' dashboard.  Define widgetLayout list with one element instead.
+     *
+     * @deprecated Define `widget_layout` list with one element instead.
+     */
     layout?: outputs.DashboardWidgetGroupDefinitionWidgetLayout;
     logStreamDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition;
     manageStatusDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition;
+    /**
+     * The definition for a Note widget.
+     */
     noteDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition;
     queryTableDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition;
     queryValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition;
+    /**
+     * The definition for a Scatterplot widget.
+     */
     scatterplotDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition;
     serviceLevelObjectiveDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
+    /**
+     * The definition for a Service Map widget.
+     */
     servicemapDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition;
+    /**
+     * The definition for a Timeseries widget.
+     */
     timeseriesDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition;
+    /**
+     * The definition for a Toplist widget.
+     */
     toplistDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition;
     traceServiceDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition;
+    /**
+     * The layout of the widget on a 'free' dashboard.
+     */
+    widgetLayout?: outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
     alertId: string;
+    liveSpan?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -549,7 +1114,11 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink[];
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -577,11 +1146,19 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute {
@@ -590,13 +1167,29 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -613,11 +1206,19 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute {
@@ -626,13 +1227,29 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQ
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -656,11 +1273,19 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProc
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute {
@@ -669,13 +1294,29 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQ
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -692,11 +1333,19 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute {
@@ -705,13 +1354,29 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecu
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -736,7 +1401,11 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
     group?: string;
     groupBies?: string[];
     grouping: string;
+    liveSpan?: string;
     tags?: string[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -749,8 +1418,12 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime {
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
     legendSize?: string;
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -768,11 +1441,19 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute {
@@ -781,13 +1462,29 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -804,11 +1501,19 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute {
@@ -817,13 +1522,29 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -847,11 +1568,19 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute {
@@ -860,13 +1589,29 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -883,11 +1628,19 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute {
@@ -896,13 +1649,29 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionReque
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -928,8 +1697,12 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime 
 
 export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
     eventSize?: string;
+    liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -941,8 +1714,12 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
+    liveSpan?: string;
     query: string;
     tagsExecution?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -960,12 +1737,236 @@ export interface DashboardWidgetGroupDefinitionWidgetFreeTextDefinition {
     textAlign?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
+    customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink[];
+    liveSpan?: string;
+    requests?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest[];
+    style?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle;
+    title?: string;
+    titleAlign?: string;
+    titleSize?: string;
+    view: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink {
+    label: string;
+    link: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula[];
+    logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery;
+    q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery[];
+    rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
+    compute?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
+    compute?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle {
+    palette: string;
+    paletteFlip: boolean;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView {
+    focus: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink[];
     events?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent[];
     legendSize?: string;
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -994,11 +1995,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute {
@@ -1007,13 +2016,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1030,11 +2055,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApm
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute {
@@ -1043,13 +2076,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLog
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1073,11 +2122,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestPro
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute {
@@ -1086,13 +2143,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRum
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1109,11 +2182,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRum
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute {
@@ -1122,13 +2203,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSec
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1194,11 +2291,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute {
@@ -1207,13 +2312,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1230,11 +2351,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute {
@@ -1243,13 +2372,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1273,11 +2418,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute {
@@ -1286,13 +2439,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1309,11 +2478,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute {
@@ -1322,13 +2499,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFil
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1354,11 +2547,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute {
@@ -1367,13 +2568,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1390,11 +2607,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute {
@@ -1403,13 +2628,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1433,11 +2674,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute {
@@ -1446,13 +2695,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1469,11 +2734,19 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute {
@@ -1482,13 +2755,29 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSiz
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1531,6 +2820,7 @@ export interface DashboardWidgetGroupDefinitionWidgetLayout {
 export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     columns?: string[];
     indexes?: string[];
+    liveSpan?: string;
     /**
      * @deprecated This parameter has been deprecated. Use `indexes` instead.
      */
@@ -1540,6 +2830,9 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
     showDateColumn?: boolean;
     showMessageColumn?: boolean;
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -1589,7 +2882,11 @@ export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink[];
     hasSearchBar?: string;
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -1618,11 +2915,19 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute {
@@ -1631,13 +2936,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1683,11 +3004,19 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute {
@@ -1696,13 +3025,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1726,11 +3071,19 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute {
@@ -1739,13 +3092,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1762,11 +3131,19 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute {
@@ -1775,13 +3152,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1805,9 +3198,13 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
     autoscale?: boolean;
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink[];
     customUnit?: string;
+    liveSpan?: string;
     precision?: number;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest[];
     textAlign?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -1823,19 +3220,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute {
@@ -1844,13 +3251,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1878,12 +3301,31 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     value: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute {
@@ -1892,13 +3334,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1921,12 +3379,76 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     searchBy?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute {
@@ -1935,13 +3457,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -1958,11 +3496,19 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute {
@@ -1971,13 +3517,29 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2000,7 +3562,11 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime {
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
     colorByGroups?: string[];
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink[];
+    liveSpan?: string;
     request?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -2030,11 +3596,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute {
@@ -2043,13 +3617,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2066,11 +3656,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute {
@@ -2079,13 +3677,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2109,11 +3723,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute {
@@ -2122,13 +3744,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2145,11 +3783,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute {
@@ -2158,13 +3804,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2191,11 +3853,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute {
@@ -2204,13 +3874,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2227,11 +3913,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute {
@@ -2240,13 +3934,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2270,11 +3980,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute {
@@ -2283,13 +4001,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2306,11 +4040,19 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute {
@@ -2319,13 +4061,29 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionReques
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2362,6 +4120,7 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis 
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition {
+    globalTimeTarget?: string;
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
@@ -2389,11 +4148,17 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomL
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink[];
     events?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent[];
+    legendColumns?: string[];
+    legendLayout?: string;
     legendSize?: string;
+    liveSpan?: string;
     markers?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest[];
     rightYaxis?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -2420,23 +4185,33 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery;
     displayType?: string;
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery;
     metadatas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata[];
     networkQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery;
     onRightYaxis?: boolean;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery;
     style?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute {
@@ -2445,13 +4220,29 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2467,12 +4258,31 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     query: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute {
@@ -2481,13 +4291,29 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2509,11 +4335,19 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
@@ -2522,13 +4356,29 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2551,12 +4401,76 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     searchBy?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute {
@@ -2565,13 +4479,29 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2588,11 +4518,19 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute {
@@ -2601,13 +4539,29 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2651,7 +4605,11 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis {
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink[];
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -2666,20 +4624,30 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery;
     style?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute {
@@ -2688,13 +4656,29 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2722,12 +4706,31 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestCon
     value: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute {
@@ -2736,13 +4739,29 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLog
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2765,12 +4784,76 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestPro
     searchBy?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute {
@@ -2779,13 +4862,29 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRum
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2802,11 +4901,19 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRum
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute {
@@ -2815,13 +4922,29 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSec
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2848,6 +4971,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime {
 export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     displayFormat?: string;
     env: string;
+    liveSpan?: string;
     service: string;
     showBreakdown?: boolean;
     showDistribution?: boolean;
@@ -2857,6 +4981,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
     showResourceList?: boolean;
     sizeFormat?: string;
     spanName: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -2867,12 +4994,23 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime 
     liveSpan?: string;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetWidgetLayout {
+    height: number;
+    width: number;
+    x: number;
+    y: number;
+}
+
 export interface DashboardWidgetHeatmapDefinition {
     customLinks?: outputs.DashboardWidgetHeatmapDefinitionCustomLink[];
     events?: outputs.DashboardWidgetHeatmapDefinitionEvent[];
     legendSize?: string;
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetHeatmapDefinitionRequest[];
     showLegend?: boolean;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetHeatmapDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -2901,11 +5039,19 @@ export interface DashboardWidgetHeatmapDefinitionRequest {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryCompute {
@@ -2914,13 +5060,29 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2937,11 +5099,19 @@ export interface DashboardWidgetHeatmapDefinitionRequestApmQuerySearch {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryCompute {
@@ -2950,13 +5120,29 @@ export interface DashboardWidgetHeatmapDefinitionRequestLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -2980,11 +5166,19 @@ export interface DashboardWidgetHeatmapDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQueryCompute {
@@ -2993,13 +5187,29 @@ export interface DashboardWidgetHeatmapDefinitionRequestRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3016,11 +5226,19 @@ export interface DashboardWidgetHeatmapDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute {
@@ -3029,13 +5247,29 @@ export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3101,11 +5335,19 @@ export interface DashboardWidgetHostmapDefinitionRequestFill {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute {
@@ -3114,13 +5356,29 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3137,11 +5395,19 @@ export interface DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute {
@@ -3150,13 +5416,29 @@ export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3180,11 +5462,19 @@ export interface DashboardWidgetHostmapDefinitionRequestFillProcessQuery {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute {
@@ -3193,13 +5483,29 @@ export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3216,11 +5522,19 @@ export interface DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute {
@@ -3229,13 +5543,29 @@ export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3261,11 +5591,19 @@ export interface DashboardWidgetHostmapDefinitionRequestSize {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute {
@@ -3274,13 +5612,29 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3297,11 +5651,19 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute {
@@ -3310,13 +5672,29 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3340,11 +5718,19 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeProcessQuery {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute {
@@ -3353,13 +5739,29 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3376,11 +5778,19 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch {
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute {
@@ -3389,13 +5799,29 @@ export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute
     interval?: number;
 }
 
+export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3438,6 +5864,7 @@ export interface DashboardWidgetLayout {
 export interface DashboardWidgetLogStreamDefinition {
     columns?: string[];
     indexes?: string[];
+    liveSpan?: string;
     /**
      * @deprecated This parameter has been deprecated. Use `indexes` instead.
      */
@@ -3447,6 +5874,9 @@ export interface DashboardWidgetLogStreamDefinition {
     showDateColumn?: boolean;
     showMessageColumn?: boolean;
     sort?: outputs.DashboardWidgetLogStreamDefinitionSort;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetLogStreamDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -3496,7 +5926,11 @@ export interface DashboardWidgetNoteDefinition {
 export interface DashboardWidgetQueryTableDefinition {
     customLinks?: outputs.DashboardWidgetQueryTableDefinitionCustomLink[];
     hasSearchBar?: string;
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetQueryTableDefinitionRequest[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetQueryTableDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -3525,11 +5959,19 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryCompute {
@@ -3538,13 +5980,29 @@ export interface DashboardWidgetQueryTableDefinitionRequestApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3590,11 +6048,19 @@ export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryCompute {
@@ -3603,13 +6069,29 @@ export interface DashboardWidgetQueryTableDefinitionRequestLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3633,11 +6115,19 @@ export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQueryCompute {
@@ -3646,13 +6136,29 @@ export interface DashboardWidgetQueryTableDefinitionRequestRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3669,11 +6175,19 @@ export interface DashboardWidgetQueryTableDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute {
@@ -3682,13 +6196,29 @@ export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute 
     interval?: number;
 }
 
+export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3712,9 +6242,13 @@ export interface DashboardWidgetQueryValueDefinition {
     autoscale?: boolean;
     customLinks?: outputs.DashboardWidgetQueryValueDefinitionCustomLink[];
     customUnit?: string;
+    liveSpan?: string;
     precision?: number;
     requests?: outputs.DashboardWidgetQueryValueDefinitionRequest[];
     textAlign?: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetQueryValueDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -3730,19 +6264,29 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetQueryValueDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetQueryValueDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryCompute {
@@ -3751,13 +6295,29 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3785,12 +6345,31 @@ export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
     value: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryCompute {
@@ -3799,13 +6378,29 @@ export interface DashboardWidgetQueryValueDefinitionRequestLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3828,12 +6423,76 @@ export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
     searchBy?: string;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQueryCompute {
@@ -3842,13 +6501,29 @@ export interface DashboardWidgetQueryValueDefinitionRequestRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3865,11 +6540,19 @@ export interface DashboardWidgetQueryValueDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute {
@@ -3878,13 +6561,29 @@ export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute 
     interval?: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3907,7 +6606,11 @@ export interface DashboardWidgetQueryValueDefinitionTime {
 export interface DashboardWidgetScatterplotDefinition {
     colorByGroups?: string[];
     customLinks?: outputs.DashboardWidgetScatterplotDefinitionCustomLink[];
+    liveSpan?: string;
     request?: outputs.DashboardWidgetScatterplotDefinitionRequest;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetScatterplotDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -3937,11 +6640,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestX {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute {
@@ -3950,13 +6661,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -3973,11 +6700,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute {
@@ -3986,13 +6721,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4016,11 +6767,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestXProcessQuery {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute {
@@ -4029,13 +6788,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4052,11 +6827,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute {
@@ -4065,13 +6848,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComput
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4098,11 +6897,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestY {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute {
@@ -4111,13 +6918,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4134,11 +6957,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute {
@@ -4147,13 +6978,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4177,11 +7024,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestYProcessQuery {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute {
@@ -4190,13 +7045,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4213,11 +7084,19 @@ export interface DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch {
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute {
@@ -4226,13 +7105,29 @@ export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComput
     interval?: number;
 }
 
+export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4269,6 +7164,7 @@ export interface DashboardWidgetScatterplotDefinitionYaxis {
 }
 
 export interface DashboardWidgetServiceLevelObjectiveDefinition {
+    globalTimeTarget?: string;
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
@@ -4296,11 +7192,17 @@ export interface DashboardWidgetServicemapDefinitionCustomLink {
 export interface DashboardWidgetTimeseriesDefinition {
     customLinks?: outputs.DashboardWidgetTimeseriesDefinitionCustomLink[];
     events?: outputs.DashboardWidgetTimeseriesDefinitionEvent[];
+    legendColumns?: string[];
+    legendLayout?: string;
     legendSize?: string;
+    liveSpan?: string;
     markers?: outputs.DashboardWidgetTimeseriesDefinitionMarker[];
     requests?: outputs.DashboardWidgetTimeseriesDefinitionRequest[];
     rightYaxis?: outputs.DashboardWidgetTimeseriesDefinitionRightYaxis;
     showLegend?: boolean;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetTimeseriesDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -4327,23 +7229,33 @@ export interface DashboardWidgetTimeseriesDefinitionMarker {
 export interface DashboardWidgetTimeseriesDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery;
     displayType?: string;
+    formulas?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery;
     metadatas?: outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata[];
     networkQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery;
     onRightYaxis?: boolean;
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetTimeseriesDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery;
     style?: outputs.DashboardWidgetTimeseriesDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute {
@@ -4352,13 +7264,29 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4374,12 +7302,31 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch {
     query: string;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute {
@@ -4388,13 +7335,29 @@ export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4416,11 +7379,19 @@ export interface DashboardWidgetTimeseriesDefinitionRequestMetadata {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute;
+    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
@@ -4429,13 +7400,29 @@ export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4458,12 +7445,76 @@ export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
     searchBy?: string;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute {
@@ -4472,13 +7523,29 @@ export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4495,11 +7562,19 @@ export interface DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute {
@@ -4508,13 +7583,29 @@ export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute 
     interval?: number;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4558,7 +7649,11 @@ export interface DashboardWidgetTimeseriesDefinitionYaxis {
 
 export interface DashboardWidgetToplistDefinition {
     customLinks?: outputs.DashboardWidgetToplistDefinitionCustomLink[];
+    liveSpan?: string;
     requests?: outputs.DashboardWidgetToplistDefinitionRequest[];
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetToplistDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -4573,20 +7668,30 @@ export interface DashboardWidgetToplistDefinitionCustomLink {
 export interface DashboardWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetToplistDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetToplistDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetToplistDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery;
     style?: outputs.DashboardWidgetToplistDefinitionRequestStyle;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryCompute;
+    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetToplistDefinitionRequestApmQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryCompute {
@@ -4595,13 +7700,29 @@ export interface DashboardWidgetToplistDefinitionRequestApmQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4629,12 +7750,31 @@ export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
     value: number;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetToplistDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestLogQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute;
+    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryCompute {
@@ -4643,13 +7783,29 @@ export interface DashboardWidgetToplistDefinitionRequestLogQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4672,12 +7828,76 @@ export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
     searchBy?: string;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestRumQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryCompute;
+    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetToplistDefinitionRequestRumQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQueryCompute {
@@ -4686,13 +7906,29 @@ export interface DashboardWidgetToplistDefinitionRequestRumQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestRumQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4709,11 +7945,19 @@ export interface DashboardWidgetToplistDefinitionRequestRumQuerySearch {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQuery {
+    /**
+     * @deprecated Define `compute_query` list with one element instead.
+     */
     compute?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryCompute;
+    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy[];
     index: string;
     multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute[];
+    /**
+     * @deprecated Define `search_query` directly instead.
+     */
     search?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQuerySearch;
+    searchQuery?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQueryCompute {
@@ -4722,13 +7966,29 @@ export interface DashboardWidgetToplistDefinitionRequestSecurityQueryCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy {
     facet?: string;
     limit?: number;
+    /**
+     * @deprecated Define `sort_query` list with one element instead.
+     */
     sort?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort;
+    sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery {
     aggregation: string;
     facet?: string;
     order: string;
@@ -4755,6 +8015,7 @@ export interface DashboardWidgetToplistDefinitionTime {
 export interface DashboardWidgetTraceServiceDefinition {
     displayFormat?: string;
     env: string;
+    liveSpan?: string;
     service: string;
     showBreakdown?: boolean;
     showDistribution?: boolean;
@@ -4764,6 +8025,9 @@ export interface DashboardWidgetTraceServiceDefinition {
     showResourceList?: boolean;
     sizeFormat?: string;
     spanName: string;
+    /**
+     * @deprecated Define `live_span` directly in the widget definition instead.
+     */
     time?: outputs.DashboardWidgetTraceServiceDefinitionTime;
     title?: string;
     titleAlign?: string;
@@ -4774,12 +8038,37 @@ export interface DashboardWidgetTraceServiceDefinitionTime {
     liveSpan?: string;
 }
 
+export interface DashboardWidgetWidgetLayout {
+    height: number;
+    width: number;
+    x: number;
+    y: number;
+}
+
 export interface DowntimeRecurrence {
+    /**
+     * How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
+     */
     period?: number;
+    /**
+     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use FREQ=MONTHLY;INTERVAL=1. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, DTSTART, DTEND, DURATION).
+     */
     rrule?: string;
+    /**
+     * One of days, weeks, months, or years
+     */
     type: string;
+    /**
+     * The date at which the recurrence should end as a POSIX timestamp. untilOccurrences and untilDate are mutually exclusive.
+     */
     untilDate?: number;
+    /**
+     * How many times the downtime will be rescheduled. untilOccurrences and untilDate are mutually exclusive.
+     */
     untilOccurrences?: number;
+    /**
+     * A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
+     */
     weekDays?: string[];
 }
 
@@ -4812,12 +8101,33 @@ export interface GetMonitorThresholds {
 }
 
 export interface GetSecurityMonitoringRulesRule {
+    /**
+     * Cases for generating signals.
+     */
     cases: outputs.GetSecurityMonitoringRulesRuleCase[];
+    /**
+     * Whether the rule is enabled.
+     */
     enabled?: boolean;
+    /**
+     * Message for generated signals.
+     */
     message: string;
+    /**
+     * The name of the rule.
+     */
     name: string;
+    /**
+     * Options on rules.
+     */
     options?: outputs.GetSecurityMonitoringRulesRuleOptions;
+    /**
+     * Queries for selecting logs which are part of the rule.
+     */
     queries: outputs.GetSecurityMonitoringRulesRuleQuery[];
+    /**
+     * Tags for generated signals.
+     */
     tags?: string[];
 }
 
@@ -4852,10 +8162,25 @@ export interface LogsArchiveAzure {
 }
 
 export interface LogsArchiveAzureArchive {
+    /**
+     * Your client id.
+     */
     clientId: string;
+    /**
+     * The container where the archive will be stored.
+     */
     container: string;
+    /**
+     * The path where the archive will be stored.
+     */
     path?: string;
+    /**
+     * The associated storage account.
+     */
     storageAccount: string;
+    /**
+     * Your tenant id.
+     */
     tenantId: string;
 }
 
@@ -4867,9 +8192,21 @@ export interface LogsArchiveGcs {
 }
 
 export interface LogsArchiveGcsArchive {
+    /**
+     * Name of your GCS bucket.
+     */
     bucket: string;
+    /**
+     * Your client email.
+     */
     clientEmail: string;
+    /**
+     * Path where the archive will be stored.
+     */
     path: string;
+    /**
+     * Your project id.
+     */
     projectId: string;
 }
 
@@ -4881,30 +8218,75 @@ export interface LogsArchiveS3 {
 }
 
 export interface LogsArchiveS3Archive {
+    /**
+     * Your AWS account id.
+     */
     accountId: string;
+    /**
+     * Name of your s3 bucket.
+     */
     bucket: string;
+    /**
+     * Path where the archive will be stored.
+     */
     path: string;
+    /**
+     * Your AWS role name
+     */
     roleName: string;
 }
 
 export interface LogsCustomPipelineFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
 export interface LogsCustomPipelineProcessor {
+    /**
+     * Arithmetic Processor. More information can be found in the
+     */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorArithmeticProcessor;
+    /**
+     * Attribute Remapper Processor. More information can be found in the
+     */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorAttributeRemapper;
+    /**
+     * Category Processor. More information can be found in the
+     */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorCategoryProcessor;
+    /**
+     * Date Remapper Processor. More information can be found in the
+     */
     dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
     geoIpParser?: outputs.LogsCustomPipelineProcessorGeoIpParser;
+    /**
+     * Grok Processor. More information can be found in the
+     */
     grokParser?: outputs.LogsCustomPipelineProcessorGrokParser;
+    /**
+     * Lookup Processor. More information can be found in the
+     */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorLookupProcessor;
+    /**
+     * Message Remapper Processor. More information can be found in the
+     */
     messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
     pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
+    /**
+     * Service Remapper Processor. More information can be found in the
+     */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
+    /**
+     * Status Remapper Processor. More information can be found in the
+     */
     statusRemapper?: outputs.LogsCustomPipelineProcessorStatusRemapper;
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorStringBuilderProcessor;
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorTraceIdRemapper;
+    /**
+     * URL Parser Processor. More information can be found in the
+     */
     urlParser?: outputs.LogsCustomPipelineProcessorUrlParser;
     userAgentParser?: outputs.LogsCustomPipelineProcessorUserAgentParser;
 }
@@ -4942,6 +8324,9 @@ export interface LogsCustomPipelineProcessorCategoryProcessorCategory {
 }
 
 export interface LogsCustomPipelineProcessorCategoryProcessorCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
@@ -4994,22 +8379,55 @@ export interface LogsCustomPipelineProcessorPipeline {
 }
 
 export interface LogsCustomPipelineProcessorPipelineFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessor {
+    /**
+     * Arithmetic Processor. More information can be found in the
+     */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor;
+    /**
+     * Attribute Remapper Processor. More information can be found in the
+     */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
+    /**
+     * Category Processor. More information can be found in the
+     */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
+    /**
+     * Date Remapper Processor. More information can be found in the
+     */
     dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
     geoIpParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser;
+    /**
+     * Grok Processor. More information can be found in the
+     */
     grokParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
+    /**
+     * Lookup Processor. More information can be found in the
+     */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor;
+    /**
+     * Message Remapper Processor. More information can be found in the
+     */
     messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
+    /**
+     * Service Remapper Processor. More information can be found in the
+     */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
+    /**
+     * Status Remapper Processor. More information can be found in the
+     */
     statusRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor;
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper;
+    /**
+     * URL Parser Processor. More information can be found in the
+     */
     urlParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser;
     userAgentParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser;
 }
@@ -5047,6 +8465,9 @@ export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCa
 }
 
 export interface LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorCategoryFilter {
+    /**
+     * Filter criteria of the category.
+     */
     query: string;
 }
 
@@ -5177,44 +8598,95 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
 
 export interface LogsIndexExclusionFilter {
     filters?: outputs.LogsIndexExclusionFilterFilter[];
+    /**
+     * A boolean stating if the exclusion is active or not.
+     */
     isEnabled?: boolean;
+    /**
+     * The name of the exclusion filter.
+     */
     name?: string;
 }
 
 export interface LogsIndexExclusionFilterFilter {
+    /**
+     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     */
     query?: string;
     sampleRate?: number;
 }
 
 export interface LogsIndexFilter {
+    /**
+     * Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+     */
     query: string;
 }
 
 export interface LogsMetricCompute {
+    /**
+     * The type of aggregation to use. This field can't be updated after creation.
+     */
     aggregationType: string;
+    /**
+     * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
+     */
     path?: string;
 }
 
 export interface LogsMetricFilter {
+    /**
+     * The search query - following the log search syntax.
+     */
     query: string;
 }
 
 export interface LogsMetricGroupBy {
+    /**
+     * The path to the value the log-based metric will be aggregated over.
+     */
     path: string;
+    /**
+     * Name of the tag that gets created.
+     */
     tagName: string;
 }
 
 export interface MonitorMonitorThresholdWindows {
+    /**
+     * Describes how long an anomalous metric must be normal before the alert recovers.
+     */
     recoveryWindow?: string;
+    /**
+     * Describes how long a metric must be anomalous before an alert triggers.
+     */
     triggerWindow?: string;
 }
 
 export interface MonitorMonitorThresholds {
+    /**
+     * The monitor CRITICAL recovery threshold. Must be a number.
+     */
     critical?: string;
+    /**
+     * The monitor CRITICAL recovery threshold. Must be a number.
+     */
     criticalRecovery?: string;
+    /**
+     * The monitor OK threshold. Must be a number.
+     */
     ok?: string;
+    /**
+     * The monitor UNKNOWN threshold. Must be a number.
+     */
     unknown?: string;
+    /**
+     * The monitor WARNING threshold. Must be a number.
+     */
     warning?: string;
+    /**
+     * The monitor WARNING recovery threshold. Must be a number.
+     */
     warningRecovery?: string;
 }
 
@@ -5233,7 +8705,13 @@ export interface MonitorThresholds {
 }
 
 export interface RolePermission {
+    /**
+     * ID of the permission to assign.
+     */
     id: string;
+    /**
+     * Name of the permission.
+     */
     name: string;
 }
 
@@ -5440,53 +8918,103 @@ export interface ScreenBoardWidgetTileDefRequestProcessQuery {
 }
 
 export interface SecurityMonitoringRuleCase {
+    /**
+     * A rule case contains logical operations (>,>=, &&, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.
+     */
     condition?: string;
+    /**
+     * Name of the case.
+     */
     name?: string;
+    /**
+     * Notification targets for each rule case.
+     */
     notifications?: string[];
+    /**
+     * Severity of the Security Signal.
+     */
     status: string;
 }
 
 export interface SecurityMonitoringRuleOptions {
+    /**
+     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+     */
     evaluationWindow: number;
+    /**
+     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.
+     */
     keepAlive: number;
     maxSignalDuration: number;
 }
 
 export interface SecurityMonitoringRuleQuery {
+    /**
+     * The aggregation type.
+     */
     aggregation?: string;
+    /**
+     * Field for which the cardinality is measured. Sent as an array.
+     */
     distinctFields?: string[];
     groupByFields?: string[];
+    /**
+     * The target field to aggregate over when using the sum or max aggregations.
+     */
     metric?: string;
+    /**
+     * Name of the query.
+     */
     name?: string;
+    /**
+     * Query to run on logs.
+     */
     query: string;
 }
 
 export interface ServiceLevelObjectiveQuery {
+    /**
+     * The sum of the total events.
+     */
     denominator: string;
+    /**
+     * The sum of all the good events.
+     */
     numerator: string;
 }
 
 export interface ServiceLevelObjectiveThreshold {
+    /**
+     * The objective's target in[0,100].
+     */
     target: number;
+    /**
+     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. 98.00).
+     */
     targetDisplay?: string;
     /**
-     * the time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object) page. Available options to choose from are:
-     * -   `7d`
-     * -   `30d`
-     * -   `90d`
-     * -   `target`: (Required) the objective's target `[0,100]`
-     * -   `targetDisplay`: (Optional) the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
-     * -   `warning`: (Optional) the objective's warning value `[0,100]`. This must be `> target` value.
-     * -   `warningDisplay`: (Optional) the string version to specify additional digits in the case of `99` but want 3 digits like `99.000` to display.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: 7d, 30d, 90d.
      */
     timeframe: string;
+    /**
+     * The objective's warning value in [0,100]. This must be greater than the target value.
+     */
     warning?: number;
+    /**
+     * A string representation of the warning target (see the description of the targetDisplay field for details).
+     */
     warningDisplay?: string;
 }
 
 export interface SyntheticsGlobalVariableParseTestOptions {
+    /**
+     * Required when type = http_header. Defines the header to use to extract the value
+     */
     field?: string;
     parser: outputs.SyntheticsGlobalVariableParseTestOptionsParser;
+    /**
+     * Defines the source to use to extract the value. Allowed enum values: http_body, http_header.
+     */
     type: string;
 }
 
@@ -5495,18 +9023,236 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
     value?: string;
 }
 
-export interface SyntheticsTestBrowserVariable {
-    example?: string;
-    id?: string;
+export interface SyntheticsTestApiStep {
+    /**
+     * Assertions used for the test. Multiple assertion blocks are allowed with the structure below.
+     */
+    assertions?: outputs.SyntheticsTestApiStepAssertion[];
+    /**
+     * Values to parse and save as variables from the response.
+     */
+    extractedValues?: outputs.SyntheticsTestApiStepExtractedValue[];
+    /**
+     * The name of the step.
+     */
     name: string;
+    /**
+     * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+     */
+    requestBasicauth?: outputs.SyntheticsTestApiStepRequestBasicauth;
+    requestClientCertificate?: outputs.SyntheticsTestApiStepRequestClientCertificate;
+    /**
+     * The request for the api step.
+     */
+    requestDefinition?: outputs.SyntheticsTestApiStepRequestDefinition;
+    /**
+     * Header name and value map.
+     */
+    requestHeaders?: {[key: string]: any};
+    /**
+     * Query arguments name and value map.
+     */
+    requestQuery?: {[key: string]: any};
+    /**
+     * The subtype of the Synthetic multistep API test step, currently only supporting http.
+     */
+    subtype?: string;
+}
+
+export interface SyntheticsTestApiStepAssertion {
+    /**
+     * Assertion operator.  Only some combinations of type and operator are valid (please refer to ).
+     */
+    operator: string;
+    /**
+     * If assertion type is header, this is the header name.
+     */
+    property?: string;
+    /**
+     * Expected value. Depends on the assertion type, refer to  for details.
+     */
+    target?: string;
+    /**
+     * Expected structure if operator is validatesJSONPath. Exactly one nested block is allowed with the structure below.
+     */
+    targetjsonpath?: outputs.SyntheticsTestApiStepAssertionTargetjsonpath;
+    /**
+     * Type of assertion. Choose from body, header, responseTime, statusCode.  Only some combinations of type and operator are valid (please refer to ).
+     */
+    type: string;
+}
+
+export interface SyntheticsTestApiStepAssertionTargetjsonpath {
+    jsonpath: string;
+    operator: string;
+    targetvalue: string;
+}
+
+export interface SyntheticsTestApiStepExtractedValue {
+    field?: string;
+    name: string;
+    parser: outputs.SyntheticsTestApiStepExtractedValueParser;
+    type: string;
+}
+
+export interface SyntheticsTestApiStepExtractedValueParser {
+    type: string;
+    value?: string;
+}
+
+export interface SyntheticsTestApiStepRequestBasicauth {
+    /**
+     * Password for authentication.
+     */
+    password: string;
+    /**
+     * Username for authentication.
+     */
+    username: string;
+}
+
+export interface SyntheticsTestApiStepRequestClientCertificate {
+    cert: outputs.SyntheticsTestApiStepRequestClientCertificateCert;
+    key: outputs.SyntheticsTestApiStepRequestClientCertificateKey;
+}
+
+export interface SyntheticsTestApiStepRequestClientCertificateCert {
+    content: string;
+    filename?: string;
+}
+
+export interface SyntheticsTestApiStepRequestClientCertificateKey {
+    content: string;
+    filename?: string;
+}
+
+export interface SyntheticsTestApiStepRequestDefinition {
+    /**
+     * The request body.
+     */
+    body?: string;
+    /**
+     * DNS server to use for DNS tests (subtype = "dns").
+     */
+    dnsServer?: string;
+    /**
+     * Host name to perform the test with.
+     */
+    host?: string;
+    /**
+     * The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+     */
+    method?: string;
+    noSavingResponseBody?: boolean;
+    /**
+     * Port to use when performing the test.
+     */
+    port?: number;
+    /**
+     * Timeout in seconds for the test. Defaults to 60.
+     */
+    timeout?: number;
+    /**
+     * The URL to send the request to.
+     */
+    url?: string;
+}
+
+export interface SyntheticsTestBrowserStep {
+    /**
+     * Determines if the step should be allowed to fail.
+     */
+    allowFailure?: boolean;
+    forceElementUpdate?: boolean;
+    /**
+     * Name of the step.
+     */
+    name: string;
+    /**
+     * Parameters for the step.
+     */
+    params: outputs.SyntheticsTestBrowserStepParams;
+    /**
+     * Used to override the default timeout of a step.
+     */
+    timeout?: number;
+    /**
+     * Type of the step. Refer to  for the complete list of available types.
+     */
+    type: string;
+}
+
+export interface SyntheticsTestBrowserStepParams {
+    attribute?: string;
+    check?: string;
+    clickType?: string;
+    code?: string;
+    delay?: number;
+    element?: string;
+    email?: string;
+    file?: string;
+    files?: string;
+    modifiers?: string[];
+    playingTabId?: string;
+    request?: string;
+    subtestPublicId?: string;
+    value?: string;
+    variable?: outputs.SyntheticsTestBrowserStepParamsVariable;
+    withClick?: boolean;
+    x?: number;
+    y?: number;
+}
+
+export interface SyntheticsTestBrowserStepParamsVariable {
+    /**
+     * Example for the variable.
+     */
+    example?: string;
+    /**
+     * Name of the variable.
+     */
+    name?: string;
+}
+
+export interface SyntheticsTestBrowserVariable {
+    /**
+     * Example for the variable.
+     */
+    example?: string;
+    /**
+     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+     */
+    id?: string;
+    /**
+     * Name of the variable.
+     */
+    name: string;
+    /**
+     * Pattern of the variable.
+     */
     pattern?: string;
+    /**
+     * Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+     */
     type: string;
 }
 
 export interface SyntheticsTestConfigVariable {
+    /**
+     * Example for the variable.
+     */
     example?: string;
+    /**
+     * Name of the variable.
+     */
     name: string;
+    /**
+     * Pattern of the variable.
+     */
     pattern?: string;
+    /**
+     * Type of test configuration variable. Allowed enum values: text.
+     */
     type: string;
 }
 
@@ -5523,13 +9269,26 @@ export interface SyntheticsTestOptions {
 
 export interface SyntheticsTestOptionsList {
     acceptSelfSigned?: boolean;
+    /**
+     * Allows loading insecure content for an HTTP test.
+     */
     allowInsecure?: boolean;
+    /**
+     * For API HTTP test, whether or not the test should follow redirects.
+     */
     followRedirects?: boolean;
     minFailureDuration?: number;
     minLocationFailed?: number;
     monitorOptions?: outputs.SyntheticsTestOptionsListMonitorOptions;
+    /**
+     * Prevents saving screenshots of the steps.
+     */
+    noScreenshot?: boolean;
     retry?: outputs.SyntheticsTestOptionsListRetry;
-    tickEvery?: number;
+    /**
+     * How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+     */
+    tickEvery: number;
 }
 
 export interface SyntheticsTestOptionsListMonitorOptions {
@@ -5546,13 +9305,20 @@ export interface SyntheticsTestRequest {
     dnsServer?: string;
     host?: string;
     method?: string;
+    noSavingResponseBody?: boolean;
     port?: number;
     timeout?: number;
     url?: string;
 }
 
 export interface SyntheticsTestRequestBasicauth {
+    /**
+     * Password for authentication.
+     */
     password: string;
+    /**
+     * Username for authentication.
+     */
     username: string;
 }
 
@@ -5571,19 +9337,82 @@ export interface SyntheticsTestRequestClientCertificateKey {
     filename?: string;
 }
 
-export interface SyntheticsTestStep {
-    allowFailure?: boolean;
-    name: string;
-    params: string;
+export interface SyntheticsTestRequestDefinition {
+    /**
+     * The request body.
+     */
+    body?: string;
+    /**
+     * DNS server to use for DNS tests (subtype = "dns").
+     */
+    dnsServer?: string;
+    /**
+     * Host name to perform the test with.
+     */
+    host?: string;
+    /**
+     * The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+     */
+    method?: string;
+    noSavingResponseBody?: boolean;
+    /**
+     * Port to use when performing the test.
+     */
+    port?: number;
+    /**
+     * Timeout in seconds for the test. Defaults to 60.
+     */
     timeout?: number;
+    /**
+     * The URL to send the request to.
+     */
+    url?: string;
+}
+
+export interface SyntheticsTestStep {
+    /**
+     * Determines if the step should be allowed to fail.
+     */
+    allowFailure?: boolean;
+    forceElementUpdate?: boolean;
+    /**
+     * Name of the step.
+     */
+    name: string;
+    /**
+     * Parameters for the step as JSON string.
+     */
+    params: string;
+    /**
+     * Used to override the default timeout of a step.
+     */
+    timeout?: number;
+    /**
+     * Type of the step. Refer to  for the complete list of available types.
+     */
     type: string;
 }
 
 export interface SyntheticsTestVariable {
+    /**
+     * Example for the variable.
+     */
     example?: string;
+    /**
+     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+     */
     id?: string;
+    /**
+     * Name of the variable.
+     */
     name: string;
+    /**
+     * Pattern of the variable.
+     */
     pattern?: string;
+    /**
+     * Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+     */
     type: string;
 }
 
@@ -5711,7 +9540,13 @@ export interface TimeBoardTemplateVariable {
 }
 export namespace pagerduty {
     export interface IntegrationService {
+        /**
+         * Your Service name associated service key in Pagerduty.
+         */
         serviceKey: string;
+        /**
+         * Your Service name in PagerDuty.
+         */
         serviceName: string;
     }
 }

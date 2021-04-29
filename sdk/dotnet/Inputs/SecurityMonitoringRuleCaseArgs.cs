@@ -12,20 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleCaseArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A rule case contains logical operations (&gt;,&gt;=, &amp;&amp;, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.
+        /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// Name of the case.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notifications")]
         private InputList<string>? _notifications;
+
+        /// <summary>
+        /// Notification targets for each rule case.
+        /// </summary>
         public InputList<string> Notifications
         {
             get => _notifications ?? (_notifications = new InputList<string>());
             set => _notifications = value;
         }
 
+        /// <summary>
+        /// Severity of the Security Signal.
+        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

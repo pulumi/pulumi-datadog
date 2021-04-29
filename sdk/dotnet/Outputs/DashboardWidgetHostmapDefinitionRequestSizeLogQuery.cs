@@ -14,14 +14,18 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetHostmapDefinitionRequestSizeLogQuery
     {
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute? Compute;
+        public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch? Search;
+        public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetHostmapDefinitionRequestSizeLogQuery(
             Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute? compute,
+
+            Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy> groupBies,
 
@@ -29,13 +33,17 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch? search)
+            Outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch? search,
+
+            string? searchQuery)
         {
             Compute = compute;
+            ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
             Search = search;
+            SearchQuery = searchQuery;
         }
     }
 }

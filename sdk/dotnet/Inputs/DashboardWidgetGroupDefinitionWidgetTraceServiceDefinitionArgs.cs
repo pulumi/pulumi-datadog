@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 

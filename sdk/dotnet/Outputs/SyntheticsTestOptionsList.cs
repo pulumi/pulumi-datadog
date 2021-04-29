@@ -14,13 +14,26 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestOptionsList
     {
         public readonly bool? AcceptSelfSigned;
+        /// <summary>
+        /// Allows loading insecure content for an HTTP test.
+        /// </summary>
         public readonly bool? AllowInsecure;
+        /// <summary>
+        /// For API HTTP test, whether or not the test should follow redirects.
+        /// </summary>
         public readonly bool? FollowRedirects;
         public readonly int? MinFailureDuration;
         public readonly int? MinLocationFailed;
         public readonly Outputs.SyntheticsTestOptionsListMonitorOptions? MonitorOptions;
+        /// <summary>
+        /// Prevents saving screenshots of the steps.
+        /// </summary>
+        public readonly bool? NoScreenshot;
         public readonly Outputs.SyntheticsTestOptionsListRetry? Retry;
-        public readonly int? TickEvery;
+        /// <summary>
+        /// How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+        /// </summary>
+        public readonly int TickEvery;
 
         [OutputConstructor]
         private SyntheticsTestOptionsList(
@@ -36,9 +49,11 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.SyntheticsTestOptionsListMonitorOptions? monitorOptions,
 
+            bool? noScreenshot,
+
             Outputs.SyntheticsTestOptionsListRetry? retry,
 
-            int? tickEvery)
+            int tickEvery)
         {
             AcceptSelfSigned = acceptSelfSigned;
             AllowInsecure = allowInsecure;
@@ -46,6 +61,7 @@ namespace Pulumi.Datadog.Outputs
             MinFailureDuration = minFailureDuration;
             MinLocationFailed = minLocationFailed;
             MonitorOptions = monitorOptions;
+            NoScreenshot = noScreenshot;
             Retry = retry;
             TickEvery = tickEvery;
         }

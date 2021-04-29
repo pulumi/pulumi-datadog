@@ -34,6 +34,9 @@ type Monitor struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+	// `false`.
+	GroupbySimpleMonitor pulumi.BoolPtrOutput `pulumi:"groupbySimpleMonitor"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrOutput `pulumi:"includeTags"`
@@ -58,25 +61,31 @@ type Monitor struct {
 	NoDataTimeframe pulumi.IntPtrOutput `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrOutput `pulumi:"notifyAudit"`
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrOutput `pulumi:"notifyNoData"`
-	Priority     pulumi.IntPtrOutput  `pulumi:"priority"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
 	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
 	Query pulumi.StringOutput `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-	// times` and `in total` aggregation. `false` otherwise.
-	RequireFullWindow pulumi.BoolPtrOutput `pulumi:"requireFullWindow"`
+	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+	// all times` and `in total` aggregation. `false` otherwise.
+	RequireFullWindow pulumi.BoolPtrOutput     `pulumi:"requireFullWindow"`
+	RestrictedRoles   pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
 	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
 	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
 	// removed in the next major version of the Terraform Provider.
 	//
-	// Deprecated: use Downtime Resource instead
+	// Deprecated: Use the Downtime resource instead.
 	Silenced pulumi.MapOutput `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -91,7 +100,6 @@ type Monitor struct {
 	// Deprecated: Define `monitor_thresholds` list with one element instead.
 	Thresholds MonitorThresholdsPtrOutput `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-	// Defaults to `false`.
 	TimeoutH pulumi.IntPtrOutput `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -155,6 +163,9 @@ type monitorState struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete *bool `pulumi:"forceDelete"`
+	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+	// `false`.
+	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	// Defaults to `true`.
 	IncludeTags *bool `pulumi:"includeTags"`
@@ -179,25 +190,31 @@ type monitorState struct {
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
-	Priority     *int  `pulumi:"priority"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority *int `pulumi:"priority"`
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
 	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
 	Query *string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-	// times` and `in total` aggregation. `false` otherwise.
-	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+	// all times` and `in total` aggregation. `false` otherwise.
+	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
+	RestrictedRoles   []string `pulumi:"restrictedRoles"`
 	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
 	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
 	// removed in the next major version of the Terraform Provider.
 	//
-	// Deprecated: use Downtime Resource instead
+	// Deprecated: Use the Downtime resource instead.
 	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -212,7 +229,6 @@ type monitorState struct {
 	// Deprecated: Define `monitor_thresholds` list with one element instead.
 	Thresholds *MonitorThresholds `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-	// Defaults to `false`.
 	TimeoutH *int `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -236,6 +252,9 @@ type MonitorState struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete pulumi.BoolPtrInput
+	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+	// `false`.
+	GroupbySimpleMonitor pulumi.BoolPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrInput
@@ -260,25 +279,31 @@ type MonitorState struct {
 	NoDataTimeframe pulumi.IntPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrInput
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
-	Priority     pulumi.IntPtrInput
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority pulumi.IntPtrInput
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
 	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
 	Query pulumi.StringPtrInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-	// times` and `in total` aggregation. `false` otherwise.
+	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
+	RestrictedRoles   pulumi.StringArrayInput
 	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
 	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
 	// removed in the next major version of the Terraform Provider.
 	//
-	// Deprecated: use Downtime Resource instead
+	// Deprecated: Use the Downtime resource instead.
 	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -293,7 +318,6 @@ type MonitorState struct {
 	// Deprecated: Define `monitor_thresholds` list with one element instead.
 	Thresholds MonitorThresholdsPtrInput
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-	// Defaults to `false`.
 	TimeoutH pulumi.IntPtrInput
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -321,6 +345,9 @@ type monitorArgs struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete *bool `pulumi:"forceDelete"`
+	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+	// `false`.
+	GroupbySimpleMonitor *bool `pulumi:"groupbySimpleMonitor"`
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	// Defaults to `true`.
 	IncludeTags *bool `pulumi:"includeTags"`
@@ -345,25 +372,31 @@ type monitorArgs struct {
 	NoDataTimeframe *int `pulumi:"noDataTimeframe"`
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit *bool `pulumi:"notifyAudit"`
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData *bool `pulumi:"notifyNoData"`
-	Priority     *int  `pulumi:"priority"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority *int `pulumi:"priority"`
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
 	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
 	Query string `pulumi:"query"`
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-	// times` and `in total` aggregation. `false` otherwise.
-	RequireFullWindow *bool `pulumi:"requireFullWindow"`
+	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+	// all times` and `in total` aggregation. `false` otherwise.
+	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
+	RestrictedRoles   []string `pulumi:"restrictedRoles"`
 	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
 	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
 	// removed in the next major version of the Terraform Provider.
 	//
-	// Deprecated: use Downtime Resource instead
+	// Deprecated: Use the Downtime resource instead.
 	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -378,7 +411,6 @@ type monitorArgs struct {
 	// Deprecated: Define `monitor_thresholds` list with one element instead.
 	Thresholds *MonitorThresholds `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-	// Defaults to `false`.
 	TimeoutH *int `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -403,6 +435,9 @@ type MonitorArgs struct {
 	// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. SLO,
 	// composite monitor).
 	ForceDelete pulumi.BoolPtrInput
+	// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+	// `false`.
+	GroupbySimpleMonitor pulumi.BoolPtrInput
 	// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
 	// Defaults to `true`.
 	IncludeTags pulumi.BoolPtrInput
@@ -427,25 +462,31 @@ type MonitorArgs struct {
 	NoDataTimeframe pulumi.IntPtrInput
 	// A boolean indicating whether tagged users will be notified on changes to this monitor. Defaults to `false`.
 	NotifyAudit pulumi.BoolPtrInput
-	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+	// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
 	NotifyNoData pulumi.BoolPtrInput
-	Priority     pulumi.IntPtrInput
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	Priority pulumi.IntPtrInput
 	// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
 	// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-	// details. Warning: `terraform plan` won't perform any validation of the query contents.
+	// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+	// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+	// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+	// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+	// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
 	Query pulumi.StringInput
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-	// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-	// times` and `in total` aggregation. `false` otherwise.
+	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
+	RestrictedRoles   pulumi.StringArrayInput
 	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
 	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
 	// removed in the next major version of the Terraform Provider.
 	//
-	// Deprecated: use Downtime Resource instead
+	// Deprecated: Use the Downtime resource instead.
 	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
@@ -460,7 +501,6 @@ type MonitorArgs struct {
 	// Deprecated: Define `monitor_thresholds` list with one element instead.
 	Thresholds MonitorThresholdsPtrInput
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-	// Defaults to `false`.
 	TimeoutH pulumi.IntPtrInput
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
 	// Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type

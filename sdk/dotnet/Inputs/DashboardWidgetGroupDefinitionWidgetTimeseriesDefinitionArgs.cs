@@ -28,8 +28,22 @@ namespace Pulumi.Datadog.Inputs
             set => _events = value;
         }
 
+        [Input("legendColumns")]
+        private InputList<string>? _legendColumns;
+        public InputList<string> LegendColumns
+        {
+            get => _legendColumns ?? (_legendColumns = new InputList<string>());
+            set => _legendColumns = value;
+        }
+
+        [Input("legendLayout")]
+        public Input<string>? LegendLayout { get; set; }
+
         [Input("legendSize")]
         public Input<string>? LegendSize { get; set; }
+
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
 
         [Input("markers")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarkerArgs>? _markers;

@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? Autoscale;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionCustomLink> CustomLinks;
         public readonly string? CustomUnit;
+        public readonly string? LiveSpan;
         public readonly int? Precision;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequest> Requests;
         public readonly string? TextAlign;
@@ -31,6 +32,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionCustomLink> customLinks,
 
             string? customUnit,
+
+            string? liveSpan,
 
             int? precision,
 
@@ -49,6 +52,7 @@ namespace Pulumi.Datadog.Outputs
             Autoscale = autoscale;
             CustomLinks = customLinks;
             CustomUnit = customUnit;
+            LiveSpan = liveSpan;
             Precision = precision;
             Requests = requests;
             TextAlign = textAlign;

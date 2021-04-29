@@ -22,6 +22,7 @@ class DashboardArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -34,6 +35,9 @@ class DashboardArgs:
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+               ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+               layouts.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] url: The URL of the dashboard.
@@ -49,6 +53,8 @@ class DashboardArgs:
             pulumi.set(__self__, "is_read_only", is_read_only)
         if notify_lists is not None:
             pulumi.set(__self__, "notify_lists", notify_lists)
+        if reflow_type is not None:
+            pulumi.set(__self__, "reflow_type", reflow_type)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -141,6 +147,20 @@ class DashboardArgs:
         pulumi.set(self, "notify_lists", value)
 
     @property
+    @pulumi.getter(name="reflowType")
+    def reflow_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+        ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+        layouts.
+        """
+        return pulumi.get(self, "reflow_type")
+
+    @reflow_type.setter
+    def reflow_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reflow_type", value)
+
+    @property
     @pulumi.getter(name="templateVariablePresets")
     def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
         """
@@ -186,6 +206,7 @@ class _DashboardState:
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -199,6 +220,9 @@ class _DashboardState:
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+               ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+               layouts.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -217,6 +241,8 @@ class _DashboardState:
             pulumi.set(__self__, "layout_type", layout_type)
         if notify_lists is not None:
             pulumi.set(__self__, "notify_lists", notify_lists)
+        if reflow_type is not None:
+            pulumi.set(__self__, "reflow_type", reflow_type)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -301,6 +327,20 @@ class _DashboardState:
         pulumi.set(self, "notify_lists", value)
 
     @property
+    @pulumi.getter(name="reflowType")
+    def reflow_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+        ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+        layouts.
+        """
+        return pulumi.get(self, "reflow_type")
+
+    @reflow_type.setter
+    def reflow_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reflow_type", value)
+
+    @property
     @pulumi.getter(name="templateVariablePresets")
     def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
         """
@@ -371,6 +411,7 @@ class Dashboard(pulumi.CustomResource):
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -380,15 +421,13 @@ class Dashboard(pulumi.CustomResource):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 
-        > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/dashboards/widgets/group/). Additionally, this resource unifies `TimeBoard` and `ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
-
         ## Example Usage
-        ### Create A New Datadog Dashboard - Ordered Layout
 
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
+        # Example Ordered Layout
         ordered_dashboard = datadog.Dashboard("orderedDashboard",
             description="Created using the Datadog provider in Terraform",
             is_read_only=True,
@@ -423,9 +462,7 @@ class Dashboard(pulumi.CustomResource):
                 datadog.DashboardWidgetArgs(
                     alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                         alert_id="895605",
-                        time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
+                        live_span="1h",
                         title="Widget Title",
                         viz_type="timeseries",
                     ),
@@ -450,6 +487,7 @@ class Dashboard(pulumi.CustomResource):
                 ),
                 datadog.DashboardWidgetArgs(
                     change_definition=datadog.DashboardWidgetChangeDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "changeType": "absolute",
                             "compareTo": "week_before",
@@ -459,23 +497,18 @@ class Dashboard(pulumi.CustomResource):
                             "q": "avg:system.load.1{env:staging} by {account}",
                             "showPresent": True,
                         }],
-                        time=datadog.DashboardWidgetChangeDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     distribution_definition=datadog.DashboardWidgetDistributionDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "q": "avg:system.load.1{env:staging} by {account}",
                             "style": {
                                 "palette": "warm",
                             },
                         }],
-                        time=datadog.DashboardWidgetDistributionDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
@@ -487,27 +520,23 @@ class Dashboard(pulumi.CustomResource):
                             "cluster",
                         ],
                         grouping="cluster",
+                        live_span="1h",
                         tags=[
                             "account:demo",
                             "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk",
                         ],
-                        time=datadog.DashboardWidgetCheckStatusDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     heatmap_definition=datadog.DashboardWidgetHeatmapDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "q": "avg:system.load.1{env:staging} by {account}",
                             "style": {
                                 "palette": "warm",
                             },
                         }],
-                        time=datadog.DashboardWidgetHeatmapDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         yaxis=datadog.DashboardWidgetHeatmapDefinitionYaxisArgs(
                             include_zero=True,
@@ -562,6 +591,7 @@ class Dashboard(pulumi.CustomResource):
                     query_value_definition=datadog.DashboardWidgetQueryValueDefinitionArgs(
                         autoscale=True,
                         custom_unit="xx",
+                        live_span="1h",
                         precision=4,
                         request=[{
                             "aggregator": "sum",
@@ -580,14 +610,12 @@ class Dashboard(pulumi.CustomResource):
                             "q": "avg:system.load.1{env:staging} by {account}",
                         }],
                         text_align="right",
-                        time=datadog.DashboardWidgetQueryValueDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     query_table_definition=datadog.DashboardWidgetQueryTableDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "aggregator": "sum",
                             "conditionalFormats": [
@@ -605,9 +633,6 @@ class Dashboard(pulumi.CustomResource):
                             "limit": "10",
                             "q": "avg:system.load.1{env:staging} by {account}",
                         }],
-                        time=datadog.DashboardWidgetQueryTableDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
@@ -617,6 +642,7 @@ class Dashboard(pulumi.CustomResource):
                             "account",
                             "apm-role-group",
                         ],
+                        live_span="1h",
                         request=datadog.DashboardWidgetScatterplotDefinitionRequestArgs(
                             x=[{
                                 "aggregator": "max",
@@ -626,9 +652,6 @@ class Dashboard(pulumi.CustomResource):
                                 "aggregator": "min",
                                 "q": "avg:system.mem.used{*} by {service, account}",
                             }],
-                        ),
-                        time=datadog.DashboardWidgetScatterplotDefinitionTimeArgs(
-                            live_span="1h",
                         ),
                         title="Widget Title",
                         xaxis=datadog.DashboardWidgetScatterplotDefinitionXaxisArgs(
@@ -648,12 +671,6 @@ class Dashboard(pulumi.CustomResource):
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=43,
-                        width=32,
-                        x=5,
-                        y=5,
-                    ),
                     servicemap_definition=datadog.DashboardWidgetServicemapDefinitionArgs(
                         filters=[
                             "env:prod",
@@ -676,6 +693,7 @@ class Dashboard(pulumi.CustomResource):
                             },
                         ],
                         legend_size="2",
+                        live_span="1h",
                         marker=[
                             {
                                 "displayType": "error dashed",
@@ -705,7 +723,7 @@ class Dashboard(pulumi.CustomResource):
                             {
                                 "displayType": "area",
                                 "logQuery": {
-                                    "compute": {
+                                    "computeQuery": {
                                         "aggregation": "avg",
                                         "facet": "@duration",
                                         "interval": 5000,
@@ -713,21 +731,19 @@ class Dashboard(pulumi.CustomResource):
                                     "groupBy": [{
                                         "facet": "host",
                                         "limit": 10,
-                                        "sort": {
+                                        "sortQuery": {
                                             "aggregation": "avg",
                                             "facet": "@duration",
                                             "order": "desc",
                                         },
                                     }],
                                     "index": "mcnulty",
-                                    "search": {
-                                        "query": "status:info",
-                                    },
+                                    "searchQuery": "status:info",
                                 },
                             },
                             {
                                 "apmQuery": {
-                                    "compute": {
+                                    "computeQuery": {
                                         "aggregation": "avg",
                                         "facet": "@duration",
                                         "interval": 5000,
@@ -735,16 +751,14 @@ class Dashboard(pulumi.CustomResource):
                                     "groupBy": [{
                                         "facet": "resource_name",
                                         "limit": 50,
-                                        "sort": {
+                                        "sortQuery": {
                                             "aggregation": "avg",
                                             "facet": "@string_query.interval",
                                             "order": "desc",
                                         },
                                     }],
                                     "index": "apm-search",
-                                    "search": {
-                                        "query": "type:web",
-                                    },
+                                    "searchQuery": "type:web",
                                 },
                                 "displayType": "bars",
                             },
@@ -759,9 +773,6 @@ class Dashboard(pulumi.CustomResource):
                             },
                         ],
                         show_legend=True,
-                        time=datadog.DashboardWidgetTimeseriesDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         yaxis=datadog.DashboardWidgetTimeseriesDefinitionYaxisArgs(
                             include_zero=False,
@@ -809,9 +820,7 @@ class Dashboard(pulumi.CustomResource):
                             {
                                 "alertGraphDefinition": {
                                     "alertId": "123",
-                                    "time": {
-                                        "liveSpan": "1h",
-                                    },
+                                    "liveSpan": "1h",
                                     "title": "Alert Graph",
                                     "vizType": "toplist",
                                 },
@@ -833,13 +842,7 @@ class Dashboard(pulumi.CustomResource):
                     ),
                 ),
             ])
-        ```
-        ### Create A New Datadog Dashboard - Free Layout
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
+        # Example Free Layout
         free_dashboard = datadog.Dashboard("freeDashboard",
             description="Created using the Datadog provider in Terraform",
             is_read_only=False,
@@ -874,15 +877,13 @@ class Dashboard(pulumi.CustomResource):
                 datadog.DashboardWidgetArgs(
                     event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
                         event_size="l",
+                        live_span="1h",
                         query="*",
-                        time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         title_align="left",
                         title_size="16",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=43,
                         width=32,
                         x=5,
@@ -891,15 +892,13 @@ class Dashboard(pulumi.CustomResource):
                 ),
                 datadog.DashboardWidgetArgs(
                     event_timeline_definition=datadog.DashboardWidgetEventTimelineDefinitionArgs(
+                        live_span="1h",
                         query="*",
-                        time=datadog.DashboardWidgetEventTimelineDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         title_align="left",
                         title_size="16",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=9,
                         width=65,
                         x=42,
@@ -913,7 +912,7 @@ class Dashboard(pulumi.CustomResource):
                         text="free text content",
                         text_align="left",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
                         width=30,
                         x=42,
@@ -924,7 +923,7 @@ class Dashboard(pulumi.CustomResource):
                     iframe_definition=datadog.DashboardWidgetIframeDefinitionArgs(
                         url="http://google.com",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=46,
                         width=39,
                         x=111,
@@ -937,7 +936,7 @@ class Dashboard(pulumi.CustomResource):
                         sizing="fit",
                         url="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
                         width=30,
                         x=77,
@@ -945,12 +944,6 @@ class Dashboard(pulumi.CustomResource):
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=36,
-                        width=32,
-                        x=5,
-                        y=51,
-                    ),
                     log_stream_definition=datadog.DashboardWidgetLogStreamDefinitionArgs(
                         columns=[
                             "core_host",
@@ -967,14 +960,14 @@ class Dashboard(pulumi.CustomResource):
                             order="desc",
                         ),
                     ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=36,
+                        width=32,
+                        x=5,
+                        y=51,
+                    ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=40,
-                        width=30,
-                        x=112,
-                        y=55,
-                    ),
                     manage_status_definition=datadog.DashboardWidgetManageStatusDefinitionArgs(
                         color_preference="text",
                         display_format="countsAndList",
@@ -987,17 +980,18 @@ class Dashboard(pulumi.CustomResource):
                         title_align="left",
                         title_size="16",
                     ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=40,
+                        width=30,
+                        x=112,
+                        y=55,
+                    ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=38,
-                        width=67,
-                        x=40,
-                        y=28,
-                    ),
                     trace_service_definition=datadog.DashboardWidgetTraceServiceDefinitionArgs(
                         display_format="three_column",
                         env="datad0g.com",
+                        live_span="1h",
                         service="alerting-cassandra",
                         show_breakdown=True,
                         show_distribution=True,
@@ -1007,20 +1001,129 @@ class Dashboard(pulumi.CustomResource):
                         show_resource_list=False,
                         size_format="large",
                         span_name="cassandra.query",
-                        time=datadog.DashboardWidgetTraceServiceDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="alerting-cassandra #env:datad0g.com",
                         title_align="center",
                         title_size="13",
+                    ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=38,
+                        width=67,
+                        x=40,
+                        y=28,
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
+                        request=[{
+                            "formula": [
+                                {
+                                    "alias": "my ff query",
+                                    "formulaExpression": "my_query_1 + my_query_2",
+                                },
+                                {
+                                    "alias": "my second ff query",
+                                    "formulaExpression": "my_query_1 * my_query_2",
+                                    "limit": {
+                                        "count": 5,
+                                        "order": "desc",
+                                    },
+                                },
+                            ],
+                            "query": [
+                                {
+                                    "metricQuery": {
+                                        "aggregator": "sum",
+                                        "dataSource": "metrics",
+                                        "name": "my_query_1",
+                                        "query": "avg:system.cpu.user{app:general} by {env}",
+                                    },
+                                },
+                                {
+                                    "metricQuery": {
+                                        "aggregator": "sum",
+                                        "name": "my_query_2",
+                                        "query": "avg:system.cpu.user{app:general} by {env}",
+                                    },
+                                },
+                            ],
+                        }],
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
+                        request=[{
+                            "query": [{
+                                "eventQuery": {
+                                    "compute": [{
+                                        "aggregation": "count",
+                                    }],
+                                    "dataSource": "logs",
+                                    "groupBy": [{
+                                        "facet": "host",
+                                        "limit": 10,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "metric": "@lambda.max_memory_used",
+                                        },
+                                    }],
+                                    "indexes": ["days-3"],
+                                },
+                            }],
+                        }],
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
+                        request=[{
+                            "query": [{
+                                "processQuery": {
+                                    "aggregator": "sum",
+                                    "dataSource": "process",
+                                    "isNormalizedCpu": True,
+                                    "limit": 10,
+                                    "metric": "process.stat.cpu.total_pct",
+                                    "name": "my_process_query",
+                                    "sort": "asc",
+                                    "tagFilters": ["some_filter"],
+                                    "textFilter": "abc",
+                                },
+                            }],
+                        }],
                     ),
                 ),
             ])
         ```
 
+        <!-- schema generated by tfplugindocs -->
+        ## Schema
+
+        ### Required
+
+        - **layout_type** (String) The layout type of the dashboard, either 'free' or 'ordered'.
+        - **title** (String) The title of the dashboard.
+        - **widget** (Block List, Min: 1) The list of widgets to display on the dashboard. (see below for nested schema)
+
+        ### Optional
+
+        - **dashboard_lists** (Set of Number) The list of dashboard lists this dashboard belongs to.
+        - **description** (String) The description of the dashboard.
+        - **is_read_only** (Boolean) Whether this dashboard is read-only.
+        - **notify_list** (List of String) The list of handles of users to notify when changes are made to this dashboard.
+        - **reflow_type** (String) The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        - **template_variable** (Block List) The list of template variables for this dashboard. (see below for nested schema)
+        - **template_variable_preset** (Block List) The list of selectable template variable presets for this dashboard. (see below for nested schema)
+        - **url** (String) The URL of the dashboard.
+
+        ### Read-Only
+
+        - **dashboard_lists_removed** (Set of Number) The list of dashboard lists this dashboard should be removed from. Internal only.
+        - **id** (String) The ID of this resource.
+
+        <a id="nestedblock--widget"></a>
+
         ## Import
 
-        dashboards can be imported using their ID, e.g.
+        Import is supported using the following syntax
 
         ```sh
          $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
@@ -1033,6 +1136,9 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+               ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+               layouts.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -1048,15 +1154,13 @@ class Dashboard(pulumi.CustomResource):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
 
-        > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/dashboards/widgets/group/). Additionally, this resource unifies `TimeBoard` and `ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
-
         ## Example Usage
-        ### Create A New Datadog Dashboard - Ordered Layout
 
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
+        # Example Ordered Layout
         ordered_dashboard = datadog.Dashboard("orderedDashboard",
             description="Created using the Datadog provider in Terraform",
             is_read_only=True,
@@ -1091,9 +1195,7 @@ class Dashboard(pulumi.CustomResource):
                 datadog.DashboardWidgetArgs(
                     alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                         alert_id="895605",
-                        time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
+                        live_span="1h",
                         title="Widget Title",
                         viz_type="timeseries",
                     ),
@@ -1118,6 +1220,7 @@ class Dashboard(pulumi.CustomResource):
                 ),
                 datadog.DashboardWidgetArgs(
                     change_definition=datadog.DashboardWidgetChangeDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "changeType": "absolute",
                             "compareTo": "week_before",
@@ -1127,23 +1230,18 @@ class Dashboard(pulumi.CustomResource):
                             "q": "avg:system.load.1{env:staging} by {account}",
                             "showPresent": True,
                         }],
-                        time=datadog.DashboardWidgetChangeDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     distribution_definition=datadog.DashboardWidgetDistributionDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "q": "avg:system.load.1{env:staging} by {account}",
                             "style": {
                                 "palette": "warm",
                             },
                         }],
-                        time=datadog.DashboardWidgetDistributionDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
@@ -1155,27 +1253,23 @@ class Dashboard(pulumi.CustomResource):
                             "cluster",
                         ],
                         grouping="cluster",
+                        live_span="1h",
                         tags=[
                             "account:demo",
                             "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk",
                         ],
-                        time=datadog.DashboardWidgetCheckStatusDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     heatmap_definition=datadog.DashboardWidgetHeatmapDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "q": "avg:system.load.1{env:staging} by {account}",
                             "style": {
                                 "palette": "warm",
                             },
                         }],
-                        time=datadog.DashboardWidgetHeatmapDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         yaxis=datadog.DashboardWidgetHeatmapDefinitionYaxisArgs(
                             include_zero=True,
@@ -1230,6 +1324,7 @@ class Dashboard(pulumi.CustomResource):
                     query_value_definition=datadog.DashboardWidgetQueryValueDefinitionArgs(
                         autoscale=True,
                         custom_unit="xx",
+                        live_span="1h",
                         precision=4,
                         request=[{
                             "aggregator": "sum",
@@ -1248,14 +1343,12 @@ class Dashboard(pulumi.CustomResource):
                             "q": "avg:system.load.1{env:staging} by {account}",
                         }],
                         text_align="right",
-                        time=datadog.DashboardWidgetQueryValueDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     query_table_definition=datadog.DashboardWidgetQueryTableDefinitionArgs(
+                        live_span="1h",
                         request=[{
                             "aggregator": "sum",
                             "conditionalFormats": [
@@ -1273,9 +1366,6 @@ class Dashboard(pulumi.CustomResource):
                             "limit": "10",
                             "q": "avg:system.load.1{env:staging} by {account}",
                         }],
-                        time=datadog.DashboardWidgetQueryTableDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                     ),
                 ),
@@ -1285,6 +1375,7 @@ class Dashboard(pulumi.CustomResource):
                             "account",
                             "apm-role-group",
                         ],
+                        live_span="1h",
                         request=datadog.DashboardWidgetScatterplotDefinitionRequestArgs(
                             x=[{
                                 "aggregator": "max",
@@ -1294,9 +1385,6 @@ class Dashboard(pulumi.CustomResource):
                                 "aggregator": "min",
                                 "q": "avg:system.mem.used{*} by {service, account}",
                             }],
-                        ),
-                        time=datadog.DashboardWidgetScatterplotDefinitionTimeArgs(
-                            live_span="1h",
                         ),
                         title="Widget Title",
                         xaxis=datadog.DashboardWidgetScatterplotDefinitionXaxisArgs(
@@ -1316,12 +1404,6 @@ class Dashboard(pulumi.CustomResource):
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=43,
-                        width=32,
-                        x=5,
-                        y=5,
-                    ),
                     servicemap_definition=datadog.DashboardWidgetServicemapDefinitionArgs(
                         filters=[
                             "env:prod",
@@ -1344,6 +1426,7 @@ class Dashboard(pulumi.CustomResource):
                             },
                         ],
                         legend_size="2",
+                        live_span="1h",
                         marker=[
                             {
                                 "displayType": "error dashed",
@@ -1373,7 +1456,7 @@ class Dashboard(pulumi.CustomResource):
                             {
                                 "displayType": "area",
                                 "logQuery": {
-                                    "compute": {
+                                    "computeQuery": {
                                         "aggregation": "avg",
                                         "facet": "@duration",
                                         "interval": 5000,
@@ -1381,21 +1464,19 @@ class Dashboard(pulumi.CustomResource):
                                     "groupBy": [{
                                         "facet": "host",
                                         "limit": 10,
-                                        "sort": {
+                                        "sortQuery": {
                                             "aggregation": "avg",
                                             "facet": "@duration",
                                             "order": "desc",
                                         },
                                     }],
                                     "index": "mcnulty",
-                                    "search": {
-                                        "query": "status:info",
-                                    },
+                                    "searchQuery": "status:info",
                                 },
                             },
                             {
                                 "apmQuery": {
-                                    "compute": {
+                                    "computeQuery": {
                                         "aggregation": "avg",
                                         "facet": "@duration",
                                         "interval": 5000,
@@ -1403,16 +1484,14 @@ class Dashboard(pulumi.CustomResource):
                                     "groupBy": [{
                                         "facet": "resource_name",
                                         "limit": 50,
-                                        "sort": {
+                                        "sortQuery": {
                                             "aggregation": "avg",
                                             "facet": "@string_query.interval",
                                             "order": "desc",
                                         },
                                     }],
                                     "index": "apm-search",
-                                    "search": {
-                                        "query": "type:web",
-                                    },
+                                    "searchQuery": "type:web",
                                 },
                                 "displayType": "bars",
                             },
@@ -1427,9 +1506,6 @@ class Dashboard(pulumi.CustomResource):
                             },
                         ],
                         show_legend=True,
-                        time=datadog.DashboardWidgetTimeseriesDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         yaxis=datadog.DashboardWidgetTimeseriesDefinitionYaxisArgs(
                             include_zero=False,
@@ -1477,9 +1553,7 @@ class Dashboard(pulumi.CustomResource):
                             {
                                 "alertGraphDefinition": {
                                     "alertId": "123",
-                                    "time": {
-                                        "liveSpan": "1h",
-                                    },
+                                    "liveSpan": "1h",
                                     "title": "Alert Graph",
                                     "vizType": "toplist",
                                 },
@@ -1501,13 +1575,7 @@ class Dashboard(pulumi.CustomResource):
                     ),
                 ),
             ])
-        ```
-        ### Create A New Datadog Dashboard - Free Layout
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
+        # Example Free Layout
         free_dashboard = datadog.Dashboard("freeDashboard",
             description="Created using the Datadog provider in Terraform",
             is_read_only=False,
@@ -1542,15 +1610,13 @@ class Dashboard(pulumi.CustomResource):
                 datadog.DashboardWidgetArgs(
                     event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
                         event_size="l",
+                        live_span="1h",
                         query="*",
-                        time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         title_align="left",
                         title_size="16",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=43,
                         width=32,
                         x=5,
@@ -1559,15 +1625,13 @@ class Dashboard(pulumi.CustomResource):
                 ),
                 datadog.DashboardWidgetArgs(
                     event_timeline_definition=datadog.DashboardWidgetEventTimelineDefinitionArgs(
+                        live_span="1h",
                         query="*",
-                        time=datadog.DashboardWidgetEventTimelineDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="Widget Title",
                         title_align="left",
                         title_size="16",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=9,
                         width=65,
                         x=42,
@@ -1581,7 +1645,7 @@ class Dashboard(pulumi.CustomResource):
                         text="free text content",
                         text_align="left",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
                         width=30,
                         x=42,
@@ -1592,7 +1656,7 @@ class Dashboard(pulumi.CustomResource):
                     iframe_definition=datadog.DashboardWidgetIframeDefinitionArgs(
                         url="http://google.com",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=46,
                         width=39,
                         x=111,
@@ -1605,7 +1669,7 @@ class Dashboard(pulumi.CustomResource):
                         sizing="fit",
                         url="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
                     ),
-                    layout=datadog.DashboardWidgetLayoutArgs(
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
                         width=30,
                         x=77,
@@ -1613,12 +1677,6 @@ class Dashboard(pulumi.CustomResource):
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=36,
-                        width=32,
-                        x=5,
-                        y=51,
-                    ),
                     log_stream_definition=datadog.DashboardWidgetLogStreamDefinitionArgs(
                         columns=[
                             "core_host",
@@ -1635,14 +1693,14 @@ class Dashboard(pulumi.CustomResource):
                             order="desc",
                         ),
                     ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=36,
+                        width=32,
+                        x=5,
+                        y=51,
+                    ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=40,
-                        width=30,
-                        x=112,
-                        y=55,
-                    ),
                     manage_status_definition=datadog.DashboardWidgetManageStatusDefinitionArgs(
                         color_preference="text",
                         display_format="countsAndList",
@@ -1655,17 +1713,18 @@ class Dashboard(pulumi.CustomResource):
                         title_align="left",
                         title_size="16",
                     ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=40,
+                        width=30,
+                        x=112,
+                        y=55,
+                    ),
                 ),
                 datadog.DashboardWidgetArgs(
-                    layout=datadog.DashboardWidgetLayoutArgs(
-                        height=38,
-                        width=67,
-                        x=40,
-                        y=28,
-                    ),
                     trace_service_definition=datadog.DashboardWidgetTraceServiceDefinitionArgs(
                         display_format="three_column",
                         env="datad0g.com",
+                        live_span="1h",
                         service="alerting-cassandra",
                         show_breakdown=True,
                         show_distribution=True,
@@ -1675,20 +1734,129 @@ class Dashboard(pulumi.CustomResource):
                         show_resource_list=False,
                         size_format="large",
                         span_name="cassandra.query",
-                        time=datadog.DashboardWidgetTraceServiceDefinitionTimeArgs(
-                            live_span="1h",
-                        ),
                         title="alerting-cassandra #env:datad0g.com",
                         title_align="center",
                         title_size="13",
+                    ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=38,
+                        width=67,
+                        x=40,
+                        y=28,
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
+                        request=[{
+                            "formula": [
+                                {
+                                    "alias": "my ff query",
+                                    "formulaExpression": "my_query_1 + my_query_2",
+                                },
+                                {
+                                    "alias": "my second ff query",
+                                    "formulaExpression": "my_query_1 * my_query_2",
+                                    "limit": {
+                                        "count": 5,
+                                        "order": "desc",
+                                    },
+                                },
+                            ],
+                            "query": [
+                                {
+                                    "metricQuery": {
+                                        "aggregator": "sum",
+                                        "dataSource": "metrics",
+                                        "name": "my_query_1",
+                                        "query": "avg:system.cpu.user{app:general} by {env}",
+                                    },
+                                },
+                                {
+                                    "metricQuery": {
+                                        "aggregator": "sum",
+                                        "name": "my_query_2",
+                                        "query": "avg:system.cpu.user{app:general} by {env}",
+                                    },
+                                },
+                            ],
+                        }],
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
+                        request=[{
+                            "query": [{
+                                "eventQuery": {
+                                    "compute": [{
+                                        "aggregation": "count",
+                                    }],
+                                    "dataSource": "logs",
+                                    "groupBy": [{
+                                        "facet": "host",
+                                        "limit": 10,
+                                        "sort": {
+                                            "aggregation": "avg",
+                                            "metric": "@lambda.max_memory_used",
+                                        },
+                                    }],
+                                    "indexes": ["days-3"],
+                                },
+                            }],
+                        }],
+                    ),
+                ),
+                datadog.DashboardWidgetArgs(
+                    timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
+                        request=[{
+                            "query": [{
+                                "processQuery": {
+                                    "aggregator": "sum",
+                                    "dataSource": "process",
+                                    "isNormalizedCpu": True,
+                                    "limit": 10,
+                                    "metric": "process.stat.cpu.total_pct",
+                                    "name": "my_process_query",
+                                    "sort": "asc",
+                                    "tagFilters": ["some_filter"],
+                                    "textFilter": "abc",
+                                },
+                            }],
+                        }],
                     ),
                 ),
             ])
         ```
 
+        <!-- schema generated by tfplugindocs -->
+        ## Schema
+
+        ### Required
+
+        - **layout_type** (String) The layout type of the dashboard, either 'free' or 'ordered'.
+        - **title** (String) The title of the dashboard.
+        - **widget** (Block List, Min: 1) The list of widgets to display on the dashboard. (see below for nested schema)
+
+        ### Optional
+
+        - **dashboard_lists** (Set of Number) The list of dashboard lists this dashboard belongs to.
+        - **description** (String) The description of the dashboard.
+        - **is_read_only** (Boolean) Whether this dashboard is read-only.
+        - **notify_list** (List of String) The list of handles of users to notify when changes are made to this dashboard.
+        - **reflow_type** (String) The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        - **template_variable** (Block List) The list of template variables for this dashboard. (see below for nested schema)
+        - **template_variable_preset** (Block List) The list of selectable template variable presets for this dashboard. (see below for nested schema)
+        - **url** (String) The URL of the dashboard.
+
+        ### Read-Only
+
+        - **dashboard_lists_removed** (Set of Number) The list of dashboard lists this dashboard should be removed from. Internal only.
+        - **id** (String) The ID of this resource.
+
+        <a id="nestedblock--widget"></a>
+
         ## Import
 
-        dashboards can be imported using their ID, e.g.
+        Import is supported using the following syntax
 
         ```sh
          $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas
@@ -1714,6 +1882,7 @@ class Dashboard(pulumi.CustomResource):
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -1738,6 +1907,7 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'layout_type'")
             __props__.__dict__["layout_type"] = layout_type
             __props__.__dict__["notify_lists"] = notify_lists
+            __props__.__dict__["reflow_type"] = reflow_type
             __props__.__dict__["template_variable_presets"] = template_variable_presets
             __props__.__dict__["template_variables"] = template_variables
             if title is None and not opts.urn:
@@ -1764,6 +1934,7 @@ class Dashboard(pulumi.CustomResource):
             is_read_only: Optional[pulumi.Input[bool]] = None,
             layout_type: Optional[pulumi.Input[str]] = None,
             notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            reflow_type: Optional[pulumi.Input[str]] = None,
             template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
             template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
             title: Optional[pulumi.Input[str]] = None,
@@ -1782,6 +1953,9 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+               ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+               layouts.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -1798,6 +1972,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["is_read_only"] = is_read_only
         __props__.__dict__["layout_type"] = layout_type
         __props__.__dict__["notify_lists"] = notify_lists
+        __props__.__dict__["reflow_type"] = reflow_type
         __props__.__dict__["template_variable_presets"] = template_variable_presets
         __props__.__dict__["template_variables"] = template_variables
         __props__.__dict__["title"] = title
@@ -1852,6 +2027,16 @@ class Dashboard(pulumi.CustomResource):
         The list of handles of users to notify when changes are made to this dashboard.
         """
         return pulumi.get(self, "notify_lists")
+
+    @property
+    @pulumi.getter(name="reflowType")
+    def reflow_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The reflow type of a multi-size layout dashboard. Set this only when layout type is ‘ordered’. If set to
+        ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have
+        layouts.
+        """
+        return pulumi.get(self, "reflow_type")
 
     @property
     @pulumi.getter(name="templateVariablePresets")

@@ -51,6 +51,13 @@ namespace Pulumi.Datadog
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+        /// `false`.
+        /// </summary>
+        [Output("groupbySimpleMonitor")]
+        public Output<bool?> GroupbySimpleMonitor { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         /// Defaults to `true`.
         /// </summary>
@@ -111,18 +118,25 @@ namespace Pulumi.Datadog
         public Output<bool?> NotifyAudit { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
         /// </summary>
         [Output("notifyNoData")]
         public Output<bool?> NotifyNoData { get; private set; } = null!;
 
+        /// <summary>
+        /// Integer from 1 (high) to 5 (low) indicating alert severity.
+        /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
         /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
         /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. Warning: `terraform plan` won't perform any validation of the query contents.
+        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
@@ -136,11 +150,14 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        /// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-        /// times` and `in total` aggregation. `false` otherwise.
+        /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+        /// all times` and `in total` aggregation. `false` otherwise.
         /// </summary>
         [Output("requireFullWindow")]
         public Output<bool?> RequireFullWindow { get; private set; } = null!;
+
+        [Output("restrictedRoles")]
+        public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
         /// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
@@ -172,7 +189,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-        /// Defaults to `false`.
         /// </summary>
         [Output("timeoutH")]
         public Output<int?> TimeoutH { get; private set; } = null!;
@@ -267,6 +283,13 @@ namespace Pulumi.Datadog
         public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
+        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+        /// `false`.
+        /// </summary>
+        [Input("groupbySimpleMonitor")]
+        public Input<bool>? GroupbySimpleMonitor { get; set; }
+
+        /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         /// Defaults to `true`.
         /// </summary>
@@ -327,18 +350,25 @@ namespace Pulumi.Datadog
         public Input<bool>? NotifyAudit { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
         /// </summary>
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
 
+        /// <summary>
+        /// Integer from 1 (high) to 5 (low) indicating alert severity.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
         /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
         /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. Warning: `terraform plan` won't perform any validation of the query contents.
+        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
@@ -352,11 +382,19 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        /// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-        /// times` and `in total` aggregation. `false` otherwise.
+        /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+        /// all times` and `in total` aggregation. `false` otherwise.
         /// </summary>
         [Input("requireFullWindow")]
         public Input<bool>? RequireFullWindow { get; set; }
+
+        [Input("restrictedRoles")]
+        private InputList<string>? _restrictedRoles;
+        public InputList<string> RestrictedRoles
+        {
+            get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
+            set => _restrictedRoles = value;
+        }
 
         [Input("silenced")]
         private InputMap<object>? _silenced;
@@ -366,7 +404,7 @@ namespace Pulumi.Datadog
         /// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
         /// removed in the next major version of the Terraform Provider.
         /// </summary>
-        [Obsolete(@"use Downtime Resource instead")]
+        [Obsolete(@"Use the Downtime resource instead.")]
         public InputMap<object> Silenced
         {
             get => _silenced ?? (_silenced = new InputMap<object>());
@@ -401,7 +439,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-        /// Defaults to `false`.
         /// </summary>
         [Input("timeoutH")]
         public Input<int>? TimeoutH { get; set; }
@@ -455,6 +492,13 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
+
+        /// <summary>
+        /// Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+        /// `false`.
+        /// </summary>
+        [Input("groupbySimpleMonitor")]
+        public Input<bool>? GroupbySimpleMonitor { get; set; }
 
         /// <summary>
         /// A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
@@ -517,18 +561,25 @@ namespace Pulumi.Datadog
         public Input<bool>? NotifyAudit { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+        /// A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
         /// </summary>
         [Input("notifyNoData")]
         public Input<bool>? NotifyNoData { get; set; }
 
+        /// <summary>
+        /// Integer from 1 (high) to 5 (low) indicating alert severity.
+        /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
         /// The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
         /// on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-        /// details. Warning: `terraform plan` won't perform any validation of the query contents.
+        /// details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+        /// is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+        /// monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+        /// metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+        /// metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
@@ -542,11 +593,19 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-        /// this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-        /// times` and `in total` aggregation. `false` otherwise.
+        /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+        /// all times` and `in total` aggregation. `false` otherwise.
         /// </summary>
         [Input("requireFullWindow")]
         public Input<bool>? RequireFullWindow { get; set; }
+
+        [Input("restrictedRoles")]
+        private InputList<string>? _restrictedRoles;
+        public InputList<string> RestrictedRoles
+        {
+            get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
+            set => _restrictedRoles = value;
+        }
 
         [Input("silenced")]
         private InputMap<object>? _silenced;
@@ -556,7 +615,7 @@ namespace Pulumi.Datadog
         /// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
         /// removed in the next major version of the Terraform Provider.
         /// </summary>
-        [Obsolete(@"use Downtime Resource instead")]
+        [Obsolete(@"Use the Downtime resource instead.")]
         public InputMap<object> Silenced
         {
             get => _silenced ?? (_silenced = new InputMap<object>());
@@ -591,7 +650,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-        /// Defaults to `false`.
         /// </summary>
         [Input("timeoutH")]
         public Input<int>? TimeoutH { get; set; }

@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsMetricFilter
     {
+        /// <summary>
+        /// The search query - following the log search syntax.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

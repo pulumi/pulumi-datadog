@@ -13,19 +13,49 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsCustomPipelineProcessor
     {
+        /// <summary>
+        /// Arithmetic Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorArithmeticProcessor? ArithmeticProcessor;
+        /// <summary>
+        /// Attribute Remapper Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorAttributeRemapper? AttributeRemapper;
+        /// <summary>
+        /// Category Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorCategoryProcessor? CategoryProcessor;
+        /// <summary>
+        /// Date Remapper Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorDateRemapper? DateRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorGeoIpParser? GeoIpParser;
+        /// <summary>
+        /// Grok Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorGrokParser? GrokParser;
+        /// <summary>
+        /// Lookup Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorLookupProcessor? LookupProcessor;
+        /// <summary>
+        /// Message Remapper Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorMessageRemapper? MessageRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorPipeline? Pipeline;
+        /// <summary>
+        /// Service Remapper Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorServiceRemapper? ServiceRemapper;
+        /// <summary>
+        /// Status Remapper Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorStatusRemapper? StatusRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorStringBuilderProcessor? StringBuilderProcessor;
         public readonly Outputs.LogsCustomPipelineProcessorTraceIdRemapper? TraceIdRemapper;
+        /// <summary>
+        /// URL Parser Processor. More information can be found in the
+        /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorUrlParser? UrlParser;
         public readonly Outputs.LogsCustomPipelineProcessorUserAgentParser? UserAgentParser;
 

@@ -28,6 +28,9 @@ namespace Pulumi.Datadog.Inputs
             set => _indexes = value;
         }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("logset")]
         public Input<string>? Logset { get; set; }
 

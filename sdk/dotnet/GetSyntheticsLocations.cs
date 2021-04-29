@@ -13,6 +13,13 @@ namespace Pulumi.Datadog
     {
         /// <summary>
         /// Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
+        /// 
+        /// ## Schema
+        /// 
+        /// ### Read-Only
+        /// 
+        /// - **id** (String) The ID of this resource.
+        /// - **locations** (Map of String) A map of available Synthetics location IDs to names for Synthetics tests.
         /// </summary>
         public static Task<GetSyntheticsLocationsResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyntheticsLocationsResult>("datadog:index/getSyntheticsLocations:getSyntheticsLocations", InvokeArgs.Empty, options.WithVersion());

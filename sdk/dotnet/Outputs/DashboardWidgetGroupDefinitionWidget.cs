@@ -15,29 +15,76 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition? AlertGraphDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition? AlertValueDefinition;
+        /// <summary>
+        /// The definition for a Change  widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition? ChangeDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition? CheckStatusDefinition;
+        /// <summary>
+        /// The definition for a Distribution widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinition? DistributionDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinition? EventStreamDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition? EventTimelineDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition? FreeTextDefinition;
+        /// <summary>
+        /// The definition for a Geomap widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition? GeomapDefinition;
+        /// <summary>
+        /// The definition for a Heatmap widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition? HeatmapDefinition;
+        /// <summary>
+        /// The definition for a Hostmap widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinition? HostmapDefinition;
+        /// <summary>
+        /// The ID of the widget.
+        /// </summary>
         public readonly int? Id;
+        /// <summary>
+        /// The definition for an Iframe widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition? IframeDefinition;
+        /// <summary>
+        /// The definition for an Image widget
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition? ImageDefinition;
+        /// <summary>
+        /// The layout of the widget on a 'free' dashboard.  Define widget_layout list with one element instead.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLayout? Layout;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition? LogStreamDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition? ManageStatusDefinition;
+        /// <summary>
+        /// The definition for a Note widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition? NoteDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinition? QueryTableDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinition? QueryValueDefinition;
+        /// <summary>
+        /// The definition for a Scatterplot widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinition? ScatterplotDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
+        /// <summary>
+        /// The definition for a Service Map widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinition? ServicemapDefinition;
+        /// <summary>
+        /// The definition for a Timeseries widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition? TimeseriesDefinition;
+        /// <summary>
+        /// The definition for a Toplist widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition? ToplistDefinition;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? TraceServiceDefinition;
+        /// <summary>
+        /// The layout of the widget on a 'free' dashboard.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout? WidgetLayout;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidget(
@@ -56,6 +103,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition? eventTimelineDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetFreeTextDefinition? freeTextDefinition,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinition? geomapDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinition? heatmapDefinition,
 
@@ -89,7 +138,9 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinition? toplistDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? traceServiceDefinition)
+            Outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition? traceServiceDefinition,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetWidgetLayout? widgetLayout)
         {
             AlertGraphDefinition = alertGraphDefinition;
             AlertValueDefinition = alertValueDefinition;
@@ -99,6 +150,7 @@ namespace Pulumi.Datadog.Outputs
             EventStreamDefinition = eventStreamDefinition;
             EventTimelineDefinition = eventTimelineDefinition;
             FreeTextDefinition = freeTextDefinition;
+            GeomapDefinition = geomapDefinition;
             HeatmapDefinition = heatmapDefinition;
             HostmapDefinition = hostmapDefinition;
             Id = id;
@@ -116,6 +168,7 @@ namespace Pulumi.Datadog.Outputs
             TimeseriesDefinition = timeseriesDefinition;
             ToplistDefinition = toplistDefinition;
             TraceServiceDefinition = traceServiceDefinition;
+            WidgetLayout = widgetLayout;
         }
     }
 }

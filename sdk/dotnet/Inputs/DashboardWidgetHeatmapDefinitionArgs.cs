@@ -31,6 +31,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("legendSize")]
         public Input<string>? LegendSize { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestArgs> Requests

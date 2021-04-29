@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly ImmutableArray<string> Columns;
         public readonly ImmutableArray<string> Indexes;
+        public readonly string? LiveSpan;
         public readonly string? Logset;
         public readonly string? MessageDisplay;
         public readonly string? Query;
@@ -31,6 +32,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<string> columns,
 
             ImmutableArray<string> indexes,
+
+            string? liveSpan,
 
             string? logset,
 
@@ -54,6 +57,7 @@ namespace Pulumi.Datadog.Outputs
         {
             Columns = columns;
             Indexes = indexes;
+            LiveSpan = liveSpan;
             Logset = logset;
             MessageDisplay = messageDisplay;
             Query = query;

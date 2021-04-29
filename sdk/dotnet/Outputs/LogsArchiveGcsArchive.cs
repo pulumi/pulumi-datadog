@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsArchiveGcsArchive
     {
+        /// <summary>
+        /// Name of your GCS bucket.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// Your client email.
+        /// </summary>
         public readonly string ClientEmail;
+        /// <summary>
+        /// Path where the archive will be stored.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Your project id.
+        /// </summary>
         public readonly string ProjectId;
 
         [OutputConstructor]

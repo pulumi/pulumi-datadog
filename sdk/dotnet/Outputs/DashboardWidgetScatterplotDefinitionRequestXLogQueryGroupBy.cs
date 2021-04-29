@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Facet;
         public readonly int? Limit;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort? Sort;
+        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery? SortQuery;
 
         [OutputConstructor]
         private DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy(
@@ -23,11 +24,14 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort? sort)
+            Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort? sort,
+
+            Outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery? sortQuery)
         {
             Facet = facet;
             Limit = limit;
             Sort = sort;
+            SortQuery = sortQuery;
         }
     }
 }

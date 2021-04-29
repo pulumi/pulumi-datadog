@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardTemplateVariable
     {
+        /// <summary>
+        /// The default value for the template variable on dashboard load.
+        /// </summary>
         public readonly string? Default;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The tag prefix associated with the variable. Only tags with this prefix will appear in the variable dropdown.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

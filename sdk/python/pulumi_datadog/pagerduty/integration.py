@@ -213,33 +213,7 @@ class Integration(pulumi.CustomResource):
                  subdomain: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
-
-        ## Example Usage
-        ### Services as Individual Resources
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
-            individual_services=True,
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog")
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        ```
-
+        Create a Integration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
@@ -257,33 +231,7 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
-
-        ## Example Usage
-        ### Services as Individual Resources
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        pd = datadog.pagerduty.Integration("pd",
-            api_token="38457822378273432587234242874",
-            individual_services=True,
-            schedules=[
-                "https://ddog.pagerduty.com/schedules/X123VF",
-                "https://ddog.pagerduty.com/schedules/X321XX",
-            ],
-            subdomain="ddog")
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar",
-            opts=pulumi.ResourceOptions(depends_on=["datadog_integration_pagerduty.pd"]))
-        ```
-
+        Create a Integration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

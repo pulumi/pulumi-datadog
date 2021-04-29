@@ -14,14 +14,18 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery
     {
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute? Compute;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch? Search;
+        public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(
             Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute? compute,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy> groupBies,
 
@@ -29,13 +33,17 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch? search)
+            Outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch? search,
+
+            string? searchQuery)
         {
             Compute = compute;
+            ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
             Search = search;
+            SearchQuery = searchQuery;
         }
     }
 }

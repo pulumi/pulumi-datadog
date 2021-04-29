@@ -64,6 +64,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+     * `false`.
+     */
+    public readonly groupbySimpleMonitor!: pulumi.Output<boolean | undefined>;
+    /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      * Defaults to `true`.
      */
@@ -106,14 +111,21 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly notifyAudit!: pulumi.Output<boolean | undefined>;
     /**
-     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
      */
     public readonly notifyNoData!: pulumi.Output<boolean | undefined>;
+    /**
+     * Integer from 1 (high) to 5 (low) indicating alert severity.
+     */
     public readonly priority!: pulumi.Output<number | undefined>;
     /**
      * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
      * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-     * details. Warning: `terraform plan` won't perform any validation of the query contents.
+     * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+     * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+     * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+     * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+     * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
      */
     public readonly query!: pulumi.Output<string>;
     /**
@@ -123,16 +135,17 @@ export class Monitor extends pulumi.CustomResource {
     public readonly renotifyInterval!: pulumi.Output<number | undefined>;
     /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-     * this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-     * times` and `in total` aggregation. `false` otherwise.
+     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+     * all times` and `in total` aggregation. `false` otherwise.
      */
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
+    public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
      * Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
      * the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
      * removed in the next major version of the Terraform Provider.
      *
-     * @deprecated use Downtime Resource instead
+     * @deprecated Use the Downtime resource instead.
      */
     public readonly silenced!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
@@ -155,7 +168,6 @@ export class Monitor extends pulumi.CustomResource {
     public readonly thresholds!: pulumi.Output<outputs.MonitorThresholds | undefined>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-     * Defaults to `false`.
      */
     public readonly timeoutH!: pulumi.Output<number | undefined>;
     /**
@@ -186,6 +198,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["escalationMessage"] = state ? state.escalationMessage : undefined;
             inputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
             inputs["forceDelete"] = state ? state.forceDelete : undefined;
+            inputs["groupbySimpleMonitor"] = state ? state.groupbySimpleMonitor : undefined;
             inputs["includeTags"] = state ? state.includeTags : undefined;
             inputs["locked"] = state ? state.locked : undefined;
             inputs["message"] = state ? state.message : undefined;
@@ -200,6 +213,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["query"] = state ? state.query : undefined;
             inputs["renotifyInterval"] = state ? state.renotifyInterval : undefined;
             inputs["requireFullWindow"] = state ? state.requireFullWindow : undefined;
+            inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
             inputs["silenced"] = state ? state.silenced : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["thresholdWindows"] = state ? state.thresholdWindows : undefined;
@@ -225,6 +239,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["escalationMessage"] = args ? args.escalationMessage : undefined;
             inputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
             inputs["forceDelete"] = args ? args.forceDelete : undefined;
+            inputs["groupbySimpleMonitor"] = args ? args.groupbySimpleMonitor : undefined;
             inputs["includeTags"] = args ? args.includeTags : undefined;
             inputs["locked"] = args ? args.locked : undefined;
             inputs["message"] = args ? args.message : undefined;
@@ -239,6 +254,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["query"] = args ? args.query : undefined;
             inputs["renotifyInterval"] = args ? args.renotifyInterval : undefined;
             inputs["requireFullWindow"] = args ? args.requireFullWindow : undefined;
+            inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
             inputs["silenced"] = args ? args.silenced : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["thresholdWindows"] = args ? args.thresholdWindows : undefined;
@@ -279,6 +295,11 @@ export interface MonitorState {
      * composite monitor).
      */
     readonly forceDelete?: pulumi.Input<boolean>;
+    /**
+     * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+     * `false`.
+     */
+    readonly groupbySimpleMonitor?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      * Defaults to `true`.
@@ -322,14 +343,21 @@ export interface MonitorState {
      */
     readonly notifyAudit?: pulumi.Input<boolean>;
     /**
-     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    /**
+     * Integer from 1 (high) to 5 (low) indicating alert severity.
+     */
     readonly priority?: pulumi.Input<number>;
     /**
      * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
      * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-     * details. Warning: `terraform plan` won't perform any validation of the query contents.
+     * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+     * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+     * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+     * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+     * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
      */
     readonly query?: pulumi.Input<string>;
     /**
@@ -339,16 +367,17 @@ export interface MonitorState {
     readonly renotifyInterval?: pulumi.Input<number>;
     /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-     * this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-     * times` and `in total` aggregation. `false` otherwise.
+     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+     * all times` and `in total` aggregation. `false` otherwise.
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
+    readonly restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
      * the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
      * removed in the next major version of the Terraform Provider.
      *
-     * @deprecated use Downtime Resource instead
+     * @deprecated Use the Downtime resource instead.
      */
     readonly silenced?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -371,7 +400,6 @@ export interface MonitorState {
     readonly thresholds?: pulumi.Input<inputs.MonitorThresholds>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-     * Defaults to `false`.
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**
@@ -411,6 +439,11 @@ export interface MonitorArgs {
      * composite monitor).
      */
     readonly forceDelete?: pulumi.Input<boolean>;
+    /**
+     * Whether or not to trigger one alert if any source breaches a threshold. This is only used by log monitors. Defaults to
+     * `false`.
+     */
+    readonly groupbySimpleMonitor?: pulumi.Input<boolean>;
     /**
      * A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
      * Defaults to `true`.
@@ -454,14 +487,21 @@ export interface MonitorArgs {
      */
     readonly notifyAudit?: pulumi.Input<boolean>;
     /**
-     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to false.
+     * A boolean indicating whether this monitor will notify when data stops reporting. Defaults to `false`.
      */
     readonly notifyNoData?: pulumi.Input<boolean>;
+    /**
+     * Integer from 1 (high) to 5 (low) indicating alert severity.
+     */
     readonly priority?: pulumi.Input<number>;
     /**
      * The monitor query to notify on. Note this is not the same query you see in the UI and the syntax is different depending
      * on the monitor type, please see the [API Reference](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor) for
-     * details. Warning: `terraform plan` won't perform any validation of the query contents.
+     * details. `terraform plan` will validate query contents unless `validate` is set to `false`. **Note:** APM latency data
+     * is now available as Distribution Metrics. Existing monitors have been migrated automatically but all terraformed
+     * monitors can still use the existing metrics. We strongly recommend updating monitor definitions to query the new
+     * metrics. To learn more, or to see examples of how to update your terraform definitions to utilize the new distribution
+     * metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
      */
     readonly query: pulumi.Input<string>;
     /**
@@ -471,16 +511,17 @@ export interface MonitorArgs {
     readonly renotifyInterval?: pulumi.Input<number>;
     /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
-     * this to `false` for s metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at all
-     * times` and `in total` aggregation. `false` otherwise.
+     * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
+     * all times` and `in total` aggregation. `false` otherwise.
      */
     readonly requireFullWindow?: pulumi.Input<boolean>;
+    readonly restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
      * the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
      * removed in the next major version of the Terraform Provider.
      *
-     * @deprecated use Downtime Resource instead
+     * @deprecated Use the Downtime resource instead.
      */
     readonly silenced?: pulumi.Input<{[key: string]: any}>;
     /**
@@ -503,7 +544,6 @@ export interface MonitorArgs {
     readonly thresholds?: pulumi.Input<inputs.MonitorThresholds>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
-     * Defaults to `false`.
      */
     readonly timeoutH?: pulumi.Input<number>;
     /**

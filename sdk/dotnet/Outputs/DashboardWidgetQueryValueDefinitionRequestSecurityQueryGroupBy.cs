@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Facet;
         public readonly int? Limit;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort? Sort;
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery? SortQuery;
 
         [OutputConstructor]
         private DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy(
@@ -23,11 +24,14 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort? sort)
+            Outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort? sort,
+
+            Outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery? sortQuery)
         {
             Facet = facet;
             Limit = limit;
             Sort = sort;
+            SortQuery = sortQuery;
         }
     }
 }

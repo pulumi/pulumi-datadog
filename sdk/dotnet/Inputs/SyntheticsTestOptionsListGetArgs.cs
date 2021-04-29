@@ -15,9 +15,15 @@ namespace Pulumi.Datadog.Inputs
         [Input("acceptSelfSigned")]
         public Input<bool>? AcceptSelfSigned { get; set; }
 
+        /// <summary>
+        /// Allows loading insecure content for an HTTP test.
+        /// </summary>
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
 
+        /// <summary>
+        /// For API HTTP test, whether or not the test should follow redirects.
+        /// </summary>
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }
 
@@ -30,11 +36,20 @@ namespace Pulumi.Datadog.Inputs
         [Input("monitorOptions")]
         public Input<Inputs.SyntheticsTestOptionsListMonitorOptionsGetArgs>? MonitorOptions { get; set; }
 
+        /// <summary>
+        /// Prevents saving screenshots of the steps.
+        /// </summary>
+        [Input("noScreenshot")]
+        public Input<bool>? NoScreenshot { get; set; }
+
         [Input("retry")]
         public Input<Inputs.SyntheticsTestOptionsListRetryGetArgs>? Retry { get; set; }
 
-        [Input("tickEvery")]
-        public Input<int>? TickEvery { get; set; }
+        /// <summary>
+        /// How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+        /// </summary>
+        [Input("tickEvery", required: true)]
+        public Input<int> TickEvery { get; set; } = null!;
 
         public SyntheticsTestOptionsListGetArgs()
         {

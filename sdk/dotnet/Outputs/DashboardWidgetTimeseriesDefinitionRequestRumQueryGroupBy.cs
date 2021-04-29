@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Facet;
         public readonly int? Limit;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort? Sort;
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery? SortQuery;
 
         [OutputConstructor]
         private DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy(
@@ -23,11 +24,14 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort? sort)
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort? sort,
+
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery? sortQuery)
         {
             Facet = facet;
             Limit = limit;
             Sort = sort;
+            SortQuery = sortQuery;
         }
     }
 }

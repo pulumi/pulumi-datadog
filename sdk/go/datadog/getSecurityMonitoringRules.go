@@ -37,6 +37,22 @@ import (
 // 	})
 // }
 // ```
+// ## Schema
+//
+// ### Optional
+//
+// - **default_only_filter** (Boolean, Optional) Limit the search to default rules
+// - **id** (String, Optional) The ID of this resource.
+// - **name_filter** (String, Optional) A rule name to limit the search
+// - **tags_filter** (List of String, Optional) A list of tags to limit the search
+// - **user_only_filter** (Boolean, Optional) Limit the search to user rules
+//
+// ### Read-only
+//
+// - **rule_ids** (List of String, Read-only) List of IDs of the matched rules.
+// - **rules** (Block List) List of rules. (see below for nested schema)
+//
+// <a id="nestedblock--rules"></a>
 func GetSecurityMonitoringRules(ctx *pulumi.Context, args *GetSecurityMonitoringRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityMonitoringRulesResult, error) {
 	var rv GetSecurityMonitoringRulesResult
 	err := ctx.Invoke("datadog:index/getSecurityMonitoringRules:getSecurityMonitoringRules", args, &rv, opts...)

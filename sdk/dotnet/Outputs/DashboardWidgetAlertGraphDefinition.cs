@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetAlertGraphDefinition
     {
         public readonly string AlertId;
+        public readonly string? LiveSpan;
         public readonly Outputs.DashboardWidgetAlertGraphDefinitionTime? Time;
         public readonly string? Title;
         public readonly string? TitleAlign;
@@ -23,6 +24,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetAlertGraphDefinition(
             string alertId,
+
+            string? liveSpan,
 
             Outputs.DashboardWidgetAlertGraphDefinitionTime? time,
 
@@ -35,6 +38,7 @@ namespace Pulumi.Datadog.Outputs
             string vizType)
         {
             AlertId = alertId;
+            LiveSpan = liveSpan;
             Time = time;
             Title = title;
             TitleAlign = titleAlign;

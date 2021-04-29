@@ -29,6 +29,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("grouping", required: true)]
         public Input<string> Grouping { get; set; } = null!;
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("tags")]
         private InputList<string>? _tags;
         public InputList<string> Tags

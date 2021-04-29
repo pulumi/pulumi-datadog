@@ -12,12 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsGlobalVariableParseTestOptionsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Required when type = http_header. Defines the header to use to extract the value
+        /// </summary>
         [Input("field")]
         public Input<string>? Field { get; set; }
 
         [Input("parser", required: true)]
         public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsParserGetArgs> Parser { get; set; } = null!;
 
+        /// <summary>
+        /// Defines the source to use to extract the value. Allowed enum values: http_body, http_header.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

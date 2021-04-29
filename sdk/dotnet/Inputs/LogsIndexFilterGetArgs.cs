@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsIndexFilterGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Logs filter criteria. Only logs matching this filter criteria are considered for this index.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

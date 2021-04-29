@@ -24,6 +24,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("method")]
         public Input<string>? Method { get; set; }
 
+        [Input("noSavingResponseBody")]
+        public Input<bool>? NoSavingResponseBody { get; set; }
+
         [Input("port")]
         public Input<int>? Port { get; set; }
 

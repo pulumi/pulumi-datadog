@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? DisplayFormat;
         public readonly string Env;
+        public readonly string? LiveSpan;
         public readonly string Service;
         public readonly bool? ShowBreakdown;
         public readonly bool? ShowDistribution;
@@ -34,6 +35,8 @@ namespace Pulumi.Datadog.Outputs
             string? displayFormat,
 
             string env,
+
+            string? liveSpan,
 
             string service,
 
@@ -63,6 +66,7 @@ namespace Pulumi.Datadog.Outputs
         {
             DisplayFormat = displayFormat;
             Env = env;
+            LiveSpan = liveSpan;
             Service = service;
             ShowBreakdown = showBreakdown;
             ShowDistribution = showDistribution;

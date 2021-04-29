@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("globalTimeTarget")]
+        public Input<string>? GlobalTimeTarget { get; set; }
+
         [Input("showErrorBudget")]
         public Input<bool>? ShowErrorBudget { get; set; }
 

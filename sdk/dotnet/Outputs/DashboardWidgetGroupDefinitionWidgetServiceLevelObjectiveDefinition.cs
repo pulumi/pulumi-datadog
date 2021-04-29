@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition
     {
+        public readonly string? GlobalTimeTarget;
         public readonly bool? ShowErrorBudget;
         public readonly string SloId;
         public readonly ImmutableArray<string> TimeWindows;
@@ -24,6 +25,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(
+            string? globalTimeTarget,
+
             bool? showErrorBudget,
 
             string sloId,
@@ -40,6 +43,7 @@ namespace Pulumi.Datadog.Outputs
 
             string viewType)
         {
+            GlobalTimeTarget = globalTimeTarget;
             ShowErrorBudget = showErrorBudget;
             SloId = sloId;
             TimeWindows = timeWindows;

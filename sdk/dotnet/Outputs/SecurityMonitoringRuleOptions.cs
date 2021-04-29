@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringRuleOptions
     {
+        /// <summary>
+        /// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+        /// </summary>
         public readonly int EvaluationWindow;
+        /// <summary>
+        /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.
+        /// </summary>
         public readonly int KeepAlive;
         public readonly int MaxSignalDuration;
 

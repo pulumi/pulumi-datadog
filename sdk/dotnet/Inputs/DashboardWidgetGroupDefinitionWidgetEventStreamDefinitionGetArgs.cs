@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

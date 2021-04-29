@@ -18,11 +18,9 @@ class ServiceObjectArgs:
         """
         The set of arguments for constructing a ServiceObject resource.
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-               impossible to detect
-               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-               The best way to solve a drift is to manually mark the Service Object resource with [terraform
-               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-               have it destroyed and recreated.
+               impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+               to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         pulumi.set(__self__, "service_key", service_key)
@@ -33,11 +31,9 @@ class ServiceObjectArgs:
     def service_key(self) -> pulumi.Input[str]:
         """
         Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        impossible to detect
-        [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-        The best way to solve a drift is to manually mark the Service Object resource with [terraform
-        taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-        have it destroyed and recreated.
+        impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+        to solve a drift is to manually mark the Service Object resource with [terraform
+        taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         """
         return pulumi.get(self, "service_key")
 
@@ -66,11 +62,9 @@ class _ServiceObjectState:
         """
         Input properties used for looking up and filtering ServiceObject resources.
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-               impossible to detect
-               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-               The best way to solve a drift is to manually mark the Service Object resource with [terraform
-               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-               have it destroyed and recreated.
+               impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+               to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         if service_key is not None:
@@ -83,11 +77,9 @@ class _ServiceObjectState:
     def service_key(self) -> Optional[pulumi.Input[str]]:
         """
         Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        impossible to detect
-        [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-        The best way to solve a drift is to manually mark the Service Object resource with [terraform
-        taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-        have it destroyed and recreated.
+        impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+        to solve a drift is to manually mark the Service Object resource with [terraform
+        taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         """
         return pulumi.get(self, "service_key")
 
@@ -117,30 +109,13 @@ class ServiceObject(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo")
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar")
-        ```
-
+        Create a ServiceObject resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-               impossible to detect
-               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-               The best way to solve a drift is to manually mark the Service Object resource with [terraform
-               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-               have it destroyed and recreated.
+               impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+               to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         ...
@@ -150,22 +125,7 @@ class ServiceObject(pulumi.CustomResource):
                  args: ServiceObjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        testing_foo = datadog.pagerduty.ServiceObject("testingFoo",
-            service_key="9876543210123456789",
-            service_name="testing_foo")
-        testing_bar = datadog.pagerduty.ServiceObject("testingBar",
-            service_key="54321098765432109876",
-            service_name="testing_bar")
-        ```
-
+        Create a ServiceObject resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceObjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,11 +181,9 @@ class ServiceObject(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] service_key: Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-               impossible to detect
-               [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-               The best way to solve a drift is to manually mark the Service Object resource with [terraform
-               taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-               have it destroyed and recreated.
+               impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+               to solve a drift is to manually mark the Service Object resource with [terraform
+               taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         :param pulumi.Input[str] service_name: Your Service name in PagerDuty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -241,11 +199,9 @@ class ServiceObject(pulumi.CustomResource):
     def service_key(self) -> pulumi.Output[str]:
         """
         Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-        impossible to detect
-        [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-        The best way to solve a drift is to manually mark the Service Object resource with [terraform
-        taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-        have it destroyed and recreated.
+        impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+        to solve a drift is to manually mark the Service Object resource with [terraform
+        taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
         """
         return pulumi.get(self, "service_key")
 

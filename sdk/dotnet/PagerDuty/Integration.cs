@@ -9,58 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.PagerDuty
 {
-    /// <summary>
-    /// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
-    /// 
-    /// ## Example Usage
-    /// ### Services as Individual Resources
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var pd = new Datadog.PagerDuty.Integration("pd", new Datadog.PagerDuty.IntegrationArgs
-    ///         {
-    ///             ApiToken = "38457822378273432587234242874",
-    ///             IndividualServices = true,
-    ///             Schedules = 
-    ///             {
-    ///                 "https://ddog.pagerduty.com/schedules/X123VF",
-    ///                 "https://ddog.pagerduty.com/schedules/X321XX",
-    ///             },
-    ///             Subdomain = "ddog",
-    ///         });
-    ///         var testingFoo = new Datadog.PagerDuty.ServiceObject("testingFoo", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "9876543210123456789",
-    ///             ServiceName = "testing_foo",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_integration_pagerduty.pd",
-    ///             },
-    ///         });
-    ///         var testingBar = new Datadog.PagerDuty.ServiceObject("testingBar", new Datadog.PagerDuty.ServiceObjectArgs
-    ///         {
-    ///             ServiceKey = "54321098765432109876",
-    ///             ServiceName = "testing_bar",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 "datadog_integration_pagerduty.pd",
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     [DatadogResourceType("datadog:pagerduty/integration:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {

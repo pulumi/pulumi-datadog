@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides access to individual Service Objects of Datadog - PagerDuty integrations. Note that the Datadog - PagerDuty integration must be activated in the Datadog UI in order for this resource to be usable.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
- *     serviceKey: "9876543210123456789",
- *     serviceName: "testing_foo",
- * });
- * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
- *     serviceKey: "54321098765432109876",
- *     serviceName: "testing_bar",
- * });
- * ```
- */
 export class ServiceObject extends pulumi.CustomResource {
     /**
      * Get an existing ServiceObject resource's state with the given name, ID, and optional extra
@@ -53,11 +34,9 @@ export class ServiceObject extends pulumi.CustomResource {
 
     /**
      * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect
-     * [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-     * The best way to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-     * have it destroyed and recreated.
+     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+     * to solve a drift is to manually mark the Service Object resource with [terraform
+     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
      */
     public readonly serviceKey!: pulumi.Output<string>;
     /**
@@ -104,11 +83,9 @@ export class ServiceObject extends pulumi.CustomResource {
 export interface ServiceObjectState {
     /**
      * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect
-     * [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-     * The best way to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-     * have it destroyed and recreated.
+     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+     * to solve a drift is to manually mark the Service Object resource with [terraform
+     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
      */
     readonly serviceKey?: pulumi.Input<string>;
     /**
@@ -123,11 +100,9 @@ export interface ServiceObjectState {
 export interface ServiceObjectArgs {
     /**
      * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is
-     * impossible to detect
-     * [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform?_ga=2.15990198.1091155358.1609189257-888022054.1605547463).
-     * The best way to solve a drift is to manually mark the Service Object resource with [terraform
-     * taint](https://www.terraform.io/docs/commands/taint.html?_ga=2.15990198.1091155358.1609189257-888022054.1605547463) to
-     * have it destroyed and recreated.
+     * impossible to detect [drifts](https://www.hashicorp.com/blog/detecting-and-managing-drift-with-terraform). The best way
+     * to solve a drift is to manually mark the Service Object resource with [terraform
+     * taint](https://www.terraform.io/docs/commands/taint.html) to have it destroyed and recreated.
      */
     readonly serviceKey: pulumi.Input<string>;
     /**

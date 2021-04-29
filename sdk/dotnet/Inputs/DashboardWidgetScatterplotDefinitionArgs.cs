@@ -28,6 +28,9 @@ namespace Pulumi.Datadog.Inputs
             set => _customLinks = value;
         }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("request")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestArgs>? Request { get; set; }
 

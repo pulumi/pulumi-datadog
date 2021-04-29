@@ -8,6 +8,13 @@ import (
 )
 
 // Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
+//
+// ## Schema
+//
+// ### Read-Only
+//
+// - **id** (String) The ID of this resource.
+// - **locations** (Map of String) A map of available Synthetics location IDs to names for Synthetics tests.
 func GetSyntheticsLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSyntheticsLocationsResult, error) {
 	var rv GetSyntheticsLocationsResult
 	err := ctx.Invoke("datadog:index/getSyntheticsLocations:getSyntheticsLocations", nil, &rv, opts...)

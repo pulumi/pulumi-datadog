@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly ImmutableArray<string> ColorByGroups;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink> CustomLinks;
+        public readonly string? LiveSpan;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest? Request;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime? Time;
         public readonly string? Title;
@@ -28,6 +29,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<string> colorByGroups,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink> customLinks,
+
+            string? liveSpan,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest? request,
 
@@ -45,6 +48,7 @@ namespace Pulumi.Datadog.Outputs
         {
             ColorByGroups = colorByGroups;
             CustomLinks = customLinks;
+            LiveSpan = liveSpan;
             Request = request;
             Time = time;
             Title = title;

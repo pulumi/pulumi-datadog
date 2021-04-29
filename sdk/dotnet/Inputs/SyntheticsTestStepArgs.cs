@@ -12,18 +12,36 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestStepArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines if the step should be allowed to fail.
+        /// </summary>
         [Input("allowFailure")]
         public Input<bool>? AllowFailure { get; set; }
 
+        [Input("forceElementUpdate")]
+        public Input<bool>? ForceElementUpdate { get; set; }
+
+        /// <summary>
+        /// Name of the step.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Parameters for the step as JSON string.
+        /// </summary>
         [Input("params", required: true)]
         public Input<string> Params { get; set; } = null!;
 
+        /// <summary>
+        /// Used to override the default timeout of a step.
+        /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
+        /// <summary>
+        /// Type of the step. Refer to  for the complete list of available types.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

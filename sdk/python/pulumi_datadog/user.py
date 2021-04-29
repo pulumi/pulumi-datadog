@@ -39,27 +39,27 @@ class UserArgs:
         """
         pulumi.set(__self__, "email", email)
         if access_role is not None:
-            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-            pulumi.log.warn("""access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
+            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version.""", DeprecationWarning)
+            pulumi.log.warn("""access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.""")
         if access_role is not None:
             pulumi.set(__self__, "access_role", access_role)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
         if handle is not None:
-            warnings.warn("""This parameter is deprecated and will be removed from the next Major version""", DeprecationWarning)
-            pulumi.log.warn("""handle is deprecated: This parameter is deprecated and will be removed from the next Major version""")
+            warnings.warn("""This parameter is deprecated and will be removed from the next Major version.""", DeprecationWarning)
+            pulumi.log.warn("""handle is deprecated: This parameter is deprecated and will be removed from the next Major version.""")
         if handle is not None:
             pulumi.set(__self__, "handle", handle)
         if is_admin is not None:
-            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-            pulumi.log.warn("""is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
+            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version.""", DeprecationWarning)
+            pulumi.log.warn("""is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.""")
         if is_admin is not None:
             pulumi.set(__self__, "is_admin", is_admin)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role is not None:
-            warnings.warn("""This parameter was removed from the API and has no effect""", DeprecationWarning)
-            pulumi.log.warn("""role is deprecated: This parameter was removed from the API and has no effect""")
+            warnings.warn("""This parameter was removed from the API and has no effect.""", DeprecationWarning)
+            pulumi.log.warn("""role is deprecated: This parameter was removed from the API and has no effect.""")
         if role is not None:
             pulumi.set(__self__, "role", role)
         if roles is not None:
@@ -208,11 +208,11 @@ class _UserState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
         :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
         :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
-        :param pulumi.Input[bool] verified: Returns true if Datadog user is verified.
+        :param pulumi.Input[bool] verified: Returns `true` if the user is verified.
         """
         if access_role is not None:
-            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-            pulumi.log.warn("""access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
+            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version.""", DeprecationWarning)
+            pulumi.log.warn("""access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.""")
         if access_role is not None:
             pulumi.set(__self__, "access_role", access_role)
         if disabled is not None:
@@ -220,20 +220,20 @@ class _UserState:
         if email is not None:
             pulumi.set(__self__, "email", email)
         if handle is not None:
-            warnings.warn("""This parameter is deprecated and will be removed from the next Major version""", DeprecationWarning)
-            pulumi.log.warn("""handle is deprecated: This parameter is deprecated and will be removed from the next Major version""")
+            warnings.warn("""This parameter is deprecated and will be removed from the next Major version.""", DeprecationWarning)
+            pulumi.log.warn("""handle is deprecated: This parameter is deprecated and will be removed from the next Major version.""")
         if handle is not None:
             pulumi.set(__self__, "handle", handle)
         if is_admin is not None:
-            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-            pulumi.log.warn("""is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
+            warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version.""", DeprecationWarning)
+            pulumi.log.warn("""is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.""")
         if is_admin is not None:
             pulumi.set(__self__, "is_admin", is_admin)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role is not None:
-            warnings.warn("""This parameter was removed from the API and has no effect""", DeprecationWarning)
-            pulumi.log.warn("""role is deprecated: This parameter was removed from the API and has no effect""")
+            warnings.warn("""This parameter was removed from the API and has no effect.""", DeprecationWarning)
+            pulumi.log.warn("""role is deprecated: This parameter was removed from the API and has no effect.""")
         if role is not None:
             pulumi.set(__self__, "role", role)
         if roles is not None:
@@ -372,7 +372,7 @@ class _UserState:
     @pulumi.getter
     def verified(self) -> Optional[pulumi.Input[bool]]:
         """
-        Returns true if Datadog user is verified.
+        Returns `true` if the user is verified.
         """
         return pulumi.get(self, "verified")
 
@@ -411,6 +411,8 @@ class User(pulumi.CustomResource):
             email="new@example.com",
             roles=[ro_role.id])
         ```
+
+        <!-- schema generated by tfplugindocs -->
         ## Schema
 
         ### Required
@@ -419,20 +421,20 @@ class User(pulumi.CustomResource):
 
         ### Optional
 
-        - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         - **disabled** (Boolean) Whether the user is disabled.
-        - **handle** (String, Deprecated) The user handle, must be a valid email.
-        - **id** (String) The ID of this resource.
-        - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        - **handle** (String, Deprecated) The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
+        - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         - **name** (String) Name for user.
-        - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
         - **roles** (Set of String) A list a role IDs to assign to the user.
         - **send_user_invitation** (Boolean) Whether an invitation email should be sent when the user is created.
 
-        ### Read-only
+        ### Read-Only
 
+        - **id** (String) The ID of this resource.
         - **user_invitation_id** (String) The ID of the user invitation that was sent when creating the user.
-        - **verified** (Boolean) Returns true if Datadog user is verified.
+        - **verified** (Boolean) Returns `true` if the user is verified.
 
         ## Import
 
@@ -478,6 +480,8 @@ class User(pulumi.CustomResource):
             email="new@example.com",
             roles=[ro_role.id])
         ```
+
+        <!-- schema generated by tfplugindocs -->
         ## Schema
 
         ### Required
@@ -486,20 +490,20 @@ class User(pulumi.CustomResource):
 
         ### Optional
 
-        - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         - **disabled** (Boolean) Whether the user is disabled.
-        - **handle** (String, Deprecated) The user handle, must be a valid email.
-        - **id** (String) The ID of this resource.
-        - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        - **handle** (String, Deprecated) The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
+        - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         - **name** (String) Name for user.
-        - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
+        - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
         - **roles** (Set of String) A list a role IDs to assign to the user.
         - **send_user_invitation** (Boolean) Whether an invitation email should be sent when the user is created.
 
-        ### Read-only
+        ### Read-Only
 
+        - **id** (String) The ID of this resource.
         - **user_invitation_id** (String) The ID of the user invitation that was sent when creating the user.
-        - **verified** (Boolean) Returns true if Datadog user is verified.
+        - **verified** (Boolean) Returns `true` if the user is verified.
 
         ## Import
 
@@ -546,25 +550,25 @@ class User(pulumi.CustomResource):
             __props__ = UserArgs.__new__(UserArgs)
 
             if access_role is not None and not opts.urn:
-                warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-                pulumi.log.warn("""access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
+                warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version.""", DeprecationWarning)
+                pulumi.log.warn("""access_role is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.""")
             __props__.__dict__["access_role"] = access_role
             __props__.__dict__["disabled"] = disabled
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
             if handle is not None and not opts.urn:
-                warnings.warn("""This parameter is deprecated and will be removed from the next Major version""", DeprecationWarning)
-                pulumi.log.warn("""handle is deprecated: This parameter is deprecated and will be removed from the next Major version""")
+                warnings.warn("""This parameter is deprecated and will be removed from the next Major version.""", DeprecationWarning)
+                pulumi.log.warn("""handle is deprecated: This parameter is deprecated and will be removed from the next Major version.""")
             __props__.__dict__["handle"] = handle
             if is_admin is not None and not opts.urn:
-                warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version""", DeprecationWarning)
-                pulumi.log.warn("""is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version""")
+                warnings.warn("""This parameter is replaced by `roles` and will be removed from the next Major version.""", DeprecationWarning)
+                pulumi.log.warn("""is_admin is deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.""")
             __props__.__dict__["is_admin"] = is_admin
             __props__.__dict__["name"] = name
             if role is not None and not opts.urn:
-                warnings.warn("""This parameter was removed from the API and has no effect""", DeprecationWarning)
-                pulumi.log.warn("""role is deprecated: This parameter was removed from the API and has no effect""")
+                warnings.warn("""This parameter was removed from the API and has no effect.""", DeprecationWarning)
+                pulumi.log.warn("""role is deprecated: This parameter was removed from the API and has no effect.""")
             __props__.__dict__["role"] = role
             __props__.__dict__["roles"] = roles
             __props__.__dict__["send_user_invitation"] = send_user_invitation
@@ -611,7 +615,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list a role IDs to assign to the user.
         :param pulumi.Input[bool] send_user_invitation: Whether an invitation email should be sent when the user is created.
         :param pulumi.Input[str] user_invitation_id: The ID of the user invitation that was sent when creating the user.
-        :param pulumi.Input[bool] verified: Returns true if Datadog user is verified.
+        :param pulumi.Input[bool] verified: Returns `true` if the user is verified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -717,7 +721,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def verified(self) -> pulumi.Output[bool]:
         """
-        Returns true if Datadog user is verified.
+        Returns `true` if the user is verified.
         """
         return pulumi.get(self, "verified")
 

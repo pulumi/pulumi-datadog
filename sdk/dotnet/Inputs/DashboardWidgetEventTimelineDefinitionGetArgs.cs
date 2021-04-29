@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetEventTimelineDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

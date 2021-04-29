@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsMetricFilterArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The search query - following the log search syntax.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

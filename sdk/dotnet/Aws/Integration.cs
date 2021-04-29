@@ -10,51 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Aws
 {
     /// <summary>
-    /// Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new Datadog - Amazon Web Services integration
-    ///         var sandbox = new Datadog.Aws.Integration("sandbox", new Datadog.Aws.IntegrationArgs
-    ///         {
-    ///             AccountId = "1234567890",
-    ///             AccountSpecificNamespaceRules = 
-    ///             {
-    ///                 { "auto_scaling", false },
-    ///                 { "opsworks", false },
-    ///             },
-    ///             ExcludedRegions = 
-    ///             {
-    ///                 "us-east-1",
-    ///                 "us-west-2",
-    ///             },
-    ///             FilterTags = 
-    ///             {
-    ///                 "key:value",
-    ///             },
-    ///             HostTags = 
-    ///             {
-    ///                 "key:value",
-    ///                 "key2:value2",
-    ///             },
-    ///             RoleName = "DatadogAWSIntegrationRole",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
-    /// Amazon Web Services integrations can be imported using their `account ID` and `role name` separated with a colon (`:`), while the `external_id` should be passed by setting an environment variable called `EXTERNAL_ID`
+    /// Import is supported using the following syntax# Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
     /// 
     /// ```sh
     ///  $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
@@ -91,16 +49,16 @@ namespace Pulumi.Datadog.Aws
         public Output<string> ExternalId { get; private set; } = null!;
 
         /// <summary>
-        /// Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-        /// such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-        /// defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-        /// adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
+        /// Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
+        /// one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
+        /// excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         /// </summary>
         [Output("filterTags")]
         public Output<ImmutableArray<string>> FilterTags { get; private set; } = null!;
 
         /// <summary>
-        /// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        /// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         /// </summary>
         [Output("hostTags")]
         public Output<ImmutableArray<string>> HostTags { get; private set; } = null!;
@@ -193,10 +151,10 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _filterTags;
 
         /// <summary>
-        /// Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-        /// such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-        /// defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-        /// adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
+        /// Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
+        /// one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
+        /// excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         /// </summary>
         public InputList<string> FilterTags
         {
@@ -208,7 +166,7 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _hostTags;
 
         /// <summary>
-        /// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        /// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         /// </summary>
         public InputList<string> HostTags
         {
@@ -272,10 +230,10 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _filterTags;
 
         /// <summary>
-        /// Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-        /// such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-        /// defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-        /// adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        /// Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
+        /// Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match
+        /// one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be
+        /// excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         /// </summary>
         public InputList<string> FilterTags
         {
@@ -287,7 +245,7 @@ namespace Pulumi.Datadog.Aws
         private InputList<string>? _hostTags;
 
         /// <summary>
-        /// Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        /// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         /// </summary>
         public InputList<string> HostTags
         {

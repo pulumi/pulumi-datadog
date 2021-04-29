@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionEvent> Events;
         public readonly string? LegendSize;
+        public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequest> Requests;
         public readonly bool? ShowLegend;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionTime? Time;
@@ -31,6 +32,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionEvent> events,
 
             string? legendSize,
+
+            string? liveSpan,
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequest> requests,
 
@@ -49,6 +52,7 @@ namespace Pulumi.Datadog.Outputs
             CustomLinks = customLinks;
             Events = events;
             LegendSize = legendSize;
+            LiveSpan = liveSpan;
             Requests = requests;
             ShowLegend = showLegend;
             Time = time;

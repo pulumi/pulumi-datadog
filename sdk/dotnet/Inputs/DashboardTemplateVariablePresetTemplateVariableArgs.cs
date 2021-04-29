@@ -12,11 +12,14 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardTemplateVariablePresetTemplateVariableArgs : Pulumi.ResourceArgs
     {
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public DashboardTemplateVariablePresetTemplateVariableArgs()
         {

@@ -26,6 +26,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("customUnit")]
         public Input<string>? CustomUnit { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("precision")]
         public Input<int>? Precision { get; set; }
 

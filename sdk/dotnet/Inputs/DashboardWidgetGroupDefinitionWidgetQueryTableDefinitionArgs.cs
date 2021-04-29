@@ -23,6 +23,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("hasSearchBar")]
         public Input<string>? HasSearchBar { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestArgs> Requests
