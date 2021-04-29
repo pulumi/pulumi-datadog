@@ -137,6 +137,9 @@ export interface DashboardWidgetAlertGraphDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetAlertGraphDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -151,6 +154,9 @@ export interface DashboardWidgetAlertValueDefinition {
     alertId: string;
     precision?: number;
     textAlign?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -165,6 +171,9 @@ export interface DashboardWidgetChangeDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetChangeDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -452,6 +461,9 @@ export interface DashboardWidgetCheckStatusDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetCheckStatusDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -470,6 +482,9 @@ export interface DashboardWidgetDistributionDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetDistributionDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -749,6 +764,9 @@ export interface DashboardWidgetEventStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetEventStreamDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -766,6 +784,9 @@ export interface DashboardWidgetEventTimelineDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetEventTimelineDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -787,6 +808,9 @@ export interface DashboardWidgetGeomapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGeomapDefinitionRequest[];
     style?: outputs.DashboardWidgetGeomapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1003,8 +1027,17 @@ export interface DashboardWidgetGeomapDefinitionView {
 }
 
 export interface DashboardWidgetGroupDefinition {
+    /**
+     * The layout type of the dashboard, either 'free' or 'ordered'.
+     */
     layoutType: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
+    /**
+     * The list of widgets to display on the dashboard.
+     */
     widgets: outputs.DashboardWidgetGroupDefinitionWidget[];
 }
 
@@ -1092,6 +1125,9 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1106,6 +1142,9 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
     alertId: string;
     precision?: number;
     textAlign?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1120,6 +1159,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1407,6 +1449,9 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1425,6 +1470,9 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1704,6 +1752,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1721,6 +1772,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1742,6 +1796,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
     liveSpan?: string;
     requests?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest[];
     style?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -1968,6 +2025,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2266,6 +2326,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     request?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest;
     scopes?: string[];
     style?: outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2801,12 +2864,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     margin?: string;
     sizing?: string;
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
 }
 
@@ -2834,6 +2903,9 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2864,6 +2936,9 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
      */
     start?: number;
     summaryType?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -2888,6 +2963,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3206,6 +3284,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -3568,6 +3649,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4124,6 +4208,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4135,6 +4222,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     customLinks?: outputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4160,6 +4250,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4611,6 +4704,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -4985,6 +5081,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5012,6 +5111,9 @@ export interface DashboardWidgetHeatmapDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetHeatmapDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5310,6 +5412,9 @@ export interface DashboardWidgetHostmapDefinition {
     request?: outputs.DashboardWidgetHostmapDefinitionRequest;
     scopes?: string[];
     style?: outputs.DashboardWidgetHostmapDefinitionStyle;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5845,12 +5950,18 @@ export interface DashboardWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetIframeDefinition {
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
 }
 
 export interface DashboardWidgetImageDefinition {
     margin?: string;
     sizing?: string;
+    /**
+     * The URL of the dashboard.
+     */
     url: string;
 }
 
@@ -5878,6 +5989,9 @@ export interface DashboardWidgetLogStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetLogStreamDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5908,6 +6022,9 @@ export interface DashboardWidgetManageStatusDefinition {
      */
     start?: number;
     summaryType?: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -5932,6 +6049,9 @@ export interface DashboardWidgetQueryTableDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetQueryTableDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6250,6 +6370,9 @@ export interface DashboardWidgetQueryValueDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetQueryValueDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -6612,6 +6735,9 @@ export interface DashboardWidgetScatterplotDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetScatterplotDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7168,6 +7294,9 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     showErrorBudget?: boolean;
     sloId: string;
     timeWindows: string[];
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7179,6 +7308,9 @@ export interface DashboardWidgetServicemapDefinition {
     customLinks?: outputs.DashboardWidgetServicemapDefinitionCustomLink[];
     filters: string[];
     service: string;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7204,6 +7336,9 @@ export interface DashboardWidgetTimeseriesDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetTimeseriesDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -7655,6 +7790,9 @@ export interface DashboardWidgetToplistDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetToplistDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -8029,6 +8167,9 @@ export interface DashboardWidgetTraceServiceDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: outputs.DashboardWidgetTraceServiceDefinitionTime;
+    /**
+     * The title of the dashboard.
+     */
     title?: string;
     titleAlign?: string;
     titleSize?: string;
@@ -8597,6 +8738,9 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
 }
 
 export interface LogsIndexExclusionFilter {
+    /**
+     * Logs filter
+     */
     filters?: outputs.LogsIndexExclusionFilterFilter[];
     /**
      * A boolean stating if the exclusion is active or not.
@@ -9020,6 +9164,9 @@ export interface SyntheticsGlobalVariableParseTestOptions {
 
 export interface SyntheticsGlobalVariableParseTestOptionsParser {
     type: string;
+    /**
+     * The value of the global variable.
+     */
     value?: string;
 }
 
@@ -9090,12 +9237,21 @@ export interface SyntheticsTestApiStepAssertionTargetjsonpath {
 
 export interface SyntheticsTestApiStepExtractedValue {
     field?: string;
+    /**
+     * Name of Datadog synthetics test.
+     */
     name: string;
     parser: outputs.SyntheticsTestApiStepExtractedValueParser;
+    /**
+     * Synthetics test type (api or browser).
+     */
     type: string;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
+    /**
+     * Synthetics test type (api or browser).
+     */
     type: string;
     value?: string;
 }
@@ -9194,9 +9350,15 @@ export interface SyntheticsTestBrowserStepParams {
     files?: string;
     modifiers?: string[];
     playingTabId?: string;
+    /**
+     * The synthetics test request. Required if type = "api".  Define requestDefinition list with one element instead.
+     */
     request?: string;
     subtestPublicId?: string;
     value?: string;
+    /**
+     * Variables used for a browser test steps. Multiple browserVariable blocks are allowed with the structure below.  Define browserVariable blocks instead.
+     */
     variable?: outputs.SyntheticsTestBrowserStepParamsVariable;
     withClick?: boolean;
     x?: number;

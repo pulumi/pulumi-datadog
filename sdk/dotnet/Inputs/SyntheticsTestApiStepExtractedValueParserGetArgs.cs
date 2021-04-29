@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestApiStepExtractedValueParserGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Synthetics test type (api or browser).
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -20,6 +20,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequest> Requests;
         public readonly bool? ShowLegend;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

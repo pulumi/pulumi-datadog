@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinition
     {
+        /// <summary>
+        /// The layout type of the dashboard, either 'free' or 'ordered'.
+        /// </summary>
         public readonly string LayoutType;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The list of widgets to display on the dashboard.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidget> Widgets;
 
         [OutputConstructor]

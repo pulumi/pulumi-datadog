@@ -5,6 +5,138 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * // Note: Until terraform-provider-datadog version 2.1.0, service objects under the services key were specified inside the datadog_integration_pagerduty resource. This was incompatible with multi-configuration-file setups, where users wanted to have individual service objects controlled from different Terraform configuration files. The recommended approach now is specifying service objects as individual resources using datadog_integration_pagerduty_service_object and adding individual_services = true to the datadog_integration_pagerduty object.
+ * // Services as Individual Resources
+ * const pdIntegration = new datadog.pagerduty.Integration("pdIntegration", {
+ *     individualServices: true,
+ *     schedules: [
+ *         "https://ddog.pagerduty.com/schedules/X123VF",
+ *         "https://ddog.pagerduty.com/schedules/X321XX",
+ *     ],
+ *     subdomain: "ddog",
+ *     apiToken: "38457822378273432587234242874",
+ * });
+ * const testingFooServiceObject = new datadog.pagerduty.ServiceObject("testingFooServiceObject", {
+ *     serviceName: "testing_foo",
+ *     serviceKey: "9876543210123456789",
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
+ * const testingBarServiceObject = new datadog.pagerduty.ServiceObject("testingBarServiceObject", {
+ *     serviceName: "testing_bar",
+ *     serviceKey: "54321098765432109876",
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
+ * // Inline Services
+ * // With Terraform < 0.12.0 (terraform-provider-datadog < 1.9.0):
+ * // Create a new Datadog - PagerDuty integration
+ * const pdDatadogPagerduty_integrationIntegration = new datadog.pagerduty.Integration("pdDatadogPagerduty/integrationIntegration", {
+ *     services: [
+ *         {
+ *             serviceName: "testing_foo",
+ *             serviceKey: "9876543210123456789",
+ *         },
+ *         {
+ *             serviceName: "testing_bar",
+ *             serviceKey: "54321098765432109876",
+ *         },
+ *     ],
+ *     schedules: [
+ *         "https://ddog.pagerduty.com/schedules/X123VF",
+ *         "https://ddog.pagerduty.com/schedules/X321XX",
+ *     ],
+ *     subdomain: "ddog",
+ *     apiToken: "38457822378273432587234242874",
+ * });
+ * const pdServices = {
+ *     testing_foo: "9876543210123456789",
+ *     testing_bar: "54321098765432109876",
+ * };
+ * // Create a new Datadog - PagerDuty integration
+ * const pdDatadogPagerduty_integrationIntegration1 = new datadog.pagerduty.Integration("pdDatadogPagerduty/integrationIntegration1", {
+ *     dynamic: [{
+ *         forEach: pdServices,
+ *         content: [{
+ *             serviceName: services.key,
+ *             serviceKey: services.value,
+ *         }],
+ *     }],
+ *     schedules: [
+ *         "https://ddog.pagerduty.com/schedules/X123VF",
+ *         "https://ddog.pagerduty.com/schedules/X321XX",
+ *     ],
+ *     subdomain: "ddog",
+ *     apiToken: "38457822378273432587234242874",
+ * });
+ * // Migrating from Inline Services to Individual Resources
+ * // Migrating from usage of inline services to individual resources is very simple. The following example shows how to convert an existing inline services configuration to configuration using individual resources. Doing analogous change and running terraform apply after every step is all that's necessary to migrate.
+ * // First step - this is what the configuration looked like initially
+ * const myPdServices = {
+ *     testing_foo: "9876543210123456789",
+ *     testing_bar: "54321098765432109876",
+ * };
+ * // Create a new Datadog - PagerDuty integration
+ * const pdDatadogPagerduty_integrationIntegration2 = new datadog.pagerduty.Integration("pdDatadogPagerduty/integrationIntegration2", {
+ *     dynamic: [{
+ *         forEach: pdServices,
+ *         content: [{
+ *             serviceName: services.key,
+ *             serviceKey: services.value,
+ *         }],
+ *     }],
+ *     schedules: [
+ *         "https://ddog.pagerduty.com/schedules/X123VF",
+ *         "https://ddog.pagerduty.com/schedules/X321XX",
+ *     ],
+ *     subdomain: "ddog",
+ *     apiToken: "38457822378273432587234242874",
+ * });
+ * // Second step - this will remove the inline-defined service objects
+ * // Note that during this step, `individual_services` must not be defined
+ * const pdDatadogPagerduty_integrationIntegration3 = new datadog.pagerduty.Integration("pdDatadogPagerduty/integrationIntegration3", {
+ *     schedules: [
+ *         "https://ddog.pagerduty.com/schedules/X123VF",
+ *         "https://ddog.pagerduty.com/schedules/X321XX",
+ *     ],
+ *     subdomain: "ddog",
+ *     apiToken: "38457822378273432587234242874",
+ * });
+ * // Third step - this will reintroduce the service objects as individual resources
+ * const pdPagerduty_integrationIntegration = new datadog.pagerduty.Integration("pdPagerduty/integrationIntegration", {
+ *     individualServices: true,
+ *     schedules: [
+ *         "https://ddog.pagerduty.com/schedules/X123VF",
+ *         "https://ddog.pagerduty.com/schedules/X321XX",
+ *     ],
+ *     subdomain: "ddog",
+ *     apiToken: "38457822378273432587234242874",
+ * });
+ * const testingFooPagerduty_serviceObjectServiceObject = new datadog.pagerduty.ServiceObject("testingFooPagerduty/serviceObjectServiceObject", {
+ *     serviceName: "testing_foo",
+ *     serviceKey: "9876543210123456789",
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
+ * const testingBarPagerduty_serviceObjectServiceObject = new datadog.pagerduty.ServiceObject("testingBarPagerduty/serviceObjectServiceObject", {
+ *     serviceName: "testing_bar",
+ *     serviceKey: "54321098765432109876",
+ * }, {
+ *     dependsOn: ["datadog_integration_pagerduty.pd"],
+ * });
+ * ```
+ *
+ * <!-- schema generated by tfplugindocs -->
+ */
 export class Integration extends pulumi.CustomResource {
     /**
      * Get an existing Integration resource's state with the given name, ID, and optional extra
@@ -38,9 +170,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly apiToken!: pulumi.Output<string | undefined>;
     /**
-     * Boolean to specify whether or not individual service objects specified by
-     * [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-     * resource are to be used. Mutually exclusive with `services` key.
+     * Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
      */
     public readonly individualServices!: pulumi.Output<boolean | undefined>;
     /**
@@ -48,7 +178,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly schedules!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of service names and service keys.
+     * A list of service names and service keys.  set "individualpagerdutyservice_object
      *
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
@@ -103,9 +233,7 @@ export interface IntegrationState {
      */
     readonly apiToken?: pulumi.Input<string>;
     /**
-     * Boolean to specify whether or not individual service objects specified by
-     * [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-     * resource are to be used. Mutually exclusive with `services` key.
+     * Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
      */
     readonly individualServices?: pulumi.Input<boolean>;
     /**
@@ -113,7 +241,7 @@ export interface IntegrationState {
      */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of service names and service keys.
+     * A list of service names and service keys.  set "individualpagerdutyservice_object
      *
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
@@ -133,9 +261,7 @@ export interface IntegrationArgs {
      */
     readonly apiToken?: pulumi.Input<string>;
     /**
-     * Boolean to specify whether or not individual service objects specified by
-     * [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-     * resource are to be used. Mutually exclusive with `services` key.
+     * Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
      */
     readonly individualServices?: pulumi.Input<boolean>;
     /**
@@ -143,7 +269,7 @@ export interface IntegrationArgs {
      */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of service names and service keys.
+     * A list of service names and service keys.  set "individualpagerdutyservice_object
      *
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */

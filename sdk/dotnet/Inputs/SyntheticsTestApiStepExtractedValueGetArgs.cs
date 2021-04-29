@@ -15,12 +15,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("field")]
         public Input<string>? Field { get; set; }
 
+        /// <summary>
+        /// Name of Datadog synthetics test.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("parser", required: true)]
         public Input<Inputs.SyntheticsTestApiStepExtractedValueParserGetArgs> Parser { get; set; } = null!;
 
+        /// <summary>
+        /// Synthetics test type (api or browser).
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

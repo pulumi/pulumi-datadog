@@ -7,13 +7,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to retrieve Datadog's Synthetics Locations (to be used in Synthetics tests).
- *
- * ## Schema
- *
- * ### Read-Only
- *
- * - **id** (String) The ID of this resource.
- * - **locations** (Map of String) A map of available Synthetics location IDs to names for Synthetics tests.
  */
 export function getSyntheticsLocations(opts?: pulumi.InvokeOptions): Promise<GetSyntheticsLocationsResult> {
     if (!opts) {

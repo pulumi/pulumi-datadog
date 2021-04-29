@@ -29,14 +29,13 @@ class LogsArchiveArgs:
         The set of arguments for constructing a LogsArchive resource.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
-        :param pulumi.Input['LogsArchiveAzureArgs'] azure: Definition of an azure archive.
+        :param pulumi.Input['LogsArchiveAzureArgs'] azure: Definition of an azure archive.  Define azure_archive list with one element instead.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
-        :param pulumi.Input['LogsArchiveGcsArgs'] gcs: Definition of a GCS archive.
+        :param pulumi.Input['LogsArchiveGcsArgs'] gcs: Definition of a GCS archive.  Define gcs_archive list with one element instead.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-               are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value true. If it is set to false, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input['LogsArchiveS3Args'] s3: Definition of an s3 archive.
+        :param pulumi.Input['LogsArchiveS3Args'] s3: Definition of an s3 archive.  Define s3_archive list with one element instead.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
         """
         pulumi.set(__self__, "name", name)
@@ -95,7 +94,7 @@ class LogsArchiveArgs:
     @pulumi.getter
     def azure(self) -> Optional[pulumi.Input['LogsArchiveAzureArgs']]:
         """
-        Definition of an azure archive.
+        Definition of an azure archive.  Define azure_archive list with one element instead.
         """
         return pulumi.get(self, "azure")
 
@@ -119,7 +118,7 @@ class LogsArchiveArgs:
     @pulumi.getter
     def gcs(self) -> Optional[pulumi.Input['LogsArchiveGcsArgs']]:
         """
-        Definition of a GCS archive.
+        Definition of a GCS archive.  Define gcs_archive list with one element instead.
         """
         return pulumi.get(self, "gcs")
 
@@ -143,8 +142,7 @@ class LogsArchiveArgs:
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        are sent to the archive.
+        To store the tags in the archive, set the value true. If it is set to false, the tags will be dropped when the logs are sent to the archive.
         """
         return pulumi.get(self, "include_tags")
 
@@ -168,7 +166,7 @@ class LogsArchiveArgs:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['LogsArchiveS3Args']]:
         """
-        Definition of an s3 archive.
+        Definition of an s3 archive.  Define s3_archive list with one element instead.
         """
         return pulumi.get(self, "s3")
 
@@ -204,16 +202,15 @@ class _LogsArchiveState:
                  s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None):
         """
         Input properties used for looking up and filtering LogsArchive resources.
-        :param pulumi.Input['LogsArchiveAzureArgs'] azure: Definition of an azure archive.
+        :param pulumi.Input['LogsArchiveAzureArgs'] azure: Definition of an azure archive.  Define azure_archive list with one element instead.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
-        :param pulumi.Input['LogsArchiveGcsArgs'] gcs: Definition of a GCS archive.
+        :param pulumi.Input['LogsArchiveGcsArgs'] gcs: Definition of a GCS archive.  Define gcs_archive list with one element instead.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-               are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value true. If it is set to false, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input['LogsArchiveS3Args'] s3: Definition of an s3 archive.
+        :param pulumi.Input['LogsArchiveS3Args'] s3: Definition of an s3 archive.  Define s3_archive list with one element instead.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
         """
         if azure is not None:
@@ -250,7 +247,7 @@ class _LogsArchiveState:
     @pulumi.getter
     def azure(self) -> Optional[pulumi.Input['LogsArchiveAzureArgs']]:
         """
-        Definition of an azure archive.
+        Definition of an azure archive.  Define azure_archive list with one element instead.
         """
         return pulumi.get(self, "azure")
 
@@ -274,7 +271,7 @@ class _LogsArchiveState:
     @pulumi.getter
     def gcs(self) -> Optional[pulumi.Input['LogsArchiveGcsArgs']]:
         """
-        Definition of a GCS archive.
+        Definition of a GCS archive.  Define gcs_archive list with one element instead.
         """
         return pulumi.get(self, "gcs")
 
@@ -298,8 +295,7 @@ class _LogsArchiveState:
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> Optional[pulumi.Input[bool]]:
         """
-        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        are sent to the archive.
+        To store the tags in the archive, set the value true. If it is set to false, the tags will be dropped when the logs are sent to the archive.
         """
         return pulumi.get(self, "include_tags")
 
@@ -347,7 +343,7 @@ class _LogsArchiveState:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['LogsArchiveS3Args']]:
         """
-        Definition of an s3 archive.
+        Definition of an s3 archive.  Define s3_archive list with one element instead.
         """
         return pulumi.get(self, "s3")
 
@@ -405,29 +401,6 @@ class LogsArchive(pulumi.CustomResource):
         ```
 
         <!-- schema generated by tfplugindocs -->
-        ## Schema
-
-        ### Required
-
-        - **name** (String) Your archive name.
-        - **query** (String) The archive query/filter. Logs matching this query are included in the archive.
-
-        ### Optional
-
-        - **azure** (Map of String, Deprecated) Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        - **azure_archive** (Block List, Max: 1) Definition of an azure archive. (see below for nested schema)
-        - **gcs** (Map of String, Deprecated) Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        - **gcs_archive** (Block List, Max: 1) Definition of a GCS archive. (see below for nested schema)
-        - **include_tags** (Boolean) To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
-        - **rehydration_tags** (List of String) An array of tags to add to rehydrated logs from an archive.
-        - **s3** (Map of String, Deprecated) Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        - **s3_archive** (Block List, Max: 1) Definition of an s3 archive. (see below for nested schema)
-
-        ### Read-Only
-
-        - **id** (String) The ID of this resource.
-
-        <a id="nestedblock--azure_archive"></a>
 
         ## Import
 
@@ -439,16 +412,15 @@ class LogsArchive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.  Define azure_archive list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of a GCS archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of a GCS archive.  Define gcs_archive list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-               are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value true. If it is set to false, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.  Define s3_archive list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveS3ArchiveArgs']] s3_archive: Definition of an s3 archive.
         """
         ...
@@ -478,29 +450,6 @@ class LogsArchive(pulumi.CustomResource):
         ```
 
         <!-- schema generated by tfplugindocs -->
-        ## Schema
-
-        ### Required
-
-        - **name** (String) Your archive name.
-        - **query** (String) The archive query/filter. Logs matching this query are included in the archive.
-
-        ### Optional
-
-        - **azure** (Map of String, Deprecated) Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        - **azure_archive** (Block List, Max: 1) Definition of an azure archive. (see below for nested schema)
-        - **gcs** (Map of String, Deprecated) Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        - **gcs_archive** (Block List, Max: 1) Definition of a GCS archive. (see below for nested schema)
-        - **include_tags** (Boolean) To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
-        - **rehydration_tags** (List of String) An array of tags to add to rehydrated logs from an archive.
-        - **s3** (Map of String, Deprecated) Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        - **s3_archive** (Block List, Max: 1) Definition of an s3 archive. (see below for nested schema)
-
-        ### Read-Only
-
-        - **id** (String) The ID of this resource.
-
-        <a id="nestedblock--azure_archive"></a>
 
         ## Import
 
@@ -597,16 +546,15 @@ class LogsArchive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive.  Define azure_archive list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of a GCS archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of a GCS archive.  Define gcs_archive list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']] gcs_archive: Definition of a GCS archive.
-        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-               are sent to the archive.
+        :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value true. If it is set to false, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.
+        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive.  Define s3_archive list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveS3ArchiveArgs']] s3_archive: Definition of an s3 archive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -629,7 +577,7 @@ class LogsArchive(pulumi.CustomResource):
     @pulumi.getter
     def azure(self) -> pulumi.Output[Optional['outputs.LogsArchiveAzure']]:
         """
-        Definition of an azure archive.
+        Definition of an azure archive.  Define azure_archive list with one element instead.
         """
         return pulumi.get(self, "azure")
 
@@ -645,7 +593,7 @@ class LogsArchive(pulumi.CustomResource):
     @pulumi.getter
     def gcs(self) -> pulumi.Output[Optional['outputs.LogsArchiveGcs']]:
         """
-        Definition of a GCS archive.
+        Definition of a GCS archive.  Define gcs_archive list with one element instead.
         """
         return pulumi.get(self, "gcs")
 
@@ -661,8 +609,7 @@ class LogsArchive(pulumi.CustomResource):
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> pulumi.Output[Optional[bool]]:
         """
-        To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        are sent to the archive.
+        To store the tags in the archive, set the value true. If it is set to false, the tags will be dropped when the logs are sent to the archive.
         """
         return pulumi.get(self, "include_tags")
 
@@ -694,7 +641,7 @@ class LogsArchive(pulumi.CustomResource):
     @pulumi.getter
     def s3(self) -> pulumi.Output[Optional['outputs.LogsArchiveS3']]:
         """
-        Definition of an s3 archive.
+        Definition of an s3 archive.  Define s3_archive list with one element instead.
         """
         return pulumi.get(self, "s3")
 

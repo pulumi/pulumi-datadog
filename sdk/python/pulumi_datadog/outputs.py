@@ -1739,6 +1739,9 @@ class DashboardWidgetAlertGraphDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "alert_id", alert_id)
         pulumi.set(__self__, "viz_type", viz_type)
         if live_span is not None:
@@ -1775,6 +1778,9 @@ class DashboardWidgetAlertGraphDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -1851,6 +1857,9 @@ class DashboardWidgetAlertValueDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  unit: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "alert_id", alert_id)
         if precision is not None:
             pulumi.set(__self__, "precision", precision)
@@ -1883,6 +1892,9 @@ class DashboardWidgetAlertValueDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -1934,6 +1946,9 @@ class DashboardWidgetChangeDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -1972,6 +1987,9 @@ class DashboardWidgetChangeDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -3411,6 +3429,9 @@ class DashboardWidgetCheckStatusDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "check", check)
         pulumi.set(__self__, "grouping", grouping)
         if group is not None:
@@ -3468,6 +3489,9 @@ class DashboardWidgetCheckStatusDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -3547,6 +3571,9 @@ class DashboardWidgetDistributionDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if legend_size is not None:
             pulumi.set(__self__, "legend_size", legend_size)
         if live_span is not None:
@@ -3592,6 +3619,9 @@ class DashboardWidgetDistributionDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -4973,6 +5003,9 @@ class DashboardWidgetEventStreamDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "query", query)
         if event_size is not None:
             pulumi.set(__self__, "event_size", event_size)
@@ -5017,6 +5050,9 @@ class DashboardWidgetEventStreamDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -5093,6 +5129,9 @@ class DashboardWidgetEventTimelineDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "query", query)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
@@ -5130,6 +5169,9 @@ class DashboardWidgetEventTimelineDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -5262,6 +5304,9 @@ class DashboardWidgetGeomapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "view", view)
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
@@ -5306,6 +5351,9 @@ class DashboardWidgetGeomapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -6477,6 +6525,11 @@ class DashboardWidgetGroupDefinition(dict):
                  layout_type: str,
                  widgets: Sequence['outputs.DashboardWidgetGroupDefinitionWidget'],
                  title: Optional[str] = None):
+        """
+        :param str layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param Sequence['DashboardWidgetGroupDefinitionWidgetArgs'] widgets: The list of widgets to display on the dashboard.
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "layout_type", layout_type)
         pulumi.set(__self__, "widgets", widgets)
         if title is not None:
@@ -6485,16 +6538,25 @@ class DashboardWidgetGroupDefinition(dict):
     @property
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> str:
+        """
+        The layout type of the dashboard, either 'free' or 'ordered'.
+        """
         return pulumi.get(self, "layout_type")
 
     @property
     @pulumi.getter
     def widgets(self) -> Sequence['outputs.DashboardWidgetGroupDefinitionWidget']:
+        """
+        The list of widgets to display on the dashboard.
+        """
         return pulumi.get(self, "widgets")
 
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
 
@@ -6881,6 +6943,9 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "alert_id", alert_id)
         pulumi.set(__self__, "viz_type", viz_type)
         if live_span is not None:
@@ -6917,6 +6982,9 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -6993,6 +7061,9 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  unit: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "alert_id", alert_id)
         if precision is not None:
             pulumi.set(__self__, "precision", precision)
@@ -7025,6 +7096,9 @@ class DashboardWidgetGroupDefinitionWidgetAlertValueDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -7076,6 +7150,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -7114,6 +7191,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -8553,6 +8633,9 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "check", check)
         pulumi.set(__self__, "grouping", grouping)
         if group is not None:
@@ -8610,6 +8693,9 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -8689,6 +8775,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if legend_size is not None:
             pulumi.set(__self__, "legend_size", legend_size)
         if live_span is not None:
@@ -8734,6 +8823,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -10115,6 +10207,9 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "query", query)
         if event_size is not None:
             pulumi.set(__self__, "event_size", event_size)
@@ -10159,6 +10254,9 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -10235,6 +10333,9 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "query", query)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
@@ -10272,6 +10373,9 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -10404,6 +10508,9 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "view", view)
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
@@ -10448,6 +10555,9 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -11637,6 +11747,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis'] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -11698,6 +11811,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -13207,6 +13323,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
@@ -13273,6 +13392,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -15950,11 +16072,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle(dict):
 class DashboardWidgetGroupDefinitionWidgetIframeDefinition(dict):
     def __init__(__self__, *,
                  url: str):
+        """
+        :param str url: The URL of the dashboard.
+        """
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL of the dashboard.
+        """
         return pulumi.get(self, "url")
 
 
@@ -15964,6 +16092,9 @@ class DashboardWidgetGroupDefinitionWidgetImageDefinition(dict):
                  url: str,
                  margin: Optional[str] = None,
                  sizing: Optional[str] = None):
+        """
+        :param str url: The URL of the dashboard.
+        """
         pulumi.set(__self__, "url", url)
         if margin is not None:
             pulumi.set(__self__, "margin", margin)
@@ -15973,6 +16104,9 @@ class DashboardWidgetGroupDefinitionWidgetImageDefinition(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL of the dashboard.
+        """
         return pulumi.get(self, "url")
 
     @property
@@ -16062,6 +16196,9 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
         if indexes is not None:
@@ -16142,6 +16279,9 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -16248,6 +16388,9 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "query", query)
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
@@ -16320,6 +16463,9 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -16456,6 +16602,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if has_search_bar is not None:
@@ -16501,6 +16650,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -18172,6 +18324,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
         if custom_links is not None:
@@ -18238,6 +18393,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -20180,6 +20338,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
                  title_size: Optional[str] = None,
                  xaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis'] = None,
                  yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis'] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
         if custom_links is not None:
@@ -20229,6 +20390,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -23067,6 +23231,9 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "slo_id", slo_id)
         pulumi.set(__self__, "time_windows", time_windows)
         pulumi.set(__self__, "view_mode", view_mode)
@@ -23115,6 +23282,9 @@ class DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -23158,6 +23328,9 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
         if custom_links is not None:
@@ -23187,6 +23360,9 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -23270,6 +23446,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis'] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -23359,6 +23538,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -25810,6 +25992,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -25848,6 +26033,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -27823,6 +28011,9 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "env", env)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "span_name", span_name)
@@ -27921,6 +28112,9 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -28038,6 +28232,9 @@ class DashboardWidgetHeatmapDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetHeatmapDefinitionYaxis'] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -28099,6 +28296,9 @@ class DashboardWidgetHeatmapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -29608,6 +29808,9 @@ class DashboardWidgetHostmapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if groups is not None:
@@ -29674,6 +29877,9 @@ class DashboardWidgetHostmapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -32351,11 +32557,17 @@ class DashboardWidgetHostmapDefinitionStyle(dict):
 class DashboardWidgetIframeDefinition(dict):
     def __init__(__self__, *,
                  url: str):
+        """
+        :param str url: The URL of the dashboard.
+        """
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL of the dashboard.
+        """
         return pulumi.get(self, "url")
 
 
@@ -32365,6 +32577,9 @@ class DashboardWidgetImageDefinition(dict):
                  url: str,
                  margin: Optional[str] = None,
                  sizing: Optional[str] = None):
+        """
+        :param str url: The URL of the dashboard.
+        """
         pulumi.set(__self__, "url", url)
         if margin is not None:
             pulumi.set(__self__, "margin", margin)
@@ -32374,6 +32589,9 @@ class DashboardWidgetImageDefinition(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL of the dashboard.
+        """
         return pulumi.get(self, "url")
 
     @property
@@ -32463,6 +32681,9 @@ class DashboardWidgetLogStreamDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
         if indexes is not None:
@@ -32543,6 +32764,9 @@ class DashboardWidgetLogStreamDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -32649,6 +32873,9 @@ class DashboardWidgetManageStatusDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "query", query)
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
@@ -32721,6 +32948,9 @@ class DashboardWidgetManageStatusDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -32857,6 +33087,9 @@ class DashboardWidgetQueryTableDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if has_search_bar is not None:
@@ -32902,6 +33135,9 @@ class DashboardWidgetQueryTableDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -34573,6 +34809,9 @@ class DashboardWidgetQueryValueDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if autoscale is not None:
             pulumi.set(__self__, "autoscale", autoscale)
         if custom_links is not None:
@@ -34639,6 +34878,9 @@ class DashboardWidgetQueryValueDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -36581,6 +36823,9 @@ class DashboardWidgetScatterplotDefinition(dict):
                  title_size: Optional[str] = None,
                  xaxis: Optional['outputs.DashboardWidgetScatterplotDefinitionXaxis'] = None,
                  yaxis: Optional['outputs.DashboardWidgetScatterplotDefinitionYaxis'] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if color_by_groups is not None:
             pulumi.set(__self__, "color_by_groups", color_by_groups)
         if custom_links is not None:
@@ -36630,6 +36875,9 @@ class DashboardWidgetScatterplotDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -39468,6 +39716,9 @@ class DashboardWidgetServiceLevelObjectiveDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "slo_id", slo_id)
         pulumi.set(__self__, "time_windows", time_windows)
         pulumi.set(__self__, "view_mode", view_mode)
@@ -39516,6 +39767,9 @@ class DashboardWidgetServiceLevelObjectiveDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -39559,6 +39813,9 @@ class DashboardWidgetServicemapDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "service", service)
         if custom_links is not None:
@@ -39588,6 +39845,9 @@ class DashboardWidgetServicemapDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -39671,6 +39931,9 @@ class DashboardWidgetTimeseriesDefinition(dict):
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
                  yaxis: Optional['outputs.DashboardWidgetTimeseriesDefinitionYaxis'] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if events is not None:
@@ -39760,6 +40023,9 @@ class DashboardWidgetTimeseriesDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -42211,6 +42477,9 @@ class DashboardWidgetToplistDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         if custom_links is not None:
             pulumi.set(__self__, "custom_links", custom_links)
         if live_span is not None:
@@ -42249,6 +42518,9 @@ class DashboardWidgetToplistDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -44224,6 +44496,9 @@ class DashboardWidgetTraceServiceDefinition(dict):
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
+        """
+        :param str title: The title of the dashboard.
+        """
         pulumi.set(__self__, "env", env)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "span_name", span_name)
@@ -44322,6 +44597,9 @@ class DashboardWidgetTraceServiceDefinition(dict):
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
+        """
+        The title of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
@@ -47177,6 +47455,7 @@ class LogsIndexExclusionFilter(dict):
                  is_enabled: Optional[bool] = None,
                  name: Optional[str] = None):
         """
+        :param Sequence['LogsIndexExclusionFilterFilterArgs'] filters: Logs filter
         :param bool is_enabled: A boolean stating if the exclusion is active or not.
         :param str name: The name of the exclusion filter.
         """
@@ -47190,6 +47469,9 @@ class LogsIndexExclusionFilter(dict):
     @property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.LogsIndexExclusionFilterFilter']]:
+        """
+        Logs filter
+        """
         return pulumi.get(self, "filters")
 
     @property
@@ -49480,6 +49762,9 @@ class SyntheticsGlobalVariableParseTestOptionsParser(dict):
     def __init__(__self__, *,
                  type: str,
                  value: Optional[str] = None):
+        """
+        :param str value: The value of the global variable.
+        """
         pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -49492,6 +49777,9 @@ class SyntheticsGlobalVariableParseTestOptionsParser(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value of the global variable.
+        """
         return pulumi.get(self, "value")
 
 
@@ -49730,6 +50018,10 @@ class SyntheticsTestApiStepExtractedValue(dict):
                  parser: 'outputs.SyntheticsTestApiStepExtractedValueParser',
                  type: str,
                  field: Optional[str] = None):
+        """
+        :param str name: Name of Datadog synthetics test.
+        :param str type: Synthetics test type (api or browser).
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parser", parser)
         pulumi.set(__self__, "type", type)
@@ -49739,6 +50031,9 @@ class SyntheticsTestApiStepExtractedValue(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of Datadog synthetics test.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -49749,6 +50044,9 @@ class SyntheticsTestApiStepExtractedValue(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Synthetics test type (api or browser).
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -49762,6 +50060,9 @@ class SyntheticsTestApiStepExtractedValueParser(dict):
     def __init__(__self__, *,
                  type: str,
                  value: Optional[str] = None):
+        """
+        :param str type: Synthetics test type (api or browser).
+        """
         pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -49769,6 +50070,9 @@ class SyntheticsTestApiStepExtractedValueParser(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Synthetics test type (api or browser).
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -50118,6 +50422,10 @@ class SyntheticsTestBrowserStepParams(dict):
                  with_click: Optional[bool] = None,
                  x: Optional[int] = None,
                  y: Optional[int] = None):
+        """
+        :param str request: The synthetics test request. Required if type = "api".  Define request_definition list with one element instead.
+        :param 'SyntheticsTestBrowserStepParamsVariableArgs' variable: Variables used for a browser test steps. Multiple browser_variable blocks are allowed with the structure below.  Define browser_variable blocks instead.
+        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
         if check is not None:
@@ -50213,6 +50521,9 @@ class SyntheticsTestBrowserStepParams(dict):
     @property
     @pulumi.getter
     def request(self) -> Optional[str]:
+        """
+        The synthetics test request. Required if type = "api".  Define request_definition list with one element instead.
+        """
         return pulumi.get(self, "request")
 
     @property
@@ -50228,6 +50539,9 @@ class SyntheticsTestBrowserStepParams(dict):
     @property
     @pulumi.getter
     def variable(self) -> Optional['outputs.SyntheticsTestBrowserStepParamsVariable']:
+        """
+        Variables used for a browser test steps. Multiple browser_variable blocks are allowed with the structure below.  Define browser_variable blocks instead.
+        """
         return pulumi.get(self, "variable")
 
     @property

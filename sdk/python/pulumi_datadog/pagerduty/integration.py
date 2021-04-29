@@ -24,11 +24,9 @@ class IntegrationArgs:
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
-        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by
-               [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-               resource are to be used. Mutually exclusive with `services` key.
+        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys.  set "individualpagerdutyservice_object
         """
         pulumi.set(__self__, "subdomain", subdomain)
         if api_token is not None:
@@ -71,9 +69,7 @@ class IntegrationArgs:
     @pulumi.getter(name="individualServices")
     def individual_services(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean to specify whether or not individual service objects specified by
-        [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        resource are to be used. Mutually exclusive with `services` key.
+        Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         """
         return pulumi.get(self, "individual_services")
 
@@ -97,7 +93,7 @@ class IntegrationArgs:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]]]:
         """
-        A list of service names and service keys.
+        A list of service names and service keys.  set "individualpagerdutyservice_object
         """
         return pulumi.get(self, "services")
 
@@ -117,11 +113,9 @@ class _IntegrationState:
         """
         Input properties used for looking up and filtering Integration resources.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
-        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by
-               [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-               resource are to be used. Mutually exclusive with `services` key.
+        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys.  set "individualpagerdutyservice_object
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         """
         if api_token is not None:
@@ -154,9 +148,7 @@ class _IntegrationState:
     @pulumi.getter(name="individualServices")
     def individual_services(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean to specify whether or not individual service objects specified by
-        [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        resource are to be used. Mutually exclusive with `services` key.
+        Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         """
         return pulumi.get(self, "individual_services")
 
@@ -180,7 +172,7 @@ class _IntegrationState:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]]]:
         """
-        A list of service names and service keys.
+        A list of service names and service keys.  set "individualpagerdutyservice_object
         """
         return pulumi.get(self, "services")
 
@@ -213,15 +205,14 @@ class Integration(pulumi.CustomResource):
                  subdomain: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Integration resource with the given unique name, props, and options.
+        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
-        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by
-               [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-               resource are to be used. Mutually exclusive with `services` key.
+        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.  set "individualpagerdutyservice_object
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         """
         ...
@@ -231,7 +222,8 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Integration resource with the given unique name, props, and options.
+        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
+
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,11 +289,9 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_token: Your PagerDuty API token.
-        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by
-               [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-               resource are to be used. Mutually exclusive with `services` key.
+        :param pulumi.Input[bool] individual_services: Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.  set "individualpagerdutyservice_object
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -327,9 +317,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="individualServices")
     def individual_services(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean to specify whether or not individual service objects specified by
-        [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        resource are to be used. Mutually exclusive with `services` key.
+        Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         """
         return pulumi.get(self, "individual_services")
 
@@ -345,7 +333,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter
     def services(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationService']]]:
         """
-        A list of service names and service keys.
+        A list of service names and service keys.  set "individualpagerdutyservice_object
         """
         return pulumi.get(self, "services")
 

@@ -20,22 +20,6 @@ import * as utilities from "./utilities";
  *     tagsFilters: ["foo:bar"],
  * }, { async: true }));
  * ```
- * ## Schema
- *
- * ### Optional
- *
- * - **default_only_filter** (Boolean, Optional) Limit the search to default rules
- * - **id** (String, Optional) The ID of this resource.
- * - **name_filter** (String, Optional) A rule name to limit the search
- * - **tags_filter** (List of String, Optional) A list of tags to limit the search
- * - **user_only_filter** (Boolean, Optional) Limit the search to user rules
- *
- * ### Read-only
- *
- * - **rule_ids** (List of String, Read-only) List of IDs of the matched rules.
- * - **rules** (Block List) List of rules. (see below for nested schema)
- *
- * <a id="nestedblock--rules"></a>
  */
 export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringRulesResult> {
     args = args || {};
@@ -59,7 +43,13 @@ export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs
  */
 export interface GetSecurityMonitoringRulesArgs {
     readonly defaultOnlyFilter?: boolean;
+    /**
+     * A rule name to limit the search
+     */
     readonly nameFilter?: string;
+    /**
+     * A list of tags to limit the search
+     */
     readonly tagsFilters?: string[];
     readonly userOnlyFilter?: boolean;
 }

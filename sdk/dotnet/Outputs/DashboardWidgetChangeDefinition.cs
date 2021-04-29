@@ -17,6 +17,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetChangeDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

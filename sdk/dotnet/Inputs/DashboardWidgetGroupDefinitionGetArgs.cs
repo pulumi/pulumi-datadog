@@ -12,14 +12,24 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The layout type of the dashboard, either 'free' or 'ordered'.
+        /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         [Input("widgets", required: true)]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>? _widgets;
+
+        /// <summary>
+        /// The list of widgets to display on the dashboard.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs> Widgets
         {
             get => _widgets ?? (_widgets = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>());

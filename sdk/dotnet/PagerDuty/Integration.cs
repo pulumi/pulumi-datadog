@@ -9,6 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.PagerDuty
 {
+    /// <summary>
+    /// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
+    /// </summary>
     [DatadogResourceType("datadog:pagerduty/integration:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
@@ -19,9 +22,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Output<string?> ApiToken { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by
-        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        /// resource are to be used. Mutually exclusive with `services` key.
+        /// Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         /// </summary>
         [Output("individualServices")]
         public Output<bool?> IndividualServices { get; private set; } = null!;
@@ -33,7 +34,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Output<ImmutableArray<string>> Schedules { get; private set; } = null!;
 
         /// <summary>
-        /// A list of service names and service keys.
+        /// A list of service names and service keys.  set "individualpagerdutyservice_object
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<Outputs.IntegrationService>> Services { get; private set; } = null!;
@@ -97,9 +98,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Input<string>? ApiToken { get; set; }
 
         /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by
-        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        /// resource are to be used. Mutually exclusive with `services` key.
+        /// Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         /// </summary>
         [Input("individualServices")]
         public Input<bool>? IndividualServices { get; set; }
@@ -120,7 +119,7 @@ namespace Pulumi.Datadog.PagerDuty
         private InputList<Inputs.IntegrationServiceArgs>? _services;
 
         /// <summary>
-        /// A list of service names and service keys.
+        /// A list of service names and service keys.  set "individualpagerdutyservice_object
         /// </summary>
         [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
         public InputList<Inputs.IntegrationServiceArgs> Services
@@ -149,9 +148,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Input<string>? ApiToken { get; set; }
 
         /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by
-        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        /// resource are to be used. Mutually exclusive with `services` key.
+        /// Boolean to specify whether or not individual service objects specified by  resource are to be used. Mutually exclusive with services key.
         /// </summary>
         [Input("individualServices")]
         public Input<bool>? IndividualServices { get; set; }
@@ -172,7 +169,7 @@ namespace Pulumi.Datadog.PagerDuty
         private InputList<Inputs.IntegrationServiceGetArgs>? _services;
 
         /// <summary>
-        /// A list of service names and service keys.
+        /// A list of service names and service keys.  set "individualpagerdutyservice_object
         /// </summary>
         [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
         public InputList<Inputs.IntegrationServiceGetArgs> Services

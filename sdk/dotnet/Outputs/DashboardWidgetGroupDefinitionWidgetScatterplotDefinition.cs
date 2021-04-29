@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? LiveSpan;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest? Request;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

@@ -23,6 +23,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? ShowMessageColumn;
         public readonly Outputs.DashboardWidgetLogStreamDefinitionSort? Sort;
         public readonly Outputs.DashboardWidgetLogStreamDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;

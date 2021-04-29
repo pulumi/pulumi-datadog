@@ -72,23 +72,6 @@ import (
 // 	})
 // }
 // ```
-// ## Schema
-//
-// ### Required
-//
-// - **case** (Block List, Min: 1, Max: 5) Cases for generating signals. (see below for nested schema)
-// - **message** (String, Required) Message for generated signals.
-// - **name** (String, Required) The name of the rule.
-// - **query** (Block List, Min: 1) Queries for selecting logs which are part of the rule. (see below for nested schema)
-//
-// ### Optional
-//
-// - **enabled** (Boolean, Optional) Whether the rule is enabled.
-// - **id** (String, Optional) The ID of this resource.
-// - **options** (Block List, Max: 1) Options on rules. (see below for nested schema)
-// - **tags** (List of String, Optional) Tags for generated signals.
-//
-// <a id="nestedblock--case"></a>
 //
 // ## Import
 //

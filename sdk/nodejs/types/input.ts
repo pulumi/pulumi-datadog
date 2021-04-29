@@ -137,6 +137,9 @@ export interface DashboardWidgetAlertGraphDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetAlertGraphDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -151,6 +154,9 @@ export interface DashboardWidgetAlertValueDefinition {
     alertId: pulumi.Input<string>;
     precision?: pulumi.Input<number>;
     textAlign?: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -165,6 +171,9 @@ export interface DashboardWidgetChangeDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetChangeDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -452,6 +461,9 @@ export interface DashboardWidgetCheckStatusDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetCheckStatusDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -470,6 +482,9 @@ export interface DashboardWidgetDistributionDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetDistributionDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -749,6 +764,9 @@ export interface DashboardWidgetEventStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetEventStreamDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -766,6 +784,9 @@ export interface DashboardWidgetEventTimelineDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetEventTimelineDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -787,6 +808,9 @@ export interface DashboardWidgetGeomapDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequest>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionStyle>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1003,8 +1027,17 @@ export interface DashboardWidgetGeomapDefinitionView {
 }
 
 export interface DashboardWidgetGroupDefinition {
+    /**
+     * The layout type of the dashboard, either 'free' or 'ordered'.
+     */
     layoutType: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
+    /**
+     * The list of widgets to display on the dashboard.
+     */
     widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidget>[]>;
 }
 
@@ -1092,6 +1125,9 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1106,6 +1142,9 @@ export interface DashboardWidgetGroupDefinitionWidgetAlertValueDefinition {
     alertId: pulumi.Input<string>;
     precision?: pulumi.Input<number>;
     textAlign?: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1120,6 +1159,9 @@ export interface DashboardWidgetGroupDefinitionWidgetChangeDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1407,6 +1449,9 @@ export interface DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1425,6 +1470,9 @@ export interface DashboardWidgetGroupDefinitionWidgetDistributionDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1704,6 +1752,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1721,6 +1772,9 @@ export interface DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1742,6 +1796,9 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinition {
     liveSpan?: pulumi.Input<string>;
     requests?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -1968,6 +2025,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHeatmapDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2266,6 +2326,9 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinition {
     request?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest>;
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2801,12 +2864,18 @@ export interface DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
+    /**
+     * The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
     margin?: pulumi.Input<string>;
     sizing?: pulumi.Input<string>;
+    /**
+     * The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
@@ -2834,6 +2903,9 @@ export interface DashboardWidgetGroupDefinitionWidgetLogStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2864,6 +2936,9 @@ export interface DashboardWidgetGroupDefinitionWidgetManageStatusDefinition {
      */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -2888,6 +2963,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -3206,6 +3284,9 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -3568,6 +3649,9 @@ export interface DashboardWidgetGroupDefinitionWidgetScatterplotDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4124,6 +4208,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefini
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
     timeWindows: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4135,6 +4222,9 @@ export interface DashboardWidgetGroupDefinitionWidgetServicemapDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink>[]>;
     filters: pulumi.Input<pulumi.Input<string>[]>;
     service: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4160,6 +4250,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4611,6 +4704,9 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -4985,6 +5081,9 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5012,6 +5111,9 @@ export interface DashboardWidgetHeatmapDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetHeatmapDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5310,6 +5412,9 @@ export interface DashboardWidgetHostmapDefinition {
     request?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionRequest>;
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     style?: pulumi.Input<inputs.DashboardWidgetHostmapDefinitionStyle>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5845,12 +5950,18 @@ export interface DashboardWidgetHostmapDefinitionStyle {
 }
 
 export interface DashboardWidgetIframeDefinition {
+    /**
+     * The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetImageDefinition {
     margin?: pulumi.Input<string>;
     sizing?: pulumi.Input<string>;
+    /**
+     * The URL of the dashboard.
+     */
     url: pulumi.Input<string>;
 }
 
@@ -5878,6 +5989,9 @@ export interface DashboardWidgetLogStreamDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetLogStreamDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5908,6 +6022,9 @@ export interface DashboardWidgetManageStatusDefinition {
      */
     start?: pulumi.Input<number>;
     summaryType?: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -5932,6 +6049,9 @@ export interface DashboardWidgetQueryTableDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -6250,6 +6370,9 @@ export interface DashboardWidgetQueryValueDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -6612,6 +6735,9 @@ export interface DashboardWidgetScatterplotDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetScatterplotDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -7168,6 +7294,9 @@ export interface DashboardWidgetServiceLevelObjectiveDefinition {
     showErrorBudget?: pulumi.Input<boolean>;
     sloId: pulumi.Input<string>;
     timeWindows: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -7179,6 +7308,9 @@ export interface DashboardWidgetServicemapDefinition {
     customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetServicemapDefinitionCustomLink>[]>;
     filters: pulumi.Input<pulumi.Input<string>[]>;
     service: pulumi.Input<string>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -7204,6 +7336,9 @@ export interface DashboardWidgetTimeseriesDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -7655,6 +7790,9 @@ export interface DashboardWidgetToplistDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -8029,6 +8167,9 @@ export interface DashboardWidgetTraceServiceDefinition {
      * @deprecated Define `live_span` directly in the widget definition instead.
      */
     time?: pulumi.Input<inputs.DashboardWidgetTraceServiceDefinitionTime>;
+    /**
+     * The title of the dashboard.
+     */
     title?: pulumi.Input<string>;
     titleAlign?: pulumi.Input<string>;
     titleSize?: pulumi.Input<string>;
@@ -8516,6 +8657,9 @@ export interface LogsCustomPipelineProcessorUserAgentParser {
 }
 
 export interface LogsIndexExclusionFilter {
+    /**
+     * Logs filter
+     */
     filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilterFilter>[]>;
     /**
      * A boolean stating if the exclusion is active or not.
@@ -8939,6 +9083,9 @@ export interface SyntheticsGlobalVariableParseTestOptions {
 
 export interface SyntheticsGlobalVariableParseTestOptionsParser {
     type: pulumi.Input<string>;
+    /**
+     * The value of the global variable.
+     */
     value?: pulumi.Input<string>;
 }
 
@@ -9009,12 +9156,21 @@ export interface SyntheticsTestApiStepAssertionTargetjsonpath {
 
 export interface SyntheticsTestApiStepExtractedValue {
     field?: pulumi.Input<string>;
+    /**
+     * Name of Datadog synthetics test.
+     */
     name: pulumi.Input<string>;
     parser: pulumi.Input<inputs.SyntheticsTestApiStepExtractedValueParser>;
+    /**
+     * Synthetics test type (api or browser).
+     */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
+    /**
+     * Synthetics test type (api or browser).
+     */
     type: pulumi.Input<string>;
     value?: pulumi.Input<string>;
 }
@@ -9113,9 +9269,15 @@ export interface SyntheticsTestBrowserStepParams {
     files?: pulumi.Input<string>;
     modifiers?: pulumi.Input<pulumi.Input<string>[]>;
     playingTabId?: pulumi.Input<string>;
+    /**
+     * The synthetics test request. Required if type = "api".  Define requestDefinition list with one element instead.
+     */
     request?: pulumi.Input<string>;
     subtestPublicId?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
+    /**
+     * Variables used for a browser test steps. Multiple browserVariable blocks are allowed with the structure below.  Define browserVariable blocks instead.
+     */
     variable?: pulumi.Input<inputs.SyntheticsTestBrowserStepParamsVariable>;
     withClick?: pulumi.Input<boolean>;
     x?: pulumi.Input<number>;
