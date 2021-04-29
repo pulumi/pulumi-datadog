@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Timeout;
         /// <summary>
-        /// Type of the step. Refer to  for the complete list of available types.
+        /// Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
         /// </summary>
         public readonly string Type;
 

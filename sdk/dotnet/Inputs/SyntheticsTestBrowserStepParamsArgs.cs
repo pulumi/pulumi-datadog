@@ -51,7 +51,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? PlayingTabId { get; set; }
 
         /// <summary>
-        /// The synthetics test request. Required if type = "api".  Define request_definition list with one element instead.
+        /// The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
         /// </summary>
         [Input("request")]
         public Input<string>? Request { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Value { get; set; }
 
         /// <summary>
-        /// Variables used for a browser test steps. Multiple browser_variable blocks are allowed with the structure below.  Define browser_variable blocks instead.
+        /// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
         /// </summary>
         [Input("variable")]
         public Input<Inputs.SyntheticsTestBrowserStepParamsVariableArgs>? Variable { get; set; }

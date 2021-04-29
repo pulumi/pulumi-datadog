@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> DashId { get; set; } = null!;
 
         /// <summary>
-        /// The type of this dashboard. Available options are: custom_timeboard, custom_screenboard, integration_screenboard, integration_timeboard, and host_timeboard
+        /// The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

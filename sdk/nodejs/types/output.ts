@@ -10,7 +10,7 @@ export interface DashboardListDashItem {
      */
     dashId: string;
     /**
-     * The type of this dashboard. Available options are: custom_timeboard, custom_screenboard, integration_screenboard, integration_timeboard, and host_timeboard
+     * The type of this dashboard. Available options are: `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, and `hostTimeboard`
      */
     type: string;
 }
@@ -93,7 +93,7 @@ export interface DashboardWidget {
      */
     imageDefinition?: outputs.DashboardWidgetImageDefinition;
     /**
-     * The layout of the widget on a 'free' dashboard.  Define widgetLayout list with one element instead.
+     * The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widgetLayout` list with one element instead.
      *
      * @deprecated Define `widget_layout` list with one element instead.
      */
@@ -1081,7 +1081,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     imageDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition;
     /**
-     * The layout of the widget on a 'free' dashboard.  Define widgetLayout list with one element instead.
+     * The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widgetLayout` list with one element instead.
      *
      * @deprecated Define `widget_layout` list with one element instead.
      */
@@ -8188,27 +8188,27 @@ export interface DashboardWidgetWidgetLayout {
 
 export interface DowntimeRecurrence {
     /**
-     * How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
+     * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
      */
     period?: number;
     /**
-     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use FREQ=MONTHLY;INTERVAL=1. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, DTSTART, DTEND, DURATION).
+     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
      */
     rrule?: string;
     /**
-     * One of days, weeks, months, or years
+     * One of `days`, `weeks`, `months`, or `years`
      */
     type: string;
     /**
-     * The date at which the recurrence should end as a POSIX timestamp. untilOccurrences and untilDate are mutually exclusive.
+     * The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
      */
     untilDate?: number;
     /**
-     * How many times the downtime will be rescheduled. untilOccurrences and untilDate are mutually exclusive.
+     * How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
      */
     untilOccurrences?: number;
     /**
-     * A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
+     * A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
      */
     weekDays?: string[];
 }
@@ -8386,47 +8386,47 @@ export interface LogsCustomPipelineFilter {
 
 export interface LogsCustomPipelineProcessor {
     /**
-     * Arithmetic Processor. More information can be found in the
+     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
      */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorArithmeticProcessor;
     /**
-     * Attribute Remapper Processor. More information can be found in the
+     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorAttributeRemapper;
     /**
-     * Category Processor. More information can be found in the
+     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
      */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorCategoryProcessor;
     /**
-     * Date Remapper Processor. More information can be found in the
+     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: outputs.LogsCustomPipelineProcessorDateRemapper;
     geoIpParser?: outputs.LogsCustomPipelineProcessorGeoIpParser;
     /**
-     * Grok Processor. More information can be found in the
+     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
      */
     grokParser?: outputs.LogsCustomPipelineProcessorGrokParser;
     /**
-     * Lookup Processor. More information can be found in the
+     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
      */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorLookupProcessor;
     /**
-     * Message Remapper Processor. More information can be found in the
+     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
      */
     messageRemapper?: outputs.LogsCustomPipelineProcessorMessageRemapper;
     pipeline?: outputs.LogsCustomPipelineProcessorPipeline;
     /**
-     * Service Remapper Processor. More information can be found in the
+     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorServiceRemapper;
     /**
-     * Status Remapper Processor. More information can be found in the
+     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
     statusRemapper?: outputs.LogsCustomPipelineProcessorStatusRemapper;
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorStringBuilderProcessor;
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorTraceIdRemapper;
     /**
-     * URL Parser Processor. More information can be found in the
+     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
      */
     urlParser?: outputs.LogsCustomPipelineProcessorUrlParser;
     userAgentParser?: outputs.LogsCustomPipelineProcessorUserAgentParser;
@@ -8528,46 +8528,46 @@ export interface LogsCustomPipelineProcessorPipelineFilter {
 
 export interface LogsCustomPipelineProcessorPipelineProcessor {
     /**
-     * Arithmetic Processor. More information can be found in the
+     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
      */
     arithmeticProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor;
     /**
-     * Attribute Remapper Processor. More information can be found in the
+     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper;
     /**
-     * Category Processor. More information can be found in the
+     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
      */
     categoryProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor;
     /**
-     * Date Remapper Processor. More information can be found in the
+     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper;
     geoIpParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser;
     /**
-     * Grok Processor. More information can be found in the
+     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
      */
     grokParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser;
     /**
-     * Lookup Processor. More information can be found in the
+     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
      */
     lookupProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor;
     /**
-     * Message Remapper Processor. More information can be found in the
+     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
      */
     messageRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper;
     /**
-     * Service Remapper Processor. More information can be found in the
+     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper;
     /**
-     * Status Remapper Processor. More information can be found in the
+     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
     statusRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper;
     stringBuilderProcessor?: outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor;
     traceIdRemapper?: outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper;
     /**
-     * URL Parser Processor. More information can be found in the
+     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
      */
     urlParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser;
     userAgentParser?: outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser;
@@ -8809,27 +8809,27 @@ export interface MonitorMonitorThresholdWindows {
 
 export interface MonitorMonitorThresholds {
     /**
-     * The monitor CRITICAL recovery threshold. Must be a number.
+     * The monitor `CRITICAL` recovery threshold. Must be a number.
      */
     critical?: string;
     /**
-     * The monitor CRITICAL recovery threshold. Must be a number.
+     * The monitor `CRITICAL` recovery threshold. Must be a number.
      */
     criticalRecovery?: string;
     /**
-     * The monitor OK threshold. Must be a number.
+     * The monitor `OK` threshold. Must be a number.
      */
     ok?: string;
     /**
-     * The monitor UNKNOWN threshold. Must be a number.
+     * The monitor `UNKNOWN` threshold. Must be a number.
      */
     unknown?: string;
     /**
-     * The monitor WARNING threshold. Must be a number.
+     * The monitor `WARNING` threshold. Must be a number.
      */
     warning?: string;
     /**
-     * The monitor WARNING recovery threshold. Must be a number.
+     * The monitor `WARNING` recovery threshold. Must be a number.
      */
     warningRecovery?: string;
 }
@@ -9063,7 +9063,7 @@ export interface ScreenBoardWidgetTileDefRequestProcessQuery {
 
 export interface SecurityMonitoringRuleCase {
     /**
-     * A rule case contains logical operations (>,>=, &&, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.
+     * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      */
     condition?: string;
     /**
@@ -9118,30 +9118,30 @@ export interface SecurityMonitoringRuleQuery {
 
 export interface ServiceLevelObjectiveQuery {
     /**
-     * The sum of the total events.
+     * The sum of the `total` events.
      */
     denominator: string;
     /**
-     * The sum of all the good events.
+     * The sum of all the `good` events.
      */
     numerator: string;
 }
 
 export interface ServiceLevelObjectiveThreshold {
     /**
-     * The objective's target in[0,100].
+     * The objective's target in`[0,100]`.
      */
     target: number;
     /**
-     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. 98.00).
+     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
      */
     targetDisplay?: string;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: 7d, 30d, 90d.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: `7d`, `30d`, `90d`.
      */
     timeframe: string;
     /**
-     * The objective's warning value in [0,100]. This must be greater than the target value.
+     * The objective's warning value in `[0,100]`. This must be greater than the target value.
      */
     warning?: number;
     /**
@@ -9152,12 +9152,12 @@ export interface ServiceLevelObjectiveThreshold {
 
 export interface SyntheticsGlobalVariableParseTestOptions {
     /**
-     * Required when type = http_header. Defines the header to use to extract the value
+     * Required when type = `httpHeader`. Defines the header to use to extract the value
      */
     field?: string;
     parser: outputs.SyntheticsGlobalVariableParseTestOptionsParser;
     /**
-     * Defines the source to use to extract the value. Allowed enum values: http_body, http_header.
+     * Defines the source to use to extract the value. Allowed enum values: `httpBody`, `httpHeader`.
      */
     type: string;
 }
@@ -9172,7 +9172,7 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
 
 export interface SyntheticsTestApiStep {
     /**
-     * Assertions used for the test. Multiple assertion blocks are allowed with the structure below.
+     * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
      */
     assertions?: outputs.SyntheticsTestApiStepAssertion[];
     /**
@@ -9201,30 +9201,30 @@ export interface SyntheticsTestApiStep {
      */
     requestQuery?: {[key: string]: any};
     /**
-     * The subtype of the Synthetic multistep API test step, currently only supporting http.
+     * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
      */
     subtype?: string;
 }
 
 export interface SyntheticsTestApiStepAssertion {
     /**
-     * Assertion operator.  Only some combinations of type and operator are valid (please refer to ).
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
     operator: string;
     /**
-     * If assertion type is header, this is the header name.
+     * If assertion type is `header`, this is the header name.
      */
     property?: string;
     /**
-     * Expected value. Depends on the assertion type, refer to  for details.
+     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
      */
     target?: string;
     /**
-     * Expected structure if operator is validatesJSONPath. Exactly one nested block is allowed with the structure below.
+     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
      */
     targetjsonpath?: outputs.SyntheticsTestApiStepAssertionTargetjsonpath;
     /**
-     * Type of assertion. Choose from body, header, responseTime, statusCode.  Only some combinations of type and operator are valid (please refer to ).
+     * Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
     type: string;
 }
@@ -9243,14 +9243,14 @@ export interface SyntheticsTestApiStepExtractedValue {
     name: string;
     parser: outputs.SyntheticsTestApiStepExtractedValueParser;
     /**
-     * Synthetics test type (api or browser).
+     * Synthetics test type (`api` or `browser`).
      */
     type: string;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
     /**
-     * Synthetics test type (api or browser).
+     * Synthetics test type (`api` or `browser`).
      */
     type: string;
     value?: string;
@@ -9288,7 +9288,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     body?: string;
     /**
-     * DNS server to use for DNS tests (subtype = "dns").
+     * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: string;
     /**
@@ -9296,7 +9296,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: string;
     /**
-     * The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+     * The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
      */
     method?: string;
     noSavingResponseBody?: boolean;
@@ -9305,7 +9305,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     port?: number;
     /**
-     * Timeout in seconds for the test. Defaults to 60.
+     * Timeout in seconds for the test. Defaults to `60`.
      */
     timeout?: number;
     /**
@@ -9333,7 +9333,7 @@ export interface SyntheticsTestBrowserStep {
      */
     timeout?: number;
     /**
-     * Type of the step. Refer to  for the complete list of available types.
+     * Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
      */
     type: string;
 }
@@ -9351,13 +9351,13 @@ export interface SyntheticsTestBrowserStepParams {
     modifiers?: string[];
     playingTabId?: string;
     /**
-     * The synthetics test request. Required if type = "api".  Define requestDefinition list with one element instead.
+     * The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `requestDefinition` list with one element instead.
      */
     request?: string;
     subtestPublicId?: string;
     value?: string;
     /**
-     * Variables used for a browser test steps. Multiple browserVariable blocks are allowed with the structure below.  Define browserVariable blocks instead.
+     * Variables used for a browser test steps. Multiple `browserVariable` blocks are allowed with the structure below. **Deprecated.** Define `browserVariable` blocks instead.
      */
     variable?: outputs.SyntheticsTestBrowserStepParamsVariable;
     withClick?: boolean;
@@ -9382,7 +9382,7 @@ export interface SyntheticsTestBrowserVariable {
      */
     example?: string;
     /**
-     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
      */
     id?: string;
     /**
@@ -9394,7 +9394,7 @@ export interface SyntheticsTestBrowserVariable {
      */
     pattern?: string;
     /**
-     * Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+     * Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
      */
     type: string;
 }
@@ -9413,7 +9413,7 @@ export interface SyntheticsTestConfigVariable {
      */
     pattern?: string;
     /**
-     * Type of test configuration variable. Allowed enum values: text.
+     * Type of test configuration variable. Allowed enum values: `text`.
      */
     type: string;
 }
@@ -9448,7 +9448,7 @@ export interface SyntheticsTestOptionsList {
     noScreenshot?: boolean;
     retry?: outputs.SyntheticsTestOptionsListRetry;
     /**
-     * How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+     * How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
      */
     tickEvery: number;
 }
@@ -9505,7 +9505,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     body?: string;
     /**
-     * DNS server to use for DNS tests (subtype = "dns").
+     * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: string;
     /**
@@ -9513,7 +9513,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     host?: string;
     /**
-     * The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+     * The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
      */
     method?: string;
     noSavingResponseBody?: boolean;
@@ -9522,7 +9522,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     port?: number;
     /**
-     * Timeout in seconds for the test. Defaults to 60.
+     * Timeout in seconds for the test. Defaults to `60`.
      */
     timeout?: number;
     /**
@@ -9550,7 +9550,7 @@ export interface SyntheticsTestStep {
      */
     timeout?: number;
     /**
-     * Type of the step. Refer to  for the complete list of available types.
+     * Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
      */
     type: string;
 }
@@ -9561,7 +9561,7 @@ export interface SyntheticsTestVariable {
      */
     example?: string;
     /**
-     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
      */
     id?: string;
     /**
@@ -9573,7 +9573,7 @@ export interface SyntheticsTestVariable {
      */
     pattern?: string;
     /**
-     * Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+     * Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
      */
     type: string;
 }

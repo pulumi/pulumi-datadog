@@ -25,13 +25,13 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> Modifiers;
         public readonly string? PlayingTabId;
         /// <summary>
-        /// The synthetics test request. Required if type = "api".  Define request_definition list with one element instead.
+        /// The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
         /// </summary>
         public readonly string? Request;
         public readonly string? SubtestPublicId;
         public readonly string? Value;
         /// <summary>
-        /// Variables used for a browser test steps. Multiple browser_variable blocks are allowed with the structure below.  Define browser_variable blocks instead.
+        /// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
         /// </summary>
         public readonly Outputs.SyntheticsTestBrowserStepParamsVariable? Variable;
         public readonly bool? WithClick;

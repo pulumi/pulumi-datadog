@@ -48,7 +48,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Import is supported using the following syntax# Security monitoring rules can be imported using ID, e.g.
+ * # Security monitoring rules can be imported using ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb

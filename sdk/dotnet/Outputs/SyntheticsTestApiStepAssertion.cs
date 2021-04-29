@@ -14,23 +14,23 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepAssertion
     {
         /// <summary>
-        /// Assertion operator.  Only some combinations of type and operator are valid (please refer to ).
+        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// If assertion type is header, this is the header name.
+        /// If assertion type is `header`, this is the header name.
         /// </summary>
         public readonly string? Property;
         /// <summary>
-        /// Expected value. Depends on the assertion type, refer to  for details.
+        /// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         /// </summary>
         public readonly string? Target;
         /// <summary>
-        /// Expected structure if operator is validatesJSONPath. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         public readonly Outputs.SyntheticsTestApiStepAssertionTargetjsonpath? Targetjsonpath;
         /// <summary>
-        /// Type of assertion. Choose from body, header, responseTime, statusCode.  Only some combinations of type and operator are valid (please refer to ).
+        /// Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         /// </summary>
         public readonly string Type;
 

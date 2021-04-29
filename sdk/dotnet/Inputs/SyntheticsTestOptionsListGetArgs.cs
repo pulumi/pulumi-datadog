@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestOptionsListRetryGetArgs>? Retry { get; set; }
 
         /// <summary>
-        /// How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+        /// How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
         /// </summary>
         [Input("tickEvery", required: true)]
         public Input<int> TickEvery { get; set; } = null!;

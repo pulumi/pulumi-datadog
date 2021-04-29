@@ -56,7 +56,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetImageDefinition? ImageDefinition;
         /// <summary>
-        /// The layout of the widget on a 'free' dashboard.  Define widget_layout list with one element instead.
+        /// The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLayout? Layout;
         public readonly Outputs.DashboardWidgetLogStreamDefinition? LogStreamDefinition;

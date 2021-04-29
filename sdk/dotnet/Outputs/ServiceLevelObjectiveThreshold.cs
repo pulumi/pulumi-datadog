@@ -14,19 +14,19 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ServiceLevelObjectiveThreshold
     {
         /// <summary>
-        /// The objective's target in[0,100].
+        /// The objective's target in`[0,100]`.
         /// </summary>
         public readonly double Target;
         /// <summary>
-        /// A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. 98.00).
+        /// A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
         /// </summary>
         public readonly string? TargetDisplay;
         /// <summary>
-        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: 7d, 30d, 90d.
+        /// The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: `7d`, `30d`, `90d`.
         /// </summary>
         public readonly string Timeframe;
         /// <summary>
-        /// The objective's warning value in [0,100]. This must be greater than the target value.
+        /// The objective's warning value in `[0,100]`. This must be greater than the target value.
         /// </summary>
         public readonly double? Warning;
         /// <summary>

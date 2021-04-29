@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Body;
         /// <summary>
-        /// DNS server to use for DNS tests (subtype = "dns").
+        /// DNS server to use for DNS tests (`subtype = "dns"`).
         /// </summary>
         public readonly string? DnsServer;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Host;
         /// <summary>
-        /// The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+        /// The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
         /// </summary>
         public readonly string? Method;
         public readonly bool? NoSavingResponseBody;
@@ -35,7 +35,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Timeout in seconds for the test. Defaults to 60.
+        /// Timeout in seconds for the test. Defaults to `60`.
         /// </summary>
         public readonly int? Timeout;
         /// <summary>

@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Example { get; set; }
 
         /// <summary>
-        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+        /// Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

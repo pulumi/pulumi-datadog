@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Example;
         /// <summary>
-        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+        /// ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Pattern;
         /// <summary>
-        /// Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+        /// Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
         /// </summary>
         public readonly string Type;
 

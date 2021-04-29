@@ -13,31 +13,31 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SyntheticsTestApiStepAssertionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Assertion operator.  Only some combinations of type and operator are valid (please refer to ).
+        /// Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// If assertion type is header, this is the header name.
+        /// If assertion type is `header`, this is the header name.
         /// </summary>
         [Input("property")]
         public Input<string>? Property { get; set; }
 
         /// <summary>
-        /// Expected value. Depends on the assertion type, refer to  for details.
+        /// Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Expected structure if operator is validatesJSONPath. Exactly one nested block is allowed with the structure below.
+        /// Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         /// </summary>
         [Input("targetjsonpath")]
         public Input<Inputs.SyntheticsTestApiStepAssertionTargetjsonpathArgs>? Targetjsonpath { get; set; }
 
         /// <summary>
-        /// Type of assertion. Choose from body, header, responseTime, statusCode.  Only some combinations of type and operator are valid (please refer to ).
+        /// Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

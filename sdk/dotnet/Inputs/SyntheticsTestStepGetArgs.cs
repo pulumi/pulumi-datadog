@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// Type of the step. Refer to  for the complete list of available types.
+        /// Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

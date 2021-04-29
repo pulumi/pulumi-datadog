@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Pattern;
         /// <summary>
-        /// Type of test configuration variable. Allowed enum values: text.
+        /// Type of test configuration variable. Allowed enum values: `text`.
         /// </summary>
         public readonly string Type;
 

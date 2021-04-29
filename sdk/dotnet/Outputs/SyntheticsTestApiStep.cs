@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStep
     {
         /// <summary>
-        /// Assertions used for the test. Multiple assertion blocks are allowed with the structure below.
+        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepAssertion> Assertions;
         /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, object>? RequestQuery;
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step, currently only supporting http.
+        /// The subtype of the Synthetic multistep API test step, currently only supporting `http`.
         /// </summary>
         public readonly string? Subtype;
 

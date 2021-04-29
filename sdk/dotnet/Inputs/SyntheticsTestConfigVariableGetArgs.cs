@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Type of test configuration variable. Allowed enum values: text.
+        /// Type of test configuration variable. Allowed enum values: `text`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

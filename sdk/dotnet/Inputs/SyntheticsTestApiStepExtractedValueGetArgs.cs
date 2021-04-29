@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestApiStepExtractedValueParserGetArgs> Parser { get; set; } = null!;
 
         /// <summary>
-        /// Synthetics test type (api or browser).
+        /// Synthetics test type (`api` or `browser`).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -10,7 +10,7 @@ export interface DashboardListDashItem {
      */
     dashId: pulumi.Input<string>;
     /**
-     * The type of this dashboard. Available options are: custom_timeboard, custom_screenboard, integration_screenboard, integration_timeboard, and host_timeboard
+     * The type of this dashboard. Available options are: `customTimeboard`, `customScreenboard`, `integrationScreenboard`, `integrationTimeboard`, and `hostTimeboard`
      */
     type: pulumi.Input<string>;
 }
@@ -93,7 +93,7 @@ export interface DashboardWidget {
      */
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetImageDefinition>;
     /**
-     * The layout of the widget on a 'free' dashboard.  Define widgetLayout list with one element instead.
+     * The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widgetLayout` list with one element instead.
      *
      * @deprecated Define `widget_layout` list with one element instead.
      */
@@ -1081,7 +1081,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     imageDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetImageDefinition>;
     /**
-     * The layout of the widget on a 'free' dashboard.  Define widgetLayout list with one element instead.
+     * The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widgetLayout` list with one element instead.
      *
      * @deprecated Define `widget_layout` list with one element instead.
      */
@@ -8188,27 +8188,27 @@ export interface DashboardWidgetWidgetLayout {
 
 export interface DowntimeRecurrence {
     /**
-     * How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
+     * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
      */
     period?: pulumi.Input<number>;
     /**
-     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use FREQ=MONTHLY;INTERVAL=1. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, DTSTART, DTEND, DURATION).
+     * The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
      */
     rrule?: pulumi.Input<string>;
     /**
-     * One of days, weeks, months, or years
+     * One of `days`, `weeks`, `months`, or `years`
      */
     type: pulumi.Input<string>;
     /**
-     * The date at which the recurrence should end as a POSIX timestamp. untilOccurrences and untilDate are mutually exclusive.
+     * The date at which the recurrence should end as a POSIX timestamp. `untilOccurrences` and `untilDate` are mutually exclusive.
      */
     untilDate?: pulumi.Input<number>;
     /**
-     * How many times the downtime will be rescheduled. untilOccurrences and untilDate are mutually exclusive.
+     * How many times the downtime will be rescheduled. `untilOccurrences` and `untilDate` are mutually exclusive.
      */
     untilOccurrences?: pulumi.Input<number>;
     /**
-     * A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
+     * A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
      */
     weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -8305,47 +8305,47 @@ export interface LogsCustomPipelineFilter {
 
 export interface LogsCustomPipelineProcessor {
     /**
-     * Arithmetic Processor. More information can be found in the
+     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
      */
     arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorArithmeticProcessor>;
     /**
-     * Attribute Remapper Processor. More information can be found in the
+     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorAttributeRemapper>;
     /**
-     * Category Processor. More information can be found in the
+     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
      */
     categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorCategoryProcessor>;
     /**
-     * Date Remapper Processor. More information can be found in the
+     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorDateRemapper>;
     geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGeoIpParser>;
     /**
-     * Grok Processor. More information can be found in the
+     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
      */
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorGrokParser>;
     /**
-     * Lookup Processor. More information can be found in the
+     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
      */
     lookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorLookupProcessor>;
     /**
-     * Message Remapper Processor. More information can be found in the
+     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
      */
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorMessageRemapper>;
     pipeline?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipeline>;
     /**
-     * Service Remapper Processor. More information can be found in the
+     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorServiceRemapper>;
     /**
-     * Status Remapper Processor. More information can be found in the
+     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorStatusRemapper>;
     stringBuilderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorStringBuilderProcessor>;
     traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorTraceIdRemapper>;
     /**
-     * URL Parser Processor. More information can be found in the
+     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
      */
     urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUrlParser>;
     userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorUserAgentParser>;
@@ -8447,46 +8447,46 @@ export interface LogsCustomPipelineProcessorPipelineFilter {
 
 export interface LogsCustomPipelineProcessorPipelineProcessor {
     /**
-     * Arithmetic Processor. More information can be found in the
+     * Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
      */
     arithmeticProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor>;
     /**
-     * Attribute Remapper Processor. More information can be found in the
+     * Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
      */
     attributeRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper>;
     /**
-     * Category Processor. More information can be found in the
+     * Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
      */
     categoryProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor>;
     /**
-     * Date Remapper Processor. More information can be found in the
+     * Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
      */
     dateRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper>;
     geoIpParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser>;
     /**
-     * Grok Processor. More information can be found in the
+     * Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
      */
     grokParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser>;
     /**
-     * Lookup Processor. More information can be found in the
+     * Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
      */
     lookupProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor>;
     /**
-     * Message Remapper Processor. More information can be found in the
+     * Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
      */
     messageRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper>;
     /**
-     * Service Remapper Processor. More information can be found in the
+     * Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
      */
     serviceRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper>;
     /**
-     * Status Remapper Processor. More information can be found in the
+     * Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
      */
     statusRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper>;
     stringBuilderProcessor?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor>;
     traceIdRemapper?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper>;
     /**
-     * URL Parser Processor. More information can be found in the
+     * URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
      */
     urlParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser>;
     userAgentParser?: pulumi.Input<inputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser>;
@@ -8728,27 +8728,27 @@ export interface MonitorMonitorThresholdWindows {
 
 export interface MonitorMonitorThresholds {
     /**
-     * The monitor CRITICAL recovery threshold. Must be a number.
+     * The monitor `CRITICAL` recovery threshold. Must be a number.
      */
     critical?: pulumi.Input<string>;
     /**
-     * The monitor CRITICAL recovery threshold. Must be a number.
+     * The monitor `CRITICAL` recovery threshold. Must be a number.
      */
     criticalRecovery?: pulumi.Input<string>;
     /**
-     * The monitor OK threshold. Must be a number.
+     * The monitor `OK` threshold. Must be a number.
      */
     ok?: pulumi.Input<string>;
     /**
-     * The monitor UNKNOWN threshold. Must be a number.
+     * The monitor `UNKNOWN` threshold. Must be a number.
      */
     unknown?: pulumi.Input<string>;
     /**
-     * The monitor WARNING threshold. Must be a number.
+     * The monitor `WARNING` threshold. Must be a number.
      */
     warning?: pulumi.Input<string>;
     /**
-     * The monitor WARNING recovery threshold. Must be a number.
+     * The monitor `WARNING` recovery threshold. Must be a number.
      */
     warningRecovery?: pulumi.Input<string>;
 }
@@ -8982,7 +8982,7 @@ export interface ScreenBoardWidgetTileDefRequestProcessQuery {
 
 export interface SecurityMonitoringRuleCase {
     /**
-     * A rule case contains logical operations (>,>=, &&, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.
+     * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
      */
     condition?: pulumi.Input<string>;
     /**
@@ -9037,30 +9037,30 @@ export interface SecurityMonitoringRuleQuery {
 
 export interface ServiceLevelObjectiveQuery {
     /**
-     * The sum of the total events.
+     * The sum of the `total` events.
      */
     denominator: pulumi.Input<string>;
     /**
-     * The sum of all the good events.
+     * The sum of all the `good` events.
      */
     numerator: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjectiveThreshold {
     /**
-     * The objective's target in[0,100].
+     * The objective's target in`[0,100]`.
      */
     target: pulumi.Input<number>;
     /**
-     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. 98.00).
+     * A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
      */
     targetDisplay?: pulumi.Input<string>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: 7d, 30d, 90d.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: `7d`, `30d`, `90d`.
      */
     timeframe: pulumi.Input<string>;
     /**
-     * The objective's warning value in [0,100]. This must be greater than the target value.
+     * The objective's warning value in `[0,100]`. This must be greater than the target value.
      */
     warning?: pulumi.Input<number>;
     /**
@@ -9071,12 +9071,12 @@ export interface ServiceLevelObjectiveThreshold {
 
 export interface SyntheticsGlobalVariableParseTestOptions {
     /**
-     * Required when type = http_header. Defines the header to use to extract the value
+     * Required when type = `httpHeader`. Defines the header to use to extract the value
      */
     field?: pulumi.Input<string>;
     parser: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptionsParser>;
     /**
-     * Defines the source to use to extract the value. Allowed enum values: http_body, http_header.
+     * Defines the source to use to extract the value. Allowed enum values: `httpBody`, `httpHeader`.
      */
     type: pulumi.Input<string>;
 }
@@ -9091,7 +9091,7 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
 
 export interface SyntheticsTestApiStep {
     /**
-     * Assertions used for the test. Multiple assertion blocks are allowed with the structure below.
+     * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
      */
     assertions?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStepAssertion>[]>;
     /**
@@ -9120,30 +9120,30 @@ export interface SyntheticsTestApiStep {
      */
     requestQuery?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The subtype of the Synthetic multistep API test step, currently only supporting http.
+     * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
      */
     subtype?: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepAssertion {
     /**
-     * Assertion operator.  Only some combinations of type and operator are valid (please refer to ).
+     * Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
     operator: pulumi.Input<string>;
     /**
-     * If assertion type is header, this is the header name.
+     * If assertion type is `header`, this is the header name.
      */
     property?: pulumi.Input<string>;
     /**
-     * Expected value. Depends on the assertion type, refer to  for details.
+     * Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
      */
     target?: pulumi.Input<string>;
     /**
-     * Expected structure if operator is validatesJSONPath. Exactly one nested block is allowed with the structure below.
+     * Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
      */
     targetjsonpath?: pulumi.Input<inputs.SyntheticsTestApiStepAssertionTargetjsonpath>;
     /**
-     * Type of assertion. Choose from body, header, responseTime, statusCode.  Only some combinations of type and operator are valid (please refer to ).
+     * Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
      */
     type: pulumi.Input<string>;
 }
@@ -9162,14 +9162,14 @@ export interface SyntheticsTestApiStepExtractedValue {
     name: pulumi.Input<string>;
     parser: pulumi.Input<inputs.SyntheticsTestApiStepExtractedValueParser>;
     /**
-     * Synthetics test type (api or browser).
+     * Synthetics test type (`api` or `browser`).
      */
     type: pulumi.Input<string>;
 }
 
 export interface SyntheticsTestApiStepExtractedValueParser {
     /**
-     * Synthetics test type (api or browser).
+     * Synthetics test type (`api` or `browser`).
      */
     type: pulumi.Input<string>;
     value?: pulumi.Input<string>;
@@ -9207,7 +9207,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     body?: pulumi.Input<string>;
     /**
-     * DNS server to use for DNS tests (subtype = "dns").
+     * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: pulumi.Input<string>;
     /**
@@ -9215,7 +9215,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     host?: pulumi.Input<string>;
     /**
-     * The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+     * The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
      */
     method?: pulumi.Input<string>;
     noSavingResponseBody?: pulumi.Input<boolean>;
@@ -9224,7 +9224,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     port?: pulumi.Input<number>;
     /**
-     * Timeout in seconds for the test. Defaults to 60.
+     * Timeout in seconds for the test. Defaults to `60`.
      */
     timeout?: pulumi.Input<number>;
     /**
@@ -9252,7 +9252,7 @@ export interface SyntheticsTestBrowserStep {
      */
     timeout?: pulumi.Input<number>;
     /**
-     * Type of the step. Refer to  for the complete list of available types.
+     * Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
      */
     type: pulumi.Input<string>;
 }
@@ -9270,13 +9270,13 @@ export interface SyntheticsTestBrowserStepParams {
     modifiers?: pulumi.Input<pulumi.Input<string>[]>;
     playingTabId?: pulumi.Input<string>;
     /**
-     * The synthetics test request. Required if type = "api".  Define requestDefinition list with one element instead.
+     * The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `requestDefinition` list with one element instead.
      */
     request?: pulumi.Input<string>;
     subtestPublicId?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
     /**
-     * Variables used for a browser test steps. Multiple browserVariable blocks are allowed with the structure below.  Define browserVariable blocks instead.
+     * Variables used for a browser test steps. Multiple `browserVariable` blocks are allowed with the structure below. **Deprecated.** Define `browserVariable` blocks instead.
      */
     variable?: pulumi.Input<inputs.SyntheticsTestBrowserStepParamsVariable>;
     withClick?: pulumi.Input<boolean>;
@@ -9301,7 +9301,7 @@ export interface SyntheticsTestBrowserVariable {
      */
     example?: pulumi.Input<string>;
     /**
-     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
      */
     id?: pulumi.Input<string>;
     /**
@@ -9313,7 +9313,7 @@ export interface SyntheticsTestBrowserVariable {
      */
     pattern?: pulumi.Input<string>;
     /**
-     * Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+     * Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
      */
     type: pulumi.Input<string>;
 }
@@ -9332,7 +9332,7 @@ export interface SyntheticsTestConfigVariable {
      */
     pattern?: pulumi.Input<string>;
     /**
-     * Type of test configuration variable. Allowed enum values: text.
+     * Type of test configuration variable. Allowed enum values: `text`.
      */
     type: pulumi.Input<string>;
 }
@@ -9367,7 +9367,7 @@ export interface SyntheticsTestOptionsList {
     noScreenshot?: pulumi.Input<boolean>;
     retry?: pulumi.Input<inputs.SyntheticsTestOptionsListRetry>;
     /**
-     * How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+     * How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
      */
     tickEvery: pulumi.Input<number>;
 }
@@ -9424,7 +9424,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     body?: pulumi.Input<string>;
     /**
-     * DNS server to use for DNS tests (subtype = "dns").
+     * DNS server to use for DNS tests (`subtype = "dns"`).
      */
     dnsServer?: pulumi.Input<string>;
     /**
@@ -9432,7 +9432,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     host?: pulumi.Input<string>;
     /**
-     * The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+     * The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
      */
     method?: pulumi.Input<string>;
     noSavingResponseBody?: pulumi.Input<boolean>;
@@ -9441,7 +9441,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     port?: pulumi.Input<number>;
     /**
-     * Timeout in seconds for the test. Defaults to 60.
+     * Timeout in seconds for the test. Defaults to `60`.
      */
     timeout?: pulumi.Input<number>;
     /**
@@ -9469,7 +9469,7 @@ export interface SyntheticsTestStep {
      */
     timeout?: pulumi.Input<number>;
     /**
-     * Type of the step. Refer to  for the complete list of available types.
+     * Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
      */
     type: pulumi.Input<string>;
 }
@@ -9480,7 +9480,7 @@ export interface SyntheticsTestVariable {
      */
     example?: pulumi.Input<string>;
     /**
-     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+     * ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
      */
     id?: pulumi.Input<string>;
     /**
@@ -9492,7 +9492,7 @@ export interface SyntheticsTestVariable {
      */
     pattern?: pulumi.Input<string>;
     /**
-     * Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+     * Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
      */
     type: pulumi.Input<string>;
 }

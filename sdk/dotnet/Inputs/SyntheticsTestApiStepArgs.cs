@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.SyntheticsTestApiStepAssertionArgs>? _assertions;
 
         /// <summary>
-        /// Assertions used for the test. Multiple assertion blocks are allowed with the structure below.
+        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         /// </summary>
         public InputList<Inputs.SyntheticsTestApiStepAssertionArgs> Assertions
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step, currently only supporting http.
+        /// The subtype of the Synthetic multistep API test step, currently only supporting `http`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }

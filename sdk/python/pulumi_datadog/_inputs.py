@@ -1177,7 +1177,7 @@ class DashboardListDashItemArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] dash_id: The ID of the dashboard to add
-        :param pulumi.Input[str] type: The type of this dashboard. Available options are: custom_timeboard, custom_screenboard, integration_screenboard, integration_timeboard, and host_timeboard
+        :param pulumi.Input[str] type: The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
         """
         pulumi.set(__self__, "dash_id", dash_id)
         pulumi.set(__self__, "type", type)
@@ -1198,7 +1198,7 @@ class DashboardListDashItemArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of this dashboard. Available options are: custom_timeboard, custom_screenboard, integration_screenboard, integration_timeboard, and host_timeboard
+        The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
         """
         return pulumi.get(self, "type")
 
@@ -1376,7 +1376,7 @@ class DashboardWidgetArgs:
         :param pulumi.Input[int] id: The ID of the widget.
         :param pulumi.Input['DashboardWidgetIframeDefinitionArgs'] iframe_definition: The definition for an Iframe widget.
         :param pulumi.Input['DashboardWidgetImageDefinitionArgs'] image_definition: The definition for an Image widget
-        :param pulumi.Input['DashboardWidgetLayoutArgs'] layout: The layout of the widget on a 'free' dashboard.  Define widget_layout list with one element instead.
+        :param pulumi.Input['DashboardWidgetLayoutArgs'] layout: The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
         :param pulumi.Input['DashboardWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
         :param pulumi.Input['DashboardWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
         :param pulumi.Input['DashboardWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
@@ -1610,7 +1610,7 @@ class DashboardWidgetArgs:
     @pulumi.getter
     def layout(self) -> Optional[pulumi.Input['DashboardWidgetLayoutArgs']]:
         """
-        The layout of the widget on a 'free' dashboard.  Define widget_layout list with one element instead.
+        The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
         """
         return pulumi.get(self, "layout")
 
@@ -7475,7 +7475,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
         :param pulumi.Input[int] id: The ID of the widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs'] iframe_definition: The definition for an Iframe widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs'] image_definition: The definition for an Image widget
-        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetLayoutArgs'] layout: The layout of the widget on a 'free' dashboard.  Define widget_layout list with one element instead.
+        :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetLayoutArgs'] layout: The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs'] note_definition: The definition for a Note widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionArgs'] scatterplot_definition: The definition for a Scatterplot widget.
         :param pulumi.Input['DashboardWidgetGroupDefinitionWidgetServicemapDefinitionArgs'] servicemap_definition: The definition for a Service Map widget.
@@ -7695,7 +7695,7 @@ class DashboardWidgetGroupDefinitionWidgetArgs:
     @pulumi.getter
     def layout(self) -> Optional[pulumi.Input['DashboardWidgetGroupDefinitionWidgetLayoutArgs']]:
         """
-        The layout of the widget on a 'free' dashboard.  Define widget_layout list with one element instead.
+        The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
         """
         return pulumi.get(self, "layout")
 
@@ -53096,12 +53096,12 @@ class DowntimeRecurrenceArgs:
                  until_occurrences: Optional[pulumi.Input[int]] = None,
                  week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] type: One of days, weeks, months, or years
-        :param pulumi.Input[int] period: How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
-        :param pulumi.Input[str] rrule: The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use FREQ=MONTHLY;INTERVAL=1. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, DTSTART, DTEND, DURATION).
-        :param pulumi.Input[int] until_date: The date at which the recurrence should end as a POSIX timestamp. until_occurrences and until_date are mutually exclusive.
-        :param pulumi.Input[int] until_occurrences: How many times the downtime will be rescheduled. until_occurrences and until_date are mutually exclusive.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
+        :param pulumi.Input[str] type: One of `days`, `weeks`, `months`, or `years`
+        :param pulumi.Input[int] period: How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
+        :param pulumi.Input[str] rrule: The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
+        :param pulumi.Input[int] until_date: The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
+        :param pulumi.Input[int] until_occurrences: How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
         """
         pulumi.set(__self__, "type", type)
         if period is not None:
@@ -53119,7 +53119,7 @@ class DowntimeRecurrenceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        One of days, weeks, months, or years
+        One of `days`, `weeks`, `months`, or `years`
         """
         return pulumi.get(self, "type")
 
@@ -53131,7 +53131,7 @@ class DowntimeRecurrenceArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[int]]:
         """
-        How often to repeat as an integer. For example to repeat every 3 days, select a type of days and a period of 3.
+        How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
         """
         return pulumi.get(self, "period")
 
@@ -53143,7 +53143,7 @@ class DowntimeRecurrenceArgs:
     @pulumi.getter
     def rrule(self) -> Optional[pulumi.Input[str]]:
         """
-        The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use FREQ=MONTHLY;INTERVAL=1. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, DTSTART, DTEND, DURATION).
+        The RRULE standard for defining recurring events. For example, to have a recurring event on the first day of each month, use `FREQ=MONTHLY;INTERVAL=1`. Most common rrule options from the iCalendar Spec are supported. Attributes specifying the duration in RRULE are not supported (for example, `DTSTART`, `DTEND`, `DURATION`).
         """
         return pulumi.get(self, "rrule")
 
@@ -53155,7 +53155,7 @@ class DowntimeRecurrenceArgs:
     @pulumi.getter(name="untilDate")
     def until_date(self) -> Optional[pulumi.Input[int]]:
         """
-        The date at which the recurrence should end as a POSIX timestamp. until_occurrences and until_date are mutually exclusive.
+        The date at which the recurrence should end as a POSIX timestamp. `until_occurrences` and `until_date` are mutually exclusive.
         """
         return pulumi.get(self, "until_date")
 
@@ -53167,7 +53167,7 @@ class DowntimeRecurrenceArgs:
     @pulumi.getter(name="untilOccurrences")
     def until_occurrences(self) -> Optional[pulumi.Input[int]]:
         """
-        How many times the downtime will be rescheduled. until_occurrences and until_date are mutually exclusive.
+        How many times the downtime will be rescheduled. `until_occurrences` and `until_date` are mutually exclusive.
         """
         return pulumi.get(self, "until_occurrences")
 
@@ -53179,7 +53179,7 @@ class DowntimeRecurrenceArgs:
     @pulumi.getter(name="weekDays")
     def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of week days to repeat on. Choose from: Mon, Tue, Wed, Thu, Fri, Sat or Sun. Only applicable when type is weeks. First letter must be capitalized.
+        A list of week days to repeat on. Choose from: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat` or `Sun`. Only applicable when `type` is `weeks`. First letter must be capitalized.
         """
         return pulumi.get(self, "week_days")
 
@@ -53605,16 +53605,16 @@ class LogsCustomPipelineProcessorArgs:
                  url_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorUrlParserArgs']] = None,
                  user_agent_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorUserAgentParserArgs']] = None):
         """
-        :param pulumi.Input['LogsCustomPipelineProcessorArithmeticProcessorArgs'] arithmetic_processor: Arithmetic Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorAttributeRemapperArgs'] attribute_remapper: Attribute Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorCategoryProcessorArgs'] category_processor: Category Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorDateRemapperArgs'] date_remapper: Date Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorUrlParserArgs'] url_parser: URL Parser Processor. More information can be found in the
+        :param pulumi.Input['LogsCustomPipelineProcessorArithmeticProcessorArgs'] arithmetic_processor: Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+        :param pulumi.Input['LogsCustomPipelineProcessorAttributeRemapperArgs'] attribute_remapper: Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorCategoryProcessorArgs'] category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+        :param pulumi.Input['LogsCustomPipelineProcessorDateRemapperArgs'] date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+        :param pulumi.Input['LogsCustomPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        :param pulumi.Input['LogsCustomPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorUrlParserArgs'] url_parser: URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
         """
         if arithmetic_processor is not None:
             pulumi.set(__self__, "arithmetic_processor", arithmetic_processor)
@@ -53651,7 +53651,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="arithmeticProcessor")
     def arithmetic_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorArithmeticProcessorArgs']]:
         """
-        Arithmetic Processor. More information can be found in the
+        Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
         """
         return pulumi.get(self, "arithmetic_processor")
 
@@ -53663,7 +53663,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="attributeRemapper")
     def attribute_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorAttributeRemapperArgs']]:
         """
-        Attribute Remapper Processor. More information can be found in the
+        Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
         """
         return pulumi.get(self, "attribute_remapper")
 
@@ -53675,7 +53675,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="categoryProcessor")
     def category_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorCategoryProcessorArgs']]:
         """
-        Category Processor. More information can be found in the
+        Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
         """
         return pulumi.get(self, "category_processor")
 
@@ -53687,7 +53687,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="dateRemapper")
     def date_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorDateRemapperArgs']]:
         """
-        Date Remapper Processor. More information can be found in the
+        Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         """
         return pulumi.get(self, "date_remapper")
 
@@ -53708,7 +53708,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="grokParser")
     def grok_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorGrokParserArgs']]:
         """
-        Grok Processor. More information can be found in the
+        Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         """
         return pulumi.get(self, "grok_parser")
 
@@ -53720,7 +53720,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="lookupProcessor")
     def lookup_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorLookupProcessorArgs']]:
         """
-        Lookup Processor. More information can be found in the
+        Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         """
         return pulumi.get(self, "lookup_processor")
 
@@ -53732,7 +53732,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="messageRemapper")
     def message_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorMessageRemapperArgs']]:
         """
-        Message Remapper Processor. More information can be found in the
+        Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
         """
         return pulumi.get(self, "message_remapper")
 
@@ -53753,7 +53753,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="serviceRemapper")
     def service_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorServiceRemapperArgs']]:
         """
-        Service Remapper Processor. More information can be found in the
+        Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         """
         return pulumi.get(self, "service_remapper")
 
@@ -53765,7 +53765,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="statusRemapper")
     def status_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorStatusRemapperArgs']]:
         """
-        Status Remapper Processor. More information can be found in the
+        Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         """
         return pulumi.get(self, "status_remapper")
 
@@ -53795,7 +53795,7 @@ class LogsCustomPipelineProcessorArgs:
     @pulumi.getter(name="urlParser")
     def url_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorUrlParserArgs']]:
         """
-        URL Parser Processor. More information can be found in the
+        URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
         """
         return pulumi.get(self, "url_parser")
 
@@ -54471,16 +54471,16 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
                  url_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs']] = None,
                  user_agent_parser: Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs']] = None):
         """
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs'] arithmetic_processor: Arithmetic Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs'] attribute_remapper: Attribute Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs'] category_processor: Category Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs'] date_remapper: Date Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the
-        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs'] url_parser: URL Parser Processor. More information can be found in the
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs'] arithmetic_processor: Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs'] attribute_remapper: Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs'] category_processor: Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs'] date_remapper: Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs'] grok_parser: Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs'] lookup_processor: Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs'] message_remapper: Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs'] service_remapper: Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs'] status_remapper: Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+        :param pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs'] url_parser: URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
         """
         if arithmetic_processor is not None:
             pulumi.set(__self__, "arithmetic_processor", arithmetic_processor)
@@ -54515,7 +54515,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="arithmeticProcessor")
     def arithmetic_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs']]:
         """
-        Arithmetic Processor. More information can be found in the
+        Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
         """
         return pulumi.get(self, "arithmetic_processor")
 
@@ -54527,7 +54527,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="attributeRemapper")
     def attribute_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs']]:
         """
-        Attribute Remapper Processor. More information can be found in the
+        Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
         """
         return pulumi.get(self, "attribute_remapper")
 
@@ -54539,7 +54539,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="categoryProcessor")
     def category_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs']]:
         """
-        Category Processor. More information can be found in the
+        Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
         """
         return pulumi.get(self, "category_processor")
 
@@ -54551,7 +54551,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="dateRemapper")
     def date_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs']]:
         """
-        Date Remapper Processor. More information can be found in the
+        Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         """
         return pulumi.get(self, "date_remapper")
 
@@ -54572,7 +54572,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="grokParser")
     def grok_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs']]:
         """
-        Grok Processor. More information can be found in the
+        Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         """
         return pulumi.get(self, "grok_parser")
 
@@ -54584,7 +54584,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="lookupProcessor")
     def lookup_processor(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs']]:
         """
-        Lookup Processor. More information can be found in the
+        Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         """
         return pulumi.get(self, "lookup_processor")
 
@@ -54596,7 +54596,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="messageRemapper")
     def message_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs']]:
         """
-        Message Remapper Processor. More information can be found in the
+        Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
         """
         return pulumi.get(self, "message_remapper")
 
@@ -54608,7 +54608,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="serviceRemapper")
     def service_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs']]:
         """
-        Service Remapper Processor. More information can be found in the
+        Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         """
         return pulumi.get(self, "service_remapper")
 
@@ -54620,7 +54620,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="statusRemapper")
     def status_remapper(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs']]:
         """
-        Status Remapper Processor. More information can be found in the
+        Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         """
         return pulumi.get(self, "status_remapper")
 
@@ -54650,7 +54650,7 @@ class LogsCustomPipelineProcessorPipelineProcessorArgs:
     @pulumi.getter(name="urlParser")
     def url_parser(self) -> Optional[pulumi.Input['LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs']]:
         """
-        URL Parser Processor. More information can be found in the
+        URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
         """
         return pulumi.get(self, "url_parser")
 
@@ -56111,12 +56111,12 @@ class MonitorMonitorThresholdsArgs:
                  warning: Optional[pulumi.Input[str]] = None,
                  warning_recovery: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] critical: The monitor CRITICAL recovery threshold. Must be a number.
-        :param pulumi.Input[str] critical_recovery: The monitor CRITICAL recovery threshold. Must be a number.
-        :param pulumi.Input[str] ok: The monitor OK threshold. Must be a number.
-        :param pulumi.Input[str] unknown: The monitor UNKNOWN threshold. Must be a number.
-        :param pulumi.Input[str] warning: The monitor WARNING threshold. Must be a number.
-        :param pulumi.Input[str] warning_recovery: The monitor WARNING recovery threshold. Must be a number.
+        :param pulumi.Input[str] critical: The monitor `CRITICAL` recovery threshold. Must be a number.
+        :param pulumi.Input[str] critical_recovery: The monitor `CRITICAL` recovery threshold. Must be a number.
+        :param pulumi.Input[str] ok: The monitor `OK` threshold. Must be a number.
+        :param pulumi.Input[str] unknown: The monitor `UNKNOWN` threshold. Must be a number.
+        :param pulumi.Input[str] warning: The monitor `WARNING` threshold. Must be a number.
+        :param pulumi.Input[str] warning_recovery: The monitor `WARNING` recovery threshold. Must be a number.
         """
         if critical is not None:
             pulumi.set(__self__, "critical", critical)
@@ -56135,7 +56135,7 @@ class MonitorMonitorThresholdsArgs:
     @pulumi.getter
     def critical(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor CRITICAL recovery threshold. Must be a number.
+        The monitor `CRITICAL` recovery threshold. Must be a number.
         """
         return pulumi.get(self, "critical")
 
@@ -56147,7 +56147,7 @@ class MonitorMonitorThresholdsArgs:
     @pulumi.getter(name="criticalRecovery")
     def critical_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor CRITICAL recovery threshold. Must be a number.
+        The monitor `CRITICAL` recovery threshold. Must be a number.
         """
         return pulumi.get(self, "critical_recovery")
 
@@ -56159,7 +56159,7 @@ class MonitorMonitorThresholdsArgs:
     @pulumi.getter
     def ok(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor OK threshold. Must be a number.
+        The monitor `OK` threshold. Must be a number.
         """
         return pulumi.get(self, "ok")
 
@@ -56171,7 +56171,7 @@ class MonitorMonitorThresholdsArgs:
     @pulumi.getter
     def unknown(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor UNKNOWN threshold. Must be a number.
+        The monitor `UNKNOWN` threshold. Must be a number.
         """
         return pulumi.get(self, "unknown")
 
@@ -56183,7 +56183,7 @@ class MonitorMonitorThresholdsArgs:
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor WARNING threshold. Must be a number.
+        The monitor `WARNING` threshold. Must be a number.
         """
         return pulumi.get(self, "warning")
 
@@ -56195,7 +56195,7 @@ class MonitorMonitorThresholdsArgs:
     @pulumi.getter(name="warningRecovery")
     def warning_recovery(self) -> Optional[pulumi.Input[str]]:
         """
-        The monitor WARNING recovery threshold. Must be a number.
+        The monitor `WARNING` recovery threshold. Must be a number.
         """
         return pulumi.get(self, "warning_recovery")
 
@@ -58167,7 +58167,7 @@ class SecurityMonitoringRuleCaseArgs:
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] status: Severity of the Security Signal.
-        :param pulumi.Input[str] condition: A rule case contains logical operations (>,>=, &&, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.
+        :param pulumi.Input[str] condition: A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
         :param pulumi.Input[str] name: Name of the case.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications: Notification targets for each rule case.
         """
@@ -58195,7 +58195,7 @@ class SecurityMonitoringRuleCaseArgs:
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
         """
-        A rule case contains logical operations (>,>=, &&, ||) to determine if a signal should be generated based on the event counts in the previously defined queries.
+        A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
         """
         return pulumi.get(self, "condition")
 
@@ -58380,8 +58380,8 @@ class ServiceLevelObjectiveQueryArgs:
                  denominator: pulumi.Input[str],
                  numerator: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] denominator: The sum of the total events.
-        :param pulumi.Input[str] numerator: The sum of all the good events.
+        :param pulumi.Input[str] denominator: The sum of the `total` events.
+        :param pulumi.Input[str] numerator: The sum of all the `good` events.
         """
         pulumi.set(__self__, "denominator", denominator)
         pulumi.set(__self__, "numerator", numerator)
@@ -58390,7 +58390,7 @@ class ServiceLevelObjectiveQueryArgs:
     @pulumi.getter
     def denominator(self) -> pulumi.Input[str]:
         """
-        The sum of the total events.
+        The sum of the `total` events.
         """
         return pulumi.get(self, "denominator")
 
@@ -58402,7 +58402,7 @@ class ServiceLevelObjectiveQueryArgs:
     @pulumi.getter
     def numerator(self) -> pulumi.Input[str]:
         """
-        The sum of all the good events.
+        The sum of all the `good` events.
         """
         return pulumi.get(self, "numerator")
 
@@ -58420,10 +58420,10 @@ class ServiceLevelObjectiveThresholdArgs:
                  warning: Optional[pulumi.Input[float]] = None,
                  warning_display: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target: The objective's target in[0,100].
-        :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: 7d, 30d, 90d.
-        :param pulumi.Input[str] target_display: A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. 98.00).
-        :param pulumi.Input[float] warning: The objective's warning value in [0,100]. This must be greater than the target value.
+        :param pulumi.Input[float] target: The objective's target in`[0,100]`.
+        :param pulumi.Input[str] timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: `7d`, `30d`, `90d`.
+        :param pulumi.Input[str] target_display: A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
+        :param pulumi.Input[float] warning: The objective's warning value in `[0,100]`. This must be greater than the target value.
         :param pulumi.Input[str] warning_display: A string representation of the warning target (see the description of the target_display field for details).
         """
         pulumi.set(__self__, "target", target)
@@ -58439,7 +58439,7 @@ class ServiceLevelObjectiveThresholdArgs:
     @pulumi.getter
     def target(self) -> pulumi.Input[float]:
         """
-        The objective's target in[0,100].
+        The objective's target in`[0,100]`.
         """
         return pulumi.get(self, "target")
 
@@ -58451,7 +58451,7 @@ class ServiceLevelObjectiveThresholdArgs:
     @pulumi.getter
     def timeframe(self) -> pulumi.Input[str]:
         """
-        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: 7d, 30d, 90d.
+        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: `7d`, `30d`, `90d`.
         """
         return pulumi.get(self, "timeframe")
 
@@ -58463,7 +58463,7 @@ class ServiceLevelObjectiveThresholdArgs:
     @pulumi.getter(name="targetDisplay")
     def target_display(self) -> Optional[pulumi.Input[str]]:
         """
-        A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. 98.00).
+        A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
         """
         return pulumi.get(self, "target_display")
 
@@ -58475,7 +58475,7 @@ class ServiceLevelObjectiveThresholdArgs:
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[float]]:
         """
-        The objective's warning value in [0,100]. This must be greater than the target value.
+        The objective's warning value in `[0,100]`. This must be greater than the target value.
         """
         return pulumi.get(self, "warning")
 
@@ -58503,8 +58503,8 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
                  type: pulumi.Input[str],
                  field: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Defines the source to use to extract the value. Allowed enum values: http_body, http_header.
-        :param pulumi.Input[str] field: Required when type = http_header. Defines the header to use to extract the value
+        :param pulumi.Input[str] type: Defines the source to use to extract the value. Allowed enum values: `http_body`, `http_header`.
+        :param pulumi.Input[str] field: Required when type = `http_header`. Defines the header to use to extract the value
         """
         pulumi.set(__self__, "parser", parser)
         pulumi.set(__self__, "type", type)
@@ -58524,7 +58524,7 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Defines the source to use to extract the value. Allowed enum values: http_body, http_header.
+        Defines the source to use to extract the value. Allowed enum values: `http_body`, `http_header`.
         """
         return pulumi.get(self, "type")
 
@@ -58536,7 +58536,7 @@ class SyntheticsGlobalVariableParseTestOptionsArgs:
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[str]]:
         """
-        Required when type = http_header. Defines the header to use to extract the value
+        Required when type = `http_header`. Defines the header to use to extract the value
         """
         return pulumi.get(self, "field")
 
@@ -58593,13 +58593,13 @@ class SyntheticsTestApiStepArgs:
                  subtype: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the step.
-        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepAssertionArgs']]] assertions: Assertions used for the test. Multiple assertion blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepAssertionArgs']]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepExtractedValueArgs']]] extracted_values: Values to parse and save as variables from the response.
         :param pulumi.Input['SyntheticsTestApiStepRequestBasicauthArgs'] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
         :param pulumi.Input['SyntheticsTestApiStepRequestDefinitionArgs'] request_definition: The request for the api step.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
-        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step, currently only supporting http.
+        :param pulumi.Input[str] subtype: The subtype of the Synthetic multistep API test step, currently only supporting `http`.
         """
         pulumi.set(__self__, "name", name)
         if assertions is not None:
@@ -58635,7 +58635,7 @@ class SyntheticsTestApiStepArgs:
     @pulumi.getter
     def assertions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestApiStepAssertionArgs']]]]:
         """
-        Assertions used for the test. Multiple assertion blocks are allowed with the structure below.
+        Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         """
         return pulumi.get(self, "assertions")
 
@@ -58716,7 +58716,7 @@ class SyntheticsTestApiStepArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        The subtype of the Synthetic multistep API test step, currently only supporting http.
+        The subtype of the Synthetic multistep API test step, currently only supporting `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -58734,11 +58734,11 @@ class SyntheticsTestApiStepAssertionArgs:
                  target: Optional[pulumi.Input[str]] = None,
                  targetjsonpath: Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs']] = None):
         """
-        :param pulumi.Input[str] operator: Assertion operator.  Only some combinations of type and operator are valid (please refer to ).
-        :param pulumi.Input[str] type: Type of assertion. Choose from body, header, responseTime, statusCode.  Only some combinations of type and operator are valid (please refer to ).
-        :param pulumi.Input[str] property: If assertion type is header, this is the header name.
-        :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to  for details.
-        :param pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if operator is validatesJSONPath. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[str] operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        :param pulumi.Input[str] type: Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        :param pulumi.Input[str] property: If assertion type is `header`, this is the header name.
+        :param pulumi.Input[str] target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        :param pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs'] targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "type", type)
@@ -58753,7 +58753,7 @@ class SyntheticsTestApiStepAssertionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        Assertion operator.  Only some combinations of type and operator are valid (please refer to ).
+        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         """
         return pulumi.get(self, "operator")
 
@@ -58765,7 +58765,7 @@ class SyntheticsTestApiStepAssertionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of assertion. Choose from body, header, responseTime, statusCode.  Only some combinations of type and operator are valid (please refer to ).
+        Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
         """
         return pulumi.get(self, "type")
 
@@ -58777,7 +58777,7 @@ class SyntheticsTestApiStepAssertionArgs:
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
         """
-        Expected value. Depends on the assertion type, refer to  for details.
+        Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         """
         return pulumi.get(self, "target")
 
@@ -58789,7 +58789,7 @@ class SyntheticsTestApiStepAssertionArgs:
     @pulumi.getter
     def targetjsonpath(self) -> Optional[pulumi.Input['SyntheticsTestApiStepAssertionTargetjsonpathArgs']]:
         """
-        Expected structure if operator is validatesJSONPath. Exactly one nested block is allowed with the structure below.
+        Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
         """
         return pulumi.get(self, "targetjsonpath")
 
@@ -58801,7 +58801,7 @@ class SyntheticsTestApiStepAssertionArgs:
     @pulumi.getter
     def property(self) -> Optional[pulumi.Input[str]]:
         """
-        If assertion type is header, this is the header name.
+        If assertion type is `header`, this is the header name.
         """
         return pulumi.get(self, "property")
 
@@ -58857,7 +58857,7 @@ class SyntheticsTestApiStepExtractedValueArgs:
                  field: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of Datadog synthetics test.
-        :param pulumi.Input[str] type: Synthetics test type (api or browser).
+        :param pulumi.Input[str] type: Synthetics test type (`api` or `browser`).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parser", parser)
@@ -58890,7 +58890,7 @@ class SyntheticsTestApiStepExtractedValueArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Synthetics test type (api or browser).
+        Synthetics test type (`api` or `browser`).
         """
         return pulumi.get(self, "type")
 
@@ -58914,7 +58914,7 @@ class SyntheticsTestApiStepExtractedValueParserArgs:
                  type: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Synthetics test type (api or browser).
+        :param pulumi.Input[str] type: Synthetics test type (`api` or `browser`).
         """
         pulumi.set(__self__, "type", type)
         if value is not None:
@@ -58924,7 +58924,7 @@ class SyntheticsTestApiStepExtractedValueParserArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Synthetics test type (api or browser).
+        Synthetics test type (`api` or `browser`).
         """
         return pulumi.get(self, "type")
 
@@ -59075,11 +59075,11 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] body: The request body.
-        :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (subtype = "dns").
+        :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param pulumi.Input[str] host: Host name to perform the test with.
-        :param pulumi.Input[str] method: The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+        :param pulumi.Input[str] method: The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
         :param pulumi.Input[int] port: Port to use when performing the test.
-        :param pulumi.Input[int] timeout: Timeout in seconds for the test. Defaults to 60.
+        :param pulumi.Input[int] timeout: Timeout in seconds for the test. Defaults to `60`.
         :param pulumi.Input[str] url: The URL to send the request to.
         """
         if body is not None:
@@ -59115,7 +59115,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @pulumi.getter(name="dnsServer")
     def dns_server(self) -> Optional[pulumi.Input[str]]:
         """
-        DNS server to use for DNS tests (subtype = "dns").
+        DNS server to use for DNS tests (`subtype = "dns"`).
         """
         return pulumi.get(self, "dns_server")
 
@@ -59139,7 +59139,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
         """
-        The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+        The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
         """
         return pulumi.get(self, "method")
 
@@ -59172,7 +59172,7 @@ class SyntheticsTestApiStepRequestDefinitionArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        Timeout in seconds for the test. Defaults to 60.
+        Timeout in seconds for the test. Defaults to `60`.
         """
         return pulumi.get(self, "timeout")
 
@@ -59205,7 +59205,7 @@ class SyntheticsTestBrowserStepArgs:
         """
         :param pulumi.Input[str] name: Name of the step.
         :param pulumi.Input['SyntheticsTestBrowserStepParamsArgs'] params: Parameters for the step.
-        :param pulumi.Input[str] type: Type of the step. Refer to  for the complete list of available types.
+        :param pulumi.Input[str] type: Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
         :param pulumi.Input[bool] allow_failure: Determines if the step should be allowed to fail.
         :param pulumi.Input[int] timeout: Used to override the default timeout of a step.
         """
@@ -59247,7 +59247,7 @@ class SyntheticsTestBrowserStepArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the step. Refer to  for the complete list of available types.
+        Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
         """
         return pulumi.get(self, "type")
 
@@ -59311,8 +59311,8 @@ class SyntheticsTestBrowserStepParamsArgs:
                  x: Optional[pulumi.Input[int]] = None,
                  y: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] request: The synthetics test request. Required if type = "api".  Define request_definition list with one element instead.
-        :param pulumi.Input['SyntheticsTestBrowserStepParamsVariableArgs'] variable: Variables used for a browser test steps. Multiple browser_variable blocks are allowed with the structure below.  Define browser_variable blocks instead.
+        :param pulumi.Input[str] request: The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
+        :param pulumi.Input['SyntheticsTestBrowserStepParamsVariableArgs'] variable: Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
         """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
@@ -59454,7 +59454,7 @@ class SyntheticsTestBrowserStepParamsArgs:
     @pulumi.getter
     def request(self) -> Optional[pulumi.Input[str]]:
         """
-        The synthetics test request. Required if type = "api".  Define request_definition list with one element instead.
+        The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
         """
         return pulumi.get(self, "request")
 
@@ -59484,7 +59484,7 @@ class SyntheticsTestBrowserStepParamsArgs:
     @pulumi.getter
     def variable(self) -> Optional[pulumi.Input['SyntheticsTestBrowserStepParamsVariableArgs']]:
         """
-        Variables used for a browser test steps. Multiple browser_variable blocks are allowed with the structure below.  Define browser_variable blocks instead.
+        Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
         """
         return pulumi.get(self, "variable")
 
@@ -59569,9 +59569,9 @@ class SyntheticsTestBrowserVariableArgs:
                  pattern: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the variable.
-        :param pulumi.Input[str] type: Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+        :param pulumi.Input[str] type: Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
         :param pulumi.Input[str] example: Example for the variable.
-        :param pulumi.Input[str] id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+        :param pulumi.Input[str] id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         :param pulumi.Input[str] pattern: Pattern of the variable.
         """
         pulumi.set(__self__, "name", name)
@@ -59599,7 +59599,7 @@ class SyntheticsTestBrowserVariableArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+        Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
         """
         return pulumi.get(self, "type")
 
@@ -59623,7 +59623,7 @@ class SyntheticsTestBrowserVariableArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+        ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         """
         return pulumi.get(self, "id")
 
@@ -59653,7 +59653,7 @@ class SyntheticsTestConfigVariableArgs:
                  pattern: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the variable.
-        :param pulumi.Input[str] type: Type of test configuration variable. Allowed enum values: text.
+        :param pulumi.Input[str] type: Type of test configuration variable. Allowed enum values: `text`.
         :param pulumi.Input[str] example: Example for the variable.
         :param pulumi.Input[str] pattern: Pattern of the variable.
         """
@@ -59680,7 +59680,7 @@ class SyntheticsTestConfigVariableArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of test configuration variable. Allowed enum values: text.
+        Type of test configuration variable. Allowed enum values: `text`.
         """
         return pulumi.get(self, "type")
 
@@ -59826,7 +59826,7 @@ class SyntheticsTestOptionsListArgs:
                  no_screenshot: Optional[pulumi.Input[bool]] = None,
                  retry: Optional[pulumi.Input['SyntheticsTestOptionsListRetryArgs']] = None):
         """
-        :param pulumi.Input[int] tick_every: How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+        :param pulumi.Input[int] tick_every: How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
         :param pulumi.Input[bool] allow_insecure: Allows loading insecure content for an HTTP test.
         :param pulumi.Input[bool] follow_redirects: For API HTTP test, whether or not the test should follow redirects.
         :param pulumi.Input[bool] no_screenshot: Prevents saving screenshots of the steps.
@@ -59853,7 +59853,7 @@ class SyntheticsTestOptionsListArgs:
     @pulumi.getter(name="tickEvery")
     def tick_every(self) -> pulumi.Input[int]:
         """
-        How often the test should run (in seconds). Current possible values are 900, 1800, 3600, 21600, 43200, 86400, 604800 plus 60 for API tests or 300 for browser tests.
+        How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
         """
         return pulumi.get(self, "tick_every")
 
@@ -60223,11 +60223,11 @@ class SyntheticsTestRequestDefinitionArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] body: The request body.
-        :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (subtype = "dns").
+        :param pulumi.Input[str] dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param pulumi.Input[str] host: Host name to perform the test with.
-        :param pulumi.Input[str] method: The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+        :param pulumi.Input[str] method: The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
         :param pulumi.Input[int] port: Port to use when performing the test.
-        :param pulumi.Input[int] timeout: Timeout in seconds for the test. Defaults to 60.
+        :param pulumi.Input[int] timeout: Timeout in seconds for the test. Defaults to `60`.
         :param pulumi.Input[str] url: The URL to send the request to.
         """
         if body is not None:
@@ -60263,7 +60263,7 @@ class SyntheticsTestRequestDefinitionArgs:
     @pulumi.getter(name="dnsServer")
     def dns_server(self) -> Optional[pulumi.Input[str]]:
         """
-        DNS server to use for DNS tests (subtype = "dns").
+        DNS server to use for DNS tests (`subtype = "dns"`).
         """
         return pulumi.get(self, "dns_server")
 
@@ -60287,7 +60287,7 @@ class SyntheticsTestRequestDefinitionArgs:
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
         """
-        The HTTP method. One of DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT.
+        The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
         """
         return pulumi.get(self, "method")
 
@@ -60320,7 +60320,7 @@ class SyntheticsTestRequestDefinitionArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        Timeout in seconds for the test. Defaults to 60.
+        Timeout in seconds for the test. Defaults to `60`.
         """
         return pulumi.get(self, "timeout")
 
@@ -60353,7 +60353,7 @@ class SyntheticsTestStepArgs:
         """
         :param pulumi.Input[str] name: Name of the step.
         :param pulumi.Input[str] params: Parameters for the step as JSON string.
-        :param pulumi.Input[str] type: Type of the step. Refer to  for the complete list of available types.
+        :param pulumi.Input[str] type: Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
         :param pulumi.Input[bool] allow_failure: Determines if the step should be allowed to fail.
         :param pulumi.Input[int] timeout: Used to override the default timeout of a step.
         """
@@ -60395,7 +60395,7 @@ class SyntheticsTestStepArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the step. Refer to  for the complete list of available types.
+        Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
         """
         return pulumi.get(self, "type")
 
@@ -60447,9 +60447,9 @@ class SyntheticsTestVariableArgs:
                  pattern: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the variable.
-        :param pulumi.Input[str] type: Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+        :param pulumi.Input[str] type: Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
         :param pulumi.Input[str] example: Example for the variable.
-        :param pulumi.Input[str] id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+        :param pulumi.Input[str] id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         :param pulumi.Input[str] pattern: Pattern of the variable.
         """
         pulumi.set(__self__, "name", name)
@@ -60477,7 +60477,7 @@ class SyntheticsTestVariableArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of browser test variable. Allowed enum values: element, email, global, javascript, text.
+        Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
         """
         return pulumi.get(self, "type")
 
@@ -60501,7 +60501,7 @@ class SyntheticsTestVariableArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type global.
+        ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         """
         return pulumi.get(self, "id")
 

@@ -14,46 +14,46 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsCustomPipelineProcessorPipelineProcessor
     {
         /// <summary>
-        /// Arithmetic Processor. More information can be found in the
+        /// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessor? ArithmeticProcessor;
         /// <summary>
-        /// Attribute Remapper Processor. More information can be found in the
+        /// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapper? AttributeRemapper;
         /// <summary>
-        /// Category Processor. More information can be found in the
+        /// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessor? CategoryProcessor;
         /// <summary>
-        /// Date Remapper Processor. More information can be found in the
+        /// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapper? DateRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParser? GeoIpParser;
         /// <summary>
-        /// Grok Processor. More information can be found in the
+        /// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorGrokParser? GrokParser;
         /// <summary>
-        /// Lookup Processor. More information can be found in the
+        /// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessor? LookupProcessor;
         /// <summary>
-        /// Message Remapper Processor. More information can be found in the
+        /// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapper? MessageRemapper;
         /// <summary>
-        /// Service Remapper Processor. More information can be found in the
+        /// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapper? ServiceRemapper;
         /// <summary>
-        /// Status Remapper Processor. More information can be found in the
+        /// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapper? StatusRemapper;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessor? StringBuilderProcessor;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapper? TraceIdRemapper;
         /// <summary>
-        /// URL Parser Processor. More information can be found in the
+        /// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
         /// </summary>
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorUrlParser? UrlParser;
         public readonly Outputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParser? UserAgentParser;
