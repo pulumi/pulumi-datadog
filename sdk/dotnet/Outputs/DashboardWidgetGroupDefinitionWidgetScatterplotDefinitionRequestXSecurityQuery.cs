@@ -14,14 +14,18 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery
     {
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute? Compute;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch? Search;
+        public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery(
             Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute? compute,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy> groupBies,
 
@@ -29,13 +33,17 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch? search)
+            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch? search,
+
+            string? searchQuery)
         {
             Compute = compute;
+            ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
             Search = search;
+            SearchQuery = searchQuery;
         }
     }
 }

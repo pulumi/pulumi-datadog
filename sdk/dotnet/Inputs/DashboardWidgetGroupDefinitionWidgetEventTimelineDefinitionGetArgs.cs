@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -21,6 +24,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTimeGetArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

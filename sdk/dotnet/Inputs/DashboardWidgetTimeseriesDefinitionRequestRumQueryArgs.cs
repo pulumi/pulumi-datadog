@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("compute")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeArgs>? Compute { get; set; }
 
+        [Input("computeQuery")]
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQueryArgs>? ComputeQuery { get; set; }
+
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs>? _groupBies;
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupByArgs> GroupBies
@@ -36,6 +39,9 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("search")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearchArgs>? Search { get; set; }
+
+        [Input("searchQuery")]
+        public Input<string>? SearchQuery { get; set; }
 
         public DashboardWidgetTimeseriesDefinitionRequestRumQueryArgs()
         {

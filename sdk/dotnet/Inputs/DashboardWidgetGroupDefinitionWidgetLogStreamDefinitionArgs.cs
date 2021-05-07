@@ -28,6 +28,9 @@ namespace Pulumi.Datadog.Inputs
             set => _indexes = value;
         }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("logset")]
         public Input<string>? Logset { get; set; }
 
@@ -49,6 +52,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTimeArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

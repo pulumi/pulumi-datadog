@@ -13,7 +13,6 @@ namespace Pulumi.Datadog
     /// Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
     /// 
     /// ## Example Usage
-    /// ### Metric-Based SLO
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -23,6 +22,7 @@ namespace Pulumi.Datadog
     /// {
     ///     public MyStack()
     ///     {
+    ///         // Metric-Based SLO
     ///         // Create a new Datadog service level objective
     ///         var foo = new Datadog.ServiceLevelObjective("foo", new Datadog.ServiceLevelObjectiveArgs
     ///         {
@@ -59,20 +59,7 @@ namespace Pulumi.Datadog
     ///             },
     ///             Type = "metric",
     ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Monitor-Based SLO
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
+    ///         // Monitor-Based SLO
     ///         // Create a new Datadog service level objective
     ///         var bar = new Datadog.ServiceLevelObjective("bar", new Datadog.ServiceLevelObjectiveArgs
     ///         {
@@ -113,7 +100,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
-    /// Service Level Objectives can be imported using their string ID, e.g.
+    /// # Service Level Objectives can be imported using their string ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/serviceLevelObjective:ServiceLevelObjective baz 12345678901234567890123456789012
@@ -130,7 +117,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
-        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
@@ -172,10 +158,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveThreshold>> Thresholds { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-        /// found in the Datadog API [documentation
-        /// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
-        /// are: `metric` and `monitor`.
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -240,7 +223,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
-        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -306,10 +288,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-        /// found in the Datadog API [documentation
-        /// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
-        /// are: `metric` and `monitor`.
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -335,7 +314,6 @@ namespace Pulumi.Datadog
 
         /// <summary>
         /// A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
-        /// -   `thresholds`: (Required) - A list of thresholds and targets that define the service level objectives from the provided SLIs.
         /// </summary>
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -401,10 +379,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be
-        /// found in the Datadog API [documentation
-        /// page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from
-        /// are: `metric` and `monitor`.
+        /// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

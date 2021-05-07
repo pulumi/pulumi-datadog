@@ -14,14 +14,18 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetScatterplotDefinitionRequestXApmQuery
     {
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute? Compute;
+        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch? Search;
+        public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetScatterplotDefinitionRequestXApmQuery(
             Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute? compute,
+
+            Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy> groupBies,
 
@@ -29,13 +33,17 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch? search)
+            Outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch? search,
+
+            string? searchQuery)
         {
             Compute = compute;
+            ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
             Search = search;
+            SearchQuery = searchQuery;
         }
     }
 }

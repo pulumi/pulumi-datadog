@@ -22,55 +22,21 @@ import * as utilities from "./utilities";
  *     filter: {
  *         query: "service:test",
  *     },
- *     groupBies: [{
- *         path: "@status",
- *         tagName: "status",
- *     }],
+ *     groupBies: [
+ *         {
+ *             path: "@status",
+ *             tagName: "status",
+ *         },
+ *         {
+ *             path: "@version",
+ *             tagName: "version",
+ *         },
+ *     ],
  *     name: "testing.logs.metric",
  * });
  * ```
- * ## Schema
- *
- * ### Required
- *
- * - **compute** (Block List, Min: 1, Max: 1) The compute rule to compute the log-based metric. This field can't be updated after creation. (see below for nested schema)
- * - **filter** (Block List, Min: 1, Max: 1) The log-based metric filter. Logs matching this filter will be aggregated in this metric. (see below for nested schema)
- * - **name** (String, Required) The name of the log-based metric. This field can't be updated after creation.
- *
- * ### Optional
- *
- * - **group_by** (Block List) The rules for the group by. (see below for nested schema)
- * - **id** (String, Optional) The ID of this resource.
- *
- * <a id="nestedblock--compute"></a>
- * ### Nested Schema for `compute`
- *
- * Required:
- *
- * - **aggregation_type** (String, Required) The type of aggregation to use. This field can't be updated after creation.
- *
- * Optional:
- *
- * - **path** (String, Optional) The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
- *
- * <a id="nestedblock--filter"></a>
- * ### Nested Schema for `filter`
- *
- * Required:
- *
- * - **query** (String, Required) The search query - following the log search syntax.
- *
- * <a id="nestedblock--group_by"></a>
- * ### Nested Schema for `groupBy`
- *
- * Required:
- *
- * - **path** (String, Required) The path to the value the log-based metric will be aggregated over.
- * - **tag_name** (String, Required) Name of the tag that gets created.
  *
  * ## Import
- *
- * Import is supported using the following syntax
  *
  * ```sh
  *  $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric

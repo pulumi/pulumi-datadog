@@ -12,9 +12,15 @@ namespace Pulumi.Datadog.PagerDuty.Inputs
 
     public sealed class IntegrationServiceGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your Service name associated service key in Pagerduty.
+        /// </summary>
         [Input("serviceKey", required: true)]
         public Input<string> ServiceKey { get; set; } = null!;
 
+        /// <summary>
+        /// Your Service name in PagerDuty.
+        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 

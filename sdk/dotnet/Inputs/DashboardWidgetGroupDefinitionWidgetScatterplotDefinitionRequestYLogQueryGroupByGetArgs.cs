@@ -21,6 +21,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("sort")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortGetArgs>? Sort { get; set; }
 
+        [Input("sortQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQueryGetArgs>? SortQuery { get; set; }
+
         public DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupByGetArgs()
         {
         }

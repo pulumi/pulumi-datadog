@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("compute")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeArgs>? Compute { get; set; }
 
+        [Input("computeQuery")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeQueryArgs>? ComputeQuery { get; set; }
+
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs>? _groupBies;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupByArgs> GroupBies
@@ -36,6 +39,9 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("search")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearchArgs>? Search { get; set; }
+
+        [Input("searchQuery")]
+        public Input<string>? SearchQuery { get; set; }
 
         public DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryArgs()
         {

@@ -44,32 +44,8 @@ import (
 // 	})
 // }
 // ```
-// ## Schema
-//
-// ### Required
-//
-// - **email** (String) Email address for user.
-//
-// ### Optional
-//
-// - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute.
-// - **disabled** (Boolean) Whether the user is disabled.
-// - **handle** (String, Deprecated) The user handle, must be a valid email.
-// - **id** (String) The ID of this resource.
-// - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-// - **name** (String) Name for user.
-// - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-// - **roles** (Set of String) A list a role IDs to assign to the user.
-// - **send_user_invitation** (Boolean) Whether an invitation email should be sent when the user is created.
-//
-// ### Read-only
-//
-// - **user_invitation_id** (String) The ID of the user invitation that was sent when creating the user.
-// - **verified** (Boolean) Returns true if Datadog user is verified.
 //
 // ## Import
-//
-// Import is supported using the following syntax
 //
 // ```sh
 //  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
@@ -77,30 +53,27 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-	// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	AccessRole pulumi.StringPtrOutput `pulumi:"accessRole"`
 	// Whether the user is disabled.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// Email address for user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// The user handle, must be a valid email.
+	// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version.
 	Handle pulumi.StringPtrOutput `pulumi:"handle"`
-	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-	// argument would always trigger an execution plan.
+	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	IsAdmin pulumi.BoolOutput `pulumi:"isAdmin"`
 	// Name for user.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-	// would always trigger an execution plan.
+	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
 	//
-	// Deprecated: This parameter was removed from the API and has no effect
+	// Deprecated: This parameter was removed from the API and has no effect.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// A list a role IDs to assign to the user.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
@@ -108,7 +81,7 @@ type User struct {
 	SendUserInvitation pulumi.BoolPtrOutput `pulumi:"sendUserInvitation"`
 	// The ID of the user invitation that was sent when creating the user.
 	UserInvitationId pulumi.StringOutput `pulumi:"userInvitationId"`
-	// Returns true if Datadog user is verified.
+	// Returns `true` if the user is verified.
 	Verified pulumi.BoolOutput `pulumi:"verified"`
 }
 
@@ -144,30 +117,27 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-	// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	AccessRole *string `pulumi:"accessRole"`
 	// Whether the user is disabled.
 	Disabled *bool `pulumi:"disabled"`
 	// Email address for user.
 	Email *string `pulumi:"email"`
-	// The user handle, must be a valid email.
+	// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version.
 	Handle *string `pulumi:"handle"`
-	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-	// argument would always trigger an execution plan.
+	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	IsAdmin *bool `pulumi:"isAdmin"`
 	// Name for user.
 	Name *string `pulumi:"name"`
-	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-	// would always trigger an execution plan.
+	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
 	//
-	// Deprecated: This parameter was removed from the API and has no effect
+	// Deprecated: This parameter was removed from the API and has no effect.
 	Role *string `pulumi:"role"`
 	// A list a role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
@@ -175,35 +145,32 @@ type userState struct {
 	SendUserInvitation *bool `pulumi:"sendUserInvitation"`
 	// The ID of the user invitation that was sent when creating the user.
 	UserInvitationId *string `pulumi:"userInvitationId"`
-	// Returns true if Datadog user is verified.
+	// Returns `true` if the user is verified.
 	Verified *bool `pulumi:"verified"`
 }
 
 type UserState struct {
-	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-	// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	AccessRole pulumi.StringPtrInput
 	// Whether the user is disabled.
 	Disabled pulumi.BoolPtrInput
 	// Email address for user.
 	Email pulumi.StringPtrInput
-	// The user handle, must be a valid email.
+	// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version.
 	Handle pulumi.StringPtrInput
-	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-	// argument would always trigger an execution plan.
+	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	IsAdmin pulumi.BoolPtrInput
 	// Name for user.
 	Name pulumi.StringPtrInput
-	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-	// would always trigger an execution plan.
+	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
 	//
-	// Deprecated: This parameter was removed from the API and has no effect
+	// Deprecated: This parameter was removed from the API and has no effect.
 	Role pulumi.StringPtrInput
 	// A list a role IDs to assign to the user.
 	Roles pulumi.StringArrayInput
@@ -211,7 +178,7 @@ type UserState struct {
 	SendUserInvitation pulumi.BoolPtrInput
 	// The ID of the user invitation that was sent when creating the user.
 	UserInvitationId pulumi.StringPtrInput
-	// Returns true if Datadog user is verified.
+	// Returns `true` if the user is verified.
 	Verified pulumi.BoolPtrInput
 }
 
@@ -220,30 +187,27 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-	// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	AccessRole *string `pulumi:"accessRole"`
 	// Whether the user is disabled.
 	Disabled *bool `pulumi:"disabled"`
 	// Email address for user.
 	Email string `pulumi:"email"`
-	// The user handle, must be a valid email.
+	// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version.
 	Handle *string `pulumi:"handle"`
-	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-	// argument would always trigger an execution plan.
+	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	IsAdmin *bool `pulumi:"isAdmin"`
 	// Name for user.
 	Name *string `pulumi:"name"`
-	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-	// would always trigger an execution plan.
+	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
 	//
-	// Deprecated: This parameter was removed from the API and has no effect
+	// Deprecated: This parameter was removed from the API and has no effect.
 	Role *string `pulumi:"role"`
 	// A list a role IDs to assign to the user.
 	Roles []string `pulumi:"roles"`
@@ -253,30 +217,27 @@ type userArgs struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-	// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+	// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	AccessRole pulumi.StringPtrInput
 	// Whether the user is disabled.
 	Disabled pulumi.BoolPtrInput
 	// Email address for user.
 	Email pulumi.StringInput
-	// The user handle, must be a valid email.
+	// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is deprecated and will be removed from the next Major version
+	// Deprecated: This parameter is deprecated and will be removed from the next Major version.
 	Handle pulumi.StringPtrInput
-	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-	// argument would always trigger an execution plan.
+	// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
 	//
-	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version
+	// Deprecated: This parameter is replaced by `roles` and will be removed from the next Major version.
 	IsAdmin pulumi.BoolPtrInput
 	// Name for user.
 	Name pulumi.StringPtrInput
-	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-	// would always trigger an execution plan.
+	// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
 	//
-	// Deprecated: This parameter was removed from the API and has no effect
+	// Deprecated: This parameter was removed from the API and has no effect.
 	Role pulumi.StringPtrInput
 	// A list a role IDs to assign to the user.
 	Roles pulumi.StringArrayInput

@@ -16,6 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Facet;
         public readonly int? Limit;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort? Sort;
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery? SortQuery;
 
         [OutputConstructor]
         private DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy(
@@ -23,11 +24,14 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort? sort)
+            Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort? sort,
+
+            Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery? sortQuery)
         {
             Facet = facet;
             Limit = limit;
             Sort = sort;
+            SortQuery = sortQuery;
         }
     }
 }

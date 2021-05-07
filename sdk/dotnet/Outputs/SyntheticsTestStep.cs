@@ -13,15 +13,36 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestStep
     {
+        /// <summary>
+        /// Determines if the step should be allowed to fail.
+        /// </summary>
         public readonly bool? AllowFailure;
+        /// <summary>
+        /// Force update of the "element" parameter for the step
+        /// </summary>
+        public readonly bool? ForceElementUpdate;
+        /// <summary>
+        /// Name of the step.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Parameters for the step as JSON string.
+        /// </summary>
         public readonly string Params;
+        /// <summary>
+        /// Used to override the default timeout of a step.
+        /// </summary>
         public readonly int? Timeout;
+        /// <summary>
+        /// Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private SyntheticsTestStep(
             bool? allowFailure,
+
+            bool? forceElementUpdate,
 
             string name,
 
@@ -32,6 +53,7 @@ namespace Pulumi.Datadog.Outputs
             string type)
         {
             AllowFailure = allowFailure;
+            ForceElementUpdate = forceElementUpdate;
             Name = name;
             Params = @params;
             Timeout = timeout;

@@ -15,12 +15,14 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery? ApmQuery;
         public readonly string? DisplayType;
+        public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
         public readonly bool? OnRightYaxis;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestStyle? Style;
@@ -30,6 +32,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery? apmQuery,
 
             string? displayType,
+
+            ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestFormula> formulas,
 
             Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery? logQuery,
 
@@ -43,6 +47,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? q,
 
+            ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestQuery> queries,
+
             Outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuery? rumQuery,
 
             Outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuery? securityQuery,
@@ -51,12 +57,14 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmQuery = apmQuery;
             DisplayType = displayType;
+            Formulas = formulas;
             LogQuery = logQuery;
             Metadatas = metadatas;
             NetworkQuery = networkQuery;
             OnRightYaxis = onRightYaxis;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             Style = style;

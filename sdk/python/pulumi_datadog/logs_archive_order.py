@@ -16,9 +16,7 @@ class LogsArchiveOrderArgs:
                  archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LogsArchiveOrder resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-               `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-               will try to update the order.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         if archive_ids is not None:
             pulumi.set(__self__, "archive_ids", archive_ids)
@@ -27,9 +25,7 @@ class LogsArchiveOrderArgs:
     @pulumi.getter(name="archiveIds")
     def archive_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-        `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-        will try to update the order.
+        The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         return pulumi.get(self, "archive_ids")
 
@@ -44,9 +40,7 @@ class _LogsArchiveOrderState:
                  archive_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LogsArchiveOrder resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-               `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-               will try to update the order.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         if archive_ids is not None:
             pulumi.set(__self__, "archive_ids", archive_ids)
@@ -55,9 +49,7 @@ class _LogsArchiveOrderState:
     @pulumi.getter(name="archiveIds")
     def archive_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-        `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-        will try to update the order.
+        The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         return pulumi.get(self, "archive_ids")
 
@@ -90,7 +82,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
 
         ## Import
 
-        There must be at most one `datadog_logs_archive_order` resource. You can import the `datadog_logs_archive_order` or create an archive order.
+        # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
 
         ```sh
          $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
@@ -98,9 +90,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-               `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-               will try to update the order.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         ...
     @overload
@@ -125,7 +115,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
 
         ## Import
 
-        There must be at most one `datadog_logs_archive_order` resource. You can import the `datadog_logs_archive_order` or create an archive order.
+        # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
 
         ```sh
          $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
@@ -178,9 +168,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-               `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-               will try to update the order.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] archive_ids: The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -193,9 +181,7 @@ class LogsArchiveOrder(pulumi.CustomResource):
     @pulumi.getter(name="archiveIds")
     def archive_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-        `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-        will try to update the order.
+        The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
         """
         return pulumi.get(self, "archive_ids")
 

@@ -19,58 +19,6 @@ import * as utilities from "./utilities";
  *     nameFilter: "My awesome monitor",
  * }, { async: true }));
  * ```
- * ## Schema
- *
- * ### Optional
- *
- * - **id** (String) The ID of this resource.
- * - **monitor_tags_filter** (List of String) A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
- * - **name_filter** (String) A monitor name to limit the search.
- * - **tags_filter** (List of String) A list of tags to limit the search. This filters on the monitor scope.
- *
- * ### Read-only
- *
- * - **enable_logs_sample** (Boolean) Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
- * - **escalation_message** (String) Message included with a re-notification for this monitor.
- * - **evaluation_delay** (Number) Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
- * - **include_tags** (Boolean) Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
- * - **locked** (Boolean) Whether or not changes to the monitor are restricted to the creator or admins.
- * - **message** (String) Message included with notifications for this monitor
- * - **monitor_threshold_windows** (List of Object) Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors. (see below for nested schema)
- * - **monitor_thresholds** (List of Object) Alert thresholds of the monitor. (see below for nested schema)
- * - **name** (String) Name of the monitor
- * - **new_host_delay** (Number) Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
- * - **no_data_timeframe** (Number) The number of minutes before the monitor notifies when data stops reporting.
- * - **notify_audit** (Boolean) Whether or not tagged users are notified on changes to the monitor.
- * - **notify_no_data** (Boolean) Whether or not this monitor notifies when data stops reporting.
- * - **query** (String) Query of the monitor.
- * - **renotify_interval** (Number) The number of minutes after the last notification before the monitor re-notifies on the current status.
- * - **require_full_window** (Boolean) Whether or not the monitor needs a full window of data before it is evaluated.
- * - **tags** (Set of String) List of tags associated with the monitor.
- * - **threshold_windows** (Map of String, Deprecated) Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
- * - **thresholds** (Map of String, Deprecated) Alert thresholds of the monitor.
- * - **timeout_h** (Number) Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
- * - **type** (String) Type of the monitor.
- *
- * <a id="nestedatt--monitor_threshold_windows"></a>
- * ### Nested Schema for `monitorThresholdWindows`
- *
- * Read-only:
- *
- * - **recovery_window** (String)
- * - **trigger_window** (String)
- *
- * <a id="nestedatt--monitor_thresholds"></a>
- * ### Nested Schema for `monitorThresholds`
- *
- * Read-only:
- *
- * - **critical** (String)
- * - **critical_recovery** (String)
- * - **ok** (String)
- * - **unknown** (String)
- * - **warning** (String)
- * - **warning_recovery** (String)
  */
 export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     args = args || {};
@@ -92,8 +40,17 @@ export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getMonitor.
  */
 export interface GetMonitorArgs {
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     readonly monitorTagsFilters?: string[];
+    /**
+     * A monitor name to limit the search.
+     */
     readonly nameFilter?: string;
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     readonly tagsFilters?: string[];
 }
 
@@ -101,38 +58,112 @@ export interface GetMonitorArgs {
  * A collection of values returned by getMonitor.
  */
 export interface GetMonitorResult {
+    /**
+     * Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
+     */
     readonly enableLogsSample: boolean;
+    /**
+     * Message included with a re-notification for this monitor.
+     */
     readonly escalationMessage: string;
+    /**
+     * Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
+     */
     readonly evaluationDelay: number;
+    /**
+     * Whether or not to trigger one alert if any source breaches a threshold.
+     */
+    readonly groupbySimpleMonitor: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
+     */
     readonly includeTags: boolean;
+    /**
+     * Whether or not changes to the monitor are restricted to the creator or admins.
+     */
     readonly locked: boolean;
+    /**
+     * Message included with notifications for this monitor
+     */
     readonly message: string;
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
     readonly monitorTagsFilters?: string[];
+    /**
+     * Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
+     */
     readonly monitorThresholdWindows: outputs.GetMonitorMonitorThresholdWindows;
+    /**
+     * Alert thresholds of the monitor.
+     */
     readonly monitorThresholds: outputs.GetMonitorMonitorThresholds;
+    /**
+     * Name of the monitor
+     */
     readonly name: string;
+    /**
+     * A monitor name to limit the search.
+     */
     readonly nameFilter?: string;
+    /**
+     * Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
+     */
     readonly newHostDelay: number;
+    /**
+     * The number of minutes before the monitor notifies when data stops reporting.
+     */
     readonly noDataTimeframe: number;
+    /**
+     * Whether or not tagged users are notified on changes to the monitor.
+     */
     readonly notifyAudit: boolean;
+    /**
+     * Whether or not this monitor notifies when data stops reporting.
+     */
     readonly notifyNoData: boolean;
+    /**
+     * Query of the monitor.
+     */
     readonly query: string;
+    /**
+     * The number of minutes after the last notification before the monitor re-notifies on the current status.
+     */
     readonly renotifyInterval: number;
+    /**
+     * Whether or not the monitor needs a full window of data before it is evaluated.
+     */
     readonly requireFullWindow: boolean;
+    /**
+     * List of tags associated with the monitor.
+     */
     readonly tags: string[];
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
     readonly tagsFilters?: string[];
     /**
+     * Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors. **Deprecated.** Define `monitorThresholdWindows` list with one element instead.
+     *
      * @deprecated Define `monitor_threshold_windows` list with one element instead.
      */
     readonly thresholdWindows: outputs.GetMonitorThresholdWindows;
     /**
+     * Alert thresholds of the monitor. **Deprecated.** Define `monitorThresholds` list with one element instead.
+     *
      * @deprecated Define `monitor_thresholds` list with one element instead.
      */
     readonly thresholds: outputs.GetMonitorThresholds;
+    /**
+     * Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
+     */
     readonly timeoutH: number;
+    /**
+     * Type of the monitor.
+     */
     readonly type: string;
 }

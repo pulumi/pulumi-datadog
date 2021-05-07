@@ -13,8 +13,17 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsIndexExclusionFilter
     {
+        /// <summary>
+        /// Logs filter
+        /// </summary>
         public readonly ImmutableArray<Outputs.LogsIndexExclusionFilterFilter> Filters;
+        /// <summary>
+        /// A boolean stating if the exclusion is active or not.
+        /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// The name of the exclusion filter.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

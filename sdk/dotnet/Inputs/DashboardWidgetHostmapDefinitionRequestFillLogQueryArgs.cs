@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("compute")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeArgs>? Compute { get; set; }
 
+        [Input("computeQuery")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQueryArgs>? ComputeQuery { get; set; }
+
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs>? _groupBies;
         public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupByArgs> GroupBies
@@ -36,6 +39,9 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("search")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearchArgs>? Search { get; set; }
+
+        [Input("searchQuery")]
+        public Input<string>? SearchQuery { get; set; }
 
         public DashboardWidgetHostmapDefinitionRequestFillLogQueryArgs()
         {

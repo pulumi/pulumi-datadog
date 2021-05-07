@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestConfigVariable
     {
+        /// <summary>
+        /// Example for the variable.
+        /// </summary>
         public readonly string? Example;
+        /// <summary>
+        /// Name of the variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Pattern of the variable.
+        /// </summary>
         public readonly string? Pattern;
+        /// <summary>
+        /// Type of test configuration variable. Allowed enum values: `text`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

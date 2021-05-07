@@ -39,32 +39,8 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// ## Schema
-    /// 
-    /// ### Required
-    /// 
-    /// - **email** (String) Email address for user.
-    /// 
-    /// ### Optional
-    /// 
-    /// - **access_role** (String, Deprecated) Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
-    /// - **disabled** (Boolean) Whether the user is disabled.
-    /// - **handle** (String, Deprecated) The user handle, must be a valid email.
-    /// - **id** (String) The ID of this resource.
-    /// - **is_admin** (Boolean, Deprecated) Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-    /// - **name** (String) Name for user.
-    /// - **role** (String, Deprecated) Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan.
-    /// - **roles** (Set of String) A list a role IDs to assign to the user.
-    /// - **send_user_invitation** (Boolean) Whether an invitation email should be sent when the user is created.
-    /// 
-    /// ### Read-only
-    /// 
-    /// - **user_invitation_id** (String) The ID of the user invitation that was sent when creating the user.
-    /// - **verified** (Boolean) Returns true if Datadog user is verified.
     /// 
     /// ## Import
-    /// 
-    /// Import is supported using the following syntax
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/user:User example_user 6f1b44c0-30b2-11eb-86bc-279f7c1ebaa4
@@ -74,8 +50,7 @@ namespace Pulumi.Datadog
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
-        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-        /// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         /// </summary>
         [Output("accessRole")]
         public Output<string?> AccessRole { get; private set; } = null!;
@@ -93,14 +68,13 @@ namespace Pulumi.Datadog
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// The user handle, must be a valid email.
+        /// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
         /// </summary>
         [Output("handle")]
         public Output<string?> Handle { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-        /// argument would always trigger an execution plan.
+        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         /// </summary>
         [Output("isAdmin")]
         public Output<bool> IsAdmin { get; private set; } = null!;
@@ -112,8 +86,7 @@ namespace Pulumi.Datadog
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-        /// would always trigger an execution plan.
+        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -137,7 +110,7 @@ namespace Pulumi.Datadog
         public Output<string> UserInvitationId { get; private set; } = null!;
 
         /// <summary>
-        /// Returns true if Datadog user is verified.
+        /// Returns `true` if the user is verified.
         /// </summary>
         [Output("verified")]
         public Output<bool> Verified { get; private set; } = null!;
@@ -189,8 +162,7 @@ namespace Pulumi.Datadog
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-        /// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         /// </summary>
         [Input("accessRole")]
         public Input<string>? AccessRole { get; set; }
@@ -208,14 +180,13 @@ namespace Pulumi.Datadog
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// The user handle, must be a valid email.
+        /// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
         /// </summary>
         [Input("handle")]
         public Input<string>? Handle { get; set; }
 
         /// <summary>
-        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-        /// argument would always trigger an execution plan.
+        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         /// </summary>
         [Input("isAdmin")]
         public Input<bool>? IsAdmin { get; set; }
@@ -227,8 +198,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-        /// would always trigger an execution plan.
+        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -259,8 +229,7 @@ namespace Pulumi.Datadog
     public sealed class UserState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`.
-        /// `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute.
+        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         /// </summary>
         [Input("accessRole")]
         public Input<string>? AccessRole { get; set; }
@@ -278,14 +247,13 @@ namespace Pulumi.Datadog
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// The user handle, must be a valid email.
+        /// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
         /// </summary>
         [Input("handle")]
         public Input<string>? Handle { get; set; }
 
         /// <summary>
-        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the
-        /// argument would always trigger an execution plan.
+        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
         /// </summary>
         [Input("isAdmin")]
         public Input<bool>? IsAdmin { get; set; }
@@ -297,8 +265,7 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument
-        /// would always trigger an execution plan.
+        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -328,7 +295,7 @@ namespace Pulumi.Datadog
         public Input<string>? UserInvitationId { get; set; }
 
         /// <summary>
-        /// Returns true if Datadog user is verified.
+        /// Returns `true` if the user is verified.
         /// </summary>
         [Input("verified")]
         public Input<bool>? Verified { get; set; }

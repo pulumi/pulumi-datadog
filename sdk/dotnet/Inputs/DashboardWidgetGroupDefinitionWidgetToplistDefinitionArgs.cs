@@ -20,6 +20,9 @@ namespace Pulumi.Datadog.Inputs
             set => _customLinks = value;
         }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs>? _requests;
         public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestArgs> Requests
@@ -31,6 +34,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTimeArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

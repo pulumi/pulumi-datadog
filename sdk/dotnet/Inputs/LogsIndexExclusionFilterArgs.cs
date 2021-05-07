@@ -14,15 +14,25 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("filters")]
         private InputList<Inputs.LogsIndexExclusionFilterFilterArgs>? _filters;
+
+        /// <summary>
+        /// Logs filter
+        /// </summary>
         public InputList<Inputs.LogsIndexExclusionFilterFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.LogsIndexExclusionFilterFilterArgs>());
             set => _filters = value;
         }
 
+        /// <summary>
+        /// A boolean stating if the exclusion is active or not.
+        /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
 
+        /// <summary>
+        /// The name of the exclusion filter.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

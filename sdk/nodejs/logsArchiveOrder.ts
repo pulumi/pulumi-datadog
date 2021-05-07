@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * There must be at most one `datadog_logs_archive_order` resource. You can import the `datadog_logs_archive_order` or create an archive order.
+ * # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
  *
  * ```sh
  *  $ pulumi import datadog:index/logsArchiveOrder:LogsArchiveOrder name> archiveOrderID
@@ -58,9 +58,7 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
     }
 
     /**
-     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-     * will try to update the order.
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      */
     public readonly archiveIds!: pulumi.Output<string[]>;
 
@@ -94,9 +92,7 @@ export class LogsArchiveOrder extends pulumi.CustomResource {
  */
 export interface LogsArchiveOrderState {
     /**
-     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-     * will try to update the order.
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      */
     readonly archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -106,9 +102,7 @@ export interface LogsArchiveOrderState {
  */
 export interface LogsArchiveOrderArgs {
     /**
-     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If
-     * `archive_ids` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it
-     * will try to update the order.
+     * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      */
     readonly archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

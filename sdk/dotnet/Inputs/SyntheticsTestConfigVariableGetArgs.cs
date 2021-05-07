@@ -12,15 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestConfigVariableGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Example for the variable.
+        /// </summary>
         [Input("example")]
         public Input<string>? Example { get; set; }
 
+        /// <summary>
+        /// Name of the variable.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Pattern of the variable.
+        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
+        /// <summary>
+        /// Type of test configuration variable. Allowed enum values: `text`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

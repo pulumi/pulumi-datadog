@@ -15,8 +15,12 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionCustomLink> CustomLinks;
         public readonly string? HasSearchBar;
+        public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -26,6 +30,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionCustomLink> customLinks,
 
             string? hasSearchBar,
+
+            string? liveSpan,
 
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> requests,
 
@@ -39,6 +45,7 @@ namespace Pulumi.Datadog.Outputs
         {
             CustomLinks = customLinks;
             HasSearchBar = hasSearchBar;
+            LiveSpan = liveSpan;
             Requests = requests;
             Time = time;
             Title = title;

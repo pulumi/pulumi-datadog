@@ -20,7 +20,7 @@ class DashboardListArgs:
         """
         The set of arguments for constructing a DashboardList resource.
         :param pulumi.Input[str] name: The name of the Dashboard List
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashbaord items that belong to this list
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashboard items that belong to this list
         """
         pulumi.set(__self__, "name", name)
         if dash_items is not None:
@@ -42,7 +42,7 @@ class DashboardListArgs:
     @pulumi.getter(name="dashItems")
     def dash_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]]:
         """
-        A set of dashbaord items that belong to this list
+        A set of dashboard items that belong to this list
         """
         return pulumi.get(self, "dash_items")
 
@@ -58,7 +58,7 @@ class _DashboardListState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DashboardList resources.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashbaord items that belong to this list
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]] dash_items: A set of dashboard items that belong to this list
         :param pulumi.Input[str] name: The name of the Dashboard List
         """
         if dash_items is not None:
@@ -70,7 +70,7 @@ class _DashboardListState:
     @pulumi.getter(name="dashItems")
     def dash_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardListDashItemArgs']]]]:
         """
-        A set of dashbaord items that belong to this list
+        A set of dashboard items that belong to this list
         """
         return pulumi.get(self, "dash_items")
 
@@ -104,71 +104,64 @@ class DashboardList(pulumi.CustomResource):
 
         ## Example Usage
 
-        Create a new Dashboard list with two dashboards
-
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
         time = datadog.Dashboard("time",
-            description="Created using the Datadog provider in TF",
-            is_read_only=True,
-            layout_type="ordered",
             title="TF Test Layout Dashboard",
+            description="Created using the Datadog provider",
+            layout_type="ordered",
+            is_read_only=True,
             widgets=[datadog.DashboardWidgetArgs(
                 alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                     alert_id="1234",
-                    time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(
-                        live_span="1h",
-                    ),
-                    title="Widget Title",
                     viz_type="timeseries",
+                    title="Widget Title",
+                    live_span="1h",
                 ),
             )])
         screen = datadog.Dashboard("screen",
-            description="Created using the Datadog provider in TF",
-            is_read_only=False,
-            layout_type="free",
             title="TF Test Free Layout Dashboard",
+            description="Created using the Datadog provider",
+            layout_type="free",
+            is_read_only=False,
             widgets=[datadog.DashboardWidgetArgs(
                 event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
-                    event_size="l",
                     query="*",
-                    time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(
-                        live_span="1h",
-                    ),
+                    event_size="l",
                     title="Widget Title",
-                    title_align="left",
                     title_size="16",
+                    title_align="left",
+                    live_span="1h",
                 ),
-                layout=datadog.DashboardWidgetLayoutArgs(
+                widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                     height=43,
                     width=32,
                     x=5,
                     y=5,
                 ),
             )])
+        # Create a new Dashboard List with two Dashboards
         new_list = datadog.DashboardList("newList",
+            name="Automated Created List",
             dash_items=[
                 datadog.DashboardListDashItemArgs(
-                    dash_id=time.id,
                     type="custom_timeboard",
+                    dash_id=time.id,
                 ),
                 datadog.DashboardListDashItemArgs(
-                    dash_id=screen.id,
                     type="custom_screenboard",
+                    dash_id=screen.id,
                 ),
             ],
-            name="TF Created List",
             opts=pulumi.ResourceOptions(depends_on=[
-                    "datadog_dashboard.screen",
-                    "datadog_dashboard.time",
+                    screen,
+                    time,
                 ]))
         ```
 
         ## Import
-
-        dashboard lists can be imported using their id, e.g.
 
         ```sh
          $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
@@ -176,7 +169,7 @@ class DashboardList(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashbaord items that belong to this list
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashboard items that belong to this list
         :param pulumi.Input[str] name: The name of the Dashboard List
         """
         ...
@@ -190,71 +183,64 @@ class DashboardList(pulumi.CustomResource):
 
         ## Example Usage
 
-        Create a new Dashboard list with two dashboards
-
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
         time = datadog.Dashboard("time",
-            description="Created using the Datadog provider in TF",
-            is_read_only=True,
-            layout_type="ordered",
             title="TF Test Layout Dashboard",
+            description="Created using the Datadog provider",
+            layout_type="ordered",
+            is_read_only=True,
             widgets=[datadog.DashboardWidgetArgs(
                 alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(
                     alert_id="1234",
-                    time=datadog.DashboardWidgetAlertGraphDefinitionTimeArgs(
-                        live_span="1h",
-                    ),
-                    title="Widget Title",
                     viz_type="timeseries",
+                    title="Widget Title",
+                    live_span="1h",
                 ),
             )])
         screen = datadog.Dashboard("screen",
-            description="Created using the Datadog provider in TF",
-            is_read_only=False,
-            layout_type="free",
             title="TF Test Free Layout Dashboard",
+            description="Created using the Datadog provider",
+            layout_type="free",
+            is_read_only=False,
             widgets=[datadog.DashboardWidgetArgs(
                 event_stream_definition=datadog.DashboardWidgetEventStreamDefinitionArgs(
-                    event_size="l",
                     query="*",
-                    time=datadog.DashboardWidgetEventStreamDefinitionTimeArgs(
-                        live_span="1h",
-                    ),
+                    event_size="l",
                     title="Widget Title",
-                    title_align="left",
                     title_size="16",
+                    title_align="left",
+                    live_span="1h",
                 ),
-                layout=datadog.DashboardWidgetLayoutArgs(
+                widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                     height=43,
                     width=32,
                     x=5,
                     y=5,
                 ),
             )])
+        # Create a new Dashboard List with two Dashboards
         new_list = datadog.DashboardList("newList",
+            name="Automated Created List",
             dash_items=[
                 datadog.DashboardListDashItemArgs(
-                    dash_id=time.id,
                     type="custom_timeboard",
+                    dash_id=time.id,
                 ),
                 datadog.DashboardListDashItemArgs(
-                    dash_id=screen.id,
                     type="custom_screenboard",
+                    dash_id=screen.id,
                 ),
             ],
-            name="TF Created List",
             opts=pulumi.ResourceOptions(depends_on=[
-                    "datadog_dashboard.screen",
-                    "datadog_dashboard.time",
+                    screen,
+                    time,
                 ]))
         ```
 
         ## Import
-
-        dashboard lists can be imported using their id, e.g.
 
         ```sh
          $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
@@ -312,7 +298,7 @@ class DashboardList(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashbaord items that belong to this list
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardListDashItemArgs']]]] dash_items: A set of dashboard items that belong to this list
         :param pulumi.Input[str] name: The name of the Dashboard List
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -327,7 +313,7 @@ class DashboardList(pulumi.CustomResource):
     @pulumi.getter(name="dashItems")
     def dash_items(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardListDashItem']]]:
         """
-        A set of dashbaord items that belong to this list
+        A set of dashboard items that belong to this list
         """
         return pulumi.get(self, "dash_items")
 

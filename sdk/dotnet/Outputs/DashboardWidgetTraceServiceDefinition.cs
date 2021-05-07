@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? DisplayFormat;
         public readonly string Env;
+        public readonly string? LiveSpan;
         public readonly string Service;
         public readonly bool? ShowBreakdown;
         public readonly bool? ShowDistribution;
@@ -25,6 +26,9 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? SizeFormat;
         public readonly string SpanName;
         public readonly Outputs.DashboardWidgetTraceServiceDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -34,6 +38,8 @@ namespace Pulumi.Datadog.Outputs
             string? displayFormat,
 
             string env,
+
+            string? liveSpan,
 
             string service,
 
@@ -63,6 +69,7 @@ namespace Pulumi.Datadog.Outputs
         {
             DisplayFormat = displayFormat;
             Env = env;
+            LiveSpan = liveSpan;
             Service = service;
             ShowBreakdown = showBreakdown;
             ShowDistribution = showDistribution;

@@ -10,45 +10,39 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * Create a new Dashboard list with two dashboards
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
  * const time = new datadog.Dashboard("time", {
- *     description: "Created using the Datadog provider in TF",
- *     isReadOnly: true,
- *     layoutType: "ordered",
  *     title: "TF Test Layout Dashboard",
+ *     description: "Created using the Datadog provider",
+ *     layoutType: "ordered",
+ *     isReadOnly: true,
  *     widgets: [{
  *         alertGraphDefinition: {
  *             alertId: "1234",
- *             time: {
- *                 live_span: "1h",
- *             },
- *             title: "Widget Title",
  *             vizType: "timeseries",
+ *             title: "Widget Title",
+ *             liveSpan: "1h",
  *         },
  *     }],
  * });
  * const screen = new datadog.Dashboard("screen", {
- *     description: "Created using the Datadog provider in TF",
- *     isReadOnly: false,
- *     layoutType: "free",
  *     title: "TF Test Free Layout Dashboard",
+ *     description: "Created using the Datadog provider",
+ *     layoutType: "free",
+ *     isReadOnly: false,
  *     widgets: [{
  *         eventStreamDefinition: {
- *             eventSize: "l",
  *             query: "*",
- *             time: {
- *                 live_span: "1h",
- *             },
+ *             eventSize: "l",
  *             title: "Widget Title",
+ *             titleSize: 16,
  *             titleAlign: "left",
- *             titleSize: "16",
+ *             liveSpan: "1h",
  *         },
- *         layout: {
+ *         widgetLayout: {
  *             height: 43,
  *             width: 32,
  *             x: 5,
@@ -56,24 +50,28 @@ import * as utilities from "./utilities";
  *         },
  *     }],
  * });
- * const newList = new datadog.DashboardList("new_list", {
+ * // Create a new Dashboard List with two Dashboards
+ * const newList = new datadog.DashboardList("newList", {
+ *     name: "Automated Created List",
  *     dashItems: [
  *         {
- *             dashId: time.id,
  *             type: "custom_timeboard",
+ *             dashId: time.id,
  *         },
  *         {
- *             dashId: screen.id,
  *             type: "custom_screenboard",
+ *             dashId: screen.id,
  *         },
  *     ],
- *     name: "TF Created List",
- * }, { dependsOn: [screen, time] });
+ * }, {
+ *     dependsOn: [
+ *         screen,
+ *         time,
+ *     ],
+ * });
  * ```
  *
  * ## Import
- *
- * dashboard lists can be imported using their id, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
@@ -108,7 +106,7 @@ export class DashboardList extends pulumi.CustomResource {
     }
 
     /**
-     * A set of dashbaord items that belong to this list
+     * A set of dashboard items that belong to this list
      */
     public readonly dashItems!: pulumi.Output<outputs.DashboardListDashItem[] | undefined>;
     /**
@@ -151,7 +149,7 @@ export class DashboardList extends pulumi.CustomResource {
  */
 export interface DashboardListState {
     /**
-     * A set of dashbaord items that belong to this list
+     * A set of dashboard items that belong to this list
      */
     readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**
@@ -165,7 +163,7 @@ export interface DashboardListState {
  */
 export interface DashboardListArgs {
     /**
-     * A set of dashbaord items that belong to this list
+     * A set of dashboard items that belong to this list
      */
     readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**

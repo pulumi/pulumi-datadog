@@ -17,8 +17,12 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Group;
         public readonly ImmutableArray<string> GroupBies;
         public readonly string Grouping;
+        public readonly string? LiveSpan;
         public readonly ImmutableArray<string> Tags;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -32,6 +36,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<string> groupBies,
 
             string grouping,
+
+            string? liveSpan,
 
             ImmutableArray<string> tags,
 
@@ -47,6 +53,7 @@ namespace Pulumi.Datadog.Outputs
             Group = group;
             GroupBies = groupBies;
             Grouping = grouping;
+            LiveSpan = liveSpan;
             Tags = tags;
             Time = time;
             Title = title;

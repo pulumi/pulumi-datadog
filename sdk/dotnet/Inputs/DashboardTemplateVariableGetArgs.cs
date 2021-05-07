@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardTemplateVariableGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default value for the template variable on dashboard load.
+        /// </summary>
         [Input("default")]
         public Input<string>? Default { get; set; }
 
+        /// <summary>
+        /// The name of the variable.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The tag prefix associated with the variable. Only tags with this prefix will appear in the variable dropdown.
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

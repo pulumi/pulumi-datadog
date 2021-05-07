@@ -14,14 +14,18 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetDistributionDefinitionRequestRumQuery
     {
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryCompute? Compute;
+        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute> MultiComputes;
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch? Search;
+        public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetDistributionDefinitionRequestRumQuery(
             Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryCompute? compute,
+
+            Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy> groupBies,
 
@@ -29,13 +33,17 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch? search)
+            Outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch? search,
+
+            string? searchQuery)
         {
             Compute = compute;
+            ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
             Search = search;
+            SearchQuery = searchQuery;
         }
     }
 }

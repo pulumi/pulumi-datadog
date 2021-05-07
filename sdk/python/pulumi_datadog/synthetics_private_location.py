@@ -74,8 +74,7 @@ class _SyntheticsPrivateLocationState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
-        :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use
-               this configuration.
+        :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         :param pulumi.Input[str] description: Description of the private location.
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
@@ -93,8 +92,7 @@ class _SyntheticsPrivateLocationState:
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration skeleton for the private location. See installation instructions of the private location on how to use
-        this configuration.
+        Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         """
         return pulumi.get(self, "config")
 
@@ -168,7 +166,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics private locations can be imported using their string ID, e.g.
+        # Synthetics private locations can be imported using their string ID, e.g.
 
         ```sh
          $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
@@ -206,7 +204,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
 
         ## Import
 
-        Synthetics private locations can be imported using their string ID, e.g.
+        # Synthetics private locations can be imported using their string ID, e.g.
 
         ```sh
          $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
@@ -269,8 +267,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use
-               this configuration.
+        :param pulumi.Input[str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         :param pulumi.Input[str] description: Description of the private location.
         :param pulumi.Input[str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics private location.
@@ -289,8 +286,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
     @pulumi.getter
     def config(self) -> pulumi.Output[str]:
         """
-        Configuration skeleton for the private location. See installation instructions of the private location on how to use
-        this configuration.
+        Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         """
         return pulumi.get(self, "config")
 

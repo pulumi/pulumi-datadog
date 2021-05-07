@@ -12,15 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsArchiveGcsArchiveArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of your GCS bucket.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Your client email.
+        /// </summary>
         [Input("clientEmail", required: true)]
         public Input<string> ClientEmail { get; set; } = null!;
 
+        /// <summary>
+        /// Path where the archive will be stored.
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// Your project id.
+        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 

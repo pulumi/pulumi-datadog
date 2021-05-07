@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Synthetics private locations can be imported using their string ID, e.g.
+// # Synthetics private locations can be imported using their string ID, e.g.
 //
 // ```sh
 //  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
@@ -51,8 +51,7 @@ import (
 type SyntheticsPrivateLocation struct {
 	pulumi.CustomResourceState
 
-	// Configuration skeleton for the private location. See installation instructions of the private location on how to use
-	// this configuration.
+	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config pulumi.StringOutput `pulumi:"config"`
 	// Description of the private location.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -94,8 +93,7 @@ func GetSyntheticsPrivateLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyntheticsPrivateLocation resources.
 type syntheticsPrivateLocationState struct {
-	// Configuration skeleton for the private location. See installation instructions of the private location on how to use
-	// this configuration.
+	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config *string `pulumi:"config"`
 	// Description of the private location.
 	Description *string `pulumi:"description"`
@@ -106,8 +104,7 @@ type syntheticsPrivateLocationState struct {
 }
 
 type SyntheticsPrivateLocationState struct {
-	// Configuration skeleton for the private location. See installation instructions of the private location on how to use
-	// this configuration.
+	// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
 	Config pulumi.StringPtrInput
 	// Description of the private location.
 	Description pulumi.StringPtrInput

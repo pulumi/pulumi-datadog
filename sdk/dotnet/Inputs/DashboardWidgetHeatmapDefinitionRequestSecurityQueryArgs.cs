@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("compute")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeArgs>? Compute { get; set; }
 
+        [Input("computeQuery")]
+        public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQueryArgs>? ComputeQuery { get; set; }
+
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs>? _groupBies;
         public InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupByArgs> GroupBies
@@ -36,6 +39,9 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("search")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearchArgs>? Search { get; set; }
+
+        [Input("searchQuery")]
+        public Input<string>? SearchQuery { get; set; }
 
         public DashboardWidgetHeatmapDefinitionRequestSecurityQueryArgs()
         {

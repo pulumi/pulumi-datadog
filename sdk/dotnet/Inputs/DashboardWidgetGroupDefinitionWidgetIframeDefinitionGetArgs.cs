@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetIframeDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL of the dashboard.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

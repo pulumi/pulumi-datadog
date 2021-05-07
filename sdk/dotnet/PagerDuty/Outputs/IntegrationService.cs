@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.PagerDuty.Outputs
     [OutputType]
     public sealed class IntegrationService
     {
+        /// <summary>
+        /// Your Service name associated service key in Pagerduty.
+        /// </summary>
         public readonly string ServiceKey;
+        /// <summary>
+        /// Your Service name in PagerDuty.
+        /// </summary>
         public readonly string ServiceName;
 
         [OutputConstructor]

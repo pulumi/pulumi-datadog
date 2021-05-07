@@ -6,10 +6,44 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const sampleIndex = new datadog.LogsIndex("sample_index", {
+ *     exclusionFilters: [
+ *         {
+ *             filters: [{
+ *                 query: "app:coredns",
+ *                 sampleRate: 0.97,
+ *             }],
+ *             isEnabled: true,
+ *             name: "Filter coredns logs",
+ *         },
+ *         {
+ *             filters: [{
+ *                 query: "service:kube_apiserver",
+ *                 sampleRate: 1,
+ *             }],
+ *             isEnabled: true,
+ *             name: "Kubernetes apiserver",
+ *         },
+ *     ],
+ *     filters: [{
+ *         query: "*",
+ *     }],
+ *     name: "your index",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh
- *  $ pulumi import datadog:index/logsIndex:LogsIndex The current Datadog Terraform provider version does not support the creation and deletion of indexes. To manage the existing indexes, do `<datadog_logs_index.name> <indexName>` to import them to Terraform. If you create a resource which does not match the name of any existing index, `terraform apply` will throw `Not Found` error code.
+ *  $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
  * ```
  */
 export class LogsIndex extends pulumi.CustomResource {

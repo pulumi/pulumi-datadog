@@ -23,15 +23,10 @@ class IntegrationArgs:
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-               found at the [available namespace rules API
-               endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-               such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-               defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-               adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "role_name", role_name)
@@ -72,9 +67,7 @@ class IntegrationArgs:
     @pulumi.getter(name="accountSpecificNamespaceRules")
     def account_specific_namespace_rules(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-        found at the [available namespace rules API
-        endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """
         return pulumi.get(self, "account_specific_namespace_rules")
 
@@ -98,10 +91,7 @@ class IntegrationArgs:
     @pulumi.getter(name="filterTags")
     def filter_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-        such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-        defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-        adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         """
         return pulumi.get(self, "filter_tags")
 
@@ -113,7 +103,7 @@ class IntegrationArgs:
     @pulumi.getter(name="hostTags")
     def host_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         """
         return pulumi.get(self, "host_tags")
 
@@ -135,17 +125,12 @@ class _IntegrationState:
         """
         Input properties used for looking up and filtering Integration resources.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-               found at the [available namespace rules API
-               endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] external_id: AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
                Terraform.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-               such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-               defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-               adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         """
         if account_id is not None:
@@ -179,9 +164,7 @@ class _IntegrationState:
     @pulumi.getter(name="accountSpecificNamespaceRules")
     def account_specific_namespace_rules(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-        found at the [available namespace rules API
-        endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """
         return pulumi.get(self, "account_specific_namespace_rules")
 
@@ -218,10 +201,7 @@ class _IntegrationState:
     @pulumi.getter(name="filterTags")
     def filter_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-        such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-        defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-        adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         """
         return pulumi.get(self, "filter_tags")
 
@@ -233,7 +213,7 @@ class _IntegrationState:
     @pulumi.getter(name="hostTags")
     def host_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         """
         return pulumi.get(self, "host_tags")
 
@@ -296,7 +276,7 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Web Services integrations can be imported using their `account ID` and `role name` separated with a colon (`:`), while the `external_id` should be passed by setting an environment variable called `EXTERNAL_ID`
+        # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
 
         ```sh
          $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
@@ -305,15 +285,10 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-               found at the [available namespace rules API
-               endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-               such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-               defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-               adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         """
         ...
@@ -352,7 +327,7 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Web Services integrations can be imported using their `account ID` and `role name` separated with a colon (`:`), while the `external_id` should be passed by setting an environment variable called `EXTERNAL_ID`
+        # Amazon Web Services integrations can be imported using their account ID and role name separated with a colon (:), while the external_id should be passed by setting an environment variable called EXTERNAL_ID
 
         ```sh
          $ pulumi import datadog:aws/integration:Integration EXTERNAL_ID=${external_id} datadog_integration_aws.test ${account_id}:${role_name}
@@ -427,17 +402,12 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-               found at the [available namespace rules API
-               endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[str] external_id: AWS External ID. **NOTE** This provider will not be able to detect changes made to the `external_id` field from outside
                Terraform.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-               such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-               defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-               adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -465,9 +435,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="accountSpecificNamespaceRules")
     def account_specific_namespace_rules(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be
-        found at the [available namespace rules API
-        endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
+        Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         """
         return pulumi.get(self, "account_specific_namespace_rules")
 
@@ -492,10 +460,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="filterTags")
     def filter_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of EC2 tags (in the form key:value) defines a filter that Datadog use when collecting metrics from EC2. Wildcards,
-        such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the
-        defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by
-        adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
+        Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         """
         return pulumi.get(self, "filter_tags")
 
@@ -503,7 +468,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="hostTags")
     def host_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Array of tags (in the form key:value) to add to all hosts and metrics reporting through this integration.
+        Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         """
         return pulumi.get(self, "host_tags")
 

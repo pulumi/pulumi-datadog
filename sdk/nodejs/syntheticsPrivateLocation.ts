@@ -25,7 +25,7 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Synthetics private locations can be imported using their string ID, e.g.
+ * # Synthetics private locations can be imported using their string ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
@@ -60,8 +60,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
     public /*out*/ readonly config!: pulumi.Output<string>;
     /**
@@ -116,8 +115,7 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
  */
 export interface SyntheticsPrivateLocationState {
     /**
-     * Configuration skeleton for the private location. See installation instructions of the private location on how to use
-     * this configuration.
+     * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
      */
     readonly config?: pulumi.Input<string>;
     /**

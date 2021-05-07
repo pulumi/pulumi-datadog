@@ -14,8 +14,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Example Usage
     /// 
-    /// Create a new Dashboard list with two dashboards
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Datadog = Pulumi.Datadog;
@@ -26,10 +24,10 @@ namespace Pulumi.Datadog
     ///     {
     ///         var time = new Datadog.Dashboard("time", new Datadog.DashboardArgs
     ///         {
-    ///             Description = "Created using the Datadog provider in TF",
-    ///             IsReadOnly = true,
-    ///             LayoutType = "ordered",
     ///             Title = "TF Test Layout Dashboard",
+    ///             Description = "Created using the Datadog provider",
+    ///             LayoutType = "ordered",
+    ///             IsReadOnly = true,
     ///             Widgets = 
     ///             {
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -37,39 +35,33 @@ namespace Pulumi.Datadog
     ///                     AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
     ///                     {
     ///                         AlertId = "1234",
-    ///                         Time = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionTimeArgs
-    ///                         {
-    ///                             LiveSpan = "1h",
-    ///                         },
-    ///                         Title = "Widget Title",
     ///                         VizType = "timeseries",
+    ///                         Title = "Widget Title",
+    ///                         LiveSpan = "1h",
     ///                     },
     ///                 },
     ///             },
     ///         });
     ///         var screen = new Datadog.Dashboard("screen", new Datadog.DashboardArgs
     ///         {
-    ///             Description = "Created using the Datadog provider in TF",
-    ///             IsReadOnly = false,
-    ///             LayoutType = "free",
     ///             Title = "TF Test Free Layout Dashboard",
+    ///             Description = "Created using the Datadog provider",
+    ///             LayoutType = "free",
+    ///             IsReadOnly = false,
     ///             Widgets = 
     ///             {
     ///                 new Datadog.Inputs.DashboardWidgetArgs
     ///                 {
     ///                     EventStreamDefinition = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionArgs
     ///                     {
-    ///                         EventSize = "l",
     ///                         Query = "*",
-    ///                         Time = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionTimeArgs
-    ///                         {
-    ///                             LiveSpan = "1h",
-    ///                         },
+    ///                         EventSize = "l",
     ///                         Title = "Widget Title",
-    ///                         TitleAlign = "left",
     ///                         TitleSize = "16",
+    ///                         TitleAlign = "left",
+    ///                         LiveSpan = "1h",
     ///                     },
-    ///                     Layout = new Datadog.Inputs.DashboardWidgetLayoutArgs
+    ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
     ///                     {
     ///                         Height = 43,
     ///                         Width = 32,
@@ -79,28 +71,29 @@ namespace Pulumi.Datadog
     ///                 },
     ///             },
     ///         });
+    ///         // Create a new Dashboard List with two Dashboards
     ///         var newList = new Datadog.DashboardList("newList", new Datadog.DashboardListArgs
     ///         {
+    ///             Name = "Automated Created List",
     ///             DashItems = 
     ///             {
     ///                 new Datadog.Inputs.DashboardListDashItemArgs
     ///                 {
-    ///                     DashId = time.Id,
     ///                     Type = "custom_timeboard",
+    ///                     DashId = time.Id,
     ///                 },
     ///                 new Datadog.Inputs.DashboardListDashItemArgs
     ///                 {
-    ///                     DashId = screen.Id,
     ///                     Type = "custom_screenboard",
+    ///                     DashId = screen.Id,
     ///                 },
     ///             },
-    ///             Name = "TF Created List",
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 "datadog_dashboard.screen",
-    ///                 "datadog_dashboard.time",
+    ///                 screen,
+    ///                 time,
     ///             },
     ///         });
     ///     }
@@ -110,8 +103,6 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
-    /// dashboard lists can be imported using their id, e.g.
-    /// 
     /// ```sh
     ///  $ pulumi import datadog:index/dashboardList:DashboardList new_list 123456
     /// ```
@@ -120,7 +111,7 @@ namespace Pulumi.Datadog
     public partial class DashboardList : Pulumi.CustomResource
     {
         /// <summary>
-        /// A set of dashbaord items that belong to this list
+        /// A set of dashboard items that belong to this list
         /// </summary>
         [Output("dashItems")]
         public Output<ImmutableArray<Outputs.DashboardListDashItem>> DashItems { get; private set; } = null!;
@@ -181,7 +172,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardListDashItemArgs>? _dashItems;
 
         /// <summary>
-        /// A set of dashbaord items that belong to this list
+        /// A set of dashboard items that belong to this list
         /// </summary>
         public InputList<Inputs.DashboardListDashItemArgs> DashItems
         {
@@ -206,7 +197,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardListDashItemGetArgs>? _dashItems;
 
         /// <summary>
-        /// A set of dashbaord items that belong to this list
+        /// A set of dashboard items that belong to this list
         /// </summary>
         public InputList<Inputs.DashboardListDashItemGetArgs> DashItems
         {

@@ -6,10 +6,9 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
+ * Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
  *
  * ## Example Usage
- * ### Services as Individual Resources
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -17,103 +16,6 @@ import * as utilities from "../utilities";
  *
  * const pd = new datadog.pagerduty.Integration("pd", {
  *     apiToken: "38457822378273432587234242874",
- *     individualServices: true,
- *     schedules: [
- *         "https://ddog.pagerduty.com/schedules/X123VF",
- *         "https://ddog.pagerduty.com/schedules/X321XX",
- *     ],
- *     subdomain: "ddog",
- * });
- * const testingFoo = new datadog.pagerduty.ServiceObject("testing_foo", {
- *     serviceKey: "9876543210123456789",
- *     serviceName: "testing_foo",
- * }, { dependsOn: [pd] });
- * const testingBar = new datadog.pagerduty.ServiceObject("testing_bar", {
- *     serviceKey: "54321098765432109876",
- *     serviceName: "testing_bar",
- * }, { dependsOn: [pd] });
- * ```
- * ### Inline Services
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const pdServices = {
- *     testing_foo: "9876543210123456789",
- *     testing_bar: "54321098765432109876",
- * };
- * // Create a new Datadog - PagerDuty integration
- * const pd = new datadog.pagerduty.Integration("pd", {
- *     dynamic: [{
- *         forEach: pdServices,
- *         content: [{
- *             serviceName: services.key,
- *             serviceKey: services.value,
- *         }],
- *     }],
- *     schedules: [
- *         "https://ddog.pagerduty.com/schedules/X123VF",
- *         "https://ddog.pagerduty.com/schedules/X321XX",
- *     ],
- *     subdomain: "ddog",
- *     apiToken: "38457822378273432587234242874",
- * });
- * ```
- * ### Migrating from Inline Services to Individual Resources
- *
- * Migrating from usage of inline services to individual resources is very simple. The following example shows how to convert an existing inline services configuration to configuration using individual resources. Doing analogous change and running `pulumi up` after every step is all that's necessary to migrate.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const pdServices = {
- *     testing_foo: "9876543210123456789",
- *     testing_bar: "54321098765432109876",
- * };
- * // Create a new Datadog - PagerDuty integration
- * const pd = new datadog.pagerduty.Integration("pd", {
- *     dynamic: [{
- *         forEach: pdServices,
- *         content: [{
- *             serviceName: services.key,
- *             serviceKey: services.value,
- *         }],
- *     }],
- *     schedules: [
- *         "https://ddog.pagerduty.com/schedules/X123VF",
- *         "https://ddog.pagerduty.com/schedules/X321XX",
- *     ],
- *     subdomain: "ddog",
- *     apiToken: "38457822378273432587234242874",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * // Second step - this will remove the inline-defined service objects
- * // Note that during this step, `individual_services` must not be defined
- * const pd = new datadog.pagerduty.Integration("pd", {
- *     apiToken: "38457822378273432587234242874",
- *     // `services` was removed
- *     schedules: [
- *         "https://ddog.pagerduty.com/schedules/X123VF",
- *         "https://ddog.pagerduty.com/schedules/X321XX",
- *     ],
- *     subdomain: "ddog",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const pd = new datadog.pagerduty.Integration("pd", {
- *     apiToken: "38457822378273432587234242874",
- *     // `individual_services = true` was added
  *     individualServices: true,
  *     schedules: [
  *         "https://ddog.pagerduty.com/schedules/X123VF",
@@ -174,7 +76,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly schedules!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of service names and service keys.
+     * A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
      *
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
@@ -239,7 +141,7 @@ export interface IntegrationState {
      */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of service names and service keys.
+     * A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
      *
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */
@@ -269,7 +171,7 @@ export interface IntegrationArgs {
      */
     readonly schedules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of service names and service keys.
+     * A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
      *
      * @deprecated set "individual_services" to true and use datadog_pagerduty_integration_service_object
      */

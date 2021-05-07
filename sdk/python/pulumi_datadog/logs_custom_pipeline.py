@@ -133,11 +133,9 @@ class LogsCustomPipeline(pulumi.CustomResource):
                  processors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsCustomPipelineProcessorArgs']]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
+        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines. Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource: `LogsPipelineOrder`. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
 
         ## Example Usage
-
-        Create a Datadog logs pipeline:
 
         ```python
         import pulumi
@@ -307,14 +305,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 ),
             ])
         ```
-        ## Important Notes
-
-        Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
 
         ## Import
 
+        # For the previously created custom pipelines, you can include them in Terraform with the import operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them.
+
         ```sh
-         $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline For the previously created custom pipelines, you can include them in Terraform with the `import` operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them. Use `<resource.name> <pipelineID>` for each existing pipeline.
+         $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name> <pipelineID>
         ```
 
         :param str resource_name: The name of the resource.
@@ -327,11 +324,9 @@ class LogsCustomPipeline(pulumi.CustomResource):
                  args: LogsCustomPipelineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines.
+        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to create and manage Datadog logs custom pipelines. Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource: `LogsPipelineOrder`. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
 
         ## Example Usage
-
-        Create a Datadog logs pipeline:
 
         ```python
         import pulumi
@@ -501,14 +496,13 @@ class LogsCustomPipeline(pulumi.CustomResource):
                 ),
             ])
         ```
-        ## Important Notes
-
-        Each `LogsCustomPipeline` resource defines a complete pipeline. The order of the pipelines is maintained in a different resource datadog_logs_pipeline_order. When creating a new pipeline, you need to **explicitly** add this pipeline to the `LogsPipelineOrder` resource to track the pipeline. Similarly, when a pipeline needs to be destroyed, remove its references from the `LogsPipelineOrder` resource.
 
         ## Import
 
+        # For the previously created custom pipelines, you can include them in Terraform with the import operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them.
+
         ```sh
-         $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline For the previously created custom pipelines, you can include them in Terraform with the `import` operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them. Use `<resource.name> <pipelineID>` for each existing pipeline.
+         $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name> <pipelineID>
         ```
 
         :param str resource_name: The name of the resource.

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Microsoft Azure integrations can be imported using their `tenant name` and `client id` separated with a colon (`:`).
+ * # Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
  *
  * ```sh
  *  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
@@ -67,9 +67,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientSecret!: pulumi.Output<string>;
     /**
-     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      */
     public readonly hostFilters!: pulumi.Output<string | undefined>;
     /**
@@ -130,9 +128,7 @@ export interface IntegrationState {
      */
     readonly clientSecret?: pulumi.Input<string>;
     /**
-     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      */
     readonly hostFilters?: pulumi.Input<string>;
     /**
@@ -154,9 +150,7 @@ export interface IntegrationArgs {
      */
     readonly clientSecret: pulumi.Input<string>;
     /**
-     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-     * from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-     * defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+     * String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
      */
     readonly hostFilters?: pulumi.Input<string>;
     /**

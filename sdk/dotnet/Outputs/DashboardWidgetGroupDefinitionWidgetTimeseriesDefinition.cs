@@ -15,12 +15,18 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink> CustomLinks;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent> Events;
+        public readonly ImmutableArray<string> LegendColumns;
+        public readonly string? LegendLayout;
         public readonly string? LegendSize;
+        public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker> Markers;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis? RightYaxis;
         public readonly bool? ShowLegend;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -32,7 +38,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionEvent> events,
 
+            ImmutableArray<string> legendColumns,
+
+            string? legendLayout,
+
             string? legendSize,
+
+            string? liveSpan,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker> markers,
 
@@ -54,7 +66,10 @@ namespace Pulumi.Datadog.Outputs
         {
             CustomLinks = customLinks;
             Events = events;
+            LegendColumns = legendColumns;
+            LegendLayout = legendLayout;
             LegendSize = legendSize;
+            LiveSpan = liveSpan;
             Markers = markers;
             Requests = requests;
             RightYaxis = rightYaxis;

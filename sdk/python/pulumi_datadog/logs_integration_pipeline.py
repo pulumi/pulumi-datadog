@@ -66,9 +66,7 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource to manage the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
-
-        Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your LogsPipelineOrder resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
+        Provides a Datadog Logs Pipeline API resource to manage the integrations. Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your `LogsPipelineOrder` resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
 
         ## Example Usage
 
@@ -82,7 +80,7 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>`
+         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
         ```
 
         :param str resource_name: The name of the resource.
@@ -96,9 +94,7 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
                  args: Optional[LogsIntegrationPipelineArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource to manage the [integrations](https://docs.datadoghq.com/logs/log_collection/?tab=tcpussite).
-
-        Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your LogsPipelineOrder resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
+        Provides a Datadog Logs Pipeline API resource to manage the integrations. Integration pipelines are the pipelines that are automatically installed for your organization when sending the logs with specific sources. You don't need to maintain or update these types of pipelines. Keeping them as resources, however, allows you to manage the order of your pipelines by referencing them in your `LogsPipelineOrder` resource. If you don't need the `pipeline_order` feature, this resource declaration can be omitted.
 
         ## Example Usage
 
@@ -112,7 +108,7 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>`
+         $ pulumi import datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline name> <pipelineID>
         ```
 
         :param str resource_name: The name of the resource.

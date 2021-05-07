@@ -19,7 +19,7 @@ class GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
-    def __init__(__self__, agents_ipv4s=None, agents_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apm_ipv4s=None, apm_ipv6s=None, id=None, logs_ipv4s=None, logs_ipv6s=None, process_ipv4s=None, process_ipv6s=None, synthetics_ipv4s=None, synthetics_ipv6s=None, webhooks_ipv4s=None, webhooks_ipv6s=None):
+    def __init__(__self__, agents_ipv4s=None, agents_ipv6s=None, api_ipv4s=None, api_ipv6s=None, apm_ipv4s=None, apm_ipv6s=None, id=None, logs_ipv4s=None, logs_ipv6s=None, process_ipv4s=None, process_ipv6s=None, synthetics_ipv4_by_location=None, synthetics_ipv4s=None, synthetics_ipv6_by_location=None, synthetics_ipv6s=None, webhooks_ipv4s=None, webhooks_ipv6s=None):
         if agents_ipv4s and not isinstance(agents_ipv4s, list):
             raise TypeError("Expected argument 'agents_ipv4s' to be a list")
         pulumi.set(__self__, "agents_ipv4s", agents_ipv4s)
@@ -53,9 +53,15 @@ class GetIpRangesResult:
         if process_ipv6s and not isinstance(process_ipv6s, list):
             raise TypeError("Expected argument 'process_ipv6s' to be a list")
         pulumi.set(__self__, "process_ipv6s", process_ipv6s)
+        if synthetics_ipv4_by_location and not isinstance(synthetics_ipv4_by_location, dict):
+            raise TypeError("Expected argument 'synthetics_ipv4_by_location' to be a dict")
+        pulumi.set(__self__, "synthetics_ipv4_by_location", synthetics_ipv4_by_location)
         if synthetics_ipv4s and not isinstance(synthetics_ipv4s, list):
             raise TypeError("Expected argument 'synthetics_ipv4s' to be a list")
         pulumi.set(__self__, "synthetics_ipv4s", synthetics_ipv4s)
+        if synthetics_ipv6_by_location and not isinstance(synthetics_ipv6_by_location, dict):
+            raise TypeError("Expected argument 'synthetics_ipv6_by_location' to be a dict")
+        pulumi.set(__self__, "synthetics_ipv6_by_location", synthetics_ipv6_by_location)
         if synthetics_ipv6s and not isinstance(synthetics_ipv6s, list):
             raise TypeError("Expected argument 'synthetics_ipv6s' to be a list")
         pulumi.set(__self__, "synthetics_ipv6s", synthetics_ipv6s)
@@ -69,31 +75,49 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="agentsIpv4s")
     def agents_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for the Agent endpoint.
+        """
         return pulumi.get(self, "agents_ipv4s")
 
     @property
     @pulumi.getter(name="agentsIpv6s")
     def agents_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for the Agent endpoint.
+        """
         return pulumi.get(self, "agents_ipv6s")
 
     @property
     @pulumi.getter(name="apiIpv4s")
     def api_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for the API endpoint.
+        """
         return pulumi.get(self, "api_ipv4s")
 
     @property
     @pulumi.getter(name="apiIpv6s")
     def api_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for the API endpoint.
+        """
         return pulumi.get(self, "api_ipv6s")
 
     @property
     @pulumi.getter(name="apmIpv4s")
     def apm_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for the APM endpoint.
+        """
         return pulumi.get(self, "apm_ipv4s")
 
     @property
     @pulumi.getter(name="apmIpv6s")
     def apm_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for the APM endpoint.
+        """
         return pulumi.get(self, "apm_ipv6s")
 
     @property
@@ -107,41 +131,81 @@ class GetIpRangesResult:
     @property
     @pulumi.getter(name="logsIpv4s")
     def logs_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for the Logs endpoint.
+        """
         return pulumi.get(self, "logs_ipv4s")
 
     @property
     @pulumi.getter(name="logsIpv6s")
     def logs_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for the Logs endpoint.
+        """
         return pulumi.get(self, "logs_ipv6s")
 
     @property
     @pulumi.getter(name="processIpv4s")
     def process_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for the Process endpoint.
+        """
         return pulumi.get(self, "process_ipv4s")
 
     @property
     @pulumi.getter(name="processIpv6s")
     def process_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for the Process endpoint.
+        """
         return pulumi.get(self, "process_ipv6s")
+
+    @property
+    @pulumi.getter(name="syntheticsIpv4ByLocation")
+    def synthetics_ipv4_by_location(self) -> Mapping[str, Any]:
+        """
+        A map of IPv4 prefixes (string of concatenated IPs, delimited by ',') by location.
+        """
+        return pulumi.get(self, "synthetics_ipv4_by_location")
 
     @property
     @pulumi.getter(name="syntheticsIpv4s")
     def synthetics_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+        """
         return pulumi.get(self, "synthetics_ipv4s")
+
+    @property
+    @pulumi.getter(name="syntheticsIpv6ByLocation")
+    def synthetics_ipv6_by_location(self) -> Mapping[str, Any]:
+        """
+        A map of IPv6 prefixes (string of concatenated IPs, delimited by ',') by location.
+        """
+        return pulumi.get(self, "synthetics_ipv6_by_location")
 
     @property
     @pulumi.getter(name="syntheticsIpv6s")
     def synthetics_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for the Synthetics endpoint.
+        """
         return pulumi.get(self, "synthetics_ipv6s")
 
     @property
     @pulumi.getter(name="webhooksIpv4s")
     def webhooks_ipv4s(self) -> Sequence[str]:
+        """
+        An Array of IPv4 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+        """
         return pulumi.get(self, "webhooks_ipv4s")
 
     @property
     @pulumi.getter(name="webhooksIpv6s")
     def webhooks_ipv6s(self) -> Sequence[str]:
+        """
+        An Array of IPv6 addresses in CIDR format specifying the A records for the Webhooks endpoint.
+        """
         return pulumi.get(self, "webhooks_ipv6s")
 
 
@@ -162,7 +226,9 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             logs_ipv6s=self.logs_ipv6s,
             process_ipv4s=self.process_ipv4s,
             process_ipv6s=self.process_ipv6s,
+            synthetics_ipv4_by_location=self.synthetics_ipv4_by_location,
             synthetics_ipv4s=self.synthetics_ipv4s,
+            synthetics_ipv6_by_location=self.synthetics_ipv6_by_location,
             synthetics_ipv6s=self.synthetics_ipv6s,
             webhooks_ipv4s=self.webhooks_ipv4s,
             webhooks_ipv6s=self.webhooks_ipv6s)
@@ -200,7 +266,9 @@ def get_ip_ranges(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIp
         logs_ipv6s=__ret__.logs_ipv6s,
         process_ipv4s=__ret__.process_ipv4s,
         process_ipv6s=__ret__.process_ipv6s,
+        synthetics_ipv4_by_location=__ret__.synthetics_ipv4_by_location,
         synthetics_ipv4s=__ret__.synthetics_ipv4s,
+        synthetics_ipv6_by_location=__ret__.synthetics_ipv6_by_location,
         synthetics_ipv6s=__ret__.synthetics_ipv6s,
         webhooks_ipv4s=__ret__.webhooks_ipv4s,
         webhooks_ipv6s=__ret__.webhooks_ipv6s)

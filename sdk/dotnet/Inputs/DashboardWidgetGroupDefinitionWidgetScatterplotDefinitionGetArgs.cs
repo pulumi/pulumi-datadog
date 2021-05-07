@@ -28,12 +28,18 @@ namespace Pulumi.Datadog.Inputs
             set => _customLinks = value;
         }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("request")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs>? Request { get; set; }
 
         [Input("time")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTimeGetArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

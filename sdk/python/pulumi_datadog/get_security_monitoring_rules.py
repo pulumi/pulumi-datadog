@@ -46,6 +46,9 @@ class GetSecurityMonitoringRulesResult:
     @property
     @pulumi.getter(name="defaultOnlyFilter")
     def default_only_filter(self) -> Optional[bool]:
+        """
+        Limit the search to default rules
+        """
         return pulumi.get(self, "default_only_filter")
 
     @property
@@ -59,26 +62,41 @@ class GetSecurityMonitoringRulesResult:
     @property
     @pulumi.getter(name="nameFilter")
     def name_filter(self) -> Optional[str]:
+        """
+        A rule name to limit the search
+        """
         return pulumi.get(self, "name_filter")
 
     @property
     @pulumi.getter(name="ruleIds")
     def rule_ids(self) -> Sequence[str]:
+        """
+        List of IDs of the matched rules.
+        """
         return pulumi.get(self, "rule_ids")
 
     @property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.GetSecurityMonitoringRulesRuleResult']:
+        """
+        List of rules.
+        """
         return pulumi.get(self, "rules")
 
     @property
     @pulumi.getter(name="tagsFilters")
     def tags_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of tags to limit the search
+        """
         return pulumi.get(self, "tags_filters")
 
     @property
     @pulumi.getter(name="userOnlyFilter")
     def user_only_filter(self) -> Optional[bool]:
+        """
+        Limit the search to user rules
+        """
         return pulumi.get(self, "user_only_filter")
 
 
@@ -115,6 +133,12 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
         name_filter="attack",
         tags_filters=["foo:bar"])
     ```
+
+
+    :param bool default_only_filter: Limit the search to default rules
+    :param str name_filter: A rule name to limit the search
+    :param Sequence[str] tags_filters: A list of tags to limit the search
+    :param bool user_only_filter: Limit the search to user rules
     """
     __args__ = dict()
     __args__['defaultOnlyFilter'] = default_only_filter

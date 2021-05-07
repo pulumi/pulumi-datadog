@@ -21,6 +21,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("sort")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortArgs>? Sort { get; set; }
 
+        [Input("sortQuery")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQueryArgs>? SortQuery { get; set; }
+
         public DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupByArgs()
         {
         }

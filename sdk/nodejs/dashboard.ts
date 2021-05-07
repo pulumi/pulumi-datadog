@@ -8,15 +8,13 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
  *
- * > **Note:** This resource uses the new [Dashboard API](https://docs.datadoghq.com/api/v1/dashboards/) which adds new features like better validation and support for the [Group widget](https://docs.datadoghq.com/dashboards/widgets/group/). Additionally, this resource unifies `datadog.TimeBoard` and `datadog.ScreenBoard` resources to allow you to manage all of your dashboards using a single format.
- *
  * ## Example Usage
- * ### Create A New Datadog Dashboard - Ordered Layout
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Example Ordered Layout
  * const orderedDashboard = new datadog.Dashboard("ordered_dashboard", {
  *     description: "Created using the Datadog provider in Terraform",
  *     isReadOnly: true,
@@ -51,9 +49,7 @@ import * as utilities from "./utilities";
  *         {
  *             alertGraphDefinition: {
  *                 alertId: "895605",
- *                 time: {
- *                     live_span: "1h",
- *                 },
+ *                 liveSpan: "1h",
  *                 title: "Widget Title",
  *                 vizType: "timeseries",
  *             },
@@ -78,6 +74,7 @@ import * as utilities from "./utilities";
  *         },
  *         {
  *             changeDefinition: {
+ *                 liveSpan: "1h",
  *                 requests: [{
  *                     changeType: "absolute",
  *                     compareTo: "week_before",
@@ -87,23 +84,18 @@ import * as utilities from "./utilities";
  *                     q: "avg:system.load.1{env:staging} by {account}",
  *                     showPresent: true,
  *                 }],
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *             },
  *         },
  *         {
  *             distributionDefinition: {
+ *                 liveSpan: "1h",
  *                 requests: [{
  *                     q: "avg:system.load.1{env:staging} by {account}",
  *                     style: {
  *                         palette: "warm",
  *                     },
  *                 }],
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *             },
  *         },
@@ -115,27 +107,23 @@ import * as utilities from "./utilities";
  *                     "cluster",
  *                 ],
  *                 grouping: "cluster",
+ *                 liveSpan: "1h",
  *                 tags: [
  *                     "account:demo",
  *                     "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk",
  *                 ],
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *             },
  *         },
  *         {
  *             heatmapDefinition: {
+ *                 liveSpan: "1h",
  *                 requests: [{
  *                     q: "avg:system.load.1{env:staging} by {account}",
  *                     style: {
  *                         palette: "warm",
  *                     },
  *                 }],
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *                 yaxis: {
  *                     includeZero: true,
@@ -190,6 +178,7 @@ import * as utilities from "./utilities";
  *             queryValueDefinition: {
  *                 autoscale: true,
  *                 customUnit: "xx",
+ *                 liveSpan: "1h",
  *                 precision: 4,
  *                 requests: [{
  *                     aggregator: "sum",
@@ -208,14 +197,12 @@ import * as utilities from "./utilities";
  *                     q: "avg:system.load.1{env:staging} by {account}",
  *                 }],
  *                 textAlign: "right",
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *             },
  *         },
  *         {
  *             queryTableDefinition: {
+ *                 liveSpan: "1h",
  *                 requests: [{
  *                     aggregator: "sum",
  *                     conditionalFormats: [
@@ -233,9 +220,6 @@ import * as utilities from "./utilities";
  *                     limit: 10,
  *                     q: "avg:system.load.1{env:staging} by {account}",
  *                 }],
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *             },
  *         },
@@ -245,6 +229,7 @@ import * as utilities from "./utilities";
  *                     "account",
  *                     "apm-role-group",
  *                 ],
+ *                 liveSpan: "1h",
  *                 request: {
  *                     xes: [{
  *                         aggregator: "max",
@@ -254,9 +239,6 @@ import * as utilities from "./utilities";
  *                         aggregator: "min",
  *                         q: "avg:system.mem.used{*} by {service, account}",
  *                     }],
- *                 },
- *                 time: {
- *                     live_span: "1h",
  *                 },
  *                 title: "Widget Title",
  *                 xaxis: {
@@ -276,12 +258,6 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
- *             layout: {
- *                 height: 43,
- *                 width: 32,
- *                 x: 5,
- *                 y: 5,
- *             },
  *             servicemapDefinition: {
  *                 filters: [
  *                     "env:prod",
@@ -304,6 +280,7 @@ import * as utilities from "./utilities";
  *                     },
  *                 ],
  *                 legendSize: "2",
+ *                 liveSpan: "1h",
  *                 markers: [
  *                     {
  *                         displayType: "error dashed",
@@ -333,7 +310,7 @@ import * as utilities from "./utilities";
  *                     {
  *                         displayType: "area",
  *                         logQuery: {
- *                             compute: {
+ *                             computeQuery: {
  *                                 aggregation: "avg",
  *                                 facet: "@duration",
  *                                 interval: 5000,
@@ -341,21 +318,19 @@ import * as utilities from "./utilities";
  *                             groupBies: [{
  *                                 facet: "host",
  *                                 limit: 10,
- *                                 sort: {
+ *                                 sortQuery: {
  *                                     aggregation: "avg",
  *                                     facet: "@duration",
  *                                     order: "desc",
  *                                 },
  *                             }],
  *                             index: "mcnulty",
- *                             search: {
- *                                 query: "status:info",
- *                             },
+ *                             searchQuery: "status:info",
  *                         },
  *                     },
  *                     {
  *                         apmQuery: {
- *                             compute: {
+ *                             computeQuery: {
  *                                 aggregation: "avg",
  *                                 facet: "@duration",
  *                                 interval: 5000,
@@ -363,16 +338,14 @@ import * as utilities from "./utilities";
  *                             groupBies: [{
  *                                 facet: "resource_name",
  *                                 limit: 50,
- *                                 sort: {
+ *                                 sortQuery: {
  *                                     aggregation: "avg",
  *                                     facet: "@string_query.interval",
  *                                     order: "desc",
  *                                 },
  *                             }],
  *                             index: "apm-search",
- *                             search: {
- *                                 query: "type:web",
- *                             },
+ *                             searchQuery: "type:web",
  *                         },
  *                         displayType: "bars",
  *                     },
@@ -387,9 +360,6 @@ import * as utilities from "./utilities";
  *                     },
  *                 ],
  *                 showLegend: true,
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *                 yaxis: {
  *                     includeZero: false,
@@ -437,9 +407,7 @@ import * as utilities from "./utilities";
  *                     {
  *                         alertGraphDefinition: {
  *                             alertId: "123",
- *                             time: {
- *                                 live_span: "1h",
- *                             },
+ *                             liveSpan: "1h",
  *                             title: "Alert Graph",
  *                             vizType: "toplist",
  *                         },
@@ -462,13 +430,7 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
- * ```
- * ### Create A New Datadog Dashboard - Free Layout
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
+ * // Example Free Layout
  * const freeDashboard = new datadog.Dashboard("free_dashboard", {
  *     description: "Created using the Datadog provider in Terraform",
  *     isReadOnly: false,
@@ -503,15 +465,13 @@ import * as utilities from "./utilities";
  *         {
  *             eventStreamDefinition: {
  *                 eventSize: "l",
+ *                 liveSpan: "1h",
  *                 query: "*",
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *                 titleAlign: "left",
  *                 titleSize: "16",
  *             },
- *             layout: {
+ *             widgetLayout: {
  *                 height: 43,
  *                 width: 32,
  *                 x: 5,
@@ -520,15 +480,13 @@ import * as utilities from "./utilities";
  *         },
  *         {
  *             eventTimelineDefinition: {
+ *                 liveSpan: "1h",
  *                 query: "*",
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "Widget Title",
  *                 titleAlign: "left",
  *                 titleSize: "16",
  *             },
- *             layout: {
+ *             widgetLayout: {
  *                 height: 9,
  *                 width: 65,
  *                 x: 42,
@@ -542,7 +500,7 @@ import * as utilities from "./utilities";
  *                 text: "free text content",
  *                 textAlign: "left",
  *             },
- *             layout: {
+ *             widgetLayout: {
  *                 height: 20,
  *                 width: 30,
  *                 x: 42,
@@ -553,7 +511,7 @@ import * as utilities from "./utilities";
  *             iframeDefinition: {
  *                 url: "http://google.com",
  *             },
- *             layout: {
+ *             widgetLayout: {
  *                 height: 46,
  *                 width: 39,
  *                 x: 111,
@@ -566,7 +524,7 @@ import * as utilities from "./utilities";
  *                 sizing: "fit",
  *                 url: "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
  *             },
- *             layout: {
+ *             widgetLayout: {
  *                 height: 20,
  *                 width: 30,
  *                 x: 77,
@@ -574,12 +532,6 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
- *             layout: {
- *                 height: 36,
- *                 width: 32,
- *                 x: 5,
- *                 y: 51,
- *             },
  *             logStreamDefinition: {
  *                 columns: [
  *                     "core_host",
@@ -596,14 +548,14 @@ import * as utilities from "./utilities";
  *                     order: "desc",
  *                 },
  *             },
+ *             widgetLayout: {
+ *                 height: 36,
+ *                 width: 32,
+ *                 x: 5,
+ *                 y: 51,
+ *             },
  *         },
  *         {
- *             layout: {
- *                 height: 40,
- *                 width: 30,
- *                 x: 112,
- *                 y: 55,
- *             },
  *             manageStatusDefinition: {
  *                 colorPreference: "text",
  *                 displayFormat: "countsAndList",
@@ -616,17 +568,18 @@ import * as utilities from "./utilities";
  *                 titleAlign: "left",
  *                 titleSize: "16",
  *             },
+ *             widgetLayout: {
+ *                 height: 40,
+ *                 width: 30,
+ *                 x: 112,
+ *                 y: 55,
+ *             },
  *         },
  *         {
- *             layout: {
- *                 height: 38,
- *                 width: 67,
- *                 x: 40,
- *                 y: 28,
- *             },
  *             traceServiceDefinition: {
  *                 displayFormat: "three_column",
  *                 env: "datad0g.com",
+ *                 liveSpan: "1h",
  *                 service: "alerting-cassandra",
  *                 showBreakdown: true,
  *                 showDistribution: true,
@@ -636,12 +589,94 @@ import * as utilities from "./utilities";
  *                 showResourceList: false,
  *                 sizeFormat: "large",
  *                 spanName: "cassandra.query",
- *                 time: {
- *                     live_span: "1h",
- *                 },
  *                 title: "alerting-cassandra #env:datad0g.com",
  *                 titleAlign: "center",
  *                 titleSize: "13",
+ *             },
+ *             widgetLayout: {
+ *                 height: 38,
+ *                 width: 67,
+ *                 x: 40,
+ *                 y: 28,
+ *             },
+ *         },
+ *         {
+ *             timeseriesDefinition: {
+ *                 requests: [{
+ *                     formulas: [
+ *                         {
+ *                             alias: "my ff query",
+ *                             formulaExpression: "my_query_1 + my_query_2",
+ *                         },
+ *                         {
+ *                             alias: "my second ff query",
+ *                             formulaExpression: "my_query_1 * my_query_2",
+ *                             limit: {
+ *                                 count: 5,
+ *                                 order: "desc",
+ *                             },
+ *                         },
+ *                     ],
+ *                     queries: [
+ *                         {
+ *                             metricQuery: {
+ *                                 aggregator: "sum",
+ *                                 dataSource: "metrics",
+ *                                 name: "my_query_1",
+ *                                 query: "avg:system.cpu.user{app:general} by {env}",
+ *                             },
+ *                         },
+ *                         {
+ *                             metricQuery: {
+ *                                 aggregator: "sum",
+ *                                 name: "my_query_2",
+ *                                 query: "avg:system.cpu.user{app:general} by {env}",
+ *                             },
+ *                         },
+ *                     ],
+ *                 }],
+ *             },
+ *         },
+ *         {
+ *             timeseriesDefinition: {
+ *                 requests: [{
+ *                     queries: [{
+ *                         eventQuery: {
+ *                             computes: [{
+ *                                 aggregation: "count",
+ *                             }],
+ *                             dataSource: "logs",
+ *                             groupBies: [{
+ *                                 facet: "host",
+ *                                 limit: 10,
+ *                                 sort: {
+ *                                     aggregation: "avg",
+ *                                     metric: "@lambda.max_memory_used",
+ *                                 },
+ *                             }],
+ *                             indexes: ["days-3"],
+ *                         },
+ *                     }],
+ *                 }],
+ *             },
+ *         },
+ *         {
+ *             timeseriesDefinition: {
+ *                 requests: [{
+ *                     queries: [{
+ *                         processQuery: {
+ *                             aggregator: "sum",
+ *                             dataSource: "process",
+ *                             isNormalizedCpu: true,
+ *                             limit: 10,
+ *                             metric: "process.stat.cpu.total_pct",
+ *                             name: "my_process_query",
+ *                             sort: "asc",
+ *                             tagFilters: ["some_filter"],
+ *                             textFilter: "abc",
+ *                         },
+ *                     }],
+ *                 }],
  *             },
  *         },
  *     ],
@@ -649,8 +684,6 @@ import * as utilities from "./utilities";
  * ```
  *
  * ## Import
- *
- * dashboards can be imported using their ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/dashboard:Dashboard my_service_dashboard sv7-gyh-kas

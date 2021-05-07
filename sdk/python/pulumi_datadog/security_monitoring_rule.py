@@ -262,11 +262,9 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog [Security Monitoring Rule API](https://docs.datadoghq.com/api/v2/security-monitoring/) resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use [datadog_security_default_rule](https://www.terraform.io/resources/security_monitoring_default_rule) instead.
+        Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
 
         ## Example Usage
-
-        Create a simple security monitoring rule.
 
         ```python
         import pulumi
@@ -305,10 +303,10 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         ## Import
 
-        Security monitoring rules can be imported using ID, e.g. console
+        # Security monitoring rules can be imported using ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_monitor m0o-hto-lkb
+         $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.
@@ -328,11 +326,9 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  args: SecurityMonitoringRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog [Security Monitoring Rule API](https://docs.datadoghq.com/api/v2/security-monitoring/) resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use [datadog_security_default_rule](https://www.terraform.io/resources/security_monitoring_default_rule) instead.
+        Provides a Datadog Security Monitoring Rule API resource. This can be used to create and manage Datadog security monitoring rules. To change settings for a default rule use `datadog_security_default_rule` instead.
 
         ## Example Usage
-
-        Create a simple security monitoring rule.
 
         ```python
         import pulumi
@@ -371,10 +367,10 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         ## Import
 
-        Security monitoring rules can be imported using ID, e.g. console
+        # Security monitoring rules can be imported using ID, e.g.
 
         ```sh
-         $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_monitor m0o-hto-lkb
+         $ pulumi import datadog:index/securityMonitoringRule:SecurityMonitoringRule my_rule m0o-hto-lkb
         ```
 
         :param str resource_name: The name of the resource.

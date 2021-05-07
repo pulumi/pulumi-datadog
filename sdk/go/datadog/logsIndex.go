@@ -11,10 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewLogsIndex(ctx, "sampleIndex", &datadog.LogsIndexArgs{
+// 			ExclusionFilters: datadog.LogsIndexExclusionFilterArray{
+// 				&datadog.LogsIndexExclusionFilterArgs{
+// 					Filters: datadog.LogsIndexExclusionFilterFilterArray{
+// 						&datadog.LogsIndexExclusionFilterFilterArgs{
+// 							Query:      pulumi.String("app:coredns"),
+// 							SampleRate: pulumi.Float64(0.97),
+// 						},
+// 					},
+// 					IsEnabled: pulumi.Bool(true),
+// 					Name:      pulumi.String("Filter coredns logs"),
+// 				},
+// 				&datadog.LogsIndexExclusionFilterArgs{
+// 					Filters: datadog.LogsIndexExclusionFilterFilterArray{
+// 						&datadog.LogsIndexExclusionFilterFilterArgs{
+// 							Query:      pulumi.String("service:kube_apiserver"),
+// 							SampleRate: pulumi.Float64(1),
+// 						},
+// 					},
+// 					IsEnabled: pulumi.Bool(true),
+// 					Name:      pulumi.String("Kubernetes apiserver"),
+// 				},
+// 			},
+// 			Filters: datadog.LogsIndexFilterArray{
+// 				&datadog.LogsIndexFilterArgs{
+// 					Query: pulumi.String("*"),
+// 				},
+// 			},
+// 			Name: pulumi.String("your index"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // ```sh
-//  $ pulumi import datadog:index/logsIndex:LogsIndex The current Datadog Terraform provider version does not support the creation and deletion of indexes. To manage the existing indexes, do `<datadog_logs_index.name> <indexName>` to import them to Terraform. If you create a resource which does not match the name of any existing index, `terraform apply` will throw `Not Found` error code.
+//  $ pulumi import datadog:index/logsIndex:LogsIndex name> <indexName>
 // ```
 type LogsIndex struct {
 	pulumi.CustomResourceState

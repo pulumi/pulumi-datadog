@@ -17,8 +17,7 @@ class LogsIndexOrderArgs:
                  name: pulumi.Input[str]):
         """
         The set of arguments for constructing a LogsIndexOrder resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-               list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         pulumi.set(__self__, "indexes", indexes)
@@ -28,8 +27,7 @@ class LogsIndexOrderArgs:
     @pulumi.getter
     def indexes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        list.
+        The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         """
         return pulumi.get(self, "indexes")
 
@@ -57,8 +55,7 @@ class _LogsIndexOrderState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LogsIndexOrder resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-               list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         if indexes is not None:
@@ -70,8 +67,7 @@ class _LogsIndexOrderState:
     @pulumi.getter
     def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        list.
+        The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         """
         return pulumi.get(self, "indexes")
 
@@ -101,7 +97,7 @@ class LogsIndexOrder(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
+        Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
 
         ## Example Usage
 
@@ -117,14 +113,15 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Import
 
+        # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+
         ```sh
-         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `<datadog_logs_index_order.name> <name>` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.
+         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-               list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         ...
@@ -134,7 +131,7 @@ class LogsIndexOrder(pulumi.CustomResource):
                  args: LogsIndexOrderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
+        Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
 
         ## Example Usage
 
@@ -150,8 +147,10 @@ class LogsIndexOrder(pulumi.CustomResource):
 
         ## Import
 
+        # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+
         ```sh
-         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `<datadog_logs_index_order.name> <name>` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.
+         $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name> <name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -208,8 +207,7 @@ class LogsIndexOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-               list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indexes: The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         :param pulumi.Input[str] name: The unique name of the index order resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -224,8 +222,7 @@ class LogsIndexOrder(pulumi.CustomResource):
     @pulumi.getter
     def indexes(self) -> pulumi.Output[Sequence[str]]:
         """
-        The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        list.
+        The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         """
         return pulumi.get(self, "indexes")
 

@@ -12,83 +12,173 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The definition for a Alert Graph widget.
+        /// </summary>
         [Input("alertGraphDefinition")]
         public Input<Inputs.DashboardWidgetAlertGraphDefinitionArgs>? AlertGraphDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Alert Value widget.
+        /// </summary>
         [Input("alertValueDefinition")]
         public Input<Inputs.DashboardWidgetAlertValueDefinitionArgs>? AlertValueDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Change  widget.
+        /// </summary>
         [Input("changeDefinition")]
         public Input<Inputs.DashboardWidgetChangeDefinitionArgs>? ChangeDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Check Status widget.
+        /// </summary>
         [Input("checkStatusDefinition")]
         public Input<Inputs.DashboardWidgetCheckStatusDefinitionArgs>? CheckStatusDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Distribution widget.
+        /// </summary>
         [Input("distributionDefinition")]
         public Input<Inputs.DashboardWidgetDistributionDefinitionArgs>? DistributionDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Event Stream widget.
+        /// </summary>
         [Input("eventStreamDefinition")]
         public Input<Inputs.DashboardWidgetEventStreamDefinitionArgs>? EventStreamDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Event Timeline widget.
+        /// </summary>
         [Input("eventTimelineDefinition")]
         public Input<Inputs.DashboardWidgetEventTimelineDefinitionArgs>? EventTimelineDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Free Text widget.
+        /// </summary>
         [Input("freeTextDefinition")]
         public Input<Inputs.DashboardWidgetFreeTextDefinitionArgs>? FreeTextDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Geomap widget.
+        /// </summary>
+        [Input("geomapDefinition")]
+        public Input<Inputs.DashboardWidgetGeomapDefinitionArgs>? GeomapDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Group widget.
+        /// </summary>
         [Input("groupDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionArgs>? GroupDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Heatmap widget.
+        /// </summary>
         [Input("heatmapDefinition")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionArgs>? HeatmapDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Hostmap widget.
+        /// </summary>
         [Input("hostmapDefinition")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionArgs>? HostmapDefinition { get; set; }
 
+        /// <summary>
+        /// The ID of the widget.
+        /// </summary>
         [Input("id")]
         public Input<int>? Id { get; set; }
 
+        /// <summary>
+        /// The definition for an Iframe widget.
+        /// </summary>
         [Input("iframeDefinition")]
         public Input<Inputs.DashboardWidgetIframeDefinitionArgs>? IframeDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for an Image widget
+        /// </summary>
         [Input("imageDefinition")]
         public Input<Inputs.DashboardWidgetImageDefinitionArgs>? ImageDefinition { get; set; }
 
+        /// <summary>
+        /// The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
+        /// </summary>
         [Input("layout")]
         public Input<Inputs.DashboardWidgetLayoutArgs>? Layout { get; set; }
 
+        /// <summary>
+        /// The definition for an Log Stream widget.
+        /// </summary>
         [Input("logStreamDefinition")]
         public Input<Inputs.DashboardWidgetLogStreamDefinitionArgs>? LogStreamDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for an Manage Status widget.
+        /// </summary>
         [Input("manageStatusDefinition")]
         public Input<Inputs.DashboardWidgetManageStatusDefinitionArgs>? ManageStatusDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Note widget.
+        /// </summary>
         [Input("noteDefinition")]
         public Input<Inputs.DashboardWidgetNoteDefinitionArgs>? NoteDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Query Table widget.
+        /// </summary>
         [Input("queryTableDefinition")]
         public Input<Inputs.DashboardWidgetQueryTableDefinitionArgs>? QueryTableDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Query Value widget.
+        /// </summary>
         [Input("queryValueDefinition")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionArgs>? QueryValueDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Scatterplot widget.
+        /// </summary>
         [Input("scatterplotDefinition")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionArgs>? ScatterplotDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Service Level Objective widget.
+        /// </summary>
         [Input("serviceLevelObjectiveDefinition")]
         public Input<Inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs>? ServiceLevelObjectiveDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Service Map widget.
+        /// </summary>
         [Input("servicemapDefinition")]
         public Input<Inputs.DashboardWidgetServicemapDefinitionArgs>? ServicemapDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Timeseries widget.
+        /// </summary>
         [Input("timeseriesDefinition")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionArgs>? TimeseriesDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Toplist widget.
+        /// </summary>
         [Input("toplistDefinition")]
         public Input<Inputs.DashboardWidgetToplistDefinitionArgs>? ToplistDefinition { get; set; }
 
+        /// <summary>
+        /// The definition for a Trace Service widget.
+        /// </summary>
         [Input("traceServiceDefinition")]
         public Input<Inputs.DashboardWidgetTraceServiceDefinitionArgs>? TraceServiceDefinition { get; set; }
+
+        /// <summary>
+        /// The layout of the widget on a 'free' dashboard.
+        /// </summary>
+        [Input("widgetLayout")]
+        public Input<Inputs.DashboardWidgetWidgetLayoutArgs>? WidgetLayout { get; set; }
 
         public DashboardWidgetArgs()
         {

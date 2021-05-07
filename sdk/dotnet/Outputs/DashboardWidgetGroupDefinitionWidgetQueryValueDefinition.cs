@@ -16,10 +16,14 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? Autoscale;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink> CustomLinks;
         public readonly string? CustomUnit;
+        public readonly string? LiveSpan;
         public readonly int? Precision;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest> Requests;
         public readonly string? TextAlign;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -31,6 +35,8 @@ namespace Pulumi.Datadog.Outputs
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink> customLinks,
 
             string? customUnit,
+
+            string? liveSpan,
 
             int? precision,
 
@@ -49,6 +55,7 @@ namespace Pulumi.Datadog.Outputs
             Autoscale = autoscale;
             CustomLinks = customLinks;
             CustomUnit = customUnit;
+            LiveSpan = liveSpan;
             Precision = precision;
             Requests = requests;
             TextAlign = textAlign;

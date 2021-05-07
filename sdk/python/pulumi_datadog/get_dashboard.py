@@ -44,16 +44,25 @@ class GetDashboardResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The dashboard name to search for. Must only match one dashboard.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def title(self) -> str:
+        """
+        The name of the dashboard.
+        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL to a specific dashboard.
+        """
         return pulumi.get(self, "url")
 
 
@@ -82,6 +91,9 @@ def get_dashboard(name: Optional[str] = None,
 
     test = datadog.get_dashboard(name="My super dashboard")
     ```
+
+
+    :param str name: The dashboard name to search for. Must only match one dashboard.
     """
     __args__ = dict()
     __args__['name'] = name

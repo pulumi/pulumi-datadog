@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("compute")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeGetArgs>? Compute { get; set; }
 
+        [Input("computeQuery")]
+        public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
+
         [Input("groupBies")]
         private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByGetArgs>? _groupBies;
         public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupByGetArgs> GroupBies
@@ -36,6 +39,9 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("search")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearchGetArgs>? Search { get; set; }
+
+        [Input("searchQuery")]
+        public Input<string>? SearchQuery { get; set; }
 
         public DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGetArgs()
         {

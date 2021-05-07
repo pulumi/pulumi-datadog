@@ -13,16 +13,16 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetLayoutGetArgs : Pulumi.ResourceArgs
     {
         [Input("height", required: true)]
-        public Input<double> Height { get; set; } = null!;
+        public Input<int> Height { get; set; } = null!;
 
         [Input("width", required: true)]
-        public Input<double> Width { get; set; } = null!;
+        public Input<int> Width { get; set; } = null!;
 
         [Input("x", required: true)]
-        public Input<double> X { get; set; } = null!;
+        public Input<int> X { get; set; } = null!;
 
         [Input("y", required: true)]
-        public Input<double> Y { get; set; } = null!;
+        public Input<int> Y { get; set; } = null!;
 
         public DashboardWidgetLayoutGetArgs()
         {

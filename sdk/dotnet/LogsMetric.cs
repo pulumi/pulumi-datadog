@@ -40,6 +40,11 @@ namespace Pulumi.Datadog
     ///                     Path = "@status",
     ///                     TagName = "status",
     ///                 },
+    ///                 new Datadog.Inputs.LogsMetricGroupByArgs
+    ///                 {
+    ///                     Path = "@version",
+    ///                     TagName = "version",
+    ///                 },
     ///             },
     ///             Name = "testing.logs.metric",
     ///         });
@@ -47,48 +52,8 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// ## Schema
-    /// 
-    /// ### Required
-    /// 
-    /// - **compute** (Block List, Min: 1, Max: 1) The compute rule to compute the log-based metric. This field can't be updated after creation. (see below for nested schema)
-    /// - **filter** (Block List, Min: 1, Max: 1) The log-based metric filter. Logs matching this filter will be aggregated in this metric. (see below for nested schema)
-    /// - **name** (String, Required) The name of the log-based metric. This field can't be updated after creation.
-    /// 
-    /// ### Optional
-    /// 
-    /// - **group_by** (Block List) The rules for the group by. (see below for nested schema)
-    /// - **id** (String, Optional) The ID of this resource.
-    /// 
-    /// &lt;a id="nestedblock--compute"&gt;&lt;/a&gt;
-    /// ### Nested Schema for `compute`
-    /// 
-    /// Required:
-    /// 
-    /// - **aggregation_type** (String, Required) The type of aggregation to use. This field can't be updated after creation.
-    /// 
-    /// Optional:
-    /// 
-    /// - **path** (String, Optional) The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
-    /// 
-    /// &lt;a id="nestedblock--filter"&gt;&lt;/a&gt;
-    /// ### Nested Schema for `filter`
-    /// 
-    /// Required:
-    /// 
-    /// - **query** (String, Required) The search query - following the log search syntax.
-    /// 
-    /// &lt;a id="nestedblock--group_by"&gt;&lt;/a&gt;
-    /// ### Nested Schema for `group_by`
-    /// 
-    /// Required:
-    /// 
-    /// - **path** (String, Required) The path to the value the log-based metric will be aggregated over.
-    /// - **tag_name** (String, Required) Name of the tag that gets created.
     /// 
     /// ## Import
-    /// 
-    /// Import is supported using the following syntax
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/logsMetric:LogsMetric testing_logs_metric testing.logs.metric

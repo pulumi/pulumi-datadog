@@ -20,7 +20,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -30,6 +30,9 @@ class GetMonitorResult:
         if evaluation_delay and not isinstance(evaluation_delay, int):
             raise TypeError("Expected argument 'evaluation_delay' to be a int")
         pulumi.set(__self__, "evaluation_delay", evaluation_delay)
+        if groupby_simple_monitor and not isinstance(groupby_simple_monitor, bool):
+            raise TypeError("Expected argument 'groupby_simple_monitor' to be a bool")
+        pulumi.set(__self__, "groupby_simple_monitor", groupby_simple_monitor)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -108,17 +111,34 @@ class GetMonitorResult:
     @property
     @pulumi.getter(name="enableLogsSample")
     def enable_logs_sample(self) -> bool:
+        """
+        Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
+        """
         return pulumi.get(self, "enable_logs_sample")
 
     @property
     @pulumi.getter(name="escalationMessage")
     def escalation_message(self) -> str:
+        """
+        Message included with a re-notification for this monitor.
+        """
         return pulumi.get(self, "escalation_message")
 
     @property
     @pulumi.getter(name="evaluationDelay")
     def evaluation_delay(self) -> int:
+        """
+        Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
+        """
         return pulumi.get(self, "evaluation_delay")
+
+    @property
+    @pulumi.getter(name="groupbySimpleMonitor")
+    def groupby_simple_monitor(self) -> bool:
+        """
+        Whether or not to trigger one alert if any source breaches a threshold.
+        """
+        return pulumi.get(self, "groupby_simple_monitor")
 
     @property
     @pulumi.getter
@@ -131,106 +151,169 @@ class GetMonitorResult:
     @property
     @pulumi.getter(name="includeTags")
     def include_tags(self) -> bool:
+        """
+        Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
+        """
         return pulumi.get(self, "include_tags")
 
     @property
     @pulumi.getter
     def locked(self) -> bool:
+        """
+        Whether or not changes to the monitor are restricted to the creator or admins.
+        """
         return pulumi.get(self, "locked")
 
     @property
     @pulumi.getter
     def message(self) -> str:
+        """
+        Message included with notifications for this monitor
+        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter(name="monitorTagsFilters")
     def monitor_tags_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        """
         return pulumi.get(self, "monitor_tags_filters")
 
     @property
     @pulumi.getter(name="monitorThresholdWindows")
     def monitor_threshold_windows(self) -> 'outputs.GetMonitorMonitorThresholdWindowsResult':
+        """
+        Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
+        """
         return pulumi.get(self, "monitor_threshold_windows")
 
     @property
     @pulumi.getter(name="monitorThresholds")
     def monitor_thresholds(self) -> 'outputs.GetMonitorMonitorThresholdsResult':
+        """
+        Alert thresholds of the monitor.
+        """
         return pulumi.get(self, "monitor_thresholds")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the monitor
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nameFilter")
     def name_filter(self) -> Optional[str]:
+        """
+        A monitor name to limit the search.
+        """
         return pulumi.get(self, "name_filter")
 
     @property
     @pulumi.getter(name="newHostDelay")
     def new_host_delay(self) -> int:
+        """
+        Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
+        """
         return pulumi.get(self, "new_host_delay")
 
     @property
     @pulumi.getter(name="noDataTimeframe")
     def no_data_timeframe(self) -> int:
+        """
+        The number of minutes before the monitor notifies when data stops reporting.
+        """
         return pulumi.get(self, "no_data_timeframe")
 
     @property
     @pulumi.getter(name="notifyAudit")
     def notify_audit(self) -> bool:
+        """
+        Whether or not tagged users are notified on changes to the monitor.
+        """
         return pulumi.get(self, "notify_audit")
 
     @property
     @pulumi.getter(name="notifyNoData")
     def notify_no_data(self) -> bool:
+        """
+        Whether or not this monitor notifies when data stops reporting.
+        """
         return pulumi.get(self, "notify_no_data")
 
     @property
     @pulumi.getter
     def query(self) -> str:
+        """
+        Query of the monitor.
+        """
         return pulumi.get(self, "query")
 
     @property
     @pulumi.getter(name="renotifyInterval")
     def renotify_interval(self) -> int:
+        """
+        The number of minutes after the last notification before the monitor re-notifies on the current status.
+        """
         return pulumi.get(self, "renotify_interval")
 
     @property
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> bool:
+        """
+        Whether or not the monitor needs a full window of data before it is evaluated.
+        """
         return pulumi.get(self, "require_full_window")
 
     @property
     @pulumi.getter
     def tags(self) -> Sequence[str]:
+        """
+        List of tags associated with the monitor.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsFilters")
     def tags_filters(self) -> Optional[Sequence[str]]:
+        """
+        A list of tags to limit the search. This filters on the monitor scope.
+        """
         return pulumi.get(self, "tags_filters")
 
     @property
     @pulumi.getter(name="thresholdWindows")
     def threshold_windows(self) -> 'outputs.GetMonitorThresholdWindowsResult':
+        """
+        Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors. **Deprecated.** Define `monitor_threshold_windows` list with one element instead.
+        """
         return pulumi.get(self, "threshold_windows")
 
     @property
     @pulumi.getter
     def thresholds(self) -> 'outputs.GetMonitorThresholdsResult':
+        """
+        Alert thresholds of the monitor. **Deprecated.** Define `monitor_thresholds` list with one element instead.
+        """
         return pulumi.get(self, "thresholds")
 
     @property
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> int:
+        """
+        Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
+        """
         return pulumi.get(self, "timeout_h")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of the monitor.
+        """
         return pulumi.get(self, "type")
 
 
@@ -243,6 +326,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             enable_logs_sample=self.enable_logs_sample,
             escalation_message=self.escalation_message,
             evaluation_delay=self.evaluation_delay,
+            groupby_simple_monitor=self.groupby_simple_monitor,
             id=self.id,
             include_tags=self.include_tags,
             locked=self.locked,
@@ -283,58 +367,11 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
     test = datadog.get_monitor(monitor_tags_filters=["foo:bar"],
         name_filter="My awesome monitor")
     ```
-    ## Schema
 
-    ### Optional
 
-    - **id** (String) The ID of this resource.
-    - **monitor_tags_filter** (List of String) A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
-    - **name_filter** (String) A monitor name to limit the search.
-    - **tags_filter** (List of String) A list of tags to limit the search. This filters on the monitor scope.
-
-    ### Read-only
-
-    - **enable_logs_sample** (Boolean) Whether or not a list of log values which triggered the alert is included. This is only used by log monitors.
-    - **escalation_message** (String) Message included with a re-notification for this monitor.
-    - **evaluation_delay** (Number) Time (in seconds) for which evaluation is delayed. This is only used by metric monitors.
-    - **include_tags** (Boolean) Whether or not notifications from the monitor automatically inserts its triggering tags into the title.
-    - **locked** (Boolean) Whether or not changes to the monitor are restricted to the creator or admins.
-    - **message** (String) Message included with notifications for this monitor
-    - **monitor_threshold_windows** (List of Object) Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors. (see below for nested schema)
-    - **monitor_thresholds** (List of Object) Alert thresholds of the monitor. (see below for nested schema)
-    - **name** (String) Name of the monitor
-    - **new_host_delay** (Number) Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
-    - **no_data_timeframe** (Number) The number of minutes before the monitor notifies when data stops reporting.
-    - **notify_audit** (Boolean) Whether or not tagged users are notified on changes to the monitor.
-    - **notify_no_data** (Boolean) Whether or not this monitor notifies when data stops reporting.
-    - **query** (String) Query of the monitor.
-    - **renotify_interval** (Number) The number of minutes after the last notification before the monitor re-notifies on the current status.
-    - **require_full_window** (Boolean) Whether or not the monitor needs a full window of data before it is evaluated.
-    - **tags** (Set of String) List of tags associated with the monitor.
-    - **threshold_windows** (Map of String, Deprecated) Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
-    - **thresholds** (Map of String, Deprecated) Alert thresholds of the monitor.
-    - **timeout_h** (Number) Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
-    - **type** (String) Type of the monitor.
-
-    <a id="nestedatt--monitor_threshold_windows"></a>
-    ### Nested Schema for `monitor_threshold_windows`
-
-    Read-only:
-
-    - **recovery_window** (String)
-    - **trigger_window** (String)
-
-    <a id="nestedatt--monitor_thresholds"></a>
-    ### Nested Schema for `monitor_thresholds`
-
-    Read-only:
-
-    - **critical** (String)
-    - **critical_recovery** (String)
-    - **ok** (String)
-    - **unknown** (String)
-    - **warning** (String)
-    - **warning_recovery** (String)
+    :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+    :param str name_filter: A monitor name to limit the search.
+    :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
     """
     __args__ = dict()
     __args__['monitorTagsFilters'] = monitor_tags_filters
@@ -350,6 +387,7 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         enable_logs_sample=__ret__.enable_logs_sample,
         escalation_message=__ret__.escalation_message,
         evaluation_delay=__ret__.evaluation_delay,
+        groupby_simple_monitor=__ret__.groupby_simple_monitor,
         id=__ret__.id,
         include_tags=__ret__.include_tags,
         locked=__ret__.locked,

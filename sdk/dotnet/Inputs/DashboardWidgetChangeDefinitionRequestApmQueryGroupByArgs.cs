@@ -21,6 +21,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("sort")]
         public Input<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortArgs>? Sort { get; set; }
 
+        [Input("sortQuery")]
+        public Input<Inputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQueryArgs>? SortQuery { get; set; }
+
         public DashboardWidgetChangeDefinitionRequestApmQueryGroupByArgs()
         {
         }

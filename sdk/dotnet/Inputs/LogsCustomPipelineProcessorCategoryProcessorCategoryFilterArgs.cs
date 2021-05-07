@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorCategoryProcessorCategoryFilterArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Filter criteria of the category.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

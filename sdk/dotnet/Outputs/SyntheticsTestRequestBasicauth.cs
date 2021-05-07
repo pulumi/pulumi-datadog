@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestRequestBasicauth
     {
+        /// <summary>
+        /// Password for authentication.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// Username for authentication.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

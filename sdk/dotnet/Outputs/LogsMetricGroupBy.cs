@@ -13,7 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsMetricGroupBy
     {
+        /// <summary>
+        /// The path to the value the log-based metric will be aggregated over.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Name of the tag that gets created.
+        /// </summary>
         public readonly string TagName;
 
         [OutputConstructor]

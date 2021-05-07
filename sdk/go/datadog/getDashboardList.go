@@ -42,12 +42,14 @@ func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opt
 
 // A collection of arguments for invoking getDashboardList.
 type LookupDashboardListArgs struct {
+	// A dashboard list name to limit the search.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getDashboardList.
 type LookupDashboardListResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// A dashboard list name to limit the search.
 	Name string `pulumi:"name"`
 }

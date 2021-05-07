@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./integration";
 export * from "./integrationLambdaArn";
 export * from "./integrationLogCollection";
+export * from "./integrationTagFilter";
 
 // Import resources to register:
 import { Integration } from "./integration";
 import { IntegrationLambdaArn } from "./integrationLambdaArn";
 import { IntegrationLogCollection } from "./integrationLogCollection";
+import { IntegrationTagFilter } from "./integrationTagFilter";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +26,8 @@ const _module = {
                 return new IntegrationLambdaArn(name, <any>undefined, { urn })
             case "datadog:aws/integrationLogCollection:IntegrationLogCollection":
                 return new IntegrationLogCollection(name, <any>undefined, { urn })
+            case "datadog:aws/integrationTagFilter:IntegrationTagFilter":
+                return new IntegrationTagFilter(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -32,3 +36,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("datadog", "aws/integration", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLambdaArn", _module)
 pulumi.runtime.registerResourceModule("datadog", "aws/integrationLogCollection", _module)
+pulumi.runtime.registerResourceModule("datadog", "aws/integrationTagFilter", _module)

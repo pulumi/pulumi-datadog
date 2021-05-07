@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .dashboard import *
+from .dashboard_json import *
 from .dashboard_list import *
 from .downtime import *
 from .get_dashboard import *
@@ -23,12 +24,15 @@ from .logs_integration_pipeline import *
 from .logs_metric import *
 from .logs_pipeline_order import *
 from .metric_metadata import *
+from .metric_tag_configuration import *
 from .monitor import *
 from .provider import *
 from .role import *
 from .screen_board import *
+from .security_monitoring_default_rule import *
 from .security_monitoring_rule import *
 from .service_level_objective import *
+from .slo_correction import *
 from .synthetics_global_variable import *
 from .synthetics_private_location import *
 from .synthetics_test import *
@@ -44,6 +48,7 @@ from . import (
     config,
     gcp,
     pagerduty,
+    slack,
 )
 
 def _register_module():
@@ -60,6 +65,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "datadog:index/dashboard:Dashboard":
                 return Dashboard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/dashboardJson:DashboardJson":
+                return DashboardJson(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/dashboardList:DashboardList":
                 return DashboardList(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/downtime:Downtime":
@@ -82,16 +89,22 @@ def _register_module():
                 return LogsPipelineOrder(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/metricMetadata:MetricMetadata":
                 return MetricMetadata(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/metricTagConfiguration:MetricTagConfiguration":
+                return MetricTagConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/monitor:Monitor":
                 return Monitor(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/role:Role":
                 return Role(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/screenBoard:ScreenBoard":
                 return ScreenBoard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
+                return SecurityMonitoringDefaultRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return SecurityMonitoringRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/serviceLevelObjective:ServiceLevelObjective":
                 return ServiceLevelObjective(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:index/sloCorrection:SloCorrection":
+                return SloCorrection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
                 return SyntheticsGlobalVariable(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
@@ -108,6 +121,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("datadog", "index/dashboard", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/dashboardJson", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/dashboardList", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/downtime", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/logsArchive", _module_instance)
@@ -119,11 +133,14 @@ def _register_module():
     pulumi.runtime.register_resource_module("datadog", "index/logsMetric", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/logsPipelineOrder", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/metricMetadata", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/metricTagConfiguration", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/monitor", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/role", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/screenBoard", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/securityMonitoringDefaultRule", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/securityMonitoringRule", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/serviceLevelObjective", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "index/sloCorrection", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/syntheticsGlobalVariable", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/syntheticsPrivateLocation", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "index/syntheticsTest", _module_instance)
