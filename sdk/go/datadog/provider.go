@@ -36,7 +36,7 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey *string `pulumi:"apiKey"`
-	// The API Url. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+	// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
 	// path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
 	// you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
 	ApiUrl *string `pulumi:"apiUrl"`
@@ -51,7 +51,7 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
 	ApiKey pulumi.StringPtrInput
-	// The API Url. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+	// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
 	// path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
 	// you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
 	ApiUrl pulumi.StringPtrInput

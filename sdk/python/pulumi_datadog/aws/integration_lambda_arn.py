@@ -107,6 +107,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog - Amazon Web Services integration Lambda ARN
         main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
             account_id="1234567890",
             lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
@@ -114,7 +115,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Web Services Lambda ARN integrations can be imported using their `account_id` and `lambda_arn` separated with a space (` `).
+        # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
 
         ```sh
          $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"
@@ -142,6 +143,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog - Amazon Web Services integration Lambda ARN
         main_collector = datadog.aws.IntegrationLambdaArn("mainCollector",
             account_id="1234567890",
             lambda_arn="arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder")
@@ -149,7 +151,7 @@ class IntegrationLambdaArn(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Web Services Lambda ARN integrations can be imported using their `account_id` and `lambda_arn` separated with a space (` `).
+        # Amazon Web Services Lambda ARN integrations can be imported using their account_id and lambda_arn separated with a space (` `).
 
         ```sh
          $ pulumi import datadog:aws/integrationLambdaArn:IntegrationLambdaArn test "1234567890 arn:aws:lambda:us-east-1:1234567890:function:datadog-forwarder-Forwarder"

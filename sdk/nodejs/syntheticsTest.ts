@@ -9,166 +9,137 @@ import * as utilities from "./utilities";
  * Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
  *
  * ## Example Usage
- * ### Synthetics API Test)
- *
- * Create a new Datadog Synthetics API/HTTP test on https://www.example.org
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const testApi = new datadog.SyntheticsTest("test_api", {
- *     assertions: [{
- *         operator: "is",
- *         target: "200",
- *         type: "statusCode",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
- *     name: "An API test on example.org",
- *     optionsList: {
- *         monitorOptions: {
- *             renotifyInterval: 100,
- *         },
- *         retry: {
- *             count: 2,
- *             interval: 300,
- *         },
- *         tickEvery: 900,
- *     },
- *     request: {
+ * // Example Usage (Synthetics API test)
+ * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
+ * const testApi = new datadog.SyntheticsTest("testApi", {
+ *     type: "api",
+ *     subtype: "http",
+ *     requestDefinition: {
  *         method: "GET",
  *         url: "https://www.example.org",
  *     },
  *     requestHeaders: {
- *         Authentication: "Token: 1234566789",
  *         "Content-Type": "application/json",
+ *         Authentication: "Token: 1234566789",
  *     },
- *     status: "live",
- *     subtype: "http",
+ *     assertions: [{
+ *         type: "statusCode",
+ *         operator: "is",
+ *         target: "200",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         monitorOptions: {
+ *             renotifyInterval: 100,
+ *         },
+ *     },
+ *     name: "An API test on example.org",
+ *     message: "Notify @pagerduty",
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     type: "api",
- * });
- * ```
- * ### Synthetics SSL Test)
- *
- * Create a new Datadog Synthetics API/SSL test on example.org
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testSsl = new datadog.SyntheticsTest("test_ssl", {
- *     assertions: [{
- *         operator: "isInMoreThan",
- *         target: "30",
- *         type: "certificate",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
- *     name: "An API test on example.org",
- *     optionsList: {
- *         acceptSelfSigned: true,
- *         tickEvery: 900,
- *     },
- *     request: {
- *         host: "example.org",
- *         port: 443,
- *     },
  *     status: "live",
+ * });
+ * // Example Usage (Synthetics SSL test)
+ * // Create a new Datadog Synthetics API/SSL test on example.org
+ * const testSsl = new datadog.SyntheticsTest("testSsl", {
+ *     type: "api",
  *     subtype: "ssl",
- *     tags: [
- *         "foo:bar",
- *         "foo",
- *         "env:test",
- *     ],
- *     type: "api",
- * });
- * ```
- * ### Synthetics TCP Test)
- *
- * Create a new Datadog Synthetics API/TCP test on example.org
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testTcp = new datadog.SyntheticsTest("test_tcp", {
- *     assertions: [{
- *         operator: "lessThan",
- *         target: "2000",
- *         type: "responseTime",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
- *     name: "An API test on example.org",
- *     optionsList: {
- *         tickEvery: 900,
- *     },
- *     request: {
+ *     requestDefinition: {
  *         host: "example.org",
  *         port: 443,
  *     },
- *     status: "live",
- *     subtype: "tcp",
+ *     assertions: [{
+ *         type: "certificate",
+ *         operator: "isInMoreThan",
+ *         target: 30,
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *         acceptSelfSigned: true,
+ *     },
+ *     name: "An API test on example.org",
+ *     message: "Notify @pagerduty",
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     type: "api",
+ *     status: "live",
  * });
- * ```
- * ### Synthetics DNS Test)
- *
- * Create a new Datadog Synthetics API/DNS test on example.org
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testDns = new datadog.SyntheticsTest("test_dns", {
+ * // Example Usage (Synthetics TCP test)
+ * // Create a new Datadog Synthetics API/TCP test on example.org
+ * const testTcp = new datadog.SyntheticsTest("testTcp", {
+ *     type: "api",
+ *     subtype: "tcp",
+ *     requestDefinition: {
+ *         host: "example.org",
+ *         port: 443,
+ *     },
  *     assertions: [{
+ *         type: "responseTime",
+ *         operator: "lessThan",
+ *         target: 2000,
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     optionsList: {
+ *         tickEvery: 900,
+ *     },
+ *     name: "An API test on example.org",
+ *     message: "Notify @pagerduty",
+ *     tags: [
+ *         "foo:bar",
+ *         "foo",
+ *         "env:test",
+ *     ],
+ *     status: "live",
+ * });
+ * // Example Usage (Synthetics DNS test)
+ * // Create a new Datadog Synthetics API/DNS test on example.org
+ * const testDns = new datadog.SyntheticsTest("testDns", {
+ *     type: "api",
+ *     subtype: "dns",
+ *     requestDefinition: {
+ *         host: "example.org",
+ *     },
+ *     assertions: [{
+ *         type: "recordSome",
  *         operator: "is",
  *         property: "A",
  *         target: "0.0.0.0",
- *         type: "recordSome",
  *     }],
  *     locations: ["aws:eu-central-1"],
- *     message: "Notify @pagerduty",
- *     name: "An API test on example.org",
  *     optionsList: {
  *         tickEvery: 900,
  *     },
- *     request: {
- *         host: "example.org",
- *     },
- *     status: "live",
- *     subtype: "dns",
+ *     name: "An API test on example.org",
+ *     message: "Notify @pagerduty",
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     type: "api",
+ *     status: "live",
  * });
- * ```
- * ### Synthetics Browser Test)
- *
- * Support for Synthetics Browser test steps is limited (see below)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
+ * // Example Usage (Synthetics Browser test)
+ * // Support for Synthetics Browser test steps is limited (see below)
  * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
  * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
  *     type: "browser",
- *     request: {
+ *     requestDefinition: {
  *         method: "GET",
  *         url: "https://app.datadoghq.com",
  *     },
@@ -189,7 +160,7 @@ import * as utilities from "./utilities";
  *             value: "datadoghq",
  *         }),
  *     }],
- *     browserVariables: [
+ *     variables: [
  *         {
  *             type: "text",
  *             name: "MY_PATTERN_VAR",
@@ -210,59 +181,10 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
- * ## Synthetics Browser test
- *
- * Support for Synthetics Browser test is limited when creating steps. Some steps types (like steps involving elements) cannot be created, but they can be imported.
- *
- * ## Assertion format
- *
- * The resource was changed to have assertions be a list of `assertion` blocks instead of single `assertions` array, to support the JSON path operations. We'll remove `assertions` support in the future: to migrate, rename your attribute to `assertion` and turn array elements into independent blocks. For example:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testApi = new datadog.SyntheticsTest("test_api", {
- *     assertions: [
- *         {
- *             operator: "is",
- *             target: "200",
- *             type: "statusCode",
- *         },
- *         {
- *             operator: "lessThan",
- *             target: "1000",
- *             type: "responseTime",
- *         },
- *     ],
- * });
- * ```
- *
- * turns into:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const testApi = new datadog.SyntheticsTest("test_api", {
- *     assertions: [
- *         {
- *             operator: "is",
- *             target: "200",
- *             type: "statusCode",
- *         },
- *         {
- *             operator: "lessThan",
- *             target: "1000",
- *             type: "responseTime",
- *         },
- *     ],
- * });
- * ```
  *
  * ## Import
  *
- * Synthetics tests can be imported using their public string ID, e.g.
+ * # Synthetics tests can be imported using their public string ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:index/syntheticsTest:SyntheticsTest fizz abc-123-xyz
@@ -297,33 +219,37 @@ export class SyntheticsTest extends pulumi.CustomResource {
     }
 
     /**
-     * List of assertions.
+     * Steps for multistep api tests
+     */
+    public readonly apiSteps!: pulumi.Output<outputs.SyntheticsTestApiStep[] | undefined>;
+    /**
+     * List of assertions. **Deprecated.** Define `assertion` blocks instead.
      *
-     * @deprecated Use assertion instead
+     * @deprecated Define `assertion` blocks instead.
      */
     public readonly assertions!: pulumi.Output<{[key: string]: any}[] | undefined>;
+    /**
+     * Steps for browser tests.
+     */
+    public readonly browserSteps!: pulumi.Output<outputs.SyntheticsTestBrowserStep[] | undefined>;
     /**
      * Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
      */
     public readonly browserVariables!: pulumi.Output<outputs.SyntheticsTestBrowserVariable[] | undefined>;
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
     public readonly configVariables!: pulumi.Output<outputs.SyntheticsTestConfigVariable[] | undefined>;
     /**
-     * Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
-     * (only available for `browser` tests).
+     * Array with the different device IDs used to run the test. Allowed enum values: `laptopLarge`, `tablet`, `mobileSmall` (only available for `browser` tests).
      */
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Array of locations used to run the test. Refer to [Datadog
-     * documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-     * `aws:eu-central-1`).
+     * Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
      */
     public readonly locations!: pulumi.Output<string[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
@@ -335,23 +261,30 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * @deprecated This parameter is deprecated, please use `options_list`
+     * **Deprecated.** Define `optionsList` blocks instead.
+     *
+     * @deprecated Define `options_list` blocks instead.
      */
     public readonly options!: pulumi.Output<outputs.SyntheticsTestOptions | undefined>;
     public readonly optionsList!: pulumi.Output<outputs.SyntheticsTestOptionsList | undefined>;
     /**
-     * The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+     * The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `requestDefinition` list with one element instead.
+     *
+     * @deprecated Define `request_definition` list with one element instead.
      */
-    public readonly request!: pulumi.Output<outputs.SyntheticsTestRequest>;
+    public readonly request!: pulumi.Output<outputs.SyntheticsTestRequest | undefined>;
     /**
      * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
      */
     public readonly requestBasicauth!: pulumi.Output<outputs.SyntheticsTestRequestBasicauth | undefined>;
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
     public readonly requestClientCertificate!: pulumi.Output<outputs.SyntheticsTestRequestClientCertificate | undefined>;
+    /**
+     * The synthetics test request. Required if `type = "api"`.
+     */
+    public readonly requestDefinition!: pulumi.Output<outputs.SyntheticsTestRequestDefinition | undefined>;
     /**
      * Header name and value map.
      */
@@ -365,16 +298,17 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * Steps for browser tests.
+     * Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
+     *
+     * @deprecated Define `browser_step` blocks instead.
      */
     public readonly steps!: pulumi.Output<outputs.SyntheticsTestStep[] | undefined>;
     /**
-     * When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
@@ -382,9 +316,9 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+     * Variables used for a browser test steps. Multiple `browserVariable` blocks are allowed with the structure below. **Deprecated.** Define `browserVariable` blocks instead.
      *
-     * @deprecated This parameter is deprecated, please use `browser_variable`
+     * @deprecated Define `browser_variable` blocks instead.
      */
     public readonly variables!: pulumi.Output<outputs.SyntheticsTestVariable[] | undefined>;
 
@@ -401,7 +335,9 @@ export class SyntheticsTest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsTestState | undefined;
+            inputs["apiSteps"] = state ? state.apiSteps : undefined;
             inputs["assertions"] = state ? state.assertions : undefined;
+            inputs["browserSteps"] = state ? state.browserSteps : undefined;
             inputs["browserVariables"] = state ? state.browserVariables : undefined;
             inputs["configVariables"] = state ? state.configVariables : undefined;
             inputs["deviceIds"] = state ? state.deviceIds : undefined;
@@ -414,6 +350,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["request"] = state ? state.request : undefined;
             inputs["requestBasicauth"] = state ? state.requestBasicauth : undefined;
             inputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
+            inputs["requestDefinition"] = state ? state.requestDefinition : undefined;
             inputs["requestHeaders"] = state ? state.requestHeaders : undefined;
             inputs["requestQuery"] = state ? state.requestQuery : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -430,16 +367,15 @@ export class SyntheticsTest extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.request === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'request'");
-            }
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["apiSteps"] = args ? args.apiSteps : undefined;
             inputs["assertions"] = args ? args.assertions : undefined;
+            inputs["browserSteps"] = args ? args.browserSteps : undefined;
             inputs["browserVariables"] = args ? args.browserVariables : undefined;
             inputs["configVariables"] = args ? args.configVariables : undefined;
             inputs["deviceIds"] = args ? args.deviceIds : undefined;
@@ -451,6 +387,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["request"] = args ? args.request : undefined;
             inputs["requestBasicauth"] = args ? args.requestBasicauth : undefined;
             inputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
+            inputs["requestDefinition"] = args ? args.requestDefinition : undefined;
             inputs["requestHeaders"] = args ? args.requestHeaders : undefined;
             inputs["requestQuery"] = args ? args.requestQuery : undefined;
             inputs["status"] = args ? args.status : undefined;
@@ -473,33 +410,37 @@ export class SyntheticsTest extends pulumi.CustomResource {
  */
 export interface SyntheticsTestState {
     /**
-     * List of assertions.
+     * Steps for multistep api tests
+     */
+    readonly apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
+    /**
+     * List of assertions. **Deprecated.** Define `assertion` blocks instead.
      *
-     * @deprecated Use assertion instead
+     * @deprecated Define `assertion` blocks instead.
      */
     readonly assertions?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    /**
+     * Steps for browser tests.
+     */
+    readonly browserSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserStep>[]>;
     /**
      * Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
      */
     readonly browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[]>;
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
     readonly configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
-     * (only available for `browser` tests).
+     * Array with the different device IDs used to run the test. Allowed enum values: `laptopLarge`, `tablet`, `mobileSmall` (only available for `browser` tests).
      */
     readonly deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of locations used to run the test. Refer to [Datadog
-     * documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-     * `aws:eu-central-1`).
+     * Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
      */
     readonly locations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     readonly message?: pulumi.Input<string>;
     /**
@@ -511,12 +452,16 @@ export interface SyntheticsTestState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * @deprecated This parameter is deprecated, please use `options_list`
+     * **Deprecated.** Define `optionsList` blocks instead.
+     *
+     * @deprecated Define `options_list` blocks instead.
      */
     readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
     readonly optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList>;
     /**
-     * The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+     * The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `requestDefinition` list with one element instead.
+     *
+     * @deprecated Define `request_definition` list with one element instead.
      */
     readonly request?: pulumi.Input<inputs.SyntheticsTestRequest>;
     /**
@@ -524,10 +469,13 @@ export interface SyntheticsTestState {
      */
     readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
     readonly requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
+    /**
+     * The synthetics test request. Required if `type = "api"`.
+     */
+    readonly requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
     /**
      * Header name and value map.
      */
@@ -541,16 +489,17 @@ export interface SyntheticsTestState {
      */
     readonly status?: pulumi.Input<string>;
     /**
-     * Steps for browser tests.
+     * Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
+     *
+     * @deprecated Define `browser_step` blocks instead.
      */
     readonly steps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestStep>[]>;
     /**
-     * When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
      */
     readonly subtype?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -558,9 +507,9 @@ export interface SyntheticsTestState {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+     * Variables used for a browser test steps. Multiple `browserVariable` blocks are allowed with the structure below. **Deprecated.** Define `browserVariable` blocks instead.
      *
-     * @deprecated This parameter is deprecated, please use `browser_variable`
+     * @deprecated Define `browser_variable` blocks instead.
      */
     readonly variables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestVariable>[]>;
 }
@@ -570,33 +519,37 @@ export interface SyntheticsTestState {
  */
 export interface SyntheticsTestArgs {
     /**
-     * List of assertions.
+     * Steps for multistep api tests
+     */
+    readonly apiSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestApiStep>[]>;
+    /**
+     * List of assertions. **Deprecated.** Define `assertion` blocks instead.
      *
-     * @deprecated Use assertion instead
+     * @deprecated Define `assertion` blocks instead.
      */
     readonly assertions?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    /**
+     * Steps for browser tests.
+     */
+    readonly browserSteps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserStep>[]>;
     /**
      * Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
      */
     readonly browserVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestBrowserVariable>[]>;
     /**
-     * Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+     * Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
      */
     readonly configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small`
-     * (only available for `browser` tests).
+     * Array with the different device IDs used to run the test. Allowed enum values: `laptopLarge`, `tablet`, `mobileSmall` (only available for `browser` tests).
      */
     readonly deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Array of locations used to run the test. Refer to [Datadog
-     * documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g.
-     * `aws:eu-central-1`).
+     * Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
      */
     readonly locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by
-     * using the same `@username` notation as events.
+     * A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events.
      */
     readonly message?: pulumi.Input<string>;
     /**
@@ -604,23 +557,30 @@ export interface SyntheticsTestArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * @deprecated This parameter is deprecated, please use `options_list`
+     * **Deprecated.** Define `optionsList` blocks instead.
+     *
+     * @deprecated Define `options_list` blocks instead.
      */
     readonly options?: pulumi.Input<inputs.SyntheticsTestOptions>;
     readonly optionsList?: pulumi.Input<inputs.SyntheticsTestOptionsList>;
     /**
-     * The synthetics test request. Required if `type = "api"` and `subtype = "http"`.
+     * The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `requestDefinition` list with one element instead.
+     *
+     * @deprecated Define `request_definition` list with one element instead.
      */
-    readonly request: pulumi.Input<inputs.SyntheticsTestRequest>;
+    readonly request?: pulumi.Input<inputs.SyntheticsTestRequest>;
     /**
      * The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
      */
     readonly requestBasicauth?: pulumi.Input<inputs.SyntheticsTestRequestBasicauth>;
     /**
-     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure
-     * below.
+     * Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
      */
     readonly requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
+    /**
+     * The synthetics test request. Required if `type = "api"`.
+     */
+    readonly requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
     /**
      * Header name and value map.
      */
@@ -634,16 +594,17 @@ export interface SyntheticsTestArgs {
      */
     readonly status: pulumi.Input<string>;
     /**
-     * Steps for browser tests.
+     * Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
+     *
+     * @deprecated Define `browser_step` blocks instead.
      */
     readonly steps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestStep>[]>;
     /**
-     * When `type` is `api`, choose from `http`, `ssl`, `tcp` or `dns`. Defaults to `http`.
+     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
      */
     readonly subtype?: pulumi.Input<string>;
     /**
-     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage
-     * synthetics page of the UI. Default is an empty list (`[]`).
+     * A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
      */
     readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -651,9 +612,9 @@ export interface SyntheticsTestArgs {
      */
     readonly type: pulumi.Input<string>;
     /**
-     * Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below.
+     * Variables used for a browser test steps. Multiple `browserVariable` blocks are allowed with the structure below. **Deprecated.** Define `browserVariable` blocks instead.
      *
-     * @deprecated This parameter is deprecated, please use `browser_variable`
+     * @deprecated Define `browser_variable` blocks instead.
      */
     readonly variables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestVariable>[]>;
 }

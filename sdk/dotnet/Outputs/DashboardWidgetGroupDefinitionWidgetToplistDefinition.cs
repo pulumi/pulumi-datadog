@@ -14,8 +14,12 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinition
     {
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink> CustomLinks;
+        public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -23,6 +27,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetToplistDefinition(
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink> customLinks,
+
+            string? liveSpan,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest> requests,
 
@@ -35,6 +41,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             CustomLinks = customLinks;
+            LiveSpan = liveSpan;
             Requests = requests;
             Time = time;
             Title = title;

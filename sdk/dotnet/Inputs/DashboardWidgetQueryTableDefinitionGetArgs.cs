@@ -23,6 +23,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("hasSearchBar")]
         public Input<string>? HasSearchBar { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetQueryTableDefinitionRequestGetArgs>? _requests;
         public InputList<Inputs.DashboardWidgetQueryTableDefinitionRequestGetArgs> Requests
@@ -34,6 +37,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetQueryTableDefinitionTimeGetArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

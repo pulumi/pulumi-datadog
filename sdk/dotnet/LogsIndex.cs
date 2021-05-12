@@ -10,10 +10,67 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
+    /// Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sampleIndex = new Datadog.LogsIndex("sampleIndex", new Datadog.LogsIndexArgs
+    ///         {
+    ///             ExclusionFilters = 
+    ///             {
+    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///                 {
+    ///                     Filters = 
+    ///                     {
+    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
+    ///                         {
+    ///                             Query = "app:coredns",
+    ///                             SampleRate = 0.97,
+    ///                         },
+    ///                     },
+    ///                     IsEnabled = true,
+    ///                     Name = "Filter coredns logs",
+    ///                 },
+    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
+    ///                 {
+    ///                     Filters = 
+    ///                     {
+    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
+    ///                         {
+    ///                             Query = "service:kube_apiserver",
+    ///                             SampleRate = 1,
+    ///                         },
+    ///                     },
+    ///                     IsEnabled = true,
+    ///                     Name = "Kubernetes apiserver",
+    ///                 },
+    ///             },
+    ///             Filters = 
+    ///             {
+    ///                 new Datadog.Inputs.LogsIndexFilterArgs
+    ///                 {
+    ///                     Query = "*",
+    ///                 },
+    ///             },
+    ///             Name = "your index",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/logsIndex:LogsIndex The current Datadog Terraform provider version does not support the creation and deletion of indexes. To manage the existing indexes, do `&lt;datadog_logs_index.name&gt; &lt;indexName&gt;` to import them to Terraform. If you create a resource which does not match the name of any existing index, `terraform apply` will throw `Not Found` error code.
+    ///  $ pulumi import datadog:index/logsIndex:LogsIndex name&gt; &lt;indexName&gt;
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsIndex:LogsIndex")]

@@ -10,10 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.PagerDuty
 {
     /// <summary>
-    /// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
+    /// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
     /// 
     /// ## Example Usage
-    /// ### Services as Individual Resources
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -85,7 +84,7 @@ namespace Pulumi.Datadog.PagerDuty
         public Output<ImmutableArray<string>> Schedules { get; private set; } = null!;
 
         /// <summary>
-        /// A list of service names and service keys.
+        /// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<Outputs.IntegrationService>> Services { get; private set; } = null!;
@@ -172,7 +171,7 @@ namespace Pulumi.Datadog.PagerDuty
         private InputList<Inputs.IntegrationServiceArgs>? _services;
 
         /// <summary>
-        /// A list of service names and service keys.
+        /// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         /// </summary>
         [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
         public InputList<Inputs.IntegrationServiceArgs> Services
@@ -224,7 +223,7 @@ namespace Pulumi.Datadog.PagerDuty
         private InputList<Inputs.IntegrationServiceGetArgs>? _services;
 
         /// <summary>
-        /// A list of service names and service keys.
+        /// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         /// </summary>
         [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
         public InputList<Inputs.IntegrationServiceGetArgs> Services

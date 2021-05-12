@@ -38,62 +38,8 @@ namespace Pulumi.Datadog
     /// 
     /// }
     /// ```
-    /// ## Schema
-    /// 
-    /// ### Required
-    /// 
-    /// - **name** (String, Required) Your archive name.
-    /// - **query** (String, Required) The archive query/filter. Logs matching this query are included in the archive.
-    /// 
-    /// ### Optional
-    /// 
-    /// - **azure** (Map of String, Optional, Deprecated) Definition of an azure archive.
-    /// - **azure_archive** (Block List, Max: 1) Definition of an azure archive. (see below for nested schema)
-    /// - **gcs** (Map of String, Optional, Deprecated) Definition of a GCS archive.
-    /// - **gcs_archive** (Block List, Max: 1) Definition of a GCS archive. (see below for nested schema)
-    /// - **id** (String, Optional) The ID of this resource.
-    /// - **include_tags** (Boolean, Optional) To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
-    /// - **rehydration_tags** (List of String, Optional) An array of tags to add to rehydrated logs from an archive.
-    /// - **s3** (Map of String, Optional, Deprecated) Definition of an s3 archive.
-    /// - **s3_archive** (Block List, Max: 1) Definition of an s3 archive. (see below for nested schema)
-    /// 
-    /// &lt;a id="nestedblock--azure_archive"&gt;&lt;/a&gt;
-    /// ### Nested Schema for `azure_archive`
-    /// 
-    /// Required:
-    /// 
-    /// - **client_id** (String, Required) Your client id.
-    /// - **container** (String, Required) The container where the archive will be stored.
-    /// - **storage_account** (String, Required) The associated storage account.
-    /// - **tenant_id** (String, Required) Your tenant id.
-    /// 
-    /// Optional:
-    /// 
-    /// - **path** (String, Optional) The path where the archive will be stored.
-    /// 
-    /// &lt;a id="nestedblock--gcs_archive"&gt;&lt;/a&gt;
-    /// ### Nested Schema for `gcs_archive`
-    /// 
-    /// Required:
-    /// 
-    /// - **bucket** (String, Required) Name of your GCS bucket.
-    /// - **client_email** (String, Required) Your client email.
-    /// - **path** (String, Required) Path where the archive will be stored.
-    /// - **project_id** (String, Required) Your project id.
-    /// 
-    /// &lt;a id="nestedblock--s3_archive"&gt;&lt;/a&gt;
-    /// ### Nested Schema for `s3_archive`
-    /// 
-    /// Required:
-    /// 
-    /// - **account_id** (String, Required) Your AWS account id.
-    /// - **bucket** (String, Required) Name of your s3 bucket.
-    /// - **path** (String, Required) Path where the archive will be stored.
-    /// - **role_name** (String, Required) Your AWS role name
     /// 
     /// ## Import
-    /// 
-    /// Import is supported using the following syntax
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/logsArchive:LogsArchive my_s3_archive 1Aabc2_dfQPLnXy3HlfK4hi
@@ -103,7 +49,7 @@ namespace Pulumi.Datadog
     public partial class LogsArchive : Pulumi.CustomResource
     {
         /// <summary>
-        /// Definition of an azure archive.
+        /// Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
         /// </summary>
         [Output("azure")]
         public Output<Outputs.LogsArchiveAzure?> Azure { get; private set; } = null!;
@@ -115,7 +61,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.LogsArchiveAzureArchive?> AzureArchive { get; private set; } = null!;
 
         /// <summary>
-        /// Definition of a GCS archive.
+        /// Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
         /// </summary>
         [Output("gcs")]
         public Output<Outputs.LogsArchiveGcs?> Gcs { get; private set; } = null!;
@@ -127,8 +73,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.LogsArchiveGcsArchive?> GcsArchive { get; private set; } = null!;
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        /// are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         /// </summary>
         [Output("includeTags")]
         public Output<bool?> IncludeTags { get; private set; } = null!;
@@ -152,7 +97,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RehydrationTags { get; private set; } = null!;
 
         /// <summary>
-        /// Definition of an s3 archive.
+        /// Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
         /// </summary>
         [Output("s3")]
         public Output<Outputs.LogsArchiveS3?> S3 { get; private set; } = null!;
@@ -210,7 +155,7 @@ namespace Pulumi.Datadog
     public sealed class LogsArchiveArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Definition of an azure archive.
+        /// Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
         /// </summary>
         [Input("azure")]
         public Input<Inputs.LogsArchiveAzureArgs>? Azure { get; set; }
@@ -222,7 +167,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveAzureArchiveArgs>? AzureArchive { get; set; }
 
         /// <summary>
-        /// Definition of a GCS archive.
+        /// Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
         /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsArgs>? Gcs { get; set; }
@@ -234,8 +179,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        /// are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -265,7 +209,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Definition of an s3 archive.
+        /// Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3Args>? S3 { get; set; }
@@ -284,7 +228,7 @@ namespace Pulumi.Datadog
     public sealed class LogsArchiveState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Definition of an azure archive.
+        /// Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
         /// </summary>
         [Input("azure")]
         public Input<Inputs.LogsArchiveAzureGetArgs>? Azure { get; set; }
@@ -296,7 +240,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveAzureArchiveGetArgs>? AzureArchive { get; set; }
 
         /// <summary>
-        /// Definition of a GCS archive.
+        /// Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
         /// </summary>
         [Input("gcs")]
         public Input<Inputs.LogsArchiveGcsGetArgs>? Gcs { get; set; }
@@ -308,8 +252,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.LogsArchiveGcsArchiveGetArgs>? GcsArchive { get; set; }
 
         /// <summary>
-        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs
-        /// are sent to the archive.
+        /// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         /// </summary>
         [Input("includeTags")]
         public Input<bool>? IncludeTags { get; set; }
@@ -339,7 +282,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Definition of an s3 archive.
+        /// Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.LogsArchiveS3GetArgs>? S3 { get; set; }

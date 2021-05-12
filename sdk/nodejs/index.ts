@@ -6,6 +6,7 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./dashboard";
+export * from "./dashboardJson";
 export * from "./dashboardList";
 export * from "./downtime";
 export * from "./getDashboard";
@@ -25,12 +26,15 @@ export * from "./logsIntegrationPipeline";
 export * from "./logsMetric";
 export * from "./logsPipelineOrder";
 export * from "./metricMetadata";
+export * from "./metricTagConfiguration";
 export * from "./monitor";
 export * from "./provider";
 export * from "./role";
 export * from "./screenBoard";
+export * from "./securityMonitoringDefaultRule";
 export * from "./securityMonitoringRule";
 export * from "./serviceLevelObjective";
+export * from "./sloCorrection";
 export * from "./syntheticsGlobalVariable";
 export * from "./syntheticsPrivateLocation";
 export * from "./syntheticsTest";
@@ -43,6 +47,7 @@ import * as azure from "./azure";
 import * as config from "./config";
 import * as gcp from "./gcp";
 import * as pagerduty from "./pagerduty";
+import * as slack from "./slack";
 import * as types from "./types";
 
 export {
@@ -51,11 +56,13 @@ export {
     config,
     gcp,
     pagerduty,
+    slack,
     types,
 };
 
 // Import resources to register:
 import { Dashboard } from "./dashboard";
+import { DashboardJson } from "./dashboardJson";
 import { DashboardList } from "./dashboardList";
 import { Downtime } from "./downtime";
 import { LogsArchive } from "./logsArchive";
@@ -67,11 +74,14 @@ import { LogsIntegrationPipeline } from "./logsIntegrationPipeline";
 import { LogsMetric } from "./logsMetric";
 import { LogsPipelineOrder } from "./logsPipelineOrder";
 import { MetricMetadata } from "./metricMetadata";
+import { MetricTagConfiguration } from "./metricTagConfiguration";
 import { Monitor } from "./monitor";
 import { Role } from "./role";
 import { ScreenBoard } from "./screenBoard";
+import { SecurityMonitoringDefaultRule } from "./securityMonitoringDefaultRule";
 import { SecurityMonitoringRule } from "./securityMonitoringRule";
 import { ServiceLevelObjective } from "./serviceLevelObjective";
+import { SloCorrection } from "./sloCorrection";
 import { SyntheticsGlobalVariable } from "./syntheticsGlobalVariable";
 import { SyntheticsPrivateLocation } from "./syntheticsPrivateLocation";
 import { SyntheticsTest } from "./syntheticsTest";
@@ -84,6 +94,8 @@ const _module = {
         switch (type) {
             case "datadog:index/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "datadog:index/dashboardJson:DashboardJson":
+                return new DashboardJson(name, <any>undefined, { urn })
             case "datadog:index/dashboardList:DashboardList":
                 return new DashboardList(name, <any>undefined, { urn })
             case "datadog:index/downtime:Downtime":
@@ -106,16 +118,22 @@ const _module = {
                 return new LogsPipelineOrder(name, <any>undefined, { urn })
             case "datadog:index/metricMetadata:MetricMetadata":
                 return new MetricMetadata(name, <any>undefined, { urn })
+            case "datadog:index/metricTagConfiguration:MetricTagConfiguration":
+                return new MetricTagConfiguration(name, <any>undefined, { urn })
             case "datadog:index/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
             case "datadog:index/role:Role":
                 return new Role(name, <any>undefined, { urn })
             case "datadog:index/screenBoard:ScreenBoard":
                 return new ScreenBoard(name, <any>undefined, { urn })
+            case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
+                return new SecurityMonitoringDefaultRule(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
             case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
                 return new ServiceLevelObjective(name, <any>undefined, { urn })
+            case "datadog:index/sloCorrection:SloCorrection":
+                return new SloCorrection(name, <any>undefined, { urn })
             case "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
                 return new SyntheticsGlobalVariable(name, <any>undefined, { urn })
             case "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
@@ -132,6 +150,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsArchive", _module)
@@ -143,11 +162,14 @@ pulumi.runtime.registerResourceModule("datadog", "index/logsIntegrationPipeline"
 pulumi.runtime.registerResourceModule("datadog", "index/logsMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/logsPipelineOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/metricMetadata", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/screenBoard", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module)

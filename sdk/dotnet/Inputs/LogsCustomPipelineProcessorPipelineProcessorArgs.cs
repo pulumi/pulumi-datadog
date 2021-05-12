@@ -12,45 +12,87 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsCustomPipelineProcessorPipelineProcessorArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+        /// </summary>
         [Input("arithmeticProcessor")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorArithmeticProcessorArgs>? ArithmeticProcessor { get; set; }
 
+        /// <summary>
+        /// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+        /// </summary>
         [Input("attributeRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorAttributeRemapperArgs>? AttributeRemapper { get; set; }
 
+        /// <summary>
+        /// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+        /// </summary>
         [Input("categoryProcessor")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorCategoryProcessorArgs>? CategoryProcessor { get; set; }
 
+        /// <summary>
+        /// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+        /// </summary>
         [Input("dateRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorDateRemapperArgs>? DateRemapper { get; set; }
 
+        /// <summary>
+        /// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+        /// </summary>
         [Input("geoIpParser")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorGeoIpParserArgs>? GeoIpParser { get; set; }
 
+        /// <summary>
+        /// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+        /// </summary>
         [Input("grokParser")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorGrokParserArgs>? GrokParser { get; set; }
 
+        /// <summary>
+        /// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+        /// </summary>
         [Input("lookupProcessor")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorLookupProcessorArgs>? LookupProcessor { get; set; }
 
+        /// <summary>
+        /// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+        /// </summary>
         [Input("messageRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorMessageRemapperArgs>? MessageRemapper { get; set; }
 
+        /// <summary>
+        /// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+        /// </summary>
         [Input("serviceRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorServiceRemapperArgs>? ServiceRemapper { get; set; }
 
+        /// <summary>
+        /// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+        /// </summary>
         [Input("statusRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorStatusRemapperArgs>? StatusRemapper { get; set; }
 
+        /// <summary>
+        /// String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+        /// </summary>
         [Input("stringBuilderProcessor")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorStringBuilderProcessorArgs>? StringBuilderProcessor { get; set; }
 
+        /// <summary>
+        /// Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+        /// </summary>
         [Input("traceIdRemapper")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorTraceIdRemapperArgs>? TraceIdRemapper { get; set; }
 
+        /// <summary>
+        /// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+        /// </summary>
         [Input("urlParser")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorUrlParserArgs>? UrlParser { get; set; }
 
+        /// <summary>
+        /// User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+        /// </summary>
         [Input("userAgentParser")]
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorUserAgentParserArgs>? UserAgentParser { get; set; }
 

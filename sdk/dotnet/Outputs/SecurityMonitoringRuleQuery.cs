@@ -13,11 +13,29 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SecurityMonitoringRuleQuery
     {
+        /// <summary>
+        /// The aggregation type.
+        /// </summary>
         public readonly string? Aggregation;
+        /// <summary>
+        /// Field for which the cardinality is measured. Sent as an array.
+        /// </summary>
         public readonly ImmutableArray<string> DistinctFields;
+        /// <summary>
+        /// Fields to group by.
+        /// </summary>
         public readonly ImmutableArray<string> GroupByFields;
+        /// <summary>
+        /// The target field to aggregate over when using the sum or max aggregations.
+        /// </summary>
         public readonly string? Metric;
+        /// <summary>
+        /// Name of the query.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Query to run on logs.
+        /// </summary>
         public readonly string Query;
 
         [OutputConstructor]

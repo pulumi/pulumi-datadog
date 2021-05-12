@@ -44,6 +44,9 @@ namespace Pulumi.Datadog
 
     public sealed class GetRoleArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A string on which to filter the roles.
+        /// </summary>
         [Input("filter", required: true)]
         public string Filter { get; set; } = null!;
 
@@ -56,12 +59,21 @@ namespace Pulumi.Datadog
     [OutputType]
     public sealed class GetRoleResult
     {
+        /// <summary>
+        /// A string on which to filter the roles.
+        /// </summary>
         public readonly string Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the role.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Number of users assigned to this role.
+        /// </summary>
         public readonly int UserCount;
 
         [OutputConstructor]

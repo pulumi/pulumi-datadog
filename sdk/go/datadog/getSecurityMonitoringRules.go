@@ -48,20 +48,30 @@ func GetSecurityMonitoringRules(ctx *pulumi.Context, args *GetSecurityMonitoring
 
 // A collection of arguments for invoking getSecurityMonitoringRules.
 type GetSecurityMonitoringRulesArgs struct {
-	DefaultOnlyFilter *bool    `pulumi:"defaultOnlyFilter"`
-	NameFilter        *string  `pulumi:"nameFilter"`
-	TagsFilters       []string `pulumi:"tagsFilters"`
-	UserOnlyFilter    *bool    `pulumi:"userOnlyFilter"`
+	// Limit the search to default rules
+	DefaultOnlyFilter *bool `pulumi:"defaultOnlyFilter"`
+	// A rule name to limit the search
+	NameFilter *string `pulumi:"nameFilter"`
+	// A list of tags to limit the search
+	TagsFilters []string `pulumi:"tagsFilters"`
+	// Limit the search to user rules
+	UserOnlyFilter *bool `pulumi:"userOnlyFilter"`
 }
 
 // A collection of values returned by getSecurityMonitoringRules.
 type GetSecurityMonitoringRulesResult struct {
+	// Limit the search to default rules
 	DefaultOnlyFilter *bool `pulumi:"defaultOnlyFilter"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string                           `pulumi:"id"`
-	NameFilter     *string                          `pulumi:"nameFilter"`
-	RuleIds        []string                         `pulumi:"ruleIds"`
-	Rules          []GetSecurityMonitoringRulesRule `pulumi:"rules"`
-	TagsFilters    []string                         `pulumi:"tagsFilters"`
-	UserOnlyFilter *bool                            `pulumi:"userOnlyFilter"`
+	Id string `pulumi:"id"`
+	// A rule name to limit the search
+	NameFilter *string `pulumi:"nameFilter"`
+	// List of IDs of the matched rules.
+	RuleIds []string `pulumi:"ruleIds"`
+	// List of rules.
+	Rules []GetSecurityMonitoringRulesRule `pulumi:"rules"`
+	// A list of tags to limit the search
+	TagsFilters []string `pulumi:"tagsFilters"`
+	// Limit the search to user rules
+	UserOnlyFilter *bool `pulumi:"userOnlyFilter"`
 }

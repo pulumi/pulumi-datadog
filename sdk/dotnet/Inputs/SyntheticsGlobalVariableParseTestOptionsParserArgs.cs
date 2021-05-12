@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the global variable.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

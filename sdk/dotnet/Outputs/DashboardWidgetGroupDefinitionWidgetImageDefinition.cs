@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? Margin;
         public readonly string? Sizing;
+        /// <summary>
+        /// The URL of the dashboard.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

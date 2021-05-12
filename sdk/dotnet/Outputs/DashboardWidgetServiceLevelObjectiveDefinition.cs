@@ -13,9 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetServiceLevelObjectiveDefinition
     {
+        public readonly string? GlobalTimeTarget;
         public readonly bool? ShowErrorBudget;
         public readonly string SloId;
         public readonly ImmutableArray<string> TimeWindows;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -24,6 +28,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetServiceLevelObjectiveDefinition(
+            string? globalTimeTarget,
+
             bool? showErrorBudget,
 
             string sloId,
@@ -40,6 +46,7 @@ namespace Pulumi.Datadog.Outputs
 
             string viewType)
         {
+            GlobalTimeTarget = globalTimeTarget;
             ShowErrorBudget = showErrorBudget;
             SloId = sloId;
             TimeWindows = timeWindows;

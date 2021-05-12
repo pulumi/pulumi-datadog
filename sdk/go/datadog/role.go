@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Roles can be imported using their ID, e.g.
+// # Roles can be imported using their ID, e.g.
 //
 // ```sh
 //  $ pulumi import datadog:index/role:Role example_role 000000-0000-0000-0000-000000000000

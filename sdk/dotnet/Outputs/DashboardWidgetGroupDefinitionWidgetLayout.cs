@@ -13,20 +13,20 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetLayout
     {
-        public readonly double Height;
-        public readonly double Width;
-        public readonly double X;
-        public readonly double Y;
+        public readonly int Height;
+        public readonly int Width;
+        public readonly int X;
+        public readonly int Y;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetLayout(
-            double height,
+            int height,
 
-            double width,
+            int width,
 
-            double x,
+            int x,
 
-            double y)
+            int y)
         {
             Height = height;
             Width = width;

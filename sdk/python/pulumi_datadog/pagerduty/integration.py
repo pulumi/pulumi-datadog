@@ -28,7 +28,7 @@ class IntegrationArgs:
                [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
                resource are to be used. Mutually exclusive with `services` key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         """
         pulumi.set(__self__, "subdomain", subdomain)
         if api_token is not None:
@@ -97,7 +97,7 @@ class IntegrationArgs:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]]]:
         """
-        A list of service names and service keys.
+        A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         """
         return pulumi.get(self, "services")
 
@@ -121,7 +121,7 @@ class _IntegrationState:
                [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
                resource are to be used. Mutually exclusive with `services` key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]] services: A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         """
         if api_token is not None:
@@ -180,7 +180,7 @@ class _IntegrationState:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationServiceArgs']]]]:
         """
-        A list of service names and service keys.
+        A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         """
         return pulumi.get(self, "services")
 
@@ -213,10 +213,9 @@ class Integration(pulumi.CustomResource):
                  subdomain: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
+        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
 
         ## Example Usage
-        ### Services as Individual Resources
 
         ```python
         import pulumi
@@ -247,7 +246,7 @@ class Integration(pulumi.CustomResource):
                [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
                resource are to be used. Mutually exclusive with `services` key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         """
         ...
@@ -257,10 +256,9 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
+        Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
 
         ## Example Usage
-        ### Services as Individual Resources
 
         ```python
         import pulumi
@@ -353,7 +351,7 @@ class Integration(pulumi.CustomResource):
                [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
                resource are to be used. Mutually exclusive with `services` key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedules: Array of your schedule URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationServiceArgs']]]] services: A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         :param pulumi.Input[str] subdomain: Your PagerDuty account’s personalized subdomain name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -397,7 +395,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter
     def services(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationService']]]:
         """
-        A list of service names and service keys.
+        A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
         """
         return pulumi.get(self, "services")
 

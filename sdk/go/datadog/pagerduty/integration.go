@@ -11,10 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. This resource is deprecated and should only be used for legacy purposes.
+// Provides a Datadog - PagerDuty resource. This can be used to create and manage Datadog - PagerDuty integration. See also [PagerDuty Integration Guide](https://www.pagerduty.com/docs/guides/datadog-integration-guide/).
 //
 // ## Example Usage
-// ### Services as Individual Resources
 //
 // ```go
 // package main
@@ -71,7 +70,7 @@ type Integration struct {
 	IndividualServices pulumi.BoolPtrOutput `pulumi:"individualServices"`
 	// Array of your schedule URLs.
 	Schedules pulumi.StringArrayOutput `pulumi:"schedules"`
-	// A list of service names and service keys.
+	// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
 	//
 	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services IntegrationServiceArrayOutput `pulumi:"services"`
@@ -119,7 +118,7 @@ type integrationState struct {
 	IndividualServices *bool `pulumi:"individualServices"`
 	// Array of your schedule URLs.
 	Schedules []string `pulumi:"schedules"`
-	// A list of service names and service keys.
+	// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
 	//
 	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services []IntegrationService `pulumi:"services"`
@@ -136,7 +135,7 @@ type IntegrationState struct {
 	IndividualServices pulumi.BoolPtrInput
 	// Array of your schedule URLs.
 	Schedules pulumi.StringArrayInput
-	// A list of service names and service keys.
+	// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
 	//
 	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services IntegrationServiceArrayInput
@@ -157,7 +156,7 @@ type integrationArgs struct {
 	IndividualServices *bool `pulumi:"individualServices"`
 	// Array of your schedule URLs.
 	Schedules []string `pulumi:"schedules"`
-	// A list of service names and service keys.
+	// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
 	//
 	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services []IntegrationService `pulumi:"services"`
@@ -175,7 +174,7 @@ type IntegrationArgs struct {
 	IndividualServices pulumi.BoolPtrInput
 	// Array of your schedule URLs.
 	Schedules pulumi.StringArrayInput
-	// A list of service names and service keys.
+	// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
 	//
 	// Deprecated: set "individual_services" to true and use datadog_pagerduty_integration_service_object
 	Services IntegrationServiceArrayInput

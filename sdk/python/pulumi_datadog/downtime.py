@@ -432,30 +432,13 @@ class Downtime(pulumi.CustomResource):
         """
         Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
-        ## Example: downtime for a specific monitor
+        ## Example Usage
 
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create a new daily 1700-0900 Datadog downtime for a specific monitor id
-        foo = datadog.Downtime("foo",
-            end=1483365600,
-            monitor_id=12345,
-            recurrence=datadog.DowntimeRecurrenceArgs(
-                period=1,
-                type="days",
-            ),
-            scopes=["*"],
-            start=1483308000)
-        ```
-
-        ## Example: downtime for all monitors
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
+        # Example: downtime for all monitors
         # Create a new daily 1700-0900 Datadog downtime for all monitors
         foo = datadog.Downtime("foo",
             end=1483365600,
@@ -468,8 +451,6 @@ class Downtime(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Downtimes can be imported using their numeric ID, e.g.
 
         ```sh
          $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081
@@ -499,30 +480,13 @@ class Downtime(pulumi.CustomResource):
         """
         Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 
-        ## Example: downtime for a specific monitor
+        ## Example Usage
 
         ```python
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create a new daily 1700-0900 Datadog downtime for a specific monitor id
-        foo = datadog.Downtime("foo",
-            end=1483365600,
-            monitor_id=12345,
-            recurrence=datadog.DowntimeRecurrenceArgs(
-                period=1,
-                type="days",
-            ),
-            scopes=["*"],
-            start=1483308000)
-        ```
-
-        ## Example: downtime for all monitors
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
+        # Example: downtime for all monitors
         # Create a new daily 1700-0900 Datadog downtime for all monitors
         foo = datadog.Downtime("foo",
             end=1483365600,
@@ -535,8 +499,6 @@ class Downtime(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Downtimes can be imported using their numeric ID, e.g.
 
         ```sh
          $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081

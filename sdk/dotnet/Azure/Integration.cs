@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Azure
     /// 
     /// ## Import
     /// 
-    /// Microsoft Azure integrations can be imported using their `tenant name` and `client id` separated with a colon (`:`).
+    /// # Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).
     /// 
     /// ```sh
     ///  $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}
@@ -59,9 +59,7 @@ namespace Pulumi.Datadog.Azure
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-        /// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-        /// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         /// </summary>
         [Output("hostFilters")]
         public Output<string?> HostFilters { get; private set; } = null!;
@@ -131,9 +129,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string> ClientSecret { get; set; } = null!;
 
         /// <summary>
-        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-        /// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-        /// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }
@@ -164,9 +160,7 @@ namespace Pulumi.Datadog.Azure
         public Input<string>? ClientSecret { get; set; }
 
         /// <summary>
-        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics
-        /// from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the
-        /// defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
+        /// String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         /// </summary>
         [Input("hostFilters")]
         public Input<string>? HostFilters { get; set; }

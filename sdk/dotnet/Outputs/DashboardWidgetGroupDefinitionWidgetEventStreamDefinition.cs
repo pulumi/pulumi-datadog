@@ -14,9 +14,13 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition
     {
         public readonly string? EventSize;
+        public readonly string? LiveSpan;
         public readonly string Query;
         public readonly string? TagsExecution;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime? Time;
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         public readonly string? Title;
         public readonly string? TitleAlign;
         public readonly string? TitleSize;
@@ -24,6 +28,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(
             string? eventSize,
+
+            string? liveSpan,
 
             string query,
 
@@ -38,6 +44,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             EventSize = eventSize;
+            LiveSpan = liveSpan;
             Query = query;
             TagsExecution = tagsExecution;
             Time = time;

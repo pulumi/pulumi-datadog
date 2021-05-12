@@ -17,6 +17,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? DnsServer;
         public readonly string? Host;
         public readonly string? Method;
+        public readonly bool? NoSavingResponseBody;
         public readonly int? Port;
         public readonly int? Timeout;
         public readonly string? Url;
@@ -31,6 +32,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? method,
 
+            bool? noSavingResponseBody,
+
             int? port,
 
             int? timeout,
@@ -41,6 +44,7 @@ namespace Pulumi.Datadog.Outputs
             DnsServer = dnsServer;
             Host = host;
             Method = method;
+            NoSavingResponseBody = noSavingResponseBody;
             Port = port;
             Timeout = timeout;
             Url = url;

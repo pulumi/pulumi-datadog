@@ -31,6 +31,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("legendSize")]
         public Input<string>? LegendSize { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestGetArgs>? _requests;
         public InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestGetArgs> Requests
@@ -45,6 +48,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionTimeGetArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

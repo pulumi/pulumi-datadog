@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Google Cloud Platform integrations can be imported using their project ID, e.g.
+// # Google Cloud Platform integrations can be imported using their project ID, e.g.
 //
 // ```sh
 //  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
@@ -53,12 +53,13 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
+	// Silence monitors for expected GCE instance shutdowns.
+	Automute pulumi.BoolPtrOutput `pulumi:"automute"`
 	// Your email found in your JSON service account key.
 	ClientEmail pulumi.StringOutput `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-	// imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrOutput `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
@@ -112,12 +113,13 @@ func GetIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
+	// Silence monitors for expected GCE instance shutdowns.
+	Automute *bool `pulumi:"automute"`
 	// Your email found in your JSON service account key.
 	ClientEmail *string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId *string `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-	// imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey *string `pulumi:"privateKey"`
@@ -128,12 +130,13 @@ type integrationState struct {
 }
 
 type IntegrationState struct {
+	// Silence monitors for expected GCE instance shutdowns.
+	Automute pulumi.BoolPtrInput
 	// Your email found in your JSON service account key.
 	ClientEmail pulumi.StringPtrInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringPtrInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-	// imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringPtrInput
@@ -148,12 +151,13 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
+	// Silence monitors for expected GCE instance shutdowns.
+	Automute *bool `pulumi:"automute"`
 	// Your email found in your JSON service account key.
 	ClientEmail string `pulumi:"clientEmail"`
 	// Your ID found in your JSON service account key.
 	ClientId string `pulumi:"clientId"`
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-	// imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters *string `pulumi:"hostFilters"`
 	// Your private key name found in your JSON service account key.
 	PrivateKey string `pulumi:"privateKey"`
@@ -165,12 +169,13 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
+	// Silence monitors for expected GCE instance shutdowns.
+	Automute pulumi.BoolPtrInput
 	// Your email found in your JSON service account key.
 	ClientEmail pulumi.StringInput
 	// Your ID found in your JSON service account key.
 	ClientId pulumi.StringInput
-	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-	// imported into Datadog.
+	// Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
 	HostFilters pulumi.StringPtrInput
 	// Your private key name found in your JSON service account key.
 	PrivateKey pulumi.StringInput

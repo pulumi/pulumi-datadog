@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetTraceServiceDefinitionTimeGetArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

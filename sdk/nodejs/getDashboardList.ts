@@ -36,6 +36,9 @@ export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getDashboardList.
  */
 export interface GetDashboardListArgs {
+    /**
+     * A dashboard list name to limit the search.
+     */
     readonly name: string;
 }
 
@@ -47,5 +50,8 @@ export interface GetDashboardListResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A dashboard list name to limit the search.
+     */
     readonly name: string;
 }

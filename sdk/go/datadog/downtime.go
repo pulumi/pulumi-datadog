@@ -13,39 +13,7 @@ import (
 
 // Provides a Datadog downtime resource. This can be used to create and manage Datadog downtimes.
 //
-// ## Example: downtime for a specific monitor
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.NewDowntime(ctx, "foo", &datadog.DowntimeArgs{
-// 			End:       pulumi.Int(1483365600),
-// 			MonitorId: pulumi.Int(12345),
-// 			Recurrence: &datadog.DowntimeRecurrenceArgs{
-// 				Period: pulumi.Int(1),
-// 				Type:   pulumi.String("days"),
-// 			},
-// 			Scopes: pulumi.StringArray{
-// 				pulumi.String("*"),
-// 			},
-// 			Start: pulumi.Int(1483308000),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Example: downtime for all monitors
+// ## Example Usage
 //
 // ```go
 // package main
@@ -77,8 +45,6 @@ import (
 // ```
 //
 // ## Import
-//
-// Downtimes can be imported using their numeric ID, e.g.
 //
 // ```sh
 //  $ pulumi import datadog:index/downtime:Downtime bytes_received_localhost 2081

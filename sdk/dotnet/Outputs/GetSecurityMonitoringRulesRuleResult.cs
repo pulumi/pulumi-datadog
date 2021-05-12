@@ -13,12 +13,33 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetSecurityMonitoringRulesRuleResult
     {
+        /// <summary>
+        /// Cases for generating signals.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleCaseResult> Cases;
+        /// <summary>
+        /// Whether the rule is enabled.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Message for generated signals.
+        /// </summary>
         public readonly string Message;
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Options on rules.
+        /// </summary>
         public readonly Outputs.GetSecurityMonitoringRulesRuleOptionsResult? Options;
+        /// <summary>
+        /// Queries for selecting logs which are part of the rule.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryResult> Queries;
+        /// <summary>
+        /// Tags for generated signals.
+        /// </summary>
         public readonly ImmutableArray<string> Tags;
 
         [OutputConstructor]

@@ -28,8 +28,22 @@ namespace Pulumi.Datadog.Inputs
             set => _events = value;
         }
 
+        [Input("legendColumns")]
+        private InputList<string>? _legendColumns;
+        public InputList<string> LegendColumns
+        {
+            get => _legendColumns ?? (_legendColumns = new InputList<string>());
+            set => _legendColumns = value;
+        }
+
+        [Input("legendLayout")]
+        public Input<string>? LegendLayout { get; set; }
+
         [Input("legendSize")]
         public Input<string>? LegendSize { get; set; }
+
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
 
         [Input("markers")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionMarkerArgs>? _markers;
@@ -56,6 +70,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionTimeArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

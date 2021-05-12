@@ -17,9 +17,7 @@ class LogsPipelineOrderArgs:
                  pipelines: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a LogsPipelineOrder resource.
-        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
-               value as the resource name. No related field is available in [Logs Pipeline
-               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
         pulumi.set(__self__, "name", name)
@@ -29,9 +27,7 @@ class LogsPipelineOrderArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
-        value as the resource name. No related field is available in [Logs Pipeline
-        API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         """
         return pulumi.get(self, "name")
 
@@ -59,9 +55,7 @@ class _LogsPipelineOrderState:
                  pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LogsPipelineOrder resources.
-        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
-               value as the resource name. No related field is available in [Logs Pipeline
-               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
         if name is not None:
@@ -73,9 +67,7 @@ class _LogsPipelineOrderState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
-        value as the resource name. No related field is available in [Logs Pipeline
-        API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         """
         return pulumi.get(self, "name")
 
@@ -105,7 +97,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
                  pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to manage Datadog log pipelines order.
+        Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
 
         ## Example Usage
 
@@ -127,7 +119,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
         ## Import
 
-        There must be at most one `datadog_logs_pipeline_order` resource. Pipeline order creation is not supported from logs config API. You can import the `datadog_logs_pipeline_order` or create a pipeline order (which is actually doing the update operation).
+        # There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).
 
         ```sh
          $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
@@ -135,9 +127,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
-               value as the resource name. No related field is available in [Logs Pipeline
-               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
         ...
@@ -147,7 +137,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
                  args: LogsPipelineOrderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/) resource, which is used to manage Datadog log pipelines order.
+        Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
 
         ## Example Usage
 
@@ -169,7 +159,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
         ## Import
 
-        There must be at most one `datadog_logs_pipeline_order` resource. Pipeline order creation is not supported from logs config API. You can import the `datadog_logs_pipeline_order` or create a pipeline order (which is actually doing the update operation).
+        # There must be at most one datadog_logs_pipeline_order resource. Pipeline order creation is not supported from logs config API. You can import the datadog_logs_pipeline_order or create a pipeline order (which is actually doing the update operation).
 
         ```sh
          $ pulumi import datadog:index/logsPipelineOrder:LogsPipelineOrder name> <name>
@@ -229,9 +219,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
-               value as the resource name. No related field is available in [Logs Pipeline
-               API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        :param pulumi.Input[str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -246,9 +234,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name attribute in the resource `datadog_logs_pipeline_order` needs to be unique. It's recommended to use the same
-        value as the resource name. No related field is available in [Logs Pipeline
-        API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
+        The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         """
         return pulumi.get(self, "name")
 

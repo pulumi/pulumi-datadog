@@ -28,5 +28,8 @@ export interface GetSyntheticsLocationsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A map of available Synthetics location IDs to names for Synthetics tests.
+     */
     readonly locations: {[key: string]: any};
 }

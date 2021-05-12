@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
@@ -24,6 +27,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetEventStreamDefinitionTimeGetArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

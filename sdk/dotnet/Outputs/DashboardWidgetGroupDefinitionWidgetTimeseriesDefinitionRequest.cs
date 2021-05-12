@@ -15,12 +15,14 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery? ApmQuery;
         public readonly string? DisplayType;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
         public readonly bool? OnRightYaxis;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery? SecurityQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle? Style;
@@ -30,6 +32,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery? apmQuery,
 
             string? displayType,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula> formulas,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery? logQuery,
 
@@ -43,6 +47,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? q,
 
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery> queries,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery? rumQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery? securityQuery,
@@ -51,12 +57,14 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmQuery = apmQuery;
             DisplayType = displayType;
+            Formulas = formulas;
             LogQuery = logQuery;
             Metadatas = metadatas;
             NetworkQuery = networkQuery;
             OnRightYaxis = onRightYaxis;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             Style = style;

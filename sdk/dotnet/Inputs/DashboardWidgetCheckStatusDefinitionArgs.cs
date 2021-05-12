@@ -29,6 +29,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("grouping", required: true)]
         public Input<string> Grouping { get; set; } = null!;
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("tags")]
         private InputList<string>? _tags;
         public InputList<string> Tags
@@ -40,6 +43,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetCheckStatusDefinitionTimeArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

@@ -12,11 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleQueryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation type.
+        /// </summary>
         [Input("aggregation")]
         public Input<string>? Aggregation { get; set; }
 
         [Input("distinctFields")]
         private InputList<string>? _distinctFields;
+
+        /// <summary>
+        /// Field for which the cardinality is measured. Sent as an array.
+        /// </summary>
         public InputList<string> DistinctFields
         {
             get => _distinctFields ?? (_distinctFields = new InputList<string>());
@@ -25,18 +32,31 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("groupByFields")]
         private InputList<string>? _groupByFields;
+
+        /// <summary>
+        /// Fields to group by.
+        /// </summary>
         public InputList<string> GroupByFields
         {
             get => _groupByFields ?? (_groupByFields = new InputList<string>());
             set => _groupByFields = value;
         }
 
+        /// <summary>
+        /// The target field to aggregate over when using the sum or max aggregations.
+        /// </summary>
         [Input("metric")]
         public Input<string>? Metric { get; set; }
 
+        /// <summary>
+        /// Name of the query.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Query to run on logs.
+        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 

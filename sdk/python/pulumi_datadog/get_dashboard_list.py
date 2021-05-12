@@ -38,6 +38,9 @@ class GetDashboardListResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        A dashboard list name to limit the search.
+        """
         return pulumi.get(self, "name")
 
 
@@ -64,6 +67,9 @@ def get_dashboard_list(name: Optional[str] = None,
 
     test = datadog.get_dashboard_list(name="My super list")
     ```
+
+
+    :param str name: A dashboard list name to limit the search.
     """
     __args__ = dict()
     __args__['name'] = name

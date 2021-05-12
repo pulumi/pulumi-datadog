@@ -6,6 +6,7 @@
 from .integration import *
 from .integration_lambda_arn import *
 from .integration_log_collection import *
+from .integration_tag_filter import *
 
 def _register_module():
     import pulumi
@@ -25,6 +26,8 @@ def _register_module():
                 return IntegrationLambdaArn(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "datadog:aws/integrationLogCollection:IntegrationLogCollection":
                 return IntegrationLogCollection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "datadog:aws/integrationTagFilter:IntegrationTagFilter":
+                return IntegrationTagFilter(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -33,5 +36,6 @@ def _register_module():
     pulumi.runtime.register_resource_module("datadog", "aws/integration", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "aws/integrationLambdaArn", _module_instance)
     pulumi.runtime.register_resource_module("datadog", "aws/integrationLogCollection", _module_instance)
+    pulumi.runtime.register_resource_module("datadog", "aws/integrationTagFilter", _module_instance)
 
 _register_module()

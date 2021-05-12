@@ -26,6 +26,9 @@ namespace Pulumi.Datadog
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A map of available Synthetics location IDs to names for Synthetics tests.
+        /// </summary>
         public readonly ImmutableDictionary<string, object> Locations;
 
         [OutputConstructor]

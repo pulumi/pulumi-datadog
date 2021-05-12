@@ -39,7 +39,7 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
-    /// Synthetics private locations can be imported using their string ID, e.g.
+    /// # Synthetics private locations can be imported using their string ID, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation bar pl:private-location-name-abcdef123456
@@ -49,8 +49,7 @@ namespace Pulumi.Datadog
     public partial class SyntheticsPrivateLocation : Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
-        /// this configuration.
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         /// </summary>
         [Output("config")]
         public Output<string> Config { get; private set; } = null!;
@@ -151,8 +150,7 @@ namespace Pulumi.Datadog
     public sealed class SyntheticsPrivateLocationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use
-        /// this configuration.
+        /// Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }

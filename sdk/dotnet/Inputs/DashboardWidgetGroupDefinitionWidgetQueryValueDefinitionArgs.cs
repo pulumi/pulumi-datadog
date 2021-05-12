@@ -26,6 +26,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("customUnit")]
         public Input<string>? CustomUnit { get; set; }
 
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("precision")]
         public Input<int>? Precision { get; set; }
 
@@ -43,6 +46,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("time")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTimeArgs>? Time { get; set; }
 
+        /// <summary>
+        /// The title of the dashboard.
+        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

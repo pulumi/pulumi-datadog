@@ -23,6 +23,7 @@ const (
 	awsMod     = "Aws"
 	azureMod   = "Azure"
 	pdMod      = "PagerDuty"
+	slackMod   = "Slack"
 )
 
 var namespaceMap = map[string]string{
@@ -65,33 +66,32 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-datadog",
 		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"datadog_dashboard":       {Tok: makeResource(datadogMod, "Dashboard")},
-			"datadog_downtime":        {Tok: makeResource(datadogMod, "Downtime")},
-			"datadog_metric_metadata": {Tok: makeResource(datadogMod, "MetricMetadata")},
-			"datadog_monitor":         {Tok: makeResource(datadogMod, "Monitor")},
-			"datadog_timeboard":       {Tok: makeResource(datadogMod, "TimeBoard")},
-			"datadog_screenboard":     {Tok: makeResource(datadogMod, "ScreenBoard")},
-			"datadog_user":            {Tok: makeResource(datadogMod, "User")},
-			"datadog_synthetics_test": {
-				Tok: makeResource(datadogMod, "SyntheticsTest"),
-				Docs: &tfbridge.DocInfo{
-					Source: "synthetics.html.markdown",
-				},
-			},
-			"datadog_synthetics_global_variable":  {Tok: makeResource(datadogMod, "SyntheticsGlobalVariable")},
-			"datadog_dashboard_list":              {Tok: makeResource(datadogMod, "DashboardList")},
-			"datadog_service_level_objective":     {Tok: makeResource(datadogMod, "ServiceLevelObjective")},
-			"datadog_logs_custom_pipeline":        {Tok: makeResource(datadogMod, "LogsCustomPipeline")},
-			"datadog_logs_index":                  {Tok: makeResource(datadogMod, "LogsIndex")},
-			"datadog_logs_metric":                 {Tok: makeResource(datadogMod, "LogsMetric")},
-			"datadog_logs_archive":                {Tok: makeResource(datadogMod, "LogsArchive")},
-			"datadog_logs_index_order":            {Tok: makeResource(datadogMod, "LogsIndexOrder")},
-			"datadog_logs_integration_pipeline":   {Tok: makeResource(datadogMod, "LogsIntegrationPipeline")},
-			"datadog_logs_pipeline_order":         {Tok: makeResource(datadogMod, "LogsPipelineOrder")},
-			"datadog_logs_archive_order":          {Tok: makeResource(datadogMod, "LogsArchiveOrder")},
-			"datadog_role":                        {Tok: makeResource(datadogMod, "Role")},
-			"datadog_security_monitoring_rule":    {Tok: makeResource(datadogMod, "SecurityMonitoringRule")},
-			"datadog_synthetics_private_location": {Tok: makeResource(datadogMod, "SyntheticsPrivateLocation")},
+			"datadog_dashboard":                        {Tok: makeResource(datadogMod, "Dashboard")},
+			"datadog_downtime":                         {Tok: makeResource(datadogMod, "Downtime")},
+			"datadog_metric_metadata":                  {Tok: makeResource(datadogMod, "MetricMetadata")},
+			"datadog_monitor":                          {Tok: makeResource(datadogMod, "Monitor")},
+			"datadog_timeboard":                        {Tok: makeResource(datadogMod, "TimeBoard")},
+			"datadog_screenboard":                      {Tok: makeResource(datadogMod, "ScreenBoard")},
+			"datadog_user":                             {Tok: makeResource(datadogMod, "User")},
+			"datadog_synthetics_test":                  {Tok: makeResource(datadogMod, "SyntheticsTest")},
+			"datadog_synthetics_global_variable":       {Tok: makeResource(datadogMod, "SyntheticsGlobalVariable")},
+			"datadog_dashboard_list":                   {Tok: makeResource(datadogMod, "DashboardList")},
+			"datadog_service_level_objective":          {Tok: makeResource(datadogMod, "ServiceLevelObjective")},
+			"datadog_logs_custom_pipeline":             {Tok: makeResource(datadogMod, "LogsCustomPipeline")},
+			"datadog_logs_index":                       {Tok: makeResource(datadogMod, "LogsIndex")},
+			"datadog_logs_metric":                      {Tok: makeResource(datadogMod, "LogsMetric")},
+			"datadog_logs_archive":                     {Tok: makeResource(datadogMod, "LogsArchive")},
+			"datadog_logs_index_order":                 {Tok: makeResource(datadogMod, "LogsIndexOrder")},
+			"datadog_logs_integration_pipeline":        {Tok: makeResource(datadogMod, "LogsIntegrationPipeline")},
+			"datadog_logs_pipeline_order":              {Tok: makeResource(datadogMod, "LogsPipelineOrder")},
+			"datadog_logs_archive_order":               {Tok: makeResource(datadogMod, "LogsArchiveOrder")},
+			"datadog_role":                             {Tok: makeResource(datadogMod, "Role")},
+			"datadog_security_monitoring_rule":         {Tok: makeResource(datadogMod, "SecurityMonitoringRule")},
+			"datadog_security_monitoring_default_rule": {Tok: makeResource(datadogMod, "SecurityMonitoringDefaultRule")},
+			"datadog_synthetics_private_location":      {Tok: makeResource(datadogMod, "SyntheticsPrivateLocation")},
+			"datadog_dashboard_json":                   {Tok: makeResource(datadogMod, "DashboardJson")},
+			"datadog_metric_tag_configuration":         {Tok: makeResource(datadogMod, "MetricTagConfiguration")},
+			"datadog_slo_correction":                   {Tok: makeResource(datadogMod, "SloCorrection")},
 
 			// GCP Integrations
 			"datadog_integration_gcp": {Tok: makeResource(gcpMod, "Integration")},
@@ -101,12 +101,16 @@ func Provider() tfbridge.ProviderInfo {
 
 			// AWS Integrations
 			"datadog_integration_aws":                {Tok: makeResource(awsMod, "Integration")},
+			"datadog_integration_aws_tag_filter":     {Tok: makeResource(awsMod, "IntegrationTagFilter")},
 			"datadog_integration_aws_lambda_arn":     {Tok: makeResource(awsMod, "IntegrationLambdaArn")},
 			"datadog_integration_aws_log_collection": {Tok: makeResource(awsMod, "IntegrationLogCollection")},
 
 			// PagerDuty Integrations
 			"datadog_integration_pagerduty":                {Tok: makeResource(pdMod, "Integration")},
 			"datadog_integration_pagerduty_service_object": {Tok: makeResource(pdMod, "ServiceObject")},
+
+			// Slack Integrations
+			"datadog_integration_slack_channel": {Tok: makeResource(slackMod, "Channel")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"datadog_ip_ranges": {
@@ -124,7 +128,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^3.0.0-alpha.0",
+				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0",
@@ -141,12 +145,12 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=3.0.0a1,<4.0.0",
+				"pulumi": ">=3.0.0,<4.0.0",
 			},
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*-*",
+				"Pulumi":                       "3.*",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Namespaces: namespaceMap,

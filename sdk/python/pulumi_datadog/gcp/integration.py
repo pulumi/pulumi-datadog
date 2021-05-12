@@ -18,6 +18,7 @@ class IntegrationArgs:
                  private_key: pulumi.Input[str],
                  private_key_id: pulumi.Input[str],
                  project_id: pulumi.Input[str],
+                 automute: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
@@ -26,14 +27,16 @@ class IntegrationArgs:
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-               imported into Datadog.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
         pulumi.set(__self__, "client_email", client_email)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "private_key", private_key)
         pulumi.set(__self__, "private_key_id", private_key_id)
         pulumi.set(__self__, "project_id", project_id)
+        if automute is not None:
+            pulumi.set(__self__, "automute", automute)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
 
@@ -98,11 +101,22 @@ class IntegrationArgs:
         pulumi.set(self, "project_id", value)
 
     @property
+    @pulumi.getter
+    def automute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Silence monitors for expected GCE instance shutdowns.
+        """
+        return pulumi.get(self, "automute")
+
+    @automute.setter
+    def automute(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automute", value)
+
+    @property
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
-        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-        imported into Datadog.
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
@@ -114,6 +128,7 @@ class IntegrationArgs:
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
+                 automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
@@ -122,14 +137,16 @@ class _IntegrationState:
                  project_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-               imported into Datadog.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
         """
+        if automute is not None:
+            pulumi.set(__self__, "automute", automute)
         if client_email is not None:
             pulumi.set(__self__, "client_email", client_email)
         if client_id is not None:
@@ -142,6 +159,18 @@ class _IntegrationState:
             pulumi.set(__self__, "private_key_id", private_key_id)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter
+    def automute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Silence monitors for expected GCE instance shutdowns.
+        """
+        return pulumi.get(self, "automute")
+
+    @automute.setter
+    def automute(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automute", value)
 
     @property
     @pulumi.getter(name="clientEmail")
@@ -171,8 +200,7 @@ class _IntegrationState:
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
-        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-        imported into Datadog.
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 
@@ -222,6 +250,7 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
@@ -254,7 +283,7 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
-        Google Cloud Platform integrations can be imported using their project ID, e.g.
+        # Google Cloud Platform integrations can be imported using their project ID, e.g.
 
         ```sh
          $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
@@ -262,10 +291,10 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-               imported into Datadog.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
@@ -301,7 +330,7 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
-        Google Cloud Platform integrations can be imported using their project ID, e.g.
+        # Google Cloud Platform integrations can be imported using their project ID, e.g.
 
         ```sh
          $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
@@ -322,6 +351,7 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automute: Optional[pulumi.Input[bool]] = None,
                  client_email: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
@@ -340,6 +370,7 @@ class Integration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
+            __props__.__dict__["automute"] = automute
             if client_email is None and not opts.urn:
                 raise TypeError("Missing required property 'client_email'")
             __props__.__dict__["client_email"] = client_email
@@ -366,6 +397,7 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            automute: Optional[pulumi.Input[bool]] = None,
             client_email: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
             host_filters: Optional[pulumi.Input[str]] = None,
@@ -379,10 +411,10 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automute: Silence monitors for expected GCE instance shutdowns.
         :param pulumi.Input[str] client_email: Your email found in your JSON service account key.
         :param pulumi.Input[str] client_id: Your ID found in your JSON service account key.
-        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-               imported into Datadog.
+        :param pulumi.Input[str] host_filters: Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         :param pulumi.Input[str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[str] project_id: Your Google Cloud project ID found in your JSON service account key.
@@ -391,6 +423,7 @@ class Integration(pulumi.CustomResource):
 
         __props__ = _IntegrationState.__new__(_IntegrationState)
 
+        __props__.__dict__["automute"] = automute
         __props__.__dict__["client_email"] = client_email
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["host_filters"] = host_filters
@@ -398,6 +431,14 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["private_key_id"] = private_key_id
         __props__.__dict__["project_id"] = project_id
         return Integration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def automute(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Silence monitors for expected GCE instance shutdowns.
+        """
+        return pulumi.get(self, "automute")
 
     @property
     @pulumi.getter(name="clientEmail")
@@ -419,8 +460,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> pulumi.Output[Optional[str]]:
         """
-        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-        imported into Datadog.
+        Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
         """
         return pulumi.get(self, "host_filters")
 

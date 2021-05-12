@@ -13,9 +13,21 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class LogsArchiveS3Archive
     {
+        /// <summary>
+        /// Your AWS account id.
+        /// </summary>
         public readonly string AccountId;
+        /// <summary>
+        /// Name of your s3 bucket.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// Path where the archive will be stored.
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Your AWS role name
+        /// </summary>
         public readonly string RoleName;
 
         [OutputConstructor]

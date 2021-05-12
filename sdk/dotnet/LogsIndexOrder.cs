@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog [Logs Index API](https://docs.datadoghq.com/api/v1/logs-indexes/) resource. This can be used to manage the order of Datadog logs indexes.
+    /// Provides a Datadog Logs Index API resource. This can be used to manage the order of Datadog logs indexes.
     /// 
     /// ## Example Usage
     /// 
@@ -43,16 +43,17 @@ namespace Pulumi.Datadog
     /// 
     /// ## Import
     /// 
+    /// # The Datadog Terraform Provider does not support the creation and deletion of index orders. There must be at most one `datadog_logs_index_order` resource
+    /// 
     /// ```sh
-    ///  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder The current Datadog Terraform provider version does not support the creation and deletion of index orders. Do `&lt;datadog_logs_index_order.name&gt; &lt;name&gt;` to import index order to Terraform. There must be at most one `datadog_logs_index_order` resource.
+    ///  $ pulumi import datadog:index/logsIndexOrder:LogsIndexOrder name&gt; &lt;name&gt;
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/logsIndexOrder:LogsIndexOrder")]
     public partial class LogsIndexOrder : Pulumi.CustomResource
     {
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        /// list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         /// </summary>
         [Output("indexes")]
         public Output<ImmutableArray<string>> Indexes { get; private set; } = null!;
@@ -113,8 +114,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        /// list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         /// </summary>
         public InputList<string> Indexes
         {
@@ -139,8 +139,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the
-        /// list.
+        /// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
         /// </summary>
         public InputList<string> Indexes
         {

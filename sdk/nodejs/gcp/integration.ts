@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Google Cloud Platform integrations can be imported using their project ID, e.g.
+ * # Google Cloud Platform integrations can be imported using their project ID, e.g.
  *
  * ```sh
  *  $ pulumi import datadog:gcp/integration:Integration awesome_gcp_project_integration project_id
@@ -64,6 +64,10 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /**
+     * Silence monitors for expected GCE instance shutdowns.
+     */
+    public readonly automute!: pulumi.Output<boolean | undefined>;
+    /**
      * Your email found in your JSON service account key.
      */
     public readonly clientEmail!: pulumi.Output<string>;
@@ -72,8 +76,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
     public readonly hostFilters!: pulumi.Output<string | undefined>;
     /**
@@ -102,6 +105,7 @@ export class Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
+            inputs["automute"] = state ? state.automute : undefined;
             inputs["clientEmail"] = state ? state.clientEmail : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["hostFilters"] = state ? state.hostFilters : undefined;
@@ -125,6 +129,7 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
+            inputs["automute"] = args ? args.automute : undefined;
             inputs["clientEmail"] = args ? args.clientEmail : undefined;
             inputs["clientId"] = args ? args.clientId : undefined;
             inputs["hostFilters"] = args ? args.hostFilters : undefined;
@@ -144,6 +149,10 @@ export class Integration extends pulumi.CustomResource {
  */
 export interface IntegrationState {
     /**
+     * Silence monitors for expected GCE instance shutdowns.
+     */
+    readonly automute?: pulumi.Input<boolean>;
+    /**
      * Your email found in your JSON service account key.
      */
     readonly clientEmail?: pulumi.Input<string>;
@@ -152,8 +161,7 @@ export interface IntegrationState {
      */
     readonly clientId?: pulumi.Input<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
     readonly hostFilters?: pulumi.Input<string>;
     /**
@@ -175,6 +183,10 @@ export interface IntegrationState {
  */
 export interface IntegrationArgs {
     /**
+     * Silence monitors for expected GCE instance shutdowns.
+     */
+    readonly automute?: pulumi.Input<boolean>;
+    /**
      * Your email found in your JSON service account key.
      */
     readonly clientEmail: pulumi.Input<string>;
@@ -183,8 +195,7 @@ export interface IntegrationArgs {
      */
     readonly clientId: pulumi.Input<string>;
     /**
-     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are
-     * imported into Datadog.
+     * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
     readonly hostFilters?: pulumi.Input<string>;
     /**

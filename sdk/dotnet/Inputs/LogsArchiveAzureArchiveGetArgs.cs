@@ -12,18 +12,33 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class LogsArchiveAzureArchiveGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your client id.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The container where the archive will be stored.
+        /// </summary>
         [Input("container", required: true)]
         public Input<string> Container { get; set; } = null!;
 
+        /// <summary>
+        /// The path where the archive will be stored.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
+        /// <summary>
+        /// The associated storage account.
+        /// </summary>
         [Input("storageAccount", required: true)]
         public Input<string> StorageAccount { get; set; } = null!;
 
+        /// <summary>
+        /// Your tenant id.
+        /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
 

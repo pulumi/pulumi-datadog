@@ -22,6 +22,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "datadog:index/dashboard:Dashboard":
 		r = &Dashboard{}
+	case "datadog:index/dashboardJson:DashboardJson":
+		r = &DashboardJson{}
 	case "datadog:index/dashboardList:DashboardList":
 		r = &DashboardList{}
 	case "datadog:index/downtime:Downtime":
@@ -44,16 +46,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogsPipelineOrder{}
 	case "datadog:index/metricMetadata:MetricMetadata":
 		r = &MetricMetadata{}
+	case "datadog:index/metricTagConfiguration:MetricTagConfiguration":
+		r = &MetricTagConfiguration{}
 	case "datadog:index/monitor:Monitor":
 		r = &Monitor{}
 	case "datadog:index/role:Role":
 		r = &Role{}
 	case "datadog:index/screenBoard:ScreenBoard":
 		r = &ScreenBoard{}
+	case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
+		r = &SecurityMonitoringDefaultRule{}
 	case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
 		r = &SecurityMonitoringRule{}
 	case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
 		r = &ServiceLevelObjective{}
+	case "datadog:index/sloCorrection:SloCorrection":
+		r = &SloCorrection{}
 	case "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable":
 		r = &SyntheticsGlobalVariable{}
 	case "datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation":
@@ -98,6 +106,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/dashboard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/dashboardJson",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -157,6 +170,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/metricTagConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/monitor",
 		&module{version},
 	)
@@ -172,12 +190,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/securityMonitoringDefaultRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/securityMonitoringRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/serviceLevelObjective",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/sloCorrection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

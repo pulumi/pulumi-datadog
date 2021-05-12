@@ -12,12 +12,21 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleOptionsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+        /// </summary>
         [Input("evaluationWindow", required: true)]
         public Input<int> EvaluationWindow { get; set; } = null!;
 
+        /// <summary>
+        /// Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.
+        /// </summary>
         [Input("keepAlive", required: true)]
         public Input<int> KeepAlive { get; set; } = null!;
 
+        /// <summary>
+        /// A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
+        /// </summary>
         [Input("maxSignalDuration", required: true)]
         public Input<int> MaxSignalDuration { get; set; } = null!;
 

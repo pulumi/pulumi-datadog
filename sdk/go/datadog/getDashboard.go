@@ -42,14 +42,18 @@ func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pul
 
 // A collection of arguments for invoking getDashboard.
 type LookupDashboardArgs struct {
+	// The dashboard name to search for. Must only match one dashboard.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getDashboard.
 type LookupDashboardResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id    string `pulumi:"id"`
-	Name  string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The dashboard name to search for. Must only match one dashboard.
+	Name string `pulumi:"name"`
+	// The name of the dashboard.
 	Title string `pulumi:"title"`
-	Url   string `pulumi:"url"`
+	// The URL to a specific dashboard.
+	Url string `pulumi:"url"`
 }
