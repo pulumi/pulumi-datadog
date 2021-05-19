@@ -377,6 +377,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableDictionary<string, object>?> RequestQuery { get; private set; } = null!;
 
         /// <summary>
+        /// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        /// </summary>
+        [Output("setCookie")]
+        public Output<string?> SetCookie { get; private set; } = null!;
+
+        /// <summary>
         /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
         /// </summary>
         [Output("status")]
@@ -389,7 +395,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SyntheticsTestStep>> Steps { get; private set; } = null!;
 
         /// <summary>
-        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         /// </summary>
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
@@ -613,6 +619,12 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
+        /// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        /// </summary>
+        [Input("setCookie")]
+        public Input<string>? SetCookie { get; set; }
+
+        /// <summary>
         /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
         /// </summary>
         [Input("status", required: true)]
@@ -632,7 +644,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -836,6 +848,12 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
+        /// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        /// </summary>
+        [Input("setCookie")]
+        public Input<string>? SetCookie { get; set; }
+
+        /// <summary>
         /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
         /// </summary>
         [Input("status")]
@@ -855,7 +873,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }

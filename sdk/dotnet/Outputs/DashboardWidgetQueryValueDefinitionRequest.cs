@@ -16,9 +16,11 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Aggregator;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery? ApmQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat> ConditionalFormats;
+        public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery? SecurityQuery;
 
@@ -30,11 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats,
 
+            ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestFormula> formulas,
+
             Outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery? logQuery,
 
             Outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestQuery> queries,
 
             Outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery? rumQuery,
 
@@ -43,9 +49,11 @@ namespace Pulumi.Datadog.Outputs
             Aggregator = aggregator;
             ApmQuery = apmQuery;
             ConditionalFormats = conditionalFormats;
+            Formulas = formulas;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
         }

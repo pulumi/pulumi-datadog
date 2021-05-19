@@ -859,9 +859,22 @@ export interface DashboardWidgetGeomapDefinitionCustomLink {
 }
 
 export interface DashboardWidgetGeomapDefinitionRequest {
+    formulas?: outputs.DashboardWidgetGeomapDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGeomapDefinitionRequestLogQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGeomapDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGeomapDefinitionRequestRumQuery;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQuery {
@@ -922,6 +935,62 @@ export interface DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute {
 
 export interface DashboardWidgetGeomapDefinitionRequestLogQuerySearch {
     query: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestRumQuery {
@@ -994,10 +1063,13 @@ export interface DashboardWidgetGeomapDefinitionView {
 }
 
 export interface DashboardWidgetGroupDefinition {
+    backgroundColor?: string;
+    bannerImg?: string;
     /**
      * The layout type of the dashboard, either 'free' or 'ordered'.
      */
     layoutType: string;
+    showTitle?: boolean;
     /**
      * The title of the dashboard.
      */
@@ -1814,9 +1886,22 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink 
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery {
@@ -1877,6 +1962,62 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQ
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuerySearch {
     query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery {
@@ -2805,16 +2946,22 @@ export interface DashboardWidgetGroupDefinitionWidgetIframeDefinition {
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetImageDefinition {
+    hasBackground?: boolean;
+    hasBorder?: boolean;
+    horizontalAlign?: string;
     margin?: string;
     sizing?: string;
     /**
      * The URL of the dashboard.
      */
     url: string;
+    urlDarkTheme?: string;
+    verticalAlign?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetLayout {
     height: number;
+    isColumnBreak?: boolean;
     width: number;
     x: number;
     y: number;
@@ -2882,10 +3029,12 @@ export interface DashboardWidgetGroupDefinitionWidgetNoteDefinition {
     backgroundColor?: string;
     content: string;
     fontSize?: string;
+    hasPadding?: boolean;
     showTick?: boolean;
     textAlign?: string;
     tickEdge?: string;
     tickPos?: string;
+    verticalAlign?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinition {
@@ -3235,9 +3384,11 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery;
 }
@@ -3314,6 +3465,17 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     value: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery {
     /**
      * @deprecated Define `compute_query` list with one element instead.
@@ -3379,6 +3541,62 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery {
@@ -4585,9 +4803,11 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery;
     style?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle;
@@ -4665,6 +4885,17 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestCon
     value: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery {
     /**
      * @deprecated Define `compute_query` list with one element instead.
@@ -4730,6 +4961,62 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestPro
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery {
@@ -4891,6 +5178,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime 
 
 export interface DashboardWidgetGroupDefinitionWidgetWidgetLayout {
     height: number;
+    isColumnBreak?: boolean;
     width: number;
     x: number;
     y: number;
@@ -5753,16 +6041,22 @@ export interface DashboardWidgetIframeDefinition {
 }
 
 export interface DashboardWidgetImageDefinition {
+    hasBackground?: boolean;
+    hasBorder?: boolean;
+    horizontalAlign?: string;
     margin?: string;
     sizing?: string;
     /**
      * The URL of the dashboard.
      */
     url: string;
+    urlDarkTheme?: string;
+    verticalAlign?: string;
 }
 
 export interface DashboardWidgetLayout {
     height: number;
+    isColumnBreak?: boolean;
     width: number;
     x: number;
     y: number;
@@ -5830,10 +6124,12 @@ export interface DashboardWidgetNoteDefinition {
     backgroundColor?: string;
     content: string;
     fontSize?: string;
+    hasPadding?: boolean;
     showTick?: boolean;
     textAlign?: string;
     tickEdge?: string;
     tickPos?: string;
+    verticalAlign?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinition {
@@ -6183,9 +6479,11 @@ export interface DashboardWidgetQueryValueDefinitionRequest {
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetQueryValueDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetQueryValueDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuery;
 }
@@ -6262,6 +6560,17 @@ export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
     value: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestLogQuery {
     /**
      * @deprecated Define `compute_query` list with one element instead.
@@ -6327,6 +6636,62 @@ export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestRumQuery {
@@ -7533,9 +7898,11 @@ export interface DashboardWidgetToplistDefinitionCustomLink {
 export interface DashboardWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQuery;
     conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetToplistDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQuery;
     processQuery?: outputs.DashboardWidgetToplistDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetToplistDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetToplistDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetToplistDefinitionRequestSecurityQuery;
     style?: outputs.DashboardWidgetToplistDefinitionRequestStyle;
@@ -7613,6 +7980,17 @@ export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
     value: number;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestFormula {
+    alias?: string;
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetToplistDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestLogQuery {
     /**
      * @deprecated Define `compute_query` list with one element instead.
@@ -7678,6 +8056,62 @@ export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestRumQuery {
@@ -7839,6 +8273,7 @@ export interface DashboardWidgetTraceServiceDefinitionTime {
 
 export interface DashboardWidgetWidgetLayout {
     height: number;
+    isColumnBreak?: boolean;
     width: number;
     x: number;
     y: number;
@@ -7899,6 +8334,15 @@ export interface GetMonitorThresholds {
     warningRecovery: number;
 }
 
+export interface GetMonitorsMonitor {
+    /**
+     * The ID of this resource.
+     */
+    id: number;
+    name: string;
+    type: string;
+}
+
 export interface GetSecurityMonitoringRulesRule {
     /**
      * Cases for generating signals.
@@ -7950,6 +8394,15 @@ export interface GetSecurityMonitoringRulesRuleQuery {
     metric?: string;
     name?: string;
     query: string;
+}
+
+export interface GetServiceLevelObjectivesSlo {
+    /**
+     * The ID of this resource.
+     */
+    id: string;
+    name: string;
+    type: string;
 }
 
 export interface LogsArchiveAzure {
@@ -8491,7 +8944,7 @@ export interface MonitorMonitorThresholdWindows {
 
 export interface MonitorMonitorThresholds {
     /**
-     * The monitor `CRITICAL` recovery threshold. Must be a number.
+     * The monitor `CRITICAL` threshold. Must be a number.
      */
     critical?: string;
     /**
@@ -8876,6 +9329,10 @@ export interface SyntheticsGlobalVariableParseTestOptionsParser {
 
 export interface SyntheticsTestApiStep {
     /**
+     * Determines whether or not to continue with test if this step fails.
+     */
+    allowFailure?: boolean;
+    /**
      * Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
      */
     assertions?: outputs.SyntheticsTestApiStepAssertion[];
@@ -8883,6 +9340,10 @@ export interface SyntheticsTestApiStep {
      * Values to parse and save as variables from the response.
      */
     extractedValues?: outputs.SyntheticsTestApiStepExtractedValue[];
+    /**
+     * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+     */
+    isCritical?: boolean;
     /**
      * The name of the step.
      */
@@ -8999,6 +9460,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     dnsServer?: string;
     /**
+     * DNS server port to use for DNS tests.
+     */
+    dnsServerPort?: number;
+    /**
      * Host name to perform the test with.
      */
     host?: string;
@@ -9011,9 +9476,17 @@ export interface SyntheticsTestApiStepRequestDefinition {
      */
     noSavingResponseBody?: boolean;
     /**
+     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+     */
+    numberOfPackets?: number;
+    /**
      * Port to use when performing the test.
      */
     port?: number;
+    /**
+     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+     */
+    shouldTrackHops?: boolean;
     /**
      * Timeout in seconds for the test. Defaults to `60`.
      */
@@ -9187,10 +9660,13 @@ export interface SyntheticsTestOptionsListRetry {
 export interface SyntheticsTestRequest {
     body?: string;
     dnsServer?: string;
+    dnsServerPort?: number;
     host?: string;
     method?: string;
     noSavingResponseBody?: boolean;
+    numberOfPackets?: number;
     port?: number;
+    shouldTrackHops?: boolean;
     timeout?: number;
     url?: string;
 }
@@ -9231,6 +9707,10 @@ export interface SyntheticsTestRequestDefinition {
      */
     dnsServer?: string;
     /**
+     * DNS server port to use for DNS tests.
+     */
+    dnsServerPort?: number;
+    /**
      * Host name to perform the test with.
      */
     host?: string;
@@ -9243,9 +9723,17 @@ export interface SyntheticsTestRequestDefinition {
      */
     noSavingResponseBody?: boolean;
     /**
+     * Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+     */
+    numberOfPackets?: number;
+    /**
      * Port to use when performing the test.
      */
     port?: number;
+    /**
+     * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+     */
+    shouldTrackHops?: boolean;
     /**
      * Timeout in seconds for the test. Defaults to `60`.
      */

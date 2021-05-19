@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? DnsServer;
         /// <summary>
+        /// DNS server port to use for DNS tests.
+        /// </summary>
+        public readonly int? DnsServerPort;
+        /// <summary>
         /// Host name to perform the test with.
         /// </summary>
         public readonly string? Host;
@@ -34,9 +38,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? NoSavingResponseBody;
         /// <summary>
+        /// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+        /// </summary>
+        public readonly int? NumberOfPackets;
+        /// <summary>
         /// Port to use when performing the test.
         /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+        /// </summary>
+        public readonly bool? ShouldTrackHops;
         /// <summary>
         /// Timeout in seconds for the test. Defaults to `60`.
         /// </summary>
@@ -52,13 +64,19 @@ namespace Pulumi.Datadog.Outputs
 
             string? dnsServer,
 
+            int? dnsServerPort,
+
             string? host,
 
             string? method,
 
             bool? noSavingResponseBody,
 
+            int? numberOfPackets,
+
             int? port,
+
+            bool? shouldTrackHops,
 
             int? timeout,
 
@@ -66,10 +84,13 @@ namespace Pulumi.Datadog.Outputs
         {
             Body = body;
             DnsServer = dnsServer;
+            DnsServerPort = dnsServerPort;
             Host = host;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;
+            NumberOfPackets = numberOfPackets;
             Port = port;
+            ShouldTrackHops = shouldTrackHops;
             Timeout = timeout;
             Url = url;
         }

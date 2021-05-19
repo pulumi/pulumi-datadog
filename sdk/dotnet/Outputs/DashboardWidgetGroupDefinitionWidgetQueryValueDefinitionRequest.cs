@@ -16,9 +16,11 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Aggregator;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery? ApmQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat> ConditionalFormats;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery? LogQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery? SecurityQuery;
 
@@ -30,11 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats,
 
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula> formulas,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery? logQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery> queries,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery? rumQuery,
 
@@ -43,9 +49,11 @@ namespace Pulumi.Datadog.Outputs
             Aggregator = aggregator;
             ApmQuery = apmQuery;
             ConditionalFormats = conditionalFormats;
+            Formulas = formulas;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
         }

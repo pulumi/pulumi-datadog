@@ -22,6 +22,7 @@ class DashboardArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -34,6 +35,7 @@ class DashboardArgs:
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] url: The URL of the dashboard.
@@ -49,6 +51,8 @@ class DashboardArgs:
             pulumi.set(__self__, "is_read_only", is_read_only)
         if notify_lists is not None:
             pulumi.set(__self__, "notify_lists", notify_lists)
+        if reflow_type is not None:
+            pulumi.set(__self__, "reflow_type", reflow_type)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -141,6 +145,18 @@ class DashboardArgs:
         pulumi.set(self, "notify_lists", value)
 
     @property
+    @pulumi.getter(name="reflowType")
+    def reflow_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        """
+        return pulumi.get(self, "reflow_type")
+
+    @reflow_type.setter
+    def reflow_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reflow_type", value)
+
+    @property
     @pulumi.getter(name="templateVariablePresets")
     def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
         """
@@ -186,6 +202,7 @@ class _DashboardState:
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -199,6 +216,7 @@ class _DashboardState:
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -217,6 +235,8 @@ class _DashboardState:
             pulumi.set(__self__, "layout_type", layout_type)
         if notify_lists is not None:
             pulumi.set(__self__, "notify_lists", notify_lists)
+        if reflow_type is not None:
+            pulumi.set(__self__, "reflow_type", reflow_type)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -301,6 +321,18 @@ class _DashboardState:
         pulumi.set(self, "notify_lists", value)
 
     @property
+    @pulumi.getter(name="reflowType")
+    def reflow_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        """
+        return pulumi.get(self, "reflow_type")
+
+    @reflow_type.setter
+    def reflow_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reflow_type", value)
+
+    @property
     @pulumi.getter(name="templateVariablePresets")
     def template_variable_presets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]]:
         """
@@ -371,6 +403,7 @@ class Dashboard(pulumi.CustomResource):
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -1066,6 +1099,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -1780,6 +1814,7 @@ class Dashboard(pulumi.CustomResource):
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 reflow_type: Optional[pulumi.Input[str]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -1804,6 +1839,7 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'layout_type'")
             __props__.__dict__["layout_type"] = layout_type
             __props__.__dict__["notify_lists"] = notify_lists
+            __props__.__dict__["reflow_type"] = reflow_type
             __props__.__dict__["template_variable_presets"] = template_variable_presets
             __props__.__dict__["template_variables"] = template_variables
             if title is None and not opts.urn:
@@ -1830,6 +1866,7 @@ class Dashboard(pulumi.CustomResource):
             is_read_only: Optional[pulumi.Input[bool]] = None,
             layout_type: Optional[pulumi.Input[str]] = None,
             notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            reflow_type: Optional[pulumi.Input[str]] = None,
             template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
             template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
             title: Optional[pulumi.Input[str]] = None,
@@ -1848,6 +1885,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -1864,6 +1902,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["is_read_only"] = is_read_only
         __props__.__dict__["layout_type"] = layout_type
         __props__.__dict__["notify_lists"] = notify_lists
+        __props__.__dict__["reflow_type"] = reflow_type
         __props__.__dict__["template_variable_presets"] = template_variable_presets
         __props__.__dict__["template_variables"] = template_variables
         __props__.__dict__["title"] = title
@@ -1918,6 +1957,14 @@ class Dashboard(pulumi.CustomResource):
         The list of handles of users to notify when changes are made to this dashboard.
         """
         return pulumi.get(self, "notify_lists")
+
+    @property
+    @pulumi.getter(name="reflowType")
+    def reflow_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        """
+        return pulumi.get(self, "reflow_type")
 
     @property
     @pulumi.getter(name="templateVariablePresets")

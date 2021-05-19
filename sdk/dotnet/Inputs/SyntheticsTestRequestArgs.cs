@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("dnsServer")]
         public Input<string>? DnsServer { get; set; }
 
+        [Input("dnsServerPort")]
+        public Input<int>? DnsServerPort { get; set; }
+
         [Input("host")]
         public Input<string>? Host { get; set; }
 
@@ -27,8 +30,14 @@ namespace Pulumi.Datadog.Inputs
         [Input("noSavingResponseBody")]
         public Input<bool>? NoSavingResponseBody { get; set; }
 
+        [Input("numberOfPackets")]
+        public Input<int>? NumberOfPackets { get; set; }
+
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        [Input("shouldTrackHops")]
+        public Input<bool>? ShouldTrackHops { get; set; }
 
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }

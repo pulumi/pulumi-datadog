@@ -26,6 +26,16 @@ namespace Pulumi.Datadog
         public static string? AppKey { get; set; } = __config.Get("appKey");
 
         /// <summary>
+        /// Enables request retries on HTTP status codes 429 and 5xx.
+        /// </summary>
+        public static bool? HttpClientRetryEnabled { get; set; } = __config.GetBoolean("httpClientRetryEnabled");
+
+        /// <summary>
+        /// The HTTP request retry timeout period.
+        /// </summary>
+        public static int? HttpClientRetryTimeout { get; set; } = __config.GetInt32("httpClientRetryTimeout");
+
+        /// <summary>
         /// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
         /// and app_key won't be checked.
         /// </summary>

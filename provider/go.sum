@@ -114,10 +114,14 @@ github.com/DataDog/datadog-api-client-go v1.0.0-beta.13.0.20210115171905-69e9326
 github.com/DataDog/datadog-api-client-go v1.0.0-beta.13.0.20210115171905-69e9326f02b2/go.mod h1:/bMeu+q33QzX2JuO5PkGkhU1VYOXIXKEPF6Ck4yR06M=
 github.com/DataDog/datadog-api-client-go v1.0.0-beta.19 h1:52bfztfrmgfh/cxd8hiOK20jwEVLuW6u+rddRJCjy6Q=
 github.com/DataDog/datadog-api-client-go v1.0.0-beta.19/go.mod h1:U9QIYrzfpRCgFkRMrOxX0XRajF6PFRUzcQ1fEvxmiH0=
+github.com/DataDog/datadog-api-client-go v1.0.0-beta.22 h1:+hDQTPbgLuaiFzCG+Mq7l//kAfLLLBV1H3LYjcXJOnQ=
+github.com/DataDog/datadog-api-client-go v1.0.0-beta.22/go.mod h1:tDLS5DpiVB5myIJMRHXx/pdAn8b5IPeI38HrZruQCOE=
 github.com/DataDog/datadog-go v3.6.0+incompatible h1:ILg7c5Y1KvZFDOaVS0higGmJ5Fal5O1KQrkrT9j6dSM=
 github.com/DataDog/datadog-go v3.6.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/DataDog/datadog-go v4.4.0+incompatible h1:R7WqXWP4fIOAqWJtUKmSfuc7eDsBT58k9AY5WSHVosk=
 github.com/DataDog/datadog-go v4.4.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
+github.com/DataDog/gostackparse v0.5.0 h1:jb72P6GFHPHz2W0onsN51cS3FkaMDcjb0QzgxxA4gDk=
+github.com/DataDog/gostackparse v0.5.0/go.mod h1:lTfqcJKqS9KnXQGnyQMCugq3u1FP6UZMfWR0aitKFMM=
 github.com/GoogleCloudPlatform/cloudsql-proxy v1.19.1 h1:eAKkTWSG0jXkdQ6V2qO+ovXMLcSCcqDqCK+A8xeVYN0=
 github.com/GoogleCloudPlatform/cloudsql-proxy v1.19.1/go.mod h1:+yYmuKqcBVkgRePGpUhTA9OEg0XsnFE96eZ6nJ2yCQM=
 github.com/Masterminds/goutils v1.1.0 h1:zukEsf/1JZwCMgHiK3GZftabmxiCw4apj3a28RPBiVg=
@@ -296,6 +300,8 @@ github.com/go-bdd/gobdd v1.1.2-0.20200703080921-409b71954655 h1:hKQ7ba/nVgQ0sGq8
 github.com/go-bdd/gobdd v1.1.2-0.20200703080921-409b71954655/go.mod h1:Q3mXpW/Qm9GJCPLxFCTXdTtRBdHzcTfrbeLlaqAPtXM=
 github.com/go-bdd/gobdd v1.1.3-0.20210205100305-4910f932a786 h1:upeQpV8AFGWxWvlu2LpJojgvWOU2SyiG+XvYerMGaCw=
 github.com/go-bdd/gobdd v1.1.3-0.20210205100305-4910f932a786/go.mod h1:Q3mXpW/Qm9GJCPLxFCTXdTtRBdHzcTfrbeLlaqAPtXM=
+github.com/go-bdd/gobdd v1.1.3 h1:eirGvZ9gMz6clOo2k6O7+Ys3iHAaFZoRQXVwV76B3JI=
+github.com/go-bdd/gobdd v1.1.3/go.mod h1:Q3mXpW/Qm9GJCPLxFCTXdTtRBdHzcTfrbeLlaqAPtXM=
 github.com/go-git/gcfg v1.5.0 h1:Q5ViNfGF8zFgyJWPqYwA7qGFoMTEiBmdlkcfRmpIMa4=
 github.com/go-git/gcfg v1.5.0/go.mod h1:5m20vg6GwYabIxaOonVkTdrILxQMpEShl1xiMF4ua+E=
 github.com/go-git/go-billy/v5 v5.0.0 h1:7NQHvd9FVid8VL4qVUMm8XifBK+2xCoZ2lSk0agRrHM=
@@ -784,6 +790,8 @@ github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210121171829-8db8ba834ec
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210121171829-8db8ba834ec7/go.mod h1:J/9r/k2zYjCgC0iJAGr0AG4CDTjj7mqc0VQw5zqQbhc=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210507132416-6faed08600be h1:xHHQO39lNrORdyt0Ne6lPNQ25nyTNNqv5AhDc9mkwYs=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210507132416-6faed08600be/go.mod h1:BQEwxyU2v37Vi+9C/X4f1Zx6BWj5rhTHqa9883zVFLk=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210519083737-53eb552668ad h1:r5DQ62M3ljc/icF2qViOlM4pIF1mQabnl5R9xe9qDGY=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210519083737-53eb552668ad/go.mod h1:Jr479XiW08J9pOW5LLK1DlK6sZrh131K6W0iX/HX+vo=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=
@@ -1033,6 +1041,8 @@ golang.org/x/net v0.0.0-20201031054903-ff519b6c9102/go.mod h1:sp8m0HH+o8qH0wwXwY
 golang.org/x/net v0.0.0-20201110031124-69a78807bb2b/go.mod h1:sp8m0HH+o8qH0wwXwYZr8TS3Oi6o0r6Gce1SSxlDquU=
 golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb h1:eBmm0M9fYhWpKZLjQUUKka/LtIxf46G4fxeEz5KJr9U=
 golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb/go.mod h1:sp8m0HH+o8qH0wwXwYZr8TS3Oi6o0r6Gce1SSxlDquU=
+golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4 h1:4nGaVu0QrbjT/AK2PRLuQfQuh6DJve+pELhqTdAj3x0=
+golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4/go.mod h1:p54w0d4576C0XHj96bSt6lcn1PtDYWL6XObtHCRCNQM=
 golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be/go.mod h1:N/0e6XlmueqKjAGxoOufVs8QHGRruUQn6yWY3a++T0U=
 golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421/go.mod h1:gOpvHmFTYa4IltrdGE7lF6nIHvwfUNPOp7c8zoXwtLw=
 golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45/go.mod h1:gOpvHmFTYa4IltrdGE7lF6nIHvwfUNPOp7c8zoXwtLw=
@@ -1052,6 +1062,8 @@ golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a/go.mod h1:RxMgew5VJxzue5/jJ
 golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9 h1:SQFwaSi55rU7vdNs9Yr0Z324VNlrF+0wMqRXT4St8ck=
 golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+golang.org/x/sync v0.0.0-20210220032951-036812b2e83c h1:5KslGYwFpkhGh+Q16bwMP3cOontH8FOep7tGV86Y7SQ=
+golang.org/x/sync v0.0.0-20210220032951-036812b2e83c/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sys v0.0.0-20180823144017-11551d06cbcc/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20180830151530-49385e6e1522/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20180905080454-ebe1bf3edb33/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
@@ -1101,11 +1113,17 @@ golang.org/x/sys v0.0.0-20200803210538-64077c9b5642/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/sys v0.0.0-20200828194041-157a740278f4/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200905004654-be1d3432aa8f/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20200930185726-fdedc70b468f/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20201201145000-ef89a241ccb3/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20201202213521-69691e467435 h1:25AvDqqB9PrNqj1FLf2/70I4W0L19qqoaFq3gjNwbKk=
 golang.org/x/sys v0.0.0-20201202213521-69691e467435/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20210330210617-4fbd30eecc44/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20210510120138-977fb7262007 h1:gG67DSER+11cZvqIMb8S8bt0vZtiN6xWYARwirrOSfE=
+golang.org/x/sys v0.0.0-20210510120138-977fb7262007/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.0.0-20201117132131-f5c789dd3221 h1:/ZHdbVpdR/jk3g30/d4yUL0JU9kksj8+F/bnQUVLGDM=
 golang.org/x/term v0.0.0-20201117132131-f5c789dd3221/go.mod h1:Nr5EML6q2oocZ2LXRh80K7BxOlk5/8JxuGnuhpl+muw=
+golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1 h1:v+OssWQX+hTHEmOBgwxdZxK4zHq3yOs8F9J7mk0PY8E=
+golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
 golang.org/x/text v0.0.0-20170915032832-14c0d48ead0c/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
@@ -1302,6 +1320,8 @@ gopkg.in/DataDog/dd-trace-go.v1 v1.25.0 h1:mcZnsKGZZCiFqJpXedKUydNBavUWSu1ZO+35a
 gopkg.in/DataDog/dd-trace-go.v1 v1.25.0/go.mod h1:Sp1lku8WJMvNV0kjDI4Ni/T7J/U3BO5ct5kEaoVU8+I=
 gopkg.in/DataDog/dd-trace-go.v1 v1.29.0-rc.1.0.20210226170446-a8dc39ec3484 h1:gv8e5qO2QJPaYAcGrgu4jex1zo4IlxKxzmUSQ++sufQ=
 gopkg.in/DataDog/dd-trace-go.v1 v1.29.0-rc.1.0.20210226170446-a8dc39ec3484/go.mod h1:H9vSLD4Qlnl3rH2fUT6jyP9qwq1lDo0ikaDqSJo8t/U=
+gopkg.in/DataDog/dd-trace-go.v1 v1.30.0-rc.1.0.20210420124628-f63633f38e8f h1:LmMng8lsMr7BkXin76L6+LsUFr1GSnmySvO5LaR6rhc=
+gopkg.in/DataDog/dd-trace-go.v1 v1.30.0-rc.1.0.20210420124628-f63633f38e8f/go.mod h1:I3nUNop4UZaHSj2C2OBCHezmsQIHczbUps8nHgw/HXs=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6 h1:jMFz6MfLP0/4fUyZle81rXUoxOBFi19VUFKVDOQfozc=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6/go.mod h1:FMv+mEhP44yOT+4EoQTLFTRgOQ1FBLkstjWtayDeSgw=
 gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d h1:TxyelI5cVkbREznMhfzycHdkp5cLA7DpE+GKjSslYhM=

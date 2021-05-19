@@ -16,6 +16,8 @@ class ProviderArgs:
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
                  validate: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
@@ -24,6 +26,8 @@ class ProviderArgs:
                path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
                you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx.
+        :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.
         """
@@ -33,6 +37,10 @@ class ProviderArgs:
             pulumi.set(__self__, "api_url", api_url)
         if app_key is not None:
             pulumi.set(__self__, "app_key", app_key)
+        if http_client_retry_enabled is not None:
+            pulumi.set(__self__, "http_client_retry_enabled", http_client_retry_enabled)
+        if http_client_retry_timeout is not None:
+            pulumi.set(__self__, "http_client_retry_timeout", http_client_retry_timeout)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
 
@@ -75,6 +83,30 @@ class ProviderArgs:
         pulumi.set(self, "app_key", value)
 
     @property
+    @pulumi.getter(name="httpClientRetryEnabled")
+    def http_client_retry_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables request retries on HTTP status codes 429 and 5xx.
+        """
+        return pulumi.get(self, "http_client_retry_enabled")
+
+    @http_client_retry_enabled.setter
+    def http_client_retry_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http_client_retry_enabled", value)
+
+    @property
+    @pulumi.getter(name="httpClientRetryTimeout")
+    def http_client_retry_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The HTTP request retry timeout period.
+        """
+        return pulumi.get(self, "http_client_retry_timeout")
+
+    @http_client_retry_timeout.setter
+    def http_client_retry_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_client_retry_timeout", value)
+
+    @property
     @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -96,6 +128,8 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -111,6 +145,8 @@ class Provider(pulumi.ProviderResource):
                path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
                you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
         :param pulumi.Input[str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[bool] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx.
+        :param pulumi.Input[int] http_client_retry_timeout: The HTTP request retry timeout period.
         :param pulumi.Input[bool] validate: Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
                and app_key won't be checked.
         """
@@ -144,6 +180,8 @@ class Provider(pulumi.ProviderResource):
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_url: Optional[pulumi.Input[str]] = None,
                  app_key: Optional[pulumi.Input[str]] = None,
+                 http_client_retry_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_client_retry_timeout: Optional[pulumi.Input[int]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -160,6 +198,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["api_key"] = api_key
             __props__.__dict__["api_url"] = api_url
             __props__.__dict__["app_key"] = app_key
+            __props__.__dict__["http_client_retry_enabled"] = pulumi.Output.from_input(http_client_retry_enabled).apply(pulumi.runtime.to_json) if http_client_retry_enabled is not None else None
+            __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
             __props__.__dict__["validate"] = pulumi.Output.from_input(validate).apply(pulumi.runtime.to_json) if validate is not None else None
         super(Provider, __self__).__init__(
             'datadog',

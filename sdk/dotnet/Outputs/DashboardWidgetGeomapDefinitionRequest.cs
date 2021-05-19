@@ -13,20 +13,28 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGeomapDefinitionRequest
     {
+        public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestLogQuery? LogQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestRumQuery? RumQuery;
 
         [OutputConstructor]
         private DashboardWidgetGeomapDefinitionRequest(
+            ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestFormula> formulas,
+
             Outputs.DashboardWidgetGeomapDefinitionRequestLogQuery? logQuery,
 
             string? q,
 
+            ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestQuery> queries,
+
             Outputs.DashboardWidgetGeomapDefinitionRequestRumQuery? rumQuery)
         {
+            Formulas = formulas;
             LogQuery = logQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
         }
     }

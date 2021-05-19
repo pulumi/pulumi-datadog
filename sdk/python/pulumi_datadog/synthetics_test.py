@@ -34,6 +34,7 @@ class SyntheticsTestArgs:
                  request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 set_cookie: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]]] = None,
                  subtype: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -58,8 +59,9 @@ class SyntheticsTestArgs:
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: The synthetics test request. Required if `type = "api"`.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]] steps: Steps for browser tests. **Deprecated.** Define `browser_step` blocks instead.
-        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestVariableArgs']]] variables: Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
         """
@@ -106,6 +108,8 @@ class SyntheticsTestArgs:
             pulumi.set(__self__, "request_headers", request_headers)
         if request_query is not None:
             pulumi.set(__self__, "request_query", request_query)
+        if set_cookie is not None:
+            pulumi.set(__self__, "set_cookie", set_cookie)
         if steps is not None:
             warnings.warn("""Define `browser_step` blocks instead.""", DeprecationWarning)
             pulumi.log.warn("""steps is deprecated: Define `browser_step` blocks instead.""")
@@ -347,6 +351,18 @@ class SyntheticsTestArgs:
         pulumi.set(self, "request_query", value)
 
     @property
+    @pulumi.getter(name="setCookie")
+    def set_cookie(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        """
+        return pulumi.get(self, "set_cookie")
+
+    @set_cookie.setter
+    def set_cookie(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "set_cookie", value)
+
+    @property
     @pulumi.getter
     def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]]]:
         """
@@ -362,7 +378,7 @@ class SyntheticsTestArgs:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -416,6 +432,7 @@ class _SyntheticsTestState:
                  request_definition: Optional[pulumi.Input['SyntheticsTestRequestDefinitionArgs']] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 set_cookie: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]]] = None,
                  subtype: Optional[pulumi.Input[str]] = None,
@@ -441,9 +458,10 @@ class _SyntheticsTestState:
         :param pulumi.Input['SyntheticsTestRequestDefinitionArgs'] request_definition: The synthetics test request. Required if `type = "api"`.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestStepArgs']]] steps: Steps for browser tests. **Deprecated.** Define `browser_step` blocks instead.
-        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Synthetics test type (`api` or `browser`).
         :param pulumi.Input[Sequence[pulumi.Input['SyntheticsTestVariableArgs']]] variables: Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
@@ -493,6 +511,8 @@ class _SyntheticsTestState:
             pulumi.set(__self__, "request_headers", request_headers)
         if request_query is not None:
             pulumi.set(__self__, "request_query", request_query)
+        if set_cookie is not None:
+            pulumi.set(__self__, "set_cookie", set_cookie)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if steps is not None:
@@ -726,6 +746,18 @@ class _SyntheticsTestState:
         pulumi.set(self, "request_query", value)
 
     @property
+    @pulumi.getter(name="setCookie")
+    def set_cookie(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        """
+        return pulumi.get(self, "set_cookie")
+
+    @set_cookie.setter
+    def set_cookie(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "set_cookie", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -753,7 +785,7 @@ class _SyntheticsTestState:
     @pulumi.getter
     def subtype(self) -> Optional[pulumi.Input[str]]:
         """
-        When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -820,6 +852,7 @@ class SyntheticsTest(pulumi.CustomResource):
                  request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 set_cookie: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
                  subtype: Optional[pulumi.Input[str]] = None,
@@ -1026,9 +1059,10 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: The synthetics test request. Required if `type = "api"`.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]] steps: Steps for browser tests. **Deprecated.** Define `browser_step` blocks instead.
-        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Synthetics test type (`api` or `browser`).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestVariableArgs']]]] variables: Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
@@ -1252,6 +1286,7 @@ class SyntheticsTest(pulumi.CustomResource):
                  request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
                  request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 set_cookie: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
                  subtype: Optional[pulumi.Input[str]] = None,
@@ -1300,6 +1335,7 @@ class SyntheticsTest(pulumi.CustomResource):
             __props__.__dict__["request_definition"] = request_definition
             __props__.__dict__["request_headers"] = request_headers
             __props__.__dict__["request_query"] = request_query
+            __props__.__dict__["set_cookie"] = set_cookie
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
@@ -1345,6 +1381,7 @@ class SyntheticsTest(pulumi.CustomResource):
             request_definition: Optional[pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']]] = None,
             request_headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             request_query: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            set_cookie: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]]] = None,
             subtype: Optional[pulumi.Input[str]] = None,
@@ -1375,9 +1412,10 @@ class SyntheticsTest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SyntheticsTestRequestDefinitionArgs']] request_definition: The synthetics test request. Required if `type = "api"`.
         :param pulumi.Input[Mapping[str, Any]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, Any]] request_query: Query arguments name and value map.
+        :param pulumi.Input[str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestStepArgs']]]] steps: Steps for browser tests. **Deprecated.** Define `browser_step` blocks instead.
-        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        :param pulumi.Input[str] subtype: When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
         :param pulumi.Input[str] type: Synthetics test type (`api` or `browser`).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SyntheticsTestVariableArgs']]]] variables: Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
@@ -1404,6 +1442,7 @@ class SyntheticsTest(pulumi.CustomResource):
         __props__.__dict__["request_definition"] = request_definition
         __props__.__dict__["request_headers"] = request_headers
         __props__.__dict__["request_query"] = request_query
+        __props__.__dict__["set_cookie"] = set_cookie
         __props__.__dict__["status"] = status
         __props__.__dict__["steps"] = steps
         __props__.__dict__["subtype"] = subtype
@@ -1554,6 +1593,14 @@ class SyntheticsTest(pulumi.CustomResource):
         return pulumi.get(self, "request_query")
 
     @property
+    @pulumi.getter(name="setCookie")
+    def set_cookie(self) -> pulumi.Output[Optional[str]]:
+        """
+        Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+        """
+        return pulumi.get(self, "set_cookie")
+
+    @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
@@ -1573,7 +1620,7 @@ class SyntheticsTest(pulumi.CustomResource):
     @pulumi.getter
     def subtype(self) -> pulumi.Output[Optional[str]]:
         """
-        When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+        When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
         """
         return pulumi.get(self, "subtype")
 

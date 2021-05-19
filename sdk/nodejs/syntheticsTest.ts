@@ -294,6 +294,10 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly requestQuery!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     */
+    public readonly setCookie!: pulumi.Output<string | undefined>;
+    /**
      * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
      */
     public readonly status!: pulumi.Output<string>;
@@ -304,7 +308,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly steps!: pulumi.Output<outputs.SyntheticsTestStep[] | undefined>;
     /**
-     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
      */
     public readonly subtype!: pulumi.Output<string | undefined>;
     /**
@@ -353,6 +357,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["requestDefinition"] = state ? state.requestDefinition : undefined;
             inputs["requestHeaders"] = state ? state.requestHeaders : undefined;
             inputs["requestQuery"] = state ? state.requestQuery : undefined;
+            inputs["setCookie"] = state ? state.setCookie : undefined;
             inputs["status"] = state ? state.status : undefined;
             inputs["steps"] = state ? state.steps : undefined;
             inputs["subtype"] = state ? state.subtype : undefined;
@@ -390,6 +395,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
             inputs["requestDefinition"] = args ? args.requestDefinition : undefined;
             inputs["requestHeaders"] = args ? args.requestHeaders : undefined;
             inputs["requestQuery"] = args ? args.requestQuery : undefined;
+            inputs["setCookie"] = args ? args.setCookie : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["steps"] = args ? args.steps : undefined;
             inputs["subtype"] = args ? args.subtype : undefined;
@@ -485,6 +491,10 @@ export interface SyntheticsTestState {
      */
     readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
     /**
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     */
+    readonly setCookie?: pulumi.Input<string>;
+    /**
      * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
      */
     readonly status?: pulumi.Input<string>;
@@ -495,7 +505,7 @@ export interface SyntheticsTestState {
      */
     readonly steps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestStep>[]>;
     /**
-     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
      */
     readonly subtype?: pulumi.Input<string>;
     /**
@@ -590,6 +600,10 @@ export interface SyntheticsTestArgs {
      */
     readonly requestQuery?: pulumi.Input<{[key: string]: any}>;
     /**
+     * Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+     */
+    readonly setCookie?: pulumi.Input<string>;
+    /**
      * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
      */
     readonly status: pulumi.Input<string>;
@@ -600,7 +614,7 @@ export interface SyntheticsTestArgs {
      */
     readonly steps?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestStep>[]>;
     /**
-     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+     * When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
      */
     readonly subtype?: pulumi.Input<string>;
     /**

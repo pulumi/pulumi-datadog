@@ -42,6 +42,10 @@ type providerArgs struct {
 	ApiUrl *string `pulumi:"apiUrl"`
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey *string `pulumi:"appKey"`
+	// Enables request retries on HTTP status codes 429 and 5xx.
+	HttpClientRetryEnabled *bool `pulumi:"httpClientRetryEnabled"`
+	// The HTTP request retry timeout period.
+	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
 	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
 	// and app_key won't be checked.
 	Validate *bool `pulumi:"validate"`
@@ -57,6 +61,10 @@ type ProviderArgs struct {
 	ApiUrl pulumi.StringPtrInput
 	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
 	AppKey pulumi.StringPtrInput
+	// Enables request retries on HTTP status codes 429 and 5xx.
+	HttpClientRetryEnabled pulumi.BoolPtrInput
+	// The HTTP request retry timeout period.
+	HttpClientRetryTimeout pulumi.IntPtrInput
 	// Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
 	// and app_key won't be checked.
 	Validate pulumi.BoolPtrInput

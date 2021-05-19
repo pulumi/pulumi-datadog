@@ -25,6 +25,16 @@ func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
 }
 
+// Enables request retries on HTTP status codes 429 and 5xx.
+func GetHttpClientRetryEnabled(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "datadog:httpClientRetryEnabled")
+}
+
+// The HTTP request retry timeout period.
+func GetHttpClientRetryTimeout(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "datadog:httpClientRetryTimeout")
+}
+
 // Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
 // and app_key won't be checked.
 func GetValidate(ctx *pulumi.Context) bool {

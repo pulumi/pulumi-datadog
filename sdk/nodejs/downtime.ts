@@ -64,11 +64,11 @@ export class Downtime extends pulumi.CustomResource {
     /**
      * When true indicates this downtime is being actively applied
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly active!: pulumi.Output<boolean>;
     /**
      * When true indicates this downtime is not being applied
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly disabled!: pulumi.Output<boolean>;
     /**
      * Optionally specify an end date when this downtime should expire
      */
@@ -140,8 +140,6 @@ export class Downtime extends pulumi.CustomResource {
             if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["disabled"] = args ? args.disabled : undefined;
             inputs["end"] = args ? args.end : undefined;
             inputs["endDate"] = args ? args.endDate : undefined;
             inputs["message"] = args ? args.message : undefined;
@@ -152,6 +150,8 @@ export class Downtime extends pulumi.CustomResource {
             inputs["start"] = args ? args.start : undefined;
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
+            inputs["active"] = undefined /*out*/;
+            inputs["disabled"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -218,14 +218,6 @@ export interface DowntimeState {
  * The set of arguments for constructing a Downtime resource.
  */
 export interface DowntimeArgs {
-    /**
-     * When true indicates this downtime is being actively applied
-     */
-    readonly active?: pulumi.Input<boolean>;
-    /**
-     * When true indicates this downtime is not being applied
-     */
-    readonly disabled?: pulumi.Input<boolean>;
     /**
      * Optionally specify an end date when this downtime should expire
      */

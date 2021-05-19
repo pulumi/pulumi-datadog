@@ -742,6 +742,10 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly notifyLists!: pulumi.Output<string[] | undefined>;
     /**
+     * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+     */
+    public readonly reflowType!: pulumi.Output<string | undefined>;
+    /**
      * The list of selectable template variable presets for this dashboard.
      */
     public readonly templateVariablePresets!: pulumi.Output<outputs.DashboardTemplateVariablePreset[] | undefined>;
@@ -781,6 +785,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["isReadOnly"] = state ? state.isReadOnly : undefined;
             inputs["layoutType"] = state ? state.layoutType : undefined;
             inputs["notifyLists"] = state ? state.notifyLists : undefined;
+            inputs["reflowType"] = state ? state.reflowType : undefined;
             inputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
             inputs["templateVariables"] = state ? state.templateVariables : undefined;
             inputs["title"] = state ? state.title : undefined;
@@ -802,6 +807,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["isReadOnly"] = args ? args.isReadOnly : undefined;
             inputs["layoutType"] = args ? args.layoutType : undefined;
             inputs["notifyLists"] = args ? args.notifyLists : undefined;
+            inputs["reflowType"] = args ? args.reflowType : undefined;
             inputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
             inputs["templateVariables"] = args ? args.templateVariables : undefined;
             inputs["title"] = args ? args.title : undefined;
@@ -844,6 +850,10 @@ export interface DashboardState {
      * The list of handles of users to notify when changes are made to this dashboard.
      */
     readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+     */
+    readonly reflowType?: pulumi.Input<string>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
@@ -890,6 +900,10 @@ export interface DashboardArgs {
      * The list of handles of users to notify when changes are made to this dashboard.
      */
     readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+     */
+    readonly reflowType?: pulumi.Input<string>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */

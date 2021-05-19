@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? DnsServer { get; set; }
 
         /// <summary>
+        /// DNS server port to use for DNS tests.
+        /// </summary>
+        [Input("dnsServerPort")]
+        public Input<int>? DnsServerPort { get; set; }
+
+        /// <summary>
         /// Host name to perform the test with.
         /// </summary>
         [Input("host")]
@@ -43,10 +49,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? NoSavingResponseBody { get; set; }
 
         /// <summary>
+        /// Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
+        /// </summary>
+        [Input("numberOfPackets")]
+        public Input<int>? NumberOfPackets { get; set; }
+
+        /// <summary>
         /// Port to use when performing the test.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
+        /// </summary>
+        [Input("shouldTrackHops")]
+        public Input<bool>? ShouldTrackHops { get; set; }
 
         /// <summary>
         /// Timeout in seconds for the test. Defaults to `60`.

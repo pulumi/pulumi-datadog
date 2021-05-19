@@ -983,6 +983,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> NotifyLists { get; private set; } = null!;
 
         /// <summary>
+        /// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        /// </summary>
+        [Output("reflowType")]
+        public Output<string?> ReflowType { get; private set; } = null!;
+
+        /// <summary>
         /// The list of selectable template variable presets for this dashboard.
         /// </summary>
         [Output("templateVariablePresets")]
@@ -1100,6 +1106,12 @@ namespace Pulumi.Datadog
             set => _notifyLists = value;
         }
 
+        /// <summary>
+        /// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        /// </summary>
+        [Input("reflowType")]
+        public Input<string>? ReflowType { get; set; }
+
         [Input("templateVariablePresets")]
         private InputList<Inputs.DashboardTemplateVariablePresetArgs>? _templateVariablePresets;
 
@@ -1208,6 +1220,12 @@ namespace Pulumi.Datadog
             get => _notifyLists ?? (_notifyLists = new InputList<string>());
             set => _notifyLists = value;
         }
+
+        /// <summary>
+        /// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        /// </summary>
+        [Input("reflowType")]
+        public Input<string>? ReflowType { get; set; }
 
         [Input("templateVariablePresets")]
         private InputList<Inputs.DashboardTemplateVariablePresetGetArgs>? _templateVariablePresets;

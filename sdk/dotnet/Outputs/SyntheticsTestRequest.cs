@@ -15,10 +15,13 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? Body;
         public readonly string? DnsServer;
+        public readonly int? DnsServerPort;
         public readonly string? Host;
         public readonly string? Method;
         public readonly bool? NoSavingResponseBody;
+        public readonly int? NumberOfPackets;
         public readonly int? Port;
+        public readonly bool? ShouldTrackHops;
         public readonly int? Timeout;
         public readonly string? Url;
 
@@ -28,13 +31,19 @@ namespace Pulumi.Datadog.Outputs
 
             string? dnsServer,
 
+            int? dnsServerPort,
+
             string? host,
 
             string? method,
 
             bool? noSavingResponseBody,
 
+            int? numberOfPackets,
+
             int? port,
+
+            bool? shouldTrackHops,
 
             int? timeout,
 
@@ -42,10 +51,13 @@ namespace Pulumi.Datadog.Outputs
         {
             Body = body;
             DnsServer = dnsServer;
+            DnsServerPort = dnsServerPort;
             Host = host;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;
+            NumberOfPackets = numberOfPackets;
             Port = port;
+            ShouldTrackHops = shouldTrackHops;
             Timeout = timeout;
             Url = url;
         }

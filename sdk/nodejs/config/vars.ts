@@ -21,6 +21,14 @@ export let apiUrl: string | undefined = __config.get("apiUrl");
  */
 export let appKey: string | undefined = __config.get("appKey");
 /**
+ * Enables request retries on HTTP status codes 429 and 5xx.
+ */
+export let httpClientRetryEnabled: boolean | undefined = __config.getObject<boolean>("httpClientRetryEnabled");
+/**
+ * The HTTP request retry timeout period.
+ */
+export let httpClientRetryTimeout: number | undefined = __config.getObject<number>("httpClientRetryTimeout");
+/**
  * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
  * and app_key won't be checked.
  */
