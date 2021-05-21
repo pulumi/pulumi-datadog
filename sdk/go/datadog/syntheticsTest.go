@@ -64,13 +64,15 @@ type SyntheticsTest struct {
 	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapOutput `pulumi:"requestQuery"`
+	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+	SetCookie pulumi.StringPtrOutput `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
 	//
 	// Deprecated: Define `browser_step` blocks instead.
 	Steps SyntheticsTestStepArrayOutput `pulumi:"steps"`
-	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
 	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -164,13 +166,15 @@ type syntheticsTestState struct {
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
 	// Query arguments name and value map.
 	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
+	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
 	Status *string `pulumi:"status"`
 	// Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
 	//
 	// Deprecated: Define `browser_step` blocks instead.
 	Steps []SyntheticsTestStep `pulumi:"steps"`
-	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
@@ -224,13 +228,15 @@ type SyntheticsTestState struct {
 	RequestHeaders pulumi.MapInput
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapInput
+	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
 	Status pulumi.StringPtrInput
 	// Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
 	//
 	// Deprecated: Define `browser_step` blocks instead.
 	Steps SyntheticsTestStepArrayInput
-	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput
@@ -286,13 +292,15 @@ type syntheticsTestArgs struct {
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
 	// Query arguments name and value map.
 	RequestQuery map[string]interface{} `pulumi:"requestQuery"`
+	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+	SetCookie *string `pulumi:"setCookie"`
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
 	Status string `pulumi:"status"`
 	// Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
 	//
 	// Deprecated: Define `browser_step` blocks instead.
 	Steps []SyntheticsTestStep `pulumi:"steps"`
-	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
 	Subtype *string `pulumi:"subtype"`
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags []string `pulumi:"tags"`
@@ -345,13 +353,15 @@ type SyntheticsTestArgs struct {
 	RequestHeaders pulumi.MapInput
 	// Query arguments name and value map.
 	RequestQuery pulumi.MapInput
+	// Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+	SetCookie pulumi.StringPtrInput
 	// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
 	Status pulumi.StringInput
 	// Steps for browser tests. **Deprecated.** Define `browserStep` blocks instead.
 	//
 	// Deprecated: Define `browser_step` blocks instead.
 	Steps SyntheticsTestStepArrayInput
-	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.
+	// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
 	Subtype pulumi.StringPtrInput
 	// A list of tags to associate with your synthetics test. This can help you categorize and filter tests in the manage synthetics page of the UI. Default is an empty list (`[]`).
 	Tags pulumi.StringArrayInput

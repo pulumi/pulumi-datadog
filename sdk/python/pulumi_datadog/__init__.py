@@ -11,9 +11,12 @@ from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_ip_ranges import *
 from .get_monitor import *
+from .get_monitors import *
 from .get_permissions import *
 from .get_role import *
 from .get_security_monitoring_rules import *
+from .get_service_level_objective import *
+from .get_service_level_objectives import *
 from .get_synthetics_locations import *
 from .logs_archive import *
 from .logs_archive_order import *

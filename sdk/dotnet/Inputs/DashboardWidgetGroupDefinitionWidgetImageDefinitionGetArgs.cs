@@ -12,6 +12,15 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetImageDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("hasBackground")]
+        public Input<bool>? HasBackground { get; set; }
+
+        [Input("hasBorder")]
+        public Input<bool>? HasBorder { get; set; }
+
+        [Input("horizontalAlign")]
+        public Input<string>? HorizontalAlign { get; set; }
+
         [Input("margin")]
         public Input<string>? Margin { get; set; }
 
@@ -23,6 +32,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
+
+        [Input("urlDarkTheme")]
+        public Input<string>? UrlDarkTheme { get; set; }
+
+        [Input("verticalAlign")]
+        public Input<string>? VerticalAlign { get; set; }
 
         public DashboardWidgetGroupDefinitionWidgetImageDefinitionGetArgs()
         {

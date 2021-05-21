@@ -13,10 +13,13 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinition
     {
+        public readonly string? BackgroundColor;
+        public readonly string? BannerImg;
         /// <summary>
         /// The layout type of the dashboard, either 'free' or 'ordered'.
         /// </summary>
         public readonly string LayoutType;
+        public readonly bool? ShowTitle;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -28,13 +31,22 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinition(
+            string? backgroundColor,
+
+            string? bannerImg,
+
             string layoutType,
+
+            bool? showTitle,
 
             string? title,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidget> widgets)
         {
+            BackgroundColor = backgroundColor;
+            BannerImg = bannerImg;
             LayoutType = layoutType;
+            ShowTitle = showTitle;
             Title = title;
             Widgets = widgets;
         }

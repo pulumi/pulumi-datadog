@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestApiStepArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether or not to continue with test if this step fails.
+        /// </summary>
+        [Input("allowFailure")]
+        public Input<bool>? AllowFailure { get; set; }
+
         [Input("assertions")]
         private InputList<Inputs.SyntheticsTestApiStepAssertionArgs>? _assertions;
 
@@ -35,6 +41,12 @@ namespace Pulumi.Datadog.Inputs
             get => _extractedValues ?? (_extractedValues = new InputList<Inputs.SyntheticsTestApiStepExtractedValueArgs>());
             set => _extractedValues = value;
         }
+
+        /// <summary>
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// </summary>
+        [Input("isCritical")]
+        public Input<bool>? IsCritical { get; set; }
 
         /// <summary>
         /// The name of the step.

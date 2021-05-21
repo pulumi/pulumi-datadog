@@ -56,13 +56,13 @@ namespace Pulumi.Datadog
         /// When true indicates this downtime is being actively applied
         /// </summary>
         [Output("active")]
-        public Output<bool?> Active { get; private set; } = null!;
+        public Output<bool> Active { get; private set; } = null!;
 
         /// <summary>
         /// When true indicates this downtime is not being applied
         /// </summary>
         [Output("disabled")]
-        public Output<bool?> Disabled { get; private set; } = null!;
+        public Output<bool> Disabled { get; private set; } = null!;
 
         /// <summary>
         /// Optionally specify an end date when this downtime should expire
@@ -170,18 +170,6 @@ namespace Pulumi.Datadog
 
     public sealed class DowntimeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When true indicates this downtime is being actively applied
-        /// </summary>
-        [Input("active")]
-        public Input<bool>? Active { get; set; }
-
-        /// <summary>
-        /// When true indicates this downtime is not being applied
-        /// </summary>
-        [Input("disabled")]
-        public Input<bool>? Disabled { get; set; }
-
         /// <summary>
         /// Optionally specify an end date when this downtime should expire
         /// </summary>

@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStep
     {
         /// <summary>
+        /// Determines whether or not to continue with test if this step fails.
+        /// </summary>
+        public readonly bool? AllowFailure;
+        /// <summary>
         /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepAssertion> Assertions;
@@ -21,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Values to parse and save as variables from the response.
         /// </summary>
         public readonly ImmutableArray<Outputs.SyntheticsTestApiStepExtractedValue> ExtractedValues;
+        /// <summary>
+        /// Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.
+        /// </summary>
+        public readonly bool? IsCritical;
         /// <summary>
         /// The name of the step.
         /// </summary>
@@ -52,9 +60,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SyntheticsTestApiStep(
+            bool? allowFailure,
+
             ImmutableArray<Outputs.SyntheticsTestApiStepAssertion> assertions,
 
             ImmutableArray<Outputs.SyntheticsTestApiStepExtractedValue> extractedValues,
+
+            bool? isCritical,
 
             string name,
 
@@ -70,8 +82,10 @@ namespace Pulumi.Datadog.Outputs
 
             string? subtype)
         {
+            AllowFailure = allowFailure;
             Assertions = assertions;
             ExtractedValues = extractedValues;
+            IsCritical = isCritical;
             Name = name;
             RequestBasicauth = requestBasicauth;
             RequestClientCertificate = requestClientCertificate;

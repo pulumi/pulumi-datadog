@@ -12,11 +12,27 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestGetArgs : Pulumi.ResourceArgs
     {
+        [Input("formulas")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaGetArgs>? _formulas;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaGetArgs> Formulas
+        {
+            get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaGetArgs>());
+            set => _formulas = value;
+        }
+
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
 
         [Input("q")]
         public Input<string>? Q { get; set; }
+
+        [Input("queries")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryGetArgs>? _queries;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryGetArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryGetArgs>());
+            set => _queries = value;
+        }
 
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }

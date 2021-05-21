@@ -40,6 +40,8 @@ export class Provider extends pulumi.ProviderResource {
             inputs["apiKey"] = args ? args.apiKey : undefined;
             inputs["apiUrl"] = args ? args.apiUrl : undefined;
             inputs["appKey"] = args ? args.appKey : undefined;
+            inputs["httpClientRetryEnabled"] = pulumi.output(args ? args.httpClientRetryEnabled : undefined).apply(JSON.stringify);
+            inputs["httpClientRetryTimeout"] = pulumi.output(args ? args.httpClientRetryTimeout : undefined).apply(JSON.stringify);
             inputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
         }
         if (!opts.version) {
@@ -67,6 +69,14 @@ export interface ProviderArgs {
      * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
      */
     readonly appKey?: pulumi.Input<string>;
+    /**
+     * Enables request retries on HTTP status codes 429 and 5xx.
+     */
+    readonly httpClientRetryEnabled?: pulumi.Input<boolean>;
+    /**
+     * The HTTP request retry timeout period.
+     */
+    readonly httpClientRetryTimeout?: pulumi.Input<number>;
     /**
      * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
      * and app_key won't be checked.

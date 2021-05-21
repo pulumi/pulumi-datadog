@@ -21,6 +21,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("fontSize")]
         public Input<string>? FontSize { get; set; }
 
+        [Input("hasPadding")]
+        public Input<bool>? HasPadding { get; set; }
+
         [Input("showTick")]
         public Input<bool>? ShowTick { get; set; }
 
@@ -32,6 +35,9 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("tickPos")]
         public Input<string>? TickPos { get; set; }
+
+        [Input("verticalAlign")]
+        public Input<string>? VerticalAlign { get; set; }
 
         public DashboardWidgetGroupDefinitionWidgetNoteDefinitionGetArgs()
         {

@@ -26,6 +26,14 @@
                 "type": "string",
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n"
             },
+            "httpClientRetryEnabled": {
+                "type": "boolean",
+                "description": "Enables request retries on HTTP status codes 429 and 5xx.\n"
+            },
+            "httpClientRetryTimeout": {
+                "type": "integer",
+                "description": "The HTTP request retry timeout period.\n"
+            },
             "validate": {
                 "type": "boolean",
                 "description": "Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key\nand app_key won't be checked.\n"
@@ -3734,6 +3742,17 @@
         },
         "datadog:index/DashboardWidgetGeomapDefinitionRequest:DashboardWidgetGeomapDefinitionRequest": {
             "properties": {
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormula:DashboardWidgetGeomapDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestLogQuery:DashboardWidgetGeomapDefinitionRequestLogQuery",
                     "language": {
@@ -3750,8 +3769,72 @@
                         }
                     }
                 },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQuery:DashboardWidgetGeomapDefinitionRequestQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "rumQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestRumQuery:DashboardWidgetGeomapDefinitionRequestRumQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestFormula:DashboardWidgetGeomapDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaLimit:DashboardWidgetGeomapDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestFormulaLimit:DashboardWidgetGeomapDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4047,6 +4130,340 @@
             "type": "object",
             "required": [
                 "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQuery:DashboardWidgetGeomapDefinitionRequestQuery": {
+            "properties": {
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQuery:DashboardWidgetGeomapDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQueryMetricQuery:DashboardWidgetGeomapDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQueryProcessQuery:DashboardWidgetGeomapDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQuery:DashboardWidgetGeomapDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute:DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch:DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute:DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch:DashboardWidgetGeomapDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryMetricQuery:DashboardWidgetGeomapDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGeomapDefinitionRequestQueryProcessQuery:DashboardWidgetGeomapDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetGeomapDefinitionRequestRumQuery:DashboardWidgetGeomapDefinitionRequestRumQuery": {
@@ -4380,9 +4797,33 @@
         },
         "datadog:index/DashboardWidgetGroupDefinition:DashboardWidgetGroupDefinition": {
             "properties": {
+                "backgroundColor": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "bannerImg": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "layoutType": {
                     "type": "string",
                     "description": "The layout type of the dashboard, either 'free' or 'ordered'.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "showTitle": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -7999,6 +8440,17 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest": {
             "properties": {
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery",
                     "language": {
@@ -8015,8 +8467,72 @@
                         }
                     }
                 },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "rumQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -8312,6 +8828,340 @@
             "type": "object",
             "required": [
                 "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery": {
+            "properties": {
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery": {
@@ -12830,6 +13680,30 @@
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetImageDefinition:DashboardWidgetGroupDefinitionWidgetImageDefinition": {
             "properties": {
+                "hasBackground": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hasBorder": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "horizontalAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "margin": {
                     "type": "string",
                     "language": {
@@ -12854,6 +13728,22 @@
                             "mapCase": false
                         }
                     }
+                },
+                "urlDarkTheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "verticalAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object",
@@ -12865,6 +13755,14 @@
             "properties": {
                 "height": {
                     "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isColumnBreak": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -13193,6 +14091,14 @@
                         }
                     }
                 },
+                "hasPadding": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "showTick": {
                     "type": "boolean",
                     "language": {
@@ -13218,6 +14124,14 @@
                     }
                 },
                 "tickPos": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "verticalAlign": {
                     "type": "string",
                     "language": {
                         "python": {
@@ -15004,6 +15918,17 @@
                         }
                     }
                 },
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery",
                     "language": {
@@ -15022,6 +15947,17 @@
                 },
                 "q": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -15417,6 +16353,59 @@
                 "value"
             ]
         },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery": {
             "properties": {
                 "compute": {
@@ -15746,6 +16735,340 @@
             "type": "object",
             "required": [
                 "metric"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery": {
+            "properties": {
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery": {
@@ -21755,6 +23078,17 @@
                         }
                     }
                 },
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery",
                     "language": {
@@ -21773,6 +23107,17 @@
                 },
                 "q": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -22176,6 +23521,59 @@
                 "value"
             ]
         },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery": {
             "properties": {
                 "compute": {
@@ -22505,6 +23903,340 @@
             "type": "object",
             "required": [
                 "metric"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery": {
+            "properties": {
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery:DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery": {
@@ -23266,6 +24998,14 @@
             "properties": {
                 "height": {
                     "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isColumnBreak": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -27492,6 +29232,30 @@
         },
         "datadog:index/DashboardWidgetImageDefinition:DashboardWidgetImageDefinition": {
             "properties": {
+                "hasBackground": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hasBorder": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "horizontalAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "margin": {
                     "type": "string",
                     "language": {
@@ -27516,6 +29280,22 @@
                             "mapCase": false
                         }
                     }
+                },
+                "urlDarkTheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "verticalAlign": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
                 }
             },
             "type": "object",
@@ -27527,6 +29307,14 @@
             "properties": {
                 "height": {
                     "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isColumnBreak": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -27855,6 +29643,14 @@
                         }
                     }
                 },
+                "hasPadding": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "showTick": {
                     "type": "boolean",
                     "language": {
@@ -27880,6 +29676,14 @@
                     }
                 },
                 "tickPos": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "verticalAlign": {
                     "type": "string",
                     "language": {
                         "python": {
@@ -29666,6 +31470,17 @@
                         }
                     }
                 },
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormula:DashboardWidgetQueryValueDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestLogQuery:DashboardWidgetQueryValueDefinitionRequestLogQuery",
                     "language": {
@@ -29684,6 +31499,17 @@
                 },
                 "q": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQuery:DashboardWidgetQueryValueDefinitionRequestQuery"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -30079,6 +31905,59 @@
                 "value"
             ]
         },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormula:DashboardWidgetQueryValueDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaLimit:DashboardWidgetQueryValueDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestFormulaLimit:DashboardWidgetQueryValueDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/DashboardWidgetQueryValueDefinitionRequestLogQuery:DashboardWidgetQueryValueDefinitionRequestLogQuery": {
             "properties": {
                 "compute": {
@@ -30408,6 +32287,340 @@
             "type": "object",
             "required": [
                 "metric"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQuery:DashboardWidgetQueryValueDefinitionRequestQuery": {
+            "properties": {
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQuery:DashboardWidgetQueryValueDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery:DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery:DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQuery:DashboardWidgetQueryValueDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute:DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch:DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute:DashboardWidgetQueryValueDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch:DashboardWidgetQueryValueDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery:DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery:DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetQueryValueDefinitionRequestRumQuery:DashboardWidgetQueryValueDefinitionRequestRumQuery": {
@@ -36417,6 +38630,17 @@
                         }
                     }
                 },
+                "formulas": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormula:DashboardWidgetToplistDefinitionRequestFormula"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "logQuery": {
                     "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestLogQuery:DashboardWidgetToplistDefinitionRequestLogQuery",
                     "language": {
@@ -36435,6 +38659,17 @@
                 },
                 "q": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQuery:DashboardWidgetToplistDefinitionRequestQuery"
+                    },
                     "language": {
                         "python": {
                             "mapCase": false
@@ -36838,6 +39073,59 @@
                 "value"
             ]
         },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestFormula:DashboardWidgetToplistDefinitionRequestFormula": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "formulaExpression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestFormulaLimit:DashboardWidgetToplistDefinitionRequestFormulaLimit",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "formulaExpression"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestFormulaLimit:DashboardWidgetToplistDefinitionRequestFormulaLimit": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "datadog:index/DashboardWidgetToplistDefinitionRequestLogQuery:DashboardWidgetToplistDefinitionRequestLogQuery": {
             "properties": {
                 "compute": {
@@ -37167,6 +39455,340 @@
             "type": "object",
             "required": [
                 "metric"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQuery:DashboardWidgetToplistDefinitionRequestQuery": {
+            "properties": {
+                "eventQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQuery:DashboardWidgetToplistDefinitionRequestQueryEventQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metricQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQueryMetricQuery:DashboardWidgetToplistDefinitionRequestQueryMetricQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "processQuery": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQueryProcessQuery:DashboardWidgetToplistDefinitionRequestQueryProcessQuery",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQuery:DashboardWidgetToplistDefinitionRequestQueryEventQuery": {
+            "properties": {
+                "computes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute:DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupBies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "indexes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "search": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch:DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "computes",
+                "dataSource",
+                "name"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute:DashboardWidgetToplistDefinitionRequestQueryEventQueryCompute": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy:DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBy": {
+            "properties": {
+                "facet": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "$ref": "#/types/datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "facet"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort:DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupBySort": {
+            "properties": {
+                "aggregation": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "order": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "aggregation"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch:DashboardWidgetToplistDefinitionRequestQueryEventQuerySearch": {
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQueryMetricQuery:DashboardWidgetToplistDefinitionRequestQueryMetricQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "query": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "query"
+            ]
+        },
+        "datadog:index/DashboardWidgetToplistDefinitionRequestQueryProcessQuery:DashboardWidgetToplistDefinitionRequestQueryProcessQuery": {
+            "properties": {
+                "aggregator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataSource": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isNormalizedCpu": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "limit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sort": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "textFilter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "metric",
+                "name"
             ]
         },
         "datadog:index/DashboardWidgetToplistDefinitionRequestRumQuery:DashboardWidgetToplistDefinitionRequestRumQuery": {
@@ -37928,6 +40550,14 @@
             "properties": {
                 "height": {
                     "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isColumnBreak": {
+                    "type": "boolean",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -40238,7 +42868,7 @@
             "properties": {
                 "critical": {
                     "type": "string",
-                    "description": "The monitor `CRITICAL` recovery threshold. Must be a number.\n",
+                    "description": "The monitor `CRITICAL` threshold. Must be a number.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -42085,6 +44715,15 @@
         },
         "datadog:index/SyntheticsTestApiStep:SyntheticsTestApiStep": {
             "properties": {
+                "allowFailure": {
+                    "type": "boolean",
+                    "description": "Determines whether or not to continue with test if this step fails.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "assertions": {
                     "type": "array",
                     "items": {
@@ -42103,6 +44742,15 @@
                         "$ref": "#/types/datadog:index/SyntheticsTestApiStepExtractedValue:SyntheticsTestApiStepExtractedValue"
                     },
                     "description": "Values to parse and save as variables from the response.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isCritical": {
+                    "type": "boolean",
+                    "description": "Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allow_failure` is `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -42461,6 +45109,15 @@
                         }
                     }
                 },
+                "dnsServerPort": {
+                    "type": "integer",
+                    "description": "DNS server port to use for DNS tests.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "host": {
                     "type": "string",
                     "description": "Host name to perform the test with.\n",
@@ -42488,9 +45145,27 @@
                         }
                     }
                 },
+                "numberOfPackets": {
+                    "type": "integer",
+                    "description": "Number of pings to use per test for ICMP tests (`subtype = \"icmp\"`) between 0 and 10.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "port": {
                     "type": "integer",
                     "description": "Port to use when performing the test.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "shouldTrackHops": {
+                    "type": "boolean",
+                    "description": "This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = \"icmp\"`).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -43107,6 +45782,9 @@
                 "dnsServer": {
                     "type": "string"
                 },
+                "dnsServerPort": {
+                    "type": "integer"
+                },
                 "host": {
                     "type": "string"
                 },
@@ -43116,8 +45794,14 @@
                 "noSavingResponseBody": {
                     "type": "boolean"
                 },
+                "numberOfPackets": {
+                    "type": "integer"
+                },
                 "port": {
                     "type": "integer"
+                },
+                "shouldTrackHops": {
+                    "type": "boolean"
                 },
                 "timeout": {
                     "type": "integer"
@@ -43248,6 +45932,15 @@
                         }
                     }
                 },
+                "dnsServerPort": {
+                    "type": "integer",
+                    "description": "DNS server port to use for DNS tests.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "host": {
                     "type": "string",
                     "description": "Host name to perform the test with.\n",
@@ -43275,9 +45968,27 @@
                         }
                     }
                 },
+                "numberOfPackets": {
+                    "type": "integer",
+                    "description": "Number of pings to use per test for ICMP tests (`subtype = \"icmp\"`) between 0 and 10.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "port": {
                     "type": "integer",
                     "description": "Port to use when performing the test.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "shouldTrackHops": {
+                    "type": "boolean",
+                    "description": "This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = \"icmp\"`).\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -44343,6 +47054,46 @@
                 }
             }
         },
+        "datadog:index/getMonitorsMonitor:getMonitorsMonitor": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "The ID of this resource.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "datadog:index/getSecurityMonitoringRulesRule:getSecurityMonitoringRulesRule": {
             "properties": {
                 "cases": {
@@ -44585,6 +47336,46 @@
                 }
             }
         },
+        "datadog:index/getServiceLevelObjectivesSlo:getServiceLevelObjectivesSlo": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this resource.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "datadog:pagerduty/IntegrationService:IntegrationService": {
             "properties": {
                 "serviceKey": {
@@ -44668,6 +47459,14 @@
             "appKey": {
                 "type": "string",
                 "description": "(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.\n"
+            },
+            "httpClientRetryEnabled": {
+                "type": "boolean",
+                "description": "Enables request retries on HTTP status codes 429 and 5xx.\n"
+            },
+            "httpClientRetryTimeout": {
+                "type": "integer",
+                "description": "The HTTP request retry timeout period.\n"
             },
             "validate": {
                 "type": "boolean",
@@ -45190,6 +47989,10 @@
                     },
                     "description": "The list of handles of users to notify when changes are made to this dashboard.\n"
                 },
+                "reflowType": {
+                    "type": "string",
+                    "description": "The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.\n"
+                },
                 "templateVariablePresets": {
                     "type": "array",
                     "items": {
@@ -45253,6 +48056,10 @@
                         "type": "string"
                     },
                     "description": "The list of handles of users to notify when changes are made to this dashboard.\n"
+                },
+                "reflowType": {
+                    "type": "string",
+                    "description": "The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.\n"
                 },
                 "templateVariablePresets": {
                     "type": "array",
@@ -45324,6 +48131,10 @@
                             "type": "string"
                         },
                         "description": "The list of handles of users to notify when changes are made to this dashboard.\n"
+                    },
+                    "reflowType": {
+                        "type": "string",
+                        "description": "The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.\n"
                     },
                     "templateVariablePresets": {
                         "type": "array",
@@ -45513,17 +48324,11 @@
                 }
             },
             "required": [
+                "active",
+                "disabled",
                 "scopes"
             ],
             "inputProperties": {
-                "active": {
-                    "type": "boolean",
-                    "description": "When true indicates this downtime is being actively applied\n"
-                },
-                "disabled": {
-                    "type": "boolean",
-                    "description": "When true indicates this downtime is not being applied\n"
-                },
                 "end": {
                     "type": "integer",
                     "description": "Optionally specify an end date when this downtime should expire\n"
@@ -47717,6 +50522,10 @@
                     },
                     "description": "Query arguments name and value map.\n"
                 },
+                "setCookie": {
+                    "type": "string",
+                    "description": "Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.\n"
+                },
                 "status": {
                     "type": "string",
                     "description": "Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`\n"
@@ -47731,7 +50540,7 @@
                 },
                 "subtype": {
                     "type": "string",
-                    "description": "When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.\n"
+                    "description": "When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -47861,6 +50670,10 @@
                     },
                     "description": "Query arguments name and value map.\n"
                 },
+                "setCookie": {
+                    "type": "string",
+                    "description": "Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.\n"
+                },
                 "status": {
                     "type": "string",
                     "description": "Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`\n"
@@ -47875,7 +50688,7 @@
                 },
                 "subtype": {
                     "type": "string",
-                    "description": "When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.\n"
+                    "description": "When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -48010,6 +50823,10 @@
                         },
                         "description": "Query arguments name and value map.\n"
                     },
+                    "setCookie": {
+                        "type": "string",
+                        "description": "Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.\n"
+                    },
                     "status": {
                         "type": "string",
                         "description": "Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`\n"
@@ -48024,7 +50841,7 @@
                     },
                     "subtype": {
                         "type": "string",
-                        "description": "When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns` or `multi`. Defaults to `http`.\n"
+                        "description": "When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -48918,6 +51735,72 @@
                 ]
             }
         },
+        "datadog:index/getMonitors:getMonitors": {
+            "description": "Use this data source to list several existing monitors for use in other resources.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getMonitors.\n",
+                "properties": {
+                    "monitorTagsFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.\n"
+                    },
+                    "nameFilter": {
+                        "type": "string",
+                        "description": "A monitor name to limit the search.\n"
+                    },
+                    "tagsFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of tags to limit the search. This filters on the monitor scope.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMonitors.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "monitorTagsFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.\n"
+                    },
+                    "monitors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getMonitorsMonitor:getMonitorsMonitor"
+                        },
+                        "description": "List of monitors\n"
+                    },
+                    "nameFilter": {
+                        "type": "string",
+                        "description": "A monitor name to limit the search.\n"
+                    },
+                    "tagsFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of tags to limit the search. This filters on the monitor scope.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "monitors",
+                    "id"
+                ]
+            }
+        },
         "datadog:index/getPermissions:getPermissions": {
             "description": "Use this data source to retrieve the list of Datadog permissions by name and their corresponding ID, for use in the role resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst permissions = pulumi.output(datadog.getPermissions({ async: true }));\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\npermissions = datadog.get_permissions()\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var permissions = Output.Create(Datadog.GetPermissions.InvokeAsync());\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.GetPermissions(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "outputs": {
@@ -49058,6 +51941,133 @@
                 "required": [
                     "ruleIds",
                     "rules",
+                    "id"
+                ]
+            }
+        },
+        "datadog:index/getServiceLevelObjective:getServiceLevelObjective": {
+            "description": "Use this data source to retrieve information about an existing SLO for use in other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = datadog.getServiceLevelObjective({\n    nameQuery: \"My test SLO\",\n    tagsQuery: \"foo:bar\",\n});\nconst apiSlo = datadog.getServiceLevelObjective({\n    id: data.terraform_remote_state.api.outputs.slo,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_service_level_objective(name_query=\"My test SLO\",\n    tags_query=\"foo:bar\")\napi_slo = datadog.get_service_level_objective(id=data[\"terraform_remote_state\"][\"api\"][\"outputs\"][\"slo\"])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetServiceLevelObjective.InvokeAsync(new Datadog.GetServiceLevelObjectiveArgs\n        {\n            NameQuery = \"My test SLO\",\n            TagsQuery = \"foo:bar\",\n        }));\n        var apiSlo = Output.Create(Datadog.GetServiceLevelObjective.InvokeAsync(new Datadog.GetServiceLevelObjectiveArgs\n        {\n            Id = data.Terraform_remote_state.Api.Outputs.Slo,\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"My test SLO\"\n\t\topt1 := \"foo:bar\"\n\t\t_, err := datadog.LookupServiceLevelObjective(ctx, \u0026datadog.LookupServiceLevelObjectiveArgs{\n\t\t\tNameQuery: \u0026opt0,\n\t\t\tTagsQuery: \u0026opt1,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\topt2 := data.Terraform_remote_state.Api.Outputs.Slo\n\t\t_, err = datadog.LookupServiceLevelObjective(ctx, \u0026datadog.LookupServiceLevelObjectiveArgs{\n\t\t\tId: \u0026opt2,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServiceLevelObjective.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "A SLO ID to limit the search.\n"
+                    },
+                    "metricsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO numerator and denominator.\n"
+                    },
+                    "nameQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO names.\n"
+                    },
+                    "tagsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on a single SLO tag.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServiceLevelObjective.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "A SLO ID to limit the search.\n"
+                    },
+                    "metricsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO numerator and denominator.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Datadog service level objective\n"
+                    },
+                    "nameQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO names.\n"
+                    },
+                    "tagsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on a single SLO tag.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "type"
+                ]
+            }
+        },
+        "datadog:index/getServiceLevelObjectives:getServiceLevelObjectives": {
+            "description": "Use this data source to retrieve information about multiple SLOs for use in other resources.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst ftFooSlos = pulumi.output(datadog.getServiceLevelObjectives({\n    tagsQuery: \"owner:ft-foo\",\n}, { async: true }));\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nft_foo_slos = datadog.get_service_level_objectives(tags_query=\"owner:ft-foo\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var ftFooSlos = Output.Create(Datadog.GetServiceLevelObjectives.InvokeAsync(new Datadog.GetServiceLevelObjectivesArgs\n        {\n            TagsQuery = \"owner:ft-foo\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\topt0 := \"owner:ft-foo\"\n\t\t_, err := datadog.GetServiceLevelObjectives(ctx, \u0026datadog.GetServiceLevelObjectivesArgs{\n\t\t\tTagsQuery: \u0026opt0,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getServiceLevelObjectives.\n",
+                "properties": {
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of SLO IDs to limit the search.\n"
+                    },
+                    "metricsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO numerator and denominator.\n"
+                    },
+                    "nameQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO names.\n"
+                    },
+                    "tagsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on a single SLO tag.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getServiceLevelObjectives.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of SLO IDs to limit the search.\n"
+                    },
+                    "metricsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO numerator and denominator.\n"
+                    },
+                    "nameQuery": {
+                        "type": "string",
+                        "description": "Filter results based on SLO names.\n"
+                    },
+                    "slos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/getServiceLevelObjectivesSlo:getServiceLevelObjectivesSlo"
+                        },
+                        "description": "List of SLOs\n"
+                    },
+                    "tagsQuery": {
+                        "type": "string",
+                        "description": "Filter results based on a single SLO tag.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "slos",
                     "id"
                 ]
             }

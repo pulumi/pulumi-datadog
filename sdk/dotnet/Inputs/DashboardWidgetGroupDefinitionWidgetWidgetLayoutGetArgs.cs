@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("height", required: true)]
         public Input<int> Height { get; set; } = null!;
 
+        [Input("isColumnBreak")]
+        public Input<bool>? IsColumnBreak { get; set; }
+
         [Input("width", required: true)]
         public Input<int> Width { get; set; } = null!;
 

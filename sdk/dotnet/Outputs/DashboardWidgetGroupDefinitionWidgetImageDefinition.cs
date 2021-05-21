@@ -13,24 +13,44 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetImageDefinition
     {
+        public readonly bool? HasBackground;
+        public readonly bool? HasBorder;
+        public readonly string? HorizontalAlign;
         public readonly string? Margin;
         public readonly string? Sizing;
         /// <summary>
         /// The URL of the dashboard.
         /// </summary>
         public readonly string Url;
+        public readonly string? UrlDarkTheme;
+        public readonly string? VerticalAlign;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetImageDefinition(
+            bool? hasBackground,
+
+            bool? hasBorder,
+
+            string? horizontalAlign,
+
             string? margin,
 
             string? sizing,
 
-            string url)
+            string url,
+
+            string? urlDarkTheme,
+
+            string? verticalAlign)
         {
+            HasBackground = hasBackground;
+            HasBorder = hasBorder;
+            HorizontalAlign = horizontalAlign;
             Margin = margin;
             Sizing = sizing;
             Url = url;
+            UrlDarkTheme = urlDarkTheme;
+            VerticalAlign = verticalAlign;
         }
     }
 }

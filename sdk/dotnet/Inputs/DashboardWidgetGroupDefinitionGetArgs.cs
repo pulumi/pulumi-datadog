@@ -12,11 +12,20 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionGetArgs : Pulumi.ResourceArgs
     {
+        [Input("backgroundColor")]
+        public Input<string>? BackgroundColor { get; set; }
+
+        [Input("bannerImg")]
+        public Input<string>? BannerImg { get; set; }
+
         /// <summary>
         /// The layout type of the dashboard, either 'free' or 'ordered'.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
+
+        [Input("showTitle")]
+        public Input<bool>? ShowTitle { get; set; }
 
         /// <summary>
         /// The title of the dashboard.

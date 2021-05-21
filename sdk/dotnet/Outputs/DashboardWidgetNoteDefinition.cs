@@ -16,10 +16,12 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? BackgroundColor;
         public readonly string Content;
         public readonly string? FontSize;
+        public readonly bool? HasPadding;
         public readonly bool? ShowTick;
         public readonly string? TextAlign;
         public readonly string? TickEdge;
         public readonly string? TickPos;
+        public readonly string? VerticalAlign;
 
         [OutputConstructor]
         private DashboardWidgetNoteDefinition(
@@ -29,21 +31,27 @@ namespace Pulumi.Datadog.Outputs
 
             string? fontSize,
 
+            bool? hasPadding,
+
             bool? showTick,
 
             string? textAlign,
 
             string? tickEdge,
 
-            string? tickPos)
+            string? tickPos,
+
+            string? verticalAlign)
         {
             BackgroundColor = backgroundColor;
             Content = content;
             FontSize = fontSize;
+            HasPadding = hasPadding;
             ShowTick = showTick;
             TextAlign = textAlign;
             TickEdge = tickEdge;
             TickPos = tickPos;
+            VerticalAlign = verticalAlign;
         }
     }
 }

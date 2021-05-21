@@ -53,9 +53,9 @@ type Downtime struct {
 	pulumi.CustomResourceState
 
 	// When true indicates this downtime is being actively applied
-	Active pulumi.BoolPtrOutput `pulumi:"active"`
+	Active pulumi.BoolOutput `pulumi:"active"`
 	// When true indicates this downtime is not being applied
-	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
+	Disabled pulumi.BoolOutput `pulumi:"disabled"`
 	// Optionally specify an end date when this downtime should expire
 	End pulumi.IntPtrOutput `pulumi:"end"`
 	// String representing date and time to end the downtime in RFC3339 format.
@@ -168,10 +168,6 @@ func (DowntimeState) ElementType() reflect.Type {
 }
 
 type downtimeArgs struct {
-	// When true indicates this downtime is being actively applied
-	Active *bool `pulumi:"active"`
-	// When true indicates this downtime is not being applied
-	Disabled *bool `pulumi:"disabled"`
 	// Optionally specify an end date when this downtime should expire
 	End *int `pulumi:"end"`
 	// String representing date and time to end the downtime in RFC3339 format.
@@ -196,10 +192,6 @@ type downtimeArgs struct {
 
 // The set of arguments for constructing a Downtime resource.
 type DowntimeArgs struct {
-	// When true indicates this downtime is being actively applied
-	Active pulumi.BoolPtrInput
-	// When true indicates this downtime is not being applied
-	Disabled pulumi.BoolPtrInput
 	// Optionally specify an end date when this downtime should expire
 	End pulumi.IntPtrInput
 	// String representing date and time to end the downtime in RFC3339 format.

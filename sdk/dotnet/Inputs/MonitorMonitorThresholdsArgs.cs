@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class MonitorMonitorThresholdsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The monitor `CRITICAL` recovery threshold. Must be a number.
+        /// The monitor `CRITICAL` threshold. Must be a number.
         /// </summary>
         [Input("critical")]
         public Input<string>? Critical { get; set; }

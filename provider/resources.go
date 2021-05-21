@@ -125,6 +125,9 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_permissions":               {Tok: makeDataSource(datadogMod, "getPermissions")},
 			"datadog_role":                      {Tok: makeDataSource(datadogMod, "getRole")},
 			"datadog_security_monitoring_rules": {Tok: makeDataSource(datadogMod, "getSecurityMonitoringRules")},
+			"datadog_monitors":                  {Tok: makeDataSource(datadogMod, "getMonitors")},
+			"datadog_service_level_objective":   {Tok: makeDataSource(datadogMod, "getServiceLevelObjective")},
+			"datadog_service_level_objectives":  {Tok: makeDataSource(datadogMod, "getServiceLevelObjectives")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

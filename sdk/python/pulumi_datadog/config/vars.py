@@ -12,6 +12,8 @@ __all__ = [
     'api_key',
     'api_url',
     'app_key',
+    'http_client_retry_enabled',
+    'http_client_retry_timeout',
     'validate',
 ]
 
@@ -32,6 +34,16 @@ you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
 app_key = __config__.get('appKey')
 """
 (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+"""
+
+http_client_retry_enabled = __config__.get('httpClientRetryEnabled')
+"""
+Enables request retries on HTTP status codes 429 and 5xx.
+"""
+
+http_client_retry_timeout = __config__.get('httpClientRetryTimeout')
+"""
+The HTTP request retry timeout period.
 """
 
 validate = __config__.get('validate')

@@ -16,8 +16,6 @@ __all__ = ['DowntimeArgs', 'Downtime']
 class DowntimeArgs:
     def __init__(__self__, *,
                  scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 active: Optional[pulumi.Input[bool]] = None,
-                 disabled: Optional[pulumi.Input[bool]] = None,
                  end: Optional[pulumi.Input[int]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
@@ -30,8 +28,6 @@ class DowntimeArgs:
         """
         The set of arguments for constructing a Downtime resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
-        :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
-        :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
@@ -43,10 +39,6 @@ class DowntimeArgs:
         :param pulumi.Input[str] timezone: The timezone for the downtime, default UTC
         """
         pulumi.set(__self__, "scopes", scopes)
-        if active is not None:
-            pulumi.set(__self__, "active", active)
-        if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
         if end is not None:
             pulumi.set(__self__, "end", end)
         if end_date is not None:
@@ -77,30 +69,6 @@ class DowntimeArgs:
     @scopes.setter
     def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "scopes", value)
-
-    @property
-    @pulumi.getter
-    def active(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When true indicates this downtime is being actively applied
-        """
-        return pulumi.get(self, "active")
-
-    @active.setter
-    def active(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "active", value)
-
-    @property
-    @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When true indicates this downtime is not being applied
-        """
-        return pulumi.get(self, "disabled")
-
-    @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disabled", value)
 
     @property
     @pulumi.getter
@@ -416,8 +384,6 @@ class Downtime(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[bool]] = None,
-                 disabled: Optional[pulumi.Input[bool]] = None,
                  end: Optional[pulumi.Input[int]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
@@ -458,8 +424,6 @@ class Downtime(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
-        :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
@@ -519,8 +483,6 @@ class Downtime(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active: Optional[pulumi.Input[bool]] = None,
-                 disabled: Optional[pulumi.Input[bool]] = None,
                  end: Optional[pulumi.Input[int]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
@@ -543,8 +505,6 @@ class Downtime(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DowntimeArgs.__new__(DowntimeArgs)
 
-            __props__.__dict__["active"] = active
-            __props__.__dict__["disabled"] = disabled
             __props__.__dict__["end"] = end
             __props__.__dict__["end_date"] = end_date
             __props__.__dict__["message"] = message
@@ -557,6 +517,8 @@ class Downtime(pulumi.CustomResource):
             __props__.__dict__["start"] = start
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["timezone"] = timezone
+            __props__.__dict__["active"] = None
+            __props__.__dict__["disabled"] = None
         super(Downtime, __self__).__init__(
             'datadog:index/downtime:Downtime',
             resource_name,
@@ -619,7 +581,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> pulumi.Output[Optional[bool]]:
+    def active(self) -> pulumi.Output[bool]:
         """
         When true indicates this downtime is being actively applied
         """
@@ -627,7 +589,7 @@ class Downtime(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disabled(self) -> pulumi.Output[Optional[bool]]:
+    def disabled(self) -> pulumi.Output[bool]:
         """
         When true indicates this downtime is not being applied
         """

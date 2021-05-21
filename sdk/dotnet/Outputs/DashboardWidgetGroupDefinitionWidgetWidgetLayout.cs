@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetWidgetLayout
     {
         public readonly int Height;
+        public readonly bool? IsColumnBreak;
         public readonly int Width;
         public readonly int X;
         public readonly int Y;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetGroupDefinitionWidgetWidgetLayout(
             int height,
 
+            bool? isColumnBreak,
+
             int width,
 
             int x,
@@ -29,6 +32,7 @@ namespace Pulumi.Datadog.Outputs
             int y)
         {
             Height = height;
+            IsColumnBreak = isColumnBreak;
             Width = width;
             X = x;
             Y = y;

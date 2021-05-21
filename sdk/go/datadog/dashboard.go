@@ -775,6 +775,8 @@ type Dashboard struct {
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
+	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayOutput `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -837,6 +839,8 @@ type dashboardState struct {
 	LayoutType *string `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
+	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	ReflowType *string `pulumi:"reflowType"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -862,6 +866,8 @@ type DashboardState struct {
 	LayoutType pulumi.StringPtrInput
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
+	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	ReflowType pulumi.StringPtrInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
@@ -889,6 +895,8 @@ type dashboardArgs struct {
 	LayoutType string `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
+	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	ReflowType *string `pulumi:"reflowType"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -913,6 +921,8 @@ type DashboardArgs struct {
 	LayoutType pulumi.StringInput
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
+	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	ReflowType pulumi.StringPtrInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
