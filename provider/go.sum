@@ -792,6 +792,8 @@ github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210507132416-6faed08600b
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210507132416-6faed08600be/go.mod h1:BQEwxyU2v37Vi+9C/X4f1Zx6BWj5rhTHqa9883zVFLk=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210519083737-53eb552668ad h1:r5DQ62M3ljc/icF2qViOlM4pIF1mQabnl5R9xe9qDGY=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210519083737-53eb552668ad/go.mod h1:Jr479XiW08J9pOW5LLK1DlK6sZrh131K6W0iX/HX+vo=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210521145316-6631e9078aec h1:DNH0VfGoaw7h7QAhR4J0Dvil4AETr64RStYcIhSm/z0=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210521145316-6631e9078aec/go.mod h1:Jr479XiW08J9pOW5LLK1DlK6sZrh131K6W0iX/HX+vo=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=
