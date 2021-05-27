@@ -140,31 +140,31 @@ export interface SyntheticsGlobalVariableState {
     /**
      * Description of the global variable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Synthetics global variable name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Id of the Synthetics test to use for a variable from test.
      */
-    readonly parseTestId?: pulumi.Input<string>;
+    parseTestId?: pulumi.Input<string>;
     /**
      * ID of the Synthetics test to use a source of the global variable value.
      */
-    readonly parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
+    parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
     /**
      * Sets the variable as secure. Defaults to `false`.
      */
-    readonly secure?: pulumi.Input<boolean>;
+    secure?: pulumi.Input<boolean>;
     /**
      * A list of tags to associate with your synthetics global variable.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The value of the global variable.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -174,29 +174,29 @@ export interface SyntheticsGlobalVariableArgs {
     /**
      * Description of the global variable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Synthetics global variable name.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Id of the Synthetics test to use for a variable from test.
      */
-    readonly parseTestId?: pulumi.Input<string>;
+    parseTestId?: pulumi.Input<string>;
     /**
      * ID of the Synthetics test to use a source of the global variable value.
      */
-    readonly parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
+    parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
     /**
      * Sets the variable as secure. Defaults to `false`.
      */
-    readonly secure?: pulumi.Input<boolean>;
+    secure?: pulumi.Input<boolean>;
     /**
      * A list of tags to associate with your synthetics global variable.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The value of the global variable.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

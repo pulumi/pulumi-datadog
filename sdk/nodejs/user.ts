@@ -167,53 +167,53 @@ export interface UserState {
      *
      * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
      */
-    readonly accessRole?: pulumi.Input<string>;
+    accessRole?: pulumi.Input<string>;
     /**
      * Whether the user is disabled.
      */
-    readonly disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean>;
     /**
      * Email address for user.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
      *
      * @deprecated This parameter is deprecated and will be removed from the next Major version.
      */
-    readonly handle?: pulumi.Input<string>;
+    handle?: pulumi.Input<string>;
     /**
      * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
      *
      * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
      */
-    readonly isAdmin?: pulumi.Input<boolean>;
+    isAdmin?: pulumi.Input<boolean>;
     /**
      * Name for user.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
      *
      * @deprecated This parameter was removed from the API and has no effect.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * A list a role IDs to assign to the user.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether an invitation email should be sent when the user is created.
      */
-    readonly sendUserInvitation?: pulumi.Input<boolean>;
+    sendUserInvitation?: pulumi.Input<boolean>;
     /**
      * The ID of the user invitation that was sent when creating the user.
      */
-    readonly userInvitationId?: pulumi.Input<string>;
+    userInvitationId?: pulumi.Input<string>;
     /**
      * Returns `true` if the user is verified.
      */
-    readonly verified?: pulumi.Input<boolean>;
+    verified?: pulumi.Input<boolean>;
 }
 
 /**
@@ -225,43 +225,43 @@ export interface UserArgs {
      *
      * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
      */
-    readonly accessRole?: pulumi.Input<string>;
+    accessRole?: pulumi.Input<string>;
     /**
      * Whether the user is disabled.
      */
-    readonly disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean>;
     /**
      * Email address for user.
      */
-    readonly email: pulumi.Input<string>;
+    email: pulumi.Input<string>;
     /**
      * The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
      *
      * @deprecated This parameter is deprecated and will be removed from the next Major version.
      */
-    readonly handle?: pulumi.Input<string>;
+    handle?: pulumi.Input<string>;
     /**
      * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
      *
      * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
      */
-    readonly isAdmin?: pulumi.Input<boolean>;
+    isAdmin?: pulumi.Input<boolean>;
     /**
      * Name for user.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
      *
      * @deprecated This parameter was removed from the API and has no effect.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * A list a role IDs to assign to the user.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether an invitation email should be sent when the user is created.
      */
-    readonly sendUserInvitation?: pulumi.Input<boolean>;
+    sendUserInvitation?: pulumi.Input<boolean>;
 }

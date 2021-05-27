@@ -117,15 +117,15 @@ export interface RoleState {
     /**
      * Name of the role.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Set of objects containing the permission ID and the name of the permissions granted to this role.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
     /**
      * Number of users that have this role.
      */
-    readonly userCount?: pulumi.Input<number>;
+    userCount?: pulumi.Input<number>;
 }
 
 /**
@@ -135,9 +135,9 @@ export interface RoleArgs {
     /**
      * Name of the role.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Set of objects containing the permission ID and the name of the permissions granted to this role.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.RolePermission>[]>;
 }

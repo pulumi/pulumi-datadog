@@ -167,31 +167,31 @@ export interface SecurityMonitoringRuleState {
     /**
      * Cases for generating signals.
      */
-    readonly cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
     /**
      * Whether the rule is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Message for generated signals.
      */
-    readonly message?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Options on rules.
      */
-    readonly options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
+    options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    readonly queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    queries?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
     /**
      * Tags for generated signals.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -201,29 +201,29 @@ export interface SecurityMonitoringRuleArgs {
     /**
      * Cases for generating signals.
      */
-    readonly cases: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
+    cases: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleCase>[]>;
     /**
      * Whether the rule is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Message for generated signals.
      */
-    readonly message: pulumi.Input<string>;
+    message: pulumi.Input<string>;
     /**
      * The name of the rule.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Options on rules.
      */
-    readonly options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
+    options?: pulumi.Input<inputs.SecurityMonitoringRuleOptions>;
     /**
      * Queries for selecting logs which are part of the rule.
      */
-    readonly queries: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
+    queries: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQuery>[]>;
     /**
      * Tags for generated signals.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }

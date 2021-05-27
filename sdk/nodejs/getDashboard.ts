@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(datadog.getDashboard({
  *     name: "My super dashboard",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
@@ -39,7 +39,7 @@ export interface GetDashboardArgs {
     /**
      * The dashboard name to search for. Must only match one dashboard.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

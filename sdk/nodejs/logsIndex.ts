@@ -129,15 +129,15 @@ export interface LogsIndexState {
     /**
      * List of exclusion filters.
      */
-    readonly exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
+    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
     /**
      * Logs filter
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
      * The name of the index.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -147,13 +147,13 @@ export interface LogsIndexArgs {
     /**
      * List of exclusion filters.
      */
-    readonly exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
+    exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
     /**
      * Logs filter
      */
-    readonly filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
+    filters: pulumi.Input<pulumi.Input<inputs.LogsIndexFilter>[]>;
     /**
      * The name of the index.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

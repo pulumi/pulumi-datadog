@@ -89,7 +89,7 @@ export interface LogsIntegrationPipelineState {
     /**
      * Boolean value to enable your pipeline.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface LogsIntegrationPipelineArgs {
     /**
      * Boolean value to enable your pipeline.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
 }

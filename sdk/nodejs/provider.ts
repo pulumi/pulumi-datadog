@@ -25,6 +25,20 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+     */
+    public readonly apiKey!: pulumi.Output<string | undefined>;
+    /**
+     * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+     * path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
+     * you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+     */
+    public readonly apiUrl!: pulumi.Output<string | undefined>;
+    /**
+     * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+     */
+    public readonly appKey!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -58,28 +72,28 @@ export interface ProviderArgs {
     /**
      * (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
      */
-    readonly apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
      * path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
      * you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
      */
-    readonly apiUrl?: pulumi.Input<string>;
+    apiUrl?: pulumi.Input<string>;
     /**
      * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
      */
-    readonly appKey?: pulumi.Input<string>;
+    appKey?: pulumi.Input<string>;
     /**
      * Enables request retries on HTTP status codes 429 and 5xx.
      */
-    readonly httpClientRetryEnabled?: pulumi.Input<boolean>;
+    httpClientRetryEnabled?: pulumi.Input<boolean>;
     /**
      * The HTTP request retry timeout period.
      */
-    readonly httpClientRetryTimeout?: pulumi.Input<number>;
+    httpClientRetryTimeout?: pulumi.Input<number>;
     /**
      * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
      * and app_key won't be checked.
      */
-    readonly validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean>;
 }

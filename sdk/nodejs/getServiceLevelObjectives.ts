@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const ftFooSlos = pulumi.output(datadog.getServiceLevelObjectives({
  *     tagsQuery: "owner:ft-foo",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getServiceLevelObjectives(args?: GetServiceLevelObjectivesArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceLevelObjectivesResult> {
@@ -43,19 +43,19 @@ export interface GetServiceLevelObjectivesArgs {
     /**
      * An array of SLO IDs to limit the search.
      */
-    readonly ids?: string[];
+    ids?: string[];
     /**
      * Filter results based on SLO numerator and denominator.
      */
-    readonly metricsQuery?: string;
+    metricsQuery?: string;
     /**
      * Filter results based on SLO names.
      */
-    readonly nameQuery?: string;
+    nameQuery?: string;
     /**
      * Filter results based on a single SLO tag.
      */
-    readonly tagsQuery?: string;
+    tagsQuery?: string;
 }
 
 /**

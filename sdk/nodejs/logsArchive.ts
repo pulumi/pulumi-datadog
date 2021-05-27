@@ -165,47 +165,47 @@ export interface LogsArchiveState {
      *
      * @deprecated Define `azure_archive` list with one element instead.
      */
-    readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
+    azure?: pulumi.Input<inputs.LogsArchiveAzure>;
     /**
      * Definition of an azure archive.
      */
-    readonly azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
+    azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
     /**
      * Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
      *
      * @deprecated Define `gcs_archive` list with one element instead.
      */
-    readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
     /**
      * Definition of a GCS archive.
      */
-    readonly gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
+    gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      */
-    readonly includeTags?: pulumi.Input<boolean>;
+    includeTags?: pulumi.Input<boolean>;
     /**
      * Your archive name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The archive query/filter. Logs matching this query are included in the archive.
      */
-    readonly query?: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */
-    readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
+    rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
      *
      * @deprecated Define `s3_archive` list with one element instead.
      */
-    readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
+    s3?: pulumi.Input<inputs.LogsArchiveS3>;
     /**
      * Definition of an s3 archive.
      */
-    readonly s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
+    s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
 }
 
 /**
@@ -217,45 +217,45 @@ export interface LogsArchiveArgs {
      *
      * @deprecated Define `azure_archive` list with one element instead.
      */
-    readonly azure?: pulumi.Input<inputs.LogsArchiveAzure>;
+    azure?: pulumi.Input<inputs.LogsArchiveAzure>;
     /**
      * Definition of an azure archive.
      */
-    readonly azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
+    azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
     /**
      * Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
      *
      * @deprecated Define `gcs_archive` list with one element instead.
      */
-    readonly gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
+    gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
     /**
      * Definition of a GCS archive.
      */
-    readonly gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
+    gcsArchive?: pulumi.Input<inputs.LogsArchiveGcsArchive>;
     /**
      * To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
      */
-    readonly includeTags?: pulumi.Input<boolean>;
+    includeTags?: pulumi.Input<boolean>;
     /**
      * Your archive name.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The archive query/filter. Logs matching this query are included in the archive.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * An array of tags to add to rehydrated logs from an archive.
      */
-    readonly rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
+    rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
      *
      * @deprecated Define `s3_archive` list with one element instead.
      */
-    readonly s3?: pulumi.Input<inputs.LogsArchiveS3>;
+    s3?: pulumi.Input<inputs.LogsArchiveS3>;
     /**
      * Definition of an s3 archive.
      */
-    readonly s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
+    s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
 }

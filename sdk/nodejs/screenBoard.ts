@@ -514,31 +514,31 @@ export interface ScreenBoardState {
     /**
      * Height of the screenboard
      */
-    readonly height?: pulumi.Input<string>;
+    height?: pulumi.Input<string>;
     /**
      * The read-only status of the screenboard. Default is `false`.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * Whether the screenboard is shared or not
      */
-    readonly shared?: pulumi.Input<boolean>;
+    shared?: pulumi.Input<boolean>;
     /**
      * A list of template variables for using Dashboard templating.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
      * Name of the screenboard
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * A list of widget definitions.
      */
-    readonly widgets?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
      * Width of the screenboard
      */
-    readonly width?: pulumi.Input<string>;
+    width?: pulumi.Input<string>;
 }
 
 /**
@@ -548,29 +548,29 @@ export interface ScreenBoardArgs {
     /**
      * Height of the screenboard
      */
-    readonly height?: pulumi.Input<string>;
+    height?: pulumi.Input<string>;
     /**
      * The read-only status of the screenboard. Default is `false`.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * Whether the screenboard is shared or not
      */
-    readonly shared?: pulumi.Input<boolean>;
+    shared?: pulumi.Input<boolean>;
     /**
      * A list of template variables for using Dashboard templating.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.ScreenBoardTemplateVariable>[]>;
     /**
      * Name of the screenboard
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * A list of widget definitions.
      */
-    readonly widgets: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
+    widgets: pulumi.Input<pulumi.Input<inputs.ScreenBoardWidget>[]>;
     /**
      * Width of the screenboard
      */
-    readonly width?: pulumi.Input<string>;
+    width?: pulumi.Input<string>;
 }

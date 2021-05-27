@@ -107,11 +107,11 @@ export interface IntegrationLambdaArnState {
     /**
      * Your AWS Account ID without dashes.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * The ARN of the Datadog forwarder Lambda.
      */
-    readonly lambdaArn?: pulumi.Input<string>;
+    lambdaArn?: pulumi.Input<string>;
 }
 
 /**
@@ -121,9 +121,9 @@ export interface IntegrationLambdaArnArgs {
     /**
      * Your AWS Account ID without dashes.
      */
-    readonly accountId: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
     /**
      * The ARN of the Datadog forwarder Lambda.
      */
-    readonly lambdaArn: pulumi.Input<string>;
+    lambdaArn: pulumi.Input<string>;
 }

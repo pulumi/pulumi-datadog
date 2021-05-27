@@ -262,18 +262,18 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogsCustomPipeline resources.
  */
 export interface LogsCustomPipelineState {
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
-    readonly isEnabled?: pulumi.Input<boolean>;
-    readonly name?: pulumi.Input<string>;
-    readonly processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
+    isEnabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
 }
 
 /**
  * The set of arguments for constructing a LogsCustomPipeline resource.
  */
 export interface LogsCustomPipelineArgs {
-    readonly filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
-    readonly isEnabled?: pulumi.Input<boolean>;
-    readonly name: pulumi.Input<string>;
-    readonly processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
+    filters: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineFilter>[]>;
+    isEnabled?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    processors?: pulumi.Input<pulumi.Input<inputs.LogsCustomPipelineProcessor>[]>;
 }

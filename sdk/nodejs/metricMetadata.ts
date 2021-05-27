@@ -127,31 +127,31 @@ export interface MetricMetadataState {
     /**
      * A description of the metric.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the metric.
      */
-    readonly metric?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
     /**
      * Per unit of the metric such as `second` in `bytes per second`.
      */
-    readonly perUnit?: pulumi.Input<string>;
+    perUnit?: pulumi.Input<string>;
     /**
      * A short name of the metric.
      */
-    readonly shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string>;
     /**
      * If applicable, statsd flush interval in seconds for the metric.
      */
-    readonly statsdInterval?: pulumi.Input<number>;
+    statsdInterval?: pulumi.Input<number>;
     /**
      * Type of the metric.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Primary unit of the metric such as `byte` or `operation`.
      */
-    readonly unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string>;
 }
 
 /**
@@ -161,29 +161,29 @@ export interface MetricMetadataArgs {
     /**
      * A description of the metric.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the metric.
      */
-    readonly metric: pulumi.Input<string>;
+    metric: pulumi.Input<string>;
     /**
      * Per unit of the metric such as `second` in `bytes per second`.
      */
-    readonly perUnit?: pulumi.Input<string>;
+    perUnit?: pulumi.Input<string>;
     /**
      * A short name of the metric.
      */
-    readonly shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string>;
     /**
      * If applicable, statsd flush interval in seconds for the metric.
      */
-    readonly statsdInterval?: pulumi.Input<number>;
+    statsdInterval?: pulumi.Input<number>;
     /**
      * Type of the metric.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Primary unit of the metric such as `byte` or `operation`.
      */
-    readonly unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string>;
 }

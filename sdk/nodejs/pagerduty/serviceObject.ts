@@ -100,11 +100,11 @@ export interface ServiceObjectState {
     /**
      * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      */
-    readonly serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string>;
     /**
      * Your Service name in PagerDuty.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
 }
 
 /**
@@ -114,9 +114,9 @@ export interface ServiceObjectArgs {
     /**
      * Your Service name associated service key in PagerDuty. Note: Since the Datadog API never returns service keys, it is impossible to detect drifts.
      */
-    readonly serviceKey: pulumi.Input<string>;
+    serviceKey: pulumi.Input<string>;
     /**
      * Your Service name in PagerDuty.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

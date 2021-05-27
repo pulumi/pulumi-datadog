@@ -47,19 +47,19 @@ export interface GetServiceLevelObjectiveArgs {
     /**
      * A SLO ID to limit the search.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Filter results based on SLO numerator and denominator.
      */
-    readonly metricsQuery?: string;
+    metricsQuery?: string;
     /**
      * Filter results based on SLO names.
      */
-    readonly nameQuery?: string;
+    nameQuery?: string;
     /**
      * Filter results based on a single SLO tag.
      */
-    readonly tagsQuery?: string;
+    tagsQuery?: string;
 }
 
 /**

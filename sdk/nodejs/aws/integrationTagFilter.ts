@@ -114,15 +114,15 @@ export interface IntegrationTagFilterState {
     /**
      * Your AWS Account ID without dashes.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
      */
-    readonly namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string>;
     /**
      * The tag filter string.
      */
-    readonly tagFilterStr?: pulumi.Input<string>;
+    tagFilterStr?: pulumi.Input<string>;
 }
 
 /**
@@ -132,13 +132,13 @@ export interface IntegrationTagFilterArgs {
     /**
      * Your AWS Account ID without dashes.
      */
-    readonly accountId: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
     /**
      * The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
      */
-    readonly namespace: pulumi.Input<string>;
+    namespace: pulumi.Input<string>;
     /**
      * The tag filter string.
      */
-    readonly tagFilterStr: pulumi.Input<string>;
+    tagFilterStr: pulumi.Input<string>;
 }

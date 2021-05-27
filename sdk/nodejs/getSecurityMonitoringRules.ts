@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *     defaultOnlyFilter: true,
  *     nameFilter: "attack",
  *     tagsFilters: ["foo:bar"],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSecurityMonitoringRules(args?: GetSecurityMonitoringRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityMonitoringRulesResult> {
@@ -45,19 +45,19 @@ export interface GetSecurityMonitoringRulesArgs {
     /**
      * Limit the search to default rules
      */
-    readonly defaultOnlyFilter?: boolean;
+    defaultOnlyFilter?: boolean;
     /**
      * A rule name to limit the search
      */
-    readonly nameFilter?: string;
+    nameFilter?: string;
     /**
      * A list of tags to limit the search
      */
-    readonly tagsFilters?: string[];
+    tagsFilters?: string[];
     /**
      * Limit the search to user rules
      */
-    readonly userOnlyFilter?: boolean;
+    userOnlyFilter?: boolean;
 }
 
 /**

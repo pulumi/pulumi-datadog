@@ -16,6 +16,15 @@ import (
 // [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 type Provider struct {
 	pulumi.ProviderResourceState
+
+	// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
+	// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+	// path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
+	// you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+	ApiUrl pulumi.StringPtrOutput `pulumi:"apiUrl"`
+	// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+	AppKey pulumi.StringPtrOutput `pulumi:"appKey"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
