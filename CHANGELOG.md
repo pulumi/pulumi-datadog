@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.2.1 of the pulumi-terraform-bridge
+_(none)_
 
 ---
+
+## 3.3.0 (2021-05-27)
+* Upgrade to v3.2.1 of the pulumi-terraform-bridge
 
 ## 3.2.1 (2021-05-27)
 * Upgrade to v2.26.1 of the datadog Terraform Provider
