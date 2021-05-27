@@ -211,43 +211,43 @@ export interface ServiceLevelObjectiveState {
     /**
      * A description of this service level objective.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
      */
-    readonly forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * A static set of groups to filter monitor-based SLOs
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A static set of monitor IDs to use as part of the SLO
      */
-    readonly monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
+    monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name of Datadog service level objective
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The metric query of good / total events
      */
-    readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
+    query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
-    readonly thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
+    thresholds?: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Whether or not to validate the SLO.
      */
-    readonly validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean>;
 }
 
 /**
@@ -257,41 +257,41 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * A description of this service level objective.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
      */
-    readonly forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * A static set of groups to filter monitor-based SLOs
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A static set of monitor IDs to use as part of the SLO
      */
-    readonly monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
+    monitorIds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * Name of Datadog service level objective
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The metric query of good / total events
      */
-    readonly query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
+    query?: pulumi.Input<inputs.ServiceLevelObjectiveQuery>;
     /**
      * A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of thresholds and targets that define the service level objectives from the provided SLIs.
      */
-    readonly thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
+    thresholds: pulumi.Input<pulumi.Input<inputs.ServiceLevelObjectiveThreshold>[]>;
     /**
      * The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Whether or not to validate the SLO.
      */
-    readonly validate?: pulumi.Input<boolean>;
+    validate?: pulumi.Input<boolean>;
 }

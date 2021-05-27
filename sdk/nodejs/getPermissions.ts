@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const permissions = pulumi.output(datadog.getPermissions({ async: true }));
+ * const permissions = pulumi.output(datadog.getPermissions());
  * ```
  */
 export function getPermissions(opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {

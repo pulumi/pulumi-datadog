@@ -151,27 +151,27 @@ export interface SloCorrectionState {
     /**
      * Category the SLO correction belongs to
      */
-    readonly category?: pulumi.Input<string>;
+    category?: pulumi.Input<string>;
     /**
      * Description of the correction being made.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Ending time of the correction in epoch seconds
      */
-    readonly end?: pulumi.Input<number>;
+    end?: pulumi.Input<number>;
     /**
      * ID of the SLO that this correction will be applied to
      */
-    readonly sloId?: pulumi.Input<string>;
+    sloId?: pulumi.Input<string>;
     /**
      * Starting time of the correction in epoch seconds
      */
-    readonly start?: pulumi.Input<number>;
+    start?: pulumi.Input<number>;
     /**
      * The timezone to display in the UI for the correction times (defaults to "UTC")
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -181,25 +181,25 @@ export interface SloCorrectionArgs {
     /**
      * Category the SLO correction belongs to
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * Description of the correction being made.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Ending time of the correction in epoch seconds
      */
-    readonly end: pulumi.Input<number>;
+    end: pulumi.Input<number>;
     /**
      * ID of the SLO that this correction will be applied to
      */
-    readonly sloId: pulumi.Input<string>;
+    sloId: pulumi.Input<string>;
     /**
      * Starting time of the correction in epoch seconds
      */
-    readonly start: pulumi.Input<number>;
+    start: pulumi.Input<number>;
     /**
      * The timezone to display in the UI for the correction times (defaults to "UTC")
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }

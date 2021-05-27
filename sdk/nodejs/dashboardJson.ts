@@ -578,11 +578,11 @@ export interface DashboardJsonState {
     /**
      * The JSON formatted definition of the Dashboard.
      */
-    readonly dashboard?: pulumi.Input<string>;
+    dashboard?: pulumi.Input<string>;
     /**
      * The URL of the dashboard.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -592,9 +592,9 @@ export interface DashboardJsonArgs {
     /**
      * The JSON formatted definition of the Dashboard.
      */
-    readonly dashboard: pulumi.Input<string>;
+    dashboard: pulumi.Input<string>;
     /**
      * The URL of the dashboard.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }

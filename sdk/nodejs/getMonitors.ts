@@ -31,15 +31,15 @@ export interface GetMonitorsArgs {
     /**
      * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
      */
-    readonly monitorTagsFilters?: string[];
+    monitorTagsFilters?: string[];
     /**
      * A monitor name to limit the search.
      */
-    readonly nameFilter?: string;
+    nameFilter?: string;
     /**
      * A list of tags to limit the search. This filters on the monitor scope.
      */
-    readonly tagsFilters?: string[];
+    tagsFilters?: string[];
 }
 
 /**

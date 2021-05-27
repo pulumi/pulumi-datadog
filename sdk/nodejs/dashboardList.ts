@@ -151,11 +151,11 @@ export interface DashboardListState {
     /**
      * A set of dashboard items that belong to this list
      */
-    readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
+    dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**
      * The name of the Dashboard List
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -165,9 +165,9 @@ export interface DashboardListArgs {
     /**
      * A set of dashboard items that belong to this list
      */
-    readonly dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
+    dashItems?: pulumi.Input<pulumi.Input<inputs.DashboardListDashItem>[]>;
     /**
      * The name of the Dashboard List
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

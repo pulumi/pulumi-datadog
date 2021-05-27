@@ -112,15 +112,15 @@ export interface ChannelState {
     /**
      * Slack account name.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Slack channel name.
      */
-    readonly channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string>;
     /**
      * Configuration options for what is shown in an alert event message.
      */
-    readonly display?: pulumi.Input<inputs.slack.ChannelDisplay>;
+    display?: pulumi.Input<inputs.slack.ChannelDisplay>;
 }
 
 /**
@@ -130,13 +130,13 @@ export interface ChannelArgs {
     /**
      * Slack account name.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Slack channel name.
      */
-    readonly channelName: pulumi.Input<string>;
+    channelName: pulumi.Input<string>;
     /**
      * Configuration options for what is shown in an alert event message.
      */
-    readonly display: pulumi.Input<inputs.slack.ChannelDisplay>;
+    display: pulumi.Input<inputs.slack.ChannelDisplay>;
 }

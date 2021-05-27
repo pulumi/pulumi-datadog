@@ -151,31 +151,31 @@ export interface IntegrationState {
     /**
      * Silence monitors for expected GCE instance shutdowns.
      */
-    readonly automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean>;
     /**
      * Your email found in your JSON service account key.
      */
-    readonly clientEmail?: pulumi.Input<string>;
+    clientEmail?: pulumi.Input<string>;
     /**
      * Your ID found in your JSON service account key.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
-    readonly hostFilters?: pulumi.Input<string>;
+    hostFilters?: pulumi.Input<string>;
     /**
      * Your private key name found in your JSON service account key.
      */
-    readonly privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
     /**
      * Your private key ID found in your JSON service account key.
      */
-    readonly privateKeyId?: pulumi.Input<string>;
+    privateKeyId?: pulumi.Input<string>;
     /**
      * Your Google Cloud project ID found in your JSON service account key.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
 }
 
 /**
@@ -185,29 +185,29 @@ export interface IntegrationArgs {
     /**
      * Silence monitors for expected GCE instance shutdowns.
      */
-    readonly automute?: pulumi.Input<boolean>;
+    automute?: pulumi.Input<boolean>;
     /**
      * Your email found in your JSON service account key.
      */
-    readonly clientEmail: pulumi.Input<string>;
+    clientEmail: pulumi.Input<string>;
     /**
      * Your ID found in your JSON service account key.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
      */
-    readonly hostFilters?: pulumi.Input<string>;
+    hostFilters?: pulumi.Input<string>;
     /**
      * Your private key name found in your JSON service account key.
      */
-    readonly privateKey: pulumi.Input<string>;
+    privateKey: pulumi.Input<string>;
     /**
      * Your private key ID found in your JSON service account key.
      */
-    readonly privateKeyId: pulumi.Input<string>;
+    privateKeyId: pulumi.Input<string>;
     /**
      * Your Google Cloud project ID found in your JSON service account key.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
 }

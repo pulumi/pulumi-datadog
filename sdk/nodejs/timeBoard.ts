@@ -112,23 +112,23 @@ export interface TimeBoardState {
     /**
      * A description of the dashboard's content.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A list of graph definitions.
      */
-    readonly graphs?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
+    graphs?: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * A list of template variables for using Dashboard templating.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**
      * The name of the dashboard.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
 }
 
 /**
@@ -138,21 +138,21 @@ export interface TimeBoardArgs {
     /**
      * A description of the dashboard's content.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * A list of graph definitions.
      */
-    readonly graphs: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
+    graphs: pulumi.Input<pulumi.Input<inputs.TimeBoardGraph>[]>;
     /**
      * The read-only status of the timeboard. Default is false.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * A list of template variables for using Dashboard templating.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.TimeBoardTemplateVariable>[]>;
     /**
      * The name of the dashboard.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
 }

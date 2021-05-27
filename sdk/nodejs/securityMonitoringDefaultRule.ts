@@ -110,15 +110,15 @@ export interface SecurityMonitoringDefaultRuleState {
     /**
      * Cases of the rule, this is used to update notifications.
      */
-    readonly cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
     /**
      * Enable the rule.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Additional queries to filter matched events before they are processed.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
 }
 
 /**
@@ -128,13 +128,13 @@ export interface SecurityMonitoringDefaultRuleArgs {
     /**
      * Cases of the rule, this is used to update notifications.
      */
-    readonly cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
+    cases?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleCase>[]>;
     /**
      * Enable the rule.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Additional queries to filter matched events before they are processed.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringDefaultRuleFilter>[]>;
 }

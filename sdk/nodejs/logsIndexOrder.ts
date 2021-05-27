@@ -106,11 +106,11 @@ export interface LogsIndexOrderState {
     /**
      * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      */
-    readonly indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The unique name of the index order resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface LogsIndexOrderArgs {
     /**
      * The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
      */
-    readonly indexes: pulumi.Input<pulumi.Input<string>[]>;
+    indexes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The unique name of the index order resource.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

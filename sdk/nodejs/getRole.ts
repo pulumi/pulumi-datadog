@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(datadog.getRole({
  *     filter: "Datadog Standard Role",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
@@ -39,7 +39,7 @@ export interface GetRoleArgs {
     /**
      * A string on which to filter the roles.
      */
-    readonly filter: string;
+    filter: string;
 }
 
 /**

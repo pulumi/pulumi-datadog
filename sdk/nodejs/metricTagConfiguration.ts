@@ -126,19 +126,19 @@ export interface MetricTagConfigurationState {
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metricType of distribution.
      */
-    readonly includePercentiles?: pulumi.Input<boolean>;
+    includePercentiles?: pulumi.Input<boolean>;
     /**
      * The metric name for this resource.
      */
-    readonly metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string>;
     /**
      * The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
      */
-    readonly metricType?: pulumi.Input<string>;
+    metricType?: pulumi.Input<string>;
     /**
      * A list of tag keys that will be queryable for your metric.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -148,17 +148,17 @@ export interface MetricTagConfigurationArgs {
     /**
      * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metricType of distribution.
      */
-    readonly includePercentiles?: pulumi.Input<boolean>;
+    includePercentiles?: pulumi.Input<boolean>;
     /**
      * The metric name for this resource.
      */
-    readonly metricName: pulumi.Input<string>;
+    metricName: pulumi.Input<string>;
     /**
      * The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
      */
-    readonly metricType: pulumi.Input<string>;
+    metricType: pulumi.Input<string>;
     /**
      * A list of tag keys that will be queryable for your metric.
      */
-    readonly tags: pulumi.Input<pulumi.Input<string>[]>;
+    tags: pulumi.Input<pulumi.Input<string>[]>;
 }

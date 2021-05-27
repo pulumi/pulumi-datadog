@@ -19,6 +19,27 @@ namespace Pulumi.Datadog
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        /// </summary>
+        [Output("apiKey")]
+        public Output<string?> ApiKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+        /// path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
+        /// you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+        /// </summary>
+        [Output("apiUrl")]
+        public Output<string?> ApiUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        /// </summary>
+        [Output("appKey")]
+        public Output<string?> AppKey { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
         ///

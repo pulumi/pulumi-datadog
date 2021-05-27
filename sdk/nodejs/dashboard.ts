@@ -829,51 +829,51 @@ export interface DashboardState {
     /**
      * The list of dashboard lists this dashboard belongs to.
      */
-    readonly dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The list of dashboard lists this dashboard should be removed from. Internal only.
      */
-    readonly dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The description of the dashboard.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether this dashboard is read-only.
      */
-    readonly isReadOnly?: pulumi.Input<boolean>;
+    isReadOnly?: pulumi.Input<boolean>;
     /**
      * The layout type of the dashboard, either 'free' or 'ordered'.
      */
-    readonly layoutType?: pulumi.Input<string>;
+    layoutType?: pulumi.Input<string>;
     /**
      * The list of handles of users to notify when changes are made to this dashboard.
      */
-    readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
      */
-    readonly reflowType?: pulumi.Input<string>;
+    reflowType?: pulumi.Input<string>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
-    readonly templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
+    templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
     /**
      * The list of template variables for this dashboard.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
      * The title of the dashboard.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * The URL of the dashboard.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * The list of widgets to display on the dashboard.
      */
-    readonly widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
 
 /**
@@ -883,45 +883,45 @@ export interface DashboardArgs {
     /**
      * The list of dashboard lists this dashboard belongs to.
      */
-    readonly dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The description of the dashboard.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether this dashboard is read-only.
      */
-    readonly isReadOnly?: pulumi.Input<boolean>;
+    isReadOnly?: pulumi.Input<boolean>;
     /**
      * The layout type of the dashboard, either 'free' or 'ordered'.
      */
-    readonly layoutType: pulumi.Input<string>;
+    layoutType: pulumi.Input<string>;
     /**
      * The list of handles of users to notify when changes are made to this dashboard.
      */
-    readonly notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
      */
-    readonly reflowType?: pulumi.Input<string>;
+    reflowType?: pulumi.Input<string>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
-    readonly templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
+    templateVariablePresets?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariablePreset>[]>;
     /**
      * The list of template variables for this dashboard.
      */
-    readonly templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
+    templateVariables?: pulumi.Input<pulumi.Input<inputs.DashboardTemplateVariable>[]>;
     /**
      * The title of the dashboard.
      */
-    readonly title: pulumi.Input<string>;
+    title: pulumi.Input<string>;
     /**
      * The URL of the dashboard.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * The list of widgets to display on the dashboard.
      */
-    readonly widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
+    widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }

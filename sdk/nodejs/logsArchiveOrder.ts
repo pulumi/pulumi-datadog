@@ -94,7 +94,7 @@ export interface LogsArchiveOrderState {
     /**
      * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      */
-    readonly archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
+    archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface LogsArchiveOrderArgs {
     /**
      * The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
      */
-    readonly archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
+    archiveIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

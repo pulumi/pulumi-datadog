@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const test = pulumi.output(datadog.getDashboardList({
  *     name: "My super list",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardListResult> {
@@ -39,7 +39,7 @@ export interface GetDashboardListArgs {
     /**
      * A dashboard list name to limit the search.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

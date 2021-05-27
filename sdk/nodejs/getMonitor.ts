@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const test = pulumi.output(datadog.getMonitor({
  *     monitorTagsFilters: ["foo:bar"],
  *     nameFilter: "My awesome monitor",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getMonitor(args?: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
@@ -43,15 +43,15 @@ export interface GetMonitorArgs {
     /**
      * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
      */
-    readonly monitorTagsFilters?: string[];
+    monitorTagsFilters?: string[];
     /**
      * A monitor name to limit the search.
      */
-    readonly nameFilter?: string;
+    nameFilter?: string;
     /**
      * A list of tags to limit the search. This filters on the monitor scope.
      */
-    readonly tagsFilters?: string[];
+    tagsFilters?: string[];
 }
 
 /**

@@ -167,51 +167,51 @@ export interface DowntimeState {
     /**
      * When true indicates this downtime is being actively applied
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * When true indicates this downtime is not being applied
      */
-    readonly disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean>;
     /**
      * Optionally specify an end date when this downtime should expire
      */
-    readonly end?: pulumi.Input<number>;
+    end?: pulumi.Input<number>;
     /**
      * String representing date and time to end the downtime in RFC3339 format.
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
      */
-    readonly message?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
     /**
      * When specified, this downtime will only apply to this monitor
      */
-    readonly monitorId?: pulumi.Input<number>;
+    monitorId?: pulumi.Input<number>;
     /**
      * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
      */
-    readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Optional recurring schedule for this downtime
      */
-    readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
+    recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
      * specify the group scope to which this downtime applies. For everything use '*'
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify when this downtime should start
      */
-    readonly start?: pulumi.Input<number>;
+    start?: pulumi.Input<number>;
     /**
      * String representing date and time to start the downtime in RFC3339 format.
      */
-    readonly startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string>;
     /**
      * The timezone for the downtime, default UTC
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -221,41 +221,41 @@ export interface DowntimeArgs {
     /**
      * Optionally specify an end date when this downtime should expire
      */
-    readonly end?: pulumi.Input<number>;
+    end?: pulumi.Input<number>;
     /**
      * String representing date and time to end the downtime in RFC3339 format.
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * An optional message to provide when creating the downtime, can include notification handles
      */
-    readonly message?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
     /**
      * When specified, this downtime will only apply to this monitor
      */
-    readonly monitorId?: pulumi.Input<number>;
+    monitorId?: pulumi.Input<number>;
     /**
      * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
      */
-    readonly monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Optional recurring schedule for this downtime
      */
-    readonly recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
+    recurrence?: pulumi.Input<inputs.DowntimeRecurrence>;
     /**
      * specify the group scope to which this downtime applies. For everything use '*'
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify when this downtime should start
      */
-    readonly start?: pulumi.Input<number>;
+    start?: pulumi.Input<number>;
     /**
      * String representing date and time to start the downtime in RFC3339 format.
      */
-    readonly startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string>;
     /**
      * The timezone for the downtime, default UTC
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }
