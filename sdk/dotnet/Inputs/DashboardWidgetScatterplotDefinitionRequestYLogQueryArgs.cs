@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetScatterplotDefinitionRequestYLogQueryArgs : Pulumi.ResourceArgs
     {
-        [Input("compute")]
-        public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeArgs>? Compute { get; set; }
-
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQueryArgs>? ComputeQuery { get; set; }
 
@@ -36,9 +33,6 @@ namespace Pulumi.Datadog.Inputs
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiComputeArgs>());
             set => _multiComputes = value;
         }
-
-        [Input("search")]
-        public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearchArgs>? Search { get; set; }
 
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }

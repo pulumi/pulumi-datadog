@@ -64,10 +64,16 @@ namespace Pulumi.Datadog.Aws
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+        /// </summary>
+        [Output("accessKeyId")]
+        public Output<string?> AccessKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// Your AWS Account ID without dashes.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
@@ -104,7 +110,13 @@ namespace Pulumi.Datadog.Aws
         /// Your Datadog role delegation name.
         /// </summary>
         [Output("roleName")]
-        public Output<string> RoleName { get; private set; } = null!;
+        public Output<string?> RoleName { get; private set; } = null!;
+
+        /// <summary>
+        /// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+        /// </summary>
+        [Output("secretAccessKey")]
+        public Output<string?> SecretAccessKey { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,7 +126,7 @@ namespace Pulumi.Datadog.Aws
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Integration(string name, IntegrationArgs args, CustomResourceOptions? options = null)
+        public Integration(string name, IntegrationArgs? args = null, CustomResourceOptions? options = null)
             : base("datadog:aws/integration:Integration", name, args ?? new IntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -153,10 +165,16 @@ namespace Pulumi.Datadog.Aws
     public sealed class IntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+        /// </summary>
+        [Input("accessKeyId")]
+        public Input<string>? AccessKeyId { get; set; }
+
+        /// <summary>
         /// Your AWS Account ID without dashes.
         /// </summary>
-        [Input("accountId", required: true)]
-        public Input<string> AccountId { get; set; } = null!;
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
 
         [Input("accountSpecificNamespaceRules")]
         private InputMap<object>? _accountSpecificNamespaceRules;
@@ -209,8 +227,14 @@ namespace Pulumi.Datadog.Aws
         /// <summary>
         /// Your Datadog role delegation name.
         /// </summary>
-        [Input("roleName", required: true)]
-        public Input<string> RoleName { get; set; } = null!;
+        [Input("roleName")]
+        public Input<string>? RoleName { get; set; }
+
+        /// <summary>
+        /// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+        /// </summary>
+        [Input("secretAccessKey")]
+        public Input<string>? SecretAccessKey { get; set; }
 
         public IntegrationArgs()
         {
@@ -219,6 +243,12 @@ namespace Pulumi.Datadog.Aws
 
     public sealed class IntegrationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+        /// </summary>
+        [Input("accessKeyId")]
+        public Input<string>? AccessKeyId { get; set; }
+
         /// <summary>
         /// Your AWS Account ID without dashes.
         /// </summary>
@@ -285,6 +315,12 @@ namespace Pulumi.Datadog.Aws
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
+
+        /// <summary>
+        /// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+        /// </summary>
+        [Input("secretAccessKey")]
+        public Input<string>? SecretAccessKey { get; set; }
 
         public IntegrationState()
         {

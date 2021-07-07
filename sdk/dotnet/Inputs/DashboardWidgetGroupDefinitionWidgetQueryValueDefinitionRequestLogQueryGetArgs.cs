@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGetArgs : Pulumi.ResourceArgs
     {
-        [Input("compute")]
-        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeGetArgs>? Compute { get; set; }
-
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
 
@@ -36,9 +33,6 @@ namespace Pulumi.Datadog.Inputs
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiComputeGetArgs>());
             set => _multiComputes = value;
         }
-
-        [Input("search")]
-        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearchGetArgs>? Search { get; set; }
 
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }

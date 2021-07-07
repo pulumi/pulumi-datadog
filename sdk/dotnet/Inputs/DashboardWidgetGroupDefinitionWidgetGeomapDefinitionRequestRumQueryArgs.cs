@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryArgs : Pulumi.ResourceArgs
     {
-        [Input("compute")]
-        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeArgs>? Compute { get; set; }
-
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQueryArgs>? ComputeQuery { get; set; }
 
@@ -36,9 +33,6 @@ namespace Pulumi.Datadog.Inputs
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiComputeArgs>());
             set => _multiComputes = value;
         }
-
-        [Input("search")]
-        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuerySearchArgs>? Search { get; set; }
 
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }

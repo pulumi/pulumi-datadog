@@ -21,9 +21,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("tagsExecution")]
         public Input<string>? TagsExecution { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetEventTimelineDefinitionTimeArgs>? Time { get; set; }
-
         /// <summary>
         /// The title of the dashboard.
         /// </summary>

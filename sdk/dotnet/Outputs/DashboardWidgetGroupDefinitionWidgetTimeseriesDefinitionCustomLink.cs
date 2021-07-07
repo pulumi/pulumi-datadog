@@ -13,17 +13,25 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink
     {
-        public readonly string Label;
-        public readonly string Link;
+        public readonly bool? IsHidden;
+        public readonly string? Label;
+        public readonly string? Link;
+        public readonly string? OverrideLabel;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink(
-            string label,
+            bool? isHidden,
 
-            string link)
+            string? label,
+
+            string? link,
+
+            string? overrideLabel)
         {
+            IsHidden = isHidden;
             Label = label;
             Link = link;
+            OverrideLabel = overrideLabel;
         }
     }
 }

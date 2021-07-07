@@ -647,8 +647,8 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         Height = 43,
     ///                         Width = 32,
-    ///                         X = 5,
-    ///                         Y = 5,
+    ///                         X = 0,
+    ///                         Y = 0,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -664,9 +664,9 @@ namespace Pulumi.Datadog
     ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
     ///                     {
     ///                         Height = 9,
-    ///                         Width = 65,
-    ///                         X = 42,
-    ///                         Y = 73,
+    ///                         Width = 66,
+    ///                         X = 33,
+    ///                         Y = 60,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -674,16 +674,16 @@ namespace Pulumi.Datadog
     ///                     FreeTextDefinition = new Datadog.Inputs.DashboardWidgetFreeTextDefinitionArgs
     ///                     {
     ///                         Color = "#d00",
-    ///                         FontSize = "88",
+    ///                         FontSize = "36",
     ///                         Text = "free text content",
     ///                         TextAlign = "left",
     ///                     },
     ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
     ///                     {
     ///                         Height = 20,
-    ///                         Width = 30,
-    ///                         X = 42,
-    ///                         Y = 5,
+    ///                         Width = 34,
+    ///                         X = 33,
+    ///                         Y = 0,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -696,8 +696,8 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         Height = 46,
     ///                         Width = 39,
-    ///                         X = 111,
-    ///                         Y = 8,
+    ///                         X = 101,
+    ///                         Y = 0,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -712,8 +712,8 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         Height = 20,
     ///                         Width = 30,
-    ///                         X = 77,
-    ///                         Y = 7,
+    ///                         X = 69,
+    ///                         Y = 0,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -744,8 +744,8 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         Height = 36,
     ///                         Width = 32,
-    ///                         X = 5,
-    ///                         Y = 51,
+    ///                         X = 0,
+    ///                         Y = 45,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -767,8 +767,8 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         Height = 40,
     ///                         Width = 30,
-    ///                         X = 112,
-    ///                         Y = 55,
+    ///                         X = 101,
+    ///                         Y = 48,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -794,9 +794,9 @@ namespace Pulumi.Datadog
     ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
     ///                     {
     ///                         Height = 38,
-    ///                         Width = 67,
-    ///                         X = 40,
-    ///                         Y = 28,
+    ///                         Width = 66,
+    ///                         X = 33,
+    ///                         Y = 21,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -850,6 +850,13 @@ namespace Pulumi.Datadog
     ///                             },
     ///                         },
     ///                     },
+    ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
+    ///                     {
+    ///                         Height = 16,
+    ///                         Width = 25,
+    ///                         X = 58,
+    ///                         Y = 83,
+    ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
     ///                 {
@@ -890,11 +897,19 @@ namespace Pulumi.Datadog
     ///                                             {
     ///                                                 "days-3",
     ///                                             } },
+    ///                                             { "name", "my-query" },
     ///                                         } },
     ///                                     },
     ///                                 } },
     ///                             },
     ///                         },
+    ///                     },
+    ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
+    ///                     {
+    ///                         Height = 16,
+    ///                         Width = 28,
+    ///                         X = 29,
+    ///                         Y = 83,
     ///                     },
     ///                 },
     ///                 new Datadog.Inputs.DashboardWidgetArgs
@@ -928,6 +943,13 @@ namespace Pulumi.Datadog
     ///                                 } },
     ///                             },
     ///                         },
+    ///                     },
+    ///                     WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
+    ///                     {
+    ///                         Height = 16,
+    ///                         Width = 28,
+    ///                         X = 0,
+    ///                         Y = 83,
     ///                     },
     ///                 },
     ///             },
@@ -971,7 +993,7 @@ namespace Pulumi.Datadog
         public Output<bool?> IsReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// The layout type of the dashboard, either 'free' or 'ordered'.
+        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
         /// </summary>
         [Output("layoutType")]
         public Output<string> LayoutType { get; private set; } = null!;
@@ -983,10 +1005,16 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> NotifyLists { get; private set; } = null!;
 
         /// <summary>
-        /// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        /// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         /// </summary>
         [Output("reflowType")]
         public Output<string?> ReflowType { get; private set; } = null!;
+
+        /// <summary>
+        /// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        /// </summary>
+        [Output("restrictedRoles")]
+        public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
         /// The list of selectable template variable presets for this dashboard.
@@ -1089,7 +1117,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard, either 'free' or 'ordered'.
+        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
@@ -1107,10 +1135,22 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        /// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         /// </summary>
         [Input("reflowType")]
         public Input<string>? ReflowType { get; set; }
+
+        [Input("restrictedRoles")]
+        private InputList<string>? _restrictedRoles;
+
+        /// <summary>
+        /// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        /// </summary>
+        public InputList<string> RestrictedRoles
+        {
+            get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
+            set => _restrictedRoles = value;
+        }
 
         [Input("templateVariablePresets")]
         private InputList<Inputs.DashboardTemplateVariablePresetArgs>? _templateVariablePresets;
@@ -1204,7 +1244,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IsReadOnly { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard, either 'free' or 'ordered'.
+        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
         /// </summary>
         [Input("layoutType")]
         public Input<string>? LayoutType { get; set; }
@@ -1222,10 +1262,22 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        /// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         /// </summary>
         [Input("reflowType")]
         public Input<string>? ReflowType { get; set; }
+
+        [Input("restrictedRoles")]
+        private InputList<string>? _restrictedRoles;
+
+        /// <summary>
+        /// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        /// </summary>
+        public InputList<string> RestrictedRoles
+        {
+            get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
+            set => _restrictedRoles = value;
+        }
 
         [Input("templateVariablePresets")]
         private InputList<Inputs.DashboardTemplateVariablePresetGetArgs>? _templateVariablePresets;

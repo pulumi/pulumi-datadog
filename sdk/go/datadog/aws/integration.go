@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog/aws"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -62,8 +61,10 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
+	// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+	AccessKeyId pulumi.StringPtrOutput `pulumi:"accessKeyId"`
 	// Your AWS Account ID without dashes.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapOutput `pulumi:"accountSpecificNamespaceRules"`
 	// An array of AWS regions to exclude from metrics collection.
@@ -76,22 +77,18 @@ type Integration struct {
 	// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
 	HostTags pulumi.StringArrayOutput `pulumi:"hostTags"`
 	// Your Datadog role delegation name.
-	RoleName pulumi.StringOutput `pulumi:"roleName"`
+	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
+	// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+	SecretAccessKey pulumi.StringPtrOutput `pulumi:"secretAccessKey"`
 }
 
 // NewIntegration registers a new resource with the given unique name, arguments, and options.
 func NewIntegration(ctx *pulumi.Context,
 	name string, args *IntegrationArgs, opts ...pulumi.ResourceOption) (*Integration, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &IntegrationArgs{}
 	}
 
-	if args.AccountId == nil {
-		return nil, errors.New("invalid value for required argument 'AccountId'")
-	}
-	if args.RoleName == nil {
-		return nil, errors.New("invalid value for required argument 'RoleName'")
-	}
 	var resource Integration
 	err := ctx.RegisterResource("datadog:aws/integration:Integration", name, args, &resource, opts...)
 	if err != nil {
@@ -114,6 +111,8 @@ func GetIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
+	// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+	AccessKeyId *string `pulumi:"accessKeyId"`
 	// Your AWS Account ID without dashes.
 	AccountId *string `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
@@ -129,9 +128,13 @@ type integrationState struct {
 	HostTags []string `pulumi:"hostTags"`
 	// Your Datadog role delegation name.
 	RoleName *string `pulumi:"roleName"`
+	// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+	SecretAccessKey *string `pulumi:"secretAccessKey"`
 }
 
 type IntegrationState struct {
+	// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+	AccessKeyId pulumi.StringPtrInput
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrInput
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
@@ -147,6 +150,8 @@ type IntegrationState struct {
 	HostTags pulumi.StringArrayInput
 	// Your Datadog role delegation name.
 	RoleName pulumi.StringPtrInput
+	// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+	SecretAccessKey pulumi.StringPtrInput
 }
 
 func (IntegrationState) ElementType() reflect.Type {
@@ -154,8 +159,10 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
+	// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+	AccessKeyId *string `pulumi:"accessKeyId"`
 	// Your AWS Account ID without dashes.
-	AccountId string `pulumi:"accountId"`
+	AccountId *string `pulumi:"accountId"`
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules map[string]interface{} `pulumi:"accountSpecificNamespaceRules"`
 	// An array of AWS regions to exclude from metrics collection.
@@ -165,13 +172,17 @@ type integrationArgs struct {
 	// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
 	HostTags []string `pulumi:"hostTags"`
 	// Your Datadog role delegation name.
-	RoleName string `pulumi:"roleName"`
+	RoleName *string `pulumi:"roleName"`
+	// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+	SecretAccessKey *string `pulumi:"secretAccessKey"`
 }
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
+	// Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+	AccessKeyId pulumi.StringPtrInput
 	// Your AWS Account ID without dashes.
-	AccountId pulumi.StringInput
+	AccountId pulumi.StringPtrInput
 	// Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
 	AccountSpecificNamespaceRules pulumi.MapInput
 	// An array of AWS regions to exclude from metrics collection.
@@ -181,7 +192,9 @@ type IntegrationArgs struct {
 	// Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
 	HostTags pulumi.StringArrayInput
 	// Your Datadog role delegation name.
-	RoleName pulumi.StringInput
+	RoleName pulumi.StringPtrInput
+	// Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+	SecretAccessKey pulumi.StringPtrInput
 }
 
 func (IntegrationArgs) ElementType() reflect.Type {

@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGetArgs : Pulumi.ResourceArgs
     {
-        [Input("compute")]
-        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeGetArgs>? Compute { get; set; }
-
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
 
@@ -36,9 +33,6 @@ namespace Pulumi.Datadog.Inputs
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeGetArgs>());
             set => _multiComputes = value;
         }
-
-        [Input("search")]
-        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearchGetArgs>? Search { get; set; }
 
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }

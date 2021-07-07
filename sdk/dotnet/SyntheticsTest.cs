@@ -12,254 +12,6 @@ namespace Pulumi.Datadog
     /// <summary>
     /// Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Example Usage (Synthetics API test)
-    ///         // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
-    ///         var testApi = new Datadog.SyntheticsTest("testApi", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Type = "api",
-    ///             Subtype = "http",
-    ///             RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
-    ///             {
-    ///                 Method = "GET",
-    ///                 Url = "https://www.example.org",
-    ///             },
-    ///             RequestHeaders = 
-    ///             {
-    ///                 { "Content-Type", "application/json" },
-    ///                 { "Authentication", "Token: 1234566789" },
-    ///             },
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "type", "statusCode" },
-    ///                     { "operator", "is" },
-    ///                     { "target", "200" },
-    ///                 },
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
-    ///             {
-    ///                 TickEvery = 900,
-    ///                 Retry = new Datadog.Inputs.SyntheticsTestOptionsListRetryArgs
-    ///                 {
-    ///                     Count = 2,
-    ///                     Interval = 300,
-    ///                 },
-    ///                 MonitorOptions = new Datadog.Inputs.SyntheticsTestOptionsListMonitorOptionsArgs
-    ///                 {
-    ///                     RenotifyInterval = 100,
-    ///                 },
-    ///             },
-    ///             Name = "An API test on example.org",
-    ///             Message = "Notify @pagerduty",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "foo",
-    ///                 "env:test",
-    ///             },
-    ///             Status = "live",
-    ///         });
-    ///         // Example Usage (Synthetics SSL test)
-    ///         // Create a new Datadog Synthetics API/SSL test on example.org
-    ///         var testSsl = new Datadog.SyntheticsTest("testSsl", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Type = "api",
-    ///             Subtype = "ssl",
-    ///             RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
-    ///             {
-    ///                 Host = "example.org",
-    ///                 Port = 443,
-    ///             },
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "type", "certificate" },
-    ///                     { "operator", "isInMoreThan" },
-    ///                     { "target", 30 },
-    ///                 },
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
-    ///             {
-    ///                 TickEvery = 900,
-    ///                 AcceptSelfSigned = true,
-    ///             },
-    ///             Name = "An API test on example.org",
-    ///             Message = "Notify @pagerduty",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "foo",
-    ///                 "env:test",
-    ///             },
-    ///             Status = "live",
-    ///         });
-    ///         // Example Usage (Synthetics TCP test)
-    ///         // Create a new Datadog Synthetics API/TCP test on example.org
-    ///         var testTcp = new Datadog.SyntheticsTest("testTcp", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Type = "api",
-    ///             Subtype = "tcp",
-    ///             RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
-    ///             {
-    ///                 Host = "example.org",
-    ///                 Port = 443,
-    ///             },
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "type", "responseTime" },
-    ///                     { "operator", "lessThan" },
-    ///                     { "target", 2000 },
-    ///                 },
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
-    ///             {
-    ///                 TickEvery = 900,
-    ///             },
-    ///             Name = "An API test on example.org",
-    ///             Message = "Notify @pagerduty",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "foo",
-    ///                 "env:test",
-    ///             },
-    ///             Status = "live",
-    ///         });
-    ///         // Example Usage (Synthetics DNS test)
-    ///         // Create a new Datadog Synthetics API/DNS test on example.org
-    ///         var testDns = new Datadog.SyntheticsTest("testDns", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Type = "api",
-    ///             Subtype = "dns",
-    ///             RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
-    ///             {
-    ///                 Host = "example.org",
-    ///             },
-    ///             Assertions = 
-    ///             {
-    ///                 
-    ///                 {
-    ///                     { "type", "recordSome" },
-    ///                     { "operator", "is" },
-    ///                     { "property", "A" },
-    ///                     { "target", "0.0.0.0" },
-    ///                 },
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
-    ///             {
-    ///                 TickEvery = 900,
-    ///             },
-    ///             Name = "An API test on example.org",
-    ///             Message = "Notify @pagerduty",
-    ///             Tags = 
-    ///             {
-    ///                 "foo:bar",
-    ///                 "foo",
-    ///                 "env:test",
-    ///             },
-    ///             Status = "live",
-    ///         });
-    ///         // Example Usage (Synthetics Browser test)
-    ///         // Support for Synthetics Browser test steps is limited (see below)
-    ///         // Create a new Datadog Synthetics Browser test starting on https://www.example.org
-    ///         var testBrowser = new Datadog.SyntheticsTest("testBrowser", new Datadog.SyntheticsTestArgs
-    ///         {
-    ///             Type = "browser",
-    ///             RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
-    ///             {
-    ///                 Method = "GET",
-    ///                 Url = "https://app.datadoghq.com",
-    ///             },
-    ///             DeviceIds = 
-    ///             {
-    ///                 "laptop_large",
-    ///             },
-    ///             Locations = 
-    ///             {
-    ///                 "aws:eu-central-1",
-    ///             },
-    ///             OptionsList = new Datadog.Inputs.SyntheticsTestOptionsListArgs
-    ///             {
-    ///                 TickEvery = 3600,
-    ///             },
-    ///             Name = "A Browser test on example.org",
-    ///             Message = "Notify @qa",
-    ///             Tags = {},
-    ///             Status = "paused",
-    ///             Steps = 
-    ///             {
-    ///                 new Datadog.Inputs.SyntheticsTestStepArgs
-    ///                 {
-    ///                     Name = "Check current url",
-    ///                     Type = "assertCurrentUrl",
-    ///                     Params = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "check", "contains" },
-    ///                         { "value", "datadoghq" },
-    ///                     }),
-    ///                 },
-    ///             },
-    ///             Variables = 
-    ///             {
-    ///                 new Datadog.Inputs.SyntheticsTestVariableArgs
-    ///                 {
-    ///                     Type = "text",
-    ///                     Name = "MY_PATTERN_VAR",
-    ///                     Pattern = "{{numeric(3)}}",
-    ///                     Example = "597",
-    ///                 },
-    ///                 new Datadog.Inputs.SyntheticsTestVariableArgs
-    ///                 {
-    ///                     Type = "email",
-    ///                     Name = "MY_EMAIL_VAR",
-    ///                     Pattern = "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
-    ///                     Example = "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
-    ///                 },
-    ///                 new Datadog.Inputs.SyntheticsTestVariableArgs
-    ///                 {
-    ///                     Type = "global",
-    ///                     Name = "MY_GLOBAL_VAR",
-    ///                     Id = "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// # Synthetics tests can be imported using their public string ID, e.g.
@@ -278,10 +30,10 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SyntheticsTestApiStep>> ApiSteps { get; private set; } = null!;
 
         /// <summary>
-        /// List of assertions. **Deprecated.** Define `assertion` blocks instead.
+        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         /// </summary>
         [Output("assertions")]
-        public Output<ImmutableArray<ImmutableDictionary<string, object>>> Assertions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SyntheticsTestAssertion>> Assertions { get; private set; } = null!;
 
         /// <summary>
         /// Steps for browser tests.
@@ -302,7 +54,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SyntheticsTestConfigVariable>> ConfigVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small` (only available for `browser` tests).
+        /// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`.
         /// </summary>
         [Output("deviceIds")]
         public Output<ImmutableArray<string>> DeviceIds { get; private set; } = null!;
@@ -331,20 +83,8 @@ namespace Pulumi.Datadog
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// **Deprecated.** Define `options_list` blocks instead.
-        /// </summary>
-        [Output("options")]
-        public Output<Outputs.SyntheticsTestOptions?> Options { get; private set; } = null!;
-
         [Output("optionsList")]
         public Output<Outputs.SyntheticsTestOptionsList?> OptionsList { get; private set; } = null!;
-
-        /// <summary>
-        /// The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
-        /// </summary>
-        [Output("request")]
-        public Output<Outputs.SyntheticsTestRequest?> Request { get; private set; } = null!;
 
         /// <summary>
         /// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
@@ -383,19 +123,13 @@ namespace Pulumi.Datadog
         public Output<string?> SetCookie { get; private set; } = null!;
 
         /// <summary>
-        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Steps for browser tests. **Deprecated.** Define `browser_step` blocks instead.
-        /// </summary>
-        [Output("steps")]
-        public Output<ImmutableArray<Outputs.SyntheticsTestStep>> Steps { get; private set; } = null!;
-
-        /// <summary>
-        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
+        /// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
         /// </summary>
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
@@ -407,16 +141,10 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Synthetics test type (`api` or `browser`).
+        /// Synthetics test type. Valid values are `api`, `browser`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
-        /// </summary>
-        [Output("variables")]
-        public Output<ImmutableArray<Outputs.SyntheticsTestVariable>> Variables { get; private set; } = null!;
 
 
         /// <summary>
@@ -477,15 +205,14 @@ namespace Pulumi.Datadog
         }
 
         [Input("assertions")]
-        private InputList<ImmutableDictionary<string, object>>? _assertions;
+        private InputList<Inputs.SyntheticsTestAssertionArgs>? _assertions;
 
         /// <summary>
-        /// List of assertions. **Deprecated.** Define `assertion` blocks instead.
+        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         /// </summary>
-        [Obsolete(@"Define `assertion` blocks instead.")]
-        public InputList<ImmutableDictionary<string, object>> Assertions
+        public InputList<Inputs.SyntheticsTestAssertionArgs> Assertions
         {
-            get => _assertions ?? (_assertions = new InputList<ImmutableDictionary<string, object>>());
+            get => _assertions ?? (_assertions = new InputList<Inputs.SyntheticsTestAssertionArgs>());
             set => _assertions = value;
         }
 
@@ -529,7 +256,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _deviceIds;
 
         /// <summary>
-        /// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small` (only available for `browser` tests).
+        /// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`.
         /// </summary>
         public InputList<string> DeviceIds
         {
@@ -561,20 +288,8 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// **Deprecated.** Define `options_list` blocks instead.
-        /// </summary>
-        [Input("options")]
-        public Input<Inputs.SyntheticsTestOptionsArgs>? Options { get; set; }
-
         [Input("optionsList")]
         public Input<Inputs.SyntheticsTestOptionsListArgs>? OptionsList { get; set; }
-
-        /// <summary>
-        /// The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
-        /// </summary>
-        [Input("request")]
-        public Input<Inputs.SyntheticsTestRequestArgs>? Request { get; set; }
 
         /// <summary>
         /// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
@@ -625,26 +340,13 @@ namespace Pulumi.Datadog
         public Input<string>? SetCookie { get; set; }
 
         /// <summary>
-        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
-        [Input("steps")]
-        private InputList<Inputs.SyntheticsTestStepArgs>? _steps;
-
         /// <summary>
-        /// Steps for browser tests. **Deprecated.** Define `browser_step` blocks instead.
-        /// </summary>
-        [Obsolete(@"Define `browser_step` blocks instead.")]
-        public InputList<Inputs.SyntheticsTestStepArgs> Steps
-        {
-            get => _steps ?? (_steps = new InputList<Inputs.SyntheticsTestStepArgs>());
-            set => _steps = value;
-        }
-
-        /// <summary>
-        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
+        /// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -662,23 +364,10 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type (`api` or `browser`).
+        /// Synthetics test type. Valid values are `api`, `browser`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
-
-        [Input("variables")]
-        private InputList<Inputs.SyntheticsTestVariableArgs>? _variables;
-
-        /// <summary>
-        /// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
-        /// </summary>
-        [Obsolete(@"Define `browser_variable` blocks instead.")]
-        public InputList<Inputs.SyntheticsTestVariableArgs> Variables
-        {
-            get => _variables ?? (_variables = new InputList<Inputs.SyntheticsTestVariableArgs>());
-            set => _variables = value;
-        }
 
         public SyntheticsTestArgs()
         {
@@ -700,15 +389,14 @@ namespace Pulumi.Datadog
         }
 
         [Input("assertions")]
-        private InputList<ImmutableDictionary<string, object>>? _assertions;
+        private InputList<Inputs.SyntheticsTestAssertionGetArgs>? _assertions;
 
         /// <summary>
-        /// List of assertions. **Deprecated.** Define `assertion` blocks instead.
+        /// Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
         /// </summary>
-        [Obsolete(@"Define `assertion` blocks instead.")]
-        public InputList<ImmutableDictionary<string, object>> Assertions
+        public InputList<Inputs.SyntheticsTestAssertionGetArgs> Assertions
         {
-            get => _assertions ?? (_assertions = new InputList<ImmutableDictionary<string, object>>());
+            get => _assertions ?? (_assertions = new InputList<Inputs.SyntheticsTestAssertionGetArgs>());
             set => _assertions = value;
         }
 
@@ -752,7 +440,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _deviceIds;
 
         /// <summary>
-        /// Array with the different device IDs used to run the test. Allowed enum values: `laptop_large`, `tablet`, `mobile_small` (only available for `browser` tests).
+        /// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`.
         /// </summary>
         public InputList<string> DeviceIds
         {
@@ -790,20 +478,8 @@ namespace Pulumi.Datadog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// **Deprecated.** Define `options_list` blocks instead.
-        /// </summary>
-        [Input("options")]
-        public Input<Inputs.SyntheticsTestOptionsGetArgs>? Options { get; set; }
-
         [Input("optionsList")]
         public Input<Inputs.SyntheticsTestOptionsListGetArgs>? OptionsList { get; set; }
-
-        /// <summary>
-        /// The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
-        /// </summary>
-        [Input("request")]
-        public Input<Inputs.SyntheticsTestRequestGetArgs>? Request { get; set; }
 
         /// <summary>
         /// The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
@@ -854,26 +530,13 @@ namespace Pulumi.Datadog
         public Input<string>? SetCookie { get; set; }
 
         /// <summary>
-        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Allowed enum values: `live`, `paused`
+        /// Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("steps")]
-        private InputList<Inputs.SyntheticsTestStepGetArgs>? _steps;
-
         /// <summary>
-        /// Steps for browser tests. **Deprecated.** Define `browser_step` blocks instead.
-        /// </summary>
-        [Obsolete(@"Define `browser_step` blocks instead.")]
-        public InputList<Inputs.SyntheticsTestStepGetArgs> Steps
-        {
-            get => _steps ?? (_steps = new InputList<Inputs.SyntheticsTestStepGetArgs>());
-            set => _steps = value;
-        }
-
-        /// <summary>
-        /// When `type` is `api`, choose from `http`, `ssl`, `tcp`, `dns`, `icmp` or `multi`. Defaults to `http`.
+        /// The subtype of the Synthetic API test. Defaults to `http`. Valid values are `http`, `ssl`, `tcp`, `dns`, `multi`, `icmp`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
@@ -891,23 +554,10 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Synthetics test type (`api` or `browser`).
+        /// Synthetics test type. Valid values are `api`, `browser`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
-
-        [Input("variables")]
-        private InputList<Inputs.SyntheticsTestVariableGetArgs>? _variables;
-
-        /// <summary>
-        /// Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
-        /// </summary>
-        [Obsolete(@"Define `browser_variable` blocks instead.")]
-        public InputList<Inputs.SyntheticsTestVariableGetArgs> Variables
-        {
-            get => _variables ?? (_variables = new InputList<Inputs.SyntheticsTestVariableGetArgs>());
-            set => _variables = value;
-        }
 
         public SyntheticsTestState()
         {

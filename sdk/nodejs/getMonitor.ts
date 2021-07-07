@@ -97,11 +97,11 @@ export interface GetMonitorResult {
     /**
      * Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
      */
-    readonly monitorThresholdWindows: outputs.GetMonitorMonitorThresholdWindows;
+    readonly monitorThresholdWindows: outputs.GetMonitorMonitorThresholdWindow[];
     /**
      * Alert thresholds of the monitor.
      */
-    readonly monitorThresholds: outputs.GetMonitorMonitorThresholds;
+    readonly monitorThresholds: outputs.GetMonitorMonitorThreshold[];
     /**
      * Name of the monitor
      */
@@ -146,18 +146,6 @@ export interface GetMonitorResult {
      * A list of tags to limit the search. This filters on the monitor scope.
      */
     readonly tagsFilters?: string[];
-    /**
-     * Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors. **Deprecated.** Define `monitorThresholdWindows` list with one element instead.
-     *
-     * @deprecated Define `monitor_threshold_windows` list with one element instead.
-     */
-    readonly thresholdWindows: outputs.GetMonitorThresholdWindows;
-    /**
-     * Alert thresholds of the monitor. **Deprecated.** Define `monitorThresholds` list with one element instead.
-     *
-     * @deprecated Define `monitor_thresholds` list with one element instead.
-     */
-    readonly thresholds: outputs.GetMonitorThresholds;
     /**
      * Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
      */

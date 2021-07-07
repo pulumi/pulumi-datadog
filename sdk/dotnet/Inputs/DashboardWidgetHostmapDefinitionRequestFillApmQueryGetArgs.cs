@@ -12,9 +12,6 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetHostmapDefinitionRequestFillApmQueryGetArgs : Pulumi.ResourceArgs
     {
-        [Input("compute")]
-        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeGetArgs>? Compute { get; set; }
-
         [Input("computeQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQueryGetArgs>? ComputeQuery { get; set; }
 
@@ -36,9 +33,6 @@ namespace Pulumi.Datadog.Inputs
             get => _multiComputes ?? (_multiComputes = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiComputeGetArgs>());
             set => _multiComputes = value;
         }
-
-        [Input("search")]
-        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearchGetArgs>? Search { get; set; }
 
         [Input("searchQuery")]
         public Input<string>? SearchQuery { get; set; }

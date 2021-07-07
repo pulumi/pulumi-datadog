@@ -33,14 +33,19 @@ namespace Pulumi.Datadog.Outputs
         /// Minimum number of locations in failure required to trigger an alert. Default is `1`.
         /// </summary>
         public readonly int? MinLocationFailed;
+        /// <summary>
+        /// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+        /// </summary>
+        public readonly string? MonitorName;
         public readonly Outputs.SyntheticsTestOptionsListMonitorOptions? MonitorOptions;
+        public readonly int? MonitorPriority;
         /// <summary>
         /// Prevents saving screenshots of the steps.
         /// </summary>
         public readonly bool? NoScreenshot;
         public readonly Outputs.SyntheticsTestOptionsListRetry? Retry;
         /// <summary>
-        /// How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
+        /// How often the test should run (in seconds). Valid values are `30`, `60`, `300`, `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800`.
         /// </summary>
         public readonly int TickEvery;
 
@@ -56,7 +61,11 @@ namespace Pulumi.Datadog.Outputs
 
             int? minLocationFailed,
 
+            string? monitorName,
+
             Outputs.SyntheticsTestOptionsListMonitorOptions? monitorOptions,
+
+            int? monitorPriority,
 
             bool? noScreenshot,
 
@@ -69,7 +78,9 @@ namespace Pulumi.Datadog.Outputs
             FollowRedirects = followRedirects;
             MinFailureDuration = minFailureDuration;
             MinLocationFailed = minLocationFailed;
+            MonitorName = monitorName;
             MonitorOptions = monitorOptions;
+            MonitorPriority = monitorPriority;
             NoScreenshot = noScreenshot;
             Retry = retry;
             TickEvery = tickEvery;

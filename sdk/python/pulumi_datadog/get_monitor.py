@@ -20,7 +20,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, threshold_windows=None, thresholds=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -48,11 +48,11 @@ class GetMonitorResult:
         if monitor_tags_filters and not isinstance(monitor_tags_filters, list):
             raise TypeError("Expected argument 'monitor_tags_filters' to be a list")
         pulumi.set(__self__, "monitor_tags_filters", monitor_tags_filters)
-        if monitor_threshold_windows and not isinstance(monitor_threshold_windows, dict):
-            raise TypeError("Expected argument 'monitor_threshold_windows' to be a dict")
+        if monitor_threshold_windows and not isinstance(monitor_threshold_windows, list):
+            raise TypeError("Expected argument 'monitor_threshold_windows' to be a list")
         pulumi.set(__self__, "monitor_threshold_windows", monitor_threshold_windows)
-        if monitor_thresholds and not isinstance(monitor_thresholds, dict):
-            raise TypeError("Expected argument 'monitor_thresholds' to be a dict")
+        if monitor_thresholds and not isinstance(monitor_thresholds, list):
+            raise TypeError("Expected argument 'monitor_thresholds' to be a list")
         pulumi.set(__self__, "monitor_thresholds", monitor_thresholds)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -87,20 +87,6 @@ class GetMonitorResult:
         if tags_filters and not isinstance(tags_filters, list):
             raise TypeError("Expected argument 'tags_filters' to be a list")
         pulumi.set(__self__, "tags_filters", tags_filters)
-        if threshold_windows and not isinstance(threshold_windows, dict):
-            raise TypeError("Expected argument 'threshold_windows' to be a dict")
-        if threshold_windows is not None:
-            warnings.warn("""Define `monitor_threshold_windows` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.""")
-
-        pulumi.set(__self__, "threshold_windows", threshold_windows)
-        if thresholds and not isinstance(thresholds, dict):
-            raise TypeError("Expected argument 'thresholds' to be a dict")
-        if thresholds is not None:
-            warnings.warn("""Define `monitor_thresholds` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""thresholds is deprecated: Define `monitor_thresholds` list with one element instead.""")
-
-        pulumi.set(__self__, "thresholds", thresholds)
         if timeout_h and not isinstance(timeout_h, int):
             raise TypeError("Expected argument 'timeout_h' to be a int")
         pulumi.set(__self__, "timeout_h", timeout_h)
@@ -182,7 +168,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="monitorThresholdWindows")
-    def monitor_threshold_windows(self) -> 'outputs.GetMonitorMonitorThresholdWindowsResult':
+    def monitor_threshold_windows(self) -> Sequence['outputs.GetMonitorMonitorThresholdWindowResult']:
         """
         Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
         """
@@ -190,7 +176,7 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter(name="monitorThresholds")
-    def monitor_thresholds(self) -> 'outputs.GetMonitorMonitorThresholdsResult':
+    def monitor_thresholds(self) -> Sequence['outputs.GetMonitorMonitorThresholdResult']:
         """
         Alert thresholds of the monitor.
         """
@@ -285,22 +271,6 @@ class GetMonitorResult:
         return pulumi.get(self, "tags_filters")
 
     @property
-    @pulumi.getter(name="thresholdWindows")
-    def threshold_windows(self) -> 'outputs.GetMonitorThresholdWindowsResult':
-        """
-        Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors. **Deprecated.** Define `monitor_threshold_windows` list with one element instead.
-        """
-        return pulumi.get(self, "threshold_windows")
-
-    @property
-    @pulumi.getter
-    def thresholds(self) -> 'outputs.GetMonitorThresholdsResult':
-        """
-        Alert thresholds of the monitor. **Deprecated.** Define `monitor_thresholds` list with one element instead.
-        """
-        return pulumi.get(self, "thresholds")
-
-    @property
     @pulumi.getter(name="timeoutH")
     def timeout_h(self) -> int:
         """
@@ -345,8 +315,6 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             require_full_window=self.require_full_window,
             tags=self.tags,
             tags_filters=self.tags_filters,
-            threshold_windows=self.threshold_windows,
-            thresholds=self.thresholds,
             timeout_h=self.timeout_h,
             type=self.type)
 
@@ -406,7 +374,5 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         require_full_window=__ret__.require_full_window,
         tags=__ret__.tags,
         tags_filters=__ret__.tags_filters,
-        threshold_windows=__ret__.threshold_windows,
-        thresholds=__ret__.thresholds,
         timeout_h=__ret__.timeout_h,
         type=__ret__.type)

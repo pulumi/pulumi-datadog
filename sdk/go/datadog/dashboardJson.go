@@ -21,7 +21,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -42,6 +42,10 @@ type DashboardJson struct {
 
 	// The JSON formatted definition of the Dashboard.
 	Dashboard pulumi.StringOutput `pulumi:"dashboard"`
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists pulumi.IntArrayOutput `pulumi:"dashboardLists"`
+	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
 	// The URL of the dashboard.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -80,6 +84,10 @@ func GetDashboardJson(ctx *pulumi.Context,
 type dashboardJsonState struct {
 	// The JSON formatted definition of the Dashboard.
 	Dashboard *string `pulumi:"dashboard"`
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists []int `pulumi:"dashboardLists"`
+	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
 	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
 }
@@ -87,6 +95,10 @@ type dashboardJsonState struct {
 type DashboardJsonState struct {
 	// The JSON formatted definition of the Dashboard.
 	Dashboard pulumi.StringPtrInput
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists pulumi.IntArrayInput
+	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	DashboardListsRemoveds pulumi.IntArrayInput
 	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
 }
@@ -98,6 +110,8 @@ func (DashboardJsonState) ElementType() reflect.Type {
 type dashboardJsonArgs struct {
 	// The JSON formatted definition of the Dashboard.
 	Dashboard string `pulumi:"dashboard"`
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists []int `pulumi:"dashboardLists"`
 	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
 }
@@ -106,6 +120,8 @@ type dashboardJsonArgs struct {
 type DashboardJsonArgs struct {
 	// The JSON formatted definition of the Dashboard.
 	Dashboard pulumi.StringInput
+	// The list of dashboard lists this dashboard belongs to.
+	DashboardLists pulumi.IntArrayInput
 	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
 }

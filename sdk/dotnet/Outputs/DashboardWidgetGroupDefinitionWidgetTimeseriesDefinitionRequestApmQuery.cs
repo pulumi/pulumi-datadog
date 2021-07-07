@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery
     {
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(
-            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute? compute,
-
             Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

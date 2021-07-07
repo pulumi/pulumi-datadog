@@ -70,10 +70,6 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition? ImageDefinition;
         /// <summary>
-        /// The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
-        /// </summary>
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLayout? Layout;
-        /// <summary>
         /// The definition for an Log Stream widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition? LogStreamDefinition;
@@ -152,8 +148,6 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition? imageDefinition,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetLayout? layout,
-
             Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition? logStreamDefinition,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition? manageStatusDefinition,
@@ -192,7 +186,6 @@ namespace Pulumi.Datadog.Outputs
             Id = id;
             IframeDefinition = iframeDefinition;
             ImageDefinition = imageDefinition;
-            Layout = layout;
             LogStreamDefinition = logStreamDefinition;
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;

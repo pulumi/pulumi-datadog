@@ -21,10 +21,10 @@ class SloCorrectionArgs:
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SloCorrection resource.
-        :param pulumi.Input[str] category: Category the SLO correction belongs to
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds
-        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to
-        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds
+        :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
+        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
+        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] description: Description of the correction being made.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
@@ -41,7 +41,7 @@ class SloCorrectionArgs:
     @pulumi.getter
     def category(self) -> pulumi.Input[str]:
         """
-        Category the SLO correction belongs to
+        Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         """
         return pulumi.get(self, "category")
 
@@ -53,7 +53,7 @@ class SloCorrectionArgs:
     @pulumi.getter
     def end(self) -> pulumi.Input[int]:
         """
-        Ending time of the correction in epoch seconds
+        Ending time of the correction in epoch seconds.
         """
         return pulumi.get(self, "end")
 
@@ -65,7 +65,7 @@ class SloCorrectionArgs:
     @pulumi.getter(name="sloId")
     def slo_id(self) -> pulumi.Input[str]:
         """
-        ID of the SLO that this correction will be applied to
+        ID of the SLO that this correction will be applied to.
         """
         return pulumi.get(self, "slo_id")
 
@@ -77,7 +77,7 @@ class SloCorrectionArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[int]:
         """
-        Starting time of the correction in epoch seconds
+        Starting time of the correction in epoch seconds.
         """
         return pulumi.get(self, "start")
 
@@ -121,11 +121,11 @@ class _SloCorrectionState:
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SloCorrection resources.
-        :param pulumi.Input[str] category: Category the SLO correction belongs to
+        :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[str] description: Description of the correction being made.
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds
-        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to
-        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
+        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
+        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
         if category is not None:
@@ -145,7 +145,7 @@ class _SloCorrectionState:
     @pulumi.getter
     def category(self) -> Optional[pulumi.Input[str]]:
         """
-        Category the SLO correction belongs to
+        Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         """
         return pulumi.get(self, "category")
 
@@ -169,7 +169,7 @@ class _SloCorrectionState:
     @pulumi.getter
     def end(self) -> Optional[pulumi.Input[int]]:
         """
-        Ending time of the correction in epoch seconds
+        Ending time of the correction in epoch seconds.
         """
         return pulumi.get(self, "end")
 
@@ -181,7 +181,7 @@ class _SloCorrectionState:
     @pulumi.getter(name="sloId")
     def slo_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the SLO that this correction will be applied to
+        ID of the SLO that this correction will be applied to.
         """
         return pulumi.get(self, "slo_id")
 
@@ -193,7 +193,7 @@ class _SloCorrectionState:
     @pulumi.getter
     def start(self) -> Optional[pulumi.Input[int]]:
         """
-        Starting time of the correction in epoch seconds
+        Starting time of the correction in epoch seconds.
         """
         return pulumi.get(self, "start")
 
@@ -227,7 +227,7 @@ class SloCorrection(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for interacting with the slo_correction API
+        Resource for interacting with the slo_correction API.
 
         ## Example Usage
 
@@ -266,11 +266,11 @@ class SloCorrection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] category: Category the SLO correction belongs to
+        :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[str] description: Description of the correction being made.
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds
-        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to
-        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
+        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
+        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
         ...
@@ -280,7 +280,7 @@ class SloCorrection(pulumi.CustomResource):
                  args: SloCorrectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for interacting with the slo_correction API
+        Resource for interacting with the slo_correction API.
 
         ## Example Usage
 
@@ -387,11 +387,11 @@ class SloCorrection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] category: Category the SLO correction belongs to
+        :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[str] description: Description of the correction being made.
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds
-        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to
-        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
+        :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
+        :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -410,7 +410,7 @@ class SloCorrection(pulumi.CustomResource):
     @pulumi.getter
     def category(self) -> pulumi.Output[str]:
         """
-        Category the SLO correction belongs to
+        Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         """
         return pulumi.get(self, "category")
 
@@ -426,7 +426,7 @@ class SloCorrection(pulumi.CustomResource):
     @pulumi.getter
     def end(self) -> pulumi.Output[int]:
         """
-        Ending time of the correction in epoch seconds
+        Ending time of the correction in epoch seconds.
         """
         return pulumi.get(self, "end")
 
@@ -434,7 +434,7 @@ class SloCorrection(pulumi.CustomResource):
     @pulumi.getter(name="sloId")
     def slo_id(self) -> pulumi.Output[str]:
         """
-        ID of the SLO that this correction will be applied to
+        ID of the SLO that this correction will be applied to.
         """
         return pulumi.get(self, "slo_id")
 
@@ -442,7 +442,7 @@ class SloCorrection(pulumi.CustomResource):
     @pulumi.getter
     def start(self) -> pulumi.Output[int]:
         """
-        Starting time of the correction in epoch seconds
+        Starting time of the correction in epoch seconds.
         """
         return pulumi.get(self, "start")
 

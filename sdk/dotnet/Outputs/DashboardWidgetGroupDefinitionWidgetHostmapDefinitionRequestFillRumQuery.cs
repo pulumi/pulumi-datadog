@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery
     {
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(
-            Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute? compute,
-
             Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

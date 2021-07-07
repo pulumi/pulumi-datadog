@@ -61,21 +61,9 @@ export class LogsArchive extends pulumi.CustomResource {
     }
 
     /**
-     * Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-     *
-     * @deprecated Define `azure_archive` list with one element instead.
-     */
-    public readonly azure!: pulumi.Output<outputs.LogsArchiveAzure | undefined>;
-    /**
      * Definition of an azure archive.
      */
     public readonly azureArchive!: pulumi.Output<outputs.LogsArchiveAzureArchive | undefined>;
-    /**
-     * Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-     *
-     * @deprecated Define `gcs_archive` list with one element instead.
-     */
-    public readonly gcs!: pulumi.Output<outputs.LogsArchiveGcs | undefined>;
     /**
      * Definition of a GCS archive.
      */
@@ -97,12 +85,6 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     public readonly rehydrationTags!: pulumi.Output<string[] | undefined>;
     /**
-     * Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-     *
-     * @deprecated Define `s3_archive` list with one element instead.
-     */
-    public readonly s3!: pulumi.Output<outputs.LogsArchiveS3 | undefined>;
-    /**
      * Definition of an s3 archive.
      */
     public readonly s3Archive!: pulumi.Output<outputs.LogsArchiveS3Archive | undefined>;
@@ -120,15 +102,12 @@ export class LogsArchive extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsArchiveState | undefined;
-            inputs["azure"] = state ? state.azure : undefined;
             inputs["azureArchive"] = state ? state.azureArchive : undefined;
-            inputs["gcs"] = state ? state.gcs : undefined;
             inputs["gcsArchive"] = state ? state.gcsArchive : undefined;
             inputs["includeTags"] = state ? state.includeTags : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["query"] = state ? state.query : undefined;
             inputs["rehydrationTags"] = state ? state.rehydrationTags : undefined;
-            inputs["s3"] = state ? state.s3 : undefined;
             inputs["s3Archive"] = state ? state.s3Archive : undefined;
         } else {
             const args = argsOrState as LogsArchiveArgs | undefined;
@@ -138,15 +117,12 @@ export class LogsArchive extends pulumi.CustomResource {
             if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            inputs["azure"] = args ? args.azure : undefined;
             inputs["azureArchive"] = args ? args.azureArchive : undefined;
-            inputs["gcs"] = args ? args.gcs : undefined;
             inputs["gcsArchive"] = args ? args.gcsArchive : undefined;
             inputs["includeTags"] = args ? args.includeTags : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
-            inputs["s3"] = args ? args.s3 : undefined;
             inputs["s3Archive"] = args ? args.s3Archive : undefined;
         }
         if (!opts.version) {
@@ -161,21 +137,9 @@ export class LogsArchive extends pulumi.CustomResource {
  */
 export interface LogsArchiveState {
     /**
-     * Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-     *
-     * @deprecated Define `azure_archive` list with one element instead.
-     */
-    azure?: pulumi.Input<inputs.LogsArchiveAzure>;
-    /**
      * Definition of an azure archive.
      */
     azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
-    /**
-     * Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-     *
-     * @deprecated Define `gcs_archive` list with one element instead.
-     */
-    gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
     /**
      * Definition of a GCS archive.
      */
@@ -197,12 +161,6 @@ export interface LogsArchiveState {
      */
     rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-     *
-     * @deprecated Define `s3_archive` list with one element instead.
-     */
-    s3?: pulumi.Input<inputs.LogsArchiveS3>;
-    /**
      * Definition of an s3 archive.
      */
     s3Archive?: pulumi.Input<inputs.LogsArchiveS3Archive>;
@@ -213,21 +171,9 @@ export interface LogsArchiveState {
  */
 export interface LogsArchiveArgs {
     /**
-     * Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-     *
-     * @deprecated Define `azure_archive` list with one element instead.
-     */
-    azure?: pulumi.Input<inputs.LogsArchiveAzure>;
-    /**
      * Definition of an azure archive.
      */
     azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive>;
-    /**
-     * Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-     *
-     * @deprecated Define `gcs_archive` list with one element instead.
-     */
-    gcs?: pulumi.Input<inputs.LogsArchiveGcs>;
     /**
      * Definition of a GCS archive.
      */
@@ -248,12 +194,6 @@ export interface LogsArchiveArgs {
      * An array of tags to add to rehydrated logs from an archive.
      */
     rehydrationTags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-     *
-     * @deprecated Define `s3_archive` list with one element instead.
-     */
-    s3?: pulumi.Input<inputs.LogsArchiveS3>;
     /**
      * Definition of an s3 archive.
      */

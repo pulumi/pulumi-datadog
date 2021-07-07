@@ -42,8 +42,17 @@ namespace Pulumi.Datadog.Inputs
         [Input("minLocationFailed")]
         public Input<int>? MinLocationFailed { get; set; }
 
+        /// <summary>
+        /// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+        /// </summary>
+        [Input("monitorName")]
+        public Input<string>? MonitorName { get; set; }
+
         [Input("monitorOptions")]
         public Input<Inputs.SyntheticsTestOptionsListMonitorOptionsArgs>? MonitorOptions { get; set; }
+
+        [Input("monitorPriority")]
+        public Input<int>? MonitorPriority { get; set; }
 
         /// <summary>
         /// Prevents saving screenshots of the steps.
@@ -55,7 +64,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.SyntheticsTestOptionsListRetryArgs>? Retry { get; set; }
 
         /// <summary>
-        /// How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
+        /// How often the test should run (in seconds). Valid values are `30`, `60`, `300`, `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800`.
         /// </summary>
         [Input("tickEvery", required: true)]
         public Input<int> TickEvery { get; set; } = null!;

@@ -23,19 +23,21 @@ class DashboardArgs:
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] url: The URL of the dashboard.
@@ -53,6 +55,8 @@ class DashboardArgs:
             pulumi.set(__self__, "notify_lists", notify_lists)
         if reflow_type is not None:
             pulumi.set(__self__, "reflow_type", reflow_type)
+        if restricted_roles is not None:
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -64,7 +68,7 @@ class DashboardArgs:
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Input[str]:
         """
-        The layout type of the dashboard, either 'free' or 'ordered'.
+        The layout type of the dashboard. Valid values are `ordered`, `free`.
         """
         return pulumi.get(self, "layout_type")
 
@@ -148,13 +152,25 @@ class DashboardArgs:
     @pulumi.getter(name="reflowType")
     def reflow_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         """
         return pulumi.get(self, "reflow_type")
 
     @reflow_type.setter
     def reflow_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "reflow_type", value)
+
+    @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        """
+        return pulumi.get(self, "restricted_roles")
+
+    @restricted_roles.setter
+    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "restricted_roles", value)
 
     @property
     @pulumi.getter(name="templateVariablePresets")
@@ -203,6 +219,7 @@ class _DashboardState:
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -214,9 +231,10 @@ class _DashboardState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -237,6 +255,8 @@ class _DashboardState:
             pulumi.set(__self__, "notify_lists", notify_lists)
         if reflow_type is not None:
             pulumi.set(__self__, "reflow_type", reflow_type)
+        if restricted_roles is not None:
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
         if template_variable_presets is not None:
             pulumi.set(__self__, "template_variable_presets", template_variable_presets)
         if template_variables is not None:
@@ -300,7 +320,7 @@ class _DashboardState:
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The layout type of the dashboard, either 'free' or 'ordered'.
+        The layout type of the dashboard. Valid values are `ordered`, `free`.
         """
         return pulumi.get(self, "layout_type")
 
@@ -324,13 +344,25 @@ class _DashboardState:
     @pulumi.getter(name="reflowType")
     def reflow_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         """
         return pulumi.get(self, "reflow_type")
 
     @reflow_type.setter
     def reflow_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "reflow_type", value)
+
+    @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        """
+        return pulumi.get(self, "restricted_roles")
+
+    @restricted_roles.setter
+    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "restricted_roles", value)
 
     @property
     @pulumi.getter(name="templateVariablePresets")
@@ -404,6 +436,7 @@ class Dashboard(pulumi.CustomResource):
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -878,8 +911,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=43,
                         width=32,
-                        x=5,
-                        y=5,
+                        x=0,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -892,23 +925,23 @@ class Dashboard(pulumi.CustomResource):
                     ),
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=9,
-                        width=65,
-                        x=42,
-                        y=73,
+                        width=66,
+                        x=33,
+                        y=60,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     free_text_definition=datadog.DashboardWidgetFreeTextDefinitionArgs(
                         color="#d00",
-                        font_size="88",
+                        font_size="36",
                         text="free text content",
                         text_align="left",
                     ),
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
-                        width=30,
-                        x=42,
-                        y=5,
+                        width=34,
+                        x=33,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -918,8 +951,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=46,
                         width=39,
-                        x=111,
-                        y=8,
+                        x=101,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -931,8 +964,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
                         width=30,
-                        x=77,
-                        y=7,
+                        x=69,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -955,8 +988,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=36,
                         width=32,
-                        x=5,
-                        y=51,
+                        x=0,
+                        y=45,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -975,8 +1008,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=40,
                         width=30,
-                        x=112,
-                        y=55,
+                        x=101,
+                        y=48,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -999,9 +1032,9 @@ class Dashboard(pulumi.CustomResource):
                     ),
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=38,
-                        width=67,
-                        x=40,
-                        y=28,
+                        width=66,
+                        x=33,
+                        y=21,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1040,6 +1073,12 @@ class Dashboard(pulumi.CustomResource):
                             ],
                         }],
                     ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=16,
+                        width=25,
+                        x=58,
+                        y=83,
+                    ),
                 ),
                 datadog.DashboardWidgetArgs(
                     timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
@@ -1059,9 +1098,16 @@ class Dashboard(pulumi.CustomResource):
                                         },
                                     }],
                                     "indexes": ["days-3"],
+                                    "name": "my-query",
                                 },
                             }],
                         }],
+                    ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=16,
+                        width=28,
+                        x=29,
+                        y=83,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1082,6 +1128,12 @@ class Dashboard(pulumi.CustomResource):
                             }],
                         }],
                     ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=16,
+                        width=28,
+                        x=0,
+                        y=83,
+                    ),
                 ),
             ])
         ```
@@ -1097,9 +1149,10 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -1580,8 +1633,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=43,
                         width=32,
-                        x=5,
-                        y=5,
+                        x=0,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1594,23 +1647,23 @@ class Dashboard(pulumi.CustomResource):
                     ),
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=9,
-                        width=65,
-                        x=42,
-                        y=73,
+                        width=66,
+                        x=33,
+                        y=60,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
                     free_text_definition=datadog.DashboardWidgetFreeTextDefinitionArgs(
                         color="#d00",
-                        font_size="88",
+                        font_size="36",
                         text="free text content",
                         text_align="left",
                     ),
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
-                        width=30,
-                        x=42,
-                        y=5,
+                        width=34,
+                        x=33,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1620,8 +1673,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=46,
                         width=39,
-                        x=111,
-                        y=8,
+                        x=101,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1633,8 +1686,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=20,
                         width=30,
-                        x=77,
-                        y=7,
+                        x=69,
+                        y=0,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1657,8 +1710,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=36,
                         width=32,
-                        x=5,
-                        y=51,
+                        x=0,
+                        y=45,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1677,8 +1730,8 @@ class Dashboard(pulumi.CustomResource):
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=40,
                         width=30,
-                        x=112,
-                        y=55,
+                        x=101,
+                        y=48,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1701,9 +1754,9 @@ class Dashboard(pulumi.CustomResource):
                     ),
                     widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
                         height=38,
-                        width=67,
-                        x=40,
-                        y=28,
+                        width=66,
+                        x=33,
+                        y=21,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1742,6 +1795,12 @@ class Dashboard(pulumi.CustomResource):
                             ],
                         }],
                     ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=16,
+                        width=25,
+                        x=58,
+                        y=83,
+                    ),
                 ),
                 datadog.DashboardWidgetArgs(
                     timeseries_definition=datadog.DashboardWidgetTimeseriesDefinitionArgs(
@@ -1761,9 +1820,16 @@ class Dashboard(pulumi.CustomResource):
                                         },
                                     }],
                                     "indexes": ["days-3"],
+                                    "name": "my-query",
                                 },
                             }],
                         }],
+                    ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=16,
+                        width=28,
+                        x=29,
+                        y=83,
                     ),
                 ),
                 datadog.DashboardWidgetArgs(
@@ -1783,6 +1849,12 @@ class Dashboard(pulumi.CustomResource):
                                 },
                             }],
                         }],
+                    ),
+                    widget_layout=datadog.DashboardWidgetWidgetLayoutArgs(
+                        height=16,
+                        width=28,
+                        x=0,
+                        y=83,
                     ),
                 ),
             ])
@@ -1815,6 +1887,7 @@ class Dashboard(pulumi.CustomResource):
                  layout_type: Optional[pulumi.Input[str]] = None,
                  notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reflow_type: Optional[pulumi.Input[str]] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
@@ -1840,6 +1913,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["layout_type"] = layout_type
             __props__.__dict__["notify_lists"] = notify_lists
             __props__.__dict__["reflow_type"] = reflow_type
+            __props__.__dict__["restricted_roles"] = restricted_roles
             __props__.__dict__["template_variable_presets"] = template_variable_presets
             __props__.__dict__["template_variables"] = template_variables
             if title is None and not opts.urn:
@@ -1867,6 +1941,7 @@ class Dashboard(pulumi.CustomResource):
             layout_type: Optional[pulumi.Input[str]] = None,
             notify_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             reflow_type: Optional[pulumi.Input[str]] = None,
+            restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]]] = None,
             template_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]]] = None,
             title: Optional[pulumi.Input[str]] = None,
@@ -1883,9 +1958,10 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
-        :param pulumi.Input[str] layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
-        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariableArgs']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] title: The title of the dashboard.
@@ -1903,6 +1979,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["layout_type"] = layout_type
         __props__.__dict__["notify_lists"] = notify_lists
         __props__.__dict__["reflow_type"] = reflow_type
+        __props__.__dict__["restricted_roles"] = restricted_roles
         __props__.__dict__["template_variable_presets"] = template_variable_presets
         __props__.__dict__["template_variables"] = template_variables
         __props__.__dict__["title"] = title
@@ -1946,7 +2023,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> pulumi.Output[str]:
         """
-        The layout type of the dashboard, either 'free' or 'ordered'.
+        The layout type of the dashboard. Valid values are `ordered`, `free`.
         """
         return pulumi.get(self, "layout_type")
 
@@ -1962,9 +2039,17 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="reflowType")
     def reflow_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+        The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         """
         return pulumi.get(self, "reflow_type")
+
+    @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        """
+        return pulumi.get(self, "restricted_roles")
 
     @property
     @pulumi.getter(name="templateVariablePresets")

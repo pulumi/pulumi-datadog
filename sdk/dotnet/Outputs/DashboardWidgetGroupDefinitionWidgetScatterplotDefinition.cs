@@ -17,7 +17,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink> CustomLinks;
         public readonly string? LiveSpan;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest? Request;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -37,8 +36,6 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest? request,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -53,7 +50,6 @@ namespace Pulumi.Datadog.Outputs
             CustomLinks = customLinks;
             LiveSpan = liveSpan;
             Request = request;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

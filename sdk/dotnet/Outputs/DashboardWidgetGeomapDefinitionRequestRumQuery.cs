@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGeomapDefinitionRequestRumQuery
     {
-        public readonly Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetGeomapDefinitionRequestRumQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetGeomapDefinitionRequestRumQuery(
-            Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryCompute? compute,
-
             Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetGeomapDefinitionRequestRumQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

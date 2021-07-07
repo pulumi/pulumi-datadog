@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Pattern;
         /// <summary>
-        /// Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
+        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
         /// </summary>
         public readonly string Type;
 

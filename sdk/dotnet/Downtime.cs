@@ -59,6 +59,12 @@ namespace Pulumi.Datadog
         public Output<bool> Active { get; private set; } = null!;
 
         /// <summary>
+        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        /// </summary>
+        [Output("activeChildId")]
+        public Output<int> ActiveChildId { get; private set; } = null!;
+
+        /// <summary>
         /// When true indicates this downtime is not being applied
         /// </summary>
         [Output("disabled")]
@@ -254,6 +260,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
+
+        /// <summary>
+        /// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        /// </summary>
+        [Input("activeChildId")]
+        public Input<int>? ActiveChildId { get; set; }
 
         /// <summary>
         /// When true indicates this downtime is not being applied

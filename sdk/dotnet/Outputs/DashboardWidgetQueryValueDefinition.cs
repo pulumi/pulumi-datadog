@@ -20,7 +20,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly int? Precision;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequest> Requests;
         public readonly string? TextAlign;
-        public readonly Outputs.DashboardWidgetQueryValueDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -44,8 +43,6 @@ namespace Pulumi.Datadog.Outputs
 
             string? textAlign,
 
-            Outputs.DashboardWidgetQueryValueDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -59,7 +56,6 @@ namespace Pulumi.Datadog.Outputs
             Precision = precision;
             Requests = requests;
             TextAlign = textAlign;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

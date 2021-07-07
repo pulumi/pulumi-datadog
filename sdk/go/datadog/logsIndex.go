@@ -19,13 +19,14 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewLogsIndex(ctx, "sampleIndex", &datadog.LogsIndexArgs{
+// 			DailyLimit: pulumi.Int(200000),
 // 			ExclusionFilters: datadog.LogsIndexExclusionFilterArray{
 // 				&datadog.LogsIndexExclusionFilterArgs{
 // 					Filters: datadog.LogsIndexExclusionFilterFilterArray{
@@ -53,7 +54,8 @@ import (
 // 					Query: pulumi.String("*"),
 // 				},
 // 			},
-// 			Name: pulumi.String("your index"),
+// 			Name:          pulumi.String("your index"),
+// 			RetentionDays: pulumi.Int(7),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -71,12 +73,16 @@ import (
 type LogsIndex struct {
 	pulumi.CustomResourceState
 
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit pulumi.IntPtrOutput `pulumi:"dailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayOutput `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters LogsIndexFilterArrayOutput `pulumi:"filters"`
 	// The name of the index.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The number of days before logs are deleted from this index.
+	RetentionDays pulumi.IntOutput `pulumi:"retentionDays"`
 }
 
 // NewLogsIndex registers a new resource with the given unique name, arguments, and options.
@@ -114,21 +120,29 @@ func GetLogsIndex(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsIndex resources.
 type logsIndexState struct {
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit *int `pulumi:"dailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters []LogsIndexFilter `pulumi:"filters"`
 	// The name of the index.
 	Name *string `pulumi:"name"`
+	// The number of days before logs are deleted from this index.
+	RetentionDays *int `pulumi:"retentionDays"`
 }
 
 type LogsIndexState struct {
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit pulumi.IntPtrInput
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	// Logs filter
 	Filters LogsIndexFilterArrayInput
 	// The name of the index.
 	Name pulumi.StringPtrInput
+	// The number of days before logs are deleted from this index.
+	RetentionDays pulumi.IntPtrInput
 }
 
 func (LogsIndexState) ElementType() reflect.Type {
@@ -136,22 +150,30 @@ func (LogsIndexState) ElementType() reflect.Type {
 }
 
 type logsIndexArgs struct {
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit *int `pulumi:"dailyLimit"`
 	// List of exclusion filters.
 	ExclusionFilters []LogsIndexExclusionFilter `pulumi:"exclusionFilters"`
 	// Logs filter
 	Filters []LogsIndexFilter `pulumi:"filters"`
 	// The name of the index.
 	Name string `pulumi:"name"`
+	// The number of days before logs are deleted from this index.
+	RetentionDays *int `pulumi:"retentionDays"`
 }
 
 // The set of arguments for constructing a LogsIndex resource.
 type LogsIndexArgs struct {
+	// The number of log events you can send in this index per day before you are rate-limited.
+	DailyLimit pulumi.IntPtrInput
 	// List of exclusion filters.
 	ExclusionFilters LogsIndexExclusionFilterArrayInput
 	// Logs filter
 	Filters LogsIndexFilterArrayInput
 	// The name of the index.
 	Name pulumi.StringInput
+	// The number of days before logs are deleted from this index.
+	RetentionDays pulumi.IntPtrInput
 }
 
 func (LogsIndexArgs) ElementType() reflect.Type {

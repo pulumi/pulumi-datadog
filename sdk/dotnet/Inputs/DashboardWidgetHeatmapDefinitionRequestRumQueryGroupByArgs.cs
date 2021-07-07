@@ -18,9 +18,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
-        [Input("sort")]
-        public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortArgs>? Sort { get; set; }
-
         [Input("sortQuery")]
         public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQueryArgs>? SortQuery { get; set; }
 

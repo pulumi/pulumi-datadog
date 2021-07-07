@@ -16,26 +16,26 @@ import * as utilities from "./utilities";
  *
  * // Create a new Datadog monitor
  * const foo = new datadog.Monitor("foo", {
- *     name: "Name for monitor foo",
- *     type: "metric alert",
- *     message: "Monitor triggered. Notify: @hipchat-channel",
  *     escalationMessage: "Escalation message @pagerduty",
- *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
- *     monitorThresholds: {
- *         warning: 2,
- *         warningRecovery: 1,
- *         critical: 4,
- *         criticalRecovery: 3,
- *     },
- *     notifyNoData: false,
- *     renotifyInterval: 60,
- *     notifyAudit: false,
- *     timeoutH: 60,
  *     includeTags: true,
+ *     message: "Monitor triggered. Notify: @hipchat-channel",
+ *     monitorThresholds: {
+ *         critical: "4",
+ *         criticalRecovery: "3",
+ *         warning: "2",
+ *         warningRecovery: "1",
+ *     },
+ *     name: "Name for monitor foo",
+ *     notifyAudit: false,
+ *     notifyNoData: false,
+ *     query: "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+ *     renotifyInterval: 60,
  *     tags: [
  *         "foo:bar",
  *         "baz",
  *     ],
+ *     timeoutH: 60,
+ *     type: "metric alert",
  * });
  * ```
  *
@@ -171,31 +171,10 @@ export class Monitor extends pulumi.CustomResource {
     public readonly requireFullWindow!: pulumi.Output<boolean | undefined>;
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-     * the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-     * removed in the next major version of the Terraform Provider.
-     *
-     * @deprecated Use the Downtime resource instead.
-     */
-    public readonly silenced!: pulumi.Output<{[key: string]: any} | undefined>;
-    /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
-    /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-     * required for, anomaly monitors.
-     *
-     * @deprecated Define `monitor_threshold_windows` list with one element instead.
-     */
-    public readonly thresholdWindows!: pulumi.Output<outputs.MonitorThresholdWindows | undefined>;
-    /**
-     * Alert thresholds of the monitor.
-     *
-     * @deprecated Define `monitor_thresholds` list with one element instead.
-     */
-    public readonly thresholds!: pulumi.Output<outputs.MonitorThresholds | undefined>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
      */
@@ -244,10 +223,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["renotifyInterval"] = state ? state.renotifyInterval : undefined;
             inputs["requireFullWindow"] = state ? state.requireFullWindow : undefined;
             inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
-            inputs["silenced"] = state ? state.silenced : undefined;
             inputs["tags"] = state ? state.tags : undefined;
-            inputs["thresholdWindows"] = state ? state.thresholdWindows : undefined;
-            inputs["thresholds"] = state ? state.thresholds : undefined;
             inputs["timeoutH"] = state ? state.timeoutH : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["validate"] = state ? state.validate : undefined;
@@ -285,10 +261,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["renotifyInterval"] = args ? args.renotifyInterval : undefined;
             inputs["requireFullWindow"] = args ? args.requireFullWindow : undefined;
             inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
-            inputs["silenced"] = args ? args.silenced : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["thresholdWindows"] = args ? args.thresholdWindows : undefined;
-            inputs["thresholds"] = args ? args.thresholds : undefined;
             inputs["timeoutH"] = args ? args.timeoutH : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["validate"] = args ? args.validate : undefined;
@@ -402,31 +375,10 @@ export interface MonitorState {
     requireFullWindow?: pulumi.Input<boolean>;
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-     * the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-     * removed in the next major version of the Terraform Provider.
-     *
-     * @deprecated Use the Downtime resource instead.
-     */
-    silenced?: pulumi.Input<{[key: string]: any}>;
-    /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-     * required for, anomaly monitors.
-     *
-     * @deprecated Define `monitor_threshold_windows` list with one element instead.
-     */
-    thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
-    /**
-     * Alert thresholds of the monitor.
-     *
-     * @deprecated Define `monitor_thresholds` list with one element instead.
-     */
-    thresholds?: pulumi.Input<inputs.MonitorThresholds>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
      */
@@ -545,31 +497,10 @@ export interface MonitorArgs {
     requireFullWindow?: pulumi.Input<boolean>;
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-     * the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-     * removed in the next major version of the Terraform Provider.
-     *
-     * @deprecated Use the Downtime resource instead.
-     */
-    silenced?: pulumi.Input<{[key: string]: any}>;
-    /**
      * A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
      * page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-     * required for, anomaly monitors.
-     *
-     * @deprecated Define `monitor_threshold_windows` list with one element instead.
-     */
-    thresholdWindows?: pulumi.Input<inputs.MonitorThresholdWindows>;
-    /**
-     * Alert thresholds of the monitor.
-     *
-     * @deprecated Define `monitor_thresholds` list with one element instead.
-     */
-    thresholds?: pulumi.Input<inputs.MonitorThresholds>;
     /**
      * The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
      */

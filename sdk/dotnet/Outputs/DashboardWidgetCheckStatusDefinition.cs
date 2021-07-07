@@ -19,7 +19,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly string Grouping;
         public readonly string? LiveSpan;
         public readonly ImmutableArray<string> Tags;
-        public readonly Outputs.DashboardWidgetCheckStatusDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -41,8 +40,6 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> tags,
 
-            Outputs.DashboardWidgetCheckStatusDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -55,7 +52,6 @@ namespace Pulumi.Datadog.Outputs
             Grouping = grouping;
             LiveSpan = liveSpan;
             Tags = tags;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

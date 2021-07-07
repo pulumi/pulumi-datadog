@@ -16,88 +16,58 @@ __all__ = [
     'DashboardTemplateVariablePresetTemplateVariable',
     'DashboardWidget',
     'DashboardWidgetAlertGraphDefinition',
-    'DashboardWidgetAlertGraphDefinitionTime',
     'DashboardWidgetAlertValueDefinition',
     'DashboardWidgetChangeDefinition',
     'DashboardWidgetChangeDefinitionCustomLink',
     'DashboardWidgetChangeDefinitionRequest',
     'DashboardWidgetChangeDefinitionRequestApmQuery',
-    'DashboardWidgetChangeDefinitionRequestApmQueryCompute',
     'DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetChangeDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetChangeDefinitionRequestApmQuerySearch',
     'DashboardWidgetChangeDefinitionRequestLogQuery',
-    'DashboardWidgetChangeDefinitionRequestLogQueryCompute',
     'DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetChangeDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetChangeDefinitionRequestLogQuerySearch',
     'DashboardWidgetChangeDefinitionRequestProcessQuery',
     'DashboardWidgetChangeDefinitionRequestRumQuery',
-    'DashboardWidgetChangeDefinitionRequestRumQueryCompute',
     'DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetChangeDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetChangeDefinitionRequestRumQuerySearch',
     'DashboardWidgetChangeDefinitionRequestSecurityQuery',
-    'DashboardWidgetChangeDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetChangeDefinitionRequestSecurityQuerySearch',
-    'DashboardWidgetChangeDefinitionTime',
     'DashboardWidgetCheckStatusDefinition',
-    'DashboardWidgetCheckStatusDefinitionTime',
     'DashboardWidgetDistributionDefinition',
     'DashboardWidgetDistributionDefinitionRequest',
     'DashboardWidgetDistributionDefinitionRequestApmQuery',
-    'DashboardWidgetDistributionDefinitionRequestApmQueryCompute',
     'DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetDistributionDefinitionRequestApmQuerySearch',
     'DashboardWidgetDistributionDefinitionRequestLogQuery',
-    'DashboardWidgetDistributionDefinitionRequestLogQueryCompute',
     'DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetDistributionDefinitionRequestLogQuerySearch',
     'DashboardWidgetDistributionDefinitionRequestProcessQuery',
     'DashboardWidgetDistributionDefinitionRequestRumQuery',
-    'DashboardWidgetDistributionDefinitionRequestRumQueryCompute',
     'DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetDistributionDefinitionRequestRumQuerySearch',
     'DashboardWidgetDistributionDefinitionRequestSecurityQuery',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetDistributionDefinitionRequestStyle',
-    'DashboardWidgetDistributionDefinitionTime',
     'DashboardWidgetEventStreamDefinition',
-    'DashboardWidgetEventStreamDefinitionTime',
     'DashboardWidgetEventTimelineDefinition',
-    'DashboardWidgetEventTimelineDefinitionTime',
     'DashboardWidgetFreeTextDefinition',
     'DashboardWidgetGeomapDefinition',
     'DashboardWidgetGeomapDefinitionCustomLink',
@@ -105,13 +75,10 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestFormula',
     'DashboardWidgetGeomapDefinitionRequestFormulaLimit',
     'DashboardWidgetGeomapDefinitionRequestLogQuery',
-    'DashboardWidgetGeomapDefinitionRequestLogQueryCompute',
     'DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGeomapDefinitionRequestLogQuerySearch',
     'DashboardWidgetGeomapDefinitionRequestQuery',
     'DashboardWidgetGeomapDefinitionRequestQueryEventQuery',
     'DashboardWidgetGeomapDefinitionRequestQueryEventQueryCompute',
@@ -121,100 +88,67 @@ __all__ = [
     'DashboardWidgetGeomapDefinitionRequestQueryMetricQuery',
     'DashboardWidgetGeomapDefinitionRequestQueryProcessQuery',
     'DashboardWidgetGeomapDefinitionRequestRumQuery',
-    'DashboardWidgetGeomapDefinitionRequestRumQueryCompute',
     'DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGeomapDefinitionRequestRumQuerySearch',
     'DashboardWidgetGeomapDefinitionStyle',
     'DashboardWidgetGeomapDefinitionView',
     'DashboardWidgetGroupDefinition',
     'DashboardWidgetGroupDefinitionWidget',
     'DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition',
-    'DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetAlertValueDefinition',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinition',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch',
-    'DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition',
-    'DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinition',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle',
-    'DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetEventStreamDefinition',
-    'DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition',
-    'DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetFreeTextDefinition',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinition',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink',
@@ -222,13 +156,10 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQueryCompute',
@@ -238,13 +169,10 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionStyle',
     'DashboardWidgetGroupDefinitionWidgetGeomapDefinitionView',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinition',
@@ -252,183 +180,125 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionEvent',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle',
-    'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionYaxis',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinition',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFill',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSize',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetHostmapDefinitionStyle',
     'DashboardWidgetGroupDefinitionWidgetIframeDefinition',
     'DashboardWidgetGroupDefinitionWidgetImageDefinition',
-    'DashboardWidgetGroupDefinitionWidgetLayout',
     'DashboardWidgetGroupDefinitionWidgetLogStreamDefinition',
     'DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort',
-    'DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetManageStatusDefinition',
     'DashboardWidgetGroupDefinitionWidgetNoteDefinition',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinition',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch',
-    'DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinition',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery',
@@ -439,94 +309,62 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch',
-    'DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinition',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestX',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestY',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch',
-    'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionXaxis',
     'DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionYaxis',
     'DashboardWidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition',
@@ -538,32 +376,23 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestMetadata',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuery',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery',
@@ -574,47 +403,34 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestStyle',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis',
-    'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinition',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery',
@@ -625,208 +441,142 @@ __all__ = [
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle',
-    'DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition',
-    'DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime',
     'DashboardWidgetGroupDefinitionWidgetWidgetLayout',
     'DashboardWidgetHeatmapDefinition',
     'DashboardWidgetHeatmapDefinitionCustomLink',
     'DashboardWidgetHeatmapDefinitionEvent',
     'DashboardWidgetHeatmapDefinitionRequest',
     'DashboardWidgetHeatmapDefinitionRequestApmQuery',
-    'DashboardWidgetHeatmapDefinitionRequestApmQueryCompute',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetHeatmapDefinitionRequestApmQuerySearch',
     'DashboardWidgetHeatmapDefinitionRequestLogQuery',
-    'DashboardWidgetHeatmapDefinitionRequestLogQueryCompute',
     'DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetHeatmapDefinitionRequestLogQuerySearch',
     'DashboardWidgetHeatmapDefinitionRequestProcessQuery',
     'DashboardWidgetHeatmapDefinitionRequestRumQuery',
-    'DashboardWidgetHeatmapDefinitionRequestRumQueryCompute',
     'DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetHeatmapDefinitionRequestRumQuerySearch',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQuery',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetHeatmapDefinitionRequestStyle',
-    'DashboardWidgetHeatmapDefinitionTime',
     'DashboardWidgetHeatmapDefinitionYaxis',
     'DashboardWidgetHostmapDefinition',
     'DashboardWidgetHostmapDefinitionCustomLink',
     'DashboardWidgetHostmapDefinitionRequest',
     'DashboardWidgetHostmapDefinitionRequestFill',
     'DashboardWidgetHostmapDefinitionRequestFillApmQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch',
     'DashboardWidgetHostmapDefinitionRequestFillLogQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch',
     'DashboardWidgetHostmapDefinitionRequestFillProcessQuery',
     'DashboardWidgetHostmapDefinitionRequestFillRumQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQuery',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch',
     'DashboardWidgetHostmapDefinitionRequestSize',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch',
     'DashboardWidgetHostmapDefinitionRequestSizeProcessQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery',
     'DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute',
-    'DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch',
     'DashboardWidgetHostmapDefinitionStyle',
     'DashboardWidgetIframeDefinition',
     'DashboardWidgetImageDefinition',
-    'DashboardWidgetLayout',
     'DashboardWidgetLogStreamDefinition',
     'DashboardWidgetLogStreamDefinitionSort',
-    'DashboardWidgetLogStreamDefinitionTime',
     'DashboardWidgetManageStatusDefinition',
     'DashboardWidgetNoteDefinition',
     'DashboardWidgetQueryTableDefinition',
     'DashboardWidgetQueryTableDefinitionCustomLink',
     'DashboardWidgetQueryTableDefinitionRequest',
     'DashboardWidgetQueryTableDefinitionRequestApmQuery',
-    'DashboardWidgetQueryTableDefinitionRequestApmQueryCompute',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetQueryTableDefinitionRequestApmQuerySearch',
     'DashboardWidgetQueryTableDefinitionRequestApmStatsQuery',
     'DashboardWidgetQueryTableDefinitionRequestApmStatsQueryColumn',
     'DashboardWidgetQueryTableDefinitionRequestConditionalFormat',
     'DashboardWidgetQueryTableDefinitionRequestLogQuery',
-    'DashboardWidgetQueryTableDefinitionRequestLogQueryCompute',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetQueryTableDefinitionRequestLogQuerySearch',
     'DashboardWidgetQueryTableDefinitionRequestProcessQuery',
     'DashboardWidgetQueryTableDefinitionRequestRumQuery',
-    'DashboardWidgetQueryTableDefinitionRequestRumQueryCompute',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetQueryTableDefinitionRequestRumQuerySearch',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQuery',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch',
-    'DashboardWidgetQueryTableDefinitionTime',
     'DashboardWidgetQueryValueDefinition',
     'DashboardWidgetQueryValueDefinitionCustomLink',
     'DashboardWidgetQueryValueDefinitionRequest',
     'DashboardWidgetQueryValueDefinitionRequestApmQuery',
-    'DashboardWidgetQueryValueDefinitionRequestApmQueryCompute',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetQueryValueDefinitionRequestApmQuerySearch',
     'DashboardWidgetQueryValueDefinitionRequestConditionalFormat',
     'DashboardWidgetQueryValueDefinitionRequestFormula',
     'DashboardWidgetQueryValueDefinitionRequestFormulaLimit',
     'DashboardWidgetQueryValueDefinitionRequestLogQuery',
-    'DashboardWidgetQueryValueDefinitionRequestLogQueryCompute',
     'DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetQueryValueDefinitionRequestLogQuerySearch',
     'DashboardWidgetQueryValueDefinitionRequestProcessQuery',
     'DashboardWidgetQueryValueDefinitionRequestQuery',
     'DashboardWidgetQueryValueDefinitionRequestQueryEventQuery',
@@ -837,94 +587,62 @@ __all__ = [
     'DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery',
     'DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery',
     'DashboardWidgetQueryValueDefinitionRequestRumQuery',
-    'DashboardWidgetQueryValueDefinitionRequestRumQueryCompute',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetQueryValueDefinitionRequestRumQuerySearch',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQuery',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch',
-    'DashboardWidgetQueryValueDefinitionTime',
     'DashboardWidgetScatterplotDefinition',
     'DashboardWidgetScatterplotDefinitionCustomLink',
     'DashboardWidgetScatterplotDefinitionRequest',
     'DashboardWidgetScatterplotDefinitionRequestX',
     'DashboardWidgetScatterplotDefinitionRequestXApmQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch',
     'DashboardWidgetScatterplotDefinitionRequestXLogQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch',
     'DashboardWidgetScatterplotDefinitionRequestXProcessQuery',
     'DashboardWidgetScatterplotDefinitionRequestXRumQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQuery',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch',
     'DashboardWidgetScatterplotDefinitionRequestY',
     'DashboardWidgetScatterplotDefinitionRequestYApmQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch',
     'DashboardWidgetScatterplotDefinitionRequestYLogQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch',
     'DashboardWidgetScatterplotDefinitionRequestYProcessQuery',
     'DashboardWidgetScatterplotDefinitionRequestYRumQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQuery',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery',
     'DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute',
-    'DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch',
-    'DashboardWidgetScatterplotDefinitionTime',
     'DashboardWidgetScatterplotDefinitionXaxis',
     'DashboardWidgetScatterplotDefinitionYaxis',
     'DashboardWidgetServiceLevelObjectiveDefinition',
@@ -936,32 +654,23 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionMarker',
     'DashboardWidgetTimeseriesDefinitionRequest',
     'DashboardWidgetTimeseriesDefinitionRequestApmQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute',
     'DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch',
     'DashboardWidgetTimeseriesDefinitionRequestFormula',
     'DashboardWidgetTimeseriesDefinitionRequestFormulaLimit',
     'DashboardWidgetTimeseriesDefinitionRequestLogQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute',
     'DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch',
     'DashboardWidgetTimeseriesDefinitionRequestMetadata',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy',
-    'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery',
     'DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute',
-    'DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch',
     'DashboardWidgetTimeseriesDefinitionRequestProcessQuery',
     'DashboardWidgetTimeseriesDefinitionRequestQuery',
     'DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery',
@@ -972,47 +681,34 @@ __all__ = [
     'DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery',
     'DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery',
     'DashboardWidgetTimeseriesDefinitionRequestRumQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQuery',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetTimeseriesDefinitionRequestStyle',
     'DashboardWidgetTimeseriesDefinitionRightYaxis',
-    'DashboardWidgetTimeseriesDefinitionTime',
     'DashboardWidgetTimeseriesDefinitionYaxis',
     'DashboardWidgetToplistDefinition',
     'DashboardWidgetToplistDefinitionCustomLink',
     'DashboardWidgetToplistDefinitionRequest',
     'DashboardWidgetToplistDefinitionRequestApmQuery',
-    'DashboardWidgetToplistDefinitionRequestApmQueryCompute',
     'DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery',
     'DashboardWidgetToplistDefinitionRequestApmQueryGroupBy',
-    'DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort',
     'DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery',
     'DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute',
-    'DashboardWidgetToplistDefinitionRequestApmQuerySearch',
     'DashboardWidgetToplistDefinitionRequestConditionalFormat',
     'DashboardWidgetToplistDefinitionRequestFormula',
     'DashboardWidgetToplistDefinitionRequestFormulaLimit',
     'DashboardWidgetToplistDefinitionRequestLogQuery',
-    'DashboardWidgetToplistDefinitionRequestLogQueryCompute',
     'DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery',
     'DashboardWidgetToplistDefinitionRequestLogQueryGroupBy',
-    'DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort',
     'DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery',
     'DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute',
-    'DashboardWidgetToplistDefinitionRequestLogQuerySearch',
     'DashboardWidgetToplistDefinitionRequestProcessQuery',
     'DashboardWidgetToplistDefinitionRequestQuery',
     'DashboardWidgetToplistDefinitionRequestQueryEventQuery',
@@ -1023,32 +719,21 @@ __all__ = [
     'DashboardWidgetToplistDefinitionRequestQueryMetricQuery',
     'DashboardWidgetToplistDefinitionRequestQueryProcessQuery',
     'DashboardWidgetToplistDefinitionRequestRumQuery',
-    'DashboardWidgetToplistDefinitionRequestRumQueryCompute',
     'DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery',
     'DashboardWidgetToplistDefinitionRequestRumQueryGroupBy',
-    'DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort',
     'DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery',
     'DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute',
-    'DashboardWidgetToplistDefinitionRequestRumQuerySearch',
     'DashboardWidgetToplistDefinitionRequestSecurityQuery',
-    'DashboardWidgetToplistDefinitionRequestSecurityQueryCompute',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy',
-    'DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery',
     'DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute',
-    'DashboardWidgetToplistDefinitionRequestSecurityQuerySearch',
     'DashboardWidgetToplistDefinitionRequestStyle',
-    'DashboardWidgetToplistDefinitionTime',
     'DashboardWidgetTraceServiceDefinition',
-    'DashboardWidgetTraceServiceDefinitionTime',
     'DashboardWidgetWidgetLayout',
     'DowntimeRecurrence',
-    'LogsArchiveAzure',
     'LogsArchiveAzureArchive',
-    'LogsArchiveGcs',
     'LogsArchiveGcsArchive',
-    'LogsArchiveS3',
     'LogsArchiveS3Archive',
     'LogsCustomPipelineFilter',
     'LogsCustomPipelineProcessor',
@@ -1097,28 +782,7 @@ __all__ = [
     'LogsMetricGroupBy',
     'MonitorMonitorThresholdWindows',
     'MonitorMonitorThresholds',
-    'MonitorThresholdWindows',
-    'MonitorThresholds',
     'RolePermission',
-    'ScreenBoardTemplateVariable',
-    'ScreenBoardWidget',
-    'ScreenBoardWidgetRule',
-    'ScreenBoardWidgetTileDef',
-    'ScreenBoardWidgetTileDefEvent',
-    'ScreenBoardWidgetTileDefMarker',
-    'ScreenBoardWidgetTileDefRequest',
-    'ScreenBoardWidgetTileDefRequestApmQuery',
-    'ScreenBoardWidgetTileDefRequestApmQueryCompute',
-    'ScreenBoardWidgetTileDefRequestApmQueryGroupBy',
-    'ScreenBoardWidgetTileDefRequestApmQueryGroupBySort',
-    'ScreenBoardWidgetTileDefRequestApmQuerySearch',
-    'ScreenBoardWidgetTileDefRequestConditionalFormat',
-    'ScreenBoardWidgetTileDefRequestLogQuery',
-    'ScreenBoardWidgetTileDefRequestLogQueryCompute',
-    'ScreenBoardWidgetTileDefRequestLogQueryGroupBy',
-    'ScreenBoardWidgetTileDefRequestLogQueryGroupBySort',
-    'ScreenBoardWidgetTileDefRequestLogQuerySearch',
-    'ScreenBoardWidgetTileDefRequestProcessQuery',
     'SecurityMonitoringDefaultRuleCase',
     'SecurityMonitoringDefaultRuleFilter',
     'SecurityMonitoringRuleCase',
@@ -1138,43 +802,23 @@ __all__ = [
     'SyntheticsTestApiStepRequestClientCertificateCert',
     'SyntheticsTestApiStepRequestClientCertificateKey',
     'SyntheticsTestApiStepRequestDefinition',
+    'SyntheticsTestAssertion',
+    'SyntheticsTestAssertionTargetjsonpath',
     'SyntheticsTestBrowserStep',
     'SyntheticsTestBrowserStepParams',
     'SyntheticsTestBrowserStepParamsVariable',
     'SyntheticsTestBrowserVariable',
     'SyntheticsTestConfigVariable',
-    'SyntheticsTestOptions',
     'SyntheticsTestOptionsList',
     'SyntheticsTestOptionsListMonitorOptions',
     'SyntheticsTestOptionsListRetry',
-    'SyntheticsTestRequest',
     'SyntheticsTestRequestBasicauth',
     'SyntheticsTestRequestClientCertificate',
     'SyntheticsTestRequestClientCertificateCert',
     'SyntheticsTestRequestClientCertificateKey',
     'SyntheticsTestRequestDefinition',
-    'SyntheticsTestStep',
-    'SyntheticsTestVariable',
-    'TimeBoardGraph',
-    'TimeBoardGraphMarker',
-    'TimeBoardGraphRequest',
-    'TimeBoardGraphRequestApmQuery',
-    'TimeBoardGraphRequestApmQueryCompute',
-    'TimeBoardGraphRequestApmQueryGroupBy',
-    'TimeBoardGraphRequestApmQueryGroupBySort',
-    'TimeBoardGraphRequestApmQuerySearch',
-    'TimeBoardGraphRequestConditionalFormat',
-    'TimeBoardGraphRequestLogQuery',
-    'TimeBoardGraphRequestLogQueryCompute',
-    'TimeBoardGraphRequestLogQueryGroupBy',
-    'TimeBoardGraphRequestLogQueryGroupBySort',
-    'TimeBoardGraphRequestLogQuerySearch',
-    'TimeBoardGraphRequestProcessQuery',
-    'TimeBoardTemplateVariable',
-    'GetMonitorMonitorThresholdWindowsResult',
-    'GetMonitorMonitorThresholdsResult',
-    'GetMonitorThresholdWindowsResult',
-    'GetMonitorThresholdsResult',
+    'GetMonitorMonitorThresholdResult',
+    'GetMonitorMonitorThresholdWindowResult',
     'GetMonitorsMonitorResult',
     'GetSecurityMonitoringRulesRuleResult',
     'GetSecurityMonitoringRulesRuleCaseResult',
@@ -1207,7 +851,7 @@ class DashboardListDashItem(dict):
                  type: str):
         """
         :param str dash_id: The ID of the dashboard to add
-        :param str type: The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
+        :param str type: The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
         """
         pulumi.set(__self__, "dash_id", dash_id)
         pulumi.set(__self__, "type", type)
@@ -1224,7 +868,7 @@ class DashboardListDashItem(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of this dashboard. Available options are: `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, and `host_timeboard`
+        The type of this dashboard. Valid values are `custom_timeboard`, `custom_screenboard`, `integration_screenboard`, `integration_timeboard`, `host_timeboard`.
         """
         return pulumi.get(self, "type")
 
@@ -1431,7 +1075,6 @@ class DashboardWidget(dict):
                  id: Optional[int] = None,
                  iframe_definition: Optional['outputs.DashboardWidgetIframeDefinition'] = None,
                  image_definition: Optional['outputs.DashboardWidgetImageDefinition'] = None,
-                 layout: Optional['outputs.DashboardWidgetLayout'] = None,
                  log_stream_definition: Optional['outputs.DashboardWidgetLogStreamDefinition'] = None,
                  manage_status_definition: Optional['outputs.DashboardWidgetManageStatusDefinition'] = None,
                  note_definition: Optional['outputs.DashboardWidgetNoteDefinition'] = None,
@@ -1460,7 +1103,6 @@ class DashboardWidget(dict):
         :param int id: The ID of the widget.
         :param 'DashboardWidgetIframeDefinitionArgs' iframe_definition: The definition for an Iframe widget.
         :param 'DashboardWidgetImageDefinitionArgs' image_definition: The definition for an Image widget
-        :param 'DashboardWidgetLayoutArgs' layout: The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
         :param 'DashboardWidgetLogStreamDefinitionArgs' log_stream_definition: The definition for an Log Stream widget.
         :param 'DashboardWidgetManageStatusDefinitionArgs' manage_status_definition: The definition for an Manage Status widget.
         :param 'DashboardWidgetNoteDefinitionArgs' note_definition: The definition for a Note widget.
@@ -1504,8 +1146,6 @@ class DashboardWidget(dict):
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
             pulumi.set(__self__, "image_definition", image_definition)
-        if layout is not None:
-            pulumi.set(__self__, "layout", layout)
         if log_stream_definition is not None:
             pulumi.set(__self__, "log_stream_definition", log_stream_definition)
         if manage_status_definition is not None:
@@ -1652,14 +1292,6 @@ class DashboardWidget(dict):
         return pulumi.get(self, "image_definition")
 
     @property
-    @pulumi.getter
-    def layout(self) -> Optional['outputs.DashboardWidgetLayout']:
-        """
-        The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
-        """
-        return pulumi.get(self, "layout")
-
-    @property
     @pulumi.getter(name="logStreamDefinition")
     def log_stream_definition(self) -> Optional['outputs.DashboardWidgetLogStreamDefinition']:
         """
@@ -1787,7 +1419,6 @@ class DashboardWidgetAlertGraphDefinition(dict):
                  alert_id: str,
                  viz_type: str,
                  live_span: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetAlertGraphDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -1798,8 +1429,6 @@ class DashboardWidgetAlertGraphDefinition(dict):
         pulumi.set(__self__, "viz_type", viz_type)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -1824,11 +1453,6 @@ class DashboardWidgetAlertGraphDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetAlertGraphDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -1844,36 +1468,6 @@ class DashboardWidgetAlertGraphDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetAlertGraphDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetAlertGraphDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetAlertGraphDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetAlertGraphDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -1994,7 +1588,6 @@ class DashboardWidgetChangeDefinition(dict):
                  custom_links: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequest']] = None,
-                 time: Optional['outputs.DashboardWidgetChangeDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -2007,8 +1600,6 @@ class DashboardWidgetChangeDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -2033,11 +1624,6 @@ class DashboardWidgetChangeDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetChangeDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -2057,21 +1643,58 @@ class DashboardWidgetChangeDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetChangeDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetChangeDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetChangeDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -2239,23 +1862,17 @@ class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -2263,11 +1880,6 @@ class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -2285,42 +1897,9 @@ class DashboardWidgetChangeDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -2373,14 +1952,11 @@ class DashboardWidgetChangeDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -2395,41 +1971,9 @@ class DashboardWidgetChangeDefinitionRequestApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -2488,18 +2032,6 @@ class DashboardWidgetChangeDefinitionRequestApmQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2526,23 +2058,17 @@ class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -2550,11 +2076,6 @@ class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -2572,42 +2093,9 @@ class DashboardWidgetChangeDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -2660,14 +2148,11 @@ class DashboardWidgetChangeDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -2682,41 +2167,9 @@ class DashboardWidgetChangeDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -2772,18 +2225,6 @@ class DashboardWidgetChangeDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -2868,23 +2309,17 @@ class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -2892,11 +2327,6 @@ class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -2914,42 +2344,9 @@ class DashboardWidgetChangeDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -3002,14 +2399,11 @@ class DashboardWidgetChangeDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -3024,41 +2418,9 @@ class DashboardWidgetChangeDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -3117,18 +2479,6 @@ class DashboardWidgetChangeDefinitionRequestRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3155,23 +2505,17 @@ class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -3179,11 +2523,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -3201,42 +2540,9 @@ class DashboardWidgetChangeDefinitionRequestSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -3289,14 +2595,11 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -3311,41 +2614,9 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -3404,48 +2675,6 @@ class DashboardWidgetChangeDefinitionRequestSecurityQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetChangeDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetChangeDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetChangeDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetChangeDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetChangeDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetCheckStatusDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3477,7 +2706,6 @@ class DashboardWidgetCheckStatusDefinition(dict):
                  group_bies: Optional[Sequence[str]] = None,
                  live_span: Optional[str] = None,
                  tags: Optional[Sequence[str]] = None,
-                 time: Optional['outputs.DashboardWidgetCheckStatusDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -3494,8 +2722,6 @@ class DashboardWidgetCheckStatusDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -3535,11 +2761,6 @@ class DashboardWidgetCheckStatusDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetCheckStatusDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -3555,36 +2776,6 @@ class DashboardWidgetCheckStatusDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetCheckStatusDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetCheckStatusDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetCheckStatusDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetCheckStatusDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -3619,7 +2810,6 @@ class DashboardWidgetDistributionDefinition(dict):
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
-                 time: Optional['outputs.DashboardWidgetDistributionDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -3634,8 +2824,6 @@ class DashboardWidgetDistributionDefinition(dict):
             pulumi.set(__self__, "requests", requests)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -3662,11 +2850,6 @@ class DashboardWidgetDistributionDefinition(dict):
     @pulumi.getter(name="showLegend")
     def show_legend(self) -> Optional[bool]:
         return pulumi.get(self, "show_legend")
-
-    @property
-    @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionTime']:
-        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -3800,23 +2983,17 @@ class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -3824,11 +3001,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -3846,42 +3018,9 @@ class DashboardWidgetDistributionDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -3934,14 +3073,11 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -3956,41 +3092,9 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -4049,18 +3153,6 @@ class DashboardWidgetDistributionDefinitionRequestApmQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4087,23 +3179,17 @@ class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -4111,11 +3197,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -4133,42 +3214,9 @@ class DashboardWidgetDistributionDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -4221,14 +3269,11 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -4243,41 +3288,9 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -4333,18 +3346,6 @@ class DashboardWidgetDistributionDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -4429,23 +3430,17 @@ class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -4453,11 +3448,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -4475,42 +3465,9 @@ class DashboardWidgetDistributionDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -4563,14 +3520,11 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -4585,41 +3539,9 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -4678,18 +3600,6 @@ class DashboardWidgetDistributionDefinitionRequestRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4716,23 +3626,17 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -4740,11 +3644,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -4762,42 +3661,9 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -4850,14 +3716,11 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -4872,41 +3735,9 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -4965,18 +3796,6 @@ class DashboardWidgetDistributionDefinitionRequestSecurityQueryMultiCompute(dict
 
 
 @pulumi.output_type
-class DashboardWidgetDistributionDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetDistributionDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -4987,36 +3806,6 @@ class DashboardWidgetDistributionDefinitionRequestStyle(dict):
     @pulumi.getter
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
-
-
-@pulumi.output_type
-class DashboardWidgetDistributionDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetDistributionDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetDistributionDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetDistributionDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -5051,7 +3840,6 @@ class DashboardWidgetEventStreamDefinition(dict):
                  event_size: Optional[str] = None,
                  live_span: Optional[str] = None,
                  tags_execution: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetEventStreamDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -5065,8 +3853,6 @@ class DashboardWidgetEventStreamDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if tags_execution is not None:
             pulumi.set(__self__, "tags_execution", tags_execution)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -5096,11 +3882,6 @@ class DashboardWidgetEventStreamDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetEventStreamDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -5116,36 +3897,6 @@ class DashboardWidgetEventStreamDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetEventStreamDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetEventStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetEventStreamDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetEventStreamDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -5177,7 +3928,6 @@ class DashboardWidgetEventTimelineDefinition(dict):
                  query: str,
                  live_span: Optional[str] = None,
                  tags_execution: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetEventTimelineDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -5189,8 +3939,6 @@ class DashboardWidgetEventTimelineDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if tags_execution is not None:
             pulumi.set(__self__, "tags_execution", tags_execution)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -5215,11 +3963,6 @@ class DashboardWidgetEventTimelineDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetEventTimelineDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -5235,36 +3978,6 @@ class DashboardWidgetEventTimelineDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetEventTimelineDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetEventTimelineDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetEventTimelineDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetEventTimelineDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -5421,21 +4134,58 @@ class DashboardWidgetGeomapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGeomapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGeomapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGeomapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGeomapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -5595,23 +4345,17 @@ class DashboardWidgetGeomapDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -5619,11 +4363,6 @@ class DashboardWidgetGeomapDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -5641,42 +4380,9 @@ class DashboardWidgetGeomapDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -5729,14 +4435,11 @@ class DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -5751,41 +4454,9 @@ class DashboardWidgetGeomapDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -5841,18 +4512,6 @@ class DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -6246,23 +4905,17 @@ class DashboardWidgetGeomapDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -6270,11 +4923,6 @@ class DashboardWidgetGeomapDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -6292,42 +4940,9 @@ class DashboardWidgetGeomapDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -6380,14 +4995,11 @@ class DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -6402,41 +5014,9 @@ class DashboardWidgetGeomapDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -6492,18 +5072,6 @@ class DashboardWidgetGeomapDefinitionRequestRumQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGeomapDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -6587,7 +5155,7 @@ class DashboardWidgetGroupDefinition(dict):
                  show_title: Optional[bool] = None,
                  title: Optional[str] = None):
         """
-        :param str layout_type: The layout type of the dashboard, either 'free' or 'ordered'.
+        :param str layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param Sequence['DashboardWidgetGroupDefinitionWidgetArgs'] widgets: The list of widgets to display on the dashboard.
         :param str title: The title of the dashboard.
         """
@@ -6606,7 +5174,7 @@ class DashboardWidgetGroupDefinition(dict):
     @pulumi.getter(name="layoutType")
     def layout_type(self) -> str:
         """
-        The layout type of the dashboard, either 'free' or 'ordered'.
+        The layout type of the dashboard. Valid values are `ordered`, `free`.
         """
         return pulumi.get(self, "layout_type")
 
@@ -6724,7 +5292,6 @@ class DashboardWidgetGroupDefinitionWidget(dict):
                  id: Optional[int] = None,
                  iframe_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetIframeDefinition'] = None,
                  image_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetImageDefinition'] = None,
-                 layout: Optional['outputs.DashboardWidgetGroupDefinitionWidgetLayout'] = None,
                  log_stream_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition'] = None,
                  manage_status_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetManageStatusDefinition'] = None,
                  note_definition: Optional['outputs.DashboardWidgetGroupDefinitionWidgetNoteDefinition'] = None,
@@ -6752,7 +5319,6 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         :param int id: The ID of the widget.
         :param 'DashboardWidgetGroupDefinitionWidgetIframeDefinitionArgs' iframe_definition: The definition for an Iframe widget.
         :param 'DashboardWidgetGroupDefinitionWidgetImageDefinitionArgs' image_definition: The definition for an Image widget
-        :param 'DashboardWidgetGroupDefinitionWidgetLayoutArgs' layout: The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
         :param 'DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionArgs' log_stream_definition: The definition for an Log Stream widget.
         :param 'DashboardWidgetGroupDefinitionWidgetManageStatusDefinitionArgs' manage_status_definition: The definition for an Manage Status widget.
         :param 'DashboardWidgetGroupDefinitionWidgetNoteDefinitionArgs' note_definition: The definition for a Note widget.
@@ -6794,8 +5360,6 @@ class DashboardWidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "iframe_definition", iframe_definition)
         if image_definition is not None:
             pulumi.set(__self__, "image_definition", image_definition)
-        if layout is not None:
-            pulumi.set(__self__, "layout", layout)
         if log_stream_definition is not None:
             pulumi.set(__self__, "log_stream_definition", log_stream_definition)
         if manage_status_definition is not None:
@@ -6934,14 +5498,6 @@ class DashboardWidgetGroupDefinitionWidget(dict):
         return pulumi.get(self, "image_definition")
 
     @property
-    @pulumi.getter
-    def layout(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetLayout']:
-        """
-        The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
-        """
-        return pulumi.get(self, "layout")
-
-    @property
     @pulumi.getter(name="logStreamDefinition")
     def log_stream_definition(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinition']:
         """
@@ -7069,7 +5625,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
                  alert_id: str,
                  viz_type: str,
                  live_span: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -7080,8 +5635,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
         pulumi.set(__self__, "viz_type", viz_type)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -7106,11 +5659,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -7126,36 +5674,6 @@ class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetAlertGraphDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -7276,7 +5794,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequest']] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -7289,8 +5806,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -7315,11 +5830,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -7339,21 +5849,58 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetChangeDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -7521,23 +6068,17 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -7545,11 +6086,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -7567,42 +6103,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -7655,14 +6158,11 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -7677,41 +6177,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBy
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -7770,18 +6238,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQueryMultiCo
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7808,23 +6264,17 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -7832,11 +6282,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -7854,42 +6299,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -7942,14 +6354,11 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -7964,41 +6373,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBy
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -8054,18 +6431,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQueryMultiCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -8150,23 +6515,17 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -8174,11 +6533,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -8196,42 +6550,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -8284,14 +6605,11 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -8306,41 +6624,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBy
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -8399,18 +6685,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQueryMultiCo
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8437,23 +6711,17 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(d
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -8461,11 +6729,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(d
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -8483,42 +6746,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuery(d
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -8571,14 +6801,11 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGr
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -8593,41 +6820,9 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGr
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -8686,48 +6881,6 @@ class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQueryMu
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetChangeDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8759,7 +6912,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
                  group_bies: Optional[Sequence[str]] = None,
                  live_span: Optional[str] = None,
                  tags: Optional[Sequence[str]] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -8776,8 +6928,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -8817,11 +6967,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -8837,36 +6982,6 @@ class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetCheckStatusDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -8901,7 +7016,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -8916,8 +7030,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
             pulumi.set(__self__, "requests", requests)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -8944,11 +7056,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinition(dict):
     @pulumi.getter(name="showLegend")
     def show_legend(self) -> Optional[bool]:
         return pulumi.get(self, "show_legend")
-
-    @property
-    @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime']:
-        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -9082,23 +7189,17 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -9106,11 +7207,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -9128,42 +7224,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -9216,14 +7279,11 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -9238,41 +7298,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -9331,18 +7359,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -9369,23 +7385,17 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -9393,11 +7403,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -9415,42 +7420,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -9503,14 +7475,11 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -9525,41 +7494,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -9615,18 +7552,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQueryM
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -9711,23 +7636,17 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -9735,11 +7654,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -9757,42 +7671,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -9845,14 +7726,11 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -9867,41 +7745,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -9960,18 +7806,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -9998,23 +7832,17 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -10022,11 +7850,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -10044,42 +7867,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -10132,14 +7922,11 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -10154,41 +7941,9 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -10247,18 +8002,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQ
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -10269,36 +8012,6 @@ class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionRequestStyle(dic
     @pulumi.getter
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetDistributionDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -10333,7 +8046,6 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
                  event_size: Optional[str] = None,
                  live_span: Optional[str] = None,
                  tags_execution: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -10347,8 +8059,6 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if tags_execution is not None:
             pulumi.set(__self__, "tags_execution", tags_execution)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -10378,11 +8088,6 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -10398,36 +8103,6 @@ class DashboardWidgetGroupDefinitionWidgetEventStreamDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -10459,7 +8134,6 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
                  query: str,
                  live_span: Optional[str] = None,
                  tags_execution: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -10471,8 +8145,6 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if tags_execution is not None:
             pulumi.set(__self__, "tags_execution", tags_execution)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -10497,11 +8169,6 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -10517,36 +8184,6 @@ class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetEventTimelineDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -10703,21 +8340,58 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetGeomapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -10877,23 +8551,17 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -10901,11 +8569,6 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -10923,42 +8586,9 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -11011,14 +8641,11 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -11033,41 +8660,9 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBy
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -11123,18 +8718,6 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQueryMultiCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -11528,23 +9111,17 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -11552,11 +9129,6 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -11574,42 +9146,9 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -11662,14 +9201,11 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -11684,41 +9220,9 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBy
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -11774,18 +9278,6 @@ class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQueryMultiCo
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -11872,7 +9364,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
@@ -11892,8 +9383,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
             pulumi.set(__self__, "requests", requests)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -11935,11 +9424,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -11964,21 +9448,58 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -12131,23 +9652,17 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery(dict)
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -12155,11 +9670,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery(dict)
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -12177,42 +9687,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery(dict)
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -12265,14 +9742,11 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupB
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -12287,41 +9761,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupB
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -12380,18 +9822,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQueryMultiC
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -12418,23 +9848,17 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict)
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -12442,11 +9866,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict)
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -12464,42 +9883,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery(dict)
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -12552,14 +9938,11 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupB
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -12574,41 +9957,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupB
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -12664,18 +10015,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQueryMultiC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -12760,23 +10099,17 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery(dict)
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -12784,11 +10117,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery(dict)
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -12806,42 +10134,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuery(dict)
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -12894,14 +10189,11 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupB
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -12916,41 +10208,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupB
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -13009,18 +10269,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQueryMultiC
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -13047,23 +10295,17 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -13071,11 +10313,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -13093,42 +10330,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -13181,14 +10385,11 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -13203,41 +10404,9 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -13296,18 +10465,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -13318,36 +10475,6 @@ class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequestStyle(dict):
     @pulumi.getter
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -13540,21 +10667,58 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetHostmapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -13683,23 +10847,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery(d
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -13707,11 +10865,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery(d
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -13729,42 +10882,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuery(d
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -13817,14 +10937,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGr
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -13839,41 +10956,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGr
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -13932,18 +11017,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQueryMu
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -13970,23 +11043,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(d
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -13994,11 +11061,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(d
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -14016,42 +11078,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuery(d
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -14104,14 +11133,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGr
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -14126,41 +11152,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGr
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -14216,18 +11210,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQueryMu
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -14312,23 +11294,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(d
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -14336,11 +11312,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(d
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -14358,42 +11329,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuery(d
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -14446,14 +11384,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGr
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -14468,41 +11403,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGr
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -14561,18 +11464,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQueryMu
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -14599,23 +11490,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -14623,11 +11508,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -14645,42 +11525,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -14733,14 +11580,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -14755,41 +11599,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -14845,18 +11657,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQu
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestFillSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -14964,23 +11764,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery(d
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -14988,11 +11782,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery(d
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -15010,42 +11799,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuery(d
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -15098,14 +11854,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGr
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -15120,41 +11873,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGr
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -15213,18 +11934,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQueryMu
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -15251,23 +11960,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(d
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -15275,11 +11978,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(d
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -15297,42 +11995,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuery(d
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -15385,14 +12050,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGr
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -15407,41 +12069,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGr
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -15497,18 +12127,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQueryMu
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -15593,23 +12211,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery(d
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -15617,11 +12229,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery(d
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -15639,42 +12246,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuery(d
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -15727,14 +12301,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGr
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -15749,41 +12320,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGr
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -15842,18 +12381,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQueryMu
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -15880,23 +12407,17 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -15904,11 +12425,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -15926,42 +12442,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -16014,14 +12497,11 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -16036,41 +12516,9 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -16126,18 +12574,6 @@ class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQu
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetHostmapDefinitionRequestSizeSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -16316,64 +12752,6 @@ class DashboardWidgetGroupDefinitionWidgetImageDefinition(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetLayout(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isColumnBreak":
-            suggest = "is_column_break"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetLayout. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetLayout.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetLayout.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 height: int,
-                 width: int,
-                 x: int,
-                 y: int,
-                 is_column_break: Optional[bool] = None):
-        pulumi.set(__self__, "height", height)
-        pulumi.set(__self__, "width", width)
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
-        if is_column_break is not None:
-            pulumi.set(__self__, "is_column_break", is_column_break)
-
-    @property
-    @pulumi.getter
-    def height(self) -> int:
-        return pulumi.get(self, "height")
-
-    @property
-    @pulumi.getter
-    def width(self) -> int:
-        return pulumi.get(self, "width")
-
-    @property
-    @pulumi.getter
-    def x(self) -> int:
-        return pulumi.get(self, "x")
-
-    @property
-    @pulumi.getter
-    def y(self) -> int:
-        return pulumi.get(self, "y")
-
-    @property
-    @pulumi.getter(name="isColumnBreak")
-    def is_column_break(self) -> Optional[bool]:
-        return pulumi.get(self, "is_column_break")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -16406,13 +12784,11 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
                  columns: Optional[Sequence[str]] = None,
                  indexes: Optional[Sequence[str]] = None,
                  live_span: Optional[str] = None,
-                 logset: Optional[str] = None,
                  message_display: Optional[str] = None,
                  query: Optional[str] = None,
                  show_date_column: Optional[bool] = None,
                  show_message_column: Optional[bool] = None,
                  sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort'] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -16425,8 +12801,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
             pulumi.set(__self__, "indexes", indexes)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
-        if logset is not None:
-            pulumi.set(__self__, "logset", logset)
         if message_display is not None:
             pulumi.set(__self__, "message_display", message_display)
         if query is not None:
@@ -16437,8 +12811,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
             pulumi.set(__self__, "show_message_column", show_message_column)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -16460,11 +12832,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
     @pulumi.getter(name="liveSpan")
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
-
-    @property
-    @pulumi.getter
-    def logset(self) -> Optional[str]:
-        return pulumi.get(self, "logset")
 
     @property
     @pulumi.getter(name="messageDisplay")
@@ -16490,11 +12857,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinition(dict):
     @pulumi.getter
     def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort']:
         return pulumi.get(self, "sort")
-
-    @property
-    @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime']:
-        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -16535,36 +12897,6 @@ class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -16598,12 +12930,10 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
     def __init__(__self__, *,
                  query: str,
                  color_preference: Optional[str] = None,
-                 count: Optional[int] = None,
                  display_format: Optional[str] = None,
                  hide_zero_counts: Optional[bool] = None,
                  show_last_triggered: Optional[bool] = None,
                  sort: Optional[str] = None,
-                 start: Optional[int] = None,
                  summary_type: Optional[str] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -16614,8 +12944,6 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
         pulumi.set(__self__, "query", query)
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
-        if count is not None:
-            pulumi.set(__self__, "count", count)
         if display_format is not None:
             pulumi.set(__self__, "display_format", display_format)
         if hide_zero_counts is not None:
@@ -16624,8 +12952,6 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
             pulumi.set(__self__, "show_last_triggered", show_last_triggered)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
         if summary_type is not None:
             pulumi.set(__self__, "summary_type", summary_type)
         if title is not None:
@@ -16646,11 +12972,6 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
         return pulumi.get(self, "color_preference")
 
     @property
-    @pulumi.getter
-    def count(self) -> Optional[int]:
-        return pulumi.get(self, "count")
-
-    @property
     @pulumi.getter(name="displayFormat")
     def display_format(self) -> Optional[str]:
         return pulumi.get(self, "display_format")
@@ -16669,11 +12990,6 @@ class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(dict):
     @pulumi.getter
     def sort(self) -> Optional[str]:
         return pulumi.get(self, "sort")
-
-    @property
-    @pulumi.getter
-    def start(self) -> Optional[int]:
-        return pulumi.get(self, "start")
 
     @property
     @pulumi.getter(name="summaryType")
@@ -16838,7 +13154,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
                  has_search_bar: Optional[str] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest']] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -16853,8 +13168,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -16884,11 +13197,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -16908,21 +13216,58 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -17092,23 +13437,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -17116,11 +13455,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -17138,42 +13472,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -17226,14 +13527,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -17248,41 +13546,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -17338,18 +13604,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQueryMul
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -17604,23 +13858,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -17628,11 +13876,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -17650,42 +13893,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -17738,14 +13948,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -17760,41 +13967,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -17850,18 +14025,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryMul
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -17946,23 +14109,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -17970,11 +14127,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -17992,42 +14144,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -18080,14 +14199,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -18102,41 +14218,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -18195,18 +14279,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryMul
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -18233,23 +14305,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -18257,11 +14323,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -18279,42 +14340,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -18367,14 +14395,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -18389,41 +14414,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -18482,48 +14475,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQue
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -18560,7 +14511,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
                  precision: Optional[int] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest']] = None,
                  text_align: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -18581,8 +14531,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
             pulumi.set(__self__, "requests", requests)
         if text_align is not None:
             pulumi.set(__self__, "text_align", text_align)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -18627,11 +14575,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -18651,21 +14594,58 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -18807,23 +14787,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -18831,11 +14805,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -18853,42 +14822,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -18941,14 +14877,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -18963,41 +14896,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -19053,18 +14954,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryMul
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -19257,23 +15146,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -19281,11 +15164,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -19303,42 +15181,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -19391,14 +15236,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -19413,41 +15255,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -19503,18 +15313,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryMul
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -19963,23 +15761,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -19987,11 +15779,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -20009,42 +15796,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -20097,14 +15851,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -20119,41 +15870,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -20212,18 +15931,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQueryMul
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -20250,23 +15957,17 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -20274,11 +15975,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -20296,42 +15992,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -20384,14 +16047,11 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -20406,41 +16066,9 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -20499,48 +16127,6 @@ class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQue
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -20572,7 +16158,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  request: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequest'] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
@@ -20589,8 +16174,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if request is not None:
             pulumi.set(__self__, "request", request)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -20624,11 +16207,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -20658,21 +16236,58 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -20809,23 +16424,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -20833,11 +16442,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -20855,42 +16459,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -20943,14 +16514,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -20965,41 +16533,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -21058,18 +16594,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21096,23 +16620,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -21120,11 +16638,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -21142,42 +16655,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -21230,14 +16710,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -21252,41 +16729,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -21342,18 +16787,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQueryM
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -21438,23 +16871,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -21462,11 +16889,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -21484,42 +16906,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -21572,14 +16961,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -21594,41 +16980,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -21687,18 +17041,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21725,23 +17067,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -21749,11 +17085,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -21771,42 +17102,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -21859,14 +17157,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -21881,41 +17176,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -21971,18 +17234,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQ
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestXSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -22098,23 +17349,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -22122,11 +17367,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -22144,42 +17384,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -22232,14 +17439,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -22254,41 +17458,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -22347,18 +17519,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -22385,23 +17545,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -22409,11 +17563,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -22431,42 +17580,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -22519,14 +17635,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -22541,41 +17654,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -22631,18 +17712,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQueryM
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -22727,23 +17796,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -22751,11 +17814,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -22773,42 +17831,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -22861,14 +17886,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -22883,41 +17905,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -22976,18 +17966,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -23014,23 +17992,17 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -23038,11 +18010,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -23060,42 +18027,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -23148,14 +18082,11 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -23170,41 +18101,9 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -23260,48 +18159,6 @@ class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQ
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestYSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -23618,21 +18475,58 @@ class DashboardWidgetGroupDefinitionWidgetServicemapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetServicemapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -23681,7 +18575,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest']] = None,
                  right_yaxis: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis'] = None,
                  show_legend: Optional[bool] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
@@ -23709,8 +18602,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
             pulumi.set(__self__, "right_yaxis", right_yaxis)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -23772,11 +18663,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -23801,21 +18687,58 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -24067,23 +18990,17 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -24091,11 +19008,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -24113,42 +19025,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -24201,14 +19080,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -24223,41 +19099,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -24313,18 +19157,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQueryMul
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -24420,23 +19252,17 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -24444,11 +19270,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -24466,42 +19287,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -24554,14 +19342,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -24576,41 +19361,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -24666,18 +19419,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQueryMul
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -24744,23 +19485,17 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -24768,11 +19503,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -24790,42 +19520,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -24878,14 +19575,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -24900,41 +19594,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -24990,18 +19652,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuer
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestNetworkQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -25450,23 +20100,17 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery(di
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -25474,11 +20118,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery(di
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -25496,42 +20135,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuery(di
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -25584,14 +20190,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGro
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -25606,41 +20209,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGro
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -25699,18 +20270,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQueryMul
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -25737,23 +20296,17 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -25761,11 +20314,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -25783,42 +20331,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -25871,14 +20386,11 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -25893,41 +20405,9 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -25983,18 +20463,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQue
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -26108,36 +20576,6 @@ class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionYaxis(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -26228,7 +20666,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
                  custom_links: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest']] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -26241,8 +20678,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -26267,11 +20702,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -26291,21 +20721,58 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -26447,23 +20914,17 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(dict)
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -26471,11 +20932,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(dict)
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -26493,42 +20949,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery(dict)
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -26581,14 +21004,11 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupB
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -26603,41 +21023,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupB
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -26693,18 +21081,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQueryMultiC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -26897,23 +21273,17 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery(dict)
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -26921,11 +21291,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery(dict)
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -26943,42 +21308,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery(dict)
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -27031,14 +21363,11 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupB
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -27053,41 +21382,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupB
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -27143,18 +21440,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQueryMultiC
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -27603,23 +21888,17 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery(dict)
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -27627,11 +21906,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery(dict)
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -27649,42 +21923,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuery(dict)
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -27737,14 +21978,11 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupB
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -27759,41 +21997,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupB
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -27852,18 +22058,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQueryMultiC
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -27890,23 +22084,17 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -27914,11 +22102,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -27936,42 +22119,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuery(
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -28024,14 +22174,11 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryG
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -28046,41 +22193,9 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryG
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -28139,18 +22254,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQueryM
 
 
 @pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -28161,36 +22264,6 @@ class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle(dict):
     @pulumi.getter
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetToplistDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -28247,7 +22320,6 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
                  show_latency: Optional[bool] = None,
                  show_resource_list: Optional[bool] = None,
                  size_format: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -28275,8 +22347,6 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
             pulumi.set(__self__, "show_resource_list", show_resource_list)
         if size_format is not None:
             pulumi.set(__self__, "size_format", size_format)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -28346,11 +22416,6 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -28366,36 +22431,6 @@ class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetGroupDefinitionWidgetTraceServiceDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -28492,7 +22527,6 @@ class DashboardWidgetHeatmapDefinition(dict):
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequest']] = None,
                  show_legend: Optional[bool] = None,
-                 time: Optional['outputs.DashboardWidgetHeatmapDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
@@ -28512,8 +22546,6 @@ class DashboardWidgetHeatmapDefinition(dict):
             pulumi.set(__self__, "requests", requests)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -28555,11 +22587,6 @@ class DashboardWidgetHeatmapDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -28584,21 +22611,58 @@ class DashboardWidgetHeatmapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetHeatmapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHeatmapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHeatmapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -28751,23 +22815,17 @@ class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -28775,11 +22833,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -28797,42 +22850,9 @@ class DashboardWidgetHeatmapDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -28885,14 +22905,11 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -28907,41 +22924,9 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -29000,18 +22985,6 @@ class DashboardWidgetHeatmapDefinitionRequestApmQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -29038,23 +23011,17 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -29062,11 +23029,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -29084,42 +23046,9 @@ class DashboardWidgetHeatmapDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -29172,14 +23101,11 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -29194,41 +23120,9 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -29284,18 +23178,6 @@ class DashboardWidgetHeatmapDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -29380,23 +23262,17 @@ class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -29404,11 +23280,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -29426,42 +23297,9 @@ class DashboardWidgetHeatmapDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -29514,14 +23352,11 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -29536,41 +23371,9 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -29629,18 +23432,6 @@ class DashboardWidgetHeatmapDefinitionRequestRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -29667,23 +23458,17 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -29691,11 +23476,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -29713,42 +23493,9 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -29801,14 +23548,11 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -29823,41 +23567,9 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -29916,18 +23628,6 @@ class DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetHeatmapDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -29938,36 +23638,6 @@ class DashboardWidgetHeatmapDefinitionRequestStyle(dict):
     @pulumi.getter
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
-
-
-@pulumi.output_type
-class DashboardWidgetHeatmapDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHeatmapDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetHeatmapDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetHeatmapDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -30160,21 +23830,58 @@ class DashboardWidgetHostmapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetHostmapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetHostmapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetHostmapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetHostmapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -30303,23 +24010,17 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -30327,11 +24028,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -30349,42 +24045,9 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -30437,14 +24100,11 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -30459,41 +24119,9 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -30552,18 +24180,6 @@ class DashboardWidgetHostmapDefinitionRequestFillApmQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -30590,23 +24206,17 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -30614,11 +24224,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -30636,42 +24241,9 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -30724,14 +24296,11 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -30746,41 +24315,9 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -30836,18 +24373,6 @@ class DashboardWidgetHostmapDefinitionRequestFillLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -30932,23 +24457,17 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -30956,11 +24475,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -30978,42 +24492,9 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -31066,14 +24547,11 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -31088,41 +24566,9 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -31181,18 +24627,6 @@ class DashboardWidgetHostmapDefinitionRequestFillRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -31219,23 +24653,17 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -31243,11 +24671,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -31265,42 +24688,9 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -31353,14 +24743,11 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -31375,41 +24762,9 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -31465,18 +24820,6 @@ class DashboardWidgetHostmapDefinitionRequestFillSecurityQueryMultiCompute(dict)
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestFillSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -31584,23 +24927,17 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -31608,11 +24945,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -31630,42 +24962,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -31718,14 +25017,11 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -31740,41 +25036,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -31833,18 +25097,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeApmQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -31871,23 +25123,17 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -31895,11 +25141,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -31917,42 +25158,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -32005,14 +25213,11 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -32027,41 +25232,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -32117,18 +25290,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -32213,23 +25374,17 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -32237,11 +25392,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -32259,42 +25409,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -32347,14 +25464,11 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -32369,41 +25483,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -32462,18 +25544,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -32500,23 +25570,17 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -32524,11 +25588,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -32546,42 +25605,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -32634,14 +25660,11 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -32656,41 +25679,9 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -32746,18 +25737,6 @@ class DashboardWidgetHostmapDefinitionRequestSizeSecurityQueryMultiCompute(dict)
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetHostmapDefinitionRequestSizeSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -32936,64 +25915,6 @@ class DashboardWidgetImageDefinition(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetLayout(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isColumnBreak":
-            suggest = "is_column_break"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetLayout. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetLayout.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetLayout.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 height: int,
-                 width: int,
-                 x: int,
-                 y: int,
-                 is_column_break: Optional[bool] = None):
-        pulumi.set(__self__, "height", height)
-        pulumi.set(__self__, "width", width)
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
-        if is_column_break is not None:
-            pulumi.set(__self__, "is_column_break", is_column_break)
-
-    @property
-    @pulumi.getter
-    def height(self) -> int:
-        return pulumi.get(self, "height")
-
-    @property
-    @pulumi.getter
-    def width(self) -> int:
-        return pulumi.get(self, "width")
-
-    @property
-    @pulumi.getter
-    def x(self) -> int:
-        return pulumi.get(self, "x")
-
-    @property
-    @pulumi.getter
-    def y(self) -> int:
-        return pulumi.get(self, "y")
-
-    @property
-    @pulumi.getter(name="isColumnBreak")
-    def is_column_break(self) -> Optional[bool]:
-        return pulumi.get(self, "is_column_break")
-
-
-@pulumi.output_type
 class DashboardWidgetLogStreamDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -33026,13 +25947,11 @@ class DashboardWidgetLogStreamDefinition(dict):
                  columns: Optional[Sequence[str]] = None,
                  indexes: Optional[Sequence[str]] = None,
                  live_span: Optional[str] = None,
-                 logset: Optional[str] = None,
                  message_display: Optional[str] = None,
                  query: Optional[str] = None,
                  show_date_column: Optional[bool] = None,
                  show_message_column: Optional[bool] = None,
                  sort: Optional['outputs.DashboardWidgetLogStreamDefinitionSort'] = None,
-                 time: Optional['outputs.DashboardWidgetLogStreamDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -33045,8 +25964,6 @@ class DashboardWidgetLogStreamDefinition(dict):
             pulumi.set(__self__, "indexes", indexes)
         if live_span is not None:
             pulumi.set(__self__, "live_span", live_span)
-        if logset is not None:
-            pulumi.set(__self__, "logset", logset)
         if message_display is not None:
             pulumi.set(__self__, "message_display", message_display)
         if query is not None:
@@ -33057,8 +25974,6 @@ class DashboardWidgetLogStreamDefinition(dict):
             pulumi.set(__self__, "show_message_column", show_message_column)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -33080,11 +25995,6 @@ class DashboardWidgetLogStreamDefinition(dict):
     @pulumi.getter(name="liveSpan")
     def live_span(self) -> Optional[str]:
         return pulumi.get(self, "live_span")
-
-    @property
-    @pulumi.getter
-    def logset(self) -> Optional[str]:
-        return pulumi.get(self, "logset")
 
     @property
     @pulumi.getter(name="messageDisplay")
@@ -33110,11 +26020,6 @@ class DashboardWidgetLogStreamDefinition(dict):
     @pulumi.getter
     def sort(self) -> Optional['outputs.DashboardWidgetLogStreamDefinitionSort']:
         return pulumi.get(self, "sort")
-
-    @property
-    @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetLogStreamDefinitionTime']:
-        return pulumi.get(self, "time")
 
     @property
     @pulumi.getter
@@ -33155,36 +26060,6 @@ class DashboardWidgetLogStreamDefinitionSort(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetLogStreamDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetLogStreamDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetLogStreamDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetLogStreamDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetManageStatusDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -33218,12 +26093,10 @@ class DashboardWidgetManageStatusDefinition(dict):
     def __init__(__self__, *,
                  query: str,
                  color_preference: Optional[str] = None,
-                 count: Optional[int] = None,
                  display_format: Optional[str] = None,
                  hide_zero_counts: Optional[bool] = None,
                  show_last_triggered: Optional[bool] = None,
                  sort: Optional[str] = None,
-                 start: Optional[int] = None,
                  summary_type: Optional[str] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
@@ -33234,8 +26107,6 @@ class DashboardWidgetManageStatusDefinition(dict):
         pulumi.set(__self__, "query", query)
         if color_preference is not None:
             pulumi.set(__self__, "color_preference", color_preference)
-        if count is not None:
-            pulumi.set(__self__, "count", count)
         if display_format is not None:
             pulumi.set(__self__, "display_format", display_format)
         if hide_zero_counts is not None:
@@ -33244,8 +26115,6 @@ class DashboardWidgetManageStatusDefinition(dict):
             pulumi.set(__self__, "show_last_triggered", show_last_triggered)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
-        if start is not None:
-            pulumi.set(__self__, "start", start)
         if summary_type is not None:
             pulumi.set(__self__, "summary_type", summary_type)
         if title is not None:
@@ -33266,11 +26135,6 @@ class DashboardWidgetManageStatusDefinition(dict):
         return pulumi.get(self, "color_preference")
 
     @property
-    @pulumi.getter
-    def count(self) -> Optional[int]:
-        return pulumi.get(self, "count")
-
-    @property
     @pulumi.getter(name="displayFormat")
     def display_format(self) -> Optional[str]:
         return pulumi.get(self, "display_format")
@@ -33289,11 +26153,6 @@ class DashboardWidgetManageStatusDefinition(dict):
     @pulumi.getter
     def sort(self) -> Optional[str]:
         return pulumi.get(self, "sort")
-
-    @property
-    @pulumi.getter
-    def start(self) -> Optional[int]:
-        return pulumi.get(self, "start")
 
     @property
     @pulumi.getter(name="summaryType")
@@ -33458,7 +26317,6 @@ class DashboardWidgetQueryTableDefinition(dict):
                  has_search_bar: Optional[str] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequest']] = None,
-                 time: Optional['outputs.DashboardWidgetQueryTableDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -33473,8 +26331,6 @@ class DashboardWidgetQueryTableDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -33504,11 +26360,6 @@ class DashboardWidgetQueryTableDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -33528,21 +26379,58 @@ class DashboardWidgetQueryTableDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetQueryTableDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryTableDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryTableDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -33712,23 +26600,17 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -33736,11 +26618,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -33758,42 +26635,9 @@ class DashboardWidgetQueryTableDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -33846,14 +26690,11 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -33868,41 +26709,9 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -33958,18 +26767,6 @@ class DashboardWidgetQueryTableDefinitionRequestApmQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -34224,23 +27021,17 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -34248,11 +27039,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -34270,42 +27056,9 @@ class DashboardWidgetQueryTableDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -34358,14 +27111,11 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -34380,41 +27130,9 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -34470,18 +27188,6 @@ class DashboardWidgetQueryTableDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -34566,23 +27272,17 @@ class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -34590,11 +27290,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -34612,42 +27307,9 @@ class DashboardWidgetQueryTableDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -34700,14 +27362,11 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -34722,41 +27381,9 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -34815,18 +27442,6 @@ class DashboardWidgetQueryTableDefinitionRequestRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -34853,23 +27468,17 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -34877,11 +27486,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -34899,42 +27503,9 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -34987,14 +27558,11 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -35009,41 +27577,9 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -35102,48 +27638,6 @@ class DashboardWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetQueryTableDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryTableDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryTableDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryTableDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryTableDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetQueryValueDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -35180,7 +27674,6 @@ class DashboardWidgetQueryValueDefinition(dict):
                  precision: Optional[int] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequest']] = None,
                  text_align: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetQueryValueDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -35201,8 +27694,6 @@ class DashboardWidgetQueryValueDefinition(dict):
             pulumi.set(__self__, "requests", requests)
         if text_align is not None:
             pulumi.set(__self__, "text_align", text_align)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -35247,11 +27738,6 @@ class DashboardWidgetQueryValueDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -35271,21 +27757,58 @@ class DashboardWidgetQueryValueDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetQueryValueDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetQueryValueDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetQueryValueDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -35427,23 +27950,17 @@ class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -35451,11 +27968,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -35473,42 +27985,9 @@ class DashboardWidgetQueryValueDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -35561,14 +28040,11 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -35583,41 +28059,9 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -35673,18 +28117,6 @@ class DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -35877,23 +28309,17 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -35901,11 +28327,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -35923,42 +28344,9 @@ class DashboardWidgetQueryValueDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -36011,14 +28399,11 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -36033,41 +28418,9 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -36123,18 +28476,6 @@ class DashboardWidgetQueryValueDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -36583,23 +28924,17 @@ class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -36607,11 +28942,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -36629,42 +28959,9 @@ class DashboardWidgetQueryValueDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -36717,14 +29014,11 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -36739,41 +29033,9 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -36832,18 +29094,6 @@ class DashboardWidgetQueryValueDefinitionRequestRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -36870,23 +29120,17 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -36894,11 +29138,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -36916,42 +29155,9 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -37004,14 +29210,11 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -37026,41 +29229,9 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -37119,48 +29290,6 @@ class DashboardWidgetQueryValueDefinitionRequestSecurityQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetQueryValueDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetQueryValueDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetQueryValueDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetQueryValueDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetQueryValueDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetScatterplotDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -37192,7 +29321,6 @@ class DashboardWidgetScatterplotDefinition(dict):
                  custom_links: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  request: Optional['outputs.DashboardWidgetScatterplotDefinitionRequest'] = None,
-                 time: Optional['outputs.DashboardWidgetScatterplotDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
@@ -37209,8 +29337,6 @@ class DashboardWidgetScatterplotDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if request is not None:
             pulumi.set(__self__, "request", request)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -37244,11 +29370,6 @@ class DashboardWidgetScatterplotDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -37278,21 +29399,58 @@ class DashboardWidgetScatterplotDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetScatterplotDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetScatterplotDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetScatterplotDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -37429,23 +29587,17 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -37453,11 +29605,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -37475,42 +29622,9 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -37563,14 +29677,11 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -37585,41 +29696,9 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -37678,18 +29757,6 @@ class DashboardWidgetScatterplotDefinitionRequestXApmQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -37716,23 +29783,17 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -37740,11 +29801,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -37762,42 +29818,9 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -37850,14 +29873,11 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -37872,41 +29892,9 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -37962,18 +29950,6 @@ class DashboardWidgetScatterplotDefinitionRequestXLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -38058,23 +30034,17 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -38082,11 +30052,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -38104,42 +30069,9 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -38192,14 +30124,11 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -38214,41 +30143,9 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -38307,18 +30204,6 @@ class DashboardWidgetScatterplotDefinitionRequestXRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -38345,23 +30230,17 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -38369,11 +30248,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -38391,42 +30265,9 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -38479,14 +30320,11 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -38501,41 +30339,9 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -38591,18 +30397,6 @@ class DashboardWidgetScatterplotDefinitionRequestXSecurityQueryMultiCompute(dict
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestXSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -38718,23 +30512,17 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -38742,11 +30530,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -38764,42 +30547,9 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -38852,14 +30602,11 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -38874,41 +30621,9 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -38967,18 +30682,6 @@ class DashboardWidgetScatterplotDefinitionRequestYApmQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -39005,23 +30708,17 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -39029,11 +30726,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -39051,42 +30743,9 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -39139,14 +30798,11 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -39161,41 +30817,9 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -39251,18 +30875,6 @@ class DashboardWidgetScatterplotDefinitionRequestYLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -39347,23 +30959,17 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -39371,11 +30977,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -39393,42 +30994,9 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -39481,14 +31049,11 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -39503,41 +31068,9 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -39596,18 +31129,6 @@ class DashboardWidgetScatterplotDefinitionRequestYRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -39634,23 +31155,17 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -39658,11 +31173,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -39680,42 +31190,9 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -39768,14 +31245,11 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -39790,41 +31264,9 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -39880,48 +31322,6 @@ class DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute(dict
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class DashboardWidgetScatterplotDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetScatterplotDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetScatterplotDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetScatterplotDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -40238,21 +31638,58 @@ class DashboardWidgetServicemapDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetServicemapDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetServicemapDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetServicemapDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetServicemapDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -40301,7 +31738,6 @@ class DashboardWidgetTimeseriesDefinition(dict):
                  requests: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequest']] = None,
                  right_yaxis: Optional['outputs.DashboardWidgetTimeseriesDefinitionRightYaxis'] = None,
                  show_legend: Optional[bool] = None,
-                 time: Optional['outputs.DashboardWidgetTimeseriesDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None,
@@ -40329,8 +31765,6 @@ class DashboardWidgetTimeseriesDefinition(dict):
             pulumi.set(__self__, "right_yaxis", right_yaxis)
         if show_legend is not None:
             pulumi.set(__self__, "show_legend", show_legend)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -40392,11 +31826,6 @@ class DashboardWidgetTimeseriesDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -40421,21 +31850,58 @@ class DashboardWidgetTimeseriesDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetTimeseriesDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetTimeseriesDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -40687,23 +32153,17 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -40711,11 +32171,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -40733,42 +32188,9 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -40821,14 +32243,11 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -40843,41 +32262,9 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -40933,18 +32320,6 @@ class DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -41040,23 +32415,17 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -41064,11 +32433,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -41086,42 +32450,9 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -41174,14 +32505,11 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -41196,41 +32524,9 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -41286,18 +32582,6 @@ class DashboardWidgetTimeseriesDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -41364,23 +32648,17 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -41388,11 +32666,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -41410,42 +32683,9 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -41498,14 +32738,11 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -41520,41 +32757,9 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -41610,18 +32815,6 @@ class DashboardWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestNetworkQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -42070,23 +33263,17 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -42094,11 +33281,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -42116,42 +33298,9 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -42204,14 +33353,11 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -42226,41 +33372,9 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -42319,18 +33433,6 @@ class DashboardWidgetTimeseriesDefinitionRequestRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -42357,23 +33459,17 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -42381,11 +33477,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -42403,42 +33494,9 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -42491,14 +33549,11 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -42513,41 +33568,9 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -42603,18 +33626,6 @@ class DashboardWidgetTimeseriesDefinitionRequestSecurityQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -42728,36 +33739,6 @@ class DashboardWidgetTimeseriesDefinitionRightYaxis(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetTimeseriesDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTimeseriesDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetTimeseriesDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetTimeseriesDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
-
-
-@pulumi.output_type
 class DashboardWidgetTimeseriesDefinitionYaxis(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -42848,7 +33829,6 @@ class DashboardWidgetToplistDefinition(dict):
                  custom_links: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionCustomLink']] = None,
                  live_span: Optional[str] = None,
                  requests: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequest']] = None,
-                 time: Optional['outputs.DashboardWidgetToplistDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -42861,8 +33841,6 @@ class DashboardWidgetToplistDefinition(dict):
             pulumi.set(__self__, "live_span", live_span)
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -42887,11 +33865,6 @@ class DashboardWidgetToplistDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetToplistDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -42911,21 +33884,58 @@ class DashboardWidgetToplistDefinition(dict):
 
 @pulumi.output_type
 class DashboardWidgetToplistDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidgetToplistDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidgetToplistDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 label: str,
-                 link: str):
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "link", link)
+                 is_hidden: Optional[bool] = None,
+                 label: Optional[str] = None,
+                 link: Optional[str] = None,
+                 override_label: Optional[str] = None):
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[bool]:
+        return pulumi.get(self, "is_hidden")
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> Optional[str]:
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter
-    def link(self) -> str:
+    def link(self) -> Optional[str]:
         return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[str]:
+        return pulumi.get(self, "override_label")
 
 
 @pulumi.output_type
@@ -43067,23 +34077,17 @@ class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -43091,11 +34095,6 @@ class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -43113,42 +34112,9 @@ class DashboardWidgetToplistDefinitionRequestApmQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -43201,14 +34167,11 @@ class DashboardWidgetToplistDefinitionRequestApmQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -43223,41 +34186,9 @@ class DashboardWidgetToplistDefinitionRequestApmQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestApmQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -43313,18 +34244,6 @@ class DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -43517,23 +34436,17 @@ class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -43541,11 +34454,6 @@ class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -43563,42 +34471,9 @@ class DashboardWidgetToplistDefinitionRequestLogQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -43651,14 +34526,11 @@ class DashboardWidgetToplistDefinitionRequestLogQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -43673,41 +34545,9 @@ class DashboardWidgetToplistDefinitionRequestLogQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -43763,18 +34603,6 @@ class DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
 
 
 @pulumi.output_type
@@ -44223,23 +35051,17 @@ class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -44247,11 +35069,6 @@ class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -44269,42 +35086,9 @@ class DashboardWidgetToplistDefinitionRequestRumQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestRumQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -44357,14 +35141,11 @@ class DashboardWidgetToplistDefinitionRequestRumQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -44379,41 +35160,9 @@ class DashboardWidgetToplistDefinitionRequestRumQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestRumQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestRumQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -44472,18 +35221,6 @@ class DashboardWidgetToplistDefinitionRequestRumQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestRumQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -44510,23 +35247,17 @@ class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
 
     def __init__(__self__, *,
                  index: str,
-                 compute: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryCompute'] = None,
                  compute_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryComputeQuery'] = None,
                  group_bies: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy']] = None,
                  multi_computes: Optional[Sequence['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute']] = None,
-                 search: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQuerySearch'] = None,
                  search_query: Optional[str] = None):
         pulumi.set(__self__, "index", index)
-        if compute is not None:
-            pulumi.set(__self__, "compute", compute)
         if compute_query is not None:
             pulumi.set(__self__, "compute_query", compute_query)
         if group_bies is not None:
             pulumi.set(__self__, "group_bies", group_bies)
         if multi_computes is not None:
             pulumi.set(__self__, "multi_computes", multi_computes)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
         if search_query is not None:
             pulumi.set(__self__, "search_query", search_query)
 
@@ -44534,11 +35265,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
     @pulumi.getter
     def index(self) -> str:
         return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter
-    def compute(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryCompute']:
-        return pulumi.get(self, "compute")
 
     @property
     @pulumi.getter(name="computeQuery")
@@ -44556,42 +35282,9 @@ class DashboardWidgetToplistDefinitionRequestSecurityQuery(dict):
         return pulumi.get(self, "multi_computes")
 
     @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQuerySearch']:
-        return pulumi.get(self, "search")
-
-    @property
     @pulumi.getter(name="searchQuery")
     def search_query(self) -> Optional[str]:
         return pulumi.get(self, "search_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestSecurityQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
 
 
 @pulumi.output_type
@@ -44644,14 +35337,11 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy(dict):
     def __init__(__self__, *,
                  facet: Optional[str] = None,
                  limit: Optional[int] = None,
-                 sort: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort'] = None,
                  sort_query: Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery'] = None):
         if facet is not None:
             pulumi.set(__self__, "facet", facet)
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
         if sort_query is not None:
             pulumi.set(__self__, "sort_query", sort_query)
 
@@ -44666,41 +35356,9 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBy(dict):
         return pulumi.get(self, "limit")
 
     @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-    @property
     @pulumi.getter(name="sortQuery")
     def sort_query(self) -> Optional['outputs.DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySortQuery']:
         return pulumi.get(self, "sort_query")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestSecurityQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
 
 
 @pulumi.output_type
@@ -44759,18 +35417,6 @@ class DashboardWidgetToplistDefinitionRequestSecurityQueryMultiCompute(dict):
 
 
 @pulumi.output_type
-class DashboardWidgetToplistDefinitionRequestSecurityQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
 class DashboardWidgetToplistDefinitionRequestStyle(dict):
     def __init__(__self__, *,
                  palette: Optional[str] = None):
@@ -44781,36 +35427,6 @@ class DashboardWidgetToplistDefinitionRequestStyle(dict):
     @pulumi.getter
     def palette(self) -> Optional[str]:
         return pulumi.get(self, "palette")
-
-
-@pulumi.output_type
-class DashboardWidgetToplistDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetToplistDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetToplistDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetToplistDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -44867,7 +35483,6 @@ class DashboardWidgetTraceServiceDefinition(dict):
                  show_latency: Optional[bool] = None,
                  show_resource_list: Optional[bool] = None,
                  size_format: Optional[str] = None,
-                 time: Optional['outputs.DashboardWidgetTraceServiceDefinitionTime'] = None,
                  title: Optional[str] = None,
                  title_align: Optional[str] = None,
                  title_size: Optional[str] = None):
@@ -44895,8 +35510,6 @@ class DashboardWidgetTraceServiceDefinition(dict):
             pulumi.set(__self__, "show_resource_list", show_resource_list)
         if size_format is not None:
             pulumi.set(__self__, "size_format", size_format)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if title_align is not None:
@@ -44966,11 +35579,6 @@ class DashboardWidgetTraceServiceDefinition(dict):
 
     @property
     @pulumi.getter
-    def time(self) -> Optional['outputs.DashboardWidgetTraceServiceDefinitionTime']:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
     def title(self) -> Optional[str]:
         """
         The title of the dashboard.
@@ -44986,36 +35594,6 @@ class DashboardWidgetTraceServiceDefinition(dict):
     @pulumi.getter(name="titleSize")
     def title_size(self) -> Optional[str]:
         return pulumi.get(self, "title_size")
-
-
-@pulumi.output_type
-class DashboardWidgetTraceServiceDefinitionTime(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "liveSpan":
-            suggest = "live_span"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DashboardWidgetTraceServiceDefinitionTime. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DashboardWidgetTraceServiceDefinitionTime.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DashboardWidgetTraceServiceDefinitionTime.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 live_span: Optional[str] = None):
-        if live_span is not None:
-            pulumi.set(__self__, "live_span", live_span)
-
-    @property
-    @pulumi.getter(name="liveSpan")
-    def live_span(self) -> Optional[str]:
-        return pulumi.get(self, "live_span")
 
 
 @pulumi.output_type
@@ -45176,68 +35754,6 @@ class DowntimeRecurrence(dict):
 
 
 @pulumi.output_type
-class LogsArchiveAzure(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "storageAccount":
-            suggest = "storage_account"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveAzure. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogsArchiveAzure.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogsArchiveAzure.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 container: str,
-                 storage_account: str,
-                 tenant_id: str,
-                 path: Optional[str] = None):
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "storage_account", storage_account)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter
-    def container(self) -> str:
-        return pulumi.get(self, "container")
-
-    @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> str:
-        return pulumi.get(self, "storage_account")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[str]:
-        return pulumi.get(self, "path")
-
-
-@pulumi.output_type
 class LogsArchiveAzureArchive(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -45322,58 +35838,6 @@ class LogsArchiveAzureArchive(dict):
 
 
 @pulumi.output_type
-class LogsArchiveGcs(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientEmail":
-            suggest = "client_email"
-        elif key == "projectId":
-            suggest = "project_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveGcs. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogsArchiveGcs.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogsArchiveGcs.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bucket: str,
-                 client_email: str,
-                 path: str,
-                 project_id: str):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "client_email", client_email)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "project_id", project_id)
-
-    @property
-    @pulumi.getter
-    def bucket(self) -> str:
-        return pulumi.get(self, "bucket")
-
-    @property
-    @pulumi.getter(name="clientEmail")
-    def client_email(self) -> str:
-        return pulumi.get(self, "client_email")
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter(name="projectId")
-    def project_id(self) -> str:
-        return pulumi.get(self, "project_id")
-
-
-@pulumi.output_type
 class LogsArchiveGcsArchive(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -45441,58 +35905,6 @@ class LogsArchiveGcsArchive(dict):
         Your project id.
         """
         return pulumi.get(self, "project_id")
-
-
-@pulumi.output_type
-class LogsArchiveS3(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "accountId":
-            suggest = "account_id"
-        elif key == "roleName":
-            suggest = "role_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LogsArchiveS3. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LogsArchiveS3.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LogsArchiveS3.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 account_id: str,
-                 bucket: str,
-                 path: str,
-                 role_name: str):
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "role_name", role_name)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
-        return pulumi.get(self, "account_id")
-
-    @property
-    @pulumi.getter
-    def bucket(self) -> str:
-        return pulumi.get(self, "bucket")
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter(name="roleName")
-    def role_name(self) -> str:
-        return pulumi.get(self, "role_name")
 
 
 @pulumi.output_type
@@ -48008,7 +38420,7 @@ class LogsMetricCompute(dict):
                  aggregation_type: str,
                  path: Optional[str] = None):
         """
-        :param str aggregation_type: The type of aggregation to use. This field can't be updated after creation.
+        :param str aggregation_type: The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
         :param str path: The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution"). This field can't be updated after creation.
         """
         pulumi.set(__self__, "aggregation_type", aggregation_type)
@@ -48019,7 +38431,7 @@ class LogsMetricCompute(dict):
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> str:
         """
-        The type of aggregation to use. This field can't be updated after creation.
+        The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
         """
         return pulumi.get(self, "aggregation_type")
 
@@ -48245,118 +38657,6 @@ class MonitorMonitorThresholds(dict):
 
 
 @pulumi.output_type
-class MonitorThresholdWindows(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "recoveryWindow":
-            suggest = "recovery_window"
-        elif key == "triggerWindow":
-            suggest = "trigger_window"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorThresholdWindows. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitorThresholdWindows.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitorThresholdWindows.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 recovery_window: Optional[str] = None,
-                 trigger_window: Optional[str] = None):
-        if recovery_window is not None:
-            pulumi.set(__self__, "recovery_window", recovery_window)
-        if trigger_window is not None:
-            pulumi.set(__self__, "trigger_window", trigger_window)
-
-    @property
-    @pulumi.getter(name="recoveryWindow")
-    def recovery_window(self) -> Optional[str]:
-        return pulumi.get(self, "recovery_window")
-
-    @property
-    @pulumi.getter(name="triggerWindow")
-    def trigger_window(self) -> Optional[str]:
-        return pulumi.get(self, "trigger_window")
-
-
-@pulumi.output_type
-class MonitorThresholds(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "criticalRecovery":
-            suggest = "critical_recovery"
-        elif key == "warningRecovery":
-            suggest = "warning_recovery"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MonitorThresholds. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        MonitorThresholds.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        MonitorThresholds.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 critical: Optional[float] = None,
-                 critical_recovery: Optional[float] = None,
-                 ok: Optional[float] = None,
-                 unknown: Optional[float] = None,
-                 warning: Optional[float] = None,
-                 warning_recovery: Optional[float] = None):
-        if critical is not None:
-            pulumi.set(__self__, "critical", critical)
-        if critical_recovery is not None:
-            pulumi.set(__self__, "critical_recovery", critical_recovery)
-        if ok is not None:
-            pulumi.set(__self__, "ok", ok)
-        if unknown is not None:
-            pulumi.set(__self__, "unknown", unknown)
-        if warning is not None:
-            pulumi.set(__self__, "warning", warning)
-        if warning_recovery is not None:
-            pulumi.set(__self__, "warning_recovery", warning_recovery)
-
-    @property
-    @pulumi.getter
-    def critical(self) -> Optional[float]:
-        return pulumi.get(self, "critical")
-
-    @property
-    @pulumi.getter(name="criticalRecovery")
-    def critical_recovery(self) -> Optional[float]:
-        return pulumi.get(self, "critical_recovery")
-
-    @property
-    @pulumi.getter
-    def ok(self) -> Optional[float]:
-        return pulumi.get(self, "ok")
-
-    @property
-    @pulumi.getter
-    def unknown(self) -> Optional[float]:
-        return pulumi.get(self, "unknown")
-
-    @property
-    @pulumi.getter
-    def warning(self) -> Optional[float]:
-        return pulumi.get(self, "warning")
-
-    @property
-    @pulumi.getter(name="warningRecovery")
-    def warning_recovery(self) -> Optional[float]:
-        return pulumi.get(self, "warning_recovery")
-
-
-@pulumi.output_type
 class RolePermission(dict):
     def __init__(__self__, *,
                  id: str,
@@ -48384,1455 +38684,6 @@ class RolePermission(dict):
         Name of the permission.
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class ScreenBoardTemplateVariable(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 default: Optional[str] = None,
-                 prefix: Optional[str] = None):
-        pulumi.set(__self__, "name", name)
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> Optional[str]:
-        return pulumi.get(self, "prefix")
-
-
-@pulumi.output_type
-class ScreenBoardWidget(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "alertId":
-            suggest = "alert_id"
-        elif key == "autoRefresh":
-            suggest = "auto_refresh"
-        elif key == "colorPreference":
-            suggest = "color_preference"
-        elif key == "displayFormat":
-            suggest = "display_format"
-        elif key == "eventSize":
-            suggest = "event_size"
-        elif key == "fontSize":
-            suggest = "font_size"
-        elif key == "groupBies":
-            suggest = "group_bies"
-        elif key == "hideZeroCounts":
-            suggest = "hide_zero_counts"
-        elif key == "layoutVersion":
-            suggest = "layout_version"
-        elif key == "legendSize":
-            suggest = "legend_size"
-        elif key == "manageStatusShowTitle":
-            suggest = "manage_status_show_title"
-        elif key == "manageStatusTitleAlign":
-            suggest = "manage_status_title_align"
-        elif key == "manageStatusTitleSize":
-            suggest = "manage_status_title_size"
-        elif key == "manageStatusTitleText":
-            suggest = "manage_status_title_text"
-        elif key == "mustShowBreakdown":
-            suggest = "must_show_breakdown"
-        elif key == "mustShowDistribution":
-            suggest = "must_show_distribution"
-        elif key == "mustShowErrors":
-            suggest = "must_show_errors"
-        elif key == "mustShowHits":
-            suggest = "must_show_hits"
-        elif key == "mustShowLatency":
-            suggest = "must_show_latency"
-        elif key == "mustShowResourceList":
-            suggest = "must_show_resource_list"
-        elif key == "serviceName":
-            suggest = "service_name"
-        elif key == "serviceService":
-            suggest = "service_service"
-        elif key == "showLastTriggered":
-            suggest = "show_last_triggered"
-        elif key == "sizeVersion":
-            suggest = "size_version"
-        elif key == "summaryType":
-            suggest = "summary_type"
-        elif key == "textAlign":
-            suggest = "text_align"
-        elif key == "textSize":
-            suggest = "text_size"
-        elif key == "tickEdge":
-            suggest = "tick_edge"
-        elif key == "tickPos":
-            suggest = "tick_pos"
-        elif key == "tileDeves":
-            suggest = "tile_deves"
-        elif key == "titleAlign":
-            suggest = "title_align"
-        elif key == "titleSize":
-            suggest = "title_size"
-        elif key == "vizType":
-            suggest = "viz_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidget. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScreenBoardWidget.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScreenBoardWidget.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 type: str,
-                 x: int,
-                 y: int,
-                 alert_id: Optional[int] = None,
-                 auto_refresh: Optional[bool] = None,
-                 bgcolor: Optional[str] = None,
-                 check: Optional[str] = None,
-                 color: Optional[str] = None,
-                 color_preference: Optional[str] = None,
-                 columns: Optional[str] = None,
-                 display_format: Optional[str] = None,
-                 env: Optional[str] = None,
-                 event_size: Optional[str] = None,
-                 font_size: Optional[str] = None,
-                 group: Optional[str] = None,
-                 group_bies: Optional[Sequence[str]] = None,
-                 grouping: Optional[str] = None,
-                 height: Optional[int] = None,
-                 hide_zero_counts: Optional[bool] = None,
-                 html: Optional[str] = None,
-                 layout_version: Optional[str] = None,
-                 legend: Optional[bool] = None,
-                 legend_size: Optional[str] = None,
-                 logset: Optional[str] = None,
-                 manage_status_show_title: Optional[bool] = None,
-                 manage_status_title_align: Optional[str] = None,
-                 manage_status_title_size: Optional[str] = None,
-                 manage_status_title_text: Optional[str] = None,
-                 margin: Optional[str] = None,
-                 monitor: Optional[Mapping[str, str]] = None,
-                 must_show_breakdown: Optional[bool] = None,
-                 must_show_distribution: Optional[bool] = None,
-                 must_show_errors: Optional[bool] = None,
-                 must_show_hits: Optional[bool] = None,
-                 must_show_latency: Optional[bool] = None,
-                 must_show_resource_list: Optional[bool] = None,
-                 params: Optional[Mapping[str, str]] = None,
-                 precision: Optional[str] = None,
-                 query: Optional[str] = None,
-                 rules: Optional[Sequence['outputs.ScreenBoardWidgetRule']] = None,
-                 service_name: Optional[str] = None,
-                 service_service: Optional[str] = None,
-                 show_last_triggered: Optional[bool] = None,
-                 size_version: Optional[str] = None,
-                 sizing: Optional[str] = None,
-                 summary_type: Optional[str] = None,
-                 tags: Optional[Sequence[str]] = None,
-                 text: Optional[str] = None,
-                 text_align: Optional[str] = None,
-                 text_size: Optional[str] = None,
-                 tick: Optional[bool] = None,
-                 tick_edge: Optional[str] = None,
-                 tick_pos: Optional[str] = None,
-                 tile_deves: Optional[Sequence['outputs.ScreenBoardWidgetTileDef']] = None,
-                 time: Optional[Mapping[str, str]] = None,
-                 timeframes: Optional[Sequence[str]] = None,
-                 title: Optional[str] = None,
-                 title_align: Optional[str] = None,
-                 title_size: Optional[int] = None,
-                 unit: Optional[str] = None,
-                 url: Optional[str] = None,
-                 viz_type: Optional[str] = None,
-                 width: Optional[int] = None):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
-        if alert_id is not None:
-            pulumi.set(__self__, "alert_id", alert_id)
-        if auto_refresh is not None:
-            pulumi.set(__self__, "auto_refresh", auto_refresh)
-        if bgcolor is not None:
-            pulumi.set(__self__, "bgcolor", bgcolor)
-        if check is not None:
-            pulumi.set(__self__, "check", check)
-        if color is not None:
-            pulumi.set(__self__, "color", color)
-        if color_preference is not None:
-            pulumi.set(__self__, "color_preference", color_preference)
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-        if display_format is not None:
-            pulumi.set(__self__, "display_format", display_format)
-        if env is not None:
-            pulumi.set(__self__, "env", env)
-        if event_size is not None:
-            pulumi.set(__self__, "event_size", event_size)
-        if font_size is not None:
-            pulumi.set(__self__, "font_size", font_size)
-        if group is not None:
-            pulumi.set(__self__, "group", group)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
-        if height is not None:
-            pulumi.set(__self__, "height", height)
-        if hide_zero_counts is not None:
-            pulumi.set(__self__, "hide_zero_counts", hide_zero_counts)
-        if html is not None:
-            pulumi.set(__self__, "html", html)
-        if layout_version is not None:
-            pulumi.set(__self__, "layout_version", layout_version)
-        if legend is not None:
-            pulumi.set(__self__, "legend", legend)
-        if legend_size is not None:
-            pulumi.set(__self__, "legend_size", legend_size)
-        if logset is not None:
-            pulumi.set(__self__, "logset", logset)
-        if manage_status_show_title is not None:
-            pulumi.set(__self__, "manage_status_show_title", manage_status_show_title)
-        if manage_status_title_align is not None:
-            pulumi.set(__self__, "manage_status_title_align", manage_status_title_align)
-        if manage_status_title_size is not None:
-            pulumi.set(__self__, "manage_status_title_size", manage_status_title_size)
-        if manage_status_title_text is not None:
-            pulumi.set(__self__, "manage_status_title_text", manage_status_title_text)
-        if margin is not None:
-            pulumi.set(__self__, "margin", margin)
-        if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
-        if must_show_breakdown is not None:
-            pulumi.set(__self__, "must_show_breakdown", must_show_breakdown)
-        if must_show_distribution is not None:
-            pulumi.set(__self__, "must_show_distribution", must_show_distribution)
-        if must_show_errors is not None:
-            pulumi.set(__self__, "must_show_errors", must_show_errors)
-        if must_show_hits is not None:
-            pulumi.set(__self__, "must_show_hits", must_show_hits)
-        if must_show_latency is not None:
-            pulumi.set(__self__, "must_show_latency", must_show_latency)
-        if must_show_resource_list is not None:
-            pulumi.set(__self__, "must_show_resource_list", must_show_resource_list)
-        if params is not None:
-            pulumi.set(__self__, "params", params)
-        if precision is not None:
-            pulumi.set(__self__, "precision", precision)
-        if query is not None:
-            pulumi.set(__self__, "query", query)
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-        if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
-        if service_service is not None:
-            pulumi.set(__self__, "service_service", service_service)
-        if show_last_triggered is not None:
-            pulumi.set(__self__, "show_last_triggered", show_last_triggered)
-        if size_version is not None:
-            pulumi.set(__self__, "size_version", size_version)
-        if sizing is not None:
-            pulumi.set(__self__, "sizing", sizing)
-        if summary_type is not None:
-            pulumi.set(__self__, "summary_type", summary_type)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if text is not None:
-            pulumi.set(__self__, "text", text)
-        if text_align is not None:
-            pulumi.set(__self__, "text_align", text_align)
-        if text_size is not None:
-            pulumi.set(__self__, "text_size", text_size)
-        if tick is not None:
-            pulumi.set(__self__, "tick", tick)
-        if tick_edge is not None:
-            pulumi.set(__self__, "tick_edge", tick_edge)
-        if tick_pos is not None:
-            pulumi.set(__self__, "tick_pos", tick_pos)
-        if tile_deves is not None:
-            pulumi.set(__self__, "tile_deves", tile_deves)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
-        if timeframes is not None:
-            pulumi.set(__self__, "timeframes", timeframes)
-        if title is not None:
-            pulumi.set(__self__, "title", title)
-        if title_align is not None:
-            pulumi.set(__self__, "title_align", title_align)
-        if title_size is not None:
-            pulumi.set(__self__, "title_size", title_size)
-        if unit is not None:
-            pulumi.set(__self__, "unit", unit)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-        if viz_type is not None:
-            pulumi.set(__self__, "viz_type", viz_type)
-        if width is not None:
-            pulumi.set(__self__, "width", width)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def x(self) -> int:
-        return pulumi.get(self, "x")
-
-    @property
-    @pulumi.getter
-    def y(self) -> int:
-        return pulumi.get(self, "y")
-
-    @property
-    @pulumi.getter(name="alertId")
-    def alert_id(self) -> Optional[int]:
-        return pulumi.get(self, "alert_id")
-
-    @property
-    @pulumi.getter(name="autoRefresh")
-    def auto_refresh(self) -> Optional[bool]:
-        return pulumi.get(self, "auto_refresh")
-
-    @property
-    @pulumi.getter
-    def bgcolor(self) -> Optional[str]:
-        return pulumi.get(self, "bgcolor")
-
-    @property
-    @pulumi.getter
-    def check(self) -> Optional[str]:
-        return pulumi.get(self, "check")
-
-    @property
-    @pulumi.getter
-    def color(self) -> Optional[str]:
-        return pulumi.get(self, "color")
-
-    @property
-    @pulumi.getter(name="colorPreference")
-    def color_preference(self) -> Optional[str]:
-        return pulumi.get(self, "color_preference")
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[str]:
-        return pulumi.get(self, "columns")
-
-    @property
-    @pulumi.getter(name="displayFormat")
-    def display_format(self) -> Optional[str]:
-        return pulumi.get(self, "display_format")
-
-    @property
-    @pulumi.getter
-    def env(self) -> Optional[str]:
-        return pulumi.get(self, "env")
-
-    @property
-    @pulumi.getter(name="eventSize")
-    def event_size(self) -> Optional[str]:
-        return pulumi.get(self, "event_size")
-
-    @property
-    @pulumi.getter(name="fontSize")
-    def font_size(self) -> Optional[str]:
-        return pulumi.get(self, "font_size")
-
-    @property
-    @pulumi.getter
-    def group(self) -> Optional[str]:
-        return pulumi.get(self, "group")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter
-    def grouping(self) -> Optional[str]:
-        return pulumi.get(self, "grouping")
-
-    @property
-    @pulumi.getter
-    def height(self) -> Optional[int]:
-        return pulumi.get(self, "height")
-
-    @property
-    @pulumi.getter(name="hideZeroCounts")
-    def hide_zero_counts(self) -> Optional[bool]:
-        return pulumi.get(self, "hide_zero_counts")
-
-    @property
-    @pulumi.getter
-    def html(self) -> Optional[str]:
-        return pulumi.get(self, "html")
-
-    @property
-    @pulumi.getter(name="layoutVersion")
-    def layout_version(self) -> Optional[str]:
-        return pulumi.get(self, "layout_version")
-
-    @property
-    @pulumi.getter
-    def legend(self) -> Optional[bool]:
-        return pulumi.get(self, "legend")
-
-    @property
-    @pulumi.getter(name="legendSize")
-    def legend_size(self) -> Optional[str]:
-        return pulumi.get(self, "legend_size")
-
-    @property
-    @pulumi.getter
-    def logset(self) -> Optional[str]:
-        return pulumi.get(self, "logset")
-
-    @property
-    @pulumi.getter(name="manageStatusShowTitle")
-    def manage_status_show_title(self) -> Optional[bool]:
-        return pulumi.get(self, "manage_status_show_title")
-
-    @property
-    @pulumi.getter(name="manageStatusTitleAlign")
-    def manage_status_title_align(self) -> Optional[str]:
-        return pulumi.get(self, "manage_status_title_align")
-
-    @property
-    @pulumi.getter(name="manageStatusTitleSize")
-    def manage_status_title_size(self) -> Optional[str]:
-        return pulumi.get(self, "manage_status_title_size")
-
-    @property
-    @pulumi.getter(name="manageStatusTitleText")
-    def manage_status_title_text(self) -> Optional[str]:
-        return pulumi.get(self, "manage_status_title_text")
-
-    @property
-    @pulumi.getter
-    def margin(self) -> Optional[str]:
-        return pulumi.get(self, "margin")
-
-    @property
-    @pulumi.getter
-    def monitor(self) -> Optional[Mapping[str, str]]:
-        return pulumi.get(self, "monitor")
-
-    @property
-    @pulumi.getter(name="mustShowBreakdown")
-    def must_show_breakdown(self) -> Optional[bool]:
-        return pulumi.get(self, "must_show_breakdown")
-
-    @property
-    @pulumi.getter(name="mustShowDistribution")
-    def must_show_distribution(self) -> Optional[bool]:
-        return pulumi.get(self, "must_show_distribution")
-
-    @property
-    @pulumi.getter(name="mustShowErrors")
-    def must_show_errors(self) -> Optional[bool]:
-        return pulumi.get(self, "must_show_errors")
-
-    @property
-    @pulumi.getter(name="mustShowHits")
-    def must_show_hits(self) -> Optional[bool]:
-        return pulumi.get(self, "must_show_hits")
-
-    @property
-    @pulumi.getter(name="mustShowLatency")
-    def must_show_latency(self) -> Optional[bool]:
-        return pulumi.get(self, "must_show_latency")
-
-    @property
-    @pulumi.getter(name="mustShowResourceList")
-    def must_show_resource_list(self) -> Optional[bool]:
-        return pulumi.get(self, "must_show_resource_list")
-
-    @property
-    @pulumi.getter
-    def params(self) -> Optional[Mapping[str, str]]:
-        return pulumi.get(self, "params")
-
-    @property
-    @pulumi.getter
-    def precision(self) -> Optional[str]:
-        return pulumi.get(self, "precision")
-
-    @property
-    @pulumi.getter
-    def query(self) -> Optional[str]:
-        return pulumi.get(self, "query")
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ScreenBoardWidgetRule']]:
-        return pulumi.get(self, "rules")
-
-    @property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[str]:
-        return pulumi.get(self, "service_name")
-
-    @property
-    @pulumi.getter(name="serviceService")
-    def service_service(self) -> Optional[str]:
-        return pulumi.get(self, "service_service")
-
-    @property
-    @pulumi.getter(name="showLastTriggered")
-    def show_last_triggered(self) -> Optional[bool]:
-        return pulumi.get(self, "show_last_triggered")
-
-    @property
-    @pulumi.getter(name="sizeVersion")
-    def size_version(self) -> Optional[str]:
-        return pulumi.get(self, "size_version")
-
-    @property
-    @pulumi.getter
-    def sizing(self) -> Optional[str]:
-        return pulumi.get(self, "sizing")
-
-    @property
-    @pulumi.getter(name="summaryType")
-    def summary_type(self) -> Optional[str]:
-        return pulumi.get(self, "summary_type")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
-    def text(self) -> Optional[str]:
-        return pulumi.get(self, "text")
-
-    @property
-    @pulumi.getter(name="textAlign")
-    def text_align(self) -> Optional[str]:
-        return pulumi.get(self, "text_align")
-
-    @property
-    @pulumi.getter(name="textSize")
-    def text_size(self) -> Optional[str]:
-        return pulumi.get(self, "text_size")
-
-    @property
-    @pulumi.getter
-    def tick(self) -> Optional[bool]:
-        return pulumi.get(self, "tick")
-
-    @property
-    @pulumi.getter(name="tickEdge")
-    def tick_edge(self) -> Optional[str]:
-        return pulumi.get(self, "tick_edge")
-
-    @property
-    @pulumi.getter(name="tickPos")
-    def tick_pos(self) -> Optional[str]:
-        return pulumi.get(self, "tick_pos")
-
-    @property
-    @pulumi.getter(name="tileDeves")
-    def tile_deves(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDef']]:
-        return pulumi.get(self, "tile_deves")
-
-    @property
-    @pulumi.getter
-    def time(self) -> Optional[Mapping[str, str]]:
-        return pulumi.get(self, "time")
-
-    @property
-    @pulumi.getter
-    def timeframes(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "timeframes")
-
-    @property
-    @pulumi.getter
-    def title(self) -> Optional[str]:
-        return pulumi.get(self, "title")
-
-    @property
-    @pulumi.getter(name="titleAlign")
-    def title_align(self) -> Optional[str]:
-        return pulumi.get(self, "title_align")
-
-    @property
-    @pulumi.getter(name="titleSize")
-    def title_size(self) -> Optional[int]:
-        return pulumi.get(self, "title_size")
-
-    @property
-    @pulumi.getter
-    def unit(self) -> Optional[str]:
-        return pulumi.get(self, "unit")
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[str]:
-        return pulumi.get(self, "url")
-
-    @property
-    @pulumi.getter(name="vizType")
-    def viz_type(self) -> Optional[str]:
-        return pulumi.get(self, "viz_type")
-
-    @property
-    @pulumi.getter
-    def width(self) -> Optional[int]:
-        return pulumi.get(self, "width")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetRule(dict):
-    def __init__(__self__, *,
-                 color: Optional[str] = None,
-                 threshold: Optional[float] = None,
-                 timeframe: Optional[str] = None):
-        if color is not None:
-            pulumi.set(__self__, "color", color)
-        if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
-        if timeframe is not None:
-            pulumi.set(__self__, "timeframe", timeframe)
-
-    @property
-    @pulumi.getter
-    def color(self) -> Optional[str]:
-        return pulumi.get(self, "color")
-
-    @property
-    @pulumi.getter
-    def threshold(self) -> Optional[float]:
-        return pulumi.get(self, "threshold")
-
-    @property
-    @pulumi.getter
-    def timeframe(self) -> Optional[str]:
-        return pulumi.get(self, "timeframe")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDef(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customUnit":
-            suggest = "custom_unit"
-        elif key == "noGroupHosts":
-            suggest = "no_group_hosts"
-        elif key == "noMetricHosts":
-            suggest = "no_metric_hosts"
-        elif key == "nodeType":
-            suggest = "node_type"
-        elif key == "textAlign":
-            suggest = "text_align"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDef. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScreenBoardWidgetTileDef.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScreenBoardWidgetTileDef.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 requests: Sequence['outputs.ScreenBoardWidgetTileDefRequest'],
-                 viz: str,
-                 autoscale: Optional[bool] = None,
-                 custom_unit: Optional[str] = None,
-                 events: Optional[Sequence['outputs.ScreenBoardWidgetTileDefEvent']] = None,
-                 groups: Optional[Sequence[str]] = None,
-                 markers: Optional[Sequence['outputs.ScreenBoardWidgetTileDefMarker']] = None,
-                 no_group_hosts: Optional[bool] = None,
-                 no_metric_hosts: Optional[bool] = None,
-                 node_type: Optional[str] = None,
-                 precision: Optional[str] = None,
-                 scopes: Optional[Sequence[str]] = None,
-                 style: Optional[Mapping[str, Any]] = None,
-                 text_align: Optional[str] = None):
-        pulumi.set(__self__, "requests", requests)
-        pulumi.set(__self__, "viz", viz)
-        if autoscale is not None:
-            pulumi.set(__self__, "autoscale", autoscale)
-        if custom_unit is not None:
-            pulumi.set(__self__, "custom_unit", custom_unit)
-        if events is not None:
-            pulumi.set(__self__, "events", events)
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
-        if markers is not None:
-            pulumi.set(__self__, "markers", markers)
-        if no_group_hosts is not None:
-            pulumi.set(__self__, "no_group_hosts", no_group_hosts)
-        if no_metric_hosts is not None:
-            pulumi.set(__self__, "no_metric_hosts", no_metric_hosts)
-        if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
-        if precision is not None:
-            pulumi.set(__self__, "precision", precision)
-        if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
-        if style is not None:
-            pulumi.set(__self__, "style", style)
-        if text_align is not None:
-            pulumi.set(__self__, "text_align", text_align)
-
-    @property
-    @pulumi.getter
-    def requests(self) -> Sequence['outputs.ScreenBoardWidgetTileDefRequest']:
-        return pulumi.get(self, "requests")
-
-    @property
-    @pulumi.getter
-    def viz(self) -> str:
-        return pulumi.get(self, "viz")
-
-    @property
-    @pulumi.getter
-    def autoscale(self) -> Optional[bool]:
-        return pulumi.get(self, "autoscale")
-
-    @property
-    @pulumi.getter(name="customUnit")
-    def custom_unit(self) -> Optional[str]:
-        return pulumi.get(self, "custom_unit")
-
-    @property
-    @pulumi.getter
-    def events(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefEvent']]:
-        return pulumi.get(self, "events")
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "groups")
-
-    @property
-    @pulumi.getter
-    def markers(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefMarker']]:
-        return pulumi.get(self, "markers")
-
-    @property
-    @pulumi.getter(name="noGroupHosts")
-    def no_group_hosts(self) -> Optional[bool]:
-        return pulumi.get(self, "no_group_hosts")
-
-    @property
-    @pulumi.getter(name="noMetricHosts")
-    def no_metric_hosts(self) -> Optional[bool]:
-        return pulumi.get(self, "no_metric_hosts")
-
-    @property
-    @pulumi.getter(name="nodeType")
-    def node_type(self) -> Optional[str]:
-        return pulumi.get(self, "node_type")
-
-    @property
-    @pulumi.getter
-    def precision(self) -> Optional[str]:
-        return pulumi.get(self, "precision")
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "scopes")
-
-    @property
-    @pulumi.getter
-    def style(self) -> Optional[Mapping[str, Any]]:
-        return pulumi.get(self, "style")
-
-    @property
-    @pulumi.getter(name="textAlign")
-    def text_align(self) -> Optional[str]:
-        return pulumi.get(self, "text_align")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefEvent(dict):
-    def __init__(__self__, *,
-                 q: str):
-        pulumi.set(__self__, "q", q)
-
-    @property
-    @pulumi.getter
-    def q(self) -> str:
-        return pulumi.get(self, "q")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefMarker(dict):
-    def __init__(__self__, *,
-                 type: str,
-                 value: str,
-                 label: Optional[str] = None):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-        if label is not None:
-            pulumi.set(__self__, "label", label)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def label(self) -> Optional[str]:
-        return pulumi.get(self, "label")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequest(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "apmQuery":
-            suggest = "apm_query"
-        elif key == "changeType":
-            suggest = "change_type"
-        elif key == "compareTo":
-            suggest = "compare_to"
-        elif key == "conditionalFormats":
-            suggest = "conditional_formats"
-        elif key == "extraCol":
-            suggest = "extra_col"
-        elif key == "increaseGood":
-            suggest = "increase_good"
-        elif key == "logQuery":
-            suggest = "log_query"
-        elif key == "metadataJson":
-            suggest = "metadata_json"
-        elif key == "orderBy":
-            suggest = "order_by"
-        elif key == "orderDir":
-            suggest = "order_dir"
-        elif key == "processQuery":
-            suggest = "process_query"
-        elif key == "queryType":
-            suggest = "query_type"
-        elif key == "tagFilters":
-            suggest = "tag_filters"
-        elif key == "textFilter":
-            suggest = "text_filter"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequest. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScreenBoardWidgetTileDefRequest.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScreenBoardWidgetTileDefRequest.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 aggregator: Optional[str] = None,
-                 apm_query: Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuery'] = None,
-                 change_type: Optional[str] = None,
-                 compare_to: Optional[str] = None,
-                 conditional_formats: Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestConditionalFormat']] = None,
-                 extra_col: Optional[str] = None,
-                 increase_good: Optional[bool] = None,
-                 limit: Optional[int] = None,
-                 log_query: Optional['outputs.ScreenBoardWidgetTileDefRequestLogQuery'] = None,
-                 metadata_json: Optional[str] = None,
-                 metric: Optional[str] = None,
-                 order_by: Optional[str] = None,
-                 order_dir: Optional[str] = None,
-                 process_query: Optional['outputs.ScreenBoardWidgetTileDefRequestProcessQuery'] = None,
-                 q: Optional[str] = None,
-                 query_type: Optional[str] = None,
-                 style: Optional[Mapping[str, Any]] = None,
-                 tag_filters: Optional[Sequence[str]] = None,
-                 text_filter: Optional[str] = None,
-                 type: Optional[str] = None):
-        if aggregator is not None:
-            pulumi.set(__self__, "aggregator", aggregator)
-        if apm_query is not None:
-            pulumi.set(__self__, "apm_query", apm_query)
-        if change_type is not None:
-            pulumi.set(__self__, "change_type", change_type)
-        if compare_to is not None:
-            pulumi.set(__self__, "compare_to", compare_to)
-        if conditional_formats is not None:
-            pulumi.set(__self__, "conditional_formats", conditional_formats)
-        if extra_col is not None:
-            pulumi.set(__self__, "extra_col", extra_col)
-        if increase_good is not None:
-            pulumi.set(__self__, "increase_good", increase_good)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if log_query is not None:
-            pulumi.set(__self__, "log_query", log_query)
-        if metadata_json is not None:
-            pulumi.set(__self__, "metadata_json", metadata_json)
-        if metric is not None:
-            pulumi.set(__self__, "metric", metric)
-        if order_by is not None:
-            pulumi.set(__self__, "order_by", order_by)
-        if order_dir is not None:
-            pulumi.set(__self__, "order_dir", order_dir)
-        if process_query is not None:
-            pulumi.set(__self__, "process_query", process_query)
-        if q is not None:
-            pulumi.set(__self__, "q", q)
-        if query_type is not None:
-            pulumi.set(__self__, "query_type", query_type)
-        if style is not None:
-            pulumi.set(__self__, "style", style)
-        if tag_filters is not None:
-            pulumi.set(__self__, "tag_filters", tag_filters)
-        if text_filter is not None:
-            pulumi.set(__self__, "text_filter", text_filter)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def aggregator(self) -> Optional[str]:
-        return pulumi.get(self, "aggregator")
-
-    @property
-    @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuery']:
-        return pulumi.get(self, "apm_query")
-
-    @property
-    @pulumi.getter(name="changeType")
-    def change_type(self) -> Optional[str]:
-        return pulumi.get(self, "change_type")
-
-    @property
-    @pulumi.getter(name="compareTo")
-    def compare_to(self) -> Optional[str]:
-        return pulumi.get(self, "compare_to")
-
-    @property
-    @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestConditionalFormat']]:
-        return pulumi.get(self, "conditional_formats")
-
-    @property
-    @pulumi.getter(name="extraCol")
-    def extra_col(self) -> Optional[str]:
-        return pulumi.get(self, "extra_col")
-
-    @property
-    @pulumi.getter(name="increaseGood")
-    def increase_good(self) -> Optional[bool]:
-        return pulumi.get(self, "increase_good")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestLogQuery']:
-        return pulumi.get(self, "log_query")
-
-    @property
-    @pulumi.getter(name="metadataJson")
-    def metadata_json(self) -> Optional[str]:
-        return pulumi.get(self, "metadata_json")
-
-    @property
-    @pulumi.getter
-    def metric(self) -> Optional[str]:
-        return pulumi.get(self, "metric")
-
-    @property
-    @pulumi.getter(name="orderBy")
-    def order_by(self) -> Optional[str]:
-        return pulumi.get(self, "order_by")
-
-    @property
-    @pulumi.getter(name="orderDir")
-    def order_dir(self) -> Optional[str]:
-        return pulumi.get(self, "order_dir")
-
-    @property
-    @pulumi.getter(name="processQuery")
-    def process_query(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestProcessQuery']:
-        return pulumi.get(self, "process_query")
-
-    @property
-    @pulumi.getter
-    def q(self) -> Optional[str]:
-        return pulumi.get(self, "q")
-
-    @property
-    @pulumi.getter(name="queryType")
-    def query_type(self) -> Optional[str]:
-        return pulumi.get(self, "query_type")
-
-    @property
-    @pulumi.getter
-    def style(self) -> Optional[Mapping[str, Any]]:
-        return pulumi.get(self, "style")
-
-    @property
-    @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "tag_filters")
-
-    @property
-    @pulumi.getter(name="textFilter")
-    def text_filter(self) -> Optional[str]:
-        return pulumi.get(self, "text_filter")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupBies":
-            suggest = "group_bies"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScreenBoardWidgetTileDefRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScreenBoardWidgetTileDefRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 compute: 'outputs.ScreenBoardWidgetTileDefRequestApmQueryCompute',
-                 index: str,
-                 group_bies: Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy']] = None,
-                 search: Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuerySearch'] = None):
-        pulumi.set(__self__, "compute", compute)
-        pulumi.set(__self__, "index", index)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
-
-    @property
-    @pulumi.getter
-    def compute(self) -> 'outputs.ScreenBoardWidgetTileDefRequestApmQueryCompute':
-        return pulumi.get(self, "compute")
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBy']]:
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[str]:
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestApmQueryGroupBy(dict):
-    def __init__(__self__, *,
-                 facet: str,
-                 limit: Optional[int] = None,
-                 sort: Optional['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort'] = None):
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> str:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestConditionalFormat(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customBgColor":
-            suggest = "custom_bg_color"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScreenBoardWidgetTileDefRequestConditionalFormat.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScreenBoardWidgetTileDefRequestConditionalFormat.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 comparator: str,
-                 color: Optional[str] = None,
-                 custom_bg_color: Optional[str] = None,
-                 invert: Optional[bool] = None,
-                 palette: Optional[str] = None,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "comparator", comparator)
-        if color is not None:
-            pulumi.set(__self__, "color", color)
-        if custom_bg_color is not None:
-            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
-        if invert is not None:
-            pulumi.set(__self__, "invert", invert)
-        if palette is not None:
-            pulumi.set(__self__, "palette", palette)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def comparator(self) -> str:
-        return pulumi.get(self, "comparator")
-
-    @property
-    @pulumi.getter
-    def color(self) -> Optional[str]:
-        return pulumi.get(self, "color")
-
-    @property
-    @pulumi.getter(name="customBgColor")
-    def custom_bg_color(self) -> Optional[str]:
-        return pulumi.get(self, "custom_bg_color")
-
-    @property
-    @pulumi.getter
-    def invert(self) -> Optional[bool]:
-        return pulumi.get(self, "invert")
-
-    @property
-    @pulumi.getter
-    def palette(self) -> Optional[str]:
-        return pulumi.get(self, "palette")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupBies":
-            suggest = "group_bies"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScreenBoardWidgetTileDefRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScreenBoardWidgetTileDefRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 compute: 'outputs.ScreenBoardWidgetTileDefRequestLogQueryCompute',
-                 index: str,
-                 group_bies: Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy']] = None,
-                 search: Optional['outputs.ScreenBoardWidgetTileDefRequestLogQuerySearch'] = None):
-        pulumi.set(__self__, "compute", compute)
-        pulumi.set(__self__, "index", index)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
-
-    @property
-    @pulumi.getter
-    def compute(self) -> 'outputs.ScreenBoardWidgetTileDefRequestLogQueryCompute':
-        return pulumi.get(self, "compute")
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBy']]:
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[str]:
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestLogQueryGroupBy(dict):
-    def __init__(__self__, *,
-                 facet: str,
-                 limit: Optional[int] = None,
-                 sort: Optional['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort'] = None):
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> str:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.ScreenBoardWidgetTileDefRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class ScreenBoardWidgetTileDefRequestProcessQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filterBies":
-            suggest = "filter_bies"
-        elif key == "searchBy":
-            suggest = "search_by"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScreenBoardWidgetTileDefRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScreenBoardWidgetTileDefRequestProcessQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScreenBoardWidgetTileDefRequestProcessQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 metric: str,
-                 filter_bies: Optional[Sequence[str]] = None,
-                 limit: Optional[int] = None,
-                 search_by: Optional[str] = None):
-        pulumi.set(__self__, "metric", metric)
-        if filter_bies is not None:
-            pulumi.set(__self__, "filter_bies", filter_bies)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if search_by is not None:
-            pulumi.set(__self__, "search_by", search_by)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> str:
-        return pulumi.get(self, "metric")
-
-    @property
-    @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "filter_bies")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter(name="searchBy")
-    def search_by(self) -> Optional[str]:
-        return pulumi.get(self, "search_by")
 
 
 @pulumi.output_type
@@ -50153,7 +39004,7 @@ class ServiceLevelObjectiveThreshold(dict):
                  warning_display: Optional[str] = None):
         """
         :param float target: The objective's target in`[0,100]`.
-        :param str timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: `7d`, `30d`, `90d`.
+        :param str timeframe: The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`.
         :param str target_display: A string representation of the target that indicates its precision. It uses trailing zeros to show significant decimal places (e.g. `98.00`).
         :param float warning: The objective's warning value in `[0,100]`. This must be greater than the target value.
         :param str warning_display: A string representation of the warning target (see the description of the target_display field for details).
@@ -50179,7 +39030,7 @@ class ServiceLevelObjectiveThreshold(dict):
     @pulumi.getter
     def timeframe(self) -> str:
         """
-        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Available options to choose from are: `7d`, `30d`, `90d`.
+        The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`.
         """
         return pulumi.get(self, "timeframe")
 
@@ -50215,7 +39066,7 @@ class SyntheticsGlobalVariableParseTestOptions(dict):
                  type: str,
                  field: Optional[str] = None):
         """
-        :param str type: Defines the source to use to extract the value. Allowed enum values: `http_body`, `http_header`.
+        :param str type: Defines the source to use to extract the value. Valid values are `http_body`, `http_header`.
         :param str field: Required when type = `http_header`. Defines the header to use to extract the value
         """
         pulumi.set(__self__, "parser", parser)
@@ -50232,7 +39083,7 @@ class SyntheticsGlobalVariableParseTestOptions(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Defines the source to use to extract the value. Allowed enum values: `http_body`, `http_header`.
+        Defines the source to use to extract the value. Valid values are `http_body`, `http_header`.
         """
         return pulumi.get(self, "type")
 
@@ -50327,7 +39178,7 @@ class SyntheticsTestApiStep(dict):
         :param 'SyntheticsTestApiStepRequestDefinitionArgs' request_definition: The request for the api step.
         :param Mapping[str, Any] request_headers: Header name and value map.
         :param Mapping[str, Any] request_query: Query arguments name and value map.
-        :param str subtype: The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+        :param str subtype: The subtype of the Synthetic multistep API test step. Valid values are `http`.
         """
         pulumi.set(__self__, "name", name)
         if allow_failure is not None:
@@ -50435,7 +39286,7 @@ class SyntheticsTestApiStep(dict):
     @pulumi.getter
     def subtype(self) -> Optional[str]:
         """
-        The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+        The subtype of the Synthetic multistep API test step. Valid values are `http`.
         """
         return pulumi.get(self, "subtype")
 
@@ -50450,7 +39301,7 @@ class SyntheticsTestApiStepAssertion(dict):
                  targetjsonpath: Optional['outputs.SyntheticsTestApiStepAssertionTargetjsonpath'] = None):
         """
         :param str operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
-        :param str type: Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        :param str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
         :param str property: If assertion type is `header`, this is the header name.
         :param str target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
         :param 'SyntheticsTestApiStepAssertionTargetjsonpathArgs' targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
@@ -50476,7 +39327,7 @@ class SyntheticsTestApiStepAssertion(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of assertion. Choose from `body`, `header`, `responseTime`, `statusCode`. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
         """
         return pulumi.get(self, "type")
 
@@ -50540,7 +39391,7 @@ class SyntheticsTestApiStepExtractedValue(dict):
                  field: Optional[str] = None):
         """
         :param str name: Name of Datadog synthetics test.
-        :param str type: Synthetics test type (`api` or `browser`).
+        :param str type: Synthetics test type. Valid values are `api`, `browser`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parser", parser)
@@ -50565,7 +39416,7 @@ class SyntheticsTestApiStepExtractedValue(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Synthetics test type (`api` or `browser`).
+        Synthetics test type. Valid values are `api`, `browser`.
         """
         return pulumi.get(self, "type")
 
@@ -50581,7 +39432,7 @@ class SyntheticsTestApiStepExtractedValueParser(dict):
                  type: str,
                  value: Optional[str] = None):
         """
-        :param str type: Synthetics test type (`api` or `browser`).
+        :param str type: Synthetics test type. Valid values are `api`, `browser`.
         """
         pulumi.set(__self__, "type", type)
         if value is not None:
@@ -50591,7 +39442,7 @@ class SyntheticsTestApiStepExtractedValueParser(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Synthetics test type (`api` or `browser`).
+        Synthetics test type. Valid values are `api`, `browser`.
         """
         return pulumi.get(self, "type")
 
@@ -50733,7 +39584,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
         :param str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param int dns_server_port: DNS server port to use for DNS tests.
         :param str host: Host name to perform the test with.
-        :param str method: The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
+        :param str method: The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
         :param int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
         :param int port: Port to use when performing the test.
@@ -50800,7 +39651,7 @@ class SyntheticsTestApiStepRequestDefinition(dict):
     @pulumi.getter
     def method(self) -> Optional[str]:
         """
-        The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
+        The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         """
         return pulumi.get(self, "method")
 
@@ -50854,6 +39705,97 @@ class SyntheticsTestApiStepRequestDefinition(dict):
 
 
 @pulumi.output_type
+class SyntheticsTestAssertion(dict):
+    def __init__(__self__, *,
+                 operator: str,
+                 type: str,
+                 property: Optional[str] = None,
+                 target: Optional[str] = None,
+                 targetjsonpath: Optional['outputs.SyntheticsTestAssertionTargetjsonpath'] = None):
+        """
+        :param str operator: Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        :param str type: Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
+        :param str property: If assertion type is `header`, this is the header name.
+        :param str target: Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        :param 'SyntheticsTestAssertionTargetjsonpathArgs' targetjsonpath: Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "type", type)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if targetjsonpath is not None:
+            pulumi.set(__self__, "targetjsonpath", targetjsonpath)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Assertion operator. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)).
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of assertion. **Note** Only some combinations of `type` and `operator` are valid (please refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test)). Valid values are `body`, `header`, `statusCode`, `certificate`, `responseTime`, `property`, `recordEvery`, `recordSome`, `tlsVersion`, `minTlsVersion`, `latency`, `packetLossPercentage`, `packetsReceived`, `networkHop`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Expected value. Depends on the assertion type, refer to [Datadog documentation](https://docs.datadoghq.com/api/latest/synthetics/#create-a-test) for details.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def targetjsonpath(self) -> Optional['outputs.SyntheticsTestAssertionTargetjsonpath']:
+        """
+        Expected structure if `operator` is `validatesJSONPath`. Exactly one nested block is allowed with the structure below.
+        """
+        return pulumi.get(self, "targetjsonpath")
+
+    @property
+    @pulumi.getter
+    def property(self) -> Optional[str]:
+        """
+        If assertion type is `header`, this is the header name.
+        """
+        return pulumi.get(self, "property")
+
+
+@pulumi.output_type
+class SyntheticsTestAssertionTargetjsonpath(dict):
+    def __init__(__self__, *,
+                 jsonpath: str,
+                 operator: str,
+                 targetvalue: str):
+        pulumi.set(__self__, "jsonpath", jsonpath)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "targetvalue", targetvalue)
+
+    @property
+    @pulumi.getter
+    def jsonpath(self) -> str:
+        return pulumi.get(self, "jsonpath")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def targetvalue(self) -> str:
+        return pulumi.get(self, "targetvalue")
+
+
+@pulumi.output_type
 class SyntheticsTestBrowserStep(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -50884,7 +39826,7 @@ class SyntheticsTestBrowserStep(dict):
         """
         :param str name: Name of the step.
         :param 'SyntheticsTestBrowserStepParamsArgs' params: Parameters for the step.
-        :param str type: Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
+        :param str type: Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
         :param bool allow_failure: Determines if the step should be allowed to fail.
         :param bool force_element_update: Force update of the "element" parameter for the step
         :param int timeout: Used to override the default timeout of a step.
@@ -50919,7 +39861,7 @@ class SyntheticsTestBrowserStep(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
+        Type of the step. Valid values are `assertCurrentUrl`, `assertElementAttribute`, `assertElementContent`, `assertElementPresent`, `assertEmail`, `assertFileDownload`, `assertFromJavascript`, `assertPageContains`, `assertPageLacks`, `click`, `extractFromJavascript`, `extractVariable`, `goToEmailLink`, `goToUrl`, `goToUrlAndMeasureTti`, `hover`, `playSubTest`, `pressKey`, `refresh`, `runApiTest`, `scroll`, `selectOption`, `typeText`, `uploadFiles`, `wait`.
         """
         return pulumi.get(self, "type")
 
@@ -50992,10 +39934,6 @@ class SyntheticsTestBrowserStepParams(dict):
                  with_click: Optional[bool] = None,
                  x: Optional[int] = None,
                  y: Optional[int] = None):
-        """
-        :param str request: The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
-        :param 'SyntheticsTestBrowserStepParamsVariableArgs' variable: Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
-        """
         if attribute is not None:
             pulumi.set(__self__, "attribute", attribute)
         if check is not None:
@@ -51091,9 +40029,6 @@ class SyntheticsTestBrowserStepParams(dict):
     @property
     @pulumi.getter
     def request(self) -> Optional[str]:
-        """
-        The synthetics test request. Required if `type = "api"`. **Deprecated.** Define `request_definition` list with one element instead.
-        """
         return pulumi.get(self, "request")
 
     @property
@@ -51109,9 +40044,6 @@ class SyntheticsTestBrowserStepParams(dict):
     @property
     @pulumi.getter
     def variable(self) -> Optional['outputs.SyntheticsTestBrowserStepParamsVariable']:
-        """
-        Variables used for a browser test steps. Multiple `browser_variable` blocks are allowed with the structure below. **Deprecated.** Define `browser_variable` blocks instead.
-        """
         return pulumi.get(self, "variable")
 
     @property
@@ -51136,8 +40068,7 @@ class SyntheticsTestBrowserStepParamsVariable(dict):
                  example: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str example: Example for the variable.
-        :param str name: Name of the variable.
+        :param str name: Name of Datadog synthetics test.
         """
         if example is not None:
             pulumi.set(__self__, "example", example)
@@ -51147,16 +40078,13 @@ class SyntheticsTestBrowserStepParamsVariable(dict):
     @property
     @pulumi.getter
     def example(self) -> Optional[str]:
-        """
-        Example for the variable.
-        """
         return pulumi.get(self, "example")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the variable.
+        Name of Datadog synthetics test.
         """
         return pulumi.get(self, "name")
 
@@ -51171,7 +40099,7 @@ class SyntheticsTestBrowserVariable(dict):
                  pattern: Optional[str] = None):
         """
         :param str name: Name of the variable.
-        :param str type: Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
+        :param str type: Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
         :param str example: Example for the variable.
         :param str id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
         :param str pattern: Pattern of the variable.
@@ -51197,7 +40125,7 @@ class SyntheticsTestBrowserVariable(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
+        Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
         """
         return pulumi.get(self, "type")
 
@@ -51232,17 +40160,21 @@ class SyntheticsTestConfigVariable(dict):
                  name: str,
                  type: str,
                  example: Optional[str] = None,
+                 id: Optional[str] = None,
                  pattern: Optional[str] = None):
         """
         :param str name: Name of the variable.
-        :param str type: Type of test configuration variable. Allowed enum values: `text`.
+        :param str type: Type of test configuration variable. Valid values are `global`, `text`.
         :param str example: Example for the variable.
+        :param str id: When type = `global`, ID of the global variable to use.
         :param str pattern: Pattern of the variable.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if example is not None:
             pulumi.set(__self__, "example", example)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
 
@@ -51258,7 +40190,7 @@ class SyntheticsTestConfigVariable(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of test configuration variable. Allowed enum values: `text`.
+        Type of test configuration variable. Valid values are `global`, `text`.
         """
         return pulumi.get(self, "type")
 
@@ -51272,110 +40204,19 @@ class SyntheticsTestConfigVariable(dict):
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        When type = `global`, ID of the global variable to use.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def pattern(self) -> Optional[str]:
         """
         Pattern of the variable.
         """
         return pulumi.get(self, "pattern")
-
-
-@pulumi.output_type
-class SyntheticsTestOptions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tickEvery":
-            suggest = "tick_every"
-        elif key == "acceptSelfSigned":
-            suggest = "accept_self_signed"
-        elif key == "allowInsecure":
-            suggest = "allow_insecure"
-        elif key == "followRedirects":
-            suggest = "follow_redirects"
-        elif key == "minFailureDuration":
-            suggest = "min_failure_duration"
-        elif key == "minLocationFailed":
-            suggest = "min_location_failed"
-        elif key == "retryCount":
-            suggest = "retry_count"
-        elif key == "retryInterval":
-            suggest = "retry_interval"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SyntheticsTestOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SyntheticsTestOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tick_every: int,
-                 accept_self_signed: Optional[bool] = None,
-                 allow_insecure: Optional[bool] = None,
-                 follow_redirects: Optional[bool] = None,
-                 min_failure_duration: Optional[int] = None,
-                 min_location_failed: Optional[int] = None,
-                 retry_count: Optional[int] = None,
-                 retry_interval: Optional[int] = None):
-        pulumi.set(__self__, "tick_every", tick_every)
-        if accept_self_signed is not None:
-            pulumi.set(__self__, "accept_self_signed", accept_self_signed)
-        if allow_insecure is not None:
-            pulumi.set(__self__, "allow_insecure", allow_insecure)
-        if follow_redirects is not None:
-            pulumi.set(__self__, "follow_redirects", follow_redirects)
-        if min_failure_duration is not None:
-            pulumi.set(__self__, "min_failure_duration", min_failure_duration)
-        if min_location_failed is not None:
-            pulumi.set(__self__, "min_location_failed", min_location_failed)
-        if retry_count is not None:
-            pulumi.set(__self__, "retry_count", retry_count)
-        if retry_interval is not None:
-            pulumi.set(__self__, "retry_interval", retry_interval)
-
-    @property
-    @pulumi.getter(name="tickEvery")
-    def tick_every(self) -> int:
-        return pulumi.get(self, "tick_every")
-
-    @property
-    @pulumi.getter(name="acceptSelfSigned")
-    def accept_self_signed(self) -> Optional[bool]:
-        return pulumi.get(self, "accept_self_signed")
-
-    @property
-    @pulumi.getter(name="allowInsecure")
-    def allow_insecure(self) -> Optional[bool]:
-        return pulumi.get(self, "allow_insecure")
-
-    @property
-    @pulumi.getter(name="followRedirects")
-    def follow_redirects(self) -> Optional[bool]:
-        return pulumi.get(self, "follow_redirects")
-
-    @property
-    @pulumi.getter(name="minFailureDuration")
-    def min_failure_duration(self) -> Optional[int]:
-        return pulumi.get(self, "min_failure_duration")
-
-    @property
-    @pulumi.getter(name="minLocationFailed")
-    def min_location_failed(self) -> Optional[int]:
-        return pulumi.get(self, "min_location_failed")
-
-    @property
-    @pulumi.getter(name="retryCount")
-    def retry_count(self) -> Optional[int]:
-        return pulumi.get(self, "retry_count")
-
-    @property
-    @pulumi.getter(name="retryInterval")
-    def retry_interval(self) -> Optional[int]:
-        return pulumi.get(self, "retry_interval")
 
 
 @pulumi.output_type
@@ -51395,8 +40236,12 @@ class SyntheticsTestOptionsList(dict):
             suggest = "min_failure_duration"
         elif key == "minLocationFailed":
             suggest = "min_location_failed"
+        elif key == "monitorName":
+            suggest = "monitor_name"
         elif key == "monitorOptions":
             suggest = "monitor_options"
+        elif key == "monitorPriority":
+            suggest = "monitor_priority"
         elif key == "noScreenshot":
             suggest = "no_screenshot"
 
@@ -51418,16 +40263,19 @@ class SyntheticsTestOptionsList(dict):
                  follow_redirects: Optional[bool] = None,
                  min_failure_duration: Optional[int] = None,
                  min_location_failed: Optional[int] = None,
+                 monitor_name: Optional[str] = None,
                  monitor_options: Optional['outputs.SyntheticsTestOptionsListMonitorOptions'] = None,
+                 monitor_priority: Optional[int] = None,
                  no_screenshot: Optional[bool] = None,
                  retry: Optional['outputs.SyntheticsTestOptionsListRetry'] = None):
         """
-        :param int tick_every: How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
+        :param int tick_every: How often the test should run (in seconds). Valid values are `30`, `60`, `300`, `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800`.
         :param bool accept_self_signed: For SSL test, whether or not the test should allow self signed certificates.
         :param bool allow_insecure: Allows loading insecure content for an HTTP test.
         :param bool follow_redirects: For API HTTP test, whether or not the test should follow redirects.
         :param int min_failure_duration: Minimum amount of time in failure required to trigger an alert. Default is `0`.
         :param int min_location_failed: Minimum number of locations in failure required to trigger an alert. Default is `1`.
+        :param str monitor_name: The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
         :param bool no_screenshot: Prevents saving screenshots of the steps.
         """
         pulumi.set(__self__, "tick_every", tick_every)
@@ -51441,8 +40289,12 @@ class SyntheticsTestOptionsList(dict):
             pulumi.set(__self__, "min_failure_duration", min_failure_duration)
         if min_location_failed is not None:
             pulumi.set(__self__, "min_location_failed", min_location_failed)
+        if monitor_name is not None:
+            pulumi.set(__self__, "monitor_name", monitor_name)
         if monitor_options is not None:
             pulumi.set(__self__, "monitor_options", monitor_options)
+        if monitor_priority is not None:
+            pulumi.set(__self__, "monitor_priority", monitor_priority)
         if no_screenshot is not None:
             pulumi.set(__self__, "no_screenshot", no_screenshot)
         if retry is not None:
@@ -51452,7 +40304,7 @@ class SyntheticsTestOptionsList(dict):
     @pulumi.getter(name="tickEvery")
     def tick_every(self) -> int:
         """
-        How often the test should run (in seconds). Current possible values are `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800` plus `60` for API tests or `300` for browser tests.
+        How often the test should run (in seconds). Valid values are `30`, `60`, `300`, `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800`.
         """
         return pulumi.get(self, "tick_every")
 
@@ -51497,9 +40349,22 @@ class SyntheticsTestOptionsList(dict):
         return pulumi.get(self, "min_location_failed")
 
     @property
+    @pulumi.getter(name="monitorName")
+    def monitor_name(self) -> Optional[str]:
+        """
+        The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+        """
+        return pulumi.get(self, "monitor_name")
+
+    @property
     @pulumi.getter(name="monitorOptions")
     def monitor_options(self) -> Optional['outputs.SyntheticsTestOptionsListMonitorOptions']:
         return pulumi.get(self, "monitor_options")
+
+    @property
+    @pulumi.getter(name="monitorPriority")
+    def monitor_priority(self) -> Optional[int]:
+        return pulumi.get(self, "monitor_priority")
 
     @property
     @pulumi.getter(name="noScreenshot")
@@ -51564,124 +40429,6 @@ class SyntheticsTestOptionsListRetry(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class SyntheticsTestRequest(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "dnsServer":
-            suggest = "dns_server"
-        elif key == "dnsServerPort":
-            suggest = "dns_server_port"
-        elif key == "noSavingResponseBody":
-            suggest = "no_saving_response_body"
-        elif key == "numberOfPackets":
-            suggest = "number_of_packets"
-        elif key == "shouldTrackHops":
-            suggest = "should_track_hops"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestRequest. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SyntheticsTestRequest.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SyntheticsTestRequest.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 body: Optional[str] = None,
-                 dns_server: Optional[str] = None,
-                 dns_server_port: Optional[int] = None,
-                 host: Optional[str] = None,
-                 method: Optional[str] = None,
-                 no_saving_response_body: Optional[bool] = None,
-                 number_of_packets: Optional[int] = None,
-                 port: Optional[int] = None,
-                 should_track_hops: Optional[bool] = None,
-                 timeout: Optional[int] = None,
-                 url: Optional[str] = None):
-        if body is not None:
-            pulumi.set(__self__, "body", body)
-        if dns_server is not None:
-            pulumi.set(__self__, "dns_server", dns_server)
-        if dns_server_port is not None:
-            pulumi.set(__self__, "dns_server_port", dns_server_port)
-        if host is not None:
-            pulumi.set(__self__, "host", host)
-        if method is not None:
-            pulumi.set(__self__, "method", method)
-        if no_saving_response_body is not None:
-            pulumi.set(__self__, "no_saving_response_body", no_saving_response_body)
-        if number_of_packets is not None:
-            pulumi.set(__self__, "number_of_packets", number_of_packets)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-        if should_track_hops is not None:
-            pulumi.set(__self__, "should_track_hops", should_track_hops)
-        if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-
-    @property
-    @pulumi.getter
-    def body(self) -> Optional[str]:
-        return pulumi.get(self, "body")
-
-    @property
-    @pulumi.getter(name="dnsServer")
-    def dns_server(self) -> Optional[str]:
-        return pulumi.get(self, "dns_server")
-
-    @property
-    @pulumi.getter(name="dnsServerPort")
-    def dns_server_port(self) -> Optional[int]:
-        return pulumi.get(self, "dns_server_port")
-
-    @property
-    @pulumi.getter
-    def host(self) -> Optional[str]:
-        return pulumi.get(self, "host")
-
-    @property
-    @pulumi.getter
-    def method(self) -> Optional[str]:
-        return pulumi.get(self, "method")
-
-    @property
-    @pulumi.getter(name="noSavingResponseBody")
-    def no_saving_response_body(self) -> Optional[bool]:
-        return pulumi.get(self, "no_saving_response_body")
-
-    @property
-    @pulumi.getter(name="numberOfPackets")
-    def number_of_packets(self) -> Optional[int]:
-        return pulumi.get(self, "number_of_packets")
-
-    @property
-    @pulumi.getter
-    def port(self) -> Optional[int]:
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="shouldTrackHops")
-    def should_track_hops(self) -> Optional[bool]:
-        return pulumi.get(self, "should_track_hops")
-
-    @property
-    @pulumi.getter
-    def timeout(self) -> Optional[int]:
-        return pulumi.get(self, "timeout")
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[str]:
-        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -51816,7 +40563,7 @@ class SyntheticsTestRequestDefinition(dict):
         :param str dns_server: DNS server to use for DNS tests (`subtype = "dns"`).
         :param int dns_server_port: DNS server port to use for DNS tests.
         :param str host: Host name to perform the test with.
-        :param str method: The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
+        :param str method: The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         :param bool no_saving_response_body: Determines whether or not to save the response body.
         :param int number_of_packets: Number of pings to use per test for ICMP tests (`subtype = "icmp"`) between 0 and 10.
         :param int port: Port to use when performing the test.
@@ -51883,7 +40630,7 @@ class SyntheticsTestRequestDefinition(dict):
     @pulumi.getter
     def method(self) -> Optional[str]:
         """
-        The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
+        The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         """
         return pulumi.get(self, "method")
 
@@ -51937,978 +40684,7 @@ class SyntheticsTestRequestDefinition(dict):
 
 
 @pulumi.output_type
-class SyntheticsTestStep(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "allowFailure":
-            suggest = "allow_failure"
-        elif key == "forceElementUpdate":
-            suggest = "force_element_update"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SyntheticsTestStep. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SyntheticsTestStep.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SyntheticsTestStep.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 params: str,
-                 type: str,
-                 allow_failure: Optional[bool] = None,
-                 force_element_update: Optional[bool] = None,
-                 timeout: Optional[int] = None):
-        """
-        :param str name: Name of the step.
-        :param str params: Parameters for the step as JSON string.
-        :param str type: Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
-        :param bool allow_failure: Determines if the step should be allowed to fail.
-        :param bool force_element_update: Force update of the "element" parameter for the step
-        :param int timeout: Used to override the default timeout of a step.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "params", params)
-        pulumi.set(__self__, "type", type)
-        if allow_failure is not None:
-            pulumi.set(__self__, "allow_failure", allow_failure)
-        if force_element_update is not None:
-            pulumi.set(__self__, "force_element_update", force_element_update)
-        if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the step.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def params(self) -> str:
-        """
-        Parameters for the step as JSON string.
-        """
-        return pulumi.get(self, "params")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of the step. Refer to [Datadog documentation](https://docs.datadoghq.com/api/v1/synthetics/#create-a-test) for the complete list of available types.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="allowFailure")
-    def allow_failure(self) -> Optional[bool]:
-        """
-        Determines if the step should be allowed to fail.
-        """
-        return pulumi.get(self, "allow_failure")
-
-    @property
-    @pulumi.getter(name="forceElementUpdate")
-    def force_element_update(self) -> Optional[bool]:
-        """
-        Force update of the "element" parameter for the step
-        """
-        return pulumi.get(self, "force_element_update")
-
-    @property
-    @pulumi.getter
-    def timeout(self) -> Optional[int]:
-        """
-        Used to override the default timeout of a step.
-        """
-        return pulumi.get(self, "timeout")
-
-
-@pulumi.output_type
-class SyntheticsTestVariable(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 type: str,
-                 example: Optional[str] = None,
-                 id: Optional[str] = None,
-                 pattern: Optional[str] = None):
-        """
-        :param str name: Name of the variable.
-        :param str type: Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
-        :param str example: Example for the variable.
-        :param str id: ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
-        :param str pattern: Pattern of the variable.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if example is not None:
-            pulumi.set(__self__, "example", example)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the variable.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def example(self) -> Optional[str]:
-        """
-        Example for the variable.
-        """
-        return pulumi.get(self, "example")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        ID of the global variable to use. This is actually only used (and required) in the case of using a variable of type `global`.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def pattern(self) -> Optional[str]:
-        """
-        Pattern of the variable.
-        """
-        return pulumi.get(self, "pattern")
-
-
-@pulumi.output_type
-class TimeBoardGraph(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customUnit":
-            suggest = "custom_unit"
-        elif key == "includeNoMetricHosts":
-            suggest = "include_no_metric_hosts"
-        elif key == "includeUngroupedHosts":
-            suggest = "include_ungrouped_hosts"
-        elif key == "nodeType":
-            suggest = "node_type"
-        elif key == "textAlign":
-            suggest = "text_align"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraph. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeBoardGraph.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeBoardGraph.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 requests: Sequence['outputs.TimeBoardGraphRequest'],
-                 title: str,
-                 viz: str,
-                 autoscale: Optional[bool] = None,
-                 custom_unit: Optional[str] = None,
-                 events: Optional[Sequence[str]] = None,
-                 groups: Optional[Sequence[str]] = None,
-                 include_no_metric_hosts: Optional[bool] = None,
-                 include_ungrouped_hosts: Optional[bool] = None,
-                 markers: Optional[Sequence['outputs.TimeBoardGraphMarker']] = None,
-                 node_type: Optional[str] = None,
-                 precision: Optional[str] = None,
-                 scopes: Optional[Sequence[str]] = None,
-                 style: Optional[Mapping[str, Any]] = None,
-                 text_align: Optional[str] = None,
-                 yaxis: Optional[Mapping[str, Any]] = None):
-        pulumi.set(__self__, "requests", requests)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "viz", viz)
-        if autoscale is not None:
-            pulumi.set(__self__, "autoscale", autoscale)
-        if custom_unit is not None:
-            pulumi.set(__self__, "custom_unit", custom_unit)
-        if events is not None:
-            pulumi.set(__self__, "events", events)
-        if groups is not None:
-            pulumi.set(__self__, "groups", groups)
-        if include_no_metric_hosts is not None:
-            pulumi.set(__self__, "include_no_metric_hosts", include_no_metric_hosts)
-        if include_ungrouped_hosts is not None:
-            pulumi.set(__self__, "include_ungrouped_hosts", include_ungrouped_hosts)
-        if markers is not None:
-            pulumi.set(__self__, "markers", markers)
-        if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
-        if precision is not None:
-            pulumi.set(__self__, "precision", precision)
-        if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
-        if style is not None:
-            pulumi.set(__self__, "style", style)
-        if text_align is not None:
-            pulumi.set(__self__, "text_align", text_align)
-        if yaxis is not None:
-            pulumi.set(__self__, "yaxis", yaxis)
-
-    @property
-    @pulumi.getter
-    def requests(self) -> Sequence['outputs.TimeBoardGraphRequest']:
-        return pulumi.get(self, "requests")
-
-    @property
-    @pulumi.getter
-    def title(self) -> str:
-        return pulumi.get(self, "title")
-
-    @property
-    @pulumi.getter
-    def viz(self) -> str:
-        return pulumi.get(self, "viz")
-
-    @property
-    @pulumi.getter
-    def autoscale(self) -> Optional[bool]:
-        return pulumi.get(self, "autoscale")
-
-    @property
-    @pulumi.getter(name="customUnit")
-    def custom_unit(self) -> Optional[str]:
-        return pulumi.get(self, "custom_unit")
-
-    @property
-    @pulumi.getter
-    def events(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "events")
-
-    @property
-    @pulumi.getter
-    def groups(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "groups")
-
-    @property
-    @pulumi.getter(name="includeNoMetricHosts")
-    def include_no_metric_hosts(self) -> Optional[bool]:
-        return pulumi.get(self, "include_no_metric_hosts")
-
-    @property
-    @pulumi.getter(name="includeUngroupedHosts")
-    def include_ungrouped_hosts(self) -> Optional[bool]:
-        return pulumi.get(self, "include_ungrouped_hosts")
-
-    @property
-    @pulumi.getter
-    def markers(self) -> Optional[Sequence['outputs.TimeBoardGraphMarker']]:
-        return pulumi.get(self, "markers")
-
-    @property
-    @pulumi.getter(name="nodeType")
-    def node_type(self) -> Optional[str]:
-        return pulumi.get(self, "node_type")
-
-    @property
-    @pulumi.getter
-    def precision(self) -> Optional[str]:
-        return pulumi.get(self, "precision")
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "scopes")
-
-    @property
-    @pulumi.getter
-    def style(self) -> Optional[Mapping[str, Any]]:
-        return pulumi.get(self, "style")
-
-    @property
-    @pulumi.getter(name="textAlign")
-    def text_align(self) -> Optional[str]:
-        return pulumi.get(self, "text_align")
-
-    @property
-    @pulumi.getter
-    def yaxis(self) -> Optional[Mapping[str, Any]]:
-        return pulumi.get(self, "yaxis")
-
-
-@pulumi.output_type
-class TimeBoardGraphMarker(dict):
-    def __init__(__self__, *,
-                 type: str,
-                 value: str,
-                 label: Optional[str] = None):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-        if label is not None:
-            pulumi.set(__self__, "label", label)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def label(self) -> Optional[str]:
-        return pulumi.get(self, "label")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequest(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "apmQuery":
-            suggest = "apm_query"
-        elif key == "changeType":
-            suggest = "change_type"
-        elif key == "compareTo":
-            suggest = "compare_to"
-        elif key == "conditionalFormats":
-            suggest = "conditional_formats"
-        elif key == "extraCol":
-            suggest = "extra_col"
-        elif key == "increaseGood":
-            suggest = "increase_good"
-        elif key == "logQuery":
-            suggest = "log_query"
-        elif key == "metadataJson":
-            suggest = "metadata_json"
-        elif key == "orderBy":
-            suggest = "order_by"
-        elif key == "orderDirection":
-            suggest = "order_direction"
-        elif key == "processQuery":
-            suggest = "process_query"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequest. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeBoardGraphRequest.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeBoardGraphRequest.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 aggregator: Optional[str] = None,
-                 apm_query: Optional['outputs.TimeBoardGraphRequestApmQuery'] = None,
-                 change_type: Optional[str] = None,
-                 compare_to: Optional[str] = None,
-                 conditional_formats: Optional[Sequence['outputs.TimeBoardGraphRequestConditionalFormat']] = None,
-                 extra_col: Optional[str] = None,
-                 increase_good: Optional[bool] = None,
-                 log_query: Optional['outputs.TimeBoardGraphRequestLogQuery'] = None,
-                 metadata_json: Optional[str] = None,
-                 order_by: Optional[str] = None,
-                 order_direction: Optional[str] = None,
-                 process_query: Optional['outputs.TimeBoardGraphRequestProcessQuery'] = None,
-                 q: Optional[str] = None,
-                 stacked: Optional[bool] = None,
-                 style: Optional[Mapping[str, Any]] = None,
-                 type: Optional[str] = None):
-        if aggregator is not None:
-            pulumi.set(__self__, "aggregator", aggregator)
-        if apm_query is not None:
-            pulumi.set(__self__, "apm_query", apm_query)
-        if change_type is not None:
-            pulumi.set(__self__, "change_type", change_type)
-        if compare_to is not None:
-            pulumi.set(__self__, "compare_to", compare_to)
-        if conditional_formats is not None:
-            pulumi.set(__self__, "conditional_formats", conditional_formats)
-        if extra_col is not None:
-            pulumi.set(__self__, "extra_col", extra_col)
-        if increase_good is not None:
-            pulumi.set(__self__, "increase_good", increase_good)
-        if log_query is not None:
-            pulumi.set(__self__, "log_query", log_query)
-        if metadata_json is not None:
-            pulumi.set(__self__, "metadata_json", metadata_json)
-        if order_by is not None:
-            pulumi.set(__self__, "order_by", order_by)
-        if order_direction is not None:
-            pulumi.set(__self__, "order_direction", order_direction)
-        if process_query is not None:
-            pulumi.set(__self__, "process_query", process_query)
-        if q is not None:
-            pulumi.set(__self__, "q", q)
-        if stacked is not None:
-            pulumi.set(__self__, "stacked", stacked)
-        if style is not None:
-            pulumi.set(__self__, "style", style)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def aggregator(self) -> Optional[str]:
-        return pulumi.get(self, "aggregator")
-
-    @property
-    @pulumi.getter(name="apmQuery")
-    def apm_query(self) -> Optional['outputs.TimeBoardGraphRequestApmQuery']:
-        return pulumi.get(self, "apm_query")
-
-    @property
-    @pulumi.getter(name="changeType")
-    def change_type(self) -> Optional[str]:
-        return pulumi.get(self, "change_type")
-
-    @property
-    @pulumi.getter(name="compareTo")
-    def compare_to(self) -> Optional[str]:
-        return pulumi.get(self, "compare_to")
-
-    @property
-    @pulumi.getter(name="conditionalFormats")
-    def conditional_formats(self) -> Optional[Sequence['outputs.TimeBoardGraphRequestConditionalFormat']]:
-        return pulumi.get(self, "conditional_formats")
-
-    @property
-    @pulumi.getter(name="extraCol")
-    def extra_col(self) -> Optional[str]:
-        return pulumi.get(self, "extra_col")
-
-    @property
-    @pulumi.getter(name="increaseGood")
-    def increase_good(self) -> Optional[bool]:
-        return pulumi.get(self, "increase_good")
-
-    @property
-    @pulumi.getter(name="logQuery")
-    def log_query(self) -> Optional['outputs.TimeBoardGraphRequestLogQuery']:
-        return pulumi.get(self, "log_query")
-
-    @property
-    @pulumi.getter(name="metadataJson")
-    def metadata_json(self) -> Optional[str]:
-        return pulumi.get(self, "metadata_json")
-
-    @property
-    @pulumi.getter(name="orderBy")
-    def order_by(self) -> Optional[str]:
-        return pulumi.get(self, "order_by")
-
-    @property
-    @pulumi.getter(name="orderDirection")
-    def order_direction(self) -> Optional[str]:
-        return pulumi.get(self, "order_direction")
-
-    @property
-    @pulumi.getter(name="processQuery")
-    def process_query(self) -> Optional['outputs.TimeBoardGraphRequestProcessQuery']:
-        return pulumi.get(self, "process_query")
-
-    @property
-    @pulumi.getter
-    def q(self) -> Optional[str]:
-        return pulumi.get(self, "q")
-
-    @property
-    @pulumi.getter
-    def stacked(self) -> Optional[bool]:
-        return pulumi.get(self, "stacked")
-
-    @property
-    @pulumi.getter
-    def style(self) -> Optional[Mapping[str, Any]]:
-        return pulumi.get(self, "style")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestApmQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupBies":
-            suggest = "group_bies"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestApmQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeBoardGraphRequestApmQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeBoardGraphRequestApmQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 compute: 'outputs.TimeBoardGraphRequestApmQueryCompute',
-                 index: str,
-                 group_bies: Optional[Sequence['outputs.TimeBoardGraphRequestApmQueryGroupBy']] = None,
-                 search: Optional['outputs.TimeBoardGraphRequestApmQuerySearch'] = None):
-        pulumi.set(__self__, "compute", compute)
-        pulumi.set(__self__, "index", index)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
-
-    @property
-    @pulumi.getter
-    def compute(self) -> 'outputs.TimeBoardGraphRequestApmQueryCompute':
-        return pulumi.get(self, "compute")
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.TimeBoardGraphRequestApmQueryGroupBy']]:
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.TimeBoardGraphRequestApmQuerySearch']:
-        return pulumi.get(self, "search")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestApmQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestApmQueryGroupBy(dict):
-    def __init__(__self__, *,
-                 facet: str,
-                 limit: Optional[int] = None,
-                 sort: Optional['outputs.TimeBoardGraphRequestApmQueryGroupBySort'] = None):
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> str:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.TimeBoardGraphRequestApmQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestApmQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestApmQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestConditionalFormat(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customBgColor":
-            suggest = "custom_bg_color"
-        elif key == "customFgColor":
-            suggest = "custom_fg_color"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestConditionalFormat. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeBoardGraphRequestConditionalFormat.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeBoardGraphRequestConditionalFormat.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 comparator: str,
-                 custom_bg_color: Optional[str] = None,
-                 custom_fg_color: Optional[str] = None,
-                 palette: Optional[str] = None,
-                 value: Optional[str] = None):
-        pulumi.set(__self__, "comparator", comparator)
-        if custom_bg_color is not None:
-            pulumi.set(__self__, "custom_bg_color", custom_bg_color)
-        if custom_fg_color is not None:
-            pulumi.set(__self__, "custom_fg_color", custom_fg_color)
-        if palette is not None:
-            pulumi.set(__self__, "palette", palette)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def comparator(self) -> str:
-        return pulumi.get(self, "comparator")
-
-    @property
-    @pulumi.getter(name="customBgColor")
-    def custom_bg_color(self) -> Optional[str]:
-        return pulumi.get(self, "custom_bg_color")
-
-    @property
-    @pulumi.getter(name="customFgColor")
-    def custom_fg_color(self) -> Optional[str]:
-        return pulumi.get(self, "custom_fg_color")
-
-    @property
-    @pulumi.getter
-    def palette(self) -> Optional[str]:
-        return pulumi.get(self, "palette")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestLogQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupBies":
-            suggest = "group_bies"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestLogQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeBoardGraphRequestLogQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeBoardGraphRequestLogQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 compute: 'outputs.TimeBoardGraphRequestLogQueryCompute',
-                 index: str,
-                 group_bies: Optional[Sequence['outputs.TimeBoardGraphRequestLogQueryGroupBy']] = None,
-                 search: Optional['outputs.TimeBoardGraphRequestLogQuerySearch'] = None):
-        pulumi.set(__self__, "compute", compute)
-        pulumi.set(__self__, "index", index)
-        if group_bies is not None:
-            pulumi.set(__self__, "group_bies", group_bies)
-        if search is not None:
-            pulumi.set(__self__, "search", search)
-
-    @property
-    @pulumi.getter
-    def compute(self) -> 'outputs.TimeBoardGraphRequestLogQueryCompute':
-        return pulumi.get(self, "compute")
-
-    @property
-    @pulumi.getter
-    def index(self) -> str:
-        return pulumi.get(self, "index")
-
-    @property
-    @pulumi.getter(name="groupBies")
-    def group_bies(self) -> Optional[Sequence['outputs.TimeBoardGraphRequestLogQueryGroupBy']]:
-        return pulumi.get(self, "group_bies")
-
-    @property
-    @pulumi.getter
-    def search(self) -> Optional['outputs.TimeBoardGraphRequestLogQuerySearch']:
-        return pulumi.get(self, "search")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestLogQueryCompute(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 facet: Optional[str] = None,
-                 interval: Optional[int] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[int]:
-        return pulumi.get(self, "interval")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestLogQueryGroupBy(dict):
-    def __init__(__self__, *,
-                 facet: str,
-                 limit: Optional[int] = None,
-                 sort: Optional['outputs.TimeBoardGraphRequestLogQueryGroupBySort'] = None):
-        pulumi.set(__self__, "facet", facet)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if sort is not None:
-            pulumi.set(__self__, "sort", sort)
-
-    @property
-    @pulumi.getter
-    def facet(self) -> str:
-        return pulumi.get(self, "facet")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter
-    def sort(self) -> Optional['outputs.TimeBoardGraphRequestLogQueryGroupBySort']:
-        return pulumi.get(self, "sort")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestLogQueryGroupBySort(dict):
-    def __init__(__self__, *,
-                 aggregation: str,
-                 order: str,
-                 facet: Optional[str] = None):
-        pulumi.set(__self__, "aggregation", aggregation)
-        pulumi.set(__self__, "order", order)
-        if facet is not None:
-            pulumi.set(__self__, "facet", facet)
-
-    @property
-    @pulumi.getter
-    def aggregation(self) -> str:
-        return pulumi.get(self, "aggregation")
-
-    @property
-    @pulumi.getter
-    def order(self) -> str:
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def facet(self) -> Optional[str]:
-        return pulumi.get(self, "facet")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestLogQuerySearch(dict):
-    def __init__(__self__, *,
-                 query: str):
-        pulumi.set(__self__, "query", query)
-
-    @property
-    @pulumi.getter
-    def query(self) -> str:
-        return pulumi.get(self, "query")
-
-
-@pulumi.output_type
-class TimeBoardGraphRequestProcessQuery(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filterBies":
-            suggest = "filter_bies"
-        elif key == "searchBy":
-            suggest = "search_by"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TimeBoardGraphRequestProcessQuery. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TimeBoardGraphRequestProcessQuery.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TimeBoardGraphRequestProcessQuery.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 metric: str,
-                 filter_bies: Optional[Sequence[str]] = None,
-                 limit: Optional[int] = None,
-                 search_by: Optional[str] = None):
-        pulumi.set(__self__, "metric", metric)
-        if filter_bies is not None:
-            pulumi.set(__self__, "filter_bies", filter_bies)
-        if limit is not None:
-            pulumi.set(__self__, "limit", limit)
-        if search_by is not None:
-            pulumi.set(__self__, "search_by", search_by)
-
-    @property
-    @pulumi.getter
-    def metric(self) -> str:
-        return pulumi.get(self, "metric")
-
-    @property
-    @pulumi.getter(name="filterBies")
-    def filter_bies(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "filter_bies")
-
-    @property
-    @pulumi.getter
-    def limit(self) -> Optional[int]:
-        return pulumi.get(self, "limit")
-
-    @property
-    @pulumi.getter(name="searchBy")
-    def search_by(self) -> Optional[str]:
-        return pulumi.get(self, "search_by")
-
-
-@pulumi.output_type
-class TimeBoardTemplateVariable(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 default: Optional[str] = None,
-                 prefix: Optional[str] = None):
-        pulumi.set(__self__, "name", name)
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> Optional[str]:
-        return pulumi.get(self, "prefix")
-
-
-@pulumi.output_type
-class GetMonitorMonitorThresholdWindowsResult(dict):
-    def __init__(__self__, *,
-                 recovery_window: str,
-                 trigger_window: str):
-        pulumi.set(__self__, "recovery_window", recovery_window)
-        pulumi.set(__self__, "trigger_window", trigger_window)
-
-    @property
-    @pulumi.getter(name="recoveryWindow")
-    def recovery_window(self) -> str:
-        return pulumi.get(self, "recovery_window")
-
-    @property
-    @pulumi.getter(name="triggerWindow")
-    def trigger_window(self) -> str:
-        return pulumi.get(self, "trigger_window")
-
-
-@pulumi.output_type
-class GetMonitorMonitorThresholdsResult(dict):
+class GetMonitorMonitorThresholdResult(dict):
     def __init__(__self__, *,
                  critical: str,
                  critical_recovery: str,
@@ -52955,7 +40731,7 @@ class GetMonitorMonitorThresholdsResult(dict):
 
 
 @pulumi.output_type
-class GetMonitorThresholdWindowsResult(dict):
+class GetMonitorMonitorThresholdWindowResult(dict):
     def __init__(__self__, *,
                  recovery_window: str,
                  trigger_window: str):
@@ -52971,53 +40747,6 @@ class GetMonitorThresholdWindowsResult(dict):
     @pulumi.getter(name="triggerWindow")
     def trigger_window(self) -> str:
         return pulumi.get(self, "trigger_window")
-
-
-@pulumi.output_type
-class GetMonitorThresholdsResult(dict):
-    def __init__(__self__, *,
-                 critical: float,
-                 critical_recovery: float,
-                 ok: float,
-                 unknown: float,
-                 warning: float,
-                 warning_recovery: float):
-        pulumi.set(__self__, "critical", critical)
-        pulumi.set(__self__, "critical_recovery", critical_recovery)
-        pulumi.set(__self__, "ok", ok)
-        pulumi.set(__self__, "unknown", unknown)
-        pulumi.set(__self__, "warning", warning)
-        pulumi.set(__self__, "warning_recovery", warning_recovery)
-
-    @property
-    @pulumi.getter
-    def critical(self) -> float:
-        return pulumi.get(self, "critical")
-
-    @property
-    @pulumi.getter(name="criticalRecovery")
-    def critical_recovery(self) -> float:
-        return pulumi.get(self, "critical_recovery")
-
-    @property
-    @pulumi.getter
-    def ok(self) -> float:
-        return pulumi.get(self, "ok")
-
-    @property
-    @pulumi.getter
-    def unknown(self) -> float:
-        return pulumi.get(self, "unknown")
-
-    @property
-    @pulumi.getter
-    def warning(self) -> float:
-        return pulumi.get(self, "warning")
-
-    @property
-    @pulumi.getter(name="warningRecovery")
-    def warning_recovery(self) -> float:
-        return pulumi.get(self, "warning_recovery")
 
 
 @pulumi.output_type

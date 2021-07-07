@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? BackgroundColor;
         public readonly string? BannerImg;
         /// <summary>
-        /// The layout type of the dashboard, either 'free' or 'ordered'.
+        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
         /// </summary>
         public readonly string LayoutType;
         public readonly bool? ShowTitle;

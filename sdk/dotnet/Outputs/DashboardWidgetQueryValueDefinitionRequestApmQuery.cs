@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetQueryValueDefinitionRequestApmQuery
     {
-        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetQueryValueDefinitionRequestApmQuery(
-            Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryCompute? compute,
-
             Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetQueryValueDefinitionRequestApmQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

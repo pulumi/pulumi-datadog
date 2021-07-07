@@ -33,7 +33,6 @@ from .metric_tag_configuration import *
 from .monitor import *
 from .provider import *
 from .role import *
-from .screen_board import *
 from .security_monitoring_default_rule import *
 from .security_monitoring_rule import *
 from .service_level_objective import *
@@ -41,7 +40,6 @@ from .slo_correction import *
 from .synthetics_global_variable import *
 from .synthetics_private_location import *
 from .synthetics_test import *
-from .time_board import *
 from .user import *
 from ._inputs import *
 from . import outputs
@@ -243,14 +241,6 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
-  "mod": "index/screenBoard",
-  "fqn": "pulumi_datadog",
-  "classes": {
-   "datadog:index/screenBoard:ScreenBoard": "ScreenBoard"
-  }
- },
- {
-  "pkg": "datadog",
   "mod": "index/securityMonitoringDefaultRule",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -303,14 +293,6 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/syntheticsTest:SyntheticsTest": "SyntheticsTest"
-  }
- },
- {
-  "pkg": "datadog",
-  "mod": "index/timeBoard",
-  "fqn": "pulumi_datadog",
-  "classes": {
-   "datadog:index/timeBoard:TimeBoard": "TimeBoard"
   }
  },
  {

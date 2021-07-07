@@ -12,11 +12,17 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLinkArgs : Pulumi.ResourceArgs
     {
-        [Input("label", required: true)]
-        public Input<string> Label { get; set; } = null!;
+        [Input("isHidden")]
+        public Input<bool>? IsHidden { get; set; }
 
-        [Input("link", required: true)]
-        public Input<string> Link { get; set; } = null!;
+        [Input("label")]
+        public Input<string>? Label { get; set; }
+
+        [Input("link")]
+        public Input<string>? Link { get; set; }
+
+        [Input("overrideLabel")]
+        public Input<string>? OverrideLabel { get; set; }
 
         public DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLinkArgs()
         {

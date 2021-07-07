@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class SyntheticsTestApiStepExtractedValueParser
     {
         /// <summary>
-        /// Synthetics test type (`api` or `browser`).
+        /// Synthetics test type. Valid values are `api`, `browser`.
         /// </summary>
         public readonly string Type;
         public readonly string? Value;

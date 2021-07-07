@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Resource for interacting with the slo_correction API
+    /// Resource for interacting with the slo_correction API.
     /// 
     /// ## Example Usage
     /// 
@@ -70,7 +70,7 @@ namespace Pulumi.Datadog
     public partial class SloCorrection : Pulumi.CustomResource
     {
         /// <summary>
-        /// Category the SLO correction belongs to
+        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
@@ -82,19 +82,19 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds
+        /// Ending time of the correction in epoch seconds.
         /// </summary>
         [Output("end")]
         public Output<int> End { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the SLO that this correction will be applied to
+        /// ID of the SLO that this correction will be applied to.
         /// </summary>
         [Output("sloId")]
         public Output<string> SloId { get; private set; } = null!;
 
         /// <summary>
-        /// Starting time of the correction in epoch seconds
+        /// Starting time of the correction in epoch seconds.
         /// </summary>
         [Output("start")]
         public Output<int> Start { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Datadog
     public sealed class SloCorrectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Category the SLO correction belongs to
+        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
@@ -164,19 +164,19 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds
+        /// Ending time of the correction in epoch seconds.
         /// </summary>
         [Input("end", required: true)]
         public Input<int> End { get; set; } = null!;
 
         /// <summary>
-        /// ID of the SLO that this correction will be applied to
+        /// ID of the SLO that this correction will be applied to.
         /// </summary>
         [Input("sloId", required: true)]
         public Input<string> SloId { get; set; } = null!;
 
         /// <summary>
-        /// Starting time of the correction in epoch seconds
+        /// Starting time of the correction in epoch seconds.
         /// </summary>
         [Input("start", required: true)]
         public Input<int> Start { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Datadog
     public sealed class SloCorrectionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Category the SLO correction belongs to
+        /// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
@@ -207,19 +207,19 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds
+        /// Ending time of the correction in epoch seconds.
         /// </summary>
         [Input("end")]
         public Input<int>? End { get; set; }
 
         /// <summary>
-        /// ID of the SLO that this correction will be applied to
+        /// ID of the SLO that this correction will be applied to.
         /// </summary>
         [Input("sloId")]
         public Input<string>? SloId { get; set; }
 
         /// <summary>
-        /// Starting time of the correction in epoch seconds
+        /// Starting time of the correction in epoch seconds.
         /// </summary>
         [Input("start")]
         public Input<int>? Start { get; set; }

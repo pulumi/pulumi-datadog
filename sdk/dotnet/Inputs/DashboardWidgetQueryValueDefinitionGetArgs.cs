@@ -43,9 +43,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetQueryValueDefinitionTimeGetArgs>? Time { get; set; }
-
         /// <summary>
         /// The title of the dashboard.
         /// </summary>

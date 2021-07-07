@@ -15,7 +15,6 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string AlertId;
         public readonly string? LiveSpan;
-        public readonly Outputs.DashboardWidgetAlertGraphDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -30,8 +29,6 @@ namespace Pulumi.Datadog.Outputs
 
             string? liveSpan,
 
-            Outputs.DashboardWidgetAlertGraphDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -42,7 +39,6 @@ namespace Pulumi.Datadog.Outputs
         {
             AlertId = alertId;
             LiveSpan = liveSpan;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

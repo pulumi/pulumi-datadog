@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Host;
         /// <summary>
-        /// The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
+        /// The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         /// </summary>
         public readonly string? Method;
         /// <summary>

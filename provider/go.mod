@@ -1,9 +1,8 @@
-module github.com/pulumi/pulumi-datadog/provider/v3
+module github.com/pulumi/pulumi-datadog/provider/v4
 
 go 1.16
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk v1.15.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.2.1
 	github.com/pulumi/pulumi/pkg/v3 v3.3.2-0.20210526172205-85142462c7ed
 	github.com/pulumi/pulumi/sdk/v3 v3.3.2-0.20210526172205-85142462c7ed
@@ -12,7 +11,8 @@ require (
 
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210402103405-f5979773e8ba
 	github.com/hashicorp/terraform-plugin-test => github.com/hashicorp/terraform-plugin-test v1.3.0
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-datadog => github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210521145316-6631e9078aec
+	github.com/terraform-providers/terraform-provider-datadog => github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210707095607-76918e054ba5
 )

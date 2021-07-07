@@ -66,7 +66,7 @@ namespace Pulumi.Datadog
         public Output<string> MetricName { get; private set; } = null!;
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         /// </summary>
         [Output("metricType")]
         public Output<string> MetricType { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Datadog
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         /// </summary>
         [Input("metricType", required: true)]
         public Input<string> MetricType { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Datadog
         public Input<string>? MetricName { get; set; }
 
         /// <summary>
-        /// The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        /// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         /// </summary>
         [Input("metricType")]
         public Input<string>? MetricType { get; set; }

@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetScatterplotDefinitionRequestYSecurityQuery
     {
-        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetScatterplotDefinitionRequestYSecurityQuery(
-            Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryCompute? compute,
-
             Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetScatterplotDefinitionRequestYSecurityQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

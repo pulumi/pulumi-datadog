@@ -17,52 +17,31 @@ class LogsArchiveArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  query: pulumi.Input[str],
-                 azure: Optional[pulumi.Input['LogsArchiveAzureArgs']] = None,
                  azure_archive: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']] = None,
-                 gcs: Optional[pulumi.Input['LogsArchiveGcsArgs']] = None,
                  gcs_archive: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3: Optional[pulumi.Input['LogsArchiveS3Args']] = None,
                  s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None):
         """
         The set of arguments for constructing a LogsArchive resource.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
-        :param pulumi.Input['LogsArchiveAzureArgs'] azure: Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
-        :param pulumi.Input['LogsArchiveGcsArgs'] gcs: Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input['LogsArchiveS3Args'] s3: Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query", query)
-        if azure is not None:
-            warnings.warn("""Define `azure_archive` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""azure is deprecated: Define `azure_archive` list with one element instead.""")
-        if azure is not None:
-            pulumi.set(__self__, "azure", azure)
         if azure_archive is not None:
             pulumi.set(__self__, "azure_archive", azure_archive)
-        if gcs is not None:
-            warnings.warn("""Define `gcs_archive` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""gcs is deprecated: Define `gcs_archive` list with one element instead.""")
-        if gcs is not None:
-            pulumi.set(__self__, "gcs", gcs)
         if gcs_archive is not None:
             pulumi.set(__self__, "gcs_archive", gcs_archive)
         if include_tags is not None:
             pulumi.set(__self__, "include_tags", include_tags)
         if rehydration_tags is not None:
             pulumi.set(__self__, "rehydration_tags", rehydration_tags)
-        if s3 is not None:
-            warnings.warn("""Define `s3_archive` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""s3 is deprecated: Define `s3_archive` list with one element instead.""")
-        if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
         if s3_archive is not None:
             pulumi.set(__self__, "s3_archive", s3_archive)
 
@@ -91,18 +70,6 @@ class LogsArchiveArgs:
         pulumi.set(self, "query", value)
 
     @property
-    @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['LogsArchiveAzureArgs']]:
-        """
-        Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        """
-        return pulumi.get(self, "azure")
-
-    @azure.setter
-    def azure(self, value: Optional[pulumi.Input['LogsArchiveAzureArgs']]):
-        pulumi.set(self, "azure", value)
-
-    @property
     @pulumi.getter(name="azureArchive")
     def azure_archive(self) -> Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']]:
         """
@@ -113,18 +80,6 @@ class LogsArchiveArgs:
     @azure_archive.setter
     def azure_archive(self, value: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']]):
         pulumi.set(self, "azure_archive", value)
-
-    @property
-    @pulumi.getter
-    def gcs(self) -> Optional[pulumi.Input['LogsArchiveGcsArgs']]:
-        """
-        Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        """
-        return pulumi.get(self, "gcs")
-
-    @gcs.setter
-    def gcs(self, value: Optional[pulumi.Input['LogsArchiveGcsArgs']]):
-        pulumi.set(self, "gcs", value)
 
     @property
     @pulumi.getter(name="gcsArchive")
@@ -163,18 +118,6 @@ class LogsArchiveArgs:
         pulumi.set(self, "rehydration_tags", value)
 
     @property
-    @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['LogsArchiveS3Args']]:
-        """
-        Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        """
-        return pulumi.get(self, "s3")
-
-    @s3.setter
-    def s3(self, value: Optional[pulumi.Input['LogsArchiveS3Args']]):
-        pulumi.set(self, "s3", value)
-
-    @property
     @pulumi.getter(name="s3Archive")
     def s3_archive(self) -> Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']]:
         """
@@ -190,41 +133,25 @@ class LogsArchiveArgs:
 @pulumi.input_type
 class _LogsArchiveState:
     def __init__(__self__, *,
-                 azure: Optional[pulumi.Input['LogsArchiveAzureArgs']] = None,
                  azure_archive: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']] = None,
-                 gcs: Optional[pulumi.Input['LogsArchiveGcsArgs']] = None,
                  gcs_archive: Optional[pulumi.Input['LogsArchiveGcsArchiveArgs']] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3: Optional[pulumi.Input['LogsArchiveS3Args']] = None,
                  s3_archive: Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']] = None):
         """
         Input properties used for looking up and filtering LogsArchive resources.
-        :param pulumi.Input['LogsArchiveAzureArgs'] azure: Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
-        :param pulumi.Input['LogsArchiveGcsArgs'] gcs: Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input['LogsArchiveS3Args'] s3: Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
         :param pulumi.Input['LogsArchiveS3ArchiveArgs'] s3_archive: Definition of an s3 archive.
         """
-        if azure is not None:
-            warnings.warn("""Define `azure_archive` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""azure is deprecated: Define `azure_archive` list with one element instead.""")
-        if azure is not None:
-            pulumi.set(__self__, "azure", azure)
         if azure_archive is not None:
             pulumi.set(__self__, "azure_archive", azure_archive)
-        if gcs is not None:
-            warnings.warn("""Define `gcs_archive` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""gcs is deprecated: Define `gcs_archive` list with one element instead.""")
-        if gcs is not None:
-            pulumi.set(__self__, "gcs", gcs)
         if gcs_archive is not None:
             pulumi.set(__self__, "gcs_archive", gcs_archive)
         if include_tags is not None:
@@ -235,25 +162,8 @@ class _LogsArchiveState:
             pulumi.set(__self__, "query", query)
         if rehydration_tags is not None:
             pulumi.set(__self__, "rehydration_tags", rehydration_tags)
-        if s3 is not None:
-            warnings.warn("""Define `s3_archive` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""s3 is deprecated: Define `s3_archive` list with one element instead.""")
-        if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
         if s3_archive is not None:
             pulumi.set(__self__, "s3_archive", s3_archive)
-
-    @property
-    @pulumi.getter
-    def azure(self) -> Optional[pulumi.Input['LogsArchiveAzureArgs']]:
-        """
-        Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        """
-        return pulumi.get(self, "azure")
-
-    @azure.setter
-    def azure(self, value: Optional[pulumi.Input['LogsArchiveAzureArgs']]):
-        pulumi.set(self, "azure", value)
 
     @property
     @pulumi.getter(name="azureArchive")
@@ -266,18 +176,6 @@ class _LogsArchiveState:
     @azure_archive.setter
     def azure_archive(self, value: Optional[pulumi.Input['LogsArchiveAzureArchiveArgs']]):
         pulumi.set(self, "azure_archive", value)
-
-    @property
-    @pulumi.getter
-    def gcs(self) -> Optional[pulumi.Input['LogsArchiveGcsArgs']]:
-        """
-        Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        """
-        return pulumi.get(self, "gcs")
-
-    @gcs.setter
-    def gcs(self, value: Optional[pulumi.Input['LogsArchiveGcsArgs']]):
-        pulumi.set(self, "gcs", value)
 
     @property
     @pulumi.getter(name="gcsArchive")
@@ -340,18 +238,6 @@ class _LogsArchiveState:
         pulumi.set(self, "rehydration_tags", value)
 
     @property
-    @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['LogsArchiveS3Args']]:
-        """
-        Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        """
-        return pulumi.get(self, "s3")
-
-    @s3.setter
-    def s3(self, value: Optional[pulumi.Input['LogsArchiveS3Args']]):
-        pulumi.set(self, "s3", value)
-
-    @property
     @pulumi.getter(name="s3Archive")
     def s3_archive(self) -> Optional[pulumi.Input['LogsArchiveS3ArchiveArgs']]:
         """
@@ -369,15 +255,12 @@ class LogsArchive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
                  azure_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']]] = None,
-                 gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
                  gcs_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']]] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3Args']]] = None,
                  s3_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3ArchiveArgs']]] = None,
                  __props__=None):
         """
@@ -408,15 +291,12 @@ class LogsArchive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveS3ArchiveArgs']] s3_archive: Definition of an s3 archive.
         """
         ...
@@ -466,15 +346,12 @@ class LogsArchive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
                  azure_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']]] = None,
-                 gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
                  gcs_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']]] = None,
                  include_tags: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3Args']]] = None,
                  s3_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3ArchiveArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -488,15 +365,7 @@ class LogsArchive(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogsArchiveArgs.__new__(LogsArchiveArgs)
 
-            if azure is not None and not opts.urn:
-                warnings.warn("""Define `azure_archive` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("""azure is deprecated: Define `azure_archive` list with one element instead.""")
-            __props__.__dict__["azure"] = azure
             __props__.__dict__["azure_archive"] = azure_archive
-            if gcs is not None and not opts.urn:
-                warnings.warn("""Define `gcs_archive` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("""gcs is deprecated: Define `gcs_archive` list with one element instead.""")
-            __props__.__dict__["gcs"] = gcs
             __props__.__dict__["gcs_archive"] = gcs_archive
             __props__.__dict__["include_tags"] = include_tags
             if name is None and not opts.urn:
@@ -506,10 +375,6 @@ class LogsArchive(pulumi.CustomResource):
                 raise TypeError("Missing required property 'query'")
             __props__.__dict__["query"] = query
             __props__.__dict__["rehydration_tags"] = rehydration_tags
-            if s3 is not None and not opts.urn:
-                warnings.warn("""Define `s3_archive` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("""s3 is deprecated: Define `s3_archive` list with one element instead.""")
-            __props__.__dict__["s3"] = s3
             __props__.__dict__["s3_archive"] = s3_archive
         super(LogsArchive, __self__).__init__(
             'datadog:index/logsArchive:LogsArchive',
@@ -521,15 +386,12 @@ class LogsArchive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']]] = None,
             azure_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']]] = None,
-            gcs: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']]] = None,
             gcs_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']]] = None,
             include_tags: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None,
             rehydration_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            s3: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3Args']]] = None,
             s3_archive: Optional[pulumi.Input[pulumi.InputType['LogsArchiveS3ArchiveArgs']]] = None) -> 'LogsArchive':
         """
         Get an existing LogsArchive resource's state with the given name, id, and optional extra
@@ -538,40 +400,26 @@ class LogsArchive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArgs']] azure: Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveAzureArchiveArgs']] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArgs']] gcs: Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveGcsArchiveArgs']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
         :param pulumi.Input[str] name: Your archive name.
         :param pulumi.Input[str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input[pulumi.InputType['LogsArchiveS3Args']] s3: Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
         :param pulumi.Input[pulumi.InputType['LogsArchiveS3ArchiveArgs']] s3_archive: Definition of an s3 archive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _LogsArchiveState.__new__(_LogsArchiveState)
 
-        __props__.__dict__["azure"] = azure
         __props__.__dict__["azure_archive"] = azure_archive
-        __props__.__dict__["gcs"] = gcs
         __props__.__dict__["gcs_archive"] = gcs_archive
         __props__.__dict__["include_tags"] = include_tags
         __props__.__dict__["name"] = name
         __props__.__dict__["query"] = query
         __props__.__dict__["rehydration_tags"] = rehydration_tags
-        __props__.__dict__["s3"] = s3
         __props__.__dict__["s3_archive"] = s3_archive
         return LogsArchive(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def azure(self) -> pulumi.Output[Optional['outputs.LogsArchiveAzure']]:
-        """
-        Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        """
-        return pulumi.get(self, "azure")
 
     @property
     @pulumi.getter(name="azureArchive")
@@ -580,14 +428,6 @@ class LogsArchive(pulumi.CustomResource):
         Definition of an azure archive.
         """
         return pulumi.get(self, "azure_archive")
-
-    @property
-    @pulumi.getter
-    def gcs(self) -> pulumi.Output[Optional['outputs.LogsArchiveGcs']]:
-        """
-        Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        """
-        return pulumi.get(self, "gcs")
 
     @property
     @pulumi.getter(name="gcsArchive")
@@ -628,14 +468,6 @@ class LogsArchive(pulumi.CustomResource):
         An array of tags to add to rehydrated logs from an archive.
         """
         return pulumi.get(self, "rehydration_tags")
-
-    @property
-    @pulumi.getter
-    def s3(self) -> pulumi.Output[Optional['outputs.LogsArchiveS3']]:
-        """
-        Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        """
-        return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter(name="s3Archive")

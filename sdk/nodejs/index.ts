@@ -33,7 +33,6 @@ export * from "./metricTagConfiguration";
 export * from "./monitor";
 export * from "./provider";
 export * from "./role";
-export * from "./screenBoard";
 export * from "./securityMonitoringDefaultRule";
 export * from "./securityMonitoringRule";
 export * from "./serviceLevelObjective";
@@ -41,7 +40,6 @@ export * from "./sloCorrection";
 export * from "./syntheticsGlobalVariable";
 export * from "./syntheticsPrivateLocation";
 export * from "./syntheticsTest";
-export * from "./timeBoard";
 export * from "./user";
 
 // Export sub-modules:
@@ -80,7 +78,6 @@ import { MetricMetadata } from "./metricMetadata";
 import { MetricTagConfiguration } from "./metricTagConfiguration";
 import { Monitor } from "./monitor";
 import { Role } from "./role";
-import { ScreenBoard } from "./screenBoard";
 import { SecurityMonitoringDefaultRule } from "./securityMonitoringDefaultRule";
 import { SecurityMonitoringRule } from "./securityMonitoringRule";
 import { ServiceLevelObjective } from "./serviceLevelObjective";
@@ -88,7 +85,6 @@ import { SloCorrection } from "./sloCorrection";
 import { SyntheticsGlobalVariable } from "./syntheticsGlobalVariable";
 import { SyntheticsPrivateLocation } from "./syntheticsPrivateLocation";
 import { SyntheticsTest } from "./syntheticsTest";
-import { TimeBoard } from "./timeBoard";
 import { User } from "./user";
 
 const _module = {
@@ -127,8 +123,6 @@ const _module = {
                 return new Monitor(name, <any>undefined, { urn })
             case "datadog:index/role:Role":
                 return new Role(name, <any>undefined, { urn })
-            case "datadog:index/screenBoard:ScreenBoard":
-                return new ScreenBoard(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
                 return new SecurityMonitoringDefaultRule(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
@@ -143,8 +137,6 @@ const _module = {
                 return new SyntheticsPrivateLocation(name, <any>undefined, { urn })
             case "datadog:index/syntheticsTest:SyntheticsTest":
                 return new SyntheticsTest(name, <any>undefined, { urn })
-            case "datadog:index/timeBoard:TimeBoard":
-                return new TimeBoard(name, <any>undefined, { urn })
             case "datadog:index/user:User":
                 return new User(name, <any>undefined, { urn })
             default:
@@ -168,7 +160,6 @@ pulumi.runtime.registerResourceModule("datadog", "index/metricMetadata", _module
 pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
-pulumi.runtime.registerResourceModule("datadog", "index/screenBoard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
@@ -176,7 +167,6 @@ pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module)
-pulumi.runtime.registerResourceModule("datadog", "index/timeBoard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 
 import { Provider } from "./provider";

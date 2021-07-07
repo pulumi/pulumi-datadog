@@ -6,10 +6,9 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/pulumi/pulumi-datadog/provider/v3/pkg/version"
+	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/terraform-providers/terraform-provider-datadog/datadog"
 )
@@ -55,7 +54,7 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 }
 
 func Provider() tfbridge.ProviderInfo {
-	p := shimv1.NewProvider(datadog.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(datadog.Provider())
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "datadog",
@@ -70,8 +69,6 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_downtime":                         {Tok: makeResource(datadogMod, "Downtime")},
 			"datadog_metric_metadata":                  {Tok: makeResource(datadogMod, "MetricMetadata")},
 			"datadog_monitor":                          {Tok: makeResource(datadogMod, "Monitor")},
-			"datadog_timeboard":                        {Tok: makeResource(datadogMod, "TimeBoard")},
-			"datadog_screenboard":                      {Tok: makeResource(datadogMod, "ScreenBoard")},
 			"datadog_user":                             {Tok: makeResource(datadogMod, "User")},
 			"datadog_synthetics_test":                  {Tok: makeResource(datadogMod, "SyntheticsTest")},
 			"datadog_synthetics_global_variable":       {Tok: makeResource(datadogMod, "SyntheticsGlobalVariable")},
@@ -153,8 +150,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 			Namespaces: namespaceMap,
 		},

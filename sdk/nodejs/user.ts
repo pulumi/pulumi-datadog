@@ -58,12 +58,6 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
-     */
-    public readonly accessRole!: pulumi.Output<string | undefined>;
-    /**
      * Whether the user is disabled.
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
@@ -72,27 +66,9 @@ export class User extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is deprecated and will be removed from the next Major version.
-     */
-    public readonly handle!: pulumi.Output<string | undefined>;
-    /**
-     * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
-     */
-    public readonly isAdmin!: pulumi.Output<boolean>;
-    /**
      * Name for user.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
-     *
-     * @deprecated This parameter was removed from the API and has no effect.
-     */
-    public readonly role!: pulumi.Output<string | undefined>;
     /**
      * A list a role IDs to assign to the user.
      */
@@ -123,13 +99,9 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["accessRole"] = state ? state.accessRole : undefined;
             inputs["disabled"] = state ? state.disabled : undefined;
             inputs["email"] = state ? state.email : undefined;
-            inputs["handle"] = state ? state.handle : undefined;
-            inputs["isAdmin"] = state ? state.isAdmin : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["role"] = state ? state.role : undefined;
             inputs["roles"] = state ? state.roles : undefined;
             inputs["sendUserInvitation"] = state ? state.sendUserInvitation : undefined;
             inputs["userInvitationId"] = state ? state.userInvitationId : undefined;
@@ -139,13 +111,9 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["accessRole"] = args ? args.accessRole : undefined;
             inputs["disabled"] = args ? args.disabled : undefined;
             inputs["email"] = args ? args.email : undefined;
-            inputs["handle"] = args ? args.handle : undefined;
-            inputs["isAdmin"] = args ? args.isAdmin : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["role"] = args ? args.role : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["sendUserInvitation"] = args ? args.sendUserInvitation : undefined;
             inputs["userInvitationId"] = undefined /*out*/;
@@ -163,12 +131,6 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
-     */
-    accessRole?: pulumi.Input<string>;
-    /**
      * Whether the user is disabled.
      */
     disabled?: pulumi.Input<boolean>;
@@ -177,27 +139,9 @@ export interface UserState {
      */
     email?: pulumi.Input<string>;
     /**
-     * The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is deprecated and will be removed from the next Major version.
-     */
-    handle?: pulumi.Input<string>;
-    /**
-     * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
-     */
-    isAdmin?: pulumi.Input<boolean>;
-    /**
      * Name for user.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
-     *
-     * @deprecated This parameter was removed from the API and has no effect.
-     */
-    role?: pulumi.Input<string>;
     /**
      * A list a role IDs to assign to the user.
      */
@@ -221,12 +165,6 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `accessRole` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
-     */
-    accessRole?: pulumi.Input<string>;
-    /**
      * Whether the user is disabled.
      */
     disabled?: pulumi.Input<boolean>;
@@ -235,27 +173,9 @@ export interface UserArgs {
      */
     email: pulumi.Input<string>;
     /**
-     * The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is deprecated and will be removed from the next Major version.
-     */
-    handle?: pulumi.Input<string>;
-    /**
-     * Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-     *
-     * @deprecated This parameter is replaced by `roles` and will be removed from the next Major version.
-     */
-    isAdmin?: pulumi.Input<boolean>;
-    /**
      * Name for user.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
-     *
-     * @deprecated This parameter was removed from the API and has no effect.
-     */
-    role?: pulumi.Input<string>;
     /**
      * A list a role IDs to assign to the user.
      */

@@ -15,7 +15,6 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? Facet;
         public readonly int? Limit;
-        public readonly Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort? Sort;
         public readonly Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery? SortQuery;
 
         [OutputConstructor]
@@ -24,13 +23,10 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySort? sort,
-
             Outputs.DashboardWidgetGeomapDefinitionRequestRumQueryGroupBySortQuery? sortQuery)
         {
             Facet = facet;
             Limit = limit;
-            Sort = sort;
             SortQuery = sortQuery;
         }
     }

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class LogsMetricCompute
     {
         /// <summary>
-        /// The type of aggregation to use. This field can't be updated after creation.
+        /// The type of aggregation to use. This field can't be updated after creation. Valid values are `count`, `distribution`.
         /// </summary>
         public readonly string AggregationType;
         /// <summary>

@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery
     {
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery(
-            Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryCompute? compute,
-
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

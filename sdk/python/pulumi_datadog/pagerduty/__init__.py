@@ -7,5 +7,3 @@ import typing
 # Export this package's modules as members:
 from .integration import *
 from .service_object import *
-from ._inputs import *
-from . import outputs

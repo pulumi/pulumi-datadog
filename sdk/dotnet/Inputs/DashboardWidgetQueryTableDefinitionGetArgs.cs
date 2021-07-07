@@ -34,9 +34,6 @@ namespace Pulumi.Datadog.Inputs
             set => _requests = value;
         }
 
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetQueryTableDefinitionTimeGetArgs>? Time { get; set; }
-
         /// <summary>
         /// The title of the dashboard.
         /// </summary>

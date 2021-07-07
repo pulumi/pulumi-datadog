@@ -97,7 +97,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+        /// The subtype of the Synthetic multistep API test step. Valid values are `http`.
         /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }

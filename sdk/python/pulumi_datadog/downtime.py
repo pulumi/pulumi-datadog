@@ -183,6 +183,7 @@ class DowntimeArgs:
 class _DowntimeState:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
+                 active_child_id: Optional[pulumi.Input[int]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  end: Optional[pulumi.Input[int]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
@@ -197,6 +198,7 @@ class _DowntimeState:
         """
         Input properties used for looking up and filtering Downtime resources.
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
+        :param pulumi.Input[int] active_child_id: The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
@@ -211,6 +213,8 @@ class _DowntimeState:
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
+        if active_child_id is not None:
+            pulumi.set(__self__, "active_child_id", active_child_id)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
         if end is not None:
@@ -245,6 +249,18 @@ class _DowntimeState:
     @active.setter
     def active(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter(name="activeChildId")
+    def active_child_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        """
+        return pulumi.get(self, "active_child_id")
+
+    @active_child_id.setter
+    def active_child_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "active_child_id", value)
 
     @property
     @pulumi.getter
@@ -518,6 +534,7 @@ class Downtime(pulumi.CustomResource):
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["active"] = None
+            __props__.__dict__["active_child_id"] = None
             __props__.__dict__["disabled"] = None
         super(Downtime, __self__).__init__(
             'datadog:index/downtime:Downtime',
@@ -530,6 +547,7 @@ class Downtime(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
+            active_child_id: Optional[pulumi.Input[int]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             end: Optional[pulumi.Input[int]] = None,
             end_date: Optional[pulumi.Input[str]] = None,
@@ -549,6 +567,7 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: When true indicates this downtime is being actively applied
+        :param pulumi.Input[int] active_child_id: The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
         :param pulumi.Input[bool] disabled: When true indicates this downtime is not being applied
         :param pulumi.Input[int] end: Optionally specify an end date when this downtime should expire
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
@@ -566,6 +585,7 @@ class Downtime(pulumi.CustomResource):
         __props__ = _DowntimeState.__new__(_DowntimeState)
 
         __props__.__dict__["active"] = active
+        __props__.__dict__["active_child_id"] = active_child_id
         __props__.__dict__["disabled"] = disabled
         __props__.__dict__["end"] = end
         __props__.__dict__["end_date"] = end_date
@@ -586,6 +606,14 @@ class Downtime(pulumi.CustomResource):
         When true indicates this downtime is being actively applied
         """
         return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter(name="activeChildId")
+    def active_child_id(self) -> pulumi.Output[int]:
+        """
+        The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+        """
+        return pulumi.get(self, "active_child_id")
 
     @property
     @pulumi.getter

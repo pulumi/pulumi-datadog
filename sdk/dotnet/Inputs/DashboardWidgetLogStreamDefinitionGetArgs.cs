@@ -31,9 +31,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
-        [Input("logset")]
-        public Input<string>? Logset { get; set; }
-
         [Input("messageDisplay")]
         public Input<string>? MessageDisplay { get; set; }
 
@@ -48,9 +45,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("sort")]
         public Input<Inputs.DashboardWidgetLogStreamDefinitionSortGetArgs>? Sort { get; set; }
-
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetLogStreamDefinitionTimeGetArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the dashboard.

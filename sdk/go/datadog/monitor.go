@@ -19,33 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewMonitor(ctx, "foo", &datadog.MonitorArgs{
-// 			Name:              pulumi.String("Name for monitor foo"),
-// 			Type:              pulumi.String("metric alert"),
-// 			Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
 // 			EscalationMessage: pulumi.String("Escalation message @pagerduty"),
-// 			Query:             pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
+// 			IncludeTags:       pulumi.Bool(true),
+// 			Message:           pulumi.String("Monitor triggered. Notify: @hipchat-channel"),
 // 			MonitorThresholds: &datadog.MonitorMonitorThresholdsArgs{
-// 				Warning:          pulumi.String("2"),
-// 				WarningRecovery:  pulumi.String("1"),
 // 				Critical:         pulumi.String("4"),
 // 				CriticalRecovery: pulumi.String("3"),
+// 				Warning:          pulumi.String("2"),
+// 				WarningRecovery:  pulumi.String("1"),
 // 			},
-// 			NotifyNoData:     pulumi.Bool(false),
-// 			RenotifyInterval: pulumi.Int(60),
+// 			Name:             pulumi.String("Name for monitor foo"),
 // 			NotifyAudit:      pulumi.Bool(false),
-// 			TimeoutH:         pulumi.Int(60),
-// 			IncludeTags:      pulumi.Bool(true),
+// 			NotifyNoData:     pulumi.Bool(false),
+// 			Query:            pulumi.String("avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4"),
+// 			RenotifyInterval: pulumi.Int(60),
 // 			Tags: pulumi.StringArray{
 // 				pulumi.String("foo:bar"),
 // 				pulumi.String("baz"),
 // 			},
+// 			TimeoutH: pulumi.Int(60),
+// 			Type:     pulumi.String("metric alert"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -122,24 +122,9 @@ type Monitor struct {
 	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow pulumi.BoolPtrOutput     `pulumi:"requireFullWindow"`
 	RestrictedRoles   pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-	// removed in the next major version of the Terraform Provider.
-	//
-	// Deprecated: Use the Downtime resource instead.
-	Silenced pulumi.MapOutput `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-	// required for, anomaly monitors.
-	//
-	// Deprecated: Define `monitor_threshold_windows` list with one element instead.
-	ThresholdWindows MonitorThresholdWindowsPtrOutput `pulumi:"thresholdWindows"`
-	// Alert thresholds of the monitor.
-	//
-	// Deprecated: Define `monitor_thresholds` list with one element instead.
-	Thresholds MonitorThresholdsPtrOutput `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
 	TimeoutH pulumi.IntPtrOutput `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
@@ -250,24 +235,9 @@ type monitorState struct {
 	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
 	RestrictedRoles   []string `pulumi:"restrictedRoles"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-	// removed in the next major version of the Terraform Provider.
-	//
-	// Deprecated: Use the Downtime resource instead.
-	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-	// required for, anomaly monitors.
-	//
-	// Deprecated: Define `monitor_threshold_windows` list with one element instead.
-	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
-	// Alert thresholds of the monitor.
-	//
-	// Deprecated: Define `monitor_thresholds` list with one element instead.
-	Thresholds *MonitorThresholds `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
 	TimeoutH *int `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
@@ -338,24 +308,9 @@ type MonitorState struct {
 	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
 	RestrictedRoles   pulumi.StringArrayInput
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-	// removed in the next major version of the Terraform Provider.
-	//
-	// Deprecated: Use the Downtime resource instead.
-	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-	// required for, anomaly monitors.
-	//
-	// Deprecated: Define `monitor_threshold_windows` list with one element instead.
-	ThresholdWindows MonitorThresholdWindowsPtrInput
-	// Alert thresholds of the monitor.
-	//
-	// Deprecated: Define `monitor_thresholds` list with one element instead.
-	Thresholds MonitorThresholdsPtrInput
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
 	TimeoutH pulumi.IntPtrInput
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
@@ -430,24 +385,9 @@ type monitorArgs struct {
 	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow *bool    `pulumi:"requireFullWindow"`
 	RestrictedRoles   []string `pulumi:"restrictedRoles"`
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-	// removed in the next major version of the Terraform Provider.
-	//
-	// Deprecated: Use the Downtime resource instead.
-	Silenced map[string]interface{} `pulumi:"silenced"`
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags []string `pulumi:"tags"`
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-	// required for, anomaly monitors.
-	//
-	// Deprecated: Define `monitor_threshold_windows` list with one element instead.
-	ThresholdWindows *MonitorThresholdWindows `pulumi:"thresholdWindows"`
-	// Alert thresholds of the monitor.
-	//
-	// Deprecated: Define `monitor_thresholds` list with one element instead.
-	Thresholds *MonitorThresholds `pulumi:"thresholds"`
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
 	TimeoutH *int `pulumi:"timeoutH"`
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
@@ -519,24 +459,9 @@ type MonitorArgs struct {
 	// all times` and `in total` aggregation. `false` otherwise.
 	RequireFullWindow pulumi.BoolPtrInput
 	RestrictedRoles   pulumi.StringArrayInput
-	// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-	// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-	// removed in the next major version of the Terraform Provider.
-	//
-	// Deprecated: Use the Downtime resource instead.
-	Silenced pulumi.MapInput
 	// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
 	// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
 	Tags pulumi.StringArrayInput
-	// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-	// required for, anomaly monitors.
-	//
-	// Deprecated: Define `monitor_threshold_windows` list with one element instead.
-	ThresholdWindows MonitorThresholdWindowsPtrInput
-	// Alert thresholds of the monitor.
-	//
-	// Deprecated: Define `monitor_thresholds` list with one element instead.
-	Thresholds MonitorThresholdsPtrInput
 	// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
 	TimeoutH pulumi.IntPtrInput
 	// The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the

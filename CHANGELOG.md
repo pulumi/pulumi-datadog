@@ -2,7 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.1.2 of the datadog Terraform Provider  
+  **PLEASE NOTE the following breaking changes:**  
+  * `datadog.TimeBoard` and `datadog.Screenboard` resources have been removed as they were previously deprecated.
+  * `datadog.Monitor` has had `threshold`, `thresholdWindows` and `silenced` parameters removed
+  * `datadog.User` has had `handle`, `isAdmin`, `accessRole` and `role` parameters removed
+  * `datadog.syntheticsTest` has had `request`, `assertions`, `options`, `step` and `variable` parameters removed
+  * `datadog.logsArchive` has had `s3`, `azure`, and `gcp` parameters removed
+  * `datadog.serviceLevelObjective` has had `monitorSearch` parameter removed
+  * `datadog.PagerDuty.Integration` has had `services` parameter removed
+  * `datadog.dashboard` has had `layout`, `time`, `logset`, `count`, `start`, `compute` and `search` parameters removed
 
 ---
 

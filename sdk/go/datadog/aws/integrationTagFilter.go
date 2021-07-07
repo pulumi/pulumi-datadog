@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters - US site’s endpoint only
+// Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
 //
 // ## Example Usage
 //
@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog/aws"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -50,7 +50,7 @@ type IntegrationTagFilter struct {
 
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr pulumi.StringOutput `pulumi:"tagFilterStr"`
@@ -96,7 +96,7 @@ func GetIntegrationTagFilter(ctx *pulumi.Context,
 type integrationTagFilterState struct {
 	// Your AWS Account ID without dashes.
 	AccountId *string `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace *string `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr *string `pulumi:"tagFilterStr"`
@@ -105,7 +105,7 @@ type integrationTagFilterState struct {
 type IntegrationTagFilterState struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringPtrInput
-	// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace pulumi.StringPtrInput
 	// The tag filter string.
 	TagFilterStr pulumi.StringPtrInput
@@ -118,7 +118,7 @@ func (IntegrationTagFilterState) ElementType() reflect.Type {
 type integrationTagFilterArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId string `pulumi:"accountId"`
-	// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace string `pulumi:"namespace"`
 	// The tag filter string.
 	TagFilterStr string `pulumi:"tagFilterStr"`
@@ -128,7 +128,7 @@ type integrationTagFilterArgs struct {
 type IntegrationTagFilterArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId pulumi.StringInput
-	// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+	// The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
 	Namespace pulumi.StringInput
 	// The tag filter string.
 	TagFilterStr pulumi.StringInput

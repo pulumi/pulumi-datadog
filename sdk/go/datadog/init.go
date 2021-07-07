@@ -52,8 +52,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Monitor{}
 	case "datadog:index/role:Role":
 		r = &Role{}
-	case "datadog:index/screenBoard:ScreenBoard":
-		r = &ScreenBoard{}
 	case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
 		r = &SecurityMonitoringDefaultRule{}
 	case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
@@ -68,8 +66,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SyntheticsPrivateLocation{}
 	case "datadog:index/syntheticsTest:SyntheticsTest":
 		r = &SyntheticsTest{}
-	case "datadog:index/timeBoard:TimeBoard":
-		r = &TimeBoard{}
 	case "datadog:index/user:User":
 		r = &User{}
 	default:
@@ -185,11 +181,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
-		"index/screenBoard",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"datadog",
 		"index/securityMonitoringDefaultRule",
 		&module{version},
 	)
@@ -221,11 +212,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/syntheticsTest",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"datadog",
-		"index/timeBoard",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

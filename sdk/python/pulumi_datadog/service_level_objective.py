@@ -29,7 +29,7 @@ class ServiceLevelObjectiveArgs:
         The set of arguments for constructing a ServiceLevelObjective resource.
         :param pulumi.Input[str] name: Name of Datadog service level objective
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[str] description: A description of this service level objective.
         :param pulumi.Input[bool] force_delete: A boolean indicating whether this monitor can be deleted even if it’s referenced by other resources (e.g. dashboards).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A static set of groups to filter monitor-based SLOs
@@ -84,7 +84,7 @@ class ServiceLevelObjectiveArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         """
         return pulumi.get(self, "type")
 
@@ -200,7 +200,7 @@ class _ServiceLevelObjectiveState:
         :param pulumi.Input['ServiceLevelObjectiveQueryArgs'] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveThresholdArgs']]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
         """
         if description is not None:
@@ -324,7 +324,7 @@ class _ServiceLevelObjectiveState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         """
         return pulumi.get(self, "type")
 
@@ -447,7 +447,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
         """
         ...
@@ -620,7 +620,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceLevelObjectiveQueryArgs']] query: The metric query of good / total events
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLevelObjectiveThresholdArgs']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
-        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        :param pulumi.Input[str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         :param pulumi.Input[bool] validate: Whether or not to validate the SLO.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -707,7 +707,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available options to choose from are: `metric` and `monitor`.
+        The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`.
         """
         return pulumi.get(self, "type")
 
