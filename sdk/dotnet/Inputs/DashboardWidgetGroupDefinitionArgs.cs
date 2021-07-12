@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? BannerImg { get; set; }
 
         /// <summary>
-        /// The layout type of the dashboard, either 'free' or 'ordered'.
+        /// The layout type of the dashboard. Valid values are `ordered`, `free`.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;

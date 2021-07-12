@@ -34,9 +34,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("request")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionRequestGetArgs>? Request { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetScatterplotDefinitionTimeGetArgs>? Time { get; set; }
-
         /// <summary>
         /// The title of the dashboard.
         /// </summary>

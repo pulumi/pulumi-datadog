@@ -71,7 +71,7 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
      */
     public readonly metricName!: pulumi.Output<string>;
     /**
-     * The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
     public readonly metricType!: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export interface MetricTagConfigurationState {
      */
     metricName?: pulumi.Input<string>;
     /**
-     * The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
     metricType?: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface MetricTagConfigurationArgs {
      */
     metricName: pulumi.Input<string>;
     /**
-     * The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
      */
     metricType: pulumi.Input<string>;
     /**

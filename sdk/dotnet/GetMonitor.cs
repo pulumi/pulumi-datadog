@@ -126,11 +126,11 @@ namespace Pulumi.Datadog
         /// <summary>
         /// Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors.
         /// </summary>
-        public readonly Outputs.GetMonitorMonitorThresholdWindowsResult MonitorThresholdWindows;
+        public readonly ImmutableArray<Outputs.GetMonitorMonitorThresholdWindowResult> MonitorThresholdWindows;
         /// <summary>
         /// Alert thresholds of the monitor.
         /// </summary>
-        public readonly Outputs.GetMonitorMonitorThresholdsResult MonitorThresholds;
+        public readonly ImmutableArray<Outputs.GetMonitorMonitorThresholdResult> MonitorThresholds;
         /// <summary>
         /// Name of the monitor
         /// </summary>
@@ -176,14 +176,6 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly ImmutableArray<string> TagsFilters;
         /// <summary>
-        /// Mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. This is only used by anomaly monitors. **Deprecated.** Define `monitor_threshold_windows` list with one element instead.
-        /// </summary>
-        public readonly Outputs.GetMonitorThresholdWindowsResult ThresholdWindows;
-        /// <summary>
-        /// Alert thresholds of the monitor. **Deprecated.** Define `monitor_thresholds` list with one element instead.
-        /// </summary>
-        public readonly Outputs.GetMonitorThresholdsResult Thresholds;
-        /// <summary>
         /// Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
         /// </summary>
         public readonly int TimeoutH;
@@ -212,9 +204,9 @@ namespace Pulumi.Datadog
 
             ImmutableArray<string> monitorTagsFilters,
 
-            Outputs.GetMonitorMonitorThresholdWindowsResult monitorThresholdWindows,
+            ImmutableArray<Outputs.GetMonitorMonitorThresholdWindowResult> monitorThresholdWindows,
 
-            Outputs.GetMonitorMonitorThresholdsResult monitorThresholds,
+            ImmutableArray<Outputs.GetMonitorMonitorThresholdResult> monitorThresholds,
 
             string name,
 
@@ -237,10 +229,6 @@ namespace Pulumi.Datadog
             ImmutableArray<string> tags,
 
             ImmutableArray<string> tagsFilters,
-
-            Outputs.GetMonitorThresholdWindowsResult thresholdWindows,
-
-            Outputs.GetMonitorThresholdsResult thresholds,
 
             int timeoutH,
 
@@ -268,8 +256,6 @@ namespace Pulumi.Datadog
             RequireFullWindow = requireFullWindow;
             Tags = tags;
             TagsFilters = tagsFilters;
-            ThresholdWindows = thresholdWindows;
-            Thresholds = thresholds;
             TimeoutH = timeoutH;
             Type = type;
         }

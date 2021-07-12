@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters - US site’s endpoint only
+ * Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
  *
  * ## Example Usage
  *
@@ -61,7 +61,7 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
      */
     public readonly namespace!: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export interface IntegrationTagFilterState {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
      */
     namespace?: pulumi.Input<string>;
     /**
@@ -134,7 +134,7 @@ export interface IntegrationTagFilterArgs {
      */
     accountId: pulumi.Input<string>;
     /**
-     * The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+     * The namespace associated with the tag filter entry. Valid values are `elb`, `applicationElb`, `sqs`, `rds`, `custom`, `networkElb`, `lambda`.
      */
     namespace: pulumi.Input<string>;
     /**

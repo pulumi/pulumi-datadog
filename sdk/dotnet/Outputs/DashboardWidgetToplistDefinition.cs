@@ -16,7 +16,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionCustomLink> CustomLinks;
         public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequest> Requests;
-        public readonly Outputs.DashboardWidgetToplistDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -32,8 +31,6 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequest> requests,
 
-            Outputs.DashboardWidgetToplistDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -43,7 +40,6 @@ namespace Pulumi.Datadog.Outputs
             CustomLinks = customLinks;
             LiveSpan = liveSpan;
             Requests = requests;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

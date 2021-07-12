@@ -474,8 +474,8 @@ import * as utilities from "./utilities";
  *             widgetLayout: {
  *                 height: 43,
  *                 width: 32,
- *                 x: 5,
- *                 y: 5,
+ *                 x: 0,
+ *                 y: 0,
  *             },
  *         },
  *         {
@@ -488,23 +488,23 @@ import * as utilities from "./utilities";
  *             },
  *             widgetLayout: {
  *                 height: 9,
- *                 width: 65,
- *                 x: 42,
- *                 y: 73,
+ *                 width: 66,
+ *                 x: 33,
+ *                 y: 60,
  *             },
  *         },
  *         {
  *             freeTextDefinition: {
  *                 color: "#d00",
- *                 fontSize: "88",
+ *                 fontSize: "36",
  *                 text: "free text content",
  *                 textAlign: "left",
  *             },
  *             widgetLayout: {
  *                 height: 20,
- *                 width: 30,
- *                 x: 42,
- *                 y: 5,
+ *                 width: 34,
+ *                 x: 33,
+ *                 y: 0,
  *             },
  *         },
  *         {
@@ -514,8 +514,8 @@ import * as utilities from "./utilities";
  *             widgetLayout: {
  *                 height: 46,
  *                 width: 39,
- *                 x: 111,
- *                 y: 8,
+ *                 x: 101,
+ *                 y: 0,
  *             },
  *         },
  *         {
@@ -527,8 +527,8 @@ import * as utilities from "./utilities";
  *             widgetLayout: {
  *                 height: 20,
  *                 width: 30,
- *                 x: 77,
- *                 y: 7,
+ *                 x: 69,
+ *                 y: 0,
  *             },
  *         },
  *         {
@@ -551,8 +551,8 @@ import * as utilities from "./utilities";
  *             widgetLayout: {
  *                 height: 36,
  *                 width: 32,
- *                 x: 5,
- *                 y: 51,
+ *                 x: 0,
+ *                 y: 45,
  *             },
  *         },
  *         {
@@ -571,8 +571,8 @@ import * as utilities from "./utilities";
  *             widgetLayout: {
  *                 height: 40,
  *                 width: 30,
- *                 x: 112,
- *                 y: 55,
+ *                 x: 101,
+ *                 y: 48,
  *             },
  *         },
  *         {
@@ -595,9 +595,9 @@ import * as utilities from "./utilities";
  *             },
  *             widgetLayout: {
  *                 height: 38,
- *                 width: 67,
- *                 x: 40,
- *                 y: 28,
+ *                 width: 66,
+ *                 x: 33,
+ *                 y: 21,
  *             },
  *         },
  *         {
@@ -636,6 +636,12 @@ import * as utilities from "./utilities";
  *                     ],
  *                 }],
  *             },
+ *             widgetLayout: {
+ *                 height: 16,
+ *                 width: 25,
+ *                 x: 58,
+ *                 y: 83,
+ *             },
  *         },
  *         {
  *             timeseriesDefinition: {
@@ -655,9 +661,16 @@ import * as utilities from "./utilities";
  *                                 },
  *                             }],
  *                             indexes: ["days-3"],
+ *                             name: "my-query",
  *                         },
  *                     }],
  *                 }],
+ *             },
+ *             widgetLayout: {
+ *                 height: 16,
+ *                 width: 28,
+ *                 x: 29,
+ *                 y: 83,
  *             },
  *         },
  *         {
@@ -677,6 +690,12 @@ import * as utilities from "./utilities";
  *                         },
  *                     }],
  *                 }],
+ *             },
+ *             widgetLayout: {
+ *                 height: 16,
+ *                 width: 28,
+ *                 x: 0,
+ *                 y: 83,
  *             },
  *         },
  *     ],
@@ -734,7 +753,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * The layout type of the dashboard, either 'free' or 'ordered'.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     public readonly layoutType!: pulumi.Output<string>;
     /**
@@ -742,9 +761,13 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly notifyLists!: pulumi.Output<string[] | undefined>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
     public readonly reflowType!: pulumi.Output<string | undefined>;
+    /**
+     * Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+     */
+    public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
@@ -786,6 +809,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["layoutType"] = state ? state.layoutType : undefined;
             inputs["notifyLists"] = state ? state.notifyLists : undefined;
             inputs["reflowType"] = state ? state.reflowType : undefined;
+            inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
             inputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
             inputs["templateVariables"] = state ? state.templateVariables : undefined;
             inputs["title"] = state ? state.title : undefined;
@@ -808,6 +832,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["layoutType"] = args ? args.layoutType : undefined;
             inputs["notifyLists"] = args ? args.notifyLists : undefined;
             inputs["reflowType"] = args ? args.reflowType : undefined;
+            inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
             inputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
             inputs["templateVariables"] = args ? args.templateVariables : undefined;
             inputs["title"] = args ? args.title : undefined;
@@ -843,7 +868,7 @@ export interface DashboardState {
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the dashboard, either 'free' or 'ordered'.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     layoutType?: pulumi.Input<string>;
     /**
@@ -851,9 +876,13 @@ export interface DashboardState {
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
     reflowType?: pulumi.Input<string>;
+    /**
+     * Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+     */
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */
@@ -893,7 +922,7 @@ export interface DashboardArgs {
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
-     * The layout type of the dashboard, either 'free' or 'ordered'.
+     * The layout type of the dashboard. Valid values are `ordered`, `free`.
      */
     layoutType: pulumi.Input<string>;
     /**
@@ -901,9 +930,13 @@ export interface DashboardArgs {
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+     * The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
      */
     reflowType?: pulumi.Input<string>;
+    /**
+     * Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+     */
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of selectable template variable presets for this dashboard.
      */

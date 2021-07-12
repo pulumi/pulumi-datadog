@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetHeatmapDefinitionRequestSecurityQuery
     {
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetHeatmapDefinitionRequestSecurityQuery(
-            Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryCompute? compute,
-
             Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetHeatmapDefinitionRequestSecurityQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

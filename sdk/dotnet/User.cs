@@ -50,12 +50,6 @@ namespace Pulumi.Datadog
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
-        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-        /// </summary>
-        [Output("accessRole")]
-        public Output<string?> AccessRole { get; private set; } = null!;
-
-        /// <summary>
         /// Whether the user is disabled.
         /// </summary>
         [Output("disabled")]
@@ -68,28 +62,10 @@ namespace Pulumi.Datadog
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
-        /// </summary>
-        [Output("handle")]
-        public Output<string?> Handle { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-        /// </summary>
-        [Output("isAdmin")]
-        public Output<bool> IsAdmin { get; private set; } = null!;
-
-        /// <summary>
         /// Name for user.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
-        /// </summary>
-        [Output("role")]
-        public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
         /// A list a role IDs to assign to the user.
@@ -162,12 +138,6 @@ namespace Pulumi.Datadog
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-        /// </summary>
-        [Input("accessRole")]
-        public Input<string>? AccessRole { get; set; }
-
-        /// <summary>
         /// Whether the user is disabled.
         /// </summary>
         [Input("disabled")]
@@ -180,28 +150,10 @@ namespace Pulumi.Datadog
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
-        /// </summary>
-        [Input("handle")]
-        public Input<string>? Handle { get; set; }
-
-        /// <summary>
-        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-        /// </summary>
-        [Input("isAdmin")]
-        public Input<bool>? IsAdmin { get; set; }
-
-        /// <summary>
         /// Name for user.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
-        /// </summary>
-        [Input("role")]
-        public Input<string>? Role { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;
@@ -229,12 +181,6 @@ namespace Pulumi.Datadog
     public sealed class UserState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Role description for user. Can be `st` (standard user), `adm` (admin user) or `ro` (read-only user). Default is `st`. `access_role` is ignored for new users created with this resource. New users have to use the `roles` attribute. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-        /// </summary>
-        [Input("accessRole")]
-        public Input<string>? AccessRole { get; set; }
-
-        /// <summary>
         /// Whether the user is disabled.
         /// </summary>
         [Input("disabled")]
@@ -247,28 +193,10 @@ namespace Pulumi.Datadog
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// The user handle, must be a valid email. **Deprecated.** This parameter is deprecated and will be removed from the next Major version.
-        /// </summary>
-        [Input("handle")]
-        public Input<string>? Handle { get; set; }
-
-        /// <summary>
-        /// Whether the user is an administrator. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter is replaced by `roles` and will be removed from the next Major version.
-        /// </summary>
-        [Input("isAdmin")]
-        public Input<bool>? IsAdmin { get; set; }
-
-        /// <summary>
         /// Name for user.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Role description for user. Warning: the corresponding query parameter is ignored by the Datadog API, thus the argument would always trigger an execution plan. **Deprecated.** This parameter was removed from the API and has no effect.
-        /// </summary>
-        [Input("role")]
-        public Input<string>? Role { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;

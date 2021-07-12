@@ -537,6 +537,14 @@ export class DashboardJson extends pulumi.CustomResource {
      */
     public readonly dashboard!: pulumi.Output<string>;
     /**
+     * The list of dashboard lists this dashboard belongs to.
+     */
+    public readonly dashboardLists!: pulumi.Output<number[] | undefined>;
+    /**
+     * The list of dashboard lists this dashboard should be removed from. Internal only.
+     */
+    public /*out*/ readonly dashboardListsRemoveds!: pulumi.Output<number[]>;
+    /**
      * The URL of the dashboard.
      */
     public readonly url!: pulumi.Output<string>;
@@ -555,6 +563,8 @@ export class DashboardJson extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DashboardJsonState | undefined;
             inputs["dashboard"] = state ? state.dashboard : undefined;
+            inputs["dashboardLists"] = state ? state.dashboardLists : undefined;
+            inputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as DashboardJsonArgs | undefined;
@@ -562,7 +572,9 @@ export class DashboardJson extends pulumi.CustomResource {
                 throw new Error("Missing required property 'dashboard'");
             }
             inputs["dashboard"] = args ? args.dashboard : undefined;
+            inputs["dashboardLists"] = args ? args.dashboardLists : undefined;
             inputs["url"] = args ? args.url : undefined;
+            inputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -580,6 +592,14 @@ export interface DashboardJsonState {
      */
     dashboard?: pulumi.Input<string>;
     /**
+     * The list of dashboard lists this dashboard belongs to.
+     */
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * The list of dashboard lists this dashboard should be removed from. Internal only.
+     */
+    dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
      * The URL of the dashboard.
      */
     url?: pulumi.Input<string>;
@@ -593,6 +613,10 @@ export interface DashboardJsonArgs {
      * The JSON formatted definition of the Dashboard.
      */
     dashboard: pulumi.Input<string>;
+    /**
+     * The list of dashboard lists this dashboard belongs to.
+     */
+    dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The URL of the dashboard.
      */

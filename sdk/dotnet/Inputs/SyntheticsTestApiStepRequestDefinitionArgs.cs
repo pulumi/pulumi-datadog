@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// The HTTP method. One of `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`.
+        /// The HTTP method. Valid values are `GET`, `POST`, `PATCH`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`.
         /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }

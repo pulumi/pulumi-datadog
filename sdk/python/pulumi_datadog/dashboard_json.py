@@ -14,13 +14,17 @@ __all__ = ['DashboardJsonArgs', 'DashboardJson']
 class DashboardJsonArgs:
     def __init__(__self__, *,
                  dashboard: pulumi.Input[str],
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DashboardJson resource.
         :param pulumi.Input[str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] url: The URL of the dashboard.
         """
         pulumi.set(__self__, "dashboard", dashboard)
+        if dashboard_lists is not None:
+            pulumi.set(__self__, "dashboard_lists", dashboard_lists)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -35,6 +39,18 @@ class DashboardJsonArgs:
     @dashboard.setter
     def dashboard(self, value: pulumi.Input[str]):
         pulumi.set(self, "dashboard", value)
+
+    @property
+    @pulumi.getter(name="dashboardLists")
+    def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The list of dashboard lists this dashboard belongs to.
+        """
+        return pulumi.get(self, "dashboard_lists")
+
+    @dashboard_lists.setter
+    def dashboard_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "dashboard_lists", value)
 
     @property
     @pulumi.getter
@@ -53,14 +69,22 @@ class DashboardJsonArgs:
 class _DashboardJsonState:
     def __init__(__self__, *,
                  dashboard: Optional[pulumi.Input[str]] = None,
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 dashboard_lists_removeds: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DashboardJson resources.
         :param pulumi.Input[str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] url: The URL of the dashboard.
         """
         if dashboard is not None:
             pulumi.set(__self__, "dashboard", dashboard)
+        if dashboard_lists is not None:
+            pulumi.set(__self__, "dashboard_lists", dashboard_lists)
+        if dashboard_lists_removeds is not None:
+            pulumi.set(__self__, "dashboard_lists_removeds", dashboard_lists_removeds)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -75,6 +99,30 @@ class _DashboardJsonState:
     @dashboard.setter
     def dashboard(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dashboard", value)
+
+    @property
+    @pulumi.getter(name="dashboardLists")
+    def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The list of dashboard lists this dashboard belongs to.
+        """
+        return pulumi.get(self, "dashboard_lists")
+
+    @dashboard_lists.setter
+    def dashboard_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "dashboard_lists", value)
+
+    @property
+    @pulumi.getter(name="dashboardListsRemoveds")
+    def dashboard_lists_removeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The list of dashboard lists this dashboard should be removed from. Internal only.
+        """
+        return pulumi.get(self, "dashboard_lists_removeds")
+
+    @dashboard_lists_removeds.setter
+    def dashboard_lists_removeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "dashboard_lists_removeds", value)
 
     @property
     @pulumi.getter
@@ -95,6 +143,7 @@ class DashboardJson(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard: Optional[pulumi.Input[str]] = None,
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -599,6 +648,7 @@ class DashboardJson(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] url: The URL of the dashboard.
         """
         ...
@@ -1122,6 +1172,7 @@ class DashboardJson(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard: Optional[pulumi.Input[str]] = None,
+                 dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -1138,7 +1189,9 @@ class DashboardJson(pulumi.CustomResource):
             if dashboard is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard'")
             __props__.__dict__["dashboard"] = dashboard
+            __props__.__dict__["dashboard_lists"] = dashboard_lists
             __props__.__dict__["url"] = url
+            __props__.__dict__["dashboard_lists_removeds"] = None
         super(DashboardJson, __self__).__init__(
             'datadog:index/dashboardJson:DashboardJson',
             resource_name,
@@ -1150,6 +1203,8 @@ class DashboardJson(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             dashboard: Optional[pulumi.Input[str]] = None,
+            dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            dashboard_lists_removeds: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'DashboardJson':
         """
         Get an existing DashboardJson resource's state with the given name, id, and optional extra
@@ -1159,6 +1214,8 @@ class DashboardJson(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard: The JSON formatted definition of the Dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] url: The URL of the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1166,6 +1223,8 @@ class DashboardJson(pulumi.CustomResource):
         __props__ = _DashboardJsonState.__new__(_DashboardJsonState)
 
         __props__.__dict__["dashboard"] = dashboard
+        __props__.__dict__["dashboard_lists"] = dashboard_lists
+        __props__.__dict__["dashboard_lists_removeds"] = dashboard_lists_removeds
         __props__.__dict__["url"] = url
         return DashboardJson(resource_name, opts=opts, __props__=__props__)
 
@@ -1176,6 +1235,22 @@ class DashboardJson(pulumi.CustomResource):
         The JSON formatted definition of the Dashboard.
         """
         return pulumi.get(self, "dashboard")
+
+    @property
+    @pulumi.getter(name="dashboardLists")
+    def dashboard_lists(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        The list of dashboard lists this dashboard belongs to.
+        """
+        return pulumi.get(self, "dashboard_lists")
+
+    @property
+    @pulumi.getter(name="dashboardListsRemoveds")
+    def dashboard_lists_removeds(self) -> pulumi.Output[Sequence[int]]:
+        """
+        The list of dashboard lists this dashboard should be removed from. Internal only.
+        """
+        return pulumi.get(self, "dashboard_lists_removeds")
 
     @property
     @pulumi.getter

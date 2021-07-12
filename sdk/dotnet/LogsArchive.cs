@@ -49,22 +49,10 @@ namespace Pulumi.Datadog
     public partial class LogsArchive : Pulumi.CustomResource
     {
         /// <summary>
-        /// Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        /// </summary>
-        [Output("azure")]
-        public Output<Outputs.LogsArchiveAzure?> Azure { get; private set; } = null!;
-
-        /// <summary>
         /// Definition of an azure archive.
         /// </summary>
         [Output("azureArchive")]
         public Output<Outputs.LogsArchiveAzureArchive?> AzureArchive { get; private set; } = null!;
-
-        /// <summary>
-        /// Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        /// </summary>
-        [Output("gcs")]
-        public Output<Outputs.LogsArchiveGcs?> Gcs { get; private set; } = null!;
 
         /// <summary>
         /// Definition of a GCS archive.
@@ -95,12 +83,6 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("rehydrationTags")]
         public Output<ImmutableArray<string>> RehydrationTags { get; private set; } = null!;
-
-        /// <summary>
-        /// Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        /// </summary>
-        [Output("s3")]
-        public Output<Outputs.LogsArchiveS3?> S3 { get; private set; } = null!;
 
         /// <summary>
         /// Definition of an s3 archive.
@@ -155,22 +137,10 @@ namespace Pulumi.Datadog
     public sealed class LogsArchiveArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        /// </summary>
-        [Input("azure")]
-        public Input<Inputs.LogsArchiveAzureArgs>? Azure { get; set; }
-
-        /// <summary>
         /// Definition of an azure archive.
         /// </summary>
         [Input("azureArchive")]
         public Input<Inputs.LogsArchiveAzureArchiveArgs>? AzureArchive { get; set; }
-
-        /// <summary>
-        /// Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        /// </summary>
-        [Input("gcs")]
-        public Input<Inputs.LogsArchiveGcsArgs>? Gcs { get; set; }
 
         /// <summary>
         /// Definition of a GCS archive.
@@ -209,12 +179,6 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        /// </summary>
-        [Input("s3")]
-        public Input<Inputs.LogsArchiveS3Args>? S3 { get; set; }
-
-        /// <summary>
         /// Definition of an s3 archive.
         /// </summary>
         [Input("s3Archive")]
@@ -228,22 +192,10 @@ namespace Pulumi.Datadog
     public sealed class LogsArchiveState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Definition of an azure archive. **Deprecated.** Define `azure_archive` list with one element instead.
-        /// </summary>
-        [Input("azure")]
-        public Input<Inputs.LogsArchiveAzureGetArgs>? Azure { get; set; }
-
-        /// <summary>
         /// Definition of an azure archive.
         /// </summary>
         [Input("azureArchive")]
         public Input<Inputs.LogsArchiveAzureArchiveGetArgs>? AzureArchive { get; set; }
-
-        /// <summary>
-        /// Definition of a GCS archive. **Deprecated.** Define `gcs_archive` list with one element instead.
-        /// </summary>
-        [Input("gcs")]
-        public Input<Inputs.LogsArchiveGcsGetArgs>? Gcs { get; set; }
 
         /// <summary>
         /// Definition of a GCS archive.
@@ -280,12 +232,6 @@ namespace Pulumi.Datadog
             get => _rehydrationTags ?? (_rehydrationTags = new InputList<string>());
             set => _rehydrationTags = value;
         }
-
-        /// <summary>
-        /// Definition of an s3 archive. **Deprecated.** Define `s3_archive` list with one element instead.
-        /// </summary>
-        [Input("s3")]
-        public Input<Inputs.LogsArchiveS3GetArgs>? S3 { get; set; }
 
         /// <summary>
         /// Definition of an s3 archive.

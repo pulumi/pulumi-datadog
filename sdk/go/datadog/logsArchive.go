@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -51,16 +51,8 @@ import (
 type LogsArchive struct {
 	pulumi.CustomResourceState
 
-	// Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-	//
-	// Deprecated: Define `azure_archive` list with one element instead.
-	Azure LogsArchiveAzurePtrOutput `pulumi:"azure"`
 	// Definition of an azure archive.
 	AzureArchive LogsArchiveAzureArchivePtrOutput `pulumi:"azureArchive"`
-	// Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-	//
-	// Deprecated: Define `gcs_archive` list with one element instead.
-	Gcs LogsArchiveGcsPtrOutput `pulumi:"gcs"`
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrOutput `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
@@ -71,10 +63,6 @@ type LogsArchive struct {
 	Query pulumi.StringOutput `pulumi:"query"`
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayOutput `pulumi:"rehydrationTags"`
-	// Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-	//
-	// Deprecated: Define `s3_archive` list with one element instead.
-	S3 LogsArchiveS3PtrOutput `pulumi:"s3"`
 	// Definition of an s3 archive.
 	S3Archive LogsArchiveS3ArchivePtrOutput `pulumi:"s3Archive"`
 }
@@ -114,16 +102,8 @@ func GetLogsArchive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsArchive resources.
 type logsArchiveState struct {
-	// Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-	//
-	// Deprecated: Define `azure_archive` list with one element instead.
-	Azure *LogsArchiveAzure `pulumi:"azure"`
 	// Definition of an azure archive.
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
-	// Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-	//
-	// Deprecated: Define `gcs_archive` list with one element instead.
-	Gcs *LogsArchiveGcs `pulumi:"gcs"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
@@ -134,25 +114,13 @@ type logsArchiveState struct {
 	Query *string `pulumi:"query"`
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags []string `pulumi:"rehydrationTags"`
-	// Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-	//
-	// Deprecated: Define `s3_archive` list with one element instead.
-	S3 *LogsArchiveS3 `pulumi:"s3"`
 	// Definition of an s3 archive.
 	S3Archive *LogsArchiveS3Archive `pulumi:"s3Archive"`
 }
 
 type LogsArchiveState struct {
-	// Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-	//
-	// Deprecated: Define `azure_archive` list with one element instead.
-	Azure LogsArchiveAzurePtrInput
 	// Definition of an azure archive.
 	AzureArchive LogsArchiveAzureArchivePtrInput
-	// Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-	//
-	// Deprecated: Define `gcs_archive` list with one element instead.
-	Gcs LogsArchiveGcsPtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
@@ -163,10 +131,6 @@ type LogsArchiveState struct {
 	Query pulumi.StringPtrInput
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
-	// Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-	//
-	// Deprecated: Define `s3_archive` list with one element instead.
-	S3 LogsArchiveS3PtrInput
 	// Definition of an s3 archive.
 	S3Archive LogsArchiveS3ArchivePtrInput
 }
@@ -176,16 +140,8 @@ func (LogsArchiveState) ElementType() reflect.Type {
 }
 
 type logsArchiveArgs struct {
-	// Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-	//
-	// Deprecated: Define `azure_archive` list with one element instead.
-	Azure *LogsArchiveAzure `pulumi:"azure"`
 	// Definition of an azure archive.
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
-	// Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-	//
-	// Deprecated: Define `gcs_archive` list with one element instead.
-	Gcs *LogsArchiveGcs `pulumi:"gcs"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
@@ -196,26 +152,14 @@ type logsArchiveArgs struct {
 	Query string `pulumi:"query"`
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags []string `pulumi:"rehydrationTags"`
-	// Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-	//
-	// Deprecated: Define `s3_archive` list with one element instead.
-	S3 *LogsArchiveS3 `pulumi:"s3"`
 	// Definition of an s3 archive.
 	S3Archive *LogsArchiveS3Archive `pulumi:"s3Archive"`
 }
 
 // The set of arguments for constructing a LogsArchive resource.
 type LogsArchiveArgs struct {
-	// Definition of an azure archive. **Deprecated.** Define `azureArchive` list with one element instead.
-	//
-	// Deprecated: Define `azure_archive` list with one element instead.
-	Azure LogsArchiveAzurePtrInput
 	// Definition of an azure archive.
 	AzureArchive LogsArchiveAzureArchivePtrInput
-	// Definition of a GCS archive. **Deprecated.** Define `gcsArchive` list with one element instead.
-	//
-	// Deprecated: Define `gcs_archive` list with one element instead.
-	Gcs LogsArchiveGcsPtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
 	// To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive.
@@ -226,10 +170,6 @@ type LogsArchiveArgs struct {
 	Query pulumi.StringInput
 	// An array of tags to add to rehydrated logs from an archive.
 	RehydrationTags pulumi.StringArrayInput
-	// Definition of an s3 archive. **Deprecated.** Define `s3Archive` list with one element instead.
-	//
-	// Deprecated: Define `s3_archive` list with one element instead.
-	S3 LogsArchiveS3PtrInput
 	// Definition of an s3 archive.
 	S3Archive LogsArchiveS3ArchivePtrInput
 }

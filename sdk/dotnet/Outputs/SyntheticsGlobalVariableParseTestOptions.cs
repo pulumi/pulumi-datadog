@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? Field;
         public readonly Outputs.SyntheticsGlobalVariableParseTestOptionsParser Parser;
         /// <summary>
-        /// Defines the source to use to extract the value. Allowed enum values: `http_body`, `http_header`.
+        /// Defines the source to use to extract the value. Valid values are `http_body`, `http_header`.
         /// </summary>
         public readonly string Type;
 

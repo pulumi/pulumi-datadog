@@ -15,7 +15,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -75,9 +75,9 @@ type LookupMonitorResult struct {
 	// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
 	MonitorTagsFilters []string `pulumi:"monitorTagsFilters"`
 	// Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors.
-	MonitorThresholdWindows GetMonitorMonitorThresholdWindows `pulumi:"monitorThresholdWindows"`
+	MonitorThresholdWindows []GetMonitorMonitorThresholdWindow `pulumi:"monitorThresholdWindows"`
 	// Alert thresholds of the monitor.
-	MonitorThresholds GetMonitorMonitorThresholds `pulumi:"monitorThresholds"`
+	MonitorThresholds []GetMonitorMonitorThreshold `pulumi:"monitorThresholds"`
 	// Name of the monitor
 	Name string `pulumi:"name"`
 	// A monitor name to limit the search.
@@ -100,14 +100,6 @@ type LookupMonitorResult struct {
 	Tags []string `pulumi:"tags"`
 	// A list of tags to limit the search. This filters on the monitor scope.
 	TagsFilters []string `pulumi:"tagsFilters"`
-	// Mapping containing `recoveryWindow` and `triggerWindow` values, e.g. `last15m`. This is only used by anomaly monitors. **Deprecated.** Define `monitorThresholdWindows` list with one element instead.
-	//
-	// Deprecated: Define `monitor_threshold_windows` list with one element instead.
-	ThresholdWindows GetMonitorThresholdWindows `pulumi:"thresholdWindows"`
-	// Alert thresholds of the monitor. **Deprecated.** Define `monitorThresholds` list with one element instead.
-	//
-	// Deprecated: Define `monitor_thresholds` list with one element instead.
-	Thresholds GetMonitorThresholds `pulumi:"thresholds"`
 	// Number of hours of the monitor not reporting data before it automatically resolves from a triggered state.
 	TimeoutH int `pulumi:"timeoutH"`
 	// Type of the monitor.

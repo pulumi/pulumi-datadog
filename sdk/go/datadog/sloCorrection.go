@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for interacting with the sloCorrection API
+// Resource for interacting with the sloCorrection API.
 //
 // ## Example Usage
 //
@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -71,15 +71,15 @@ import (
 type SloCorrection struct {
 	pulumi.CustomResourceState
 
-	// Category the SLO correction belongs to
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category pulumi.StringOutput `pulumi:"category"`
 	// Description of the correction being made.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Ending time of the correction in epoch seconds
+	// Ending time of the correction in epoch seconds.
 	End pulumi.IntOutput `pulumi:"end"`
-	// ID of the SLO that this correction will be applied to
+	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringOutput `pulumi:"sloId"`
-	// Starting time of the correction in epoch seconds
+	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntOutput `pulumi:"start"`
 	// The timezone to display in the UI for the correction times (defaults to "UTC")
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
@@ -126,30 +126,30 @@ func GetSloCorrection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SloCorrection resources.
 type sloCorrectionState struct {
-	// Category the SLO correction belongs to
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category *string `pulumi:"category"`
 	// Description of the correction being made.
 	Description *string `pulumi:"description"`
-	// Ending time of the correction in epoch seconds
+	// Ending time of the correction in epoch seconds.
 	End *int `pulumi:"end"`
-	// ID of the SLO that this correction will be applied to
+	// ID of the SLO that this correction will be applied to.
 	SloId *string `pulumi:"sloId"`
-	// Starting time of the correction in epoch seconds
+	// Starting time of the correction in epoch seconds.
 	Start *int `pulumi:"start"`
 	// The timezone to display in the UI for the correction times (defaults to "UTC")
 	Timezone *string `pulumi:"timezone"`
 }
 
 type SloCorrectionState struct {
-	// Category the SLO correction belongs to
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category pulumi.StringPtrInput
 	// Description of the correction being made.
 	Description pulumi.StringPtrInput
-	// Ending time of the correction in epoch seconds
+	// Ending time of the correction in epoch seconds.
 	End pulumi.IntPtrInput
-	// ID of the SLO that this correction will be applied to
+	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringPtrInput
-	// Starting time of the correction in epoch seconds
+	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntPtrInput
 	// The timezone to display in the UI for the correction times (defaults to "UTC")
 	Timezone pulumi.StringPtrInput
@@ -160,15 +160,15 @@ func (SloCorrectionState) ElementType() reflect.Type {
 }
 
 type sloCorrectionArgs struct {
-	// Category the SLO correction belongs to
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category string `pulumi:"category"`
 	// Description of the correction being made.
 	Description *string `pulumi:"description"`
-	// Ending time of the correction in epoch seconds
+	// Ending time of the correction in epoch seconds.
 	End int `pulumi:"end"`
-	// ID of the SLO that this correction will be applied to
+	// ID of the SLO that this correction will be applied to.
 	SloId string `pulumi:"sloId"`
-	// Starting time of the correction in epoch seconds
+	// Starting time of the correction in epoch seconds.
 	Start int `pulumi:"start"`
 	// The timezone to display in the UI for the correction times (defaults to "UTC")
 	Timezone *string `pulumi:"timezone"`
@@ -176,15 +176,15 @@ type sloCorrectionArgs struct {
 
 // The set of arguments for constructing a SloCorrection resource.
 type SloCorrectionArgs struct {
-	// Category the SLO correction belongs to
+	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category pulumi.StringInput
 	// Description of the correction being made.
 	Description pulumi.StringPtrInput
-	// Ending time of the correction in epoch seconds
+	// Ending time of the correction in epoch seconds.
 	End pulumi.IntInput
-	// ID of the SLO that this correction will be applied to
+	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringInput
-	// Starting time of the correction in epoch seconds
+	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntInput
 	// The timezone to display in the UI for the correction times (defaults to "UTC")
 	Timezone pulumi.StringPtrInput

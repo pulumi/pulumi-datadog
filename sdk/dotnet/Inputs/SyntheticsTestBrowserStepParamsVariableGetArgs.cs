@@ -12,14 +12,11 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestBrowserStepParamsVariableGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Example for the variable.
-        /// </summary>
         [Input("example")]
         public Input<string>? Example { get; set; }
 
         /// <summary>
-        /// Name of the variable.
+        /// Name of Datadog synthetics test.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

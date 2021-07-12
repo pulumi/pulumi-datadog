@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -54,6 +54,8 @@ type Downtime struct {
 
 	// When true indicates this downtime is being actively applied
 	Active pulumi.BoolOutput `pulumi:"active"`
+	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+	ActiveChildId pulumi.IntOutput `pulumi:"activeChildId"`
 	// When true indicates this downtime is not being applied
 	Disabled pulumi.BoolOutput `pulumi:"disabled"`
 	// Optionally specify an end date when this downtime should expire
@@ -112,6 +114,8 @@ func GetDowntime(ctx *pulumi.Context,
 type downtimeState struct {
 	// When true indicates this downtime is being actively applied
 	Active *bool `pulumi:"active"`
+	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+	ActiveChildId *int `pulumi:"activeChildId"`
 	// When true indicates this downtime is not being applied
 	Disabled *bool `pulumi:"disabled"`
 	// Optionally specify an end date when this downtime should expire
@@ -139,6 +143,8 @@ type downtimeState struct {
 type DowntimeState struct {
 	// When true indicates this downtime is being actively applied
 	Active pulumi.BoolPtrInput
+	// The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+	ActiveChildId pulumi.IntPtrInput
 	// When true indicates this downtime is not being applied
 	Disabled pulumi.BoolPtrInput
 	// Optionally specify an end date when this downtime should expire

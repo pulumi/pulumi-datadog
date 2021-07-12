@@ -21,7 +21,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -520,8 +520,8 @@ import (
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(43),
 // 						Width:  pulumi.Int(32),
-// 						X:      pulumi.Int(5),
-// 						Y:      pulumi.Int(5),
+// 						X:      pulumi.Int(0),
+// 						Y:      pulumi.Int(0),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -534,23 +534,23 @@ import (
 // 					},
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(9),
-// 						Width:  pulumi.Int(65),
-// 						X:      pulumi.Int(42),
-// 						Y:      pulumi.Int(73),
+// 						Width:  pulumi.Int(66),
+// 						X:      pulumi.Int(33),
+// 						Y:      pulumi.Int(60),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					FreeTextDefinition: &datadog.DashboardWidgetFreeTextDefinitionArgs{
 // 						Color:     pulumi.String("#d00"),
-// 						FontSize:  pulumi.String("88"),
+// 						FontSize:  pulumi.String("36"),
 // 						Text:      pulumi.String("free text content"),
 // 						TextAlign: pulumi.String("left"),
 // 					},
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(20),
-// 						Width:  pulumi.Int(30),
-// 						X:      pulumi.Int(42),
-// 						Y:      pulumi.Int(5),
+// 						Width:  pulumi.Int(34),
+// 						X:      pulumi.Int(33),
+// 						Y:      pulumi.Int(0),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -560,8 +560,8 @@ import (
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(46),
 // 						Width:  pulumi.Int(39),
-// 						X:      pulumi.Int(111),
-// 						Y:      pulumi.Int(8),
+// 						X:      pulumi.Int(101),
+// 						Y:      pulumi.Int(0),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -573,8 +573,8 @@ import (
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(20),
 // 						Width:  pulumi.Int(30),
-// 						X:      pulumi.Int(77),
-// 						Y:      pulumi.Int(7),
+// 						X:      pulumi.Int(69),
+// 						Y:      pulumi.Int(0),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -599,8 +599,8 @@ import (
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(36),
 // 						Width:  pulumi.Int(32),
-// 						X:      pulumi.Int(5),
-// 						Y:      pulumi.Int(51),
+// 						X:      pulumi.Int(0),
+// 						Y:      pulumi.Int(45),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -619,8 +619,8 @@ import (
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(40),
 // 						Width:  pulumi.Int(30),
-// 						X:      pulumi.Int(112),
-// 						Y:      pulumi.Int(55),
+// 						X:      pulumi.Int(101),
+// 						Y:      pulumi.Int(48),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -643,9 +643,9 @@ import (
 // 					},
 // 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(38),
-// 						Width:  pulumi.Int(67),
-// 						X:      pulumi.Int(40),
-// 						Y:      pulumi.Int(28),
+// 						Width:  pulumi.Int(66),
+// 						X:      pulumi.Int(33),
+// 						Y:      pulumi.Int(21),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -686,6 +686,12 @@ import (
 // 							},
 // 						},
 // 					},
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(16),
+// 						Width:  pulumi.Int(25),
+// 						X:      pulumi.Int(58),
+// 						Y:      pulumi.Int(83),
+// 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
 // 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
@@ -713,11 +719,18 @@ import (
 // 											"indexes": pulumi.StringArray{
 // 												pulumi.String("days-3"),
 // 											},
+// 											"name": pulumi.String("my-query"),
 // 										},
 // 									},
 // 								},
 // 							},
 // 						},
+// 					},
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(16),
+// 						Width:  pulumi.Int(28),
+// 						X:      pulumi.Int(29),
+// 						Y:      pulumi.Int(83),
 // 					},
 // 				},
 // 				&datadog.DashboardWidgetArgs{
@@ -743,6 +756,12 @@ import (
 // 								},
 // 							},
 // 						},
+// 					},
+// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 						Height: pulumi.Int(16),
+// 						Width:  pulumi.Int(28),
+// 						X:      pulumi.Int(0),
+// 						Y:      pulumi.Int(83),
 // 					},
 // 				},
 // 			},
@@ -771,12 +790,14 @@ type Dashboard struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether this dashboard is read-only.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
-	// The layout type of the dashboard, either 'free' or 'ordered'.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
+	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayOutput `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -835,12 +856,14 @@ type dashboardState struct {
 	Description *string `pulumi:"description"`
 	// Whether this dashboard is read-only.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the dashboard, either 'free' or 'ordered'.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType *string `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
+	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -862,12 +885,14 @@ type DashboardState struct {
 	Description pulumi.StringPtrInput
 	// Whether this dashboard is read-only.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the dashboard, either 'free' or 'ordered'.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringPtrInput
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
-	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput
+	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	RestrictedRoles pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.
@@ -891,12 +916,14 @@ type dashboardArgs struct {
 	Description *string `pulumi:"description"`
 	// Whether this dashboard is read-only.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
-	// The layout type of the dashboard, either 'free' or 'ordered'.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType string `pulumi:"layoutType"`
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
-	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
+	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
 	// The list of template variables for this dashboard.
@@ -917,12 +944,14 @@ type DashboardArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether this dashboard is read-only.
 	IsReadOnly pulumi.BoolPtrInput
-	// The layout type of the dashboard, either 'free' or 'ordered'.
+	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringInput
 	// The list of handles of users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
-	// The reflow type of a new dashboard layout. Set this only when layout type is ‘ordered’. If set to ‘fixed’, the dashboard expect all widgets to have a layout, and if it’s set to ‘auto’, widgets should not have layouts.
+	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput
+	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	RestrictedRoles pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
 	// The list of template variables for this dashboard.

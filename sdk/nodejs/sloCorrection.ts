@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Resource for interacting with the sloCorrection API
+ * Resource for interacting with the sloCorrection API.
  *
  * ## Example Usage
  *
@@ -73,7 +73,7 @@ export class SloCorrection extends pulumi.CustomResource {
     }
 
     /**
-     * Category the SLO correction belongs to
+     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      */
     public readonly category!: pulumi.Output<string>;
     /**
@@ -81,15 +81,15 @@ export class SloCorrection extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Ending time of the correction in epoch seconds
+     * Ending time of the correction in epoch seconds.
      */
     public readonly end!: pulumi.Output<number>;
     /**
-     * ID of the SLO that this correction will be applied to
+     * ID of the SLO that this correction will be applied to.
      */
     public readonly sloId!: pulumi.Output<string>;
     /**
-     * Starting time of the correction in epoch seconds
+     * Starting time of the correction in epoch seconds.
      */
     public readonly start!: pulumi.Output<number>;
     /**
@@ -149,7 +149,7 @@ export class SloCorrection extends pulumi.CustomResource {
  */
 export interface SloCorrectionState {
     /**
-     * Category the SLO correction belongs to
+     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      */
     category?: pulumi.Input<string>;
     /**
@@ -157,15 +157,15 @@ export interface SloCorrectionState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Ending time of the correction in epoch seconds
+     * Ending time of the correction in epoch seconds.
      */
     end?: pulumi.Input<number>;
     /**
-     * ID of the SLO that this correction will be applied to
+     * ID of the SLO that this correction will be applied to.
      */
     sloId?: pulumi.Input<string>;
     /**
-     * Starting time of the correction in epoch seconds
+     * Starting time of the correction in epoch seconds.
      */
     start?: pulumi.Input<number>;
     /**
@@ -179,7 +179,7 @@ export interface SloCorrectionState {
  */
 export interface SloCorrectionArgs {
     /**
-     * Category the SLO correction belongs to
+     * Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
      */
     category: pulumi.Input<string>;
     /**
@@ -187,15 +187,15 @@ export interface SloCorrectionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Ending time of the correction in epoch seconds
+     * Ending time of the correction in epoch seconds.
      */
     end: pulumi.Input<number>;
     /**
-     * ID of the SLO that this correction will be applied to
+     * ID of the SLO that this correction will be applied to.
      */
     sloId: pulumi.Input<string>;
     /**
-     * Starting time of the correction in epoch seconds
+     * Starting time of the correction in epoch seconds.
      */
     start: pulumi.Input<number>;
     /**

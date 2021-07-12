@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-datadog/examples/v3
+module github.com/pulumi/pulumi-datadog/examples/v4
 
 go 1.16
 

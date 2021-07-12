@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Example { get; set; }
 
         /// <summary>
+        /// When type = `global`, ID of the global variable to use.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Name of the variable.
         /// </summary>
         [Input("name", required: true)]
@@ -31,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Type of test configuration variable. Allowed enum values: `text`.
+        /// Type of test configuration variable. Valid values are `global`, `text`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

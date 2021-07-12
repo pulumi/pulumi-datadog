@@ -24,6 +24,7 @@ namespace Pulumi.Datadog
     ///     {
     ///         var sampleIndex = new Datadog.LogsIndex("sampleIndex", new Datadog.LogsIndexArgs
     ///         {
+    ///             DailyLimit = 200000,
     ///             ExclusionFilters = 
     ///             {
     ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
@@ -61,6 +62,7 @@ namespace Pulumi.Datadog
     ///                 },
     ///             },
     ///             Name = "your index",
+    ///             RetentionDays = 7,
     ///         });
     ///     }
     /// 
@@ -76,6 +78,12 @@ namespace Pulumi.Datadog
     [DatadogResourceType("datadog:index/logsIndex:LogsIndex")]
     public partial class LogsIndex : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The number of log events you can send in this index per day before you are rate-limited.
+        /// </summary>
+        [Output("dailyLimit")]
+        public Output<int?> DailyLimit { get; private set; } = null!;
+
         /// <summary>
         /// List of exclusion filters.
         /// </summary>
@@ -93,6 +101,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of days before logs are deleted from this index.
+        /// </summary>
+        [Output("retentionDays")]
+        public Output<int> RetentionDays { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,6 +154,12 @@ namespace Pulumi.Datadog
 
     public sealed class LogsIndexArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of log events you can send in this index per day before you are rate-limited.
+        /// </summary>
+        [Input("dailyLimit")]
+        public Input<int>? DailyLimit { get; set; }
+
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterArgs>? _exclusionFilters;
 
@@ -170,6 +190,12 @@ namespace Pulumi.Datadog
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The number of days before logs are deleted from this index.
+        /// </summary>
+        [Input("retentionDays")]
+        public Input<int>? RetentionDays { get; set; }
+
         public LogsIndexArgs()
         {
         }
@@ -177,6 +203,12 @@ namespace Pulumi.Datadog
 
     public sealed class LogsIndexState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of log events you can send in this index per day before you are rate-limited.
+        /// </summary>
+        [Input("dailyLimit")]
+        public Input<int>? DailyLimit { get; set; }
+
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterGetArgs>? _exclusionFilters;
 
@@ -206,6 +238,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The number of days before logs are deleted from this index.
+        /// </summary>
+        [Input("retentionDays")]
+        public Input<int>? RetentionDays { get; set; }
 
         public LogsIndexState()
         {

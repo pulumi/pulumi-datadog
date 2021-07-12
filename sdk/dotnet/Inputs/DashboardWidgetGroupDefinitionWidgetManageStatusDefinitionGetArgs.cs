@@ -15,9 +15,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("colorPreference")]
         public Input<string>? ColorPreference { get; set; }
 
-        [Input("count")]
-        public Input<int>? Count { get; set; }
-
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
 
@@ -32,9 +29,6 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("sort")]
         public Input<string>? Sort { get; set; }
-
-        [Input("start")]
-        public Input<int>? Start { get; set; }
 
         [Input("summaryType")]
         public Input<string>? SummaryType { get; set; }

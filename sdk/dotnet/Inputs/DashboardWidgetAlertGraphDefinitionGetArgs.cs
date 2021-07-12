@@ -18,9 +18,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetAlertGraphDefinitionTimeGetArgs>? Time { get; set; }
-
         /// <summary>
         /// The title of the dashboard.
         /// </summary>

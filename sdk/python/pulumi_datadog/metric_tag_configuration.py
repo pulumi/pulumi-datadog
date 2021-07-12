@@ -20,7 +20,7 @@ class MetricTagConfigurationArgs:
         """
         The set of arguments for constructing a MetricTagConfiguration resource.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
-        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tag keys that will be queryable for your metric.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.
         """
@@ -46,7 +46,7 @@ class MetricTagConfigurationArgs:
     @pulumi.getter(name="metricType")
     def metric_type(self) -> pulumi.Input[str]:
         """
-        The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         """
         return pulumi.get(self, "metric_type")
 
@@ -90,7 +90,7 @@ class _MetricTagConfigurationState:
         Input properties used for looking up and filtering MetricTagConfiguration resources.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
-        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tag keys that will be queryable for your metric.
         """
         if include_percentiles is not None:
@@ -130,7 +130,7 @@ class _MetricTagConfigurationState:
     @pulumi.getter(name="metricType")
     def metric_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         """
         return pulumi.get(self, "metric_type")
 
@@ -193,7 +193,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
-        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tag keys that will be queryable for your metric.
         """
         ...
@@ -294,7 +294,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.
         :param pulumi.Input[str] metric_name: The metric name for this resource.
-        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        :param pulumi.Input[str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tag keys that will be queryable for your metric.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -327,7 +327,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="metricType")
     def metric_type(self) -> pulumi.Output[str]:
         """
-        The metric's type. This field can't be updated after creation. Allowed enum values: gauge,count,distribution.
+        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
         """
         return pulumi.get(self, "metric_type")
 

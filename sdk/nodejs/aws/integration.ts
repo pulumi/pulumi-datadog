@@ -70,9 +70,13 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /**
+     * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+     */
+    public readonly accessKeyId!: pulumi.Output<string | undefined>;
+    /**
      * Your AWS Account ID without dashes.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    public readonly accountId!: pulumi.Output<string | undefined>;
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
@@ -97,7 +101,11 @@ export class Integration extends pulumi.CustomResource {
     /**
      * Your Datadog role delegation name.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    public readonly roleName!: pulumi.Output<string | undefined>;
+    /**
+     * Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+     */
+    public readonly secretAccessKey!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Integration resource with the given unique name, arguments, and options.
@@ -106,12 +114,13 @@ export class Integration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
+            inputs["accessKeyId"] = state ? state.accessKeyId : undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
             inputs["excludedRegions"] = state ? state.excludedRegions : undefined;
@@ -119,20 +128,17 @@ export class Integration extends pulumi.CustomResource {
             inputs["filterTags"] = state ? state.filterTags : undefined;
             inputs["hostTags"] = state ? state.hostTags : undefined;
             inputs["roleName"] = state ? state.roleName : undefined;
+            inputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accountId'");
-            }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleName'");
-            }
+            inputs["accessKeyId"] = args ? args.accessKeyId : undefined;
             inputs["accountId"] = args ? args.accountId : undefined;
             inputs["accountSpecificNamespaceRules"] = args ? args.accountSpecificNamespaceRules : undefined;
             inputs["excludedRegions"] = args ? args.excludedRegions : undefined;
             inputs["filterTags"] = args ? args.filterTags : undefined;
             inputs["hostTags"] = args ? args.hostTags : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
+            inputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
             inputs["externalId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -146,6 +152,10 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
+    /**
+     * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+     */
+    accessKeyId?: pulumi.Input<string>;
     /**
      * Your AWS Account ID without dashes.
      */
@@ -175,6 +185,10 @@ export interface IntegrationState {
      * Your Datadog role delegation name.
      */
     roleName?: pulumi.Input<string>;
+    /**
+     * Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+     */
+    secretAccessKey?: pulumi.Input<string>;
 }
 
 /**
@@ -182,9 +196,13 @@ export interface IntegrationState {
  */
 export interface IntegrationArgs {
     /**
+     * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+     */
+    accessKeyId?: pulumi.Input<string>;
+    /**
      * Your AWS Account ID without dashes.
      */
-    accountId: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
      */
@@ -204,5 +222,9 @@ export interface IntegrationArgs {
     /**
      * Your Datadog role delegation name.
      */
-    roleName: pulumi.Input<string>;
+    roleName?: pulumi.Input<string>;
+    /**
+     * Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+     */
+    secretAccessKey?: pulumi.Input<string>;
 }

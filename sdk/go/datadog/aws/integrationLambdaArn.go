@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog/aws"
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/aws"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

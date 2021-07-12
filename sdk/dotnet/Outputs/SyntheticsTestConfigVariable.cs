@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Example;
         /// <summary>
+        /// When type = `global`, ID of the global variable to use.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Name of the variable.
         /// </summary>
         public readonly string Name;
@@ -26,13 +30,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Pattern;
         /// <summary>
-        /// Type of test configuration variable. Allowed enum values: `text`.
+        /// Type of test configuration variable. Valid values are `global`, `text`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private SyntheticsTestConfigVariable(
             string? example,
+
+            string? id,
 
             string name,
 
@@ -41,6 +47,7 @@ namespace Pulumi.Datadog.Outputs
             string type)
         {
             Example = example;
+            Id = id;
             Name = name;
             Pattern = pattern;
             Type = type;

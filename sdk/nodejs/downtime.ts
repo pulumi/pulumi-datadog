@@ -66,6 +66,10 @@ export class Downtime extends pulumi.CustomResource {
      */
     public /*out*/ readonly active!: pulumi.Output<boolean>;
     /**
+     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+     */
+    public /*out*/ readonly activeChildId!: pulumi.Output<number>;
+    /**
      * When true indicates this downtime is not being applied
      */
     public /*out*/ readonly disabled!: pulumi.Output<boolean>;
@@ -124,6 +128,7 @@ export class Downtime extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DowntimeState | undefined;
             inputs["active"] = state ? state.active : undefined;
+            inputs["activeChildId"] = state ? state.activeChildId : undefined;
             inputs["disabled"] = state ? state.disabled : undefined;
             inputs["end"] = state ? state.end : undefined;
             inputs["endDate"] = state ? state.endDate : undefined;
@@ -151,6 +156,7 @@ export class Downtime extends pulumi.CustomResource {
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
             inputs["active"] = undefined /*out*/;
+            inputs["activeChildId"] = undefined /*out*/;
             inputs["disabled"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -168,6 +174,10 @@ export interface DowntimeState {
      * When true indicates this downtime is being actively applied
      */
     active?: pulumi.Input<boolean>;
+    /**
+     * The id corresponding to the downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+     */
+    activeChildId?: pulumi.Input<number>;
     /**
      * When true indicates this downtime is not being applied
      */

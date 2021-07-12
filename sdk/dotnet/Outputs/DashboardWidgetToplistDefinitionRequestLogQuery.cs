@@ -13,18 +13,14 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetToplistDefinitionRequestLogQuery
     {
-        public readonly Outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute? Compute;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery? ComputeQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy> GroupBies;
         public readonly string Index;
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute> MultiComputes;
-        public readonly Outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch? Search;
         public readonly string? SearchQuery;
 
         [OutputConstructor]
         private DashboardWidgetToplistDefinitionRequestLogQuery(
-            Outputs.DashboardWidgetToplistDefinitionRequestLogQueryCompute? compute,
-
             Outputs.DashboardWidgetToplistDefinitionRequestLogQueryComputeQuery? computeQuery,
 
             ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestLogQueryGroupBy> groupBies,
@@ -33,16 +29,12 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestLogQueryMultiCompute> multiComputes,
 
-            Outputs.DashboardWidgetToplistDefinitionRequestLogQuerySearch? search,
-
             string? searchQuery)
         {
-            Compute = compute;
             ComputeQuery = computeQuery;
             GroupBies = groupBies;
             Index = index;
             MultiComputes = multiComputes;
-            Search = search;
             SearchQuery = searchQuery;
         }
     }

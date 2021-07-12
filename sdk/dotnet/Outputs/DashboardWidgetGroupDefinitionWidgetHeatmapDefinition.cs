@@ -19,7 +19,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionRequest> Requests;
         public readonly bool? ShowLegend;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -42,8 +41,6 @@ namespace Pulumi.Datadog.Outputs
 
             bool? showLegend,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -58,7 +55,6 @@ namespace Pulumi.Datadog.Outputs
             LiveSpan = liveSpan;
             Requests = requests;
             ShowLegend = showLegend;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

@@ -25,7 +25,6 @@ namespace Pulumi.Datadog.PagerDuty
     ///         var pd = new Datadog.PagerDuty.Integration("pd", new Datadog.PagerDuty.IntegrationArgs
     ///         {
     ///             ApiToken = "38457822378273432587234242874",
-    ///             IndividualServices = true,
     ///             Schedules = 
     ///             {
     ///                 "https://ddog.pagerduty.com/schedules/X123VF",
@@ -70,24 +69,10 @@ namespace Pulumi.Datadog.PagerDuty
         public Output<string?> ApiToken { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by
-        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        /// resource are to be used. Mutually exclusive with `services` key.
-        /// </summary>
-        [Output("individualServices")]
-        public Output<bool?> IndividualServices { get; private set; } = null!;
-
-        /// <summary>
         /// Array of your schedule URLs.
         /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<string>> Schedules { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
-        /// </summary>
-        [Output("services")]
-        public Output<ImmutableArray<Outputs.IntegrationService>> Services { get; private set; } = null!;
 
         /// <summary>
         /// Your PagerDuty account’s personalized subdomain name.
@@ -147,14 +132,6 @@ namespace Pulumi.Datadog.PagerDuty
         [Input("apiToken")]
         public Input<string>? ApiToken { get; set; }
 
-        /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by
-        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        /// resource are to be used. Mutually exclusive with `services` key.
-        /// </summary>
-        [Input("individualServices")]
-        public Input<bool>? IndividualServices { get; set; }
-
         [Input("schedules")]
         private InputList<string>? _schedules;
 
@@ -165,19 +142,6 @@ namespace Pulumi.Datadog.PagerDuty
         {
             get => _schedules ?? (_schedules = new InputList<string>());
             set => _schedules = value;
-        }
-
-        [Input("services")]
-        private InputList<Inputs.IntegrationServiceArgs>? _services;
-
-        /// <summary>
-        /// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
-        /// </summary>
-        [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
-        public InputList<Inputs.IntegrationServiceArgs> Services
-        {
-            get => _services ?? (_services = new InputList<Inputs.IntegrationServiceArgs>());
-            set => _services = value;
         }
 
         /// <summary>
@@ -199,14 +163,6 @@ namespace Pulumi.Datadog.PagerDuty
         [Input("apiToken")]
         public Input<string>? ApiToken { get; set; }
 
-        /// <summary>
-        /// Boolean to specify whether or not individual service objects specified by
-        /// [datadog_integration_pagerduty_service_object](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/integration_pagerduty_service_object)
-        /// resource are to be used. Mutually exclusive with `services` key.
-        /// </summary>
-        [Input("individualServices")]
-        public Input<bool>? IndividualServices { get; set; }
-
         [Input("schedules")]
         private InputList<string>? _schedules;
 
@@ -217,19 +173,6 @@ namespace Pulumi.Datadog.PagerDuty
         {
             get => _schedules ?? (_schedules = new InputList<string>());
             set => _schedules = value;
-        }
-
-        [Input("services")]
-        private InputList<Inputs.IntegrationServiceGetArgs>? _services;
-
-        /// <summary>
-        /// A list of service names and service keys. **Deprecated.** set "individual*services" to true and use datadog*pagerduty*integration*service_object
-        /// </summary>
-        [Obsolete(@"set ""individual_services"" to true and use datadog_pagerduty_integration_service_object")]
-        public InputList<Inputs.IntegrationServiceGetArgs> Services
-        {
-            get => _services ?? (_services = new InputList<Inputs.IntegrationServiceGetArgs>());
-            set => _services = value;
         }
 
         /// <summary>

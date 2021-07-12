@@ -528,6 +528,18 @@ namespace Pulumi.Datadog
         public Output<string> Dashboard { get; private set; } = null!;
 
         /// <summary>
+        /// The list of dashboard lists this dashboard belongs to.
+        /// </summary>
+        [Output("dashboardLists")]
+        public Output<ImmutableArray<int>> DashboardLists { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of dashboard lists this dashboard should be removed from. Internal only.
+        /// </summary>
+        [Output("dashboardListsRemoveds")]
+        public Output<ImmutableArray<int>> DashboardListsRemoveds { get; private set; } = null!;
+
+        /// <summary>
         /// The URL of the dashboard.
         /// </summary>
         [Output("url")]
@@ -585,6 +597,18 @@ namespace Pulumi.Datadog
         [Input("dashboard", required: true)]
         public Input<string> Dashboard { get; set; } = null!;
 
+        [Input("dashboardLists")]
+        private InputList<int>? _dashboardLists;
+
+        /// <summary>
+        /// The list of dashboard lists this dashboard belongs to.
+        /// </summary>
+        public InputList<int> DashboardLists
+        {
+            get => _dashboardLists ?? (_dashboardLists = new InputList<int>());
+            set => _dashboardLists = value;
+        }
+
         /// <summary>
         /// The URL of the dashboard.
         /// </summary>
@@ -603,6 +627,30 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("dashboard")]
         public Input<string>? Dashboard { get; set; }
+
+        [Input("dashboardLists")]
+        private InputList<int>? _dashboardLists;
+
+        /// <summary>
+        /// The list of dashboard lists this dashboard belongs to.
+        /// </summary>
+        public InputList<int> DashboardLists
+        {
+            get => _dashboardLists ?? (_dashboardLists = new InputList<int>());
+            set => _dashboardLists = value;
+        }
+
+        [Input("dashboardListsRemoveds")]
+        private InputList<int>? _dashboardListsRemoveds;
+
+        /// <summary>
+        /// The list of dashboard lists this dashboard should be removed from. Internal only.
+        /// </summary>
+        public InputList<int> DashboardListsRemoveds
+        {
+            get => _dashboardListsRemoveds ?? (_dashboardListsRemoveds = new InputList<int>());
+            set => _dashboardListsRemoveds = value;
+        }
 
         /// <summary>
         /// The URL of the dashboard.

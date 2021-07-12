@@ -17,7 +17,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? HasSearchBar;
         public readonly string? LiveSpan;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> Requests;
-        public readonly Outputs.DashboardWidgetQueryTableDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -35,8 +34,6 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> requests,
 
-            Outputs.DashboardWidgetQueryTableDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -47,7 +44,6 @@ namespace Pulumi.Datadog.Outputs
             HasSearchBar = hasSearchBar;
             LiveSpan = liveSpan;
             Requests = requests;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

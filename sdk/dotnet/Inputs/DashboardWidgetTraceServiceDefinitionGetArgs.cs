@@ -48,9 +48,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("spanName", required: true)]
         public Input<string> SpanName { get; set; } = null!;
 
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetTraceServiceDefinitionTimeGetArgs>? Time { get; set; }
-
         /// <summary>
         /// The title of the dashboard.
         /// </summary>

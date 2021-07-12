@@ -45,9 +45,6 @@ namespace Pulumi.Datadog.Inputs
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }
 
-        [Input("time")]
-        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetHeatmapDefinitionTimeArgs>? Time { get; set; }
-
         /// <summary>
         /// The title of the dashboard.
         /// </summary>

@@ -23,7 +23,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest> Requests;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRightYaxis? RightYaxis;
         public readonly bool? ShowLegend;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -54,8 +53,6 @@ namespace Pulumi.Datadog.Outputs
 
             bool? showLegend,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -74,7 +71,6 @@ namespace Pulumi.Datadog.Outputs
             Requests = requests;
             RightYaxis = rightYaxis;
             ShowLegend = showLegend;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Type of browser test variable. Allowed enum values: `element`, `email`, `global`, `javascript`, `text`.
+        /// Type of browser test variable. Valid values are `element`, `email`, `global`, `javascript`, `text`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

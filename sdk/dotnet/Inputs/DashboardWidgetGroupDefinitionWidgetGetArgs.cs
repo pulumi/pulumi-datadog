@@ -97,12 +97,6 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetImageDefinitionGetArgs>? ImageDefinition { get; set; }
 
         /// <summary>
-        /// The layout of the widget on a 'free' dashboard. **Deprecated.** Define `widget_layout` list with one element instead.
-        /// </summary>
-        [Input("layout")]
-        public Input<Inputs.DashboardWidgetGroupDefinitionWidgetLayoutGetArgs>? Layout { get; set; }
-
-        /// <summary>
         /// The definition for an Log Stream widget.
         /// </summary>
         [Input("logStreamDefinition")]

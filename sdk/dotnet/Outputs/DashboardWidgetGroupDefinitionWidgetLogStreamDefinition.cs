@@ -16,13 +16,11 @@ namespace Pulumi.Datadog.Outputs
         public readonly ImmutableArray<string> Columns;
         public readonly ImmutableArray<string> Indexes;
         public readonly string? LiveSpan;
-        public readonly string? Logset;
         public readonly string? MessageDisplay;
         public readonly string? Query;
         public readonly bool? ShowDateColumn;
         public readonly bool? ShowMessageColumn;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort? Sort;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -38,8 +36,6 @@ namespace Pulumi.Datadog.Outputs
 
             string? liveSpan,
 
-            string? logset,
-
             string? messageDisplay,
 
             string? query,
@@ -50,8 +46,6 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionSort? sort,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetLogStreamDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -61,13 +55,11 @@ namespace Pulumi.Datadog.Outputs
             Columns = columns;
             Indexes = indexes;
             LiveSpan = liveSpan;
-            Logset = logset;
             MessageDisplay = messageDisplay;
             Query = query;
             ShowDateColumn = showDateColumn;
             ShowMessageColumn = showMessageColumn;
             Sort = sort;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

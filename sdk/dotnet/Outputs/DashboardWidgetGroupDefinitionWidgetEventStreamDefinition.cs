@@ -17,7 +17,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly string? LiveSpan;
         public readonly string Query;
         public readonly string? TagsExecution;
-        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -35,8 +34,6 @@ namespace Pulumi.Datadog.Outputs
 
             string? tagsExecution,
 
-            Outputs.DashboardWidgetGroupDefinitionWidgetEventStreamDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -47,7 +44,6 @@ namespace Pulumi.Datadog.Outputs
             LiveSpan = liveSpan;
             Query = query;
             TagsExecution = tagsExecution;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

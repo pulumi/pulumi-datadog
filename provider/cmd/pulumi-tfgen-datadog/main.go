@@ -15,8 +15,8 @@
 package main
 
 import (
-	datadog "github.com/pulumi/pulumi-datadog/provider/v3"
-	"github.com/pulumi/pulumi-datadog/provider/v3/pkg/version"
+	datadog "github.com/pulumi/pulumi-datadog/provider/v4"
+	"github.com/pulumi/pulumi-datadog/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 

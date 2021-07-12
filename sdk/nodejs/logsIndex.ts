@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const sampleIndex = new datadog.LogsIndex("sample_index", {
+ *     dailyLimit: 200000,
  *     exclusionFilters: [
  *         {
  *             filters: [{
@@ -37,6 +38,7 @@ import * as utilities from "./utilities";
  *         query: "*",
  *     }],
  *     name: "your index",
+ *     retentionDays: 7,
  * });
  * ```
  *
@@ -75,6 +77,10 @@ export class LogsIndex extends pulumi.CustomResource {
     }
 
     /**
+     * The number of log events you can send in this index per day before you are rate-limited.
+     */
+    public readonly dailyLimit!: pulumi.Output<number | undefined>;
+    /**
      * List of exclusion filters.
      */
     public readonly exclusionFilters!: pulumi.Output<outputs.LogsIndexExclusionFilter[] | undefined>;
@@ -86,6 +92,10 @@ export class LogsIndex extends pulumi.CustomResource {
      * The name of the index.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The number of days before logs are deleted from this index.
+     */
+    public readonly retentionDays!: pulumi.Output<number>;
 
     /**
      * Create a LogsIndex resource with the given unique name, arguments, and options.
@@ -100,9 +110,11 @@ export class LogsIndex extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsIndexState | undefined;
+            inputs["dailyLimit"] = state ? state.dailyLimit : undefined;
             inputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["retentionDays"] = state ? state.retentionDays : undefined;
         } else {
             const args = argsOrState as LogsIndexArgs | undefined;
             if ((!args || args.filters === undefined) && !opts.urn) {
@@ -111,9 +123,11 @@ export class LogsIndex extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["dailyLimit"] = args ? args.dailyLimit : undefined;
             inputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
             inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["retentionDays"] = args ? args.retentionDays : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -127,6 +141,10 @@ export class LogsIndex extends pulumi.CustomResource {
  */
 export interface LogsIndexState {
     /**
+     * The number of log events you can send in this index per day before you are rate-limited.
+     */
+    dailyLimit?: pulumi.Input<number>;
+    /**
      * List of exclusion filters.
      */
     exclusionFilters?: pulumi.Input<pulumi.Input<inputs.LogsIndexExclusionFilter>[]>;
@@ -138,12 +156,20 @@ export interface LogsIndexState {
      * The name of the index.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The number of days before logs are deleted from this index.
+     */
+    retentionDays?: pulumi.Input<number>;
 }
 
 /**
  * The set of arguments for constructing a LogsIndex resource.
  */
 export interface LogsIndexArgs {
+    /**
+     * The number of log events you can send in this index per day before you are rate-limited.
+     */
+    dailyLimit?: pulumi.Input<number>;
     /**
      * List of exclusion filters.
      */
@@ -156,4 +182,8 @@ export interface LogsIndexArgs {
      * The name of the index.
      */
     name: pulumi.Input<string>;
+    /**
+     * The number of days before logs are deleted from this index.
+     */
+    retentionDays?: pulumi.Input<number>;
 }

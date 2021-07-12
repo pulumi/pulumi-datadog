@@ -25,7 +25,6 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? ShowResourceList;
         public readonly string? SizeFormat;
         public readonly string SpanName;
-        public readonly Outputs.DashboardWidgetTraceServiceDefinitionTime? Time;
         /// <summary>
         /// The title of the dashboard.
         /// </summary>
@@ -59,8 +58,6 @@ namespace Pulumi.Datadog.Outputs
 
             string spanName,
 
-            Outputs.DashboardWidgetTraceServiceDefinitionTime? time,
-
             string? title,
 
             string? titleAlign,
@@ -79,7 +76,6 @@ namespace Pulumi.Datadog.Outputs
             ShowResourceList = showResourceList;
             SizeFormat = sizeFormat;
             SpanName = spanName;
-            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

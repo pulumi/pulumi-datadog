@@ -25,28 +25,28 @@ namespace Pulumi.Datadog
     ///         // Create a new Datadog monitor
     ///         var foo = new Datadog.Monitor("foo", new Datadog.MonitorArgs
     ///         {
-    ///             Name = "Name for monitor foo",
-    ///             Type = "metric alert",
-    ///             Message = "Monitor triggered. Notify: @hipchat-channel",
     ///             EscalationMessage = "Escalation message @pagerduty",
-    ///             Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
+    ///             IncludeTags = true,
+    ///             Message = "Monitor triggered. Notify: @hipchat-channel",
     ///             MonitorThresholds = new Datadog.Inputs.MonitorMonitorThresholdsArgs
     ///             {
-    ///                 Warning = "2",
-    ///                 WarningRecovery = "1",
     ///                 Critical = "4",
     ///                 CriticalRecovery = "3",
+    ///                 Warning = "2",
+    ///                 WarningRecovery = "1",
     ///             },
-    ///             NotifyNoData = false,
-    ///             RenotifyInterval = 60,
+    ///             Name = "Name for monitor foo",
     ///             NotifyAudit = false,
-    ///             TimeoutH = 60,
-    ///             IncludeTags = true,
+    ///             NotifyNoData = false,
+    ///             Query = "avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} &gt; 4",
+    ///             RenotifyInterval = 60,
     ///             Tags = 
     ///             {
     ///                 "foo:bar",
     ///                 "baz",
     ///             },
+    ///             TimeoutH = 60,
+    ///             Type = "metric alert",
     ///         });
     ///     }
     /// 
@@ -200,32 +200,11 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-        /// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-        /// removed in the next major version of the Terraform Provider.
-        /// </summary>
-        [Output("silenced")]
-        public Output<ImmutableDictionary<string, object>?> Silenced { get; private set; } = null!;
-
-        /// <summary>
         /// A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
         /// page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-        /// required for, anomaly monitors.
-        /// </summary>
-        [Output("thresholdWindows")]
-        public Output<Outputs.MonitorThresholdWindows?> ThresholdWindows { get; private set; } = null!;
-
-        /// <summary>
-        /// Alert thresholds of the monitor.
-        /// </summary>
-        [Output("thresholds")]
-        public Output<Outputs.MonitorThresholds?> Thresholds { get; private set; } = null!;
 
         /// <summary>
         /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
@@ -435,21 +414,6 @@ namespace Pulumi.Datadog
             set => _restrictedRoles = value;
         }
 
-        [Input("silenced")]
-        private InputMap<object>? _silenced;
-
-        /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-        /// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-        /// removed in the next major version of the Terraform Provider.
-        /// </summary>
-        [Obsolete(@"Use the Downtime resource instead.")]
-        public InputMap<object> Silenced
-        {
-            get => _silenced ?? (_silenced = new InputMap<object>());
-            set => _silenced = value;
-        }
-
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -462,19 +426,6 @@ namespace Pulumi.Datadog
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-        /// required for, anomaly monitors.
-        /// </summary>
-        [Input("thresholdWindows")]
-        public Input<Inputs.MonitorThresholdWindowsArgs>? ThresholdWindows { get; set; }
-
-        /// <summary>
-        /// Alert thresholds of the monitor.
-        /// </summary>
-        [Input("thresholds")]
-        public Input<Inputs.MonitorThresholdsArgs>? Thresholds { get; set; }
 
         /// <summary>
         /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
@@ -645,21 +596,6 @@ namespace Pulumi.Datadog
             set => _restrictedRoles = value;
         }
 
-        [Input("silenced")]
-        private InputMap<object>? _silenced;
-
-        /// <summary>
-        /// Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-        /// the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-        /// removed in the next major version of the Terraform Provider.
-        /// </summary>
-        [Obsolete(@"Use the Downtime resource instead.")]
-        public InputMap<object> Silenced
-        {
-            get => _silenced ?? (_silenced = new InputMap<object>());
-            set => _silenced = value;
-        }
-
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -672,19 +608,6 @@ namespace Pulumi.Datadog
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-        /// required for, anomaly monitors.
-        /// </summary>
-        [Input("thresholdWindows")]
-        public Input<Inputs.MonitorThresholdWindowsGetArgs>? ThresholdWindows { get; set; }
-
-        /// <summary>
-        /// Alert thresholds of the monitor.
-        /// </summary>
-        [Input("thresholds")]
-        public Input<Inputs.MonitorThresholdsGetArgs>? Thresholds { get; set; }
 
         /// <summary>
         /// The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.

@@ -14,13 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetManageStatusDefinition
     {
         public readonly string? ColorPreference;
-        public readonly int? Count;
         public readonly string? DisplayFormat;
         public readonly bool? HideZeroCounts;
         public readonly string Query;
         public readonly bool? ShowLastTriggered;
         public readonly string? Sort;
-        public readonly int? Start;
         public readonly string? SummaryType;
         /// <summary>
         /// The title of the dashboard.
@@ -33,8 +31,6 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetGroupDefinitionWidgetManageStatusDefinition(
             string? colorPreference,
 
-            int? count,
-
             string? displayFormat,
 
             bool? hideZeroCounts,
@@ -45,8 +41,6 @@ namespace Pulumi.Datadog.Outputs
 
             string? sort,
 
-            int? start,
-
             string? summaryType,
 
             string? title,
@@ -56,13 +50,11 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             ColorPreference = colorPreference;
-            Count = count;
             DisplayFormat = displayFormat;
             HideZeroCounts = hideZeroCounts;
             Query = query;
             ShowLastTriggered = showLastTriggered;
             Sort = sort;
-            Start = start;
             SummaryType = summaryType;
             Title = title;
             TitleAlign = titleAlign;

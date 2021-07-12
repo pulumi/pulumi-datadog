@@ -36,10 +36,7 @@ class MonitorArgs:
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 silenced: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 threshold_windows: Optional[pulumi.Input['MonitorThresholdWindowsArgs']] = None,
-                 thresholds: Optional[pulumi.Input['MonitorThresholdsArgs']] = None,
                  timeout_h: Optional[pulumi.Input[int]] = None,
                  validate: Optional[pulumi.Input[bool]] = None):
         """
@@ -86,14 +83,8 @@ class MonitorArgs:
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-               the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-               removed in the next major version of the Terraform Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input['MonitorThresholdWindowsArgs'] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-               required for, anomaly monitors.
-        :param pulumi.Input['MonitorThresholdsArgs'] thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
         :param pulumi.Input[bool] validate: If set to `false`, skip the validation call done during plan.
         """
@@ -135,23 +126,8 @@ class MonitorArgs:
             pulumi.set(__self__, "require_full_window", require_full_window)
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
-        if silenced is not None:
-            warnings.warn("""Use the Downtime resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""silenced is deprecated: Use the Downtime resource instead.""")
-        if silenced is not None:
-            pulumi.set(__self__, "silenced", silenced)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if threshold_windows is not None:
-            warnings.warn("""Define `monitor_threshold_windows` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.""")
-        if threshold_windows is not None:
-            pulumi.set(__self__, "threshold_windows", threshold_windows)
-        if thresholds is not None:
-            warnings.warn("""Define `monitor_thresholds` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""thresholds is deprecated: Define `monitor_thresholds` list with one element instead.""")
-        if thresholds is not None:
-            pulumi.set(__self__, "thresholds", thresholds)
         if timeout_h is not None:
             pulumi.set(__self__, "timeout_h", timeout_h)
         if validate is not None:
@@ -430,20 +406,6 @@ class MonitorArgs:
 
     @property
     @pulumi.getter
-    def silenced(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-        the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-        removed in the next major version of the Terraform Provider.
-        """
-        return pulumi.get(self, "silenced")
-
-    @silenced.setter
-    def silenced(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "silenced", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -454,31 +416,6 @@ class MonitorArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="thresholdWindows")
-    def threshold_windows(self) -> Optional[pulumi.Input['MonitorThresholdWindowsArgs']]:
-        """
-        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-        required for, anomaly monitors.
-        """
-        return pulumi.get(self, "threshold_windows")
-
-    @threshold_windows.setter
-    def threshold_windows(self, value: Optional[pulumi.Input['MonitorThresholdWindowsArgs']]):
-        pulumi.set(self, "threshold_windows", value)
-
-    @property
-    @pulumi.getter
-    def thresholds(self) -> Optional[pulumi.Input['MonitorThresholdsArgs']]:
-        """
-        Alert thresholds of the monitor.
-        """
-        return pulumi.get(self, "thresholds")
-
-    @thresholds.setter
-    def thresholds(self, value: Optional[pulumi.Input['MonitorThresholdsArgs']]):
-        pulumi.set(self, "thresholds", value)
 
     @property
     @pulumi.getter(name="timeoutH")
@@ -528,10 +465,7 @@ class _MonitorState:
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 silenced: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 threshold_windows: Optional[pulumi.Input['MonitorThresholdWindowsArgs']] = None,
-                 thresholds: Optional[pulumi.Input['MonitorThresholdsArgs']] = None,
                  timeout_h: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate: Optional[pulumi.Input[bool]] = None):
@@ -576,14 +510,8 @@ class _MonitorState:
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-               the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-               removed in the next major version of the Terraform Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input['MonitorThresholdWindowsArgs'] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-               required for, anomaly monitors.
-        :param pulumi.Input['MonitorThresholdsArgs'] thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -630,23 +558,8 @@ class _MonitorState:
             pulumi.set(__self__, "require_full_window", require_full_window)
         if restricted_roles is not None:
             pulumi.set(__self__, "restricted_roles", restricted_roles)
-        if silenced is not None:
-            warnings.warn("""Use the Downtime resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""silenced is deprecated: Use the Downtime resource instead.""")
-        if silenced is not None:
-            pulumi.set(__self__, "silenced", silenced)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if threshold_windows is not None:
-            warnings.warn("""Define `monitor_threshold_windows` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.""")
-        if threshold_windows is not None:
-            pulumi.set(__self__, "threshold_windows", threshold_windows)
-        if thresholds is not None:
-            warnings.warn("""Define `monitor_thresholds` list with one element instead.""", DeprecationWarning)
-            pulumi.log.warn("""thresholds is deprecated: Define `monitor_thresholds` list with one element instead.""")
-        if thresholds is not None:
-            pulumi.set(__self__, "thresholds", thresholds)
         if timeout_h is not None:
             pulumi.set(__self__, "timeout_h", timeout_h)
         if type is not None:
@@ -913,20 +826,6 @@ class _MonitorState:
 
     @property
     @pulumi.getter
-    def silenced(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-        the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-        removed in the next major version of the Terraform Provider.
-        """
-        return pulumi.get(self, "silenced")
-
-    @silenced.setter
-    def silenced(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "silenced", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
@@ -937,31 +836,6 @@ class _MonitorState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="thresholdWindows")
-    def threshold_windows(self) -> Optional[pulumi.Input['MonitorThresholdWindowsArgs']]:
-        """
-        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-        required for, anomaly monitors.
-        """
-        return pulumi.get(self, "threshold_windows")
-
-    @threshold_windows.setter
-    def threshold_windows(self, value: Optional[pulumi.Input['MonitorThresholdWindowsArgs']]):
-        pulumi.set(self, "threshold_windows", value)
-
-    @property
-    @pulumi.getter
-    def thresholds(self) -> Optional[pulumi.Input['MonitorThresholdsArgs']]:
-        """
-        Alert thresholds of the monitor.
-        """
-        return pulumi.get(self, "thresholds")
-
-    @thresholds.setter
-    def thresholds(self, value: Optional[pulumi.Input['MonitorThresholdsArgs']]):
-        pulumi.set(self, "thresholds", value)
 
     @property
     @pulumi.getter(name="timeoutH")
@@ -1027,10 +901,7 @@ class Monitor(pulumi.CustomResource):
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 silenced: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 threshold_windows: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']]] = None,
-                 thresholds: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']]] = None,
                  timeout_h: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
@@ -1046,26 +917,26 @@ class Monitor(pulumi.CustomResource):
 
         # Create a new Datadog monitor
         foo = datadog.Monitor("foo",
-            name="Name for monitor foo",
-            type="metric alert",
-            message="Monitor triggered. Notify: @hipchat-channel",
             escalation_message="Escalation message @pagerduty",
-            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
-            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
-                warning="2",
-                warning_recovery=1,
-                critical="4",
-                critical_recovery=3,
-            ),
-            notify_no_data=False,
-            renotify_interval=60,
-            notify_audit=False,
-            timeout_h=60,
             include_tags=True,
+            message="Monitor triggered. Notify: @hipchat-channel",
+            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
+                critical="4",
+                critical_recovery="3",
+                warning="2",
+                warning_recovery="1",
+            ),
+            name="Name for monitor foo",
+            notify_audit=False,
+            notify_no_data=False,
+            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+            renotify_interval=60,
             tags=[
                 "foo:bar",
                 "baz",
-            ])
+            ],
+            timeout_h=60,
+            type="metric alert")
         ```
 
         ## Import
@@ -1115,14 +986,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-               the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-               removed in the next major version of the Terraform Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-               required for, anomaly monitors.
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']] thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -1146,26 +1011,26 @@ class Monitor(pulumi.CustomResource):
 
         # Create a new Datadog monitor
         foo = datadog.Monitor("foo",
-            name="Name for monitor foo",
-            type="metric alert",
-            message="Monitor triggered. Notify: @hipchat-channel",
             escalation_message="Escalation message @pagerduty",
-            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
-            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
-                warning="2",
-                warning_recovery=1,
-                critical="4",
-                critical_recovery=3,
-            ),
-            notify_no_data=False,
-            renotify_interval=60,
-            notify_audit=False,
-            timeout_h=60,
             include_tags=True,
+            message="Monitor triggered. Notify: @hipchat-channel",
+            monitor_thresholds=datadog.MonitorMonitorThresholdsArgs(
+                critical="4",
+                critical_recovery="3",
+                warning="2",
+                warning_recovery="1",
+            ),
+            name="Name for monitor foo",
+            notify_audit=False,
+            notify_no_data=False,
+            query="avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 4",
+            renotify_interval=60,
             tags=[
                 "foo:bar",
                 "baz",
-            ])
+            ],
+            timeout_h=60,
+            type="metric alert")
         ```
 
         ## Import
@@ -1209,10 +1074,7 @@ class Monitor(pulumi.CustomResource):
                  renotify_interval: Optional[pulumi.Input[int]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 silenced: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 threshold_windows: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']]] = None,
-                 thresholds: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']]] = None,
                  timeout_h: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate: Optional[pulumi.Input[bool]] = None,
@@ -1254,19 +1116,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["renotify_interval"] = renotify_interval
             __props__.__dict__["require_full_window"] = require_full_window
             __props__.__dict__["restricted_roles"] = restricted_roles
-            if silenced is not None and not opts.urn:
-                warnings.warn("""Use the Downtime resource instead.""", DeprecationWarning)
-                pulumi.log.warn("""silenced is deprecated: Use the Downtime resource instead.""")
-            __props__.__dict__["silenced"] = silenced
             __props__.__dict__["tags"] = tags
-            if threshold_windows is not None and not opts.urn:
-                warnings.warn("""Define `monitor_threshold_windows` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("""threshold_windows is deprecated: Define `monitor_threshold_windows` list with one element instead.""")
-            __props__.__dict__["threshold_windows"] = threshold_windows
-            if thresholds is not None and not opts.urn:
-                warnings.warn("""Define `monitor_thresholds` list with one element instead.""", DeprecationWarning)
-                pulumi.log.warn("""thresholds is deprecated: Define `monitor_thresholds` list with one element instead.""")
-            __props__.__dict__["thresholds"] = thresholds
             __props__.__dict__["timeout_h"] = timeout_h
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -1302,10 +1152,7 @@ class Monitor(pulumi.CustomResource):
             renotify_interval: Optional[pulumi.Input[int]] = None,
             require_full_window: Optional[pulumi.Input[bool]] = None,
             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            silenced: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            threshold_windows: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']]] = None,
-            thresholds: Optional[pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']]] = None,
             timeout_h: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[str]] = None,
             validate: Optional[pulumi.Input[bool]] = None) -> 'Monitor':
@@ -1355,14 +1202,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
-        :param pulumi.Input[Mapping[str, Any]] silenced: Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-               the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-               removed in the next major version of the Terraform Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
                page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdWindowsArgs']] threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-               required for, anomaly monitors.
-        :param pulumi.Input[pulumi.InputType['MonitorThresholdsArgs']] thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[int] timeout_h: The number of hours of the monitor not reporting data before it will automatically resolve from a triggered state.
         :param pulumi.Input[str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the
                Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type
@@ -1393,10 +1234,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["renotify_interval"] = renotify_interval
         __props__.__dict__["require_full_window"] = require_full_window
         __props__.__dict__["restricted_roles"] = restricted_roles
-        __props__.__dict__["silenced"] = silenced
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["threshold_windows"] = threshold_windows
-        __props__.__dict__["thresholds"] = thresholds
         __props__.__dict__["timeout_h"] = timeout_h
         __props__.__dict__["type"] = type
         __props__.__dict__["validate"] = validate
@@ -1581,39 +1419,12 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def silenced(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
-        """
-        Each scope will be muted until the given POSIX timestamp or forever if the value is `0`. Use `-1` if you want to unmute
-        the scope. Deprecated: the silenced parameter is being deprecated in favor of the downtime resource. This will be
-        removed in the next major version of the Terraform Provider.
-        """
-        return pulumi.get(self, "silenced")
-
-    @property
-    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors
         page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="thresholdWindows")
-    def threshold_windows(self) -> pulumi.Output[Optional['outputs.MonitorThresholdWindows']]:
-        """
-        A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m`. Can only be used for, and are
-        required for, anomaly monitors.
-        """
-        return pulumi.get(self, "threshold_windows")
-
-    @property
-    @pulumi.getter
-    def thresholds(self) -> pulumi.Output[Optional['outputs.MonitorThresholds']]:
-        """
-        Alert thresholds of the monitor.
-        """
-        return pulumi.get(self, "thresholds")
 
     @property
     @pulumi.getter(name="timeoutH")

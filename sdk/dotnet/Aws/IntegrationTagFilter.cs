@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog.Aws
 {
     /// <summary>
-    /// Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters - US site’s endpoint only
+    /// Provides a Datadog AWS tag filter resource. This can be used to create and manage Datadog AWS tag filters.
     /// 
     /// ## Example Usage
     /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Datadog.Aws
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Datadog.Aws
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The namespace associated with the tag filter entry. Allowed enum values: 'elb', 'application*elb', 'sqs', 'rds', 'custom', 'network*elb,lambda'
+        /// The namespace associated with the tag filter entry. Valid values are `elb`, `application_elb`, `sqs`, `rds`, `custom`, `network_elb`, `lambda`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

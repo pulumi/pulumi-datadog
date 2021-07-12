@@ -13,23 +13,29 @@ __all__ = ['IntegrationArgs', 'Integration']
 @pulumi.input_type
 class IntegrationArgs:
     def __init__(__self__, *,
-                 account_id: pulumi.Input[str],
-                 role_name: pulumi.Input[str],
+                 access_key_id: Optional[pulumi.Input[str]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 secret_access_key: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
+        :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
-        :param pulumi.Input[str] role_name: Your Datadog role delegation name.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
+        :param pulumi.Input[str] role_name: Your Datadog role delegation name.
+        :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "role_name", role_name)
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if account_specific_namespace_rules is not None:
             pulumi.set(__self__, "account_specific_namespace_rules", account_specific_namespace_rules)
         if excluded_regions is not None:
@@ -38,30 +44,34 @@ class IntegrationArgs:
             pulumi.set(__self__, "filter_tags", filter_tags)
         if host_tags is not None:
             pulumi.set(__self__, "host_tags", host_tags)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key_id", value)
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Input[str]:
+    def account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Your AWS Account ID without dashes.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: pulumi.Input[str]):
+    def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
-
-    @property
-    @pulumi.getter(name="roleName")
-    def role_name(self) -> pulumi.Input[str]:
-        """
-        Your Datadog role delegation name.
-        """
-        return pulumi.get(self, "role_name")
-
-    @role_name.setter
-    def role_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_name", value)
 
     @property
     @pulumi.getter(name="accountSpecificNamespaceRules")
@@ -111,19 +121,46 @@ class IntegrationArgs:
     def host_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "host_tags", value)
 
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your Datadog role delegation name.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+        """
+        return pulumi.get(self, "secret_access_key")
+
+    @secret_access_key.setter
+    def secret_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_access_key", value)
+
 
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
+                 access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 role_name: Optional[pulumi.Input[str]] = None):
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 secret_access_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
@@ -132,7 +169,10 @@ class _IntegrationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
+        :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
+        if access_key_id is not None:
+            pulumi.set(__self__, "access_key_id", access_key_id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if account_specific_namespace_rules is not None:
@@ -147,6 +187,20 @@ class _IntegrationState:
             pulumi.set(__self__, "host_tags", host_tags)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
+        if secret_access_key is not None:
+            pulumi.set(__self__, "secret_access_key", secret_access_key)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_key_id", value)
 
     @property
     @pulumi.getter(name="accountId")
@@ -233,18 +287,32 @@ class _IntegrationState:
     def role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_name", value)
 
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+        """
+        return pulumi.get(self, "secret_access_key")
+
+    @secret_access_key.setter
+    def secret_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_access_key", value)
+
 
 class Integration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
+                 secret_access_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
@@ -284,18 +352,20 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
+        :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationArgs,
+                 args: Optional[IntegrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Datadog - Amazon Web Services integration resource. This can be used to create and manage Datadog - Amazon Web Services integration.
@@ -348,12 +418,14 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_key_id: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
+                 secret_access_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -366,16 +438,14 @@ class Integration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
-            if account_id is None and not opts.urn:
-                raise TypeError("Missing required property 'account_id'")
+            __props__.__dict__["access_key_id"] = access_key_id
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["account_specific_namespace_rules"] = account_specific_namespace_rules
             __props__.__dict__["excluded_regions"] = excluded_regions
             __props__.__dict__["filter_tags"] = filter_tags
             __props__.__dict__["host_tags"] = host_tags
-            if role_name is None and not opts.urn:
-                raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
+            __props__.__dict__["secret_access_key"] = secret_access_key
             __props__.__dict__["external_id"] = None
         super(Integration, __self__).__init__(
             'datadog:aws/integration:Integration',
@@ -387,13 +457,15 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_key_id: Optional[pulumi.Input[str]] = None,
             account_id: Optional[pulumi.Input[str]] = None,
             account_specific_namespace_rules: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             excluded_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             external_id: Optional[pulumi.Input[str]] = None,
             filter_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             host_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            role_name: Optional[pulumi.Input[str]] = None) -> 'Integration':
+            role_name: Optional[pulumi.Input[str]] = None,
+            secret_access_key: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -401,6 +473,7 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_key_id: Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
         :param pulumi.Input[str] account_id: Your AWS Account ID without dashes.
         :param pulumi.Input[Mapping[str, Any]] account_specific_namespace_rules: Enables or disables metric collection for specific AWS namespaces for this AWS account only. A list of namespaces can be found at the [available namespace rules API endpoint](https://docs.datadoghq.com/api/v1/aws-integration/#list-namespace-rules).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_regions: An array of AWS regions to exclude from metrics collection.
@@ -409,11 +482,13 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_tags: Array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. e.x. `env:production,instance-type:c1.*,!region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_tags: Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
         :param pulumi.Input[str] role_name: Your Datadog role delegation name.
+        :param pulumi.Input[str] secret_access_key: Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _IntegrationState.__new__(_IntegrationState)
 
+        __props__.__dict__["access_key_id"] = access_key_id
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["account_specific_namespace_rules"] = account_specific_namespace_rules
         __props__.__dict__["excluded_regions"] = excluded_regions
@@ -421,11 +496,20 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["filter_tags"] = filter_tags
         __props__.__dict__["host_tags"] = host_tags
         __props__.__dict__["role_name"] = role_name
+        __props__.__dict__["secret_access_key"] = secret_access_key
         return Integration(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Output[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Your AWS Account ID without dashes.
         """
@@ -474,9 +558,17 @@ class Integration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> pulumi.Output[str]:
+    def role_name(self) -> pulumi.Output[Optional[str]]:
         """
         Your Datadog role delegation name.
         """
         return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Your AWS secret access key. Only required if your AWS account is a GovCloud or China account.
+        """
+        return pulumi.get(self, "secret_access_key")
 
