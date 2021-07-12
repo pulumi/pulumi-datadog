@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fdatadog.svg)](https://www.npmjs.com/package/@pulumi/datadog)
 [![Python version](https://badge.fury.io/py/pulumi-datadog.svg)](https://pypi.org/project/pulumi-datadog)
 [![NuGet version](https://badge.fury.io/nu/pulumi.datadog.svg)](https://badge.fury.io/nu/pulumi.datadog)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-datadog/sdk/v3/go)](https://pkg.go.dev/github.com/pulumi/pulumi-datadog/sdk/v3/go)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-datadog/sdk/v4/go)](https://pkg.go.dev/github.com/pulumi/pulumi-datadog/sdk/v4/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-datadog/blob/master/LICENSE)
 
 # Datadog Provider
@@ -35,7 +35,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-datadog/sdk/v3/go/datadog/...
+    $ go get github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/...
 
 ### .NET
 
