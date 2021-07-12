@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.0.0 (2021-07-12)
 * Upgrade to v3.1.2 of the datadog Terraform Provider  
   **PLEASE NOTE the following breaking changes:**  
   * `datadog.TimeBoard` and `datadog.Screenboard` resources have been removed as they were previously deprecated.
@@ -12,8 +17,6 @@ CHANGELOG
   * `datadog.serviceLevelObjective` has had `monitorSearch` parameter removed
   * `datadog.PagerDuty.Integration` has had `services` parameter removed
   * `datadog.dashboard` has had `layout`, `time`, `logset`, `count`, `start`, `compute` and `search` parameters removed
-
----
 
 ## 3.3.0 (2021-05-27)
 * Upgrade to v3.2.1 of the pulumi-terraform-bridge
