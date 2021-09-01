@@ -20,6 +20,8 @@ class SecurityMonitoringRuleArgs:
                  name: pulumi.Input[str],
                  queries: pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]],
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
+                 has_extended_title: Optional[pulumi.Input[bool]] = None,
                  options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -29,6 +31,8 @@ class SecurityMonitoringRuleArgs:
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleQueryArgs']]] queries: Queries for selecting logs which are part of the rule.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Tags for generated signals.
         """
@@ -38,6 +42,10 @@ class SecurityMonitoringRuleArgs:
         pulumi.set(__self__, "queries", queries)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if has_extended_title is not None:
+            pulumi.set(__self__, "has_extended_title", has_extended_title)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if tags is not None:
@@ -105,6 +113,30 @@ class SecurityMonitoringRuleArgs:
 
     @property
     @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]]:
+        """
+        Additional queries to filter matched events before they are processed.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="hasExtendedTitle")
+    def has_extended_title(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the notifications include the triggering group-by values in their title.
+        """
+        return pulumi.get(self, "has_extended_title")
+
+    @has_extended_title.setter
+    def has_extended_title(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_extended_title", value)
+
+    @property
+    @pulumi.getter
     def options(self) -> Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']]:
         """
         Options on rules.
@@ -133,6 +165,8 @@ class _SecurityMonitoringRuleState:
     def __init__(__self__, *,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]] = None,
+                 has_extended_title: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['SecurityMonitoringRuleOptionsArgs']] = None,
@@ -142,6 +176,8 @@ class _SecurityMonitoringRuleState:
         Input properties used for looking up and filtering SecurityMonitoringRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleCaseArgs']]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input['SecurityMonitoringRuleOptionsArgs'] options: Options on rules.
@@ -152,6 +188,10 @@ class _SecurityMonitoringRuleState:
             pulumi.set(__self__, "cases", cases)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if has_extended_title is not None:
+            pulumi.set(__self__, "has_extended_title", has_extended_title)
         if message is not None:
             pulumi.set(__self__, "message", message)
         if name is not None:
@@ -186,6 +226,30 @@ class _SecurityMonitoringRuleState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]]:
+        """
+        Additional queries to filter matched events before they are processed.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityMonitoringRuleFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="hasExtendedTitle")
+    def has_extended_title(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the notifications include the triggering group-by values in their title.
+        """
+        return pulumi.get(self, "has_extended_title")
+
+    @has_extended_title.setter
+    def has_extended_title(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "has_extended_title", value)
 
     @property
     @pulumi.getter
@@ -255,6 +319,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]]] = None,
+                 has_extended_title: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']]] = None,
@@ -277,9 +343,11 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                 status="high",
             )],
             enabled=True,
+            has_extended_title=True,
             message="The rule has triggered.",
             name="My rule",
             options=datadog.SecurityMonitoringRuleOptionsArgs(
+                detection_method="threshold",
                 evaluation_window=300,
                 keep_alive=600,
                 max_signal_duration=900,
@@ -313,6 +381,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
@@ -341,9 +411,11 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                 status="high",
             )],
             enabled=True,
+            has_extended_title=True,
             message="The rule has triggered.",
             name="My rule",
             options=datadog.SecurityMonitoringRuleOptionsArgs(
+                detection_method="threshold",
                 evaluation_window=300,
                 keep_alive=600,
                 max_signal_duration=900,
@@ -390,6 +462,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]]] = None,
+                 has_extended_title: Optional[pulumi.Input[bool]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']]] = None,
@@ -411,6 +485,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cases'")
             __props__.__dict__["cases"] = cases
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["filters"] = filters
+            __props__.__dict__["has_extended_title"] = has_extended_title
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
@@ -434,6 +510,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]]] = None,
+            has_extended_title: Optional[pulumi.Input[bool]] = None,
             message: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']]] = None,
@@ -448,6 +526,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleCaseArgs']]]] cases: Cases for generating signals.
         :param pulumi.Input[bool] enabled: Whether the rule is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringRuleFilterArgs']]]] filters: Additional queries to filter matched events before they are processed.
+        :param pulumi.Input[bool] has_extended_title: Whether the notifications include the triggering group-by values in their title.
         :param pulumi.Input[str] message: Message for generated signals.
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[pulumi.InputType['SecurityMonitoringRuleOptionsArgs']] options: Options on rules.
@@ -460,6 +540,8 @@ class SecurityMonitoringRule(pulumi.CustomResource):
 
         __props__.__dict__["cases"] = cases
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["filters"] = filters
+        __props__.__dict__["has_extended_title"] = has_extended_title
         __props__.__dict__["message"] = message
         __props__.__dict__["name"] = name
         __props__.__dict__["options"] = options
@@ -482,6 +564,22 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         Whether the rule is enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def filters(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringRuleFilter']]]:
+        """
+        Additional queries to filter matched events before they are processed.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter(name="hasExtendedTitle")
+    def has_extended_title(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the notifications include the triggering group-by values in their title.
+        """
+        return pulumi.get(self, "has_extended_title")
 
     @property
     @pulumi.getter

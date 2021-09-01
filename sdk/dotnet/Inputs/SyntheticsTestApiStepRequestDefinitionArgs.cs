@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SyntheticsTestApiStepRequestDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("allowInsecure")]
+        public Input<bool>? AllowInsecure { get; set; }
+
         /// <summary>
         /// The request body.
         /// </summary>

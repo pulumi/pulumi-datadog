@@ -21,6 +21,8 @@ namespace Pulumi.Datadog.Outputs
         /// Whether the rule is enabled.
         /// </summary>
         public readonly bool? Enabled;
+        public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleFilterResult> Filters;
+        public readonly bool? HasExtendedTitle;
         /// <summary>
         /// Message for generated signals.
         /// </summary>
@@ -48,6 +50,10 @@ namespace Pulumi.Datadog.Outputs
 
             bool? enabled,
 
+            ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleFilterResult> filters,
+
+            bool? hasExtendedTitle,
+
             string message,
 
             string name,
@@ -60,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
         {
             Cases = cases;
             Enabled = enabled;
+            Filters = filters;
+            HasExtendedTitle = hasExtendedTitle;
             Message = message;
             Name = name;
             Options = options;

@@ -737,11 +737,11 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /**
-     * The list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to.
      */
     public readonly dashboardLists!: pulumi.Output<number[] | undefined>;
     /**
-     * The list of dashboard lists this dashboard should be removed from. Internal only.
+     * A list of dashboard lists this dashboard should be removed from. Internal only.
      */
     public /*out*/ readonly dashboardListsRemoveds!: pulumi.Output<number[]>;
     /**
@@ -757,7 +757,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly layoutType!: pulumi.Output<string>;
     /**
-     * The list of handles of users to notify when changes are made to this dashboard.
+     * The list of handles for the users to notify when changes are made to this dashboard.
      */
     public readonly notifyLists!: pulumi.Output<string[] | undefined>;
     /**
@@ -852,11 +852,11 @@ export class Dashboard extends pulumi.CustomResource {
  */
 export interface DashboardState {
     /**
-     * The list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to.
      */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * The list of dashboard lists this dashboard should be removed from. Internal only.
+     * A list of dashboard lists this dashboard should be removed from. Internal only.
      */
     dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -872,7 +872,7 @@ export interface DashboardState {
      */
     layoutType?: pulumi.Input<string>;
     /**
-     * The list of handles of users to notify when changes are made to this dashboard.
+     * The list of handles for the users to notify when changes are made to this dashboard.
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -910,7 +910,7 @@ export interface DashboardState {
  */
 export interface DashboardArgs {
     /**
-     * The list of dashboard lists this dashboard belongs to.
+     * A list of dashboard lists this dashboard belongs to.
      */
     dashboardLists?: pulumi.Input<pulumi.Input<number>[]>;
     /**
@@ -926,7 +926,7 @@ export interface DashboardArgs {
      */
     layoutType: pulumi.Input<string>;
     /**
-     * The list of handles of users to notify when changes are made to this dashboard.
+     * The list of handles for the users to notify when changes are made to this dashboard.
      */
     notifyLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**

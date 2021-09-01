@@ -782,9 +782,9 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	// The list of dashboard lists this dashboard belongs to.
+	// A list of dashboard lists this dashboard belongs to.
 	DashboardLists pulumi.IntArrayOutput `pulumi:"dashboardLists"`
-	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -792,7 +792,7 @@ type Dashboard struct {
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
-	// The list of handles of users to notify when changes are made to this dashboard.
+	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
@@ -848,9 +848,9 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	// The list of dashboard lists this dashboard belongs to.
+	// A list of dashboard lists this dashboard belongs to.
 	DashboardLists []int `pulumi:"dashboardLists"`
-	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
@@ -858,7 +858,7 @@ type dashboardState struct {
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType *string `pulumi:"layoutType"`
-	// The list of handles of users to notify when changes are made to this dashboard.
+	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
@@ -877,9 +877,9 @@ type dashboardState struct {
 }
 
 type DashboardState struct {
-	// The list of dashboard lists this dashboard belongs to.
+	// A list of dashboard lists this dashboard belongs to.
 	DashboardLists pulumi.IntArrayInput
-	// The list of dashboard lists this dashboard should be removed from. Internal only.
+	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
@@ -887,7 +887,7 @@ type DashboardState struct {
 	IsReadOnly pulumi.BoolPtrInput
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringPtrInput
-	// The list of handles of users to notify when changes are made to this dashboard.
+	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput
@@ -910,7 +910,7 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	// The list of dashboard lists this dashboard belongs to.
+	// A list of dashboard lists this dashboard belongs to.
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
@@ -918,7 +918,7 @@ type dashboardArgs struct {
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType string `pulumi:"layoutType"`
-	// The list of handles of users to notify when changes are made to this dashboard.
+	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists []string `pulumi:"notifyLists"`
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
@@ -938,7 +938,7 @@ type dashboardArgs struct {
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// The list of dashboard lists this dashboard belongs to.
+	// A list of dashboard lists this dashboard belongs to.
 	DashboardLists pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
@@ -946,7 +946,7 @@ type DashboardArgs struct {
 	IsReadOnly pulumi.BoolPtrInput
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringInput
-	// The list of handles of users to notify when changes are made to this dashboard.
+	// The list of handles for the users to notify when changes are made to this dashboard.
 	NotifyLists pulumi.StringArrayInput
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput

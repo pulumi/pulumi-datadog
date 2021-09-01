@@ -127,8 +127,17 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+     * nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+     * default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+     */
+    public readonly newGroupDelay!: pulumi.Output<number | undefined>;
+    /**
      * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-     * results. Should be a non negative integer. Defaults to `300`.
+     * results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+     * and `new_host_delay` will be removed entirely in a subsequent major version release).
+     *
+     * @deprecated Prefer using new_group_delay (except when setting `new_host_delay` to zero).
      */
     public readonly newHostDelay!: pulumi.Output<number | undefined>;
     /**
@@ -214,6 +223,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["monitorThresholdWindows"] = state ? state.monitorThresholdWindows : undefined;
             inputs["monitorThresholds"] = state ? state.monitorThresholds : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["newGroupDelay"] = state ? state.newGroupDelay : undefined;
             inputs["newHostDelay"] = state ? state.newHostDelay : undefined;
             inputs["noDataTimeframe"] = state ? state.noDataTimeframe : undefined;
             inputs["notifyAudit"] = state ? state.notifyAudit : undefined;
@@ -252,6 +262,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["monitorThresholdWindows"] = args ? args.monitorThresholdWindows : undefined;
             inputs["monitorThresholds"] = args ? args.monitorThresholds : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["newGroupDelay"] = args ? args.newGroupDelay : undefined;
             inputs["newHostDelay"] = args ? args.newHostDelay : undefined;
             inputs["noDataTimeframe"] = args ? args.noDataTimeframe : undefined;
             inputs["notifyAudit"] = args ? args.notifyAudit : undefined;
@@ -331,8 +342,17 @@ export interface MonitorState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+     * nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+     * default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+     */
+    newGroupDelay?: pulumi.Input<number>;
+    /**
      * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-     * results. Should be a non negative integer. Defaults to `300`.
+     * results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+     * and `new_host_delay` will be removed entirely in a subsequent major version release).
+     *
+     * @deprecated Prefer using new_group_delay (except when setting `new_host_delay` to zero).
      */
     newHostDelay?: pulumi.Input<number>;
     /**
@@ -453,8 +473,17 @@ export interface MonitorArgs {
      */
     name: pulumi.Input<string>;
     /**
+     * Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+     * nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+     * default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+     */
+    newGroupDelay?: pulumi.Input<number>;
+    /**
      * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-     * results. Should be a non negative integer. Defaults to `300`.
+     * results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+     * and `new_host_delay` will be removed entirely in a subsequent major version release).
+     *
+     * @deprecated Prefer using new_group_delay (except when setting `new_host_delay` to zero).
      */
     newHostDelay?: pulumi.Input<number>;
     /**

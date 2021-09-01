@@ -37,10 +37,12 @@ namespace Pulumi.Datadog
     ///                 },
     ///             },
     ///             Enabled = true,
+    ///             HasExtendedTitle = true,
     ///             Message = "The rule has triggered.",
     ///             Name = "My rule",
     ///             Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs
     ///             {
+    ///                 DetectionMethod = "threshold",
     ///                 EvaluationWindow = 300,
     ///                 KeepAlive = 600,
     ///                 MaxSignalDuration = 900,
@@ -100,6 +102,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional queries to filter matched events before they are processed.
+        /// </summary>
+        [Output("filters")]
+        public Output<ImmutableArray<Outputs.SecurityMonitoringRuleFilter>> Filters { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the notifications include the triggering group-by values in their title.
+        /// </summary>
+        [Output("hasExtendedTitle")]
+        public Output<bool?> HasExtendedTitle { get; private set; } = null!;
 
         /// <summary>
         /// Message for generated signals.
@@ -195,6 +209,24 @@ namespace Pulumi.Datadog
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("filters")]
+        private InputList<Inputs.SecurityMonitoringRuleFilterArgs>? _filters;
+
+        /// <summary>
+        /// Additional queries to filter matched events before they are processed.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleFilterArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.SecurityMonitoringRuleFilterArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// Whether the notifications include the triggering group-by values in their title.
+        /// </summary>
+        [Input("hasExtendedTitle")]
+        public Input<bool>? HasExtendedTitle { get; set; }
+
         /// <summary>
         /// Message for generated signals.
         /// </summary>
@@ -261,6 +293,24 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("filters")]
+        private InputList<Inputs.SecurityMonitoringRuleFilterGetArgs>? _filters;
+
+        /// <summary>
+        /// Additional queries to filter matched events before they are processed.
+        /// </summary>
+        public InputList<Inputs.SecurityMonitoringRuleFilterGetArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.SecurityMonitoringRuleFilterGetArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// Whether the notifications include the triggering group-by values in their title.
+        /// </summary>
+        [Input("hasExtendedTitle")]
+        public Input<bool>? HasExtendedTitle { get; set; }
 
         /// <summary>
         /// Message for generated signals.

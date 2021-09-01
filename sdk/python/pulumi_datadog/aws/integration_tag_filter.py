@@ -137,6 +137,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog - Amazon Web Services integration tag filter
         foo = datadog.aws.IntegrationTagFilter("foo",
             account_id="123456789010",
             namespace="sqs",
@@ -172,6 +173,7 @@ class IntegrationTagFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
+        # Create a new Datadog - Amazon Web Services integration tag filter
         foo = datadog.aws.IntegrationTagFilter("foo",
             account_id="123456789010",
             namespace="sqs",

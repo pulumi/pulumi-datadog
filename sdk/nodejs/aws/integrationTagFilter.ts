@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
+ * // Create a new Datadog - Amazon Web Services integration tag filter
  * const foo = new datadog.aws.IntegrationTagFilter("foo", {
  *     accountId: "123456789010",
  *     namespace: "sqs",

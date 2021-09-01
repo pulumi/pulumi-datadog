@@ -6,42 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as datadog from "@pulumi/datadog";
- *
- * const sampleIndex = new datadog.LogsIndex("sample_index", {
- *     dailyLimit: 200000,
- *     exclusionFilters: [
- *         {
- *             filters: [{
- *                 query: "app:coredns",
- *                 sampleRate: 0.97,
- *             }],
- *             isEnabled: true,
- *             name: "Filter coredns logs",
- *         },
- *         {
- *             filters: [{
- *                 query: "service:kube_apiserver",
- *                 sampleRate: 1,
- *             }],
- *             isEnabled: true,
- *             name: "Kubernetes apiserver",
- *         },
- *     ],
- *     filters: [{
- *         query: "*",
- *     }],
- *     name: "your index",
- *     retentionDays: 7,
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -81,6 +45,10 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     public readonly dailyLimit!: pulumi.Output<number | undefined>;
     /**
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+     */
+    public readonly disableDailyLimit!: pulumi.Output<boolean>;
+    /**
      * List of exclusion filters.
      */
     public readonly exclusionFilters!: pulumi.Output<outputs.LogsIndexExclusionFilter[] | undefined>;
@@ -111,6 +79,7 @@ export class LogsIndex extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LogsIndexState | undefined;
             inputs["dailyLimit"] = state ? state.dailyLimit : undefined;
+            inputs["disableDailyLimit"] = state ? state.disableDailyLimit : undefined;
             inputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -124,6 +93,7 @@ export class LogsIndex extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             inputs["dailyLimit"] = args ? args.dailyLimit : undefined;
+            inputs["disableDailyLimit"] = args ? args.disableDailyLimit : undefined;
             inputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
             inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -144,6 +114,10 @@ export interface LogsIndexState {
      * The number of log events you can send in this index per day before you are rate-limited.
      */
     dailyLimit?: pulumi.Input<number>;
+    /**
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+     */
+    disableDailyLimit?: pulumi.Input<boolean>;
     /**
      * List of exclusion filters.
      */
@@ -170,6 +144,10 @@ export interface LogsIndexArgs {
      * The number of log events you can send in this index per day before you are rate-limited.
      */
     dailyLimit?: pulumi.Input<number>;
+    /**
+     * If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current dailyLimit is maintained.
+     */
+    disableDailyLimit?: pulumi.Input<boolean>;
     /**
      * List of exclusion filters.
      */

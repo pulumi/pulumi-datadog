@@ -10,65 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Datadog = Pulumi.Datadog;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sampleIndex = new Datadog.LogsIndex("sampleIndex", new Datadog.LogsIndexArgs
-    ///         {
-    ///             DailyLimit = 200000,
-    ///             ExclusionFilters = 
-    ///             {
-    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
-    ///                 {
-    ///                     Filters = 
-    ///                     {
-    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
-    ///                         {
-    ///                             Query = "app:coredns",
-    ///                             SampleRate = 0.97,
-    ///                         },
-    ///                     },
-    ///                     IsEnabled = true,
-    ///                     Name = "Filter coredns logs",
-    ///                 },
-    ///                 new Datadog.Inputs.LogsIndexExclusionFilterArgs
-    ///                 {
-    ///                     Filters = 
-    ///                     {
-    ///                         new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
-    ///                         {
-    ///                             Query = "service:kube_apiserver",
-    ///                             SampleRate = 1,
-    ///                         },
-    ///                     },
-    ///                     IsEnabled = true,
-    ///                     Name = "Kubernetes apiserver",
-    ///                 },
-    ///             },
-    ///             Filters = 
-    ///             {
-    ///                 new Datadog.Inputs.LogsIndexFilterArgs
-    ///                 {
-    ///                     Query = "*",
-    ///                 },
-    ///             },
-    ///             Name = "your index",
-    ///             RetentionDays = 7,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -83,6 +24,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("dailyLimit")]
         public Output<int?> DailyLimit { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// </summary>
+        [Output("disableDailyLimit")]
+        public Output<bool> DisableDailyLimit { get; private set; } = null!;
 
         /// <summary>
         /// List of exclusion filters.
@@ -160,6 +107,12 @@ namespace Pulumi.Datadog
         [Input("dailyLimit")]
         public Input<int>? DailyLimit { get; set; }
 
+        /// <summary>
+        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// </summary>
+        [Input("disableDailyLimit")]
+        public Input<bool>? DisableDailyLimit { get; set; }
+
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterArgs>? _exclusionFilters;
 
@@ -208,6 +161,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("dailyLimit")]
         public Input<int>? DailyLimit { get; set; }
+
+        /// <summary>
+        /// If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        /// </summary>
+        [Input("disableDailyLimit")]
+        public Input<bool>? DisableDailyLimit { get; set; }
 
         [Input("exclusionFilters")]
         private InputList<Inputs.LogsIndexExclusionFilterGetArgs>? _exclusionFilters;

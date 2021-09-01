@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * // Create a new Datadog - Amazon Web Services integration lambda arn
+ * // Create a new Datadog - Amazon Web Services integration log collection
  * const main = new datadog.aws.IntegrationLogCollection("main", {
  *     accountId: "1234567890",
  *     services: ["lambda"],

@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinitionArgs>? AlertValueDefinition { get; set; }
 
         /// <summary>
-        /// The definition for a Change  widget.
+        /// The definition for a Change widget.
         /// </summary>
         [Input("changeDefinition")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinitionArgs>? ChangeDefinition { get; set; }

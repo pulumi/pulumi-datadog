@@ -40,6 +40,14 @@ namespace Pulumi.Datadog.Inputs
             set => _conditionalFormats = value;
         }
 
+        [Input("formulas")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaArgs>? _formulas;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaArgs> Formulas
+        {
+            get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaArgs>());
+            set => _formulas = value;
+        }
+
         [Input("limit")]
         public Input<int>? Limit { get; set; }
 
@@ -54,6 +62,14 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("q")]
         public Input<string>? Q { get; set; }
+
+        [Input("queries")]
+        private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs>? _queries;
+        public InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryArgs>());
+            set => _queries = value;
+        }
 
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQueryArgs>? RumQuery { get; set; }

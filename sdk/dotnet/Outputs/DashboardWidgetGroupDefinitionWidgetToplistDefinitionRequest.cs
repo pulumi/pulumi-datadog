@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest
     {
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery? AuditQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery? LogQuery;
@@ -27,6 +28,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest(
             Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery? apmQuery,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery? auditQuery,
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats,
 
@@ -47,6 +50,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
+            AuditQuery = auditQuery;
             ConditionalFormats = conditionalFormats;
             Formulas = formulas;
             LogQuery = logQuery;

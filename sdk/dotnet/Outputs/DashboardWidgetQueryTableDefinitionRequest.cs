@@ -19,11 +19,13 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
         public readonly ImmutableArray<string> CellDisplayModes;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat> ConditionalFormats;
+        public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestFormula> Formulas;
         public readonly int? Limit;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery? LogQuery;
         public readonly string? Order;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
 
@@ -41,6 +43,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats,
 
+            ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestFormula> formulas,
+
             int? limit,
 
             Outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery? logQuery,
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestQuery> queries,
 
             Outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery? rumQuery,
 
@@ -61,11 +67,13 @@ namespace Pulumi.Datadog.Outputs
             ApmStatsQuery = apmStatsQuery;
             CellDisplayModes = cellDisplayModes;
             ConditionalFormats = conditionalFormats;
+            Formulas = formulas;
             Limit = limit;
             LogQuery = logQuery;
             Order = order;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
         }

@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The tag prefix associated with the variable. Only tags with this prefix will appear in the variable dropdown.
+        /// The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

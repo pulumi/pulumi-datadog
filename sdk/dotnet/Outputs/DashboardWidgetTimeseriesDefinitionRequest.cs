@@ -14,6 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequest
     {
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery? AuditQuery;
         public readonly string? DisplayType;
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery? LogQuery;
@@ -30,6 +31,8 @@ namespace Pulumi.Datadog.Outputs
         [OutputConstructor]
         private DashboardWidgetTimeseriesDefinitionRequest(
             Outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery? apmQuery,
+
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery? auditQuery,
 
             string? displayType,
 
@@ -56,6 +59,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetTimeseriesDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
+            AuditQuery = auditQuery;
             DisplayType = displayType;
             Formulas = formulas;
             LogQuery = logQuery;

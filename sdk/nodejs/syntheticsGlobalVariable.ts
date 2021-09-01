@@ -78,7 +78,11 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     public readonly parseTestOptions!: pulumi.Output<outputs.SyntheticsGlobalVariableParseTestOptions | undefined>;
     /**
-     * Sets the variable as secure. Defaults to `false`.
+     * A list of role identifiers to associate with the Synthetics global variable.
+     */
+    public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
+    /**
+     * If set to true, the value of the global variable is hidden. Defaults to `false`.
      */
     public readonly secure!: pulumi.Output<boolean | undefined>;
     /**
@@ -107,6 +111,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["parseTestId"] = state ? state.parseTestId : undefined;
             inputs["parseTestOptions"] = state ? state.parseTestOptions : undefined;
+            inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
             inputs["secure"] = state ? state.secure : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
@@ -122,6 +127,7 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parseTestId"] = args ? args.parseTestId : undefined;
             inputs["parseTestOptions"] = args ? args.parseTestOptions : undefined;
+            inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
             inputs["secure"] = args ? args.secure : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
@@ -154,7 +160,11 @@ export interface SyntheticsGlobalVariableState {
      */
     parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
     /**
-     * Sets the variable as secure. Defaults to `false`.
+     * A list of role identifiers to associate with the Synthetics global variable.
+     */
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If set to true, the value of the global variable is hidden. Defaults to `false`.
      */
     secure?: pulumi.Input<boolean>;
     /**
@@ -188,7 +198,11 @@ export interface SyntheticsGlobalVariableArgs {
      */
     parseTestOptions?: pulumi.Input<inputs.SyntheticsGlobalVariableParseTestOptions>;
     /**
-     * Sets the variable as secure. Defaults to `false`.
+     * A list of role identifiers to associate with the Synthetics global variable.
+     */
+    restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If set to true, the value of the global variable is hidden. Defaults to `false`.
      */
     secure?: pulumi.Input<boolean>;
     /**

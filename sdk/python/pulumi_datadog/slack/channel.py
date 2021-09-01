@@ -139,7 +139,7 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        slack_channel = datadog.slack.Channel("slackChannel",
+        test_channel = datadog.slack.Channel("testChannel",
             account_name="foo",
             channel_name="#test_channel",
             display=datadog.slack.ChannelDisplayArgs(
@@ -148,6 +148,14 @@ class Channel(pulumi.CustomResource):
                 snapshot=False,
                 tags=True,
             ))
+        ```
+
+        ## Import
+
+        # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
+
+        ```sh
+         $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
         ```
 
         :param str resource_name: The name of the resource.
@@ -171,7 +179,7 @@ class Channel(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        slack_channel = datadog.slack.Channel("slackChannel",
+        test_channel = datadog.slack.Channel("testChannel",
             account_name="foo",
             channel_name="#test_channel",
             display=datadog.slack.ChannelDisplayArgs(
@@ -180,6 +188,14 @@ class Channel(pulumi.CustomResource):
                 snapshot=False,
                 tags=True,
             ))
+        ```
+
+        ## Import
+
+        # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
+
+        ```sh
+         $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
         ```
 
         :param str resource_name: The name of the resource.

@@ -4,6 +4,62 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface ChildOrganizationApiKey {
+    key?: pulumi.Input<string>;
+    /**
+     * Name for Child Organization after creation.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface ChildOrganizationApplicationKey {
+    hash?: pulumi.Input<string>;
+    /**
+     * Name for Child Organization after creation.
+     */
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+}
+
+export interface ChildOrganizationSetting {
+    privateWidgetShare?: pulumi.Input<boolean>;
+    samlAutocreateAccessRole?: pulumi.Input<string>;
+    samlAutocreateUsersDomains?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSamlAutocreateUsersDomain>[]>;
+    samlCanBeEnabled?: pulumi.Input<boolean>;
+    samlIdpEndpoint?: pulumi.Input<string>;
+    samlIdpInitiatedLogins?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSamlIdpInitiatedLogin>[]>;
+    samlIdpMetadataUploaded?: pulumi.Input<boolean>;
+    samlLoginUrl?: pulumi.Input<string>;
+    samlStrictModes?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSamlStrictMode>[]>;
+    samls?: pulumi.Input<pulumi.Input<inputs.ChildOrganizationSettingSaml>[]>;
+}
+
+export interface ChildOrganizationSettingSaml {
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface ChildOrganizationSettingSamlAutocreateUsersDomain {
+    domains?: pulumi.Input<pulumi.Input<string>[]>;
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface ChildOrganizationSettingSamlIdpInitiatedLogin {
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface ChildOrganizationSettingSamlStrictMode {
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface ChildOrganizationUser {
+    accessRole?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
+    /**
+     * Name for Child Organization after creation.
+     */
+    name?: pulumi.Input<string>;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -25,7 +81,7 @@ export interface DashboardTemplateVariable {
      */
     name: pulumi.Input<string>;
     /**
-     * The tag prefix associated with the variable. Only tags with this prefix will appear in the variable dropdown.
+     * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
      */
     prefix?: pulumi.Input<string>;
 }
@@ -59,7 +115,7 @@ export interface DashboardWidget {
      */
     alertValueDefinition?: pulumi.Input<inputs.DashboardWidgetAlertValueDefinition>;
     /**
-     * The definition for a Change  widget.
+     * The definition for a Change widget.
      */
     changeDefinition?: pulumi.Input<inputs.DashboardWidgetChangeDefinition>;
     /**
@@ -594,8 +650,22 @@ export interface DashboardWidgetGeomapDefinitionRequest {
 
 export interface DashboardWidgetGeomapDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
@@ -760,7 +830,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     alertValueDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition>;
     /**
-     * The definition for a Change  widget.
+     * The definition for a Change widget.
      */
     changeDefinition?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition>;
     /**
@@ -1291,8 +1361,22 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit {
@@ -2036,11 +2120,13 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery>;
     cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula>[]>;
     limit?: pulumi.Input<number>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery>;
     order?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery>[]>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery>;
     securityQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery>;
 }
@@ -2106,6 +2192,31 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     value: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
     computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery>;
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy>[]>;
@@ -2143,6 +2254,62 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery {
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery {
@@ -2235,6 +2402,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomL
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat>[]>;
     formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery>;
@@ -2277,6 +2445,38 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat {
     comparator: pulumi.Input<string>;
     customBgColor?: pulumi.Input<string>;
@@ -2291,8 +2491,22 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
@@ -2866,6 +3080,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker 
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery>;
     displayType?: pulumi.Input<string>;
     formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery>;
@@ -2912,10 +3127,56 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit {
@@ -3162,6 +3423,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat>[]>;
     formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery>;
@@ -3205,6 +3467,38 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat {
     comparator: pulumi.Input<string>;
     customBgColor?: pulumi.Input<string>;
@@ -3219,8 +3513,22 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestCon
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit {
@@ -4027,11 +4335,13 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     apmStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery>;
     cellDisplayModes?: pulumi.Input<pulumi.Input<string>[]>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat>[]>;
+    formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormula>[]>;
     limit?: pulumi.Input<number>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQuery>;
     order?: pulumi.Input<string>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery>;
     q?: pulumi.Input<string>;
+    queries?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQuery>[]>;
     rumQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestRumQuery>;
     securityQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery>;
 }
@@ -4097,6 +4407,31 @@ export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
     value: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetQueryTableDefinitionRequestFormula {
+    alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat>[]>;
+    formulaExpression: pulumi.Input<string>;
+    limit?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
+    count?: pulumi.Input<number>;
+    order?: pulumi.Input<string>;
+}
+
 export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
     computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery>;
     groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy>[]>;
@@ -4134,6 +4469,62 @@ export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
     limit?: pulumi.Input<number>;
     metric: pulumi.Input<string>;
     searchBy?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQuery {
+    eventQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery>;
+    metricQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery>;
+    processQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
+    computes: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute>[]>;
+    dataSource: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy>[]>;
+    indexes?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    search?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
+    aggregation: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    metric?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    facet: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sort?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    order?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
+    aggregator?: pulumi.Input<string>;
+    dataSource: pulumi.Input<string>;
+    isNormalizedCpu?: pulumi.Input<boolean>;
+    limit?: pulumi.Input<number>;
+    metric: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    sort?: pulumi.Input<string>;
+    tagFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    textFilter?: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
@@ -4226,6 +4617,7 @@ export interface DashboardWidgetQueryValueDefinitionCustomLink {
 export interface DashboardWidgetQueryValueDefinitionRequest {
     aggregator?: pulumi.Input<string>;
     apmQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestAuditQuery>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat>[]>;
     formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormula>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestLogQuery>;
@@ -4268,6 +4660,38 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute 
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
     comparator: pulumi.Input<string>;
     customBgColor?: pulumi.Input<string>;
@@ -4282,8 +4706,22 @@ export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
@@ -4857,6 +5295,7 @@ export interface DashboardWidgetTimeseriesDefinitionMarker {
 
 export interface DashboardWidgetTimeseriesDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery>;
     displayType?: pulumi.Input<string>;
     formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormula>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery>;
@@ -4903,10 +5342,56 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute 
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
@@ -5153,6 +5638,7 @@ export interface DashboardWidgetToplistDefinitionCustomLink {
 
 export interface DashboardWidgetToplistDefinitionRequest {
     apmQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestApmQuery>;
+    auditQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestAuditQuery>;
     conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestConditionalFormat>[]>;
     formulas?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormula>[]>;
     logQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestLogQuery>;
@@ -5196,6 +5682,38 @@ export interface DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute {
     interval?: pulumi.Input<number>;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestAuditQuery {
+    computeQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery>;
+    groupBies?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy>[]>;
+    index: pulumi.Input<string>;
+    multiComputes?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute>[]>;
+    searchQuery?: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy {
+    facet?: pulumi.Input<string>;
+    limit?: pulumi.Input<number>;
+    sortQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    order: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute {
+    aggregation: pulumi.Input<string>;
+    facet?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
     comparator: pulumi.Input<string>;
     customBgColor?: pulumi.Input<string>;
@@ -5210,8 +5728,22 @@ export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
 
 export interface DashboardWidgetToplistDefinitionRequestFormula {
     alias?: pulumi.Input<string>;
+    cellDisplayMode?: pulumi.Input<string>;
+    conditionalFormats?: pulumi.Input<pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat>[]>;
     formulaExpression: pulumi.Input<string>;
     limit?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestFormulaLimit>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat {
+    comparator: pulumi.Input<string>;
+    customBgColor?: pulumi.Input<string>;
+    customFgColor?: pulumi.Input<string>;
+    hideValue?: pulumi.Input<boolean>;
+    imageUrl?: pulumi.Input<string>;
+    metric?: pulumi.Input<string>;
+    palette: pulumi.Input<string>;
+    timeframe?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
@@ -5980,6 +6512,66 @@ export interface MonitorMonitorThresholds {
     warningRecovery?: pulumi.Input<string>;
 }
 
+export interface OrganizationSettingsSettings {
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     */
+    privateWidgetShare?: pulumi.Input<boolean>;
+    /**
+     * SAML properties
+     */
+    saml: pulumi.Input<inputs.OrganizationSettingsSettingsSaml>;
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     */
+    samlAutocreateAccessRole?: pulumi.Input<string>;
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
+    samlAutocreateUsersDomains: pulumi.Input<inputs.OrganizationSettingsSettingsSamlAutocreateUsersDomains>;
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     */
+    samlCanBeEnabled?: pulumi.Input<boolean>;
+    /**
+     * Identity provider endpoint for SAML authentication.
+     */
+    samlIdpEndpoint?: pulumi.Input<string>;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpInitiatedLogin: pulumi.Input<inputs.OrganizationSettingsSettingsSamlIdpInitiatedLogin>;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpMetadataUploaded?: pulumi.Input<boolean>;
+    /**
+     * URL for SAML logging.
+     */
+    samlLoginUrl?: pulumi.Input<string>;
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
+    samlStrictMode: pulumi.Input<inputs.OrganizationSettingsSettingsSamlStrictMode>;
+}
+
+export interface OrganizationSettingsSettingsSaml {
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface OrganizationSettingsSettingsSamlAutocreateUsersDomains {
+    domains?: pulumi.Input<pulumi.Input<string>[]>;
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface OrganizationSettingsSettingsSamlIdpInitiatedLogin {
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface OrganizationSettingsSettingsSamlStrictMode {
+    enabled?: pulumi.Input<boolean>;
+}
+
 export interface RolePermission {
     /**
      * ID of the permission to assign.
@@ -6007,6 +6599,17 @@ export interface SecurityMonitoringDefaultRuleFilter {
     query: pulumi.Input<string>;
 }
 
+export interface SecurityMonitoringFilterExclusionFilter {
+    /**
+     * Exclusion filter name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     */
+    query: pulumi.Input<string>;
+}
+
 export interface SecurityMonitoringRuleCase {
     /**
      * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
@@ -6026,7 +6629,22 @@ export interface SecurityMonitoringRuleCase {
     status: pulumi.Input<string>;
 }
 
+export interface SecurityMonitoringRuleFilter {
+    /**
+     * The type of filtering action (require or suppress).
+     */
+    action: pulumi.Input<string>;
+    /**
+     * Query to run on logs.
+     */
+    query: pulumi.Input<string>;
+}
+
 export interface SecurityMonitoringRuleOptions {
+    /**
+     * The detection method. Default to `threshold`.
+     */
+    detectionMethod?: pulumi.Input<string>;
     /**
      * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
      */
@@ -6039,6 +6657,21 @@ export interface SecurityMonitoringRuleOptions {
      * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
      */
     maxSignalDuration: pulumi.Input<number>;
+    /**
+     * Specific options for `newValue` detection method.
+     */
+    newValueOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsNewValueOptions>;
+}
+
+export interface SecurityMonitoringRuleOptionsNewValueOptions {
+    /**
+     * The duration in days after which a learned value is forgotten.
+     */
+    forgetAfter: pulumi.Input<number>;
+    /**
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+     */
+    learningDuration: pulumi.Input<number>;
 }
 
 export interface SecurityMonitoringRuleQuery {
@@ -6089,7 +6722,7 @@ export interface ServiceLevelObjectiveThreshold {
      */
     targetDisplay?: pulumi.Input<string>;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe: pulumi.Input<string>;
     /**
@@ -6246,6 +6879,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 }
 
 export interface SyntheticsTestApiStepRequestDefinition {
+    allowInsecure?: pulumi.Input<boolean>;
     /**
      * The request body.
      */
@@ -6456,7 +7090,7 @@ export interface SyntheticsTestOptionsList {
     noScreenshot?: pulumi.Input<boolean>;
     retry?: pulumi.Input<inputs.SyntheticsTestOptionsListRetry>;
     /**
-     * How often the test should run (in seconds). Valid values are `30`, `60`, `300`, `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800`.
+     * How often the test should run (in seconds).
      */
     tickEvery: pulumi.Input<number>;
 }

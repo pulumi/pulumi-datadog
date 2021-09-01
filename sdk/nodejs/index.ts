@@ -5,10 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export * from "./apiKey";
+export * from "./applicationKey";
+export * from "./childOrganization";
 export * from "./dashboard";
 export * from "./dashboardJson";
 export * from "./dashboardList";
 export * from "./downtime";
+export * from "./getApiKey";
+export * from "./getApplicationKey";
 export * from "./getDashboard";
 export * from "./getDashboardList";
 export * from "./getIpRanges";
@@ -16,10 +21,13 @@ export * from "./getMonitor";
 export * from "./getMonitors";
 export * from "./getPermissions";
 export * from "./getRole";
+export * from "./getSecurityMonitoringFilters";
 export * from "./getSecurityMonitoringRules";
 export * from "./getServiceLevelObjective";
 export * from "./getServiceLevelObjectives";
+export * from "./getSyntheticsGlobalVariable";
 export * from "./getSyntheticsLocations";
+export * from "./getUser";
 export * from "./logsArchive";
 export * from "./logsArchiveOrder";
 export * from "./logsCustomPipeline";
@@ -31,9 +39,11 @@ export * from "./logsPipelineOrder";
 export * from "./metricMetadata";
 export * from "./metricTagConfiguration";
 export * from "./monitor";
+export * from "./organizationSettings";
 export * from "./provider";
 export * from "./role";
 export * from "./securityMonitoringDefaultRule";
+export * from "./securityMonitoringFilter";
 export * from "./securityMonitoringRule";
 export * from "./serviceLevelObjective";
 export * from "./sloCorrection";
@@ -62,6 +72,9 @@ export {
 };
 
 // Import resources to register:
+import { ApiKey } from "./apiKey";
+import { ApplicationKey } from "./applicationKey";
+import { ChildOrganization } from "./childOrganization";
 import { Dashboard } from "./dashboard";
 import { DashboardJson } from "./dashboardJson";
 import { DashboardList } from "./dashboardList";
@@ -77,8 +90,10 @@ import { LogsPipelineOrder } from "./logsPipelineOrder";
 import { MetricMetadata } from "./metricMetadata";
 import { MetricTagConfiguration } from "./metricTagConfiguration";
 import { Monitor } from "./monitor";
+import { OrganizationSettings } from "./organizationSettings";
 import { Role } from "./role";
 import { SecurityMonitoringDefaultRule } from "./securityMonitoringDefaultRule";
+import { SecurityMonitoringFilter } from "./securityMonitoringFilter";
 import { SecurityMonitoringRule } from "./securityMonitoringRule";
 import { ServiceLevelObjective } from "./serviceLevelObjective";
 import { SloCorrection } from "./sloCorrection";
@@ -91,6 +106,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "datadog:index/apiKey:ApiKey":
+                return new ApiKey(name, <any>undefined, { urn })
+            case "datadog:index/applicationKey:ApplicationKey":
+                return new ApplicationKey(name, <any>undefined, { urn })
+            case "datadog:index/childOrganization:ChildOrganization":
+                return new ChildOrganization(name, <any>undefined, { urn })
             case "datadog:index/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "datadog:index/dashboardJson:DashboardJson":
@@ -121,10 +142,14 @@ const _module = {
                 return new MetricTagConfiguration(name, <any>undefined, { urn })
             case "datadog:index/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "datadog:index/organizationSettings:OrganizationSettings":
+                return new OrganizationSettings(name, <any>undefined, { urn })
             case "datadog:index/role:Role":
                 return new Role(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule":
                 return new SecurityMonitoringDefaultRule(name, <any>undefined, { urn })
+            case "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter":
+                return new SecurityMonitoringFilter(name, <any>undefined, { urn })
             case "datadog:index/securityMonitoringRule:SecurityMonitoringRule":
                 return new SecurityMonitoringRule(name, <any>undefined, { urn })
             case "datadog:index/serviceLevelObjective:ServiceLevelObjective":
@@ -144,6 +169,9 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/applicationKey", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboard", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/dashboardList", _module)
@@ -159,8 +187,10 @@ pulumi.runtime.registerResourceModule("datadog", "index/logsPipelineOrder", _mod
 pulumi.runtime.registerResourceModule("datadog", "index/metricMetadata", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/serviceLevelObjective", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/sloCorrection", _module)

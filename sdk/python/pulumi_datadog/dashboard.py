@@ -32,10 +32,10 @@ class DashboardArgs:
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[str] title: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
@@ -104,7 +104,7 @@ class DashboardArgs:
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        The list of dashboard lists this dashboard belongs to.
+        A list of dashboard lists this dashboard belongs to.
         """
         return pulumi.get(self, "dashboard_lists")
 
@@ -140,7 +140,7 @@ class DashboardArgs:
     @pulumi.getter(name="notifyLists")
     def notify_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of handles of users to notify when changes are made to this dashboard.
+        The list of handles for the users to notify when changes are made to this dashboard.
         """
         return pulumi.get(self, "notify_lists")
 
@@ -227,12 +227,12 @@ class _DashboardState:
                  widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
@@ -272,7 +272,7 @@ class _DashboardState:
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        The list of dashboard lists this dashboard belongs to.
+        A list of dashboard lists this dashboard belongs to.
         """
         return pulumi.get(self, "dashboard_lists")
 
@@ -284,7 +284,7 @@ class _DashboardState:
     @pulumi.getter(name="dashboardListsRemoveds")
     def dashboard_lists_removeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
-        The list of dashboard lists this dashboard should be removed from. Internal only.
+        A list of dashboard lists this dashboard should be removed from. Internal only.
         """
         return pulumi.get(self, "dashboard_lists_removeds")
 
@@ -332,7 +332,7 @@ class _DashboardState:
     @pulumi.getter(name="notifyLists")
     def notify_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of handles of users to notify when changes are made to this dashboard.
+        The list of handles for the users to notify when changes are made to this dashboard.
         """
         return pulumi.get(self, "notify_lists")
 
@@ -1146,11 +1146,11 @@ class Dashboard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
@@ -1954,12 +1954,12 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: The list of dashboard lists this dashboard belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: The list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles of users to notify when changes are made to this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTemplateVariablePresetArgs']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
@@ -1991,7 +1991,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
-        The list of dashboard lists this dashboard belongs to.
+        A list of dashboard lists this dashboard belongs to.
         """
         return pulumi.get(self, "dashboard_lists")
 
@@ -1999,7 +1999,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="dashboardListsRemoveds")
     def dashboard_lists_removeds(self) -> pulumi.Output[Sequence[int]]:
         """
-        The list of dashboard lists this dashboard should be removed from. Internal only.
+        A list of dashboard lists this dashboard should be removed from. Internal only.
         """
         return pulumi.get(self, "dashboard_lists_removeds")
 
@@ -2031,7 +2031,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="notifyLists")
     def notify_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The list of handles of users to notify when changes are made to this dashboard.
+        The list of handles for the users to notify when changes are made to this dashboard.
         """
         return pulumi.get(self, "notify_lists")
 

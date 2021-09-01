@@ -74,7 +74,13 @@ namespace Pulumi.Datadog
         public Output<Outputs.SyntheticsGlobalVariableParseTestOptions?> ParseTestOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the variable as secure. Defaults to `false`.
+        /// A list of role identifiers to associate with the Synthetics global variable.
+        /// </summary>
+        [Output("restrictedRoles")]
+        public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
+
+        /// <summary>
+        /// If set to true, the value of the global variable is hidden. Defaults to `false`.
         /// </summary>
         [Output("secure")]
         public Output<bool?> Secure { get; private set; } = null!;
@@ -161,8 +167,20 @@ namespace Pulumi.Datadog
         [Input("parseTestOptions")]
         public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsArgs>? ParseTestOptions { get; set; }
 
+        [Input("restrictedRoles")]
+        private InputList<string>? _restrictedRoles;
+
         /// <summary>
-        /// Sets the variable as secure. Defaults to `false`.
+        /// A list of role identifiers to associate with the Synthetics global variable.
+        /// </summary>
+        public InputList<string> RestrictedRoles
+        {
+            get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
+            set => _restrictedRoles = value;
+        }
+
+        /// <summary>
+        /// If set to true, the value of the global variable is hidden. Defaults to `false`.
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
@@ -216,8 +234,20 @@ namespace Pulumi.Datadog
         [Input("parseTestOptions")]
         public Input<Inputs.SyntheticsGlobalVariableParseTestOptionsGetArgs>? ParseTestOptions { get; set; }
 
+        [Input("restrictedRoles")]
+        private InputList<string>? _restrictedRoles;
+
         /// <summary>
-        /// Sets the variable as secure. Defaults to `false`.
+        /// A list of role identifiers to associate with the Synthetics global variable.
+        /// </summary>
+        public InputList<string> RestrictedRoles
+        {
+            get => _restrictedRoles ?? (_restrictedRoles = new InputList<string>());
+            set => _restrictedRoles = value;
+        }
+
+        /// <summary>
+        /// If set to true, the value of the global variable is hidden. Defaults to `false`.
         /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
