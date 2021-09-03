@@ -5,10 +5,15 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
+from .api_key import *
+from .application_key import *
+from .child_organization import *
 from .dashboard import *
 from .dashboard_json import *
 from .dashboard_list import *
 from .downtime import *
+from .get_api_key import *
+from .get_application_key import *
 from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_ip_ranges import *
@@ -16,10 +21,13 @@ from .get_monitor import *
 from .get_monitors import *
 from .get_permissions import *
 from .get_role import *
+from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
 from .get_service_level_objective import *
 from .get_service_level_objectives import *
+from .get_synthetics_global_variable import *
 from .get_synthetics_locations import *
+from .get_user import *
 from .logs_archive import *
 from .logs_archive_order import *
 from .logs_custom_pipeline import *
@@ -31,9 +39,11 @@ from .logs_pipeline_order import *
 from .metric_metadata import *
 from .metric_tag_configuration import *
 from .monitor import *
+from .organization_settings import *
 from .provider import *
 from .role import *
 from .security_monitoring_default_rule import *
+from .security_monitoring_filter import *
 from .security_monitoring_rule import *
 from .service_level_objective import *
 from .slo_correction import *
@@ -109,6 +119,30 @@ _utilities.register(
   "fqn": "pulumi_datadog.gcp",
   "classes": {
    "datadog:gcp/integration:Integration": "Integration"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/apiKey",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/apiKey:ApiKey": "ApiKey"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/applicationKey",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/applicationKey:ApplicationKey": "ApplicationKey"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/childOrganization",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/childOrganization:ChildOrganization": "ChildOrganization"
   }
  },
  {
@@ -233,6 +267,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/organizationSettings",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/organizationSettings:OrganizationSettings": "OrganizationSettings"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/role",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -245,6 +287,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule": "SecurityMonitoringDefaultRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityMonitoringFilter",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityMonitoringFilter:SecurityMonitoringFilter": "SecurityMonitoringFilter"
   }
  },
  {

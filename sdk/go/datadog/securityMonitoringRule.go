@@ -35,10 +35,12 @@ import (
 // 					Status: pulumi.String("high"),
 // 				},
 // 			},
-// 			Enabled: pulumi.Bool(true),
-// 			Message: pulumi.String("The rule has triggered."),
-// 			Name:    pulumi.String("My rule"),
+// 			Enabled:          pulumi.Bool(true),
+// 			HasExtendedTitle: pulumi.Bool(true),
+// 			Message:          pulumi.String("The rule has triggered."),
+// 			Name:             pulumi.String("My rule"),
 // 			Options: &datadog.SecurityMonitoringRuleOptionsArgs{
+// 				DetectionMethod:   pulumi.String("threshold"),
 // 				EvaluationWindow:  pulumi.Int(300),
 // 				KeepAlive:         pulumi.Int(600),
 // 				MaxSignalDuration: pulumi.Int(900),
@@ -87,6 +89,10 @@ type SecurityMonitoringRule struct {
 	Cases SecurityMonitoringRuleCaseArrayOutput `pulumi:"cases"`
 	// Whether the rule is enabled.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed.
+	Filters SecurityMonitoringRuleFilterArrayOutput `pulumi:"filters"`
+	// Whether the notifications include the triggering group-by values in their title.
+	HasExtendedTitle pulumi.BoolPtrOutput `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message pulumi.StringOutput `pulumi:"message"`
 	// The name of the rule.
@@ -144,6 +150,10 @@ type securityMonitoringRuleState struct {
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
 	// Whether the rule is enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed.
+	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
+	// Whether the notifications include the triggering group-by values in their title.
+	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message *string `pulumi:"message"`
 	// The name of the rule.
@@ -161,6 +171,10 @@ type SecurityMonitoringRuleState struct {
 	Cases SecurityMonitoringRuleCaseArrayInput
 	// Whether the rule is enabled.
 	Enabled pulumi.BoolPtrInput
+	// Additional queries to filter matched events before they are processed.
+	Filters SecurityMonitoringRuleFilterArrayInput
+	// Whether the notifications include the triggering group-by values in their title.
+	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
 	Message pulumi.StringPtrInput
 	// The name of the rule.
@@ -182,6 +196,10 @@ type securityMonitoringRuleArgs struct {
 	Cases []SecurityMonitoringRuleCase `pulumi:"cases"`
 	// Whether the rule is enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Additional queries to filter matched events before they are processed.
+	Filters []SecurityMonitoringRuleFilter `pulumi:"filters"`
+	// Whether the notifications include the triggering group-by values in their title.
+	HasExtendedTitle *bool `pulumi:"hasExtendedTitle"`
 	// Message for generated signals.
 	Message string `pulumi:"message"`
 	// The name of the rule.
@@ -200,6 +218,10 @@ type SecurityMonitoringRuleArgs struct {
 	Cases SecurityMonitoringRuleCaseArrayInput
 	// Whether the rule is enabled.
 	Enabled pulumi.BoolPtrInput
+	// Additional queries to filter matched events before they are processed.
+	Filters SecurityMonitoringRuleFilterArrayInput
+	// Whether the notifications include the triggering group-by values in their title.
+	HasExtendedTitle pulumi.BoolPtrInput
 	// Message for generated signals.
 	Message pulumi.StringInput
 	// The name of the rule.

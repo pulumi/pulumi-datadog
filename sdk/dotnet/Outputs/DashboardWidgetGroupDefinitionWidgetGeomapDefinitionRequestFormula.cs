@@ -14,6 +14,8 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula
     {
         public readonly string? Alias;
+        public readonly string? CellDisplayMode;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         public readonly string FormulaExpression;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit? Limit;
 
@@ -21,11 +23,17 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula(
             string? alias,
 
+            string? cellDisplayMode,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat> conditionalFormats,
+
             string formulaExpression,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit? limit)
         {
             Alias = alias;
+            CellDisplayMode = cellDisplayMode;
+            ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
         }

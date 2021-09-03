@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := slack.NewChannel(ctx, "slackChannel", &slack.ChannelArgs{
+// 		_, err := slack.NewChannel(ctx, "testChannel", &slack.ChannelArgs{
 // 			AccountName: pulumi.String("foo"),
 // 			ChannelName: pulumi.String("#test_channel"),
 // 			Display: &slack.ChannelDisplayArgs{
@@ -41,6 +41,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
+//
+// ```sh
+//  $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
 // ```
 type Channel struct {
 	pulumi.CustomResourceState

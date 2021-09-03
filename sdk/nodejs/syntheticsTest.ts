@@ -8,6 +8,34 @@ import * as utilities from "./utilities";
 /**
  * Provides a Datadog synthetics test resource. This can be used to create and manage Datadog synthetics test.
  *
+ * #### *Warning*
+ * Starting from version 3.1.0+, the direct usage of global variables in the configuration is deprecated, in favor of
+ * local variables of type `global`. As an example, if you were previously using `{{ GLOBAL_VAR }}` directly in your
+ * configuration, add a `configVariable` of type `global` with the `id` matching the `id` of the global variable `GLOBAL_VAR`, which can be found in the Synthetics UI or from the output of the `datadog.SyntheticsGlobalVariable` resource. The name can be chosen freely.
+ *
+ * In practice, it means going from (simplified configuration):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ *
+ * to
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ *
+ * const config_variable = {
+ *     name: "LOCAL_VAR",
+ *     id: [your_global_variable_id],
+ *     type: "global",
+ * };
+ * ```
+ *
+ * which you can now use in your request definition:
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -16,169 +44,219 @@ import * as utilities from "./utilities";
  *
  * // Example Usage (Synthetics API test)
  * // Create a new Datadog Synthetics API/HTTP test on https://www.example.org
- * const testApi = new datadog.SyntheticsTest("testApi", {
- *     type: "api",
- *     subtype: "http",
+ * const testApi = new datadog.SyntheticsTest("test_api", {
+ *     assertions: [{
+ *         operator: "is",
+ *         target: "200",
+ *         type: "statusCode",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     optionsList: {
+ *         monitorOptions: {
+ *             renotifyInterval: 100,
+ *         },
+ *         retry: {
+ *             count: 2,
+ *             interval: 300,
+ *         },
+ *         tickEvery: 900,
+ *     },
  *     requestDefinition: {
  *         method: "GET",
  *         url: "https://www.example.org",
  *     },
  *     requestHeaders: {
- *         "Content-Type": "application/json",
  *         Authentication: "Token: 1234566789",
+ *         "Content-Type": "application/json",
  *     },
- *     assertions: [{
- *         type: "statusCode",
- *         operator: "is",
- *         target: "200",
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     optionsList: {
- *         tickEvery: 900,
- *         retry: {
- *             count: 2,
- *             interval: 300,
- *         },
- *         monitorOptions: {
- *             renotifyInterval: 100,
- *         },
- *     },
- *     name: "An API test on example.org",
- *     message: "Notify @pagerduty",
+ *     status: "live",
+ *     subtype: "http",
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     status: "live",
+ *     type: "api",
  * });
  * // Example Usage (Synthetics SSL test)
  * // Create a new Datadog Synthetics API/SSL test on example.org
- * const testSsl = new datadog.SyntheticsTest("testSsl", {
- *     type: "api",
- *     subtype: "ssl",
+ * const testSsl = new datadog.SyntheticsTest("test_ssl", {
+ *     assertions: [{
+ *         operator: "isInMoreThan",
+ *         target: "30",
+ *         type: "certificate",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     optionsList: {
+ *         acceptSelfSigned: true,
+ *         tickEvery: 900,
+ *     },
  *     requestDefinition: {
  *         host: "example.org",
  *         port: 443,
  *     },
- *     assertions: [{
- *         type: "certificate",
- *         operator: "isInMoreThan",
- *         target: 30,
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     optionsList: {
- *         tickEvery: 900,
- *         acceptSelfSigned: true,
- *     },
- *     name: "An API test on example.org",
- *     message: "Notify @pagerduty",
+ *     status: "live",
+ *     subtype: "ssl",
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     status: "live",
+ *     type: "api",
  * });
  * // Example Usage (Synthetics TCP test)
  * // Create a new Datadog Synthetics API/TCP test on example.org
- * const testTcp = new datadog.SyntheticsTest("testTcp", {
- *     type: "api",
- *     subtype: "tcp",
+ * const testTcp = new datadog.SyntheticsTest("test_tcp", {
+ *     assertions: [{
+ *         operator: "lessThan",
+ *         target: "2000",
+ *         type: "responseTime",
+ *     }],
+ *     configVariables: [{
+ *         id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+ *         name: "MY_GLOBAL_VAR",
+ *         type: "global",
+ *     }],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
+ *     optionsList: {
+ *         tickEvery: 900,
+ *     },
  *     requestDefinition: {
  *         host: "example.org",
  *         port: 443,
  *     },
- *     assertions: [{
- *         type: "responseTime",
- *         operator: "lessThan",
- *         target: 2000,
- *     }],
- *     locations: ["aws:eu-central-1"],
- *     optionsList: {
- *         tickEvery: 900,
- *     },
- *     name: "An API test on example.org",
- *     message: "Notify @pagerduty",
+ *     status: "live",
+ *     subtype: "tcp",
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
- *     status: "live",
+ *     type: "api",
  * });
  * // Example Usage (Synthetics DNS test)
  * // Create a new Datadog Synthetics API/DNS test on example.org
- * const testDns = new datadog.SyntheticsTest("testDns", {
- *     type: "api",
- *     subtype: "dns",
- *     requestDefinition: {
- *         host: "example.org",
- *     },
+ * const testDns = new datadog.SyntheticsTest("test_dns", {
  *     assertions: [{
- *         type: "recordSome",
  *         operator: "is",
  *         property: "A",
  *         target: "0.0.0.0",
+ *         type: "recordSome",
  *     }],
  *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @pagerduty",
+ *     name: "An API test on example.org",
  *     optionsList: {
  *         tickEvery: 900,
  *     },
- *     name: "An API test on example.org",
- *     message: "Notify @pagerduty",
+ *     requestDefinition: {
+ *         host: "example.org",
+ *     },
+ *     status: "live",
+ *     subtype: "dns",
  *     tags: [
  *         "foo:bar",
  *         "foo",
  *         "env:test",
  *     ],
+ *     type: "api",
+ * });
+ * // Example Usage (Synthetics Multistep API test)
+ * // Create a new Datadog Synthetics Multistep API test
+ * const test = new datadog.SyntheticsTest("test", {
+ *     apiSteps: [
+ *         {
+ *             assertions: [{
+ *                 operator: "is",
+ *                 target: "200",
+ *                 type: "statusCode",
+ *             }],
+ *             name: "An API test on example.org",
+ *             requestDefinition: {
+ *                 method: "GET",
+ *                 url: "https://example.org",
+ *             },
+ *             requestHeaders: {
+ *                 Authentication: "Token: 1234566789",
+ *                 "Content-Type": "application/json",
+ *             },
+ *             subtype: "http",
+ *         },
+ *         {
+ *             assertions: [{
+ *                 operator: "is",
+ *                 target: "200",
+ *                 type: "statusCode",
+ *             }],
+ *             name: "An API test on example.org",
+ *             requestDefinition: {
+ *                 method: "GET",
+ *                 url: "http://example.org",
+ *             },
+ *             subtype: "http",
+ *         },
+ *     ],
+ *     locations: ["aws:eu-central-1"],
+ *     name: "Multistep API test",
+ *     optionsList: {
+ *         acceptSelfSigned: true,
+ *         tickEvery: 900,
+ *     },
  *     status: "live",
+ *     subtype: "multi",
+ *     type: "api",
  * });
  * // Example Usage (Synthetics Browser test)
  * // Support for Synthetics Browser test steps is limited (see below)
  * // Create a new Datadog Synthetics Browser test starting on https://www.example.org
- * const testBrowser = new datadog.SyntheticsTest("testBrowser", {
- *     type: "browser",
+ * const testBrowser = new datadog.SyntheticsTest("test_browser", {
+ *     browserSteps: [{
+ *         name: "Check current url",
+ *         params: {
+ *             check: "contains",
+ *             value: "datadoghq",
+ *         },
+ *         type: "assertCurrentUrl",
+ *     }],
+ *     browserVariables: [
+ *         {
+ *             example: "597",
+ *             name: "MY_PATTERN_VAR",
+ *             pattern: "{{numeric(3)}}",
+ *             type: "text",
+ *         },
+ *         {
+ *             example: "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
+ *             name: "MY_EMAIL_VAR",
+ *             pattern: "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
+ *             type: "email",
+ *         },
+ *         {
+ *             id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
+ *             name: "MY_GLOBAL_VAR",
+ *             type: "global",
+ *         },
+ *     ],
+ *     deviceIds: ["laptop_large"],
+ *     locations: ["aws:eu-central-1"],
+ *     message: "Notify @qa",
+ *     name: "A Browser test on example.org",
+ *     optionsList: {
+ *         tickEvery: 3600,
+ *     },
  *     requestDefinition: {
  *         method: "GET",
  *         url: "https://app.datadoghq.com",
  *     },
- *     deviceIds: ["laptop_large"],
- *     locations: ["aws:eu-central-1"],
- *     optionsList: {
- *         tickEvery: 3600,
- *     },
- *     name: "A Browser test on example.org",
- *     message: "Notify @qa",
- *     tags: [],
  *     status: "paused",
- *     step: [{
- *         name: "Check current url",
- *         type: "assertCurrentUrl",
- *         params: JSON.stringify({
- *             check: "contains",
- *             value: "datadoghq",
- *         }),
- *     }],
- *     variable: [
- *         {
- *             type: "text",
- *             name: "MY_PATTERN_VAR",
- *             pattern: "{{numeric(3)}}",
- *             example: "597",
- *         },
- *         {
- *             type: "email",
- *             name: "MY_EMAIL_VAR",
- *             pattern: "jd8-afe-ydv.{{ numeric(10) }}@synthetics.dtdg.co",
- *             example: "jd8-afe-ydv.4546132139@synthetics.dtdg.co",
- *         },
- *         {
- *             type: "global",
- *             name: "MY_GLOBAL_VAR",
- *             id: "76636cd1-82e2-4aeb-9cfe-51366a8198a2",
- *         },
- *     ],
+ *     tags: [],
+ *     type: "browser",
  * });
  * ```
  *
@@ -239,7 +317,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly configVariables!: pulumi.Output<outputs.SyntheticsTestConfigVariable[] | undefined>;
     /**
-     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`.
+     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -402,7 +480,7 @@ export interface SyntheticsTestState {
      */
     configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`.
+     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -489,7 +567,7 @@ export interface SyntheticsTestArgs {
      */
     configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`.
+     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -21,9 +21,11 @@ import * as utilities from "./utilities";
  *         status: "high",
  *     }],
  *     enabled: true,
+ *     hasExtendedTitle: true,
  *     message: "The rule has triggered.",
  *     name: "My rule",
  *     options: {
+ *         detectionMethod: "threshold",
  *         evaluationWindow: 300,
  *         keepAlive: 600,
  *         maxSignalDuration: 900,
@@ -91,6 +93,14 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Additional queries to filter matched events before they are processed.
+     */
+    public readonly filters!: pulumi.Output<outputs.SecurityMonitoringRuleFilter[] | undefined>;
+    /**
+     * Whether the notifications include the triggering group-by values in their title.
+     */
+    public readonly hasExtendedTitle!: pulumi.Output<boolean | undefined>;
+    /**
      * Message for generated signals.
      */
     public readonly message!: pulumi.Output<string>;
@@ -126,6 +136,8 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             const state = argsOrState as SecurityMonitoringRuleState | undefined;
             inputs["cases"] = state ? state.cases : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["filters"] = state ? state.filters : undefined;
+            inputs["hasExtendedTitle"] = state ? state.hasExtendedTitle : undefined;
             inputs["message"] = state ? state.message : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["options"] = state ? state.options : undefined;
@@ -147,6 +159,8 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             }
             inputs["cases"] = args ? args.cases : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["filters"] = args ? args.filters : undefined;
+            inputs["hasExtendedTitle"] = args ? args.hasExtendedTitle : undefined;
             inputs["message"] = args ? args.message : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
@@ -172,6 +186,14 @@ export interface SecurityMonitoringRuleState {
      * Whether the rule is enabled.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Additional queries to filter matched events before they are processed.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
+    /**
+     * Whether the notifications include the triggering group-by values in their title.
+     */
+    hasExtendedTitle?: pulumi.Input<boolean>;
     /**
      * Message for generated signals.
      */
@@ -206,6 +228,14 @@ export interface SecurityMonitoringRuleArgs {
      * Whether the rule is enabled.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Additional queries to filter matched events before they are processed.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleFilter>[]>;
+    /**
+     * Whether the notifications include the triggering group-by values in their title.
+     */
+    hasExtendedTitle?: pulumi.Input<boolean>;
     /**
      * Message for generated signals.
      */

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Aws
     /// {
     ///     public MyStack()
     ///     {
-    ///         // Create a new Datadog - Amazon Web Services integration lambda arn
+    ///         // Create a new Datadog - Amazon Web Services integration log collection
     ///         var main = new Datadog.Aws.IntegrationLogCollection("main", new Datadog.Aws.IntegrationLogCollectionArgs
     ///         {
     ///             AccountId = "1234567890",

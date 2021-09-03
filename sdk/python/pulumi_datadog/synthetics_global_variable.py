@@ -20,6 +20,7 @@ class SyntheticsGlobalVariableArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secure: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -29,7 +30,8 @@ class SyntheticsGlobalVariableArgs:
         :param pulumi.Input[str] description: Description of the global variable.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         """
         pulumi.set(__self__, "name", name)
@@ -40,6 +42,8 @@ class SyntheticsGlobalVariableArgs:
             pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
             pulumi.set(__self__, "parse_test_options", parse_test_options)
+        if restricted_roles is not None:
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
         if secure is not None:
             pulumi.set(__self__, "secure", secure)
         if tags is not None:
@@ -106,10 +110,22 @@ class SyntheticsGlobalVariableArgs:
         pulumi.set(self, "parse_test_options", value)
 
     @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of role identifiers to associate with the Synthetics global variable.
+        """
+        return pulumi.get(self, "restricted_roles")
+
+    @restricted_roles.setter
+    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "restricted_roles", value)
+
+    @property
     @pulumi.getter
     def secure(self) -> Optional[pulumi.Input[bool]]:
         """
-        Sets the variable as secure. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
@@ -137,6 +153,7 @@ class _SyntheticsGlobalVariableState:
                  name: Optional[pulumi.Input[str]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs']] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secure: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -146,7 +163,8 @@ class _SyntheticsGlobalVariableState:
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input['SyntheticsGlobalVariableParseTestOptionsArgs'] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
         """
@@ -158,6 +176,8 @@ class _SyntheticsGlobalVariableState:
             pulumi.set(__self__, "parse_test_id", parse_test_id)
         if parse_test_options is not None:
             pulumi.set(__self__, "parse_test_options", parse_test_options)
+        if restricted_roles is not None:
+            pulumi.set(__self__, "restricted_roles", restricted_roles)
         if secure is not None:
             pulumi.set(__self__, "secure", secure)
         if tags is not None:
@@ -214,10 +234,22 @@ class _SyntheticsGlobalVariableState:
         pulumi.set(self, "parse_test_options", value)
 
     @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of role identifiers to associate with the Synthetics global variable.
+        """
+        return pulumi.get(self, "restricted_roles")
+
+    @restricted_roles.setter
+    def restricted_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "restricted_roles", value)
+
+    @property
     @pulumi.getter
     def secure(self) -> Optional[pulumi.Input[bool]]:
         """
-        Sets the variable as secure. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 
@@ -259,6 +291,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secure: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -296,7 +329,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
         """
@@ -352,6 +386,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parse_test_id: Optional[pulumi.Input[str]] = None,
                  parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
+                 restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secure: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -373,6 +408,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parse_test_id"] = parse_test_id
             __props__.__dict__["parse_test_options"] = parse_test_options
+            __props__.__dict__["restricted_roles"] = restricted_roles
             __props__.__dict__["secure"] = secure
             __props__.__dict__["tags"] = tags
             if value is None and not opts.urn:
@@ -392,6 +428,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             parse_test_id: Optional[pulumi.Input[str]] = None,
             parse_test_options: Optional[pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']]] = None,
+            restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             secure: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'SyntheticsGlobalVariable':
@@ -406,7 +443,8 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Synthetics global variable name.
         :param pulumi.Input[str] parse_test_id: Id of the Synthetics test to use for a variable from test.
         :param pulumi.Input[pulumi.InputType['SyntheticsGlobalVariableParseTestOptionsArgs']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
-        :param pulumi.Input[bool] secure: Sets the variable as secure. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable.
+        :param pulumi.Input[bool] secure: If set to true, the value of the global variable is hidden. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to associate with your synthetics global variable.
         :param pulumi.Input[str] value: The value of the global variable.
         """
@@ -418,6 +456,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["parse_test_id"] = parse_test_id
         __props__.__dict__["parse_test_options"] = parse_test_options
+        __props__.__dict__["restricted_roles"] = restricted_roles
         __props__.__dict__["secure"] = secure
         __props__.__dict__["tags"] = tags
         __props__.__dict__["value"] = value
@@ -456,10 +495,18 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         return pulumi.get(self, "parse_test_options")
 
     @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of role identifiers to associate with the Synthetics global variable.
+        """
+        return pulumi.get(self, "restricted_roles")
+
+    @property
     @pulumi.getter
     def secure(self) -> pulumi.Output[Optional[bool]]:
         """
-        Sets the variable as secure. Defaults to `false`.
+        If set to true, the value of the global variable is hidden. Defaults to `false`.
         """
         return pulumi.get(self, "secure")
 

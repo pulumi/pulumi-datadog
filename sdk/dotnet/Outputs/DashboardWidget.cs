@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetAlertValueDefinition? AlertValueDefinition;
         /// <summary>
-        /// The definition for a Change  widget.
+        /// The definition for a Change widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinition? ChangeDefinition;
         /// <summary>

@@ -111,6 +111,10 @@ export interface GetMonitorResult {
      */
     readonly nameFilter?: string;
     /**
+     * Time (in seconds) to skip evaluations for new groups.
+     */
+    readonly newGroupDelay: number;
+    /**
      * Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
      */
     readonly newHostDelay: number;
@@ -138,6 +142,7 @@ export interface GetMonitorResult {
      * Whether or not the monitor needs a full window of data before it is evaluated.
      */
     readonly requireFullWindow: boolean;
+    readonly restrictedRoles: string[];
     /**
      * List of tags associated with the monitor.
      */

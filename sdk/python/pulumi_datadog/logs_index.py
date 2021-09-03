@@ -18,6 +18,7 @@ class LogsIndexArgs:
                  filters: pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]],
                  name: pulumi.Input[str],
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None):
         """
@@ -25,6 +26,7 @@ class LogsIndexArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[int] retention_days: The number of days before logs are deleted from this index.
         """
@@ -32,6 +34,8 @@ class LogsIndexArgs:
         pulumi.set(__self__, "name", name)
         if daily_limit is not None:
             pulumi.set(__self__, "daily_limit", daily_limit)
+        if disable_daily_limit is not None:
+            pulumi.set(__self__, "disable_daily_limit", disable_daily_limit)
         if exclusion_filters is not None:
             pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         if retention_days is not None:
@@ -74,6 +78,18 @@ class LogsIndexArgs:
         pulumi.set(self, "daily_limit", value)
 
     @property
+    @pulumi.getter(name="disableDailyLimit")
+    def disable_daily_limit(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        """
+        return pulumi.get(self, "disable_daily_limit")
+
+    @disable_daily_limit.setter
+    def disable_daily_limit(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_daily_limit", value)
+
+    @property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]]:
         """
@@ -102,6 +118,7 @@ class LogsIndexArgs:
 class _LogsIndexState:
     def __init__(__self__, *,
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -109,6 +126,7 @@ class _LogsIndexState:
         """
         Input properties used for looking up and filtering LogsIndex resources.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexExclusionFilterArgs']]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input['LogsIndexFilterArgs']]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
@@ -116,6 +134,8 @@ class _LogsIndexState:
         """
         if daily_limit is not None:
             pulumi.set(__self__, "daily_limit", daily_limit)
+        if disable_daily_limit is not None:
+            pulumi.set(__self__, "disable_daily_limit", disable_daily_limit)
         if exclusion_filters is not None:
             pulumi.set(__self__, "exclusion_filters", exclusion_filters)
         if filters is not None:
@@ -136,6 +156,18 @@ class _LogsIndexState:
     @daily_limit.setter
     def daily_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "daily_limit", value)
+
+    @property
+    @pulumi.getter(name="disableDailyLimit")
+    def disable_daily_limit(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        """
+        return pulumi.get(self, "disable_daily_limit")
+
+    @disable_daily_limit.setter
+    def disable_daily_limit(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_daily_limit", value)
 
     @property
     @pulumi.getter(name="exclusionFilters")
@@ -192,47 +224,13 @@ class LogsIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_index = datadog.LogsIndex("sampleIndex",
-            daily_limit=200000,
-            exclusion_filters=[
-                datadog.LogsIndexExclusionFilterArgs(
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="app:coredns",
-                        sample_rate=0.97,
-                    )],
-                    is_enabled=True,
-                    name="Filter coredns logs",
-                ),
-                datadog.LogsIndexExclusionFilterArgs(
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="service:kube_apiserver",
-                        sample_rate=1,
-                    )],
-                    is_enabled=True,
-                    name="Kubernetes apiserver",
-                ),
-            ],
-            filters=[datadog.LogsIndexFilterArgs(
-                query="*",
-            )],
-            name="your index",
-            retention_days=7)
-        ```
-
         ## Import
 
         ```sh
@@ -242,6 +240,7 @@ class LogsIndex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
@@ -254,41 +253,6 @@ class LogsIndex(pulumi.CustomResource):
                  args: LogsIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Logs Index API resource. This can be used to create and manage Datadog logs indexes.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_datadog as datadog
-
-        sample_index = datadog.LogsIndex("sampleIndex",
-            daily_limit=200000,
-            exclusion_filters=[
-                datadog.LogsIndexExclusionFilterArgs(
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="app:coredns",
-                        sample_rate=0.97,
-                    )],
-                    is_enabled=True,
-                    name="Filter coredns logs",
-                ),
-                datadog.LogsIndexExclusionFilterArgs(
-                    filters=[datadog.LogsIndexExclusionFilterFilterArgs(
-                        query="service:kube_apiserver",
-                        sample_rate=1,
-                    )],
-                    is_enabled=True,
-                    name="Kubernetes apiserver",
-                ),
-            ],
-            filters=[datadog.LogsIndexFilterArgs(
-                query="*",
-            )],
-            name="your index",
-            retention_days=7)
-        ```
-
         ## Import
 
         ```sh
@@ -311,6 +275,7 @@ class LogsIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_limit: Optional[pulumi.Input[int]] = None,
+                 disable_daily_limit: Optional[pulumi.Input[bool]] = None,
                  exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -328,6 +293,7 @@ class LogsIndex(pulumi.CustomResource):
             __props__ = LogsIndexArgs.__new__(LogsIndexArgs)
 
             __props__.__dict__["daily_limit"] = daily_limit
+            __props__.__dict__["disable_daily_limit"] = disable_daily_limit
             __props__.__dict__["exclusion_filters"] = exclusion_filters
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
@@ -347,6 +313,7 @@ class LogsIndex(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             daily_limit: Optional[pulumi.Input[int]] = None,
+            disable_daily_limit: Optional[pulumi.Input[bool]] = None,
             exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -359,6 +326,7 @@ class LogsIndex(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] daily_limit: The number of log events you can send in this index per day before you are rate-limited.
+        :param pulumi.Input[bool] disable_daily_limit: If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexExclusionFilterArgs']]]] exclusion_filters: List of exclusion filters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogsIndexFilterArgs']]]] filters: Logs filter
         :param pulumi.Input[str] name: The name of the index.
@@ -369,6 +337,7 @@ class LogsIndex(pulumi.CustomResource):
         __props__ = _LogsIndexState.__new__(_LogsIndexState)
 
         __props__.__dict__["daily_limit"] = daily_limit
+        __props__.__dict__["disable_daily_limit"] = disable_daily_limit
         __props__.__dict__["exclusion_filters"] = exclusion_filters
         __props__.__dict__["filters"] = filters
         __props__.__dict__["name"] = name
@@ -382,6 +351,14 @@ class LogsIndex(pulumi.CustomResource):
         The number of log events you can send in this index per day before you are rate-limited.
         """
         return pulumi.get(self, "daily_limit")
+
+    @property
+    @pulumi.getter(name="disableDailyLimit")
+    def disable_daily_limit(self) -> pulumi.Output[bool]:
+        """
+        If true, sets the daily*limit value to null and the index is not limited on a daily basis (any specified daily*limit value in the request is ignored). If false or omitted, the index's current daily_limit is maintained.
+        """
+        return pulumi.get(self, "disable_daily_limit")
 
     @property
     @pulumi.getter(name="exclusionFilters")

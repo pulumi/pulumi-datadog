@@ -15,6 +15,17 @@ namespace Pulumi.Datadog.Inputs
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        [Input("cellDisplayMode")]
+        public Input<string>? CellDisplayMode { get; set; }
+
+        [Input("conditionalFormats")]
+        private InputList<Inputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs>? _conditionalFormats;
+        public InputList<Inputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs> ConditionalFormats
+        {
+            get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormatArgs>());
+            set => _conditionalFormats = value;
+        }
+
         [Input("formulaExpression", required: true)]
         public Input<string> FormulaExpression { get; set; } = null!;
 

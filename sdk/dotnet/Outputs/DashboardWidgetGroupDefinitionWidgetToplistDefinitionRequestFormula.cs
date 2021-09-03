@@ -14,6 +14,8 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula
     {
         public readonly string? Alias;
+        public readonly string? CellDisplayMode;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat> ConditionalFormats;
         public readonly string FormulaExpression;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit? Limit;
 
@@ -21,11 +23,17 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula(
             string? alias,
 
+            string? cellDisplayMode,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat> conditionalFormats,
+
             string formulaExpression,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit? limit)
         {
             Alias = alias;
+            CellDisplayMode = cellDisplayMode;
+            ConditionalFormats = conditionalFormats;
             FormulaExpression = formulaExpression;
             Limit = limit;
         }

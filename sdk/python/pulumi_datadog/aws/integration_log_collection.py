@@ -105,7 +105,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create a new Datadog - Amazon Web Services integration lambda arn
+        # Create a new Datadog - Amazon Web Services integration log collection
         main = datadog.aws.IntegrationLogCollection("main",
             account_id="1234567890",
             services=["lambda"])
@@ -139,7 +139,7 @@ class IntegrationLogCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_datadog as datadog
 
-        # Create a new Datadog - Amazon Web Services integration lambda arn
+        # Create a new Datadog - Amazon Web Services integration log collection
         main = datadog.aws.IntegrationLogCollection("main",
             account_id="1234567890",
             services=["lambda"])

@@ -20,7 +20,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, tags=None, tags_filters=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, restricted_roles=None, tags=None, tags_filters=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -60,6 +60,9 @@ class GetMonitorResult:
         if name_filter and not isinstance(name_filter, str):
             raise TypeError("Expected argument 'name_filter' to be a str")
         pulumi.set(__self__, "name_filter", name_filter)
+        if new_group_delay and not isinstance(new_group_delay, int):
+            raise TypeError("Expected argument 'new_group_delay' to be a int")
+        pulumi.set(__self__, "new_group_delay", new_group_delay)
         if new_host_delay and not isinstance(new_host_delay, int):
             raise TypeError("Expected argument 'new_host_delay' to be a int")
         pulumi.set(__self__, "new_host_delay", new_host_delay)
@@ -81,6 +84,9 @@ class GetMonitorResult:
         if require_full_window and not isinstance(require_full_window, bool):
             raise TypeError("Expected argument 'require_full_window' to be a bool")
         pulumi.set(__self__, "require_full_window", require_full_window)
+        if restricted_roles and not isinstance(restricted_roles, list):
+            raise TypeError("Expected argument 'restricted_roles' to be a list")
+        pulumi.set(__self__, "restricted_roles", restricted_roles)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -199,6 +205,14 @@ class GetMonitorResult:
         return pulumi.get(self, "name_filter")
 
     @property
+    @pulumi.getter(name="newGroupDelay")
+    def new_group_delay(self) -> int:
+        """
+        Time (in seconds) to skip evaluations for new groups.
+        """
+        return pulumi.get(self, "new_group_delay")
+
+    @property
     @pulumi.getter(name="newHostDelay")
     def new_host_delay(self) -> int:
         """
@@ -255,6 +269,11 @@ class GetMonitorResult:
         return pulumi.get(self, "require_full_window")
 
     @property
+    @pulumi.getter(name="restrictedRoles")
+    def restricted_roles(self) -> Sequence[str]:
+        return pulumi.get(self, "restricted_roles")
+
+    @property
     @pulumi.getter
     def tags(self) -> Sequence[str]:
         """
@@ -306,6 +325,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             monitor_thresholds=self.monitor_thresholds,
             name=self.name,
             name_filter=self.name_filter,
+            new_group_delay=self.new_group_delay,
             new_host_delay=self.new_host_delay,
             no_data_timeframe=self.no_data_timeframe,
             notify_audit=self.notify_audit,
@@ -313,6 +333,7 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             query=self.query,
             renotify_interval=self.renotify_interval,
             require_full_window=self.require_full_window,
+            restricted_roles=self.restricted_roles,
             tags=self.tags,
             tags_filters=self.tags_filters,
             timeout_h=self.timeout_h,
@@ -365,6 +386,7 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         monitor_thresholds=__ret__.monitor_thresholds,
         name=__ret__.name,
         name_filter=__ret__.name_filter,
+        new_group_delay=__ret__.new_group_delay,
         new_host_delay=__ret__.new_host_delay,
         no_data_timeframe=__ret__.no_data_timeframe,
         notify_audit=__ret__.notify_audit,
@@ -372,6 +394,7 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         query=__ret__.query,
         renotify_interval=__ret__.renotify_interval,
         require_full_window=__ret__.require_full_window,
+        restricted_roles=__ret__.restricted_roles,
         tags=__ret__.tags,
         tags_filters=__ret__.tags_filters,
         timeout_h=__ret__.timeout_h,

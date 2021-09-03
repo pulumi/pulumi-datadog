@@ -140,6 +140,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string? NameFilter;
         /// <summary>
+        /// Time (in seconds) to skip evaluations for new groups.
+        /// </summary>
+        public readonly int NewGroupDelay;
+        /// <summary>
         /// Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
         /// </summary>
         public readonly int NewHostDelay;
@@ -167,6 +171,7 @@ namespace Pulumi.Datadog
         /// Whether or not the monitor needs a full window of data before it is evaluated.
         /// </summary>
         public readonly bool RequireFullWindow;
+        public readonly ImmutableArray<string> RestrictedRoles;
         /// <summary>
         /// List of tags associated with the monitor.
         /// </summary>
@@ -212,6 +217,8 @@ namespace Pulumi.Datadog
 
             string? nameFilter,
 
+            int newGroupDelay,
+
             int newHostDelay,
 
             int noDataTimeframe,
@@ -225,6 +232,8 @@ namespace Pulumi.Datadog
             int renotifyInterval,
 
             bool requireFullWindow,
+
+            ImmutableArray<string> restrictedRoles,
 
             ImmutableArray<string> tags,
 
@@ -247,6 +256,7 @@ namespace Pulumi.Datadog
             MonitorThresholds = monitorThresholds;
             Name = name;
             NameFilter = nameFilter;
+            NewGroupDelay = newGroupDelay;
             NewHostDelay = newHostDelay;
             NoDataTimeframe = noDataTimeframe;
             NotifyAudit = notifyAudit;
@@ -254,6 +264,7 @@ namespace Pulumi.Datadog
             Query = query;
             RenotifyInterval = renotifyInterval;
             RequireFullWindow = requireFullWindow;
+            RestrictedRoles = restrictedRoles;
             Tags = tags;
             TagsFilters = tagsFilters;
             TimeoutH = timeoutH;

@@ -15,6 +15,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
 
+        [Input("auditQuery")]
+        public Input<Inputs.DashboardWidgetToplistDefinitionRequestAuditQueryGetArgs>? AuditQuery { get; set; }
+
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatGetArgs>? _conditionalFormats;
         public InputList<Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatGetArgs> ConditionalFormats

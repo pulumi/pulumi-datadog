@@ -94,8 +94,15 @@ type Monitor struct {
 	MonitorThresholds MonitorMonitorThresholdsPtrOutput `pulumi:"monitorThresholds"`
 	// Name of Datadog monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+	// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+	NewGroupDelay pulumi.IntPtrOutput `pulumi:"newGroupDelay"`
 	// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-	// results. Should be a non negative integer. Defaults to `300`.
+	// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+	// and `new_host_delay` will be removed entirely in a subsequent major version release).
+	//
+	// Deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).
 	NewHostDelay pulumi.IntPtrOutput `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
@@ -207,8 +214,15 @@ type monitorState struct {
 	MonitorThresholds *MonitorMonitorThresholds `pulumi:"monitorThresholds"`
 	// Name of Datadog monitor.
 	Name *string `pulumi:"name"`
+	// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+	// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+	NewGroupDelay *int `pulumi:"newGroupDelay"`
 	// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-	// results. Should be a non negative integer. Defaults to `300`.
+	// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+	// and `new_host_delay` will be removed entirely in a subsequent major version release).
+	//
+	// Deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
@@ -280,8 +294,15 @@ type MonitorState struct {
 	MonitorThresholds MonitorMonitorThresholdsPtrInput
 	// Name of Datadog monitor.
 	Name pulumi.StringPtrInput
+	// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+	// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+	NewGroupDelay pulumi.IntPtrInput
 	// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-	// results. Should be a non negative integer. Defaults to `300`.
+	// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+	// and `new_host_delay` will be removed entirely in a subsequent major version release).
+	//
+	// Deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
@@ -357,8 +378,15 @@ type monitorArgs struct {
 	MonitorThresholds *MonitorMonitorThresholds `pulumi:"monitorThresholds"`
 	// Name of Datadog monitor.
 	Name string `pulumi:"name"`
+	// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+	// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+	NewGroupDelay *int `pulumi:"newGroupDelay"`
 	// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-	// results. Should be a non negative integer. Defaults to `300`.
+	// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+	// and `new_host_delay` will be removed entirely in a subsequent major version release).
+	//
+	// Deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).
 	NewHostDelay *int `pulumi:"newHostDelay"`
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.
@@ -431,8 +459,15 @@ type MonitorArgs struct {
 	MonitorThresholds MonitorMonitorThresholdsPtrInput
 	// Name of Datadog monitor.
 	Name pulumi.StringInput
+	// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+	// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+	// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+	NewGroupDelay pulumi.IntPtrInput
 	// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-	// results. Should be a non negative integer. Defaults to `300`.
+	// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+	// and `new_host_delay` will be removed entirely in a subsequent major version release).
+	//
+	// Deprecated: Prefer using new_group_delay (except when setting `new_host_delay` to zero).
 	NewHostDelay pulumi.IntPtrInput
 	// The number of minutes before a monitor will notify when data stops reporting. Provider defaults to 10 minutes. We
 	// recommend at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks.

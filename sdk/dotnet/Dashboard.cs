@@ -969,13 +969,13 @@ namespace Pulumi.Datadog
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of dashboard lists this dashboard belongs to.
+        /// A list of dashboard lists this dashboard belongs to.
         /// </summary>
         [Output("dashboardLists")]
         public Output<ImmutableArray<int>> DashboardLists { get; private set; } = null!;
 
         /// <summary>
-        /// The list of dashboard lists this dashboard should be removed from. Internal only.
+        /// A list of dashboard lists this dashboard should be removed from. Internal only.
         /// </summary>
         [Output("dashboardListsRemoveds")]
         public Output<ImmutableArray<int>> DashboardListsRemoveds { get; private set; } = null!;
@@ -999,7 +999,7 @@ namespace Pulumi.Datadog
         public Output<string> LayoutType { get; private set; } = null!;
 
         /// <summary>
-        /// The list of handles of users to notify when changes are made to this dashboard.
+        /// The list of handles for the users to notify when changes are made to this dashboard.
         /// </summary>
         [Output("notifyLists")]
         public Output<ImmutableArray<string>> NotifyLists { get; private set; } = null!;
@@ -1096,7 +1096,7 @@ namespace Pulumi.Datadog
         private InputList<int>? _dashboardLists;
 
         /// <summary>
-        /// The list of dashboard lists this dashboard belongs to.
+        /// A list of dashboard lists this dashboard belongs to.
         /// </summary>
         public InputList<int> DashboardLists
         {
@@ -1126,7 +1126,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyLists;
 
         /// <summary>
-        /// The list of handles of users to notify when changes are made to this dashboard.
+        /// The list of handles for the users to notify when changes are made to this dashboard.
         /// </summary>
         public InputList<string> NotifyLists
         {
@@ -1211,7 +1211,7 @@ namespace Pulumi.Datadog
         private InputList<int>? _dashboardLists;
 
         /// <summary>
-        /// The list of dashboard lists this dashboard belongs to.
+        /// A list of dashboard lists this dashboard belongs to.
         /// </summary>
         public InputList<int> DashboardLists
         {
@@ -1223,7 +1223,7 @@ namespace Pulumi.Datadog
         private InputList<int>? _dashboardListsRemoveds;
 
         /// <summary>
-        /// The list of dashboard lists this dashboard should be removed from. Internal only.
+        /// A list of dashboard lists this dashboard should be removed from. Internal only.
         /// </summary>
         public InputList<int> DashboardListsRemoveds
         {
@@ -1253,7 +1253,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _notifyLists;
 
         /// <summary>
-        /// The list of handles of users to notify when changes are made to this dashboard.
+        /// The list of handles for the users to notify when changes are made to this dashboard.
         /// </summary>
         public InputList<string> NotifyLists
         {

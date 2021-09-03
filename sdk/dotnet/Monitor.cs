@@ -138,8 +138,17 @@ namespace Pulumi.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+        /// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+        /// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+        /// </summary>
+        [Output("newGroupDelay")]
+        public Output<int?> NewGroupDelay { get; private set; } = null!;
+
+        /// <summary>
         /// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-        /// results. Should be a non negative integer. Defaults to `300`.
+        /// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+        /// and `new_host_delay` will be removed entirely in a subsequent major version release).
         /// </summary>
         [Output("newHostDelay")]
         public Output<int?> NewHostDelay { get; private set; } = null!;
@@ -348,8 +357,17 @@ namespace Pulumi.Datadog
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+        /// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+        /// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+        /// </summary>
+        [Input("newGroupDelay")]
+        public Input<int>? NewGroupDelay { get; set; }
+
+        /// <summary>
         /// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-        /// results. Should be a non negative integer. Defaults to `300`.
+        /// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+        /// and `new_host_delay` will be removed entirely in a subsequent major version release).
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }
@@ -530,8 +548,17 @@ namespace Pulumi.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Time (in seconds) to skip evaluations for new groups. `new_group_delay` overrides `new_host_delay` if it is set to a
+        /// nonzero value. To disable group delay for monitors grouped by host, `new_host_delay` must be set to zero due to the
+        /// default value of `300` for that field (`new_group_delay` defaults to zero, so setting it to zero is not required).
+        /// </summary>
+        [Input("newGroupDelay")]
+        public Input<int>? NewGroupDelay { get; set; }
+
+        /// <summary>
         /// Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor
-        /// results. Should be a non negative integer. Defaults to `300`.
+        /// results. Should be a non-negative integer. Defaults to `300` (this default will be removed in a major version release
+        /// and `new_host_delay` will be removed entirely in a subsequent major version release).
         /// </summary>
         [Input("newHostDelay")]
         public Input<int>? NewHostDelay { get; set; }

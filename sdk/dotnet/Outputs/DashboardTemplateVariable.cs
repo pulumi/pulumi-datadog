@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The tag prefix associated with the variable. Only tags with this prefix will appear in the variable dropdown.
+        /// The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
         /// </summary>
         public readonly string? Prefix;
 

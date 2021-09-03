@@ -22,6 +22,7 @@ namespace Pulumi.Datadog.Aws
     /// {
     ///     public MyStack()
     ///     {
+    ///         // Create a new Datadog - Amazon Web Services integration tag filter
     ///         var foo = new Datadog.Aws.IntegrationTagFilter("foo", new Datadog.Aws.IntegrationTagFilterArgs
     ///         {
     ///             AccountId = "123456789010",

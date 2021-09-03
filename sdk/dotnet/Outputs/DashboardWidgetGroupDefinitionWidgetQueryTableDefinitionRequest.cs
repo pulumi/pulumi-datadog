@@ -19,11 +19,13 @@ namespace Pulumi.Datadog.Outputs
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
         public readonly ImmutableArray<string> CellDisplayModes;
         public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat> ConditionalFormats;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula> Formulas;
         public readonly int? Limit;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery? LogQuery;
         public readonly string? Order;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery? ProcessQuery;
         public readonly string? Q;
+        public readonly ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery> Queries;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery? RumQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
 
@@ -41,6 +43,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats,
 
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula> formulas,
+
             int? limit,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery? logQuery,
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery> queries,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery? rumQuery,
 
@@ -61,11 +67,13 @@ namespace Pulumi.Datadog.Outputs
             ApmStatsQuery = apmStatsQuery;
             CellDisplayModes = cellDisplayModes;
             ConditionalFormats = conditionalFormats;
+            Formulas = formulas;
             Limit = limit;
             LogQuery = logQuery;
             Order = order;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
         }

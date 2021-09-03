@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class SyntheticsTestApiStepRequestDefinition
     {
+        public readonly bool? AllowInsecure;
         /// <summary>
         /// The request body.
         /// </summary>
@@ -60,6 +61,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private SyntheticsTestApiStepRequestDefinition(
+            bool? allowInsecure,
+
             string? body,
 
             string? dnsServer,
@@ -82,6 +85,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? url)
         {
+            AllowInsecure = allowInsecure;
             Body = body;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;

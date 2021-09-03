@@ -15,6 +15,7 @@ namespace Pulumi.Datadog.Outputs
     {
         public readonly string? Aggregator;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestAuditQuery? AuditQuery;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat> ConditionalFormats;
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestFormula> Formulas;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery? LogQuery;
@@ -29,6 +30,8 @@ namespace Pulumi.Datadog.Outputs
             string? aggregator,
 
             Outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery? apmQuery,
+
+            Outputs.DashboardWidgetQueryValueDefinitionRequestAuditQuery? auditQuery,
 
             ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats,
 
@@ -48,6 +51,7 @@ namespace Pulumi.Datadog.Outputs
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;
+            AuditQuery = auditQuery;
             ConditionalFormats = conditionalFormats;
             Formulas = formulas;
             LogQuery = logQuery;

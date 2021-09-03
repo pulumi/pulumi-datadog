@@ -60,7 +60,9 @@ type SyntheticsGlobalVariable struct {
 	ParseTestId pulumi.StringPtrOutput `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrOutput `pulumi:"parseTestOptions"`
-	// Sets the variable as secure. Defaults to `false`.
+	// A list of role identifiers to associate with the Synthetics global variable.
+	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
+	// If set to true, the value of the global variable is hidden. Defaults to `false`.
 	Secure pulumi.BoolPtrOutput `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -111,7 +113,9 @@ type syntheticsGlobalVariableState struct {
 	ParseTestId *string `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
-	// Sets the variable as secure. Defaults to `false`.
+	// A list of role identifiers to associate with the Synthetics global variable.
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	// If set to true, the value of the global variable is hidden. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
@@ -128,7 +132,9 @@ type SyntheticsGlobalVariableState struct {
 	ParseTestId pulumi.StringPtrInput
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
-	// Sets the variable as secure. Defaults to `false`.
+	// A list of role identifiers to associate with the Synthetics global variable.
+	RestrictedRoles pulumi.StringArrayInput
+	// If set to true, the value of the global variable is hidden. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput
@@ -149,7 +155,9 @@ type syntheticsGlobalVariableArgs struct {
 	ParseTestId *string `pulumi:"parseTestId"`
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions *SyntheticsGlobalVariableParseTestOptions `pulumi:"parseTestOptions"`
-	// Sets the variable as secure. Defaults to `false`.
+	// A list of role identifiers to associate with the Synthetics global variable.
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	// If set to true, the value of the global variable is hidden. Defaults to `false`.
 	Secure *bool `pulumi:"secure"`
 	// A list of tags to associate with your synthetics global variable.
 	Tags []string `pulumi:"tags"`
@@ -167,7 +175,9 @@ type SyntheticsGlobalVariableArgs struct {
 	ParseTestId pulumi.StringPtrInput
 	// ID of the Synthetics test to use a source of the global variable value.
 	ParseTestOptions SyntheticsGlobalVariableParseTestOptionsPtrInput
-	// Sets the variable as secure. Defaults to `false`.
+	// A list of role identifiers to associate with the Synthetics global variable.
+	RestrictedRoles pulumi.StringArrayInput
+	// If set to true, the value of the global variable is hidden. Defaults to `false`.
 	Secure pulumi.BoolPtrInput
 	// A list of tags to associate with your synthetics global variable.
 	Tags pulumi.StringArrayInput

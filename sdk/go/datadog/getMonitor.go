@@ -82,6 +82,8 @@ type LookupMonitorResult struct {
 	Name string `pulumi:"name"`
 	// A monitor name to limit the search.
 	NameFilter *string `pulumi:"nameFilter"`
+	// Time (in seconds) to skip evaluations for new groups.
+	NewGroupDelay int `pulumi:"newGroupDelay"`
 	// Time (in seconds) allowing a host to boot and applications to fully start before starting the evaluation of monitor results.
 	NewHostDelay int `pulumi:"newHostDelay"`
 	// The number of minutes before the monitor notifies when data stops reporting.
@@ -95,7 +97,8 @@ type LookupMonitorResult struct {
 	// The number of minutes after the last notification before the monitor re-notifies on the current status.
 	RenotifyInterval int `pulumi:"renotifyInterval"`
 	// Whether or not the monitor needs a full window of data before it is evaluated.
-	RequireFullWindow bool `pulumi:"requireFullWindow"`
+	RequireFullWindow bool     `pulumi:"requireFullWindow"`
+	RestrictedRoles   []string `pulumi:"restrictedRoles"`
 	// List of tags associated with the monitor.
 	Tags []string `pulumi:"tags"`
 	// A list of tags to limit the search. This filters on the monitor scope.

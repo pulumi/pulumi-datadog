@@ -4,6 +4,62 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface ChildOrganizationApiKey {
+    key: string;
+    /**
+     * Name for Child Organization after creation.
+     */
+    name: string;
+}
+
+export interface ChildOrganizationApplicationKey {
+    hash: string;
+    /**
+     * Name for Child Organization after creation.
+     */
+    name: string;
+    owner: string;
+}
+
+export interface ChildOrganizationSetting {
+    privateWidgetShare: boolean;
+    samlAutocreateAccessRole: string;
+    samlAutocreateUsersDomains: outputs.ChildOrganizationSettingSamlAutocreateUsersDomain[];
+    samlCanBeEnabled: boolean;
+    samlIdpEndpoint: string;
+    samlIdpInitiatedLogins: outputs.ChildOrganizationSettingSamlIdpInitiatedLogin[];
+    samlIdpMetadataUploaded: boolean;
+    samlLoginUrl: string;
+    samlStrictModes: outputs.ChildOrganizationSettingSamlStrictMode[];
+    samls: outputs.ChildOrganizationSettingSaml[];
+}
+
+export interface ChildOrganizationSettingSaml {
+    enabled: boolean;
+}
+
+export interface ChildOrganizationSettingSamlAutocreateUsersDomain {
+    domains: string[];
+    enabled: boolean;
+}
+
+export interface ChildOrganizationSettingSamlIdpInitiatedLogin {
+    enabled: boolean;
+}
+
+export interface ChildOrganizationSettingSamlStrictMode {
+    enabled: boolean;
+}
+
+export interface ChildOrganizationUser {
+    accessRole: string;
+    email: string;
+    /**
+     * Name for Child Organization after creation.
+     */
+    name: string;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -25,7 +81,7 @@ export interface DashboardTemplateVariable {
      */
     name: string;
     /**
-     * The tag prefix associated with the variable. Only tags with this prefix will appear in the variable dropdown.
+     * The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
      */
     prefix?: string;
 }
@@ -59,7 +115,7 @@ export interface DashboardWidget {
      */
     alertValueDefinition?: outputs.DashboardWidgetAlertValueDefinition;
     /**
-     * The definition for a Change  widget.
+     * The definition for a Change widget.
      */
     changeDefinition?: outputs.DashboardWidgetChangeDefinition;
     /**
@@ -594,8 +650,22 @@ export interface DashboardWidgetGeomapDefinitionRequest {
 
 export interface DashboardWidgetGeomapDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestFormulaLimit {
@@ -760,7 +830,7 @@ export interface DashboardWidgetGroupDefinitionWidget {
      */
     alertValueDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetAlertValueDefinition;
     /**
-     * The definition for a Change  widget.
+     * The definition for a Change widget.
      */
     changeDefinition?: outputs.DashboardWidgetGroupDefinitionWidgetChangeDefinition;
     /**
@@ -1291,8 +1361,22 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequest {
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestFormulaLimit {
@@ -2036,11 +2120,13 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     apmStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestApmStatsQuery;
     cellDisplayModes?: string[];
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula[];
     limit?: number;
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery;
     order?: string;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestSecurityQuery;
 }
@@ -2106,6 +2192,31 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     value: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQuery {
     computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
@@ -2143,6 +2254,62 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestRumQuery {
@@ -2235,6 +2402,7 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionCustomL
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest {
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery;
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQuery;
@@ -2277,6 +2445,38 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormat {
     comparator: string;
     customBgColor?: string;
@@ -2291,8 +2491,22 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaLimit {
@@ -2866,6 +3080,7 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionMarker 
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery;
     displayType?: string;
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestLogQuery;
@@ -2912,10 +3127,56 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestFormulaLimit {
@@ -3162,6 +3423,7 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionCustomLink
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery;
     conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestLogQuery;
@@ -3205,6 +3467,38 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestApm
     interval?: number;
 }
 
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestConditionalFormat {
     comparator: string;
     customBgColor?: string;
@@ -3219,8 +3513,22 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestCon
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestFormulaLimit {
@@ -4027,11 +4335,13 @@ export interface DashboardWidgetQueryTableDefinitionRequest {
     apmStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery;
     cellDisplayModes?: string[];
     conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat[];
+    formulas?: outputs.DashboardWidgetQueryTableDefinitionRequestFormula[];
     limit?: number;
     logQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQuery;
     order?: string;
     processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery;
     q?: string;
+    queries?: outputs.DashboardWidgetQueryTableDefinitionRequestQuery[];
     rumQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestRumQuery;
     securityQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestSecurityQuery;
 }
@@ -4097,6 +4407,31 @@ export interface DashboardWidgetQueryTableDefinitionRequestConditionalFormat {
     value: number;
 }
 
+export interface DashboardWidgetQueryTableDefinitionRequestFormula {
+    alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat[];
+    formulaExpression: string;
+    limit?: outputs.DashboardWidgetQueryTableDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestFormulaLimit {
+    count?: number;
+    order?: string;
+}
+
 export interface DashboardWidgetQueryTableDefinitionRequestLogQuery {
     computeQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryComputeQuery;
     groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestLogQueryGroupBy[];
@@ -4134,6 +4469,62 @@ export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
     limit?: number;
     metric: string;
     searchBy?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQuery {
+    eventQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery;
+    metricQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery;
+    processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
+    computes: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute[];
+    dataSource: string;
+    groupBies?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy[];
+    indexes?: string[];
+    name: string;
+    search?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
+    aggregation: string;
+    interval?: number;
+    metric?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
+    facet: string;
+    limit?: number;
+    sort?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
+    aggregation: string;
+    metric?: string;
+    order?: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
+    query: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
+    aggregator?: string;
+    dataSource?: string;
+    name: string;
+    query: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
+    aggregator?: string;
+    dataSource: string;
+    isNormalizedCpu?: boolean;
+    limit?: number;
+    metric: string;
+    name: string;
+    sort?: string;
+    tagFilters?: string[];
+    textFilter?: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestRumQuery {
@@ -4226,6 +4617,7 @@ export interface DashboardWidgetQueryValueDefinitionCustomLink {
 export interface DashboardWidgetQueryValueDefinitionRequest {
     aggregator?: string;
     apmQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQuery;
     conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetQueryValueDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestLogQuery;
@@ -4268,6 +4660,38 @@ export interface DashboardWidgetQueryValueDefinitionRequestApmQueryMultiCompute 
     interval?: number;
 }
 
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
     comparator: string;
     customBgColor?: string;
@@ -4282,8 +4706,22 @@ export interface DashboardWidgetQueryValueDefinitionRequestConditionalFormat {
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetQueryValueDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestFormulaLimit {
@@ -4857,6 +5295,7 @@ export interface DashboardWidgetTimeseriesDefinitionMarker {
 
 export interface DashboardWidgetTimeseriesDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery;
     displayType?: string;
     formulas?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestLogQuery;
@@ -4903,10 +5342,56 @@ export interface DashboardWidgetTimeseriesDefinitionRequestApmQueryMultiCompute 
     interval?: number;
 }
 
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetTimeseriesDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestFormulaLimit {
@@ -5153,6 +5638,7 @@ export interface DashboardWidgetToplistDefinitionCustomLink {
 
 export interface DashboardWidgetToplistDefinitionRequest {
     apmQuery?: outputs.DashboardWidgetToplistDefinitionRequestApmQuery;
+    auditQuery?: outputs.DashboardWidgetToplistDefinitionRequestAuditQuery;
     conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat[];
     formulas?: outputs.DashboardWidgetToplistDefinitionRequestFormula[];
     logQuery?: outputs.DashboardWidgetToplistDefinitionRequestLogQuery;
@@ -5196,6 +5682,38 @@ export interface DashboardWidgetToplistDefinitionRequestApmQueryMultiCompute {
     interval?: number;
 }
 
+export interface DashboardWidgetToplistDefinitionRequestAuditQuery {
+    computeQuery?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery;
+    groupBies?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy[];
+    index: string;
+    multiComputes?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute[];
+    searchQuery?: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryComputeQuery {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBy {
+    facet?: string;
+    limit?: number;
+    sortQuery?: outputs.DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryGroupBySortQuery {
+    aggregation: string;
+    facet?: string;
+    order: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestAuditQueryMultiCompute {
+    aggregation: string;
+    facet?: string;
+    interval?: number;
+}
+
 export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
     comparator: string;
     customBgColor?: string;
@@ -5210,8 +5728,22 @@ export interface DashboardWidgetToplistDefinitionRequestConditionalFormat {
 
 export interface DashboardWidgetToplistDefinitionRequestFormula {
     alias?: string;
+    cellDisplayMode?: string;
+    conditionalFormats?: outputs.DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat[];
     formulaExpression: string;
     limit?: outputs.DashboardWidgetToplistDefinitionRequestFormulaLimit;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestFormulaConditionalFormat {
+    comparator: string;
+    customBgColor?: string;
+    customFgColor?: string;
+    hideValue?: boolean;
+    imageUrl?: string;
+    metric?: string;
+    palette: string;
+    timeframe?: string;
+    value: number;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestFormulaLimit {
@@ -5461,6 +5993,20 @@ export interface GetMonitorsMonitor {
     type: string;
 }
 
+export interface GetSecurityMonitoringFiltersFilter {
+    exclusionFilters?: outputs.GetSecurityMonitoringFiltersFilterExclusionFilter[];
+    filteredDataType?: string;
+    isEnabled: boolean;
+    name: string;
+    query: string;
+    version: number;
+}
+
+export interface GetSecurityMonitoringFiltersFilterExclusionFilter {
+    name: string;
+    query: string;
+}
+
 export interface GetSecurityMonitoringRulesRule {
     /**
      * Cases for generating signals.
@@ -5470,6 +6016,8 @@ export interface GetSecurityMonitoringRulesRule {
      * Whether the rule is enabled.
      */
     enabled?: boolean;
+    filters?: outputs.GetSecurityMonitoringRulesRuleFilter[];
+    hasExtendedTitle?: boolean;
     /**
      * Message for generated signals.
      */
@@ -5499,10 +6047,22 @@ export interface GetSecurityMonitoringRulesRuleCase {
     status: string;
 }
 
+export interface GetSecurityMonitoringRulesRuleFilter {
+    action: string;
+    query: string;
+}
+
 export interface GetSecurityMonitoringRulesRuleOptions {
+    detectionMethod?: string;
     evaluationWindow: number;
     keepAlive: number;
     maxSignalDuration: number;
+    newValueOptions?: outputs.GetSecurityMonitoringRulesRuleOptionsNewValueOptions;
+}
+
+export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
+    forgetAfter: number;
+    learningDuration: number;
 }
 
 export interface GetSecurityMonitoringRulesRuleQuery {
@@ -6065,6 +6625,66 @@ export interface MonitorMonitorThresholds {
     warningRecovery?: string;
 }
 
+export interface OrganizationSettingsSettings {
+    /**
+     * Whether or not the organization users can share widgets outside of Datadog.
+     */
+    privateWidgetShare?: boolean;
+    /**
+     * SAML properties
+     */
+    saml: outputs.OrganizationSettingsSettingsSaml;
+    /**
+     * The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR`
+     */
+    samlAutocreateAccessRole?: string;
+    /**
+     * List of domains where the SAML automated user creation is enabled.
+     */
+    samlAutocreateUsersDomains: outputs.OrganizationSettingsSettingsSamlAutocreateUsersDomains;
+    /**
+     * Whether or not SAML can be enabled for this organization.
+     */
+    samlCanBeEnabled: boolean;
+    /**
+     * Identity provider endpoint for SAML authentication.
+     */
+    samlIdpEndpoint: string;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpInitiatedLogin: outputs.OrganizationSettingsSettingsSamlIdpInitiatedLogin;
+    /**
+     * Whether or not a SAML identity provider metadata file was provided to the Datadog organization.
+     */
+    samlIdpMetadataUploaded: boolean;
+    /**
+     * URL for SAML logging.
+     */
+    samlLoginUrl: string;
+    /**
+     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML.
+     */
+    samlStrictMode: outputs.OrganizationSettingsSettingsSamlStrictMode;
+}
+
+export interface OrganizationSettingsSettingsSaml {
+    enabled?: boolean;
+}
+
+export interface OrganizationSettingsSettingsSamlAutocreateUsersDomains {
+    domains?: string[];
+    enabled?: boolean;
+}
+
+export interface OrganizationSettingsSettingsSamlIdpInitiatedLogin {
+    enabled?: boolean;
+}
+
+export interface OrganizationSettingsSettingsSamlStrictMode {
+    enabled?: boolean;
+}
+
 export interface RolePermission {
     /**
      * ID of the permission to assign.
@@ -6092,6 +6712,17 @@ export interface SecurityMonitoringDefaultRuleFilter {
     query: string;
 }
 
+export interface SecurityMonitoringFilterExclusionFilter {
+    /**
+     * Exclusion filter name.
+     */
+    name: string;
+    /**
+     * Exclusion filter query. Logs that match this query are excluded from the security filter.
+     */
+    query: string;
+}
+
 export interface SecurityMonitoringRuleCase {
     /**
      * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
@@ -6111,7 +6742,22 @@ export interface SecurityMonitoringRuleCase {
     status: string;
 }
 
+export interface SecurityMonitoringRuleFilter {
+    /**
+     * The type of filtering action (require or suppress).
+     */
+    action: string;
+    /**
+     * Query to run on logs.
+     */
+    query: string;
+}
+
 export interface SecurityMonitoringRuleOptions {
+    /**
+     * The detection method. Default to `threshold`.
+     */
+    detectionMethod?: string;
     /**
      * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
      */
@@ -6124,6 +6770,21 @@ export interface SecurityMonitoringRuleOptions {
      * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
      */
     maxSignalDuration: number;
+    /**
+     * Specific options for `newValue` detection method.
+     */
+    newValueOptions?: outputs.SecurityMonitoringRuleOptionsNewValueOptions;
+}
+
+export interface SecurityMonitoringRuleOptionsNewValueOptions {
+    /**
+     * The duration in days after which a learned value is forgotten.
+     */
+    forgetAfter: number;
+    /**
+     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+     */
+    learningDuration: number;
 }
 
 export interface SecurityMonitoringRuleQuery {
@@ -6174,7 +6835,7 @@ export interface ServiceLevelObjectiveThreshold {
      */
     targetDisplay?: string;
     /**
-     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`.
+     * The time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
      */
     timeframe: string;
     /**
@@ -6331,6 +6992,7 @@ export interface SyntheticsTestApiStepRequestClientCertificateKey {
 }
 
 export interface SyntheticsTestApiStepRequestDefinition {
+    allowInsecure?: boolean;
     /**
      * The request body.
      */
@@ -6541,7 +7203,7 @@ export interface SyntheticsTestOptionsList {
     noScreenshot?: boolean;
     retry?: outputs.SyntheticsTestOptionsListRetry;
     /**
-     * How often the test should run (in seconds). Valid values are `30`, `60`, `300`, `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800`.
+     * How often the test should run (in seconds).
      */
     tickEvery: number;
 }

@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class SecurityMonitoringRuleOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The detection method. Default to `threshold`.
+        /// </summary>
+        [Input("detectionMethod")]
+        public Input<string>? DetectionMethod { get; set; }
+
+        /// <summary>
         /// A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
         /// </summary>
         [Input("evaluationWindow", required: true)]
@@ -29,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("maxSignalDuration", required: true)]
         public Input<int> MaxSignalDuration { get; set; } = null!;
+
+        /// <summary>
+        /// Specific options for `new_value` detection method.
+        /// </summary>
+        [Input("newValueOptions")]
+        public Input<Inputs.SecurityMonitoringRuleOptionsNewValueOptionsArgs>? NewValueOptions { get; set; }
 
         public SecurityMonitoringRuleOptionsArgs()
         {

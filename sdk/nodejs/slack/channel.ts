@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as datadog from "@pulumi/datadog";
  *
- * const slackChannel = new datadog.slack.Channel("slack_channel", {
+ * const testChannel = new datadog.slack.Channel("test_channel", {
  *     accountName: "foo",
  *     channelName: "#test_channel",
  *     display: {
@@ -24,6 +24,14 @@ import * as utilities from "../utilities";
  *         tags: true,
  *     },
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * # Slack channel integrations can be imported using their account_name and channel_name separated with a colon (`:`).
+ *
+ * ```sh
+ *  $ pulumi import datadog:slack/channel:Channel test_channel "foo:#test_channel"
  * ```
  */
 export class Channel extends pulumi.CustomResource {

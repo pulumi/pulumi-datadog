@@ -45,7 +45,7 @@ namespace Pulumi.Datadog.Outputs
         public readonly bool? NoScreenshot;
         public readonly Outputs.SyntheticsTestOptionsListRetry? Retry;
         /// <summary>
-        /// How often the test should run (in seconds). Valid values are `30`, `60`, `300`, `900`, `1800`, `3600`, `21600`, `43200`, `86400`, `604800`.
+        /// How often the test should run (in seconds).
         /// </summary>
         public readonly int TickEvery;
 
