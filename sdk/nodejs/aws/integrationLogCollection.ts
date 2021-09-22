@@ -57,7 +57,7 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
     }
 
     /**
-     * Your AWS Account ID without dashes.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
  */
 export interface IntegrationLogCollectionState {
     /**
-     * Your AWS Account ID without dashes.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -117,7 +117,7 @@ export interface IntegrationLogCollectionState {
  */
 export interface IntegrationLogCollectionArgs {
     /**
-     * Your AWS Account ID without dashes.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId: pulumi.Input<string>;
     /**

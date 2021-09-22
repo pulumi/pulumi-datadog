@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardTemplateVariable
     {
         /// <summary>
+        /// The list of values that the template variable drop-down is be limited to
+        /// </summary>
+        public readonly ImmutableArray<string> AvailableValues;
+        /// <summary>
         /// The default value for the template variable on dashboard load.
         /// </summary>
         public readonly string? Default;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardTemplateVariable(
+            ImmutableArray<string> availableValues,
+
             string? @default,
 
             string name,
 
             string? prefix)
         {
+            AvailableValues = availableValues;
             Default = @default;
             Name = name;
             Prefix = prefix;

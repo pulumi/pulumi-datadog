@@ -383,6 +383,18 @@
         },
         "datadog:index/DashboardTemplateVariable:DashboardTemplateVariable": {
             "properties": {
+                "availableValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of values that the template variable drop-down is be limited to\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "default": {
                     "type": "string",
                     "description": "The default value for the template variable on dashboard load.\n",
@@ -38208,7 +38220,7 @@
             "properties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Your AWS Account ID without dashes.\n"
+                    "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                 },
                 "lambdaArn": {
                     "type": "string",
@@ -38222,7 +38234,7 @@
             "inputProperties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Your AWS Account ID without dashes.\n"
+                    "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                 },
                 "lambdaArn": {
                     "type": "string",
@@ -38238,7 +38250,7 @@
                 "properties": {
                     "accountId": {
                         "type": "string",
-                        "description": "Your AWS Account ID without dashes.\n"
+                        "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                     },
                     "lambdaArn": {
                         "type": "string",
@@ -38253,7 +38265,7 @@
             "properties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Your AWS Account ID without dashes.\n"
+                    "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                 },
                 "services": {
                     "type": "array",
@@ -38270,7 +38282,7 @@
             "inputProperties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Your AWS Account ID without dashes.\n"
+                    "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                 },
                 "services": {
                     "type": "array",
@@ -38289,7 +38301,7 @@
                 "properties": {
                     "accountId": {
                         "type": "string",
-                        "description": "Your AWS Account ID without dashes.\n"
+                        "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                     },
                     "services": {
                         "type": "array",
@@ -38307,7 +38319,7 @@
             "properties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Your AWS Account ID without dashes.\n"
+                    "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                 },
                 "namespace": {
                     "type": "string",
@@ -38326,7 +38338,7 @@
             "inputProperties": {
                 "accountId": {
                     "type": "string",
-                    "description": "Your AWS Account ID without dashes.\n"
+                    "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                 },
                 "namespace": {
                     "type": "string",
@@ -38347,7 +38359,7 @@
                 "properties": {
                     "accountId": {
                         "type": "string",
-                        "description": "Your AWS Account ID without dashes.\n"
+                        "description": "Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.\n"
                     },
                     "namespace": {
                         "type": "string",
@@ -42062,7 +42074,7 @@
             }
         },
         "datadog:index/getDashboardList:getDashboardList": {
-            "description": "Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = pulumi.output(datadog.getDashboardList({\n    name: \"My super list\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_dashboard_list(name=\"My super list\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetDashboardList.InvokeAsync(new Datadog.GetDashboardListArgs\n        {\n            Name = \"My super list\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.LookupDashboardList(ctx, \u0026datadog.LookupDashboardListArgs{\n\t\t\tName: \"My super list\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst test = pulumi.output(datadog.getDashboardList({\n    name: \"My super list\",\n}));\n// Create a dashboard and register it in the list above.\nconst time = new datadog.Dashboard(\"time\", {\n    dashboardLists: [test.apply(test =\u003e Number.parseFloat(test.id))],\n    description: \"Created using the Datadog provider in Terraform\",\n    isReadOnly: true,\n    layoutType: \"ordered\",\n    title: \"TF Test Layout Dashboard\",\n    widgets: [{\n        alertGraphDefinition: {\n            alertId: \"1234\",\n            liveSpan: \"1h\",\n            title: \"Widget Title\",\n            vizType: \"timeseries\",\n        },\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\ntest = datadog.get_dashboard_list(name=\"My super list\")\n# Create a dashboard and register it in the list above.\ntime = datadog.Dashboard(\"time\",\n    dashboard_lists=[test.id],\n    description=\"Created using the Datadog provider in Terraform\",\n    is_read_only=True,\n    layout_type=\"ordered\",\n    title=\"TF Test Layout Dashboard\",\n    widgets=[datadog.DashboardWidgetArgs(\n        alert_graph_definition=datadog.DashboardWidgetAlertGraphDefinitionArgs(\n            alert_id=\"1234\",\n            live_span=\"1h\",\n            title=\"Widget Title\",\n            viz_type=\"timeseries\",\n        ),\n    )])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(Datadog.GetDashboardList.InvokeAsync(new Datadog.GetDashboardListArgs\n        {\n            Name = \"My super list\",\n        }));\n        // Create a dashboard and register it in the list above.\n        var time = new Datadog.Dashboard(\"time\", new Datadog.DashboardArgs\n        {\n            DashboardLists = \n            {\n                test.Apply(test =\u003e test.Id),\n            },\n            Description = \"Created using the Datadog provider in Terraform\",\n            IsReadOnly = true,\n            LayoutType = \"ordered\",\n            Title = \"TF Test Layout Dashboard\",\n            Widgets = \n            {\n                new Datadog.Inputs.DashboardWidgetArgs\n                {\n                    AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs\n                    {\n                        AlertId = \"1234\",\n                        LiveSpan = \"1h\",\n                        Title = \"Widget Title\",\n                        VizType = \"timeseries\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getDashboardList.\n",
                 "properties": {

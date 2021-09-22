@@ -120,6 +120,8 @@ github.com/DataDog/datadog-api-client-go v1.1.0 h1:v3HtsSn9Xuz6Pa4OtGCd78eVrOMAd
 github.com/DataDog/datadog-api-client-go v1.1.0/go.mod h1:QzaQF1cDO1/BIQG1fz14VrY+6RECUGkiwzDCtVbfP5c=
 github.com/DataDog/datadog-api-client-go v1.3.0 h1:HK7SJ6tNZkGUYPZiUAK7nuq915cFgxC4pfu8W3+oAs8=
 github.com/DataDog/datadog-api-client-go v1.3.0/go.mod h1:QzaQF1cDO1/BIQG1fz14VrY+6RECUGkiwzDCtVbfP5c=
+github.com/DataDog/datadog-api-client-go v1.4.0 h1:EpiKfVg8aUdZB8ovvqIqiVC8Ox4kpcemNIIJ/5TZsXo=
+github.com/DataDog/datadog-api-client-go v1.4.0/go.mod h1:QzaQF1cDO1/BIQG1fz14VrY+6RECUGkiwzDCtVbfP5c=
 github.com/DataDog/datadog-go v3.6.0+incompatible h1:ILg7c5Y1KvZFDOaVS0higGmJ5Fal5O1KQrkrT9j6dSM=
 github.com/DataDog/datadog-go v3.6.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
 github.com/DataDog/datadog-go v4.4.0+incompatible h1:R7WqXWP4fIOAqWJtUKmSfuc7eDsBT58k9AY5WSHVosk=
@@ -857,6 +859,8 @@ github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210707095607-76918e054ba
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210707095607-76918e054ba5/go.mod h1:glekz071ugZefYZLymAIMUSPK/ukgatEy9avbTTYB0Y=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210901150000-687a33570383 h1:rPnVcGF70nCD6mCTo7hNQlB8L9z3nep6wN8sKrOKy5U=
 github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210901150000-687a33570383/go.mod h1:7i8D3AOYyDPxAm78GERjq6ePhtCqhmxYE4Bz2Azbs4M=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210922175433-3d435afe4433 h1:Qr9IBZcQ1cA3o5HUt6SDnZHDKwrQ3AyokuYEjF6jeaI=
+github.com/pulumi/terraform-provider-datadog v1.9.1-0.20210922175433-3d435afe4433/go.mod h1:79h57y8eHJF0GlIZmdN2NpZvlQbJ76bbu7gPzG5aOlo=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=
