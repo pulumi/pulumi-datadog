@@ -12,6 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardTemplateVariableGetArgs : Pulumi.ResourceArgs
     {
+        [Input("availableValues")]
+        private InputList<string>? _availableValues;
+
+        /// <summary>
+        /// The list of values that the template variable drop-down is be limited to
+        /// </summary>
+        public InputList<string> AvailableValues
+        {
+            get => _availableValues ?? (_availableValues = new InputList<string>());
+            set => _availableValues = value;
+        }
+
         /// <summary>
         /// The default value for the template variable on dashboard load.
         /// </summary>

@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Aws
     public partial class IntegrationTagFilter : Pulumi.CustomResource
     {
         /// <summary>
-        /// Your AWS Account ID without dashes.
+        /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Datadog.Aws
     public sealed class IntegrationTagFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Your AWS Account ID without dashes.
+        /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Datadog.Aws
     public sealed class IntegrationTagFilterState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Your AWS Account ID without dashes.
+        /// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `access_key_id` here.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

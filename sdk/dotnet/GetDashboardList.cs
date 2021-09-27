@@ -30,6 +30,31 @@ namespace Pulumi.Datadog
         ///         {
         ///             Name = "My super list",
         ///         }));
+        ///         // Create a dashboard and register it in the list above.
+        ///         var time = new Datadog.Dashboard("time", new Datadog.DashboardArgs
+        ///         {
+        ///             DashboardLists = 
+        ///             {
+        ///                 test.Apply(test =&gt; test.Id),
+        ///             },
+        ///             Description = "Created using the Datadog provider in Terraform",
+        ///             IsReadOnly = true,
+        ///             LayoutType = "ordered",
+        ///             Title = "TF Test Layout Dashboard",
+        ///             Widgets = 
+        ///             {
+        ///                 new Datadog.Inputs.DashboardWidgetArgs
+        ///                 {
+        ///                     AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
+        ///                     {
+        ///                         AlertId = "1234",
+        ///                         LiveSpan = "1h",
+        ///                         Title = "Widget Title",
+        ///                         VizType = "timeseries",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
         ///     }
         /// 
         /// }

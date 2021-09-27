@@ -73,6 +73,10 @@ export interface DashboardListDashItem {
 
 export interface DashboardTemplateVariable {
     /**
+     * The list of values that the template variable drop-down is be limited to
+     */
+    availableValues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The default value for the template variable on dashboard load.
      */
     default?: pulumi.Input<string>;

@@ -49,7 +49,7 @@ import (
 type IntegrationLambdaArn struct {
 	pulumi.CustomResourceState
 
-	// Your AWS Account ID without dashes.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn pulumi.StringOutput `pulumi:"lambdaArn"`
@@ -90,14 +90,14 @@ func GetIntegrationLambdaArn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationLambdaArn resources.
 type integrationLambdaArnState struct {
-	// Your AWS Account ID without dashes.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn *string `pulumi:"lambdaArn"`
 }
 
 type IntegrationLambdaArnState struct {
-	// Your AWS Account ID without dashes.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringPtrInput
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn pulumi.StringPtrInput
@@ -108,7 +108,7 @@ func (IntegrationLambdaArnState) ElementType() reflect.Type {
 }
 
 type integrationLambdaArnArgs struct {
-	// Your AWS Account ID without dashes.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId string `pulumi:"accountId"`
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn string `pulumi:"lambdaArn"`
@@ -116,7 +116,7 @@ type integrationLambdaArnArgs struct {
 
 // The set of arguments for constructing a IntegrationLambdaArn resource.
 type IntegrationLambdaArnArgs struct {
-	// Your AWS Account ID without dashes.
+	// Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
 	AccountId pulumi.StringInput
 	// The ARN of the Datadog forwarder Lambda.
 	LambdaArn pulumi.StringInput

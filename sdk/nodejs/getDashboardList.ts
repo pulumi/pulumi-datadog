@@ -17,6 +17,22 @@ import * as utilities from "./utilities";
  * const test = pulumi.output(datadog.getDashboardList({
  *     name: "My super list",
  * }));
+ * // Create a dashboard and register it in the list above.
+ * const time = new datadog.Dashboard("time", {
+ *     dashboardLists: [test.apply(test => Number.parseFloat(test.id))],
+ *     description: "Created using the Datadog provider in Terraform",
+ *     isReadOnly: true,
+ *     layoutType: "ordered",
+ *     title: "TF Test Layout Dashboard",
+ *     widgets: [{
+ *         alertGraphDefinition: {
+ *             alertId: "1234",
+ *             liveSpan: "1h",
+ *             title: "Widget Title",
+ *             vizType: "timeseries",
+ *         },
+ *     }],
+ * });
  * ```
  */
 export function getDashboardList(args: GetDashboardListArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardListResult> {

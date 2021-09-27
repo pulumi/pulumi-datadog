@@ -1269,14 +1269,18 @@ class DashboardListDashItemArgs:
 class DashboardTemplateVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 available_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] available_values: The list of values that the template variable drop-down is be limited to
         :param pulumi.Input[str] default: The default value for the template variable on dashboard load.
         :param pulumi.Input[str] prefix: The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
         """
         pulumi.set(__self__, "name", name)
+        if available_values is not None:
+            pulumi.set(__self__, "available_values", available_values)
         if default is not None:
             pulumi.set(__self__, "default", default)
         if prefix is not None:
@@ -1293,6 +1297,18 @@ class DashboardTemplateVariableArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="availableValues")
+    def available_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of values that the template variable drop-down is be limited to
+        """
+        return pulumi.get(self, "available_values")
+
+    @available_values.setter
+    def available_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "available_values", value)
 
     @property
     @pulumi.getter

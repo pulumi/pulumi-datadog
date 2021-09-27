@@ -59,7 +59,7 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
     }
 
     /**
-     * Your AWS Account ID without dashes.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
  */
 export interface IntegrationLambdaArnState {
     /**
-     * Your AWS Account ID without dashes.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -119,7 +119,7 @@ export interface IntegrationLambdaArnState {
  */
 export interface IntegrationLambdaArnArgs {
     /**
-     * Your AWS Account ID without dashes.
+     * Your AWS Account ID without dashes. If your account is a GovCloud or China account, specify the `accessKeyId` here.
      */
     accountId: pulumi.Input<string>;
     /**

@@ -1247,16 +1247,37 @@ class DashboardListDashItem(dict):
 
 @pulumi.output_type
 class DashboardTemplateVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availableValues":
+            suggest = "available_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardTemplateVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardTemplateVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardTemplateVariable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
+                 available_values: Optional[Sequence[str]] = None,
                  default: Optional[str] = None,
                  prefix: Optional[str] = None):
         """
         :param str name: The name of the variable.
+        :param Sequence[str] available_values: The list of values that the template variable drop-down is be limited to
         :param str default: The default value for the template variable on dashboard load.
         :param str prefix: The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
         """
         pulumi.set(__self__, "name", name)
+        if available_values is not None:
+            pulumi.set(__self__, "available_values", available_values)
         if default is not None:
             pulumi.set(__self__, "default", default)
         if prefix is not None:
@@ -1269,6 +1290,14 @@ class DashboardTemplateVariable(dict):
         The name of the variable.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="availableValues")
+    def available_values(self) -> Optional[Sequence[str]]:
+        """
+        The list of values that the template variable drop-down is be limited to
+        """
+        return pulumi.get(self, "available_values")
 
     @property
     @pulumi.getter
