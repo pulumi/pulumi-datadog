@@ -21,6 +21,7 @@ from .get_monitor import *
 from .get_monitors import *
 from .get_permissions import *
 from .get_role import *
+from .get_roles import *
 from .get_security_monitoring_filters import *
 from .get_security_monitoring_rules import *
 from .get_service_level_objective import *
@@ -39,6 +40,7 @@ from .logs_pipeline_order import *
 from .metric_metadata import *
 from .metric_tag_configuration import *
 from .monitor import *
+from .monitor_json import *
 from .organization_settings import *
 from .provider import *
 from .role import *
@@ -51,6 +53,8 @@ from .synthetics_global_variable import *
 from .synthetics_private_location import *
 from .synthetics_test import *
 from .user import *
+from .webhook import *
+from .webhook_custom_variable import *
 from ._inputs import *
 from . import outputs
 
@@ -267,6 +271,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/monitorJson",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/monitorJson:MonitorJson": "MonitorJson"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/organizationSettings",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -351,6 +363,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/user:User": "User"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/webhook",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/webhook:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/webhookCustomVariable",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/webhookCustomVariable:WebhookCustomVariable": "WebhookCustomVariable"
   }
  },
  {

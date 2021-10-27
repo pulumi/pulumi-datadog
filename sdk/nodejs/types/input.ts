@@ -710,9 +710,37 @@ export interface DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute {
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
@@ -1421,9 +1449,37 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery {
@@ -2261,9 +2317,37 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery {
@@ -2558,9 +2642,37 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery {
@@ -3265,9 +3377,37 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery {
@@ -3580,9 +3720,37 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestPro
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery {
@@ -4476,9 +4644,37 @@ export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
@@ -4773,9 +4969,37 @@ export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
@@ -5480,9 +5704,37 @@ export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
@@ -5795,9 +6047,37 @@ export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQuery {
+    apmDependencyStatsQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery>;
+    apmResourceStatsQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery>;
     eventQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery>;
     metricQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery>;
     processQuery?: pulumi.Input<inputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    isUpstream?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    operationName: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: pulumi.Input<string>;
+    env: pulumi.Input<string>;
+    groupBies?: pulumi.Input<pulumi.Input<string>[]>;
+    name: pulumi.Input<string>;
+    operationName?: pulumi.Input<string>;
+    primaryTagName?: pulumi.Input<string>;
+    primaryTagValue?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    stat: pulumi.Input<string>;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
@@ -6588,13 +6868,7 @@ export interface RolePermission {
 }
 
 export interface SecurityMonitoringDefaultRuleCase {
-    /**
-     * Notification targets for each rule case.
-     */
     notifications: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Status of the rule case to match.
-     */
     status: pulumi.Input<string>;
 }
 
@@ -6615,94 +6889,55 @@ export interface SecurityMonitoringFilterExclusionFilter {
 }
 
 export interface SecurityMonitoringRuleCase {
-    /**
-     * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
-     */
     condition?: pulumi.Input<string>;
     /**
-     * Name of the case.
+     * The name of the rule.
      */
     name?: pulumi.Input<string>;
-    /**
-     * Notification targets for each rule case.
-     */
     notifications?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Severity of the Security Signal.
-     */
     status: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleFilter {
-    /**
-     * The type of filtering action (require or suppress).
-     */
     action: pulumi.Input<string>;
     /**
-     * Query to run on logs.
+     * Queries for selecting logs which are part of the rule.
      */
     query: pulumi.Input<string>;
 }
 
 export interface SecurityMonitoringRuleOptions {
-    /**
-     * The detection method. Default to `threshold`.
-     */
     detectionMethod?: pulumi.Input<string>;
-    /**
-     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
-     */
     evaluationWindow: pulumi.Input<number>;
-    /**
-     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.
-     */
     keepAlive: pulumi.Input<number>;
-    /**
-     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
-     */
     maxSignalDuration: pulumi.Input<number>;
-    /**
-     * Specific options for `newValue` detection method.
-     */
     newValueOptions?: pulumi.Input<inputs.SecurityMonitoringRuleOptionsNewValueOptions>;
 }
 
 export interface SecurityMonitoringRuleOptionsNewValueOptions {
-    /**
-     * The duration in days after which a learned value is forgotten.
-     */
     forgetAfter: pulumi.Input<number>;
-    /**
-     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
-     */
     learningDuration: pulumi.Input<number>;
 }
 
 export interface SecurityMonitoringRuleQuery {
-    /**
-     * The aggregation type.
-     */
+    agentRules?: pulumi.Input<pulumi.Input<inputs.SecurityMonitoringRuleQueryAgentRule>[]>;
     aggregation?: pulumi.Input<string>;
-    /**
-     * Field for which the cardinality is measured. Sent as an array.
-     */
     distinctFields?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Fields to group by.
-     */
     groupByFields?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The target field to aggregate over when using the sum or max aggregations.
-     */
     metric?: pulumi.Input<string>;
     /**
-     * Name of the query.
+     * The name of the rule.
      */
     name?: pulumi.Input<string>;
     /**
-     * Query to run on logs.
+     * Queries for selecting logs which are part of the rule.
      */
     query: pulumi.Input<string>;
+}
+
+export interface SecurityMonitoringRuleQueryAgentRule {
+    agentRuleId: pulumi.Input<string>;
+    expression: pulumi.Input<string>;
 }
 
 export interface ServiceLevelObjectiveQuery {
@@ -6896,6 +7131,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * DNS server port to use for DNS tests.
      */
     dnsServerPort?: pulumi.Input<number>;
+    followRedirects?: pulumi.Input<boolean>;
     /**
      * Host name to perform the test with.
      */
@@ -6916,6 +7152,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * Port to use when performing the test.
      */
     port?: pulumi.Input<number>;
+    /**
+     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     */
+    servername?: pulumi.Input<string>;
     /**
      * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
      */
@@ -7071,7 +7311,7 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: pulumi.Input<boolean>;
     /**
-     * For API HTTP test, whether or not the test should follow redirects.
+     * Determines whether or not the API HTTP test should follow redirects.
      */
     followRedirects?: pulumi.Input<boolean>;
     /**
@@ -7167,6 +7407,10 @@ export interface SyntheticsTestRequestDefinition {
      * Port to use when performing the test.
      */
     port?: pulumi.Input<number>;
+    /**
+     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     */
+    servername?: pulumi.Input<string>;
     /**
      * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
      */

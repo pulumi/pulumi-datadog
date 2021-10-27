@@ -293,10 +293,10 @@ import (
 // 					ServicemapDefinition: &datadog.DashboardWidgetServicemapDefinitionArgs{
 // 						Filters: pulumi.StringArray{
 // 							pulumi.String("env:prod"),
-// 							pulumi.String("datacenter:us1.prod.dog"),
+// 							pulumi.String("datacenter:dc1"),
 // 						},
 // 						Service:    pulumi.String("master-db"),
-// 						Title:      pulumi.String("env: prod, datacenter:us1.prod.dog, service: master-db"),
+// 						Title:      pulumi.String("env: prod, datacenter:dc1, service: master-db"),
 // 						TitleAlign: pulumi.String("left"),
 // 						TitleSize:  pulumi.String("16"),
 // 					},
@@ -626,7 +626,7 @@ import (
 // 				&datadog.DashboardWidgetArgs{
 // 					TraceServiceDefinition: &datadog.DashboardWidgetTraceServiceDefinitionArgs{
 // 						DisplayFormat:    pulumi.String("three_column"),
-// 						Env:              pulumi.String("datad0g.com"),
+// 						Env:              pulumi.String("datadog.com"),
 // 						LiveSpan:         pulumi.String("1h"),
 // 						Service:          pulumi.String("alerting-cassandra"),
 // 						ShowBreakdown:    pulumi.Bool(true),
@@ -637,7 +637,7 @@ import (
 // 						ShowResourceList: pulumi.Bool(false),
 // 						SizeFormat:       pulumi.String("large"),
 // 						SpanName:         pulumi.String("cassandra.query"),
-// 						Title:            pulumi.String("alerting-cassandra #env:datad0g.com"),
+// 						Title:            pulumi.String("alerting-cassandra #env:datadog.com"),
 // 						TitleAlign:       pulumi.String("center"),
 // 						TitleSize:        pulumi.String("13"),
 // 					},
@@ -822,9 +822,6 @@ func NewDashboard(ctx *pulumi.Context,
 	}
 	if args.Title == nil {
 		return nil, errors.New("invalid value for required argument 'Title'")
-	}
-	if args.Widgets == nil {
-		return nil, errors.New("invalid value for required argument 'Widgets'")
 	}
 	var resource Dashboard
 	err := ctx.RegisterResource("datadog:index/dashboard:Dashboard", name, args, &resource, opts...)

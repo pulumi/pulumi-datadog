@@ -14,19 +14,12 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("notifications", required: true)]
         private InputList<string>? _notifications;
-
-        /// <summary>
-        /// Notification targets for each rule case.
-        /// </summary>
         public InputList<string> Notifications
         {
             get => _notifications ?? (_notifications = new InputList<string>());
             set => _notifications = value;
         }
 
-        /// <summary>
-        /// Status of the rule case to match.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

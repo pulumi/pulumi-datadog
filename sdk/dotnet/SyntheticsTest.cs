@@ -428,7 +428,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.SyntheticsTestConfigVariable>> ConfigVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        /// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         /// </summary>
         [Output("deviceIds")]
         public Output<ImmutableArray<string>> DeviceIds { get; private set; } = null!;
@@ -473,7 +473,7 @@ namespace Pulumi.Datadog
         public Output<Outputs.SyntheticsTestRequestClientCertificate?> RequestClientCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// The synthetics test request. Required if `type = "api"`.
+        /// Required if `type = "api"`. The synthetics test request.
         /// </summary>
         [Output("requestDefinition")]
         public Output<Outputs.SyntheticsTestRequestDefinition?> RequestDefinition { get; private set; } = null!;
@@ -630,7 +630,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _deviceIds;
 
         /// <summary>
-        /// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        /// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         /// </summary>
         public InputList<string> DeviceIds
         {
@@ -678,7 +678,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.SyntheticsTestRequestClientCertificateArgs>? RequestClientCertificate { get; set; }
 
         /// <summary>
-        /// The synthetics test request. Required if `type = "api"`.
+        /// Required if `type = "api"`. The synthetics test request.
         /// </summary>
         [Input("requestDefinition")]
         public Input<Inputs.SyntheticsTestRequestDefinitionArgs>? RequestDefinition { get; set; }
@@ -814,7 +814,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _deviceIds;
 
         /// <summary>
-        /// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+        /// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptop_large`, `tablet`, `mobile_small`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
         /// </summary>
         public InputList<string> DeviceIds
         {
@@ -868,7 +868,7 @@ namespace Pulumi.Datadog
         public Input<Inputs.SyntheticsTestRequestClientCertificateGetArgs>? RequestClientCertificate { get; set; }
 
         /// <summary>
-        /// The synthetics test request. Required if `type = "api"`.
+        /// Required if `type = "api"`. The synthetics test request.
         /// </summary>
         [Input("requestDefinition")]
         public Input<Inputs.SyntheticsTestRequestDefinitionGetArgs>? RequestDefinition { get; set; }

@@ -10,7 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog Security Monitoring Rule API resource for default rules.
+    /// Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var adefaultrule = new Datadog.SecurityMonitoringDefaultRule("adefaultrule", new Datadog.SecurityMonitoringDefaultRuleArgs
+    ///         {
+    ///             Cases = 
+    ///             {
+    ///                 new Datadog.Inputs.SecurityMonitoringDefaultRuleCaseArgs
+    ///                 {
+    ///                     Notifications = 
+    ///                     {
+    ///                         "@me",
+    ///                     },
+    ///                     Status = "high",
+    ///                 },
+    ///             },
+    ///             Enabled = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

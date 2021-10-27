@@ -65,17 +65,25 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-datadog",
 		Config:      map[string]*tfbridge.SchemaInfo{},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"datadog_dashboard":                        {Tok: makeResource(datadogMod, "Dashboard")},
-			"datadog_downtime":                         {Tok: makeResource(datadogMod, "Downtime")},
-			"datadog_metric_metadata":                  {Tok: makeResource(datadogMod, "MetricMetadata")},
-			"datadog_monitor":                          {Tok: makeResource(datadogMod, "Monitor")},
-			"datadog_user":                             {Tok: makeResource(datadogMod, "User")},
-			"datadog_synthetics_test":                  {Tok: makeResource(datadogMod, "SyntheticsTest")},
-			"datadog_synthetics_global_variable":       {Tok: makeResource(datadogMod, "SyntheticsGlobalVariable")},
-			"datadog_dashboard_list":                   {Tok: makeResource(datadogMod, "DashboardList")},
-			"datadog_service_level_objective":          {Tok: makeResource(datadogMod, "ServiceLevelObjective")},
-			"datadog_logs_custom_pipeline":             {Tok: makeResource(datadogMod, "LogsCustomPipeline")},
-			"datadog_logs_index":                       {Tok: makeResource(datadogMod, "LogsIndex")},
+			"datadog_dashboard":                  {Tok: makeResource(datadogMod, "Dashboard")},
+			"datadog_downtime":                   {Tok: makeResource(datadogMod, "Downtime")},
+			"datadog_metric_metadata":            {Tok: makeResource(datadogMod, "MetricMetadata")},
+			"datadog_monitor":                    {Tok: makeResource(datadogMod, "Monitor")},
+			"datadog_user":                       {Tok: makeResource(datadogMod, "User")},
+			"datadog_synthetics_test":            {Tok: makeResource(datadogMod, "SyntheticsTest")},
+			"datadog_synthetics_global_variable": {Tok: makeResource(datadogMod, "SyntheticsGlobalVariable")},
+			"datadog_dashboard_list":             {Tok: makeResource(datadogMod, "DashboardList")},
+			"datadog_service_level_objective":    {Tok: makeResource(datadogMod, "ServiceLevelObjective")},
+			"datadog_logs_custom_pipeline":       {Tok: makeResource(datadogMod, "LogsCustomPipeline")},
+			"datadog_logs_index": {
+				Tok: makeResource(datadogMod, "LogsIndex"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"filter": {
+						Name:        "filters",
+						MaxItemsOne: tfbridge.False(),
+					},
+				},
+			},
 			"datadog_logs_metric":                      {Tok: makeResource(datadogMod, "LogsMetric")},
 			"datadog_logs_archive":                     {Tok: makeResource(datadogMod, "LogsArchive")},
 			"datadog_logs_index_order":                 {Tok: makeResource(datadogMod, "LogsIndexOrder")},
@@ -94,6 +102,9 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_child_organization":               {Tok: makeResource(datadogMod, "ChildOrganization")},
 			"datadog_organization_settings":            {Tok: makeResource(datadogMod, "OrganizationSettings")},
 			"datadog_security_monitoring_filter":       {Tok: makeResource(datadogMod, "SecurityMonitoringFilter")},
+			"datadog_monitor_json":                     {Tok: makeResource(datadogMod, "MonitorJson")},
+			"datadog_webhook":                          {Tok: makeResource(datadogMod, "Webhook")},
+			"datadog_webhook_custom_variable":          {Tok: makeResource(datadogMod, "WebhookCustomVariable")},
 
 			// GCP Integrations
 			"datadog_integration_gcp": {Tok: makeResource(gcpMod, "Integration")},
@@ -135,6 +146,7 @@ func Provider() tfbridge.ProviderInfo {
 			"datadog_security_monitoring_filters": {Tok: makeDataSource(datadogMod, "getSecurityMonitoringFilters")},
 			"datadog_synthetics_global_variable":  {Tok: makeDataSource(datadogMod, "getSyntheticsGlobalVariable")},
 			"datadog_user":                        {Tok: makeDataSource(datadogMod, "getUser")},
+			"datadog_roles":                       {Tok: makeDataSource(datadogMod, "getRoles")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetQueryTableDefinitionRequestQueryGetArgs : Pulumi.ResourceArgs
     {
+        [Input("apmDependencyStatsQuery")]
+        public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
+
+        [Input("apmResourceStatsQuery")]
+        public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
+
         [Input("eventQuery")]
         public Input<Inputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGetArgs>? EventQuery { get; set; }
 

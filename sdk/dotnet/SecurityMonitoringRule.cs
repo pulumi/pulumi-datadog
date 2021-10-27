@@ -37,12 +37,10 @@ namespace Pulumi.Datadog
     ///                 },
     ///             },
     ///             Enabled = true,
-    ///             HasExtendedTitle = true,
     ///             Message = "The rule has triggered.",
     ///             Name = "My rule",
     ///             Options = new Datadog.Inputs.SecurityMonitoringRuleOptionsArgs
     ///             {
-    ///                 DetectionMethod = "threshold",
     ///                 EvaluationWindow = 300,
     ///                 KeepAlive = 600,
     ///                 MaxSignalDuration = 900,
@@ -144,6 +142,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -269,6 +273,12 @@ namespace Pulumi.Datadog
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public SecurityMonitoringRuleArgs()
         {
         }
@@ -353,6 +363,12 @@ namespace Pulumi.Datadog
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The rule type. Valid values are `log_detection`, `infrastructure_configuration`, `workload_security`, `cloud_configuration`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public SecurityMonitoringRuleState()
         {

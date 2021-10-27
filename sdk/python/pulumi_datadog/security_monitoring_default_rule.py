@@ -134,7 +134,21 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityMonitoringDefaultRuleFilterArgs']]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog Security Monitoring Rule API resource for default rules.
+        Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
+            cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
+                notifications=["@me"],
+                status="high",
+            )],
+            enabled=True)
+        ```
 
         ## Import
 
@@ -157,7 +171,21 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
                  args: Optional[SecurityMonitoringDefaultRuleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Security Monitoring Rule API resource for default rules.
+        Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        adefaultrule = datadog.SecurityMonitoringDefaultRule("adefaultrule",
+            cases=[datadog.SecurityMonitoringDefaultRuleCaseArgs(
+                notifications=["@me"],
+                status="high",
+            )],
+            enabled=True)
+        ```
 
         ## Import
 

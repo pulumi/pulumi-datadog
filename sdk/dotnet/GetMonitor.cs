@@ -168,6 +168,14 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly int RenotifyInterval;
         /// <summary>
+        /// The number of re-notification messages that should be sent on the current status.
+        /// </summary>
+        public readonly int RenotifyOccurrences;
+        /// <summary>
+        /// The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+        /// </summary>
+        public readonly ImmutableArray<string> RenotifyStatuses;
+        /// <summary>
         /// Whether or not the monitor needs a full window of data before it is evaluated.
         /// </summary>
         public readonly bool RequireFullWindow;
@@ -231,6 +239,10 @@ namespace Pulumi.Datadog
 
             int renotifyInterval,
 
+            int renotifyOccurrences,
+
+            ImmutableArray<string> renotifyStatuses,
+
             bool requireFullWindow,
 
             ImmutableArray<string> restrictedRoles,
@@ -263,6 +275,8 @@ namespace Pulumi.Datadog
             NotifyNoData = notifyNoData;
             Query = query;
             RenotifyInterval = renotifyInterval;
+            RenotifyOccurrences = renotifyOccurrences;
+            RenotifyStatuses = renotifyStatuses;
             RequireFullWindow = requireFullWindow;
             RestrictedRoles = restrictedRoles;
             Tags = tags;

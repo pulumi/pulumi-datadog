@@ -173,6 +173,14 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly renotifyInterval!: pulumi.Output<number | undefined>;
     /**
+     * The number of re-notification messages that should be sent on the current status.
+     */
+    public readonly renotifyOccurrences!: pulumi.Output<number | undefined>;
+    /**
+     * The types of statuses for which re-notification messages should be sent.
+     */
+    public readonly renotifyStatuses!: pulumi.Output<string[] | undefined>;
+    /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
      * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
      * all times` and `in total` aggregation. `false` otherwise.
@@ -231,6 +239,8 @@ export class Monitor extends pulumi.CustomResource {
             inputs["priority"] = state ? state.priority : undefined;
             inputs["query"] = state ? state.query : undefined;
             inputs["renotifyInterval"] = state ? state.renotifyInterval : undefined;
+            inputs["renotifyOccurrences"] = state ? state.renotifyOccurrences : undefined;
+            inputs["renotifyStatuses"] = state ? state.renotifyStatuses : undefined;
             inputs["requireFullWindow"] = state ? state.requireFullWindow : undefined;
             inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -270,6 +280,8 @@ export class Monitor extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["query"] = args ? args.query : undefined;
             inputs["renotifyInterval"] = args ? args.renotifyInterval : undefined;
+            inputs["renotifyOccurrences"] = args ? args.renotifyOccurrences : undefined;
+            inputs["renotifyStatuses"] = args ? args.renotifyStatuses : undefined;
             inputs["requireFullWindow"] = args ? args.requireFullWindow : undefined;
             inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -387,6 +399,14 @@ export interface MonitorState {
      * re-notify if it's not resolved.
      */
     renotifyInterval?: pulumi.Input<number>;
+    /**
+     * The number of re-notification messages that should be sent on the current status.
+     */
+    renotifyOccurrences?: pulumi.Input<number>;
+    /**
+     * The types of statuses for which re-notification messages should be sent.
+     */
+    renotifyStatuses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
      * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
@@ -518,6 +538,14 @@ export interface MonitorArgs {
      * re-notify if it's not resolved.
      */
     renotifyInterval?: pulumi.Input<number>;
+    /**
+     * The number of re-notification messages that should be sent on the current status.
+     */
+    renotifyOccurrences?: pulumi.Input<number>;
+    /**
+     * The types of statuses for which re-notification messages should be sent.
+     */
+    renotifyStatuses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
      * this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at

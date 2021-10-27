@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog Security Monitoring Rule API resource for default rules.
+ * Provides a Datadog Security Monitoring Rule API resource for default rules. It can only be imported, you can't create a default rule.
  *
  * ## Example Usage
  *
@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  *         status: "high",
  *     }],
  *     enabled: true,
- *     ruleId: "ojo-qef-3g3",
  * });
  * ```
  *

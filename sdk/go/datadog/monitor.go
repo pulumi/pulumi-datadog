@@ -124,6 +124,10 @@ type Monitor struct {
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrOutput `pulumi:"renotifyInterval"`
+	// The number of re-notification messages that should be sent on the current status.
+	RenotifyOccurrences pulumi.IntPtrOutput `pulumi:"renotifyOccurrences"`
+	// The types of statuses for which re-notification messages should be sent.
+	RenotifyStatuses pulumi.StringArrayOutput `pulumi:"renotifyStatuses"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
@@ -244,6 +248,10 @@ type monitorState struct {
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
+	// The number of re-notification messages that should be sent on the current status.
+	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
+	// The types of statuses for which re-notification messages should be sent.
+	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
@@ -324,6 +332,10 @@ type MonitorState struct {
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
+	// The number of re-notification messages that should be sent on the current status.
+	RenotifyOccurrences pulumi.IntPtrInput
+	// The types of statuses for which re-notification messages should be sent.
+	RenotifyStatuses pulumi.StringArrayInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
@@ -408,6 +420,10 @@ type monitorArgs struct {
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval *int `pulumi:"renotifyInterval"`
+	// The number of re-notification messages that should be sent on the current status.
+	RenotifyOccurrences *int `pulumi:"renotifyOccurrences"`
+	// The types of statuses for which re-notification messages should be sent.
+	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.
@@ -489,6 +505,10 @@ type MonitorArgs struct {
 	// The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
 	// re-notify if it's not resolved.
 	RenotifyInterval pulumi.IntPtrInput
+	// The number of re-notification messages that should be sent on the current status.
+	RenotifyOccurrences pulumi.IntPtrInput
+	// The types of statuses for which re-notification messages should be sent.
+	RenotifyStatuses pulumi.StringArrayInput
 	// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
 	// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
 	// all times` and `in total` aggregation. `false` otherwise.

@@ -12,15 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleOptionsNewValueOptionsGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The duration in days after which a learned value is forgotten.
-        /// </summary>
         [Input("forgetAfter", required: true)]
         public Input<int> ForgetAfter { get; set; } = null!;
 
-        /// <summary>
-        /// The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
-        /// </summary>
         [Input("learningDuration", required: true)]
         public Input<int> LearningDuration { get; set; } = null!;
 

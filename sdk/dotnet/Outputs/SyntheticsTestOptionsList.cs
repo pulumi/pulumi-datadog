@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? AllowInsecure;
         /// <summary>
-        /// For API HTTP test, whether or not the test should follow redirects.
+        /// Determines whether or not the API HTTP test should follow redirects.
         /// </summary>
         public readonly bool? FollowRedirects;
         /// <summary>

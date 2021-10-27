@@ -406,14 +406,14 @@ class DashboardJson(pulumi.CustomResource):
               {
                  "id":1669590772917638,
                  "definition":{
-                    "title":"env: prod, datacenter:us1.prod.dog, service: master-db",
+                    "title":"env: prod, datacenter:dc1, service: master-db",
                     "title_size":"16",
                     "title_align":"left",
                     "type":"servicemap",
                     "service":"master-db",
                     "filters":[
                        "env:prod",
-                       "datacenter:us1.prod.dog"
+                       "datacenter:dc1"
                     ]
                  }
               },
@@ -917,14 +917,14 @@ class DashboardJson(pulumi.CustomResource):
               {
                  "id":1669590772917638,
                  "definition":{
-                    "title":"env: prod, datacenter:us1.prod.dog, service: master-db",
+                    "title":"env: prod, datacenter:dc1, service: master-db",
                     "title_size":"16",
                     "title_align":"left",
                     "type":"servicemap",
                     "service":"master-db",
                     "filters":[
                        "env:prod",
-                       "datacenter:us1.prod.dog"
+                       "datacenter:dc1"
                     ]
                  }
               },

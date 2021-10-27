@@ -56,6 +56,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MetricTagConfiguration{}
 	case "datadog:index/monitor:Monitor":
 		r = &Monitor{}
+	case "datadog:index/monitorJson:MonitorJson":
+		r = &MonitorJson{}
 	case "datadog:index/organizationSettings:OrganizationSettings":
 		r = &OrganizationSettings{}
 	case "datadog:index/role:Role":
@@ -78,6 +80,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SyntheticsTest{}
 	case "datadog:index/user:User":
 		r = &User{}
+	case "datadog:index/webhook:Webhook":
+		r = &Webhook{}
+	case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
+		r = &WebhookCustomVariable{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -201,6 +207,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/monitorJson",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/organizationSettings",
 		&module{version},
 	)
@@ -252,6 +263,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/webhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/webhookCustomVariable",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

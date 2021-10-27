@@ -26,6 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// DNS server port to use for DNS tests.
         /// </summary>
         public readonly int? DnsServerPort;
+        public readonly bool? FollowRedirects;
         /// <summary>
         /// Host name to perform the test with.
         /// </summary>
@@ -46,6 +47,10 @@ namespace Pulumi.Datadog.Outputs
         /// Port to use when performing the test.
         /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+        /// </summary>
+        public readonly string? Servername;
         /// <summary>
         /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
         /// </summary>
@@ -69,6 +74,8 @@ namespace Pulumi.Datadog.Outputs
 
             int? dnsServerPort,
 
+            bool? followRedirects,
+
             string? host,
 
             string? method,
@@ -78,6 +85,8 @@ namespace Pulumi.Datadog.Outputs
             int? numberOfPackets,
 
             int? port,
+
+            string? servername,
 
             bool? shouldTrackHops,
 
@@ -89,11 +98,13 @@ namespace Pulumi.Datadog.Outputs
             Body = body;
             DnsServer = dnsServer;
             DnsServerPort = dnsServerPort;
+            FollowRedirects = followRedirects;
             Host = host;
             Method = method;
             NoSavingResponseBody = noSavingResponseBody;
             NumberOfPackets = numberOfPackets;
             Port = port;
+            Servername = servername;
             ShouldTrackHops = shouldTrackHops;
             Timeout = timeout;
             Url = url;

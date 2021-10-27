@@ -13,18 +13,26 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery
     {
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery? EventQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery? MetricQuery;
         public readonly Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery? ProcessQuery;
 
         [OutputConstructor]
         private DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery(
+            Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
+
             Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery? eventQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery? metricQuery,
 
             Outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery? processQuery)
         {
+            ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;

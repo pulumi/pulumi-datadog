@@ -40,6 +40,7 @@
         "getMonitors.ts",
         "getPermissions.ts",
         "getRole.ts",
+        "getRoles.ts",
         "getSecurityMonitoringFilters.ts",
         "getSecurityMonitoringRules.ts",
         "getServiceLevelObjective.ts",
@@ -59,6 +60,7 @@
         "metricMetadata.ts",
         "metricTagConfiguration.ts",
         "monitor.ts",
+        "monitorJson.ts",
         "organizationSettings.ts",
         "pagerduty/index.ts",
         "pagerduty/integration.ts",
@@ -79,6 +81,8 @@
         "types/input.ts",
         "types/output.ts",
         "user.ts",
-        "utilities.ts"
+        "utilities.ts",
+        "webhook.ts",
+        "webhookCustomVariable.ts"
     ]
 }
