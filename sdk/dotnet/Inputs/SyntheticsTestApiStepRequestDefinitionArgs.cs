@@ -33,6 +33,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("dnsServerPort")]
         public Input<int>? DnsServerPort { get; set; }
 
+        [Input("followRedirects")]
+        public Input<bool>? FollowRedirects { get; set; }
+
         /// <summary>
         /// Host name to perform the test with.
         /// </summary>
@@ -62,6 +65,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+        /// </summary>
+        [Input("servername")]
+        public Input<string>? Servername { get; set; }
 
         /// <summary>
         /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).

@@ -21,11 +21,9 @@ import * as utilities from "./utilities";
  *         status: "high",
  *     }],
  *     enabled: true,
- *     hasExtendedTitle: true,
  *     message: "The rule has triggered.",
  *     name: "My rule",
  *     options: {
- *         detectionMethod: "threshold",
  *         evaluationWindow: 300,
  *         keepAlive: 600,
  *         maxSignalDuration: 900,
@@ -120,6 +118,10 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      * Tags for generated signals.
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
+    /**
+     * The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+     */
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecurityMonitoringRule resource with the given unique name, arguments, and options.
@@ -143,6 +145,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             inputs["options"] = state ? state.options : undefined;
             inputs["queries"] = state ? state.queries : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringRuleArgs | undefined;
             if ((!args || args.cases === undefined) && !opts.urn) {
@@ -166,6 +169,7 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             inputs["options"] = args ? args.options : undefined;
             inputs["queries"] = args ? args.queries : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -214,6 +218,10 @@ export interface SecurityMonitoringRuleState {
      * Tags for generated signals.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+     */
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -256,4 +264,8 @@ export interface SecurityMonitoringRuleArgs {
      * Tags for generated signals.
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+     */
+    type?: pulumi.Input<string>;
 }

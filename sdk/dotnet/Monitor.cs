@@ -198,6 +198,18 @@ namespace Pulumi.Datadog
         public Output<int?> RenotifyInterval { get; private set; } = null!;
 
         /// <summary>
+        /// The number of re-notification messages that should be sent on the current status.
+        /// </summary>
+        [Output("renotifyOccurrences")]
+        public Output<int?> RenotifyOccurrences { get; private set; } = null!;
+
+        /// <summary>
+        /// The types of statuses for which re-notification messages should be sent.
+        /// </summary>
+        [Output("renotifyStatuses")]
+        public Output<ImmutableArray<string>> RenotifyStatuses { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
         /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
         /// all times` and `in total` aggregation. `false` otherwise.
@@ -417,6 +429,24 @@ namespace Pulumi.Datadog
         public Input<int>? RenotifyInterval { get; set; }
 
         /// <summary>
+        /// The number of re-notification messages that should be sent on the current status.
+        /// </summary>
+        [Input("renotifyOccurrences")]
+        public Input<int>? RenotifyOccurrences { get; set; }
+
+        [Input("renotifyStatuses")]
+        private InputList<string>? _renotifyStatuses;
+
+        /// <summary>
+        /// The types of statuses for which re-notification messages should be sent.
+        /// </summary>
+        public InputList<string> RenotifyStatuses
+        {
+            get => _renotifyStatuses ?? (_renotifyStatuses = new InputList<string>());
+            set => _renotifyStatuses = value;
+        }
+
+        /// <summary>
         /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
         /// this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
         /// all times` and `in total` aggregation. `false` otherwise.
@@ -606,6 +636,24 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("renotifyInterval")]
         public Input<int>? RenotifyInterval { get; set; }
+
+        /// <summary>
+        /// The number of re-notification messages that should be sent on the current status.
+        /// </summary>
+        [Input("renotifyOccurrences")]
+        public Input<int>? RenotifyOccurrences { get; set; }
+
+        [Input("renotifyStatuses")]
+        private InputList<string>? _renotifyStatuses;
+
+        /// <summary>
+        /// The types of statuses for which re-notification messages should be sent.
+        /// </summary>
+        public InputList<string> RenotifyStatuses
+        {
+            get => _renotifyStatuses ?? (_renotifyStatuses = new InputList<string>());
+            set => _renotifyStatuses = value;
+        }
 
         /// <summary>
         /// A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set

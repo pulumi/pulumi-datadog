@@ -317,7 +317,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly configVariables!: pulumi.Output<outputs.SyntheticsTestConfigVariable[] | undefined>;
     /**
-     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+     * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     public readonly deviceIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -346,7 +346,7 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     public readonly requestClientCertificate!: pulumi.Output<outputs.SyntheticsTestRequestClientCertificate | undefined>;
     /**
-     * The synthetics test request. Required if `type = "api"`.
+     * Required if `type = "api"`. The synthetics test request.
      */
     public readonly requestDefinition!: pulumi.Output<outputs.SyntheticsTestRequestDefinition | undefined>;
     /**
@@ -480,7 +480,7 @@ export interface SyntheticsTestState {
      */
     configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+     * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -509,7 +509,7 @@ export interface SyntheticsTestState {
      */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     /**
-     * The synthetics test request. Required if `type = "api"`.
+     * Required if `type = "api"`. The synthetics test request.
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
     /**
@@ -567,7 +567,7 @@ export interface SyntheticsTestArgs {
      */
     configVariables?: pulumi.Input<pulumi.Input<inputs.SyntheticsTestConfigVariable>[]>;
     /**
-     * Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+     * Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
      */
     deviceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -592,7 +592,7 @@ export interface SyntheticsTestArgs {
      */
     requestClientCertificate?: pulumi.Input<inputs.SyntheticsTestRequestClientCertificate>;
     /**
-     * The synthetics test request. Required if `type = "api"`.
+     * Required if `type = "api"`. The synthetics test request.
      */
     requestDefinition?: pulumi.Input<inputs.SyntheticsTestRequestDefinition>;
     /**

@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? AllowInsecure { get; set; }
 
         /// <summary>
-        /// For API HTTP test, whether or not the test should follow redirects.
+        /// Determines whether or not the API HTTP test should follow redirects.
         /// </summary>
         [Input("followRedirects")]
         public Input<bool>? FollowRedirects { get; set; }

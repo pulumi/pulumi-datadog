@@ -96,6 +96,10 @@ type LookupMonitorResult struct {
 	Query string `pulumi:"query"`
 	// The number of minutes after the last notification before the monitor re-notifies on the current status.
 	RenotifyInterval int `pulumi:"renotifyInterval"`
+	// The number of re-notification messages that should be sent on the current status.
+	RenotifyOccurrences int `pulumi:"renotifyOccurrences"`
+	// The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+	RenotifyStatuses []string `pulumi:"renotifyStatuses"`
 	// Whether or not the monitor needs a full window of data before it is evaluated.
 	RequireFullWindow bool     `pulumi:"requireFullWindow"`
 	RestrictedRoles   []string `pulumi:"restrictedRoles"`

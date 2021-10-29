@@ -21,6 +21,7 @@ export * from "./getMonitor";
 export * from "./getMonitors";
 export * from "./getPermissions";
 export * from "./getRole";
+export * from "./getRoles";
 export * from "./getSecurityMonitoringFilters";
 export * from "./getSecurityMonitoringRules";
 export * from "./getServiceLevelObjective";
@@ -39,6 +40,7 @@ export * from "./logsPipelineOrder";
 export * from "./metricMetadata";
 export * from "./metricTagConfiguration";
 export * from "./monitor";
+export * from "./monitorJson";
 export * from "./organizationSettings";
 export * from "./provider";
 export * from "./role";
@@ -51,6 +53,8 @@ export * from "./syntheticsGlobalVariable";
 export * from "./syntheticsPrivateLocation";
 export * from "./syntheticsTest";
 export * from "./user";
+export * from "./webhook";
+export * from "./webhookCustomVariable";
 
 // Export sub-modules:
 import * as aws from "./aws";
@@ -90,6 +94,7 @@ import { LogsPipelineOrder } from "./logsPipelineOrder";
 import { MetricMetadata } from "./metricMetadata";
 import { MetricTagConfiguration } from "./metricTagConfiguration";
 import { Monitor } from "./monitor";
+import { MonitorJson } from "./monitorJson";
 import { OrganizationSettings } from "./organizationSettings";
 import { Role } from "./role";
 import { SecurityMonitoringDefaultRule } from "./securityMonitoringDefaultRule";
@@ -101,6 +106,8 @@ import { SyntheticsGlobalVariable } from "./syntheticsGlobalVariable";
 import { SyntheticsPrivateLocation } from "./syntheticsPrivateLocation";
 import { SyntheticsTest } from "./syntheticsTest";
 import { User } from "./user";
+import { Webhook } from "./webhook";
+import { WebhookCustomVariable } from "./webhookCustomVariable";
 
 const _module = {
     version: utilities.getVersion(),
@@ -142,6 +149,8 @@ const _module = {
                 return new MetricTagConfiguration(name, <any>undefined, { urn })
             case "datadog:index/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "datadog:index/monitorJson:MonitorJson":
+                return new MonitorJson(name, <any>undefined, { urn })
             case "datadog:index/organizationSettings:OrganizationSettings":
                 return new OrganizationSettings(name, <any>undefined, { urn })
             case "datadog:index/role:Role":
@@ -164,6 +173,10 @@ const _module = {
                 return new SyntheticsTest(name, <any>undefined, { urn })
             case "datadog:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "datadog:index/webhook:Webhook":
+                return new Webhook(name, <any>undefined, { urn })
+            case "datadog:index/webhookCustomVariable:WebhookCustomVariable":
+                return new WebhookCustomVariable(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -187,6 +200,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/logsPipelineOrder", _mod
 pulumi.runtime.registerResourceModule("datadog", "index/metricMetadata", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/metricTagConfiguration", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/monitor", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/monitorJson", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/organizationSettings", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringDefaultRule", _module)
@@ -198,6 +212,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsPrivateLocation", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsTest", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/webhookCustomVariable", _module)
 
 import { Provider } from "./provider";
 

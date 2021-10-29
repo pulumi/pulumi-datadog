@@ -139,6 +139,14 @@ export interface GetMonitorResult {
      */
     readonly renotifyInterval: number;
     /**
+     * The number of re-notification messages that should be sent on the current status.
+     */
+    readonly renotifyOccurrences: number;
+    /**
+     * The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+     */
+    readonly renotifyStatuses: string[];
+    /**
      * Whether or not the monitor needs a full window of data before it is evaluated.
      */
     readonly requireFullWindow: boolean;

@@ -17,7 +17,6 @@ class DashboardArgs:
     def __init__(__self__, *,
                  layout_type: pulumi.Input[str],
                  title: pulumi.Input[str],
-                 widgets: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]],
                  dashboard_lists: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
@@ -26,12 +25,12 @@ class DashboardArgs:
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  template_variable_presets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]]] = None,
                  template_variables: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]]] = None,
-                 url: Optional[pulumi.Input[str]] = None):
+                 url: Optional[pulumi.Input[str]] = None,
+                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
         :param pulumi.Input[str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
         :param pulumi.Input[str] title: The title of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to.
         :param pulumi.Input[str] description: The description of the dashboard.
         :param pulumi.Input[bool] is_read_only: Whether this dashboard is read-only.
@@ -41,10 +40,10 @@ class DashboardArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardTemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[str] url: The URL of the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: The list of widgets to display on the dashboard.
         """
         pulumi.set(__self__, "layout_type", layout_type)
         pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "widgets", widgets)
         if dashboard_lists is not None:
             pulumi.set(__self__, "dashboard_lists", dashboard_lists)
         if description is not None:
@@ -63,6 +62,8 @@ class DashboardArgs:
             pulumi.set(__self__, "template_variables", template_variables)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if widgets is not None:
+            pulumi.set(__self__, "widgets", widgets)
 
     @property
     @pulumi.getter(name="layoutType")
@@ -87,18 +88,6 @@ class DashboardArgs:
     @title.setter
     def title(self, value: pulumi.Input[str]):
         pulumi.set(self, "title", value)
-
-    @property
-    @pulumi.getter
-    def widgets(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]:
-        """
-        The list of widgets to display on the dashboard.
-        """
-        return pulumi.get(self, "widgets")
-
-    @widgets.setter
-    def widgets(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]):
-        pulumi.set(self, "widgets", value)
 
     @property
     @pulumi.getter(name="dashboardLists")
@@ -207,6 +196,18 @@ class DashboardArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
+        """
+        The list of widgets to display on the dashboard.
+        """
+        return pulumi.get(self, "widgets")
+
+    @widgets.setter
+    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]):
+        pulumi.set(self, "widgets", value)
 
 
 @pulumi.input_type
@@ -699,10 +700,10 @@ class Dashboard(pulumi.CustomResource):
                     servicemap_definition=datadog.DashboardWidgetServicemapDefinitionArgs(
                         filters=[
                             "env:prod",
-                            "datacenter:us1.prod.dog",
+                            "datacenter:dc1",
                         ],
                         service="master-db",
-                        title="env: prod, datacenter:us1.prod.dog, service: master-db",
+                        title="env: prod, datacenter:dc1, service: master-db",
                         title_align="left",
                         title_size="16",
                     ),
@@ -1015,7 +1016,7 @@ class Dashboard(pulumi.CustomResource):
                 datadog.DashboardWidgetArgs(
                     trace_service_definition=datadog.DashboardWidgetTraceServiceDefinitionArgs(
                         display_format="three_column",
-                        env="datad0g.com",
+                        env="datadog.com",
                         live_span="1h",
                         service="alerting-cassandra",
                         show_breakdown=True,
@@ -1026,7 +1027,7 @@ class Dashboard(pulumi.CustomResource):
                         show_resource_list=False,
                         size_format="large",
                         span_name="cassandra.query",
-                        title="alerting-cassandra #env:datad0g.com",
+                        title="alerting-cassandra #env:datadog.com",
                         title_align="center",
                         title_size="13",
                     ),
@@ -1421,10 +1422,10 @@ class Dashboard(pulumi.CustomResource):
                     servicemap_definition=datadog.DashboardWidgetServicemapDefinitionArgs(
                         filters=[
                             "env:prod",
-                            "datacenter:us1.prod.dog",
+                            "datacenter:dc1",
                         ],
                         service="master-db",
-                        title="env: prod, datacenter:us1.prod.dog, service: master-db",
+                        title="env: prod, datacenter:dc1, service: master-db",
                         title_align="left",
                         title_size="16",
                     ),
@@ -1737,7 +1738,7 @@ class Dashboard(pulumi.CustomResource):
                 datadog.DashboardWidgetArgs(
                     trace_service_definition=datadog.DashboardWidgetTraceServiceDefinitionArgs(
                         display_format="three_column",
-                        env="datad0g.com",
+                        env="datadog.com",
                         live_span="1h",
                         service="alerting-cassandra",
                         show_breakdown=True,
@@ -1748,7 +1749,7 @@ class Dashboard(pulumi.CustomResource):
                         show_resource_list=False,
                         size_format="large",
                         span_name="cassandra.query",
-                        title="alerting-cassandra #env:datad0g.com",
+                        title="alerting-cassandra #env:datadog.com",
                         title_align="center",
                         title_size="13",
                     ),
@@ -1920,8 +1921,6 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'title'")
             __props__.__dict__["title"] = title
             __props__.__dict__["url"] = url
-            if widgets is None and not opts.urn:
-                raise TypeError("Missing required property 'widgets'")
             __props__.__dict__["widgets"] = widgets
             __props__.__dict__["dashboard_lists_removeds"] = None
         super(Dashboard, __self__).__init__(
@@ -2085,7 +2084,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def widgets(self) -> pulumi.Output[Sequence['outputs.DashboardWidget']]:
+    def widgets(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardWidget']]]:
         """
         The list of widgets to display on the dashboard.
         """

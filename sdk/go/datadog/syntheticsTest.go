@@ -360,7 +360,7 @@ type SyntheticsTest struct {
 	BrowserVariables SyntheticsTestBrowserVariableArrayOutput `pulumi:"browserVariables"`
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables SyntheticsTestConfigVariableArrayOutput `pulumi:"configVariables"`
-	// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds pulumi.StringArrayOutput `pulumi:"deviceIds"`
 	// Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
 	Locations pulumi.StringArrayOutput `pulumi:"locations"`
@@ -375,7 +375,7 @@ type SyntheticsTest struct {
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrOutput `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrOutput `pulumi:"requestClientCertificate"`
-	// The synthetics test request. Required if `type = "api"`.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition SyntheticsTestRequestDefinitionPtrOutput `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders pulumi.MapOutput `pulumi:"requestHeaders"`
@@ -444,7 +444,7 @@ type syntheticsTestState struct {
 	BrowserVariables []SyntheticsTestBrowserVariable `pulumi:"browserVariables"`
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
-	// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds []string `pulumi:"deviceIds"`
 	// Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
 	Locations []string `pulumi:"locations"`
@@ -459,7 +459,7 @@ type syntheticsTestState struct {
 	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
-	// The synthetics test request. Required if `type = "api"`.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
@@ -488,7 +488,7 @@ type SyntheticsTestState struct {
 	BrowserVariables SyntheticsTestBrowserVariableArrayInput
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
-	// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds pulumi.StringArrayInput
 	// Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
 	Locations pulumi.StringArrayInput
@@ -503,7 +503,7 @@ type SyntheticsTestState struct {
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
-	// The synthetics test request. Required if `type = "api"`.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput
@@ -536,7 +536,7 @@ type syntheticsTestArgs struct {
 	BrowserVariables []SyntheticsTestBrowserVariable `pulumi:"browserVariables"`
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables []SyntheticsTestConfigVariable `pulumi:"configVariables"`
-	// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds []string `pulumi:"deviceIds"`
 	// Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
 	Locations []string `pulumi:"locations"`
@@ -549,7 +549,7 @@ type syntheticsTestArgs struct {
 	RequestBasicauth *SyntheticsTestRequestBasicauth `pulumi:"requestBasicauth"`
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate *SyntheticsTestRequestClientCertificate `pulumi:"requestClientCertificate"`
-	// The synthetics test request. Required if `type = "api"`.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition *SyntheticsTestRequestDefinition `pulumi:"requestDefinition"`
 	// Header name and value map.
 	RequestHeaders map[string]interface{} `pulumi:"requestHeaders"`
@@ -579,7 +579,7 @@ type SyntheticsTestArgs struct {
 	BrowserVariables SyntheticsTestBrowserVariableArrayInput
 	// Variables used for the test configuration. Multiple `configVariable` blocks are allowed with the structure below.
 	ConfigVariables SyntheticsTestConfigVariableArrayInput
-	// Array with the different device IDs used to run the test (only for `browser` tests). Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
+	// Required if `type = "browser"`. Array with the different device IDs used to run the test. Valid values are `laptopLarge`, `tablet`, `mobileSmall`, `chrome.laptop_large`, `chrome.tablet`, `chrome.mobile_small`, `firefox.laptop_large`, `firefox.tablet`, `firefox.mobile_small`, `edge.laptop_large`, `edge.tablet`, `edge.mobile_small`.
 	DeviceIds pulumi.StringArrayInput
 	// Array of locations used to run the test. Refer to [Datadog documentation](https://docs.datadoghq.com/synthetics/api_test/#request) for available locations (e.g. `aws:eu-central-1`).
 	Locations pulumi.StringArrayInput
@@ -592,7 +592,7 @@ type SyntheticsTestArgs struct {
 	RequestBasicauth SyntheticsTestRequestBasicauthPtrInput
 	// Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
 	RequestClientCertificate SyntheticsTestRequestClientCertificatePtrInput
-	// The synthetics test request. Required if `type = "api"`.
+	// Required if `type = "api"`. The synthetics test request.
 	RequestDefinition SyntheticsTestRequestDefinitionPtrInput
 	// Header name and value map.
 	RequestHeaders pulumi.MapInput

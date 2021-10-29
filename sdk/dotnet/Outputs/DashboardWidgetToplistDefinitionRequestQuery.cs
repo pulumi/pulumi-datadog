@@ -13,18 +13,26 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetToplistDefinitionRequestQuery
     {
+        public readonly Outputs.DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        public readonly Outputs.DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery? EventQuery;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery? MetricQuery;
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery? ProcessQuery;
 
         [OutputConstructor]
         private DashboardWidgetToplistDefinitionRequestQuery(
+            Outputs.DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
+
             Outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery? eventQuery,
 
             Outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery? metricQuery,
 
             Outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery? processQuery)
         {
+            ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;

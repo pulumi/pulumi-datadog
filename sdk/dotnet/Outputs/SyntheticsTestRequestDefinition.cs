@@ -46,6 +46,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
+        /// For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+        /// </summary>
+        public readonly string? Servername;
+        /// <summary>
         /// This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
         /// </summary>
         public readonly bool? ShouldTrackHops;
@@ -76,6 +80,8 @@ namespace Pulumi.Datadog.Outputs
 
             int? port,
 
+            string? servername,
+
             bool? shouldTrackHops,
 
             int? timeout,
@@ -90,6 +96,7 @@ namespace Pulumi.Datadog.Outputs
             NoSavingResponseBody = noSavingResponseBody;
             NumberOfPackets = numberOfPackets;
             Port = port;
+            Servername = servername;
             ShouldTrackHops = shouldTrackHops;
             Timeout = timeout;
             Url = url;

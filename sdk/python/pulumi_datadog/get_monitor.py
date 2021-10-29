@@ -20,7 +20,7 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, require_full_window=None, restricted_roles=None, tags=None, tags_filters=None, timeout_h=None, type=None):
+    def __init__(__self__, enable_logs_sample=None, escalation_message=None, evaluation_delay=None, groupby_simple_monitor=None, id=None, include_tags=None, locked=None, message=None, monitor_tags_filters=None, monitor_threshold_windows=None, monitor_thresholds=None, name=None, name_filter=None, new_group_delay=None, new_host_delay=None, no_data_timeframe=None, notify_audit=None, notify_no_data=None, query=None, renotify_interval=None, renotify_occurrences=None, renotify_statuses=None, require_full_window=None, restricted_roles=None, tags=None, tags_filters=None, timeout_h=None, type=None):
         if enable_logs_sample and not isinstance(enable_logs_sample, bool):
             raise TypeError("Expected argument 'enable_logs_sample' to be a bool")
         pulumi.set(__self__, "enable_logs_sample", enable_logs_sample)
@@ -81,6 +81,12 @@ class GetMonitorResult:
         if renotify_interval and not isinstance(renotify_interval, int):
             raise TypeError("Expected argument 'renotify_interval' to be a int")
         pulumi.set(__self__, "renotify_interval", renotify_interval)
+        if renotify_occurrences and not isinstance(renotify_occurrences, int):
+            raise TypeError("Expected argument 'renotify_occurrences' to be a int")
+        pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+        if renotify_statuses and not isinstance(renotify_statuses, list):
+            raise TypeError("Expected argument 'renotify_statuses' to be a list")
+        pulumi.set(__self__, "renotify_statuses", renotify_statuses)
         if require_full_window and not isinstance(require_full_window, bool):
             raise TypeError("Expected argument 'require_full_window' to be a bool")
         pulumi.set(__self__, "require_full_window", require_full_window)
@@ -261,6 +267,22 @@ class GetMonitorResult:
         return pulumi.get(self, "renotify_interval")
 
     @property
+    @pulumi.getter(name="renotifyOccurrences")
+    def renotify_occurrences(self) -> int:
+        """
+        The number of re-notification messages that should be sent on the current status.
+        """
+        return pulumi.get(self, "renotify_occurrences")
+
+    @property
+    @pulumi.getter(name="renotifyStatuses")
+    def renotify_statuses(self) -> Sequence[str]:
+        """
+        The types of statuses for which re-notification messages should be sent. Valid values are `alert`, `warn`, `no data`.
+        """
+        return pulumi.get(self, "renotify_statuses")
+
+    @property
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> bool:
         """
@@ -332,6 +354,8 @@ class AwaitableGetMonitorResult(GetMonitorResult):
             notify_no_data=self.notify_no_data,
             query=self.query,
             renotify_interval=self.renotify_interval,
+            renotify_occurrences=self.renotify_occurrences,
+            renotify_statuses=self.renotify_statuses,
             require_full_window=self.require_full_window,
             restricted_roles=self.restricted_roles,
             tags=self.tags,
@@ -393,6 +417,8 @@ def get_monitor(monitor_tags_filters: Optional[Sequence[str]] = None,
         notify_no_data=__ret__.notify_no_data,
         query=__ret__.query,
         renotify_interval=__ret__.renotify_interval,
+        renotify_occurrences=__ret__.renotify_occurrences,
+        renotify_statuses=__ret__.renotify_statuses,
         require_full_window=__ret__.require_full_window,
         restricted_roles=__ret__.restricted_roles,
         tags=__ret__.tags,

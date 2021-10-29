@@ -13,6 +13,7 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetSecurityMonitoringRulesRuleQueryResult
     {
+        public readonly ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryAgentRuleResult> AgentRules;
         public readonly string? Aggregation;
         public readonly ImmutableArray<string> DistinctFields;
         public readonly ImmutableArray<string> GroupByFields;
@@ -22,6 +23,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private GetSecurityMonitoringRulesRuleQueryResult(
+            ImmutableArray<Outputs.GetSecurityMonitoringRulesRuleQueryAgentRuleResult> agentRules,
+
             string? aggregation,
 
             ImmutableArray<string> distinctFields,
@@ -34,6 +37,7 @@ namespace Pulumi.Datadog.Outputs
 
             string query)
         {
+            AgentRules = agentRules;
             Aggregation = aggregation;
             DistinctFields = distinctFields;
             GroupByFields = groupByFields;

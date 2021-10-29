@@ -35,12 +35,10 @@ import (
 // 					Status: pulumi.String("high"),
 // 				},
 // 			},
-// 			Enabled:          pulumi.Bool(true),
-// 			HasExtendedTitle: pulumi.Bool(true),
-// 			Message:          pulumi.String("The rule has triggered."),
-// 			Name:             pulumi.String("My rule"),
+// 			Enabled: pulumi.Bool(true),
+// 			Message: pulumi.String("The rule has triggered."),
+// 			Name:    pulumi.String("My rule"),
 // 			Options: &datadog.SecurityMonitoringRuleOptionsArgs{
-// 				DetectionMethod:   pulumi.String("threshold"),
 // 				EvaluationWindow:  pulumi.Int(300),
 // 				KeepAlive:         pulumi.Int(600),
 // 				MaxSignalDuration: pulumi.Int(900),
@@ -103,6 +101,8 @@ type SecurityMonitoringRule struct {
 	Queries SecurityMonitoringRuleQueryArrayOutput `pulumi:"queries"`
 	// Tags for generated signals.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSecurityMonitoringRule registers a new resource with the given unique name, arguments, and options.
@@ -164,6 +164,8 @@ type securityMonitoringRuleState struct {
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
+	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	Type *string `pulumi:"type"`
 }
 
 type SecurityMonitoringRuleState struct {
@@ -185,6 +187,8 @@ type SecurityMonitoringRuleState struct {
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
+	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	Type pulumi.StringPtrInput
 }
 
 func (SecurityMonitoringRuleState) ElementType() reflect.Type {
@@ -210,6 +214,8 @@ type securityMonitoringRuleArgs struct {
 	Queries []SecurityMonitoringRuleQuery `pulumi:"queries"`
 	// Tags for generated signals.
 	Tags []string `pulumi:"tags"`
+	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SecurityMonitoringRule resource.
@@ -232,6 +238,8 @@ type SecurityMonitoringRuleArgs struct {
 	Queries SecurityMonitoringRuleQueryArrayInput
 	// Tags for generated signals.
 	Tags pulumi.StringArrayInput
+	// The rule type. Valid values are `logDetection`, `infrastructureConfiguration`, `workloadSecurity`, `cloudConfiguration`.
+	Type pulumi.StringPtrInput
 }
 
 func (SecurityMonitoringRuleArgs) ElementType() reflect.Type {

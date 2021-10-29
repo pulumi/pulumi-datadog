@@ -12,14 +12,11 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class SecurityMonitoringRuleFilterArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of filtering action (require or suppress).
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Query to run on logs.
+        /// Queries for selecting logs which are part of the rule.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;

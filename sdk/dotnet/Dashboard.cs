@@ -363,10 +363,10 @@ namespace Pulumi.Datadog
     ///                         Filters = 
     ///                         {
     ///                             "env:prod",
-    ///                             "datacenter:us1.prod.dog",
+    ///                             "datacenter:dc1",
     ///                         },
     ///                         Service = "master-db",
-    ///                         Title = "env: prod, datacenter:us1.prod.dog, service: master-db",
+    ///                         Title = "env: prod, datacenter:dc1, service: master-db",
     ///                         TitleAlign = "left",
     ///                         TitleSize = "16",
     ///                     },
@@ -776,7 +776,7 @@ namespace Pulumi.Datadog
     ///                     TraceServiceDefinition = new Datadog.Inputs.DashboardWidgetTraceServiceDefinitionArgs
     ///                     {
     ///                         DisplayFormat = "three_column",
-    ///                         Env = "datad0g.com",
+    ///                         Env = "datadog.com",
     ///                         LiveSpan = "1h",
     ///                         Service = "alerting-cassandra",
     ///                         ShowBreakdown = true,
@@ -787,7 +787,7 @@ namespace Pulumi.Datadog
     ///                         ShowResourceList = false,
     ///                         SizeFormat = "large",
     ///                         SpanName = "cassandra.query",
-    ///                         Title = "alerting-cassandra #env:datad0g.com",
+    ///                         Title = "alerting-cassandra #env:datadog.com",
     ///                         TitleAlign = "center",
     ///                         TitleSize = "13",
     ///                     },
@@ -1188,7 +1188,7 @@ namespace Pulumi.Datadog
         [Input("url")]
         public Input<string>? Url { get; set; }
 
-        [Input("widgets", required: true)]
+        [Input("widgets")]
         private InputList<Inputs.DashboardWidgetArgs>? _widgets;
 
         /// <summary>

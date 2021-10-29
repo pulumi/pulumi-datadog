@@ -13,18 +13,26 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetQueryValueDefinitionRequestQuery
     {
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery? EventQuery;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery? MetricQuery;
         public readonly Outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery? ProcessQuery;
 
         [OutputConstructor]
         private DashboardWidgetQueryValueDefinitionRequestQuery(
+            Outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
+
             Outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery? eventQuery,
 
             Outputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery? metricQuery,
 
             Outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery? processQuery)
         {
+            ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;

@@ -710,9 +710,37 @@ export interface DashboardWidgetGeomapDefinitionRequestLogQueryMultiCompute {
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGeomapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetGeomapDefinitionRequestQueryEventQuery {
@@ -1421,9 +1449,37 @@ export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestLogQ
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetGeomapDefinitionRequestQueryEventQuery {
@@ -2261,9 +2317,37 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryTableDefinitionRequestQueryEventQuery {
@@ -2558,9 +2642,37 @@ export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery {
@@ -3265,9 +3377,37 @@ export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequest
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetTimeseriesDefinitionRequestQueryEventQuery {
@@ -3580,9 +3720,37 @@ export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestPro
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery {
@@ -4476,9 +4644,37 @@ export interface DashboardWidgetQueryTableDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
@@ -4773,9 +4969,37 @@ export interface DashboardWidgetQueryValueDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetQueryValueDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetQueryValueDefinitionRequestQueryEventQuery {
@@ -5480,9 +5704,37 @@ export interface DashboardWidgetTimeseriesDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetTimeseriesDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetTimeseriesDefinitionRequestQueryEventQuery {
@@ -5795,9 +6047,37 @@ export interface DashboardWidgetToplistDefinitionRequestProcessQuery {
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQuery {
+    apmDependencyStatsQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery;
+    apmResourceStatsQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery;
     eventQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryEventQuery;
     metricQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryMetricQuery;
     processQuery?: outputs.DashboardWidgetToplistDefinitionRequestQueryProcessQuery;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery {
+    dataSource: string;
+    env: string;
+    isUpstream?: boolean;
+    name: string;
+    operationName: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName: string;
+    service: string;
+    stat: string;
+}
+
+export interface DashboardWidgetToplistDefinitionRequestQueryApmResourceStatsQuery {
+    dataSource: string;
+    env: string;
+    groupBies?: string[];
+    name: string;
+    operationName?: string;
+    primaryTagName?: string;
+    primaryTagValue?: string;
+    resourceName?: string;
+    service: string;
+    stat: string;
 }
 
 export interface DashboardWidgetToplistDefinitionRequestQueryEventQuery {
@@ -5997,6 +6277,15 @@ export interface GetMonitorsMonitor {
     type: string;
 }
 
+export interface GetRolesRole {
+    /**
+     * The ID of this resource.
+     */
+    id: string;
+    name: string;
+    userCount: number;
+}
+
 export interface GetSecurityMonitoringFiltersFilter {
     exclusionFilters?: outputs.GetSecurityMonitoringFiltersFilterExclusionFilter[];
     filteredDataType?: string;
@@ -6012,36 +6301,16 @@ export interface GetSecurityMonitoringFiltersFilterExclusionFilter {
 }
 
 export interface GetSecurityMonitoringRulesRule {
-    /**
-     * Cases for generating signals.
-     */
     cases: outputs.GetSecurityMonitoringRulesRuleCase[];
-    /**
-     * Whether the rule is enabled.
-     */
     enabled?: boolean;
     filters?: outputs.GetSecurityMonitoringRulesRuleFilter[];
     hasExtendedTitle?: boolean;
-    /**
-     * Message for generated signals.
-     */
     message: string;
-    /**
-     * The name of the rule.
-     */
     name: string;
-    /**
-     * Options on rules.
-     */
     options?: outputs.GetSecurityMonitoringRulesRuleOptions;
-    /**
-     * Queries for selecting logs which are part of the rule.
-     */
     queries: outputs.GetSecurityMonitoringRulesRuleQuery[];
-    /**
-     * Tags for generated signals.
-     */
     tags?: string[];
+    type?: string;
 }
 
 export interface GetSecurityMonitoringRulesRuleCase {
@@ -6070,12 +6339,18 @@ export interface GetSecurityMonitoringRulesRuleOptionsNewValueOptions {
 }
 
 export interface GetSecurityMonitoringRulesRuleQuery {
+    agentRules?: outputs.GetSecurityMonitoringRulesRuleQueryAgentRule[];
     aggregation?: string;
     distinctFields?: string[];
     groupByFields?: string[];
     metric?: string;
     name?: string;
     query: string;
+}
+
+export interface GetSecurityMonitoringRulesRuleQueryAgentRule {
+    agentRuleId: string;
+    expression: string;
 }
 
 export interface GetServiceLevelObjectivesSlo {
@@ -6701,13 +6976,7 @@ export interface RolePermission {
 }
 
 export interface SecurityMonitoringDefaultRuleCase {
-    /**
-     * Notification targets for each rule case.
-     */
     notifications: string[];
-    /**
-     * Status of the rule case to match.
-     */
     status: string;
 }
 
@@ -6728,94 +6997,55 @@ export interface SecurityMonitoringFilterExclusionFilter {
 }
 
 export interface SecurityMonitoringRuleCase {
-    /**
-     * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
-     */
     condition?: string;
     /**
-     * Name of the case.
+     * The name of the rule.
      */
     name?: string;
-    /**
-     * Notification targets for each rule case.
-     */
     notifications?: string[];
-    /**
-     * Severity of the Security Signal.
-     */
     status: string;
 }
 
 export interface SecurityMonitoringRuleFilter {
-    /**
-     * The type of filtering action (require or suppress).
-     */
     action: string;
     /**
-     * Query to run on logs.
+     * Queries for selecting logs which are part of the rule.
      */
     query: string;
 }
 
 export interface SecurityMonitoringRuleOptions {
-    /**
-     * The detection method. Default to `threshold`.
-     */
     detectionMethod?: string;
-    /**
-     * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
-     */
     evaluationWindow: number;
-    /**
-     * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.
-     */
     keepAlive: number;
-    /**
-     * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
-     */
     maxSignalDuration: number;
-    /**
-     * Specific options for `newValue` detection method.
-     */
     newValueOptions?: outputs.SecurityMonitoringRuleOptionsNewValueOptions;
 }
 
 export interface SecurityMonitoringRuleOptionsNewValueOptions {
-    /**
-     * The duration in days after which a learned value is forgotten.
-     */
     forgetAfter: number;
-    /**
-     * The duration in days during which values are learned, and after which signals will be generated for values that weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
-     */
     learningDuration: number;
 }
 
 export interface SecurityMonitoringRuleQuery {
-    /**
-     * The aggregation type.
-     */
+    agentRules?: outputs.SecurityMonitoringRuleQueryAgentRule[];
     aggregation?: string;
-    /**
-     * Field for which the cardinality is measured. Sent as an array.
-     */
     distinctFields?: string[];
-    /**
-     * Fields to group by.
-     */
     groupByFields?: string[];
-    /**
-     * The target field to aggregate over when using the sum or max aggregations.
-     */
     metric?: string;
     /**
-     * Name of the query.
+     * The name of the rule.
      */
     name?: string;
     /**
-     * Query to run on logs.
+     * Queries for selecting logs which are part of the rule.
      */
     query: string;
+}
+
+export interface SecurityMonitoringRuleQueryAgentRule {
+    agentRuleId: string;
+    expression: string;
 }
 
 export interface ServiceLevelObjectiveQuery {
@@ -7009,6 +7239,7 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * DNS server port to use for DNS tests.
      */
     dnsServerPort?: number;
+    followRedirects?: boolean;
     /**
      * Host name to perform the test with.
      */
@@ -7029,6 +7260,10 @@ export interface SyntheticsTestApiStepRequestDefinition {
      * Port to use when performing the test.
      */
     port?: number;
+    /**
+     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     */
+    servername?: string;
     /**
      * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
      */
@@ -7184,7 +7419,7 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: boolean;
     /**
-     * For API HTTP test, whether or not the test should follow redirects.
+     * Determines whether or not the API HTTP test should follow redirects.
      */
     followRedirects?: boolean;
     /**
@@ -7280,6 +7515,10 @@ export interface SyntheticsTestRequestDefinition {
      * Port to use when performing the test.
      */
     port?: number;
+    /**
+     * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
+     */
+    servername?: string;
     /**
      * This will turn on a traceroute probe to discover all gateways along the path to the host destination. For ICMP tests (`subtype = "icmp"`).
      */

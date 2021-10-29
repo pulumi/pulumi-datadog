@@ -308,7 +308,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         ## Import
 
-        # For the previously created custom pipelines, you can include them in Terraform with the import operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them.
+        # To find the pipeline ID, click the "edit" button in the UI to open the pipeline details. # The pipeline ID is the last part of the URL.
 
         ```sh
          $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name> <pipelineID>
@@ -499,7 +499,7 @@ class LogsCustomPipeline(pulumi.CustomResource):
 
         ## Import
 
-        # For the previously created custom pipelines, you can include them in Terraform with the import operation. Currently, Terraform requires you to explicitly create resources that match the existing pipelines to import them.
+        # To find the pipeline ID, click the "edit" button in the UI to open the pipeline details. # The pipeline ID is the last part of the URL.
 
         ```sh
          $ pulumi import datadog:index/logsCustomPipeline:LogsCustomPipeline name> <pipelineID>

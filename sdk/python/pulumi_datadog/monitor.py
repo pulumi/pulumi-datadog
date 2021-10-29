@@ -35,6 +35,8 @@ class MonitorArgs:
                  notify_no_data: Optional[pulumi.Input[bool]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
+                 renotify_occurrences: Optional[pulumi.Input[int]] = None,
+                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -85,6 +87,8 @@ class MonitorArgs:
         :param pulumi.Input[int] priority: Integer from 1 (high) to 5 (low) indicating alert severity.
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
+        :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
@@ -132,6 +136,10 @@ class MonitorArgs:
             pulumi.set(__self__, "priority", priority)
         if renotify_interval is not None:
             pulumi.set(__self__, "renotify_interval", renotify_interval)
+        if renotify_occurrences is not None:
+            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+        if renotify_statuses is not None:
+            pulumi.set(__self__, "renotify_statuses", renotify_statuses)
         if require_full_window is not None:
             pulumi.set(__self__, "require_full_window", require_full_window)
         if restricted_roles is not None:
@@ -407,6 +415,30 @@ class MonitorArgs:
         pulumi.set(self, "renotify_interval", value)
 
     @property
+    @pulumi.getter(name="renotifyOccurrences")
+    def renotify_occurrences(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of re-notification messages that should be sent on the current status.
+        """
+        return pulumi.get(self, "renotify_occurrences")
+
+    @renotify_occurrences.setter
+    def renotify_occurrences(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "renotify_occurrences", value)
+
+    @property
+    @pulumi.getter(name="renotifyStatuses")
+    def renotify_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The types of statuses for which re-notification messages should be sent.
+        """
+        return pulumi.get(self, "renotify_statuses")
+
+    @renotify_statuses.setter
+    def renotify_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "renotify_statuses", value)
+
+    @property
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -489,6 +521,8 @@ class _MonitorState:
                  priority: Optional[pulumi.Input[int]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
+                 renotify_occurrences: Optional[pulumi.Input[int]] = None,
+                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -537,6 +571,8 @@ class _MonitorState:
                metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
+        :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
@@ -589,6 +625,10 @@ class _MonitorState:
             pulumi.set(__self__, "query", query)
         if renotify_interval is not None:
             pulumi.set(__self__, "renotify_interval", renotify_interval)
+        if renotify_occurrences is not None:
+            pulumi.set(__self__, "renotify_occurrences", renotify_occurrences)
+        if renotify_statuses is not None:
+            pulumi.set(__self__, "renotify_statuses", renotify_statuses)
         if require_full_window is not None:
             pulumi.set(__self__, "require_full_window", require_full_window)
         if restricted_roles is not None:
@@ -852,6 +892,30 @@ class _MonitorState:
         pulumi.set(self, "renotify_interval", value)
 
     @property
+    @pulumi.getter(name="renotifyOccurrences")
+    def renotify_occurrences(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of re-notification messages that should be sent on the current status.
+        """
+        return pulumi.get(self, "renotify_occurrences")
+
+    @renotify_occurrences.setter
+    def renotify_occurrences(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "renotify_occurrences", value)
+
+    @property
+    @pulumi.getter(name="renotifyStatuses")
+    def renotify_statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The types of statuses for which re-notification messages should be sent.
+        """
+        return pulumi.get(self, "renotify_statuses")
+
+    @renotify_statuses.setter
+    def renotify_statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "renotify_statuses", value)
+
+    @property
     @pulumi.getter(name="requireFullWindow")
     def require_full_window(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -950,6 +1014,8 @@ class Monitor(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
+                 renotify_occurrences: Optional[pulumi.Input[int]] = None,
+                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1038,6 +1104,8 @@ class Monitor(pulumi.CustomResource):
                metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
+        :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
@@ -1128,6 +1196,8 @@ class Monitor(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[int]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  renotify_interval: Optional[pulumi.Input[int]] = None,
+                 renotify_occurrences: Optional[pulumi.Input[int]] = None,
+                 renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  require_full_window: Optional[pulumi.Input[bool]] = None,
                  restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1174,6 +1244,8 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'query'")
             __props__.__dict__["query"] = query
             __props__.__dict__["renotify_interval"] = renotify_interval
+            __props__.__dict__["renotify_occurrences"] = renotify_occurrences
+            __props__.__dict__["renotify_statuses"] = renotify_statuses
             __props__.__dict__["require_full_window"] = require_full_window
             __props__.__dict__["restricted_roles"] = restricted_roles
             __props__.__dict__["tags"] = tags
@@ -1211,6 +1283,8 @@ class Monitor(pulumi.CustomResource):
             priority: Optional[pulumi.Input[int]] = None,
             query: Optional[pulumi.Input[str]] = None,
             renotify_interval: Optional[pulumi.Input[int]] = None,
+            renotify_occurrences: Optional[pulumi.Input[int]] = None,
+            renotify_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             require_full_window: Optional[pulumi.Input[bool]] = None,
             restricted_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1264,6 +1338,8 @@ class Monitor(pulumi.CustomResource):
                metrics, see the [detailed doc](https://docs.datadoghq.com/tracing/guide/ddsketch_trace_metrics/).
         :param pulumi.Input[int] renotify_interval: The number of minutes after the last notification before a monitor will re-notify on the current status. It will only
                re-notify if it's not resolved.
+        :param pulumi.Input[int] renotify_occurrences: The number of re-notification messages that should be sent on the current status.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. We highly recommend you set
                this to `false` for sparse metrics, otherwise some evaluations will be skipped. Default: `true` for `on average`, `at
                all times` and `in total` aggregation. `false` otherwise.
@@ -1298,6 +1374,8 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         __props__.__dict__["query"] = query
         __props__.__dict__["renotify_interval"] = renotify_interval
+        __props__.__dict__["renotify_occurrences"] = renotify_occurrences
+        __props__.__dict__["renotify_statuses"] = renotify_statuses
         __props__.__dict__["require_full_window"] = require_full_window
         __props__.__dict__["restricted_roles"] = restricted_roles
         __props__.__dict__["tags"] = tags
@@ -1478,6 +1556,22 @@ class Monitor(pulumi.CustomResource):
         re-notify if it's not resolved.
         """
         return pulumi.get(self, "renotify_interval")
+
+    @property
+    @pulumi.getter(name="renotifyOccurrences")
+    def renotify_occurrences(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of re-notification messages that should be sent on the current status.
+        """
+        return pulumi.get(self, "renotify_occurrences")
+
+    @property
+    @pulumi.getter(name="renotifyStatuses")
+    def renotify_statuses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The types of statuses for which re-notification messages should be sent.
+        """
+        return pulumi.get(self, "renotify_statuses")
 
     @property
     @pulumi.getter(name="requireFullWindow")

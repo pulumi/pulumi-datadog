@@ -261,10 +261,10 @@ import * as utilities from "./utilities";
  *             servicemapDefinition: {
  *                 filters: [
  *                     "env:prod",
- *                     "datacenter:us1.prod.dog",
+ *                     "datacenter:dc1",
  *                 ],
  *                 service: "master-db",
- *                 title: "env: prod, datacenter:us1.prod.dog, service: master-db",
+ *                 title: "env: prod, datacenter:dc1, service: master-db",
  *                 titleAlign: "left",
  *                 titleSize: "16",
  *             },
@@ -578,7 +578,7 @@ import * as utilities from "./utilities";
  *         {
  *             traceServiceDefinition: {
  *                 displayFormat: "three_column",
- *                 env: "datad0g.com",
+ *                 env: "datadog.com",
  *                 liveSpan: "1h",
  *                 service: "alerting-cassandra",
  *                 showBreakdown: true,
@@ -589,7 +589,7 @@ import * as utilities from "./utilities";
  *                 showResourceList: false,
  *                 sizeFormat: "large",
  *                 spanName: "cassandra.query",
- *                 title: "alerting-cassandra #env:datad0g.com",
+ *                 title: "alerting-cassandra #env:datadog.com",
  *                 titleAlign: "center",
  *                 titleSize: "13",
  *             },
@@ -787,7 +787,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * The list of widgets to display on the dashboard.
      */
-    public readonly widgets!: pulumi.Output<outputs.DashboardWidget[]>;
+    public readonly widgets!: pulumi.Output<outputs.DashboardWidget[] | undefined>;
 
     /**
      * Create a Dashboard resource with the given unique name, arguments, and options.
@@ -822,9 +822,6 @@ export class Dashboard extends pulumi.CustomResource {
             }
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
-            }
-            if ((!args || args.widgets === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'widgets'");
             }
             inputs["dashboardLists"] = args ? args.dashboardLists : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -956,5 +953,5 @@ export interface DashboardArgs {
     /**
      * The list of widgets to display on the dashboard.
      */
-    widgets: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
+    widgets?: pulumi.Input<pulumi.Input<inputs.DashboardWidget>[]>;
 }
