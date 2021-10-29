@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.5.0 of the datadog Terraform Provider
+_(none)_
 
 ---
+
+## 4.3.0 (2021-10-29)
+* Upgrade to v3.5.0 of the datadog Terraform Provider
 
 ## 4.2.0 (2021-09-27)
 * Upgrade to v3.4.0 of the datadog Terraform Provider
