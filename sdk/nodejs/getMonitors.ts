@@ -67,3 +67,25 @@ export interface GetMonitorsResult {
      */
     readonly tagsFilters?: string[];
 }
+
+export function getMonitorsOutput(args?: GetMonitorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorsResult> {
+    return pulumi.output(args).apply(a => getMonitors(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMonitors.
+ */
+export interface GetMonitorsOutputArgs {
+    /**
+     * A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+     */
+    monitorTagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A monitor name to limit the search.
+     */
+    nameFilter?: pulumi.Input<string>;
+    /**
+     * A list of tags to limit the search. This filters on the monitor scope.
+     */
+    tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+}

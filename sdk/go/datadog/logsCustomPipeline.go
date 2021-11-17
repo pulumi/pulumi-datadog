@@ -28,16 +28,16 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewLogsCustomPipeline(ctx, "samplePipeline", &datadog.LogsCustomPipelineArgs{
-// 			Filters: datadog.LogsCustomPipelineFilterArray{
-// 				&datadog.LogsCustomPipelineFilterArgs{
+// 			Filters: LogsCustomPipelineFilterArray{
+// 				&LogsCustomPipelineFilterArgs{
 // 					Query: pulumi.String("source:foo"),
 // 				},
 // 			},
 // 			IsEnabled: pulumi.Bool(true),
 // 			Name:      pulumi.String("sample pipeline"),
-// 			Processors: datadog.LogsCustomPipelineProcessorArray{
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					ArithmeticProcessor: &datadog.LogsCustomPipelineProcessorArithmeticProcessorArgs{
+// 			Processors: LogsCustomPipelineProcessorArray{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					ArithmeticProcessor: &LogsCustomPipelineProcessorArithmeticProcessorArgs{
 // 						Expression:       pulumi.String("(time1 - time2)*1000"),
 // 						IsEnabled:        pulumi.Bool(true),
 // 						IsReplaceMissing: pulumi.Bool(true),
@@ -45,8 +45,8 @@ import (
 // 						Target:           pulumi.String("my_arithmetic"),
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					AttributeRemapper: &datadog.LogsCustomPipelineProcessorAttributeRemapperArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					AttributeRemapper: &LogsCustomPipelineProcessorAttributeRemapperArgs{
 // 						IsEnabled:          pulumi.Bool(true),
 // 						Name:               pulumi.String("sample attribute processor"),
 // 						OverrideOnConflict: pulumi.Bool(false),
@@ -60,20 +60,20 @@ import (
 // 						TargetType:   pulumi.String("attribute"),
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					CategoryProcessor: &datadog.LogsCustomPipelineProcessorCategoryProcessorArgs{
-// 						Category: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"filter": pulumi.StringMap{
-// 									"query": pulumi.String("@severity: \".\""),
+// 				&LogsCustomPipelineProcessorArgs{
+// 					CategoryProcessor: &LogsCustomPipelineProcessorCategoryProcessorArgs{
+// 						Category: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"filter": map[string]interface{}{
+// 									"query": "@severity: \".\"",
 // 								},
-// 								"name": pulumi.String("debug"),
+// 								"name": "debug",
 // 							},
-// 							pulumi.Map{
-// 								"filter": pulumi.StringMap{
-// 									"query": pulumi.String("@severity: \"-\""),
+// 							map[string]interface{}{
+// 								"filter": map[string]interface{}{
+// 									"query": "@severity: \"-\"",
 // 								},
-// 								"name": pulumi.String("verbose"),
+// 								"name": "verbose",
 // 							},
 // 						},
 // 						IsEnabled: pulumi.Bool(true),
@@ -81,8 +81,8 @@ import (
 // 						Target:    pulumi.String("foo.severity"),
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					DateRemapper: &datadog.LogsCustomPipelineProcessorDateRemapperArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					DateRemapper: &LogsCustomPipelineProcessorDateRemapperArgs{
 // 						IsEnabled: pulumi.Bool(true),
 // 						Name:      pulumi.String("sample date remapper"),
 // 						Sources: pulumi.StringArray{
@@ -91,8 +91,8 @@ import (
 // 						},
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					GeoIpParser: &datadog.LogsCustomPipelineProcessorGeoIpParserArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					GeoIpParser: &LogsCustomPipelineProcessorGeoIpParserArgs{
 // 						IsEnabled: pulumi.Bool(true),
 // 						Name:      pulumi.String("sample geo ip parser"),
 // 						Sources: pulumi.StringArray{
@@ -101,9 +101,9 @@ import (
 // 						Target: pulumi.String("network.client.geoip"),
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					GrokParser: &datadog.LogsCustomPipelineProcessorGrokParserArgs{
-// 						Grok: &datadog.LogsCustomPipelineProcessorGrokParserGrokArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					GrokParser: &LogsCustomPipelineProcessorGrokParserArgs{
+// 						Grok: &LogsCustomPipelineProcessorGrokParserGrokArgs{
 // 							MatchRules:   pulumi.String(fmt.Sprintf("%v%v%v%v%v", "Rule ", "%{", "word:my_word2} ", "%{", "number:my_float2}")),
 // 							SupportRules: pulumi.String(""),
 // 						},
@@ -115,20 +115,20 @@ import (
 // 						Source: pulumi.String("message"),
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					LookupProcessor: &datadog.LogsCustomPipelineProcessorLookupProcessorArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					LookupProcessor: &LogsCustomPipelineProcessorLookupProcessorArgs{
 // 						DefaultLookup: pulumi.String("unknown service"),
 // 						IsEnabled:     pulumi.Bool(true),
-// 						LookupTable: pulumi.StringArray{
-// 							pulumi.String("1,my service"),
+// 						LookupTable: []string{
+// 							"1,my service",
 // 						},
 // 						Name:   pulumi.String("sample lookup processor"),
 // 						Source: pulumi.String("service_id"),
 // 						Target: pulumi.String("service_name"),
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					MessageRemapper: &datadog.LogsCustomPipelineProcessorMessageRemapperArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					MessageRemapper: &LogsCustomPipelineProcessorMessageRemapperArgs{
 // 						IsEnabled: pulumi.Bool(true),
 // 						Name:      pulumi.String("sample message remapper"),
 // 						Sources: pulumi.StringArray{
@@ -136,32 +136,32 @@ import (
 // 						},
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					Pipeline: &datadog.LogsCustomPipelineProcessorPipelineArgs{
-// 						Filter: pulumi.StringMapArray{
-// 							pulumi.StringMap{
-// 								"query": pulumi.String("source:foo"),
+// 				&LogsCustomPipelineProcessorArgs{
+// 					Pipeline: &LogsCustomPipelineProcessorPipelineArgs{
+// 						Filter: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"query": "source:foo",
 // 							},
 // 						},
 // 						IsEnabled: pulumi.Bool(true),
 // 						Name:      pulumi.String("nested pipeline"),
-// 						Processor: pulumi.MapMapArray{
-// 							pulumi.MapMap{
-// 								"urlParser": pulumi.Map{
-// 									"name":                   pulumi.String("sample url parser"),
-// 									"normalizeEndingSlashes": pulumi.Bool(true),
-// 									"sources": pulumi.StringArray{
-// 										pulumi.String("url"),
-// 										pulumi.String("extra"),
+// 						Processor: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"urlParser": map[string]interface{}{
+// 									"name":                   "sample url parser",
+// 									"normalizeEndingSlashes": true,
+// 									"sources": []string{
+// 										"url",
+// 										"extra",
 // 									},
-// 									"target": pulumi.String("http_url"),
+// 									"target": "http_url",
 // 								},
 // 							},
 // 						},
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					ServiceRemapper: &datadog.LogsCustomPipelineProcessorServiceRemapperArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					ServiceRemapper: &LogsCustomPipelineProcessorServiceRemapperArgs{
 // 						IsEnabled: pulumi.Bool(true),
 // 						Name:      pulumi.String("sample service remapper"),
 // 						Sources: pulumi.StringArray{
@@ -169,8 +169,8 @@ import (
 // 						},
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					StatusRemapper: &datadog.LogsCustomPipelineProcessorStatusRemapperArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					StatusRemapper: &LogsCustomPipelineProcessorStatusRemapperArgs{
 // 						IsEnabled: pulumi.Bool(true),
 // 						Name:      pulumi.String("sample status remapper"),
 // 						Sources: pulumi.StringArray{
@@ -179,8 +179,8 @@ import (
 // 						},
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					StringBuilderProcessor: &datadog.LogsCustomPipelineProcessorStringBuilderProcessorArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					StringBuilderProcessor: &LogsCustomPipelineProcessorStringBuilderProcessorArgs{
 // 						IsEnabled:        pulumi.Bool(true),
 // 						IsReplaceMissing: pulumi.Bool(false),
 // 						Name:             pulumi.String("sample string builder processor"),
@@ -188,8 +188,8 @@ import (
 // 						Template:         pulumi.String(fmt.Sprintf("%v%v%v%v", "%{", "user.name} logged in at ", "%{", "timestamp}")),
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					TraceIdRemapper: &datadog.LogsCustomPipelineProcessorTraceIdRemapperArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					TraceIdRemapper: &LogsCustomPipelineProcessorTraceIdRemapperArgs{
 // 						IsEnabled: pulumi.Bool(true),
 // 						Name:      pulumi.String("sample trace id remapper"),
 // 						Sources: pulumi.StringArray{
@@ -197,8 +197,8 @@ import (
 // 						},
 // 					},
 // 				},
-// 				&datadog.LogsCustomPipelineProcessorArgs{
-// 					UserAgentParser: &datadog.LogsCustomPipelineProcessorUserAgentParserArgs{
+// 				&LogsCustomPipelineProcessorArgs{
+// 					UserAgentParser: &LogsCustomPipelineProcessorUserAgentParserArgs{
 // 						IsEnabled: pulumi.Bool(true),
 // 						IsEncoded: pulumi.Bool(false),
 // 						Name:      pulumi.String("sample user agent parser"),
@@ -368,7 +368,7 @@ type LogsCustomPipelineArrayInput interface {
 type LogsCustomPipelineArray []LogsCustomPipelineInput
 
 func (LogsCustomPipelineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogsCustomPipeline)(nil))
+	return reflect.TypeOf((*[]*LogsCustomPipeline)(nil)).Elem()
 }
 
 func (i LogsCustomPipelineArray) ToLogsCustomPipelineArrayOutput() LogsCustomPipelineArrayOutput {
@@ -393,7 +393,7 @@ type LogsCustomPipelineMapInput interface {
 type LogsCustomPipelineMap map[string]LogsCustomPipelineInput
 
 func (LogsCustomPipelineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogsCustomPipeline)(nil))
+	return reflect.TypeOf((*map[string]*LogsCustomPipeline)(nil)).Elem()
 }
 
 func (i LogsCustomPipelineMap) ToLogsCustomPipelineMapOutput() LogsCustomPipelineMapOutput {
@@ -404,9 +404,7 @@ func (i LogsCustomPipelineMap) ToLogsCustomPipelineMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineMapOutput)
 }
 
-type LogsCustomPipelineOutput struct {
-	*pulumi.OutputState
-}
+type LogsCustomPipelineOutput struct{ *pulumi.OutputState }
 
 func (LogsCustomPipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogsCustomPipeline)(nil))
@@ -425,14 +423,12 @@ func (o LogsCustomPipelineOutput) ToLogsCustomPipelinePtrOutput() LogsCustomPipe
 }
 
 func (o LogsCustomPipelineOutput) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
-	return o.ApplyT(func(v LogsCustomPipeline) *LogsCustomPipeline {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipeline) *LogsCustomPipeline {
 		return &v
 	}).(LogsCustomPipelinePtrOutput)
 }
 
-type LogsCustomPipelinePtrOutput struct {
-	*pulumi.OutputState
-}
+type LogsCustomPipelinePtrOutput struct{ *pulumi.OutputState }
 
 func (LogsCustomPipelinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogsCustomPipeline)(nil))
@@ -444,6 +440,16 @@ func (o LogsCustomPipelinePtrOutput) ToLogsCustomPipelinePtrOutput() LogsCustomP
 
 func (o LogsCustomPipelinePtrOutput) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
 	return o
+}
+
+func (o LogsCustomPipelinePtrOutput) Elem() LogsCustomPipelineOutput {
+	return o.ApplyT(func(v *LogsCustomPipeline) LogsCustomPipeline {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomPipeline
+		return ret
+	}).(LogsCustomPipelineOutput)
 }
 
 type LogsCustomPipelineArrayOutput struct{ *pulumi.OutputState }
@@ -487,6 +493,10 @@ func (o LogsCustomPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsCustomPi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineInput)(nil)).Elem(), &LogsCustomPipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelinePtrInput)(nil)).Elem(), &LogsCustomPipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineArrayInput)(nil)).Elem(), LogsCustomPipelineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineMapInput)(nil)).Elem(), LogsCustomPipelineMap{})
 	pulumi.RegisterOutputType(LogsCustomPipelineOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelinePtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineArrayOutput{})

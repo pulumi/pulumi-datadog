@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -62,4 +61,18 @@ export interface GetRoleResult {
      * Number of users assigned to this role.
      */
     readonly userCount: number;
+}
+
+export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
+    return pulumi.output(args).apply(a => getRole(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRole.
+ */
+export interface GetRoleOutputArgs {
+    /**
+     * A string on which to filter the roles.
+     */
+    filter: pulumi.Input<string>;
 }

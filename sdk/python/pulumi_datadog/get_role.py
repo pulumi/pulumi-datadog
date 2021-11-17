@@ -12,6 +12,7 @@ __all__ = [
     'GetRoleResult',
     'AwaitableGetRoleResult',
     'get_role',
+    'get_role_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,24 @@ def get_role(filter: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         user_count=__ret__.user_count)
+
+
+@_utilities.lift_output_func(get_role)
+def get_role_output(filter: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
+    """
+    Use this data source to retrieve information about an existing role for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_role(filter="Datadog Standard Role")
+    ```
+
+
+    :param str filter: A string on which to filter the roles.
+    """
+    ...

@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.LookupDashboard(ctx, &datadog.LookupDashboardArgs{
+// 		_, err := datadog.LookupDashboard(ctx, &GetDashboardArgs{
 // 			Name: "My super dashboard",
 // 		}, nil)
 // 		if err != nil {
@@ -56,4 +59,62 @@ type LookupDashboardResult struct {
 	Title string `pulumi:"title"`
 	// The URL to a specific dashboard.
 	Url string `pulumi:"url"`
+}
+
+func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDashboardResult, error) {
+			args := v.(LookupDashboardArgs)
+			r, err := LookupDashboard(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDashboardResultOutput)
+}
+
+// A collection of arguments for invoking getDashboard.
+type LookupDashboardOutputArgs struct {
+	// The dashboard name to search for. Must only match one dashboard.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupDashboardOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDashboardArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDashboard.
+type LookupDashboardResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDashboardResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDashboardResult)(nil)).Elem()
+}
+
+func (o LookupDashboardResultOutput) ToLookupDashboardResultOutput() LookupDashboardResultOutput {
+	return o
+}
+
+func (o LookupDashboardResultOutput) ToLookupDashboardResultOutputWithContext(ctx context.Context) LookupDashboardResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDashboardResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The dashboard name to search for. Must only match one dashboard.
+func (o LookupDashboardResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the dashboard.
+func (o LookupDashboardResultOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// The URL to a specific dashboard.
+func (o LookupDashboardResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardResult) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDashboardResultOutput{})
 }

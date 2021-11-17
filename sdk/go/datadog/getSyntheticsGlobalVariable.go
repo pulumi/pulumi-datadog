@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,57 @@ type LookupSyntheticsGlobalVariableResult struct {
 	Name string `pulumi:"name"`
 	// A list of tags assigned to the Synthetics global variable.
 	Tags []string `pulumi:"tags"`
+}
+
+func LookupSyntheticsGlobalVariableOutput(ctx *pulumi.Context, args LookupSyntheticsGlobalVariableOutputArgs, opts ...pulumi.InvokeOption) LookupSyntheticsGlobalVariableResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSyntheticsGlobalVariableResult, error) {
+			args := v.(LookupSyntheticsGlobalVariableArgs)
+			r, err := LookupSyntheticsGlobalVariable(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSyntheticsGlobalVariableResultOutput)
+}
+
+// A collection of arguments for invoking getSyntheticsGlobalVariable.
+type LookupSyntheticsGlobalVariableOutputArgs struct {
+	// The synthetics global variable name to search for. Must only match one global variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupSyntheticsGlobalVariableOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyntheticsGlobalVariableArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSyntheticsGlobalVariable.
+type LookupSyntheticsGlobalVariableResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSyntheticsGlobalVariableResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSyntheticsGlobalVariableResult)(nil)).Elem()
+}
+
+func (o LookupSyntheticsGlobalVariableResultOutput) ToLookupSyntheticsGlobalVariableResultOutput() LookupSyntheticsGlobalVariableResultOutput {
+	return o
+}
+
+func (o LookupSyntheticsGlobalVariableResultOutput) ToLookupSyntheticsGlobalVariableResultOutputWithContext(ctx context.Context) LookupSyntheticsGlobalVariableResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSyntheticsGlobalVariableResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The synthetics global variable name to search for. Must only match one global variable.
+func (o LookupSyntheticsGlobalVariableResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of tags assigned to the Synthetics global variable.
+func (o LookupSyntheticsGlobalVariableResultOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSyntheticsGlobalVariableResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSyntheticsGlobalVariableResultOutput{})
 }

@@ -13,6 +13,7 @@ __all__ = [
     'GetServiceLevelObjectivesResult',
     'AwaitableGetServiceLevelObjectivesResult',
     'get_service_level_objectives',
+    'get_service_level_objectives_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,30 @@ def get_service_level_objectives(ids: Optional[Sequence[str]] = None,
         name_query=__ret__.name_query,
         slos=__ret__.slos,
         tags_query=__ret__.tags_query)
+
+
+@_utilities.lift_output_func(get_service_level_objectives)
+def get_service_level_objectives_output(ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                        metrics_query: Optional[pulumi.Input[Optional[str]]] = None,
+                                        name_query: Optional[pulumi.Input[Optional[str]]] = None,
+                                        tags_query: Optional[pulumi.Input[Optional[str]]] = None,
+                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelObjectivesResult]:
+    """
+    Use this data source to retrieve information about multiple SLOs for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    ft_foo_slos = datadog.get_service_level_objectives(tags_query="owner:ft-foo")
+    ```
+
+
+    :param Sequence[str] ids: An array of SLO IDs to limit the search.
+    :param str metrics_query: Filter results based on SLO numerator and denominator.
+    :param str name_query: Filter results based on SLO names.
+    :param str tags_query: Filter results based on a single SLO tag.
+    """
+    ...

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -64,4 +63,22 @@ export interface GetApplicationKeyResult {
      * Name for Application Key.
      */
     readonly name?: string;
+}
+
+export function getApplicationKeyOutput(args?: GetApplicationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationKeyResult> {
+    return pulumi.output(args).apply(a => getApplicationKey(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApplicationKey.
+ */
+export interface GetApplicationKeyOutputArgs {
+    /**
+     * Id for Application Key.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name for Application Key.
+     */
+    name?: pulumi.Input<string>;
 }

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -70,4 +69,18 @@ export interface GetDashboardListResult {
      * A dashboard list name to limit the search.
      */
     readonly name: string;
+}
+
+export function getDashboardListOutput(args: GetDashboardListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardListResult> {
+    return pulumi.output(args).apply(a => getDashboardList(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDashboardList.
+ */
+export interface GetDashboardListOutputArgs {
+    /**
+     * A dashboard list name to limit the search.
+     */
+    name: pulumi.Input<string>;
 }

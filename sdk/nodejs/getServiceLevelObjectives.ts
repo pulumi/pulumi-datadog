@@ -87,3 +87,29 @@ export interface GetServiceLevelObjectivesResult {
      */
     readonly tagsQuery?: string;
 }
+
+export function getServiceLevelObjectivesOutput(args?: GetServiceLevelObjectivesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLevelObjectivesResult> {
+    return pulumi.output(args).apply(a => getServiceLevelObjectives(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServiceLevelObjectives.
+ */
+export interface GetServiceLevelObjectivesOutputArgs {
+    /**
+     * An array of SLO IDs to limit the search.
+     */
+    ids?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Filter results based on SLO numerator and denominator.
+     */
+    metricsQuery?: pulumi.Input<string>;
+    /**
+     * Filter results based on SLO names.
+     */
+    nameQuery?: pulumi.Input<string>;
+    /**
+     * Filter results based on a single SLO tag.
+     */
+    tagsQuery?: pulumi.Input<string>;
+}

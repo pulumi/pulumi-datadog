@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -64,4 +63,22 @@ export interface GetApiKeyResult {
      * Name for API Key.
      */
     readonly name?: string;
+}
+
+export function getApiKeyOutput(args?: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
+    return pulumi.output(args).apply(a => getApiKey(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApiKey.
+ */
+export interface GetApiKeyOutputArgs {
+    /**
+     * Id for API Key.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name for API Key.
+     */
+    name?: pulumi.Input<string>;
 }

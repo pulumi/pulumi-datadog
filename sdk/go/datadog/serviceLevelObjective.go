@@ -13,6 +13,84 @@ import (
 
 // Provides a Datadog service level objective resource. This can be used to create and manage Datadog service level objectives.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewServiceLevelObjective(ctx, "foo", &datadog.ServiceLevelObjectiveArgs{
+// 			Description: pulumi.String("My custom metric SLO"),
+// 			Name:        pulumi.String("Example Metric SLO"),
+// 			Query: &ServiceLevelObjectiveQueryArgs{
+// 				Denominator: pulumi.String("sum:my.custom.count.metric{*}.as_count()"),
+// 				Numerator:   pulumi.String("sum:my.custom.count.metric{type:good_events}.as_count()"),
+// 			},
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("baz"),
+// 			},
+// 			Thresholds: ServiceLevelObjectiveThresholdArray{
+// 				&ServiceLevelObjectiveThresholdArgs{
+// 					Target:         pulumi.Float64(99.9),
+// 					TargetDisplay:  pulumi.String("99.900"),
+// 					Timeframe:      pulumi.String("7d"),
+// 					Warning:        pulumi.Float64(99.99),
+// 					WarningDisplay: pulumi.String("99.990"),
+// 				},
+// 				&ServiceLevelObjectiveThresholdArgs{
+// 					Target:         pulumi.Float64(99.9),
+// 					TargetDisplay:  pulumi.String("99.900"),
+// 					Timeframe:      pulumi.String("30d"),
+// 					Warning:        pulumi.Float64(99.99),
+// 					WarningDisplay: pulumi.String("99.990"),
+// 				},
+// 			},
+// 			Type: pulumi.String("metric"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datadog.NewServiceLevelObjective(ctx, "bar", &datadog.ServiceLevelObjectiveArgs{
+// 			Description: pulumi.String("My custom monitor SLO"),
+// 			MonitorIds: pulumi.IntArray{
+// 				pulumi.Int(1),
+// 				pulumi.Int(2),
+// 				pulumi.Int(3),
+// 			},
+// 			Name: pulumi.String("Example Monitor SLO"),
+// 			Tags: pulumi.StringArray{
+// 				pulumi.String("foo:bar"),
+// 				pulumi.String("baz"),
+// 			},
+// 			Thresholds: ServiceLevelObjectiveThresholdArray{
+// 				&ServiceLevelObjectiveThresholdArgs{
+// 					Target:    pulumi.Float64(99.9),
+// 					Timeframe: pulumi.String("7d"),
+// 					Warning:   pulumi.Float64(99.99),
+// 				},
+// 				&ServiceLevelObjectiveThresholdArgs{
+// 					Target:    pulumi.Float64(99.9),
+// 					Timeframe: pulumi.String("30d"),
+// 					Warning:   pulumi.Float64(99.99),
+// 				},
+// 			},
+// 			Type: pulumi.String("monitor"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // # Service Level Objectives can be imported using their string ID, e.g.
@@ -245,7 +323,7 @@ type ServiceLevelObjectiveArrayInput interface {
 type ServiceLevelObjectiveArray []ServiceLevelObjectiveInput
 
 func (ServiceLevelObjectiveArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceLevelObjective)(nil))
+	return reflect.TypeOf((*[]*ServiceLevelObjective)(nil)).Elem()
 }
 
 func (i ServiceLevelObjectiveArray) ToServiceLevelObjectiveArrayOutput() ServiceLevelObjectiveArrayOutput {
@@ -270,7 +348,7 @@ type ServiceLevelObjectiveMapInput interface {
 type ServiceLevelObjectiveMap map[string]ServiceLevelObjectiveInput
 
 func (ServiceLevelObjectiveMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceLevelObjective)(nil))
+	return reflect.TypeOf((*map[string]*ServiceLevelObjective)(nil)).Elem()
 }
 
 func (i ServiceLevelObjectiveMap) ToServiceLevelObjectiveMapOutput() ServiceLevelObjectiveMapOutput {
@@ -281,9 +359,7 @@ func (i ServiceLevelObjectiveMap) ToServiceLevelObjectiveMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveMapOutput)
 }
 
-type ServiceLevelObjectiveOutput struct {
-	*pulumi.OutputState
-}
+type ServiceLevelObjectiveOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectiveOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceLevelObjective)(nil))
@@ -302,14 +378,12 @@ func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutput() ServiceL
 }
 
 func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
-	return o.ApplyT(func(v ServiceLevelObjective) *ServiceLevelObjective {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLevelObjective) *ServiceLevelObjective {
 		return &v
 	}).(ServiceLevelObjectivePtrOutput)
 }
 
-type ServiceLevelObjectivePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceLevelObjectivePtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceLevelObjectivePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceLevelObjective)(nil))
@@ -321,6 +395,16 @@ func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutput() Servi
 
 func (o ServiceLevelObjectivePtrOutput) ToServiceLevelObjectivePtrOutputWithContext(ctx context.Context) ServiceLevelObjectivePtrOutput {
 	return o
+}
+
+func (o ServiceLevelObjectivePtrOutput) Elem() ServiceLevelObjectiveOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjective {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLevelObjective
+		return ret
+	}).(ServiceLevelObjectiveOutput)
 }
 
 type ServiceLevelObjectiveArrayOutput struct{ *pulumi.OutputState }
@@ -364,6 +448,10 @@ func (o ServiceLevelObjectiveMapOutput) MapIndex(k pulumi.StringInput) ServiceLe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveInput)(nil)).Elem(), &ServiceLevelObjective{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectivePtrInput)(nil)).Elem(), &ServiceLevelObjective{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveArrayInput)(nil)).Elem(), ServiceLevelObjectiveArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveMapInput)(nil)).Elem(), ServiceLevelObjectiveMap{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectivePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveArrayOutput{})

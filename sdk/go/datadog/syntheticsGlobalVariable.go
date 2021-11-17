@@ -251,7 +251,7 @@ type SyntheticsGlobalVariableArrayInput interface {
 type SyntheticsGlobalVariableArray []SyntheticsGlobalVariableInput
 
 func (SyntheticsGlobalVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SyntheticsGlobalVariable)(nil))
+	return reflect.TypeOf((*[]*SyntheticsGlobalVariable)(nil)).Elem()
 }
 
 func (i SyntheticsGlobalVariableArray) ToSyntheticsGlobalVariableArrayOutput() SyntheticsGlobalVariableArrayOutput {
@@ -276,7 +276,7 @@ type SyntheticsGlobalVariableMapInput interface {
 type SyntheticsGlobalVariableMap map[string]SyntheticsGlobalVariableInput
 
 func (SyntheticsGlobalVariableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SyntheticsGlobalVariable)(nil))
+	return reflect.TypeOf((*map[string]*SyntheticsGlobalVariable)(nil)).Elem()
 }
 
 func (i SyntheticsGlobalVariableMap) ToSyntheticsGlobalVariableMapOutput() SyntheticsGlobalVariableMapOutput {
@@ -287,9 +287,7 @@ func (i SyntheticsGlobalVariableMap) ToSyntheticsGlobalVariableMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsGlobalVariableMapOutput)
 }
 
-type SyntheticsGlobalVariableOutput struct {
-	*pulumi.OutputState
-}
+type SyntheticsGlobalVariableOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsGlobalVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyntheticsGlobalVariable)(nil))
@@ -308,14 +306,12 @@ func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariablePtrOutput() Sy
 }
 
 func (o SyntheticsGlobalVariableOutput) ToSyntheticsGlobalVariablePtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariablePtrOutput {
-	return o.ApplyT(func(v SyntheticsGlobalVariable) *SyntheticsGlobalVariable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsGlobalVariable) *SyntheticsGlobalVariable {
 		return &v
 	}).(SyntheticsGlobalVariablePtrOutput)
 }
 
-type SyntheticsGlobalVariablePtrOutput struct {
-	*pulumi.OutputState
-}
+type SyntheticsGlobalVariablePtrOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsGlobalVariablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SyntheticsGlobalVariable)(nil))
@@ -327,6 +323,16 @@ func (o SyntheticsGlobalVariablePtrOutput) ToSyntheticsGlobalVariablePtrOutput()
 
 func (o SyntheticsGlobalVariablePtrOutput) ToSyntheticsGlobalVariablePtrOutputWithContext(ctx context.Context) SyntheticsGlobalVariablePtrOutput {
 	return o
+}
+
+func (o SyntheticsGlobalVariablePtrOutput) Elem() SyntheticsGlobalVariableOutput {
+	return o.ApplyT(func(v *SyntheticsGlobalVariable) SyntheticsGlobalVariable {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsGlobalVariable
+		return ret
+	}).(SyntheticsGlobalVariableOutput)
 }
 
 type SyntheticsGlobalVariableArrayOutput struct{ *pulumi.OutputState }
@@ -370,6 +376,10 @@ func (o SyntheticsGlobalVariableMapOutput) MapIndex(k pulumi.StringInput) Synthe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableInput)(nil)).Elem(), &SyntheticsGlobalVariable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariablePtrInput)(nil)).Elem(), &SyntheticsGlobalVariable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableArrayInput)(nil)).Elem(), SyntheticsGlobalVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsGlobalVariableMapInput)(nil)).Elem(), SyntheticsGlobalVariableMap{})
 	pulumi.RegisterOutputType(SyntheticsGlobalVariableOutput{})
 	pulumi.RegisterOutputType(SyntheticsGlobalVariablePtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsGlobalVariableArrayOutput{})

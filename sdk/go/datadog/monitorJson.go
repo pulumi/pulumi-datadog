@@ -182,7 +182,7 @@ type MonitorJsonArrayInput interface {
 type MonitorJsonArray []MonitorJsonInput
 
 func (MonitorJsonArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MonitorJson)(nil))
+	return reflect.TypeOf((*[]*MonitorJson)(nil)).Elem()
 }
 
 func (i MonitorJsonArray) ToMonitorJsonArrayOutput() MonitorJsonArrayOutput {
@@ -207,7 +207,7 @@ type MonitorJsonMapInput interface {
 type MonitorJsonMap map[string]MonitorJsonInput
 
 func (MonitorJsonMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MonitorJson)(nil))
+	return reflect.TypeOf((*map[string]*MonitorJson)(nil)).Elem()
 }
 
 func (i MonitorJsonMap) ToMonitorJsonMapOutput() MonitorJsonMapOutput {
@@ -218,9 +218,7 @@ func (i MonitorJsonMap) ToMonitorJsonMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorJsonMapOutput)
 }
 
-type MonitorJsonOutput struct {
-	*pulumi.OutputState
-}
+type MonitorJsonOutput struct{ *pulumi.OutputState }
 
 func (MonitorJsonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MonitorJson)(nil))
@@ -239,14 +237,12 @@ func (o MonitorJsonOutput) ToMonitorJsonPtrOutput() MonitorJsonPtrOutput {
 }
 
 func (o MonitorJsonOutput) ToMonitorJsonPtrOutputWithContext(ctx context.Context) MonitorJsonPtrOutput {
-	return o.ApplyT(func(v MonitorJson) *MonitorJson {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorJson) *MonitorJson {
 		return &v
 	}).(MonitorJsonPtrOutput)
 }
 
-type MonitorJsonPtrOutput struct {
-	*pulumi.OutputState
-}
+type MonitorJsonPtrOutput struct{ *pulumi.OutputState }
 
 func (MonitorJsonPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MonitorJson)(nil))
@@ -258,6 +254,16 @@ func (o MonitorJsonPtrOutput) ToMonitorJsonPtrOutput() MonitorJsonPtrOutput {
 
 func (o MonitorJsonPtrOutput) ToMonitorJsonPtrOutputWithContext(ctx context.Context) MonitorJsonPtrOutput {
 	return o
+}
+
+func (o MonitorJsonPtrOutput) Elem() MonitorJsonOutput {
+	return o.ApplyT(func(v *MonitorJson) MonitorJson {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorJson
+		return ret
+	}).(MonitorJsonOutput)
 }
 
 type MonitorJsonArrayOutput struct{ *pulumi.OutputState }
@@ -301,6 +307,10 @@ func (o MonitorJsonMapOutput) MapIndex(k pulumi.StringInput) MonitorJsonOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorJsonInput)(nil)).Elem(), &MonitorJson{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorJsonPtrInput)(nil)).Elem(), &MonitorJson{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorJsonArrayInput)(nil)).Elem(), MonitorJsonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorJsonMapInput)(nil)).Elem(), MonitorJsonMap{})
 	pulumi.RegisterOutputType(MonitorJsonOutput{})
 	pulumi.RegisterOutputType(MonitorJsonPtrOutput{})
 	pulumi.RegisterOutputType(MonitorJsonArrayOutput{})

@@ -13,6 +13,7 @@ __all__ = [
     'GetRolesResult',
     'AwaitableGetRolesResult',
     'get_roles',
+    'get_roles_output',
 ]
 
 @pulumi.output_type
@@ -96,3 +97,24 @@ def get_roles(filter: Optional[str] = None,
         filter=__ret__.filter,
         id=__ret__.id,
         roles=__ret__.roles)
+
+
+@_utilities.lift_output_func(get_roles)
+def get_roles_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
+    """
+    Use this data source to retrieve information about multiple roles for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_roles(filter="Datadog")
+    ```
+
+
+    :param str filter: Filter all roles by the given string.
+    """
+    ...

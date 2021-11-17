@@ -867,10 +867,10 @@ class SyntheticsTest(pulumi.CustomResource):
                         type="statusCode",
                     )],
                     name="An API test on example.org",
-                    request_definition={
-                        "method": "GET",
-                        "url": "https://example.org",
-                    },
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="https://example.org",
+                    ),
                     request_headers={
                         "Authentication": "Token: 1234566789",
                         "Content-Type": "application/json",
@@ -884,10 +884,10 @@ class SyntheticsTest(pulumi.CustomResource):
                         type="statusCode",
                     )],
                     name="An API test on example.org",
-                    request_definition={
-                        "method": "GET",
-                        "url": "http://example.org",
-                    },
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="http://example.org",
+                    ),
                     subtype="http",
                 ),
             ],
@@ -1152,10 +1152,10 @@ class SyntheticsTest(pulumi.CustomResource):
                         type="statusCode",
                     )],
                     name="An API test on example.org",
-                    request_definition={
-                        "method": "GET",
-                        "url": "https://example.org",
-                    },
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="https://example.org",
+                    ),
                     request_headers={
                         "Authentication": "Token: 1234566789",
                         "Content-Type": "application/json",
@@ -1169,10 +1169,10 @@ class SyntheticsTest(pulumi.CustomResource):
                         type="statusCode",
                     )],
                     name="An API test on example.org",
-                    request_definition={
-                        "method": "GET",
-                        "url": "http://example.org",
-                    },
+                    request_definition=datadog.SyntheticsTestApiStepRequestDefinitionArgs(
+                        method="GET",
+                        url="http://example.org",
+                    ),
                     subtype="http",
                 ),
             ],

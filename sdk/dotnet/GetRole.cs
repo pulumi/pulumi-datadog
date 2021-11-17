@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("datadog:index/getRole:getRole", args ?? new GetRoleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing role for use in other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Datadog.GetRole.InvokeAsync(new Datadog.GetRoleArgs
+        ///         {
+        ///             Filter = "Datadog Standard Role",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("datadog:index/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Datadog
         public string Filter { get; set; } = null!;
 
         public GetRoleArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A string on which to filter the roles.
+        /// </summary>
+        [Input("filter", required: true)]
+        public Input<string> Filter { get; set; } = null!;
+
+        public GetRoleInvokeArgs()
         {
         }
     }

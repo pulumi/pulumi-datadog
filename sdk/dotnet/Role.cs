@@ -31,11 +31,11 @@ namespace Pulumi.Datadog
     ///             {
     ///                 new Datadog.Inputs.RolePermissionArgs
     ///                 {
-    ///                     Id = bar.Apply(bar =&gt; bar.Permissions.MonitorsDowntime),
+    ///                     Id = bar.Apply(bar =&gt; bar.Permissions?.MonitorsDowntime),
     ///                 },
     ///                 new Datadog.Inputs.RolePermissionArgs
     ///                 {
-    ///                     Id = bar.Apply(bar =&gt; bar.Permissions.MonitorsWrite),
+    ///                     Id = bar.Apply(bar =&gt; bar.Permissions?.MonitorsWrite),
     ///                 },
     ///             },
     ///         });

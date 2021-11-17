@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "Datadog"
-// 		_, err := datadog.GetRoles(ctx, &datadog.GetRolesArgs{
+// 		_, err := datadog.GetRoles(ctx, &GetRolesArgs{
 // 			Filter: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -55,4 +58,57 @@ type GetRolesResult struct {
 	Id string `pulumi:"id"`
 	// List of Roles
 	Roles []GetRolesRole `pulumi:"roles"`
+}
+
+func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi.InvokeOption) GetRolesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRolesResult, error) {
+			args := v.(GetRolesArgs)
+			r, err := GetRoles(ctx, &args, opts...)
+			return *r, err
+		}).(GetRolesResultOutput)
+}
+
+// A collection of arguments for invoking getRoles.
+type GetRolesOutputArgs struct {
+	// Filter all roles by the given string.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+}
+
+func (GetRolesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRoles.
+type GetRolesResultOutput struct{ *pulumi.OutputState }
+
+func (GetRolesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolesResult)(nil)).Elem()
+}
+
+func (o GetRolesResultOutput) ToGetRolesResultOutput() GetRolesResultOutput {
+	return o
+}
+
+func (o GetRolesResultOutput) ToGetRolesResultOutputWithContext(ctx context.Context) GetRolesResultOutput {
+	return o
+}
+
+// Filter all roles by the given string.
+func (o GetRolesResultOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRolesResult) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRolesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRolesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of Roles
+func (o GetRolesResultOutput) Roles() GetRolesRoleArrayOutput {
+	return o.ApplyT(func(v GetRolesResult) []GetRolesRole { return v.Roles }).(GetRolesRoleArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRolesResultOutput{})
 }

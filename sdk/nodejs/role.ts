@@ -20,10 +20,10 @@ import * as utilities from "./utilities";
  *     name: "foo",
  *     permissions: [
  *         {
- *             id: bar.then(bar => bar.permissions.monitorsDowntime),
+ *             id: bar.then(bar => bar.permissions?.monitorsDowntime),
  *         },
  *         {
- *             id: bar.then(bar => bar.permissions.monitorsWrite),
+ *             id: bar.then(bar => bar.permissions?.monitorsWrite),
  *         },
  *     ],
  * });

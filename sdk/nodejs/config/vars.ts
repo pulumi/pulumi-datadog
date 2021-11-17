@@ -4,32 +4,75 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("datadog");
+declare var exports: any;
+const __config = new pulumi.Config("datadog");
 
 /**
  * (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
  */
-export let apiKey: string | undefined = __config.get("apiKey");
+export declare const apiKey: string | undefined;
+Object.defineProperty(exports, "apiKey", {
+    get() {
+        return __config.get("apiKey");
+    },
+    enumerable: true,
+});
+
 /**
  * The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
  * path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
  * you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
  */
-export let apiUrl: string | undefined = __config.get("apiUrl");
+export declare const apiUrl: string | undefined;
+Object.defineProperty(exports, "apiUrl", {
+    get() {
+        return __config.get("apiUrl");
+    },
+    enumerable: true,
+});
+
 /**
  * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
  */
-export let appKey: string | undefined = __config.get("appKey");
+export declare const appKey: string | undefined;
+Object.defineProperty(exports, "appKey", {
+    get() {
+        return __config.get("appKey");
+    },
+    enumerable: true,
+});
+
 /**
  * Enables request retries on HTTP status codes 429 and 5xx.
  */
-export let httpClientRetryEnabled: boolean | undefined = __config.getObject<boolean>("httpClientRetryEnabled");
+export declare const httpClientRetryEnabled: boolean | undefined;
+Object.defineProperty(exports, "httpClientRetryEnabled", {
+    get() {
+        return __config.getObject<boolean>("httpClientRetryEnabled");
+    },
+    enumerable: true,
+});
+
 /**
  * The HTTP request retry timeout period.
  */
-export let httpClientRetryTimeout: number | undefined = __config.getObject<number>("httpClientRetryTimeout");
+export declare const httpClientRetryTimeout: number | undefined;
+Object.defineProperty(exports, "httpClientRetryTimeout", {
+    get() {
+        return __config.getObject<number>("httpClientRetryTimeout");
+    },
+    enumerable: true,
+});
+
 /**
  * Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
  * and app_key won't be checked.
  */
-export let validate: boolean | undefined = __config.getObject<boolean>("validate");
+export declare const validate: boolean | undefined;
+Object.defineProperty(exports, "validate", {
+    get() {
+        return __config.getObject<boolean>("validate");
+    },
+    enumerable: true,
+});
+

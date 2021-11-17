@@ -12,6 +12,32 @@ import (
 
 // Provides a Datadog [Logs Archive API](https://docs.datadoghq.com/api/v2/logs-archives/) resource, which is used to manage Datadog log archives order.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := datadog.NewLogsArchiveOrder(ctx, "sampleArchiveOrder", &datadog.LogsArchiveOrderArgs{
+// 			ArchiveIds: pulumi.StringArray{
+// 				pulumi.Any(datadog_logs_archive.Sample_archive_1.Id),
+// 				pulumi.Any(datadog_logs_archive.Sample_archive_2.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // # There must be at most one datadog_logs_archive_order resource. You can import the datadog_logs_archive_order or create an archive order.
@@ -145,7 +171,7 @@ type LogsArchiveOrderArrayInput interface {
 type LogsArchiveOrderArray []LogsArchiveOrderInput
 
 func (LogsArchiveOrderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogsArchiveOrder)(nil))
+	return reflect.TypeOf((*[]*LogsArchiveOrder)(nil)).Elem()
 }
 
 func (i LogsArchiveOrderArray) ToLogsArchiveOrderArrayOutput() LogsArchiveOrderArrayOutput {
@@ -170,7 +196,7 @@ type LogsArchiveOrderMapInput interface {
 type LogsArchiveOrderMap map[string]LogsArchiveOrderInput
 
 func (LogsArchiveOrderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogsArchiveOrder)(nil))
+	return reflect.TypeOf((*map[string]*LogsArchiveOrder)(nil)).Elem()
 }
 
 func (i LogsArchiveOrderMap) ToLogsArchiveOrderMapOutput() LogsArchiveOrderMapOutput {
@@ -181,9 +207,7 @@ func (i LogsArchiveOrderMap) ToLogsArchiveOrderMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOrderMapOutput)
 }
 
-type LogsArchiveOrderOutput struct {
-	*pulumi.OutputState
-}
+type LogsArchiveOrderOutput struct{ *pulumi.OutputState }
 
 func (LogsArchiveOrderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogsArchiveOrder)(nil))
@@ -202,14 +226,12 @@ func (o LogsArchiveOrderOutput) ToLogsArchiveOrderPtrOutput() LogsArchiveOrderPt
 }
 
 func (o LogsArchiveOrderOutput) ToLogsArchiveOrderPtrOutputWithContext(ctx context.Context) LogsArchiveOrderPtrOutput {
-	return o.ApplyT(func(v LogsArchiveOrder) *LogsArchiveOrder {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchiveOrder) *LogsArchiveOrder {
 		return &v
 	}).(LogsArchiveOrderPtrOutput)
 }
 
-type LogsArchiveOrderPtrOutput struct {
-	*pulumi.OutputState
-}
+type LogsArchiveOrderPtrOutput struct{ *pulumi.OutputState }
 
 func (LogsArchiveOrderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogsArchiveOrder)(nil))
@@ -221,6 +243,16 @@ func (o LogsArchiveOrderPtrOutput) ToLogsArchiveOrderPtrOutput() LogsArchiveOrde
 
 func (o LogsArchiveOrderPtrOutput) ToLogsArchiveOrderPtrOutputWithContext(ctx context.Context) LogsArchiveOrderPtrOutput {
 	return o
+}
+
+func (o LogsArchiveOrderPtrOutput) Elem() LogsArchiveOrderOutput {
+	return o.ApplyT(func(v *LogsArchiveOrder) LogsArchiveOrder {
+		if v != nil {
+			return *v
+		}
+		var ret LogsArchiveOrder
+		return ret
+	}).(LogsArchiveOrderOutput)
 }
 
 type LogsArchiveOrderArrayOutput struct{ *pulumi.OutputState }
@@ -264,6 +296,10 @@ func (o LogsArchiveOrderMapOutput) MapIndex(k pulumi.StringInput) LogsArchiveOrd
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveOrderInput)(nil)).Elem(), &LogsArchiveOrder{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveOrderPtrInput)(nil)).Elem(), &LogsArchiveOrder{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveOrderArrayInput)(nil)).Elem(), LogsArchiveOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveOrderMapInput)(nil)).Elem(), LogsArchiveOrderMap{})
 	pulumi.RegisterOutputType(LogsArchiveOrderOutput{})
 	pulumi.RegisterOutputType(LogsArchiveOrderPtrOutput{})
 	pulumi.RegisterOutputType(LogsArchiveOrderArrayOutput{})

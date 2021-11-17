@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "owner:ft-foo"
-// 		_, err := datadog.GetServiceLevelObjectives(ctx, &datadog.GetServiceLevelObjectivesArgs{
+// 		_, err := datadog.GetServiceLevelObjectives(ctx, &GetServiceLevelObjectivesArgs{
 // 			TagsQuery: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -67,4 +70,78 @@ type GetServiceLevelObjectivesResult struct {
 	Slos []GetServiceLevelObjectivesSlo `pulumi:"slos"`
 	// Filter results based on a single SLO tag.
 	TagsQuery *string `pulumi:"tagsQuery"`
+}
+
+func GetServiceLevelObjectivesOutput(ctx *pulumi.Context, args GetServiceLevelObjectivesOutputArgs, opts ...pulumi.InvokeOption) GetServiceLevelObjectivesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetServiceLevelObjectivesResult, error) {
+			args := v.(GetServiceLevelObjectivesArgs)
+			r, err := GetServiceLevelObjectives(ctx, &args, opts...)
+			return *r, err
+		}).(GetServiceLevelObjectivesResultOutput)
+}
+
+// A collection of arguments for invoking getServiceLevelObjectives.
+type GetServiceLevelObjectivesOutputArgs struct {
+	// An array of SLO IDs to limit the search.
+	Ids pulumi.StringArrayInput `pulumi:"ids"`
+	// Filter results based on SLO numerator and denominator.
+	MetricsQuery pulumi.StringPtrInput `pulumi:"metricsQuery"`
+	// Filter results based on SLO names.
+	NameQuery pulumi.StringPtrInput `pulumi:"nameQuery"`
+	// Filter results based on a single SLO tag.
+	TagsQuery pulumi.StringPtrInput `pulumi:"tagsQuery"`
+}
+
+func (GetServiceLevelObjectivesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLevelObjectivesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServiceLevelObjectives.
+type GetServiceLevelObjectivesResultOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLevelObjectivesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLevelObjectivesResult)(nil)).Elem()
+}
+
+func (o GetServiceLevelObjectivesResultOutput) ToGetServiceLevelObjectivesResultOutput() GetServiceLevelObjectivesResultOutput {
+	return o
+}
+
+func (o GetServiceLevelObjectivesResultOutput) ToGetServiceLevelObjectivesResultOutputWithContext(ctx context.Context) GetServiceLevelObjectivesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetServiceLevelObjectivesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An array of SLO IDs to limit the search.
+func (o GetServiceLevelObjectivesResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+// Filter results based on SLO numerator and denominator.
+func (o GetServiceLevelObjectivesResultOutput) MetricsQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.MetricsQuery }).(pulumi.StringPtrOutput)
+}
+
+// Filter results based on SLO names.
+func (o GetServiceLevelObjectivesResultOutput) NameQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.NameQuery }).(pulumi.StringPtrOutput)
+}
+
+// List of SLOs
+func (o GetServiceLevelObjectivesResultOutput) Slos() GetServiceLevelObjectivesSloArrayOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) []GetServiceLevelObjectivesSlo { return v.Slos }).(GetServiceLevelObjectivesSloArrayOutput)
+}
+
+// Filter results based on a single SLO tag.
+func (o GetServiceLevelObjectivesResultOutput) TagsQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceLevelObjectivesResult) *string { return v.TagsQuery }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetServiceLevelObjectivesResultOutput{})
 }

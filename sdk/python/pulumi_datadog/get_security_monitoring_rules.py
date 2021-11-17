@@ -13,6 +13,7 @@ __all__ = [
     'GetSecurityMonitoringRulesResult',
     'AwaitableGetSecurityMonitoringRulesResult',
     'get_security_monitoring_rules',
+    'get_security_monitoring_rules_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,32 @@ def get_security_monitoring_rules(default_only_filter: Optional[bool] = None,
         rules=__ret__.rules,
         tags_filters=__ret__.tags_filters,
         user_only_filter=__ret__.user_only_filter)
+
+
+@_utilities.lift_output_func(get_security_monitoring_rules)
+def get_security_monitoring_rules_output(default_only_filter: Optional[pulumi.Input[Optional[bool]]] = None,
+                                         name_filter: Optional[pulumi.Input[Optional[str]]] = None,
+                                         tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                         user_only_filter: Optional[pulumi.Input[Optional[bool]]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityMonitoringRulesResult]:
+    """
+    Use this data source to retrieve information about existing security monitoring rules for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_security_monitoring_rules(default_only_filter=True,
+        name_filter="attack",
+        tags_filters=["foo:bar"])
+    ```
+
+
+    :param bool default_only_filter: Limit the search to default rules
+    :param str name_filter: A rule name to limit the search
+    :param Sequence[str] tags_filters: A list of tags to limit the search
+    :param bool user_only_filter: Limit the search to user rules
+    """
+    ...

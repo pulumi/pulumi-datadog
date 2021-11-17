@@ -8,47 +8,54 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'api_key',
-    'api_url',
-    'app_key',
-    'http_client_retry_enabled',
-    'http_client_retry_timeout',
-    'validate',
-]
+import types
 
 __config__ = pulumi.Config('datadog')
 
-api_key = __config__.get('apiKey')
-"""
-(Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
-"""
 
-api_url = __config__.get('apiUrl')
-"""
-The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
-path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
-you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def api_key(self) -> Optional[str]:
+        """
+        (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        """
+        return __config__.get('apiKey')
 
-app_key = __config__.get('appKey')
-"""
-(Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
-"""
+    @property
+    def api_url(self) -> Optional[str]:
+        """
+        The API URL. This can also be set via the DD_HOST environment variable. Note that this URL must not end with the /api/
+        path. For example, https://api.datadoghq.com/ is a correct value, while https://api.datadoghq.com/api/ is not. And if
+        you're working with "EU" version of Datadog, use https://api.datadoghq.eu/.
+        """
+        return __config__.get('apiUrl')
 
-http_client_retry_enabled = __config__.get('httpClientRetryEnabled')
-"""
-Enables request retries on HTTP status codes 429 and 5xx.
-"""
+    @property
+    def app_key(self) -> Optional[str]:
+        """
+        (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        """
+        return __config__.get('appKey')
 
-http_client_retry_timeout = __config__.get('httpClientRetryTimeout')
-"""
-The HTTP request retry timeout period.
-"""
+    @property
+    def http_client_retry_enabled(self) -> Optional[bool]:
+        """
+        Enables request retries on HTTP status codes 429 and 5xx.
+        """
+        return __config__.get_bool('httpClientRetryEnabled')
 
-validate = __config__.get('validate')
-"""
-Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
-and app_key won't be checked.
-"""
+    @property
+    def http_client_retry_timeout(self) -> Optional[int]:
+        """
+        The HTTP request retry timeout period.
+        """
+        return __config__.get_int('httpClientRetryTimeout')
+
+    @property
+    def validate(self) -> Optional[bool]:
+        """
+        Enables validation of the provided API and APP keys during provider initialization. Default is true. When false, api_key
+        and app_key won't be checked.
+        """
+        return __config__.get_bool('validate')
 

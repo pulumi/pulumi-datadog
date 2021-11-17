@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +26,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
 // 		opt1 := "attack"
-// 		_, err := datadog.GetSecurityMonitoringRules(ctx, &datadog.GetSecurityMonitoringRulesArgs{
+// 		_, err := datadog.GetSecurityMonitoringRules(ctx, &GetSecurityMonitoringRulesArgs{
 // 			DefaultOnlyFilter: &opt0,
 // 			NameFilter:        &opt1,
 // 			TagsFilters: []string{
@@ -74,4 +77,83 @@ type GetSecurityMonitoringRulesResult struct {
 	TagsFilters []string `pulumi:"tagsFilters"`
 	// Limit the search to user rules
 	UserOnlyFilter *bool `pulumi:"userOnlyFilter"`
+}
+
+func GetSecurityMonitoringRulesOutput(ctx *pulumi.Context, args GetSecurityMonitoringRulesOutputArgs, opts ...pulumi.InvokeOption) GetSecurityMonitoringRulesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSecurityMonitoringRulesResult, error) {
+			args := v.(GetSecurityMonitoringRulesArgs)
+			r, err := GetSecurityMonitoringRules(ctx, &args, opts...)
+			return *r, err
+		}).(GetSecurityMonitoringRulesResultOutput)
+}
+
+// A collection of arguments for invoking getSecurityMonitoringRules.
+type GetSecurityMonitoringRulesOutputArgs struct {
+	// Limit the search to default rules
+	DefaultOnlyFilter pulumi.BoolPtrInput `pulumi:"defaultOnlyFilter"`
+	// A rule name to limit the search
+	NameFilter pulumi.StringPtrInput `pulumi:"nameFilter"`
+	// A list of tags to limit the search
+	TagsFilters pulumi.StringArrayInput `pulumi:"tagsFilters"`
+	// Limit the search to user rules
+	UserOnlyFilter pulumi.BoolPtrInput `pulumi:"userOnlyFilter"`
+}
+
+func (GetSecurityMonitoringRulesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecurityMonitoringRules.
+type GetSecurityMonitoringRulesResultOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityMonitoringRulesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityMonitoringRulesResult)(nil)).Elem()
+}
+
+func (o GetSecurityMonitoringRulesResultOutput) ToGetSecurityMonitoringRulesResultOutput() GetSecurityMonitoringRulesResultOutput {
+	return o
+}
+
+func (o GetSecurityMonitoringRulesResultOutput) ToGetSecurityMonitoringRulesResultOutputWithContext(ctx context.Context) GetSecurityMonitoringRulesResultOutput {
+	return o
+}
+
+// Limit the search to default rules
+func (o GetSecurityMonitoringRulesResultOutput) DefaultOnlyFilter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) *bool { return v.DefaultOnlyFilter }).(pulumi.BoolPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSecurityMonitoringRulesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A rule name to limit the search
+func (o GetSecurityMonitoringRulesResultOutput) NameFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) *string { return v.NameFilter }).(pulumi.StringPtrOutput)
+}
+
+// List of IDs of the matched rules.
+func (o GetSecurityMonitoringRulesResultOutput) RuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) []string { return v.RuleIds }).(pulumi.StringArrayOutput)
+}
+
+// List of rules.
+func (o GetSecurityMonitoringRulesResultOutput) Rules() GetSecurityMonitoringRulesRuleArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) []GetSecurityMonitoringRulesRule { return v.Rules }).(GetSecurityMonitoringRulesRuleArrayOutput)
+}
+
+// A list of tags to limit the search
+func (o GetSecurityMonitoringRulesResultOutput) TagsFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) []string { return v.TagsFilters }).(pulumi.StringArrayOutput)
+}
+
+// Limit the search to user rules
+func (o GetSecurityMonitoringRulesResultOutput) UserOnlyFilter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSecurityMonitoringRulesResult) *bool { return v.UserOnlyFilter }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSecurityMonitoringRulesResultOutput{})
 }

@@ -26,12 +26,12 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewSecurityMonitoringFilter(ctx, "myFilter", &datadog.SecurityMonitoringFilterArgs{
-// 			ExclusionFilters: datadog.SecurityMonitoringFilterExclusionFilterArray{
-// 				&datadog.SecurityMonitoringFilterExclusionFilterArgs{
+// 			ExclusionFilters: SecurityMonitoringFilterExclusionFilterArray{
+// 				&SecurityMonitoringFilterExclusionFilterArgs{
 // 					Name:  pulumi.String("first"),
 // 					Query: pulumi.String("exclude some logs"),
 // 				},
-// 				&datadog.SecurityMonitoringFilterExclusionFilterArgs{
+// 				&SecurityMonitoringFilterExclusionFilterArgs{
 // 					Name:  pulumi.String("second"),
 // 					Query: pulumi.String("exclude some other logs"),
 // 				},
@@ -236,7 +236,7 @@ type SecurityMonitoringFilterArrayInput interface {
 type SecurityMonitoringFilterArray []SecurityMonitoringFilterInput
 
 func (SecurityMonitoringFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurityMonitoringFilter)(nil))
+	return reflect.TypeOf((*[]*SecurityMonitoringFilter)(nil)).Elem()
 }
 
 func (i SecurityMonitoringFilterArray) ToSecurityMonitoringFilterArrayOutput() SecurityMonitoringFilterArrayOutput {
@@ -261,7 +261,7 @@ type SecurityMonitoringFilterMapInput interface {
 type SecurityMonitoringFilterMap map[string]SecurityMonitoringFilterInput
 
 func (SecurityMonitoringFilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurityMonitoringFilter)(nil))
+	return reflect.TypeOf((*map[string]*SecurityMonitoringFilter)(nil)).Elem()
 }
 
 func (i SecurityMonitoringFilterMap) ToSecurityMonitoringFilterMapOutput() SecurityMonitoringFilterMapOutput {
@@ -272,9 +272,7 @@ func (i SecurityMonitoringFilterMap) ToSecurityMonitoringFilterMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringFilterMapOutput)
 }
 
-type SecurityMonitoringFilterOutput struct {
-	*pulumi.OutputState
-}
+type SecurityMonitoringFilterOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityMonitoringFilter)(nil))
@@ -293,14 +291,12 @@ func (o SecurityMonitoringFilterOutput) ToSecurityMonitoringFilterPtrOutput() Se
 }
 
 func (o SecurityMonitoringFilterOutput) ToSecurityMonitoringFilterPtrOutputWithContext(ctx context.Context) SecurityMonitoringFilterPtrOutput {
-	return o.ApplyT(func(v SecurityMonitoringFilter) *SecurityMonitoringFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringFilter) *SecurityMonitoringFilter {
 		return &v
 	}).(SecurityMonitoringFilterPtrOutput)
 }
 
-type SecurityMonitoringFilterPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurityMonitoringFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurityMonitoringFilter)(nil))
@@ -312,6 +308,16 @@ func (o SecurityMonitoringFilterPtrOutput) ToSecurityMonitoringFilterPtrOutput()
 
 func (o SecurityMonitoringFilterPtrOutput) ToSecurityMonitoringFilterPtrOutputWithContext(ctx context.Context) SecurityMonitoringFilterPtrOutput {
 	return o
+}
+
+func (o SecurityMonitoringFilterPtrOutput) Elem() SecurityMonitoringFilterOutput {
+	return o.ApplyT(func(v *SecurityMonitoringFilter) SecurityMonitoringFilter {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringFilter
+		return ret
+	}).(SecurityMonitoringFilterOutput)
 }
 
 type SecurityMonitoringFilterArrayOutput struct{ *pulumi.OutputState }
@@ -355,6 +361,10 @@ func (o SecurityMonitoringFilterMapOutput) MapIndex(k pulumi.StringInput) Securi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterInput)(nil)).Elem(), &SecurityMonitoringFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterPtrInput)(nil)).Elem(), &SecurityMonitoringFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterArrayInput)(nil)).Elem(), SecurityMonitoringFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringFilterMapInput)(nil)).Elem(), SecurityMonitoringFilterMap{})
 	pulumi.RegisterOutputType(SecurityMonitoringFilterOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringFilterPtrOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringFilterArrayOutput{})

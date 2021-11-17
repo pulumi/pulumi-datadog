@@ -12,6 +12,7 @@ __all__ = [
     'GetDashboardResult',
     'AwaitableGetDashboardResult',
     'get_dashboard',
+    'get_dashboard_output',
 ]
 
 @pulumi.output_type
@@ -108,3 +109,24 @@ def get_dashboard(name: Optional[str] = None,
         name=__ret__.name,
         title=__ret__.title,
         url=__ret__.url)
+
+
+@_utilities.lift_output_func(get_dashboard)
+def get_dashboard_output(name: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
+    """
+    Use this data source to retrieve information about an existing dashboard, for use in other resources. In particular, it can be used in a monitor message to link to a specific dashboard.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_dashboard(name="My super dashboard")
+    ```
+
+
+    :param str name: The dashboard name to search for. Must only match one dashboard.
+    """
+    ...

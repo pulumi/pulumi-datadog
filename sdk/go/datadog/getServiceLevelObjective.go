@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +26,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "My test SLO"
 // 		opt1 := "foo:bar"
-// 		_, err := datadog.LookupServiceLevelObjective(ctx, &datadog.LookupServiceLevelObjectiveArgs{
+// 		_, err := datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
 // 			NameQuery: &opt0,
 // 			TagsQuery: &opt1,
 // 		}, nil)
@@ -31,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		opt2 := data.Terraform_remote_state.Api.Outputs.Slo
-// 		_, err = datadog.LookupServiceLevelObjective(ctx, &datadog.LookupServiceLevelObjectiveArgs{
+// 		_, err = datadog.LookupServiceLevelObjective(ctx, &GetServiceLevelObjectiveArgs{
 // 			Id: &opt2,
 // 		}, nil)
 // 		if err != nil {
@@ -76,4 +79,78 @@ type LookupServiceLevelObjectiveResult struct {
 	TagsQuery *string `pulumi:"tagsQuery"`
 	// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
 	Type string `pulumi:"type"`
+}
+
+func LookupServiceLevelObjectiveOutput(ctx *pulumi.Context, args LookupServiceLevelObjectiveOutputArgs, opts ...pulumi.InvokeOption) LookupServiceLevelObjectiveResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceLevelObjectiveResult, error) {
+			args := v.(LookupServiceLevelObjectiveArgs)
+			r, err := LookupServiceLevelObjective(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceLevelObjectiveResultOutput)
+}
+
+// A collection of arguments for invoking getServiceLevelObjective.
+type LookupServiceLevelObjectiveOutputArgs struct {
+	// A SLO ID to limit the search.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Filter results based on SLO numerator and denominator.
+	MetricsQuery pulumi.StringPtrInput `pulumi:"metricsQuery"`
+	// Filter results based on SLO names.
+	NameQuery pulumi.StringPtrInput `pulumi:"nameQuery"`
+	// Filter results based on a single SLO tag.
+	TagsQuery pulumi.StringPtrInput `pulumi:"tagsQuery"`
+}
+
+func (LookupServiceLevelObjectiveOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceLevelObjectiveArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServiceLevelObjective.
+type LookupServiceLevelObjectiveResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceLevelObjectiveResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceLevelObjectiveResult)(nil)).Elem()
+}
+
+func (o LookupServiceLevelObjectiveResultOutput) ToLookupServiceLevelObjectiveResultOutput() LookupServiceLevelObjectiveResultOutput {
+	return o
+}
+
+func (o LookupServiceLevelObjectiveResultOutput) ToLookupServiceLevelObjectiveResultOutputWithContext(ctx context.Context) LookupServiceLevelObjectiveResultOutput {
+	return o
+}
+
+// A SLO ID to limit the search.
+func (o LookupServiceLevelObjectiveResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Filter results based on SLO numerator and denominator.
+func (o LookupServiceLevelObjectiveResultOutput) MetricsQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.MetricsQuery }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Datadog service level objective
+func (o LookupServiceLevelObjectiveResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Filter results based on SLO names.
+func (o LookupServiceLevelObjectiveResultOutput) NameQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.NameQuery }).(pulumi.StringPtrOutput)
+}
+
+// Filter results based on a single SLO tag.
+func (o LookupServiceLevelObjectiveResultOutput) TagsQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.TagsQuery }).(pulumi.StringPtrOutput)
+}
+
+// The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Available values are: `metric` and `monitor`.
+func (o LookupServiceLevelObjectiveResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceLevelObjectiveResultOutput{})
 }

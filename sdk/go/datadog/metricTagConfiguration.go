@@ -217,7 +217,7 @@ type MetricTagConfigurationArrayInput interface {
 type MetricTagConfigurationArray []MetricTagConfigurationInput
 
 func (MetricTagConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MetricTagConfiguration)(nil))
+	return reflect.TypeOf((*[]*MetricTagConfiguration)(nil)).Elem()
 }
 
 func (i MetricTagConfigurationArray) ToMetricTagConfigurationArrayOutput() MetricTagConfigurationArrayOutput {
@@ -242,7 +242,7 @@ type MetricTagConfigurationMapInput interface {
 type MetricTagConfigurationMap map[string]MetricTagConfigurationInput
 
 func (MetricTagConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MetricTagConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*MetricTagConfiguration)(nil)).Elem()
 }
 
 func (i MetricTagConfigurationMap) ToMetricTagConfigurationMapOutput() MetricTagConfigurationMapOutput {
@@ -253,9 +253,7 @@ func (i MetricTagConfigurationMap) ToMetricTagConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MetricTagConfigurationMapOutput)
 }
 
-type MetricTagConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type MetricTagConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MetricTagConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricTagConfiguration)(nil))
@@ -274,14 +272,12 @@ func (o MetricTagConfigurationOutput) ToMetricTagConfigurationPtrOutput() Metric
 }
 
 func (o MetricTagConfigurationOutput) ToMetricTagConfigurationPtrOutputWithContext(ctx context.Context) MetricTagConfigurationPtrOutput {
-	return o.ApplyT(func(v MetricTagConfiguration) *MetricTagConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricTagConfiguration) *MetricTagConfiguration {
 		return &v
 	}).(MetricTagConfigurationPtrOutput)
 }
 
-type MetricTagConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type MetricTagConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricTagConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MetricTagConfiguration)(nil))
@@ -293,6 +289,16 @@ func (o MetricTagConfigurationPtrOutput) ToMetricTagConfigurationPtrOutput() Met
 
 func (o MetricTagConfigurationPtrOutput) ToMetricTagConfigurationPtrOutputWithContext(ctx context.Context) MetricTagConfigurationPtrOutput {
 	return o
+}
+
+func (o MetricTagConfigurationPtrOutput) Elem() MetricTagConfigurationOutput {
+	return o.ApplyT(func(v *MetricTagConfiguration) MetricTagConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MetricTagConfiguration
+		return ret
+	}).(MetricTagConfigurationOutput)
 }
 
 type MetricTagConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -336,6 +342,10 @@ func (o MetricTagConfigurationMapOutput) MapIndex(k pulumi.StringInput) MetricTa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationInput)(nil)).Elem(), &MetricTagConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationPtrInput)(nil)).Elem(), &MetricTagConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationArrayInput)(nil)).Elem(), MetricTagConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationMapInput)(nil)).Elem(), MetricTagConfigurationMap{})
 	pulumi.RegisterOutputType(MetricTagConfigurationOutput{})
 	pulumi.RegisterOutputType(MetricTagConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MetricTagConfigurationArrayOutput{})

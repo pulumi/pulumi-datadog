@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetSyntheticsGlobalVariableResult> InvokeAsync(GetSyntheticsGlobalVariableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSyntheticsGlobalVariableResult>("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args ?? new GetSyntheticsGlobalVariableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
+        /// </summary>
+        public static Output<GetSyntheticsGlobalVariableResult> Invoke(GetSyntheticsGlobalVariableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSyntheticsGlobalVariableResult>("datadog:index/getSyntheticsGlobalVariable:getSyntheticsGlobalVariable", args ?? new GetSyntheticsGlobalVariableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.Datadog
         public string Name { get; set; } = null!;
 
         public GetSyntheticsGlobalVariableArgs()
+        {
+        }
+    }
+
+    public sealed class GetSyntheticsGlobalVariableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The synthetics global variable name to search for. Must only match one global variable.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetSyntheticsGlobalVariableInvokeArgs()
         {
         }
     }

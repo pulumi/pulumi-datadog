@@ -188,7 +188,7 @@ type OrganizationSettingsArrayInput interface {
 type OrganizationSettingsArray []OrganizationSettingsInput
 
 func (OrganizationSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationSettings)(nil))
+	return reflect.TypeOf((*[]*OrganizationSettings)(nil)).Elem()
 }
 
 func (i OrganizationSettingsArray) ToOrganizationSettingsArrayOutput() OrganizationSettingsArrayOutput {
@@ -213,7 +213,7 @@ type OrganizationSettingsMapInput interface {
 type OrganizationSettingsMap map[string]OrganizationSettingsInput
 
 func (OrganizationSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationSettings)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationSettings)(nil)).Elem()
 }
 
 func (i OrganizationSettingsMap) ToOrganizationSettingsMapOutput() OrganizationSettingsMapOutput {
@@ -224,9 +224,7 @@ func (i OrganizationSettingsMap) ToOrganizationSettingsMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsMapOutput)
 }
 
-type OrganizationSettingsOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationSettingsOutput struct{ *pulumi.OutputState }
 
 func (OrganizationSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationSettings)(nil))
@@ -245,14 +243,12 @@ func (o OrganizationSettingsOutput) ToOrganizationSettingsPtrOutput() Organizati
 }
 
 func (o OrganizationSettingsOutput) ToOrganizationSettingsPtrOutputWithContext(ctx context.Context) OrganizationSettingsPtrOutput {
-	return o.ApplyT(func(v OrganizationSettings) *OrganizationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationSettings) *OrganizationSettings {
 		return &v
 	}).(OrganizationSettingsPtrOutput)
 }
 
-type OrganizationSettingsPtrOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrganizationSettings)(nil))
@@ -264,6 +260,16 @@ func (o OrganizationSettingsPtrOutput) ToOrganizationSettingsPtrOutput() Organiz
 
 func (o OrganizationSettingsPtrOutput) ToOrganizationSettingsPtrOutputWithContext(ctx context.Context) OrganizationSettingsPtrOutput {
 	return o
+}
+
+func (o OrganizationSettingsPtrOutput) Elem() OrganizationSettingsOutput {
+	return o.ApplyT(func(v *OrganizationSettings) OrganizationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationSettings
+		return ret
+	}).(OrganizationSettingsOutput)
 }
 
 type OrganizationSettingsArrayOutput struct{ *pulumi.OutputState }
@@ -307,6 +313,10 @@ func (o OrganizationSettingsMapOutput) MapIndex(k pulumi.StringInput) Organizati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsInput)(nil)).Elem(), &OrganizationSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsPtrInput)(nil)).Elem(), &OrganizationSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsArrayInput)(nil)).Elem(), OrganizationSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsMapInput)(nil)).Elem(), OrganizationSettingsMap{})
 	pulumi.RegisterOutputType(OrganizationSettingsOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsArrayOutput{})

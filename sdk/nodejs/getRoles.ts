@@ -60,3 +60,17 @@ export interface GetRolesResult {
      */
     readonly roles: outputs.GetRolesRole[];
 }
+
+export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
+    return pulumi.output(args).apply(a => getRoles(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRoles.
+ */
+export interface GetRolesOutputArgs {
+    /**
+     * Filter all roles by the given string.
+     */
+    filter?: pulumi.Input<string>;
+}
