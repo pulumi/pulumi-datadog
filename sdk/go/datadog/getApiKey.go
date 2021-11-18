@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "foo-application"
-// 		_, err := datadog.LookupApiKey(ctx, &datadog.LookupApiKeyArgs{
+// 		_, err := datadog.LookupApiKey(ctx, &GetApiKeyArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -57,4 +60,59 @@ type LookupApiKeyResult struct {
 	Key string `pulumi:"key"`
 	// Name for API Key.
 	Name *string `pulumi:"name"`
+}
+
+func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApiKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApiKeyResult, error) {
+			args := v.(LookupApiKeyArgs)
+			r, err := LookupApiKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApiKeyResultOutput)
+}
+
+// A collection of arguments for invoking getApiKey.
+type LookupApiKeyOutputArgs struct {
+	// Id for API Key.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name for API Key.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupApiKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiKeyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getApiKey.
+type LookupApiKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApiKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApiKeyResult)(nil)).Elem()
+}
+
+func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutput() LookupApiKeyResultOutput {
+	return o
+}
+
+func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx context.Context) LookupApiKeyResultOutput {
+	return o
+}
+
+// Id for API Key.
+func (o LookupApiKeyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The value of the API Key.
+func (o LookupApiKeyResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiKeyResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Name for API Key.
+func (o LookupApiKeyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApiKeyResultOutput{})
 }

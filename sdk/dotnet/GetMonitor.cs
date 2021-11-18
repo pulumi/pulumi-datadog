@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("datadog:index/getMonitor:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing monitor for use in other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Datadog.GetMonitor.InvokeAsync(new Datadog.GetMonitorArgs
+        ///         {
+        ///             MonitorTagsFilters = 
+        ///             {
+        ///                 "foo:bar",
+        ///             },
+        ///             NameFilter = "My awesome monitor",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("datadog:index/getMonitor:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -79,6 +113,43 @@ namespace Pulumi.Datadog
         }
 
         public GetMonitorArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("monitorTagsFilters")]
+        private InputList<string>? _monitorTagsFilters;
+
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
+        public InputList<string> MonitorTagsFilters
+        {
+            get => _monitorTagsFilters ?? (_monitorTagsFilters = new InputList<string>());
+            set => _monitorTagsFilters = value;
+        }
+
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
+        [Input("nameFilter")]
+        public Input<string>? NameFilter { get; set; }
+
+        [Input("tagsFilters")]
+        private InputList<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
+        public InputList<string> TagsFilters
+        {
+            get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
+            set => _tagsFilters = value;
+        }
+
+        public GetMonitorInvokeArgs()
         {
         }
     }

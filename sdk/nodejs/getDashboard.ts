@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -62,4 +61,18 @@ export interface GetDashboardResult {
      * The URL to a specific dashboard.
      */
     readonly url: string;
+}
+
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+    return pulumi.output(args).apply(a => getDashboard(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDashboard.
+ */
+export interface GetDashboardOutputArgs {
+    /**
+     * The dashboard name to search for. Must only match one dashboard.
+     */
+    name: pulumi.Input<string>;
 }

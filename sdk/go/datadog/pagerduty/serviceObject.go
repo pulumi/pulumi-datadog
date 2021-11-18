@@ -185,7 +185,7 @@ type ServiceObjectArrayInput interface {
 type ServiceObjectArray []ServiceObjectInput
 
 func (ServiceObjectArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceObject)(nil))
+	return reflect.TypeOf((*[]*ServiceObject)(nil)).Elem()
 }
 
 func (i ServiceObjectArray) ToServiceObjectArrayOutput() ServiceObjectArrayOutput {
@@ -210,7 +210,7 @@ type ServiceObjectMapInput interface {
 type ServiceObjectMap map[string]ServiceObjectInput
 
 func (ServiceObjectMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceObject)(nil))
+	return reflect.TypeOf((*map[string]*ServiceObject)(nil)).Elem()
 }
 
 func (i ServiceObjectMap) ToServiceObjectMapOutput() ServiceObjectMapOutput {
@@ -221,9 +221,7 @@ func (i ServiceObjectMap) ToServiceObjectMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceObjectMapOutput)
 }
 
-type ServiceObjectOutput struct {
-	*pulumi.OutputState
-}
+type ServiceObjectOutput struct{ *pulumi.OutputState }
 
 func (ServiceObjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceObject)(nil))
@@ -242,14 +240,12 @@ func (o ServiceObjectOutput) ToServiceObjectPtrOutput() ServiceObjectPtrOutput {
 }
 
 func (o ServiceObjectOutput) ToServiceObjectPtrOutputWithContext(ctx context.Context) ServiceObjectPtrOutput {
-	return o.ApplyT(func(v ServiceObject) *ServiceObject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceObject) *ServiceObject {
 		return &v
 	}).(ServiceObjectPtrOutput)
 }
 
-type ServiceObjectPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceObjectPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceObjectPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceObject)(nil))
@@ -261,6 +257,16 @@ func (o ServiceObjectPtrOutput) ToServiceObjectPtrOutput() ServiceObjectPtrOutpu
 
 func (o ServiceObjectPtrOutput) ToServiceObjectPtrOutputWithContext(ctx context.Context) ServiceObjectPtrOutput {
 	return o
+}
+
+func (o ServiceObjectPtrOutput) Elem() ServiceObjectOutput {
+	return o.ApplyT(func(v *ServiceObject) ServiceObject {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceObject
+		return ret
+	}).(ServiceObjectOutput)
 }
 
 type ServiceObjectArrayOutput struct{ *pulumi.OutputState }
@@ -304,6 +310,10 @@ func (o ServiceObjectMapOutput) MapIndex(k pulumi.StringInput) ServiceObjectOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObjectInput)(nil)).Elem(), &ServiceObject{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObjectPtrInput)(nil)).Elem(), &ServiceObject{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObjectArrayInput)(nil)).Elem(), ServiceObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObjectMapInput)(nil)).Elem(), ServiceObjectMap{})
 	pulumi.RegisterOutputType(ServiceObjectOutput{})
 	pulumi.RegisterOutputType(ServiceObjectPtrOutput{})
 	pulumi.RegisterOutputType(ServiceObjectArrayOutput{})

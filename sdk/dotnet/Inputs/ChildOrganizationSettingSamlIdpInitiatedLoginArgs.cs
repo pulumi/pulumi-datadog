@@ -9,4 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.Inputs
 {
+
+    public sealed class ChildOrganizationSettingSamlIdpInitiatedLoginArgs : Pulumi.ResourceArgs
+    {
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ChildOrganizationSettingSamlIdpInitiatedLoginArgs()
+        {
+        }
+    }
 }

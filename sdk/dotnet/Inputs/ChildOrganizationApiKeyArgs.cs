@@ -9,4 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.Inputs
 {
+
+    public sealed class ChildOrganizationApiKeyArgs : Pulumi.ResourceArgs
+    {
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// Name for Child Organization after creation.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public ChildOrganizationApiKeyArgs()
+        {
+        }
+    }
 }

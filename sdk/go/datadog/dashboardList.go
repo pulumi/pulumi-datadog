@@ -30,9 +30,9 @@ import (
 // 			Description: pulumi.String("Created using the Datadog provider"),
 // 			LayoutType:  pulumi.String("ordered"),
 // 			IsReadOnly:  pulumi.Bool(true),
-// 			Widgets: datadog.DashboardWidgetArray{
-// 				&datadog.DashboardWidgetArgs{
-// 					AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
+// 			Widgets: DashboardWidgetArray{
+// 				&DashboardWidgetArgs{
+// 					AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
 // 						AlertId:  pulumi.String("1234"),
 // 						VizType:  pulumi.String("timeseries"),
 // 						Title:    pulumi.String("Widget Title"),
@@ -49,9 +49,9 @@ import (
 // 			Description: pulumi.String("Created using the Datadog provider"),
 // 			LayoutType:  pulumi.String("free"),
 // 			IsReadOnly:  pulumi.Bool(false),
-// 			Widgets: datadog.DashboardWidgetArray{
-// 				&datadog.DashboardWidgetArgs{
-// 					EventStreamDefinition: &datadog.DashboardWidgetEventStreamDefinitionArgs{
+// 			Widgets: DashboardWidgetArray{
+// 				&DashboardWidgetArgs{
+// 					EventStreamDefinition: &DashboardWidgetEventStreamDefinitionArgs{
 // 						Query:      pulumi.String("*"),
 // 						EventSize:  pulumi.String("l"),
 // 						Title:      pulumi.String("Widget Title"),
@@ -59,7 +59,7 @@ import (
 // 						TitleAlign: pulumi.String("left"),
 // 						LiveSpan:   pulumi.String("1h"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(43),
 // 						Width:  pulumi.Int(32),
 // 						X:      pulumi.Int(5),
@@ -73,12 +73,12 @@ import (
 // 		}
 // 		_, err = datadog.NewDashboardList(ctx, "newList", &datadog.DashboardListArgs{
 // 			Name: pulumi.String("Automated Created List"),
-// 			DashItems: datadog.DashboardListDashItemArray{
-// 				&datadog.DashboardListDashItemArgs{
+// 			DashItems: DashboardListDashItemArray{
+// 				&DashboardListDashItemArgs{
 // 					Type:   pulumi.String("custom_timeboard"),
 // 					DashId: time.ID(),
 // 				},
-// 				&datadog.DashboardListDashItemArgs{
+// 				&DashboardListDashItemArgs{
 // 					Type:   pulumi.String("custom_screenboard"),
 // 					DashId: screen.ID(),
 // 				},
@@ -239,7 +239,7 @@ type DashboardListArrayInput interface {
 type DashboardListArray []DashboardListInput
 
 func (DashboardListArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DashboardList)(nil))
+	return reflect.TypeOf((*[]*DashboardList)(nil)).Elem()
 }
 
 func (i DashboardListArray) ToDashboardListArrayOutput() DashboardListArrayOutput {
@@ -264,7 +264,7 @@ type DashboardListMapInput interface {
 type DashboardListMap map[string]DashboardListInput
 
 func (DashboardListMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DashboardList)(nil))
+	return reflect.TypeOf((*map[string]*DashboardList)(nil)).Elem()
 }
 
 func (i DashboardListMap) ToDashboardListMapOutput() DashboardListMapOutput {
@@ -275,9 +275,7 @@ func (i DashboardListMap) ToDashboardListMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardListMapOutput)
 }
 
-type DashboardListOutput struct {
-	*pulumi.OutputState
-}
+type DashboardListOutput struct{ *pulumi.OutputState }
 
 func (DashboardListOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DashboardList)(nil))
@@ -296,14 +294,12 @@ func (o DashboardListOutput) ToDashboardListPtrOutput() DashboardListPtrOutput {
 }
 
 func (o DashboardListOutput) ToDashboardListPtrOutputWithContext(ctx context.Context) DashboardListPtrOutput {
-	return o.ApplyT(func(v DashboardList) *DashboardList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardList) *DashboardList {
 		return &v
 	}).(DashboardListPtrOutput)
 }
 
-type DashboardListPtrOutput struct {
-	*pulumi.OutputState
-}
+type DashboardListPtrOutput struct{ *pulumi.OutputState }
 
 func (DashboardListPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DashboardList)(nil))
@@ -315,6 +311,16 @@ func (o DashboardListPtrOutput) ToDashboardListPtrOutput() DashboardListPtrOutpu
 
 func (o DashboardListPtrOutput) ToDashboardListPtrOutputWithContext(ctx context.Context) DashboardListPtrOutput {
 	return o
+}
+
+func (o DashboardListPtrOutput) Elem() DashboardListOutput {
+	return o.ApplyT(func(v *DashboardList) DashboardList {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardList
+		return ret
+	}).(DashboardListOutput)
 }
 
 type DashboardListArrayOutput struct{ *pulumi.OutputState }
@@ -358,6 +364,10 @@ func (o DashboardListMapOutput) MapIndex(k pulumi.StringInput) DashboardListOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardListInput)(nil)).Elem(), &DashboardList{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardListPtrInput)(nil)).Elem(), &DashboardList{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardListArrayInput)(nil)).Elem(), DashboardListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardListMapInput)(nil)).Elem(), DashboardListMap{})
 	pulumi.RegisterOutputType(DashboardListOutput{})
 	pulumi.RegisterOutputType(DashboardListPtrOutput{})
 	pulumi.RegisterOutputType(DashboardListArrayOutput{})

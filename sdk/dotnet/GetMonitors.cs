@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetMonitorsResult> InvokeAsync(GetMonitorsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to list several existing monitors for use in other resources.
+        /// </summary>
+        public static Output<GetMonitorsResult> Invoke(GetMonitorsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorsResult>("datadog:index/getMonitors:getMonitors", args ?? new GetMonitorsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.Datadog
         }
 
         public GetMonitorsArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitorsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("monitorTagsFilters")]
+        private InputList<string>? _monitorTagsFilters;
+
+        /// <summary>
+        /// A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+        /// </summary>
+        public InputList<string> MonitorTagsFilters
+        {
+            get => _monitorTagsFilters ?? (_monitorTagsFilters = new InputList<string>());
+            set => _monitorTagsFilters = value;
+        }
+
+        /// <summary>
+        /// A monitor name to limit the search.
+        /// </summary>
+        [Input("nameFilter")]
+        public Input<string>? NameFilter { get; set; }
+
+        [Input("tagsFilters")]
+        private InputList<string>? _tagsFilters;
+
+        /// <summary>
+        /// A list of tags to limit the search. This filters on the monitor scope.
+        /// </summary>
+        public InputList<string> TagsFilters
+        {
+            get => _tagsFilters ?? (_tagsFilters = new InputList<string>());
+            set => _tagsFilters = value;
+        }
+
+        public GetMonitorsInvokeArgs()
         {
         }
     }

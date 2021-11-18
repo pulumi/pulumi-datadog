@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceLevelObjectiveResult',
     'AwaitableGetServiceLevelObjectiveResult',
     'get_service_level_objective',
+    'get_service_level_objective_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,32 @@ def get_service_level_objective(id: Optional[str] = None,
         name_query=__ret__.name_query,
         tags_query=__ret__.tags_query,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_service_level_objective)
+def get_service_level_objective_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                                       metrics_query: Optional[pulumi.Input[Optional[str]]] = None,
+                                       name_query: Optional[pulumi.Input[Optional[str]]] = None,
+                                       tags_query: Optional[pulumi.Input[Optional[str]]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLevelObjectiveResult]:
+    """
+    Use this data source to retrieve information about an existing SLO for use in other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    test = datadog.get_service_level_objective(name_query="My test SLO",
+        tags_query="foo:bar")
+    api_slo = datadog.get_service_level_objective(id=data["terraform_remote_state"]["api"]["outputs"]["slo"])
+    ```
+
+
+    :param str id: A SLO ID to limit the search.
+    :param str metrics_query: Filter results based on SLO numerator and denominator.
+    :param str name_query: Filter results based on SLO names.
+    :param str tags_query: Filter results based on a single SLO tag.
+    """
+    ...

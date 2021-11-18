@@ -4,10 +4,58 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := datadog.LookupDashboardList(ctx, &GetDashboardListArgs{
+// 			Name: "My super list",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datadog.NewDashboard(ctx, "time", &datadog.DashboardArgs{
+// 			DashboardLists: pulumi.IntArray{
+// 				pulumi.String(test.Id),
+// 			},
+// 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
+// 			IsReadOnly:  pulumi.Bool(true),
+// 			LayoutType:  pulumi.String("ordered"),
+// 			Title:       pulumi.String("TF Test Layout Dashboard"),
+// 			Widgets: DashboardWidgetArray{
+// 				&DashboardWidgetArgs{
+// 					AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
+// 						AlertId:  pulumi.String("1234"),
+// 						LiveSpan: pulumi.String("1h"),
+// 						Title:    pulumi.String("Widget Title"),
+// 						VizType:  pulumi.String("timeseries"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDashboardList(ctx *pulumi.Context, args *LookupDashboardListArgs, opts ...pulumi.InvokeOption) (*LookupDashboardListResult, error) {
 	var rv LookupDashboardListResult
 	err := ctx.Invoke("datadog:index/getDashboardList:getDashboardList", args, &rv, opts...)
@@ -29,4 +77,52 @@ type LookupDashboardListResult struct {
 	Id string `pulumi:"id"`
 	// A dashboard list name to limit the search.
 	Name string `pulumi:"name"`
+}
+
+func LookupDashboardListOutput(ctx *pulumi.Context, args LookupDashboardListOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardListResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDashboardListResult, error) {
+			args := v.(LookupDashboardListArgs)
+			r, err := LookupDashboardList(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDashboardListResultOutput)
+}
+
+// A collection of arguments for invoking getDashboardList.
+type LookupDashboardListOutputArgs struct {
+	// A dashboard list name to limit the search.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupDashboardListOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDashboardListArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDashboardList.
+type LookupDashboardListResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDashboardListResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDashboardListResult)(nil)).Elem()
+}
+
+func (o LookupDashboardListResultOutput) ToLookupDashboardListResultOutput() LookupDashboardListResultOutput {
+	return o
+}
+
+func (o LookupDashboardListResultOutput) ToLookupDashboardListResultOutputWithContext(ctx context.Context) LookupDashboardListResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDashboardListResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardListResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A dashboard list name to limit the search.
+func (o LookupDashboardListResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDashboardListResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDashboardListResultOutput{})
 }

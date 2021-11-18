@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datadog.LookupRole(ctx, &datadog.LookupRoleArgs{
+// 		_, err := datadog.LookupRole(ctx, &GetRoleArgs{
 // 			Filter: "Datadog Standard Role",
 // 		}, nil)
 // 		if err != nil {
@@ -56,4 +59,62 @@ type LookupRoleResult struct {
 	Name string `pulumi:"name"`
 	// Number of users assigned to this role.
 	UserCount int `pulumi:"userCount"`
+}
+
+func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pulumi.InvokeOption) LookupRoleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRoleResult, error) {
+			args := v.(LookupRoleArgs)
+			r, err := LookupRole(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRoleResultOutput)
+}
+
+// A collection of arguments for invoking getRole.
+type LookupRoleOutputArgs struct {
+	// A string on which to filter the roles.
+	Filter pulumi.StringInput `pulumi:"filter"`
+}
+
+func (LookupRoleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRole.
+type LookupRoleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRoleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRoleResult)(nil)).Elem()
+}
+
+func (o LookupRoleResultOutput) ToLookupRoleResultOutput() LookupRoleResultOutput {
+	return o
+}
+
+func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.Context) LookupRoleResultOutput {
+	return o
+}
+
+// A string on which to filter the roles.
+func (o LookupRoleResultOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleResult) string { return v.Filter }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRoleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the role.
+func (o LookupRoleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of users assigned to this role.
+func (o LookupRoleResultOutput) UserCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupRoleResult) int { return v.UserCount }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRoleResultOutput{})
 }

@@ -188,7 +188,7 @@ type IntegrationLogCollectionArrayInput interface {
 type IntegrationLogCollectionArray []IntegrationLogCollectionInput
 
 func (IntegrationLogCollectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IntegrationLogCollection)(nil))
+	return reflect.TypeOf((*[]*IntegrationLogCollection)(nil)).Elem()
 }
 
 func (i IntegrationLogCollectionArray) ToIntegrationLogCollectionArrayOutput() IntegrationLogCollectionArrayOutput {
@@ -213,7 +213,7 @@ type IntegrationLogCollectionMapInput interface {
 type IntegrationLogCollectionMap map[string]IntegrationLogCollectionInput
 
 func (IntegrationLogCollectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IntegrationLogCollection)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationLogCollection)(nil)).Elem()
 }
 
 func (i IntegrationLogCollectionMap) ToIntegrationLogCollectionMapOutput() IntegrationLogCollectionMapOutput {
@@ -224,9 +224,7 @@ func (i IntegrationLogCollectionMap) ToIntegrationLogCollectionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLogCollectionMapOutput)
 }
 
-type IntegrationLogCollectionOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationLogCollectionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationLogCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationLogCollection)(nil))
@@ -245,14 +243,12 @@ func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionPtrOutput() In
 }
 
 func (o IntegrationLogCollectionOutput) ToIntegrationLogCollectionPtrOutputWithContext(ctx context.Context) IntegrationLogCollectionPtrOutput {
-	return o.ApplyT(func(v IntegrationLogCollection) *IntegrationLogCollection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationLogCollection) *IntegrationLogCollection {
 		return &v
 	}).(IntegrationLogCollectionPtrOutput)
 }
 
-type IntegrationLogCollectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationLogCollectionPtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationLogCollectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationLogCollection)(nil))
@@ -264,6 +260,16 @@ func (o IntegrationLogCollectionPtrOutput) ToIntegrationLogCollectionPtrOutput()
 
 func (o IntegrationLogCollectionPtrOutput) ToIntegrationLogCollectionPtrOutputWithContext(ctx context.Context) IntegrationLogCollectionPtrOutput {
 	return o
+}
+
+func (o IntegrationLogCollectionPtrOutput) Elem() IntegrationLogCollectionOutput {
+	return o.ApplyT(func(v *IntegrationLogCollection) IntegrationLogCollection {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationLogCollection
+		return ret
+	}).(IntegrationLogCollectionOutput)
 }
 
 type IntegrationLogCollectionArrayOutput struct{ *pulumi.OutputState }
@@ -307,6 +313,10 @@ func (o IntegrationLogCollectionMapOutput) MapIndex(k pulumi.StringInput) Integr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLogCollectionInput)(nil)).Elem(), &IntegrationLogCollection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLogCollectionPtrInput)(nil)).Elem(), &IntegrationLogCollection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLogCollectionArrayInput)(nil)).Elem(), IntegrationLogCollectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLogCollectionMapInput)(nil)).Elem(), IntegrationLogCollectionMap{})
 	pulumi.RegisterOutputType(IntegrationLogCollectionOutput{})
 	pulumi.RegisterOutputType(IntegrationLogCollectionPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationLogCollectionArrayOutput{})

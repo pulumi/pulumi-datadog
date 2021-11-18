@@ -9,4 +9,61 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.Inputs
 {
+
+    public sealed class ChildOrganizationSettingArgs : Pulumi.ResourceArgs
+    {
+        [Input("privateWidgetShare")]
+        public Input<bool>? PrivateWidgetShare { get; set; }
+
+        [Input("samlAutocreateAccessRole")]
+        public Input<string>? SamlAutocreateAccessRole { get; set; }
+
+        [Input("samlAutocreateUsersDomains")]
+        private InputList<Inputs.ChildOrganizationSettingSamlAutocreateUsersDomainArgs>? _samlAutocreateUsersDomains;
+        public InputList<Inputs.ChildOrganizationSettingSamlAutocreateUsersDomainArgs> SamlAutocreateUsersDomains
+        {
+            get => _samlAutocreateUsersDomains ?? (_samlAutocreateUsersDomains = new InputList<Inputs.ChildOrganizationSettingSamlAutocreateUsersDomainArgs>());
+            set => _samlAutocreateUsersDomains = value;
+        }
+
+        [Input("samlCanBeEnabled")]
+        public Input<bool>? SamlCanBeEnabled { get; set; }
+
+        [Input("samlIdpEndpoint")]
+        public Input<string>? SamlIdpEndpoint { get; set; }
+
+        [Input("samlIdpInitiatedLogins")]
+        private InputList<Inputs.ChildOrganizationSettingSamlIdpInitiatedLoginArgs>? _samlIdpInitiatedLogins;
+        public InputList<Inputs.ChildOrganizationSettingSamlIdpInitiatedLoginArgs> SamlIdpInitiatedLogins
+        {
+            get => _samlIdpInitiatedLogins ?? (_samlIdpInitiatedLogins = new InputList<Inputs.ChildOrganizationSettingSamlIdpInitiatedLoginArgs>());
+            set => _samlIdpInitiatedLogins = value;
+        }
+
+        [Input("samlIdpMetadataUploaded")]
+        public Input<bool>? SamlIdpMetadataUploaded { get; set; }
+
+        [Input("samlLoginUrl")]
+        public Input<string>? SamlLoginUrl { get; set; }
+
+        [Input("samlStrictModes")]
+        private InputList<Inputs.ChildOrganizationSettingSamlStrictModeArgs>? _samlStrictModes;
+        public InputList<Inputs.ChildOrganizationSettingSamlStrictModeArgs> SamlStrictModes
+        {
+            get => _samlStrictModes ?? (_samlStrictModes = new InputList<Inputs.ChildOrganizationSettingSamlStrictModeArgs>());
+            set => _samlStrictModes = value;
+        }
+
+        [Input("samls")]
+        private InputList<Inputs.ChildOrganizationSettingSamlArgs>? _samls;
+        public InputList<Inputs.ChildOrganizationSettingSamlArgs> Samls
+        {
+            get => _samls ?? (_samls = new InputList<Inputs.ChildOrganizationSettingSamlArgs>());
+            set => _samls = value;
+        }
+
+        public ChildOrganizationSettingArgs()
+        {
+        }
+    }
 }

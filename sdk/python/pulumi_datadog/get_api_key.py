@@ -12,6 +12,7 @@ __all__ = [
     'GetApiKeyResult',
     'AwaitableGetApiKeyResult',
     'get_api_key',
+    'get_api_key_output',
 ]
 
 @pulumi.output_type
@@ -98,3 +99,26 @@ def get_api_key(id: Optional[str] = None,
         id=__ret__.id,
         key=__ret__.key,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_api_key)
+def get_api_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                       name: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
+    """
+    Use this data source to retrieve information about an existing api key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_api_key(name="foo-application")
+    ```
+
+
+    :param str id: Id for API Key.
+    :param str name: Name for API Key.
+    """
+    ...

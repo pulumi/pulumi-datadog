@@ -203,7 +203,7 @@ type SyntheticsPrivateLocationArrayInput interface {
 type SyntheticsPrivateLocationArray []SyntheticsPrivateLocationInput
 
 func (SyntheticsPrivateLocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SyntheticsPrivateLocation)(nil))
+	return reflect.TypeOf((*[]*SyntheticsPrivateLocation)(nil)).Elem()
 }
 
 func (i SyntheticsPrivateLocationArray) ToSyntheticsPrivateLocationArrayOutput() SyntheticsPrivateLocationArrayOutput {
@@ -228,7 +228,7 @@ type SyntheticsPrivateLocationMapInput interface {
 type SyntheticsPrivateLocationMap map[string]SyntheticsPrivateLocationInput
 
 func (SyntheticsPrivateLocationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SyntheticsPrivateLocation)(nil))
+	return reflect.TypeOf((*map[string]*SyntheticsPrivateLocation)(nil)).Elem()
 }
 
 func (i SyntheticsPrivateLocationMap) ToSyntheticsPrivateLocationMapOutput() SyntheticsPrivateLocationMapOutput {
@@ -239,9 +239,7 @@ func (i SyntheticsPrivateLocationMap) ToSyntheticsPrivateLocationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsPrivateLocationMapOutput)
 }
 
-type SyntheticsPrivateLocationOutput struct {
-	*pulumi.OutputState
-}
+type SyntheticsPrivateLocationOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsPrivateLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyntheticsPrivateLocation)(nil))
@@ -260,14 +258,12 @@ func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationPtrOutput() 
 }
 
 func (o SyntheticsPrivateLocationOutput) ToSyntheticsPrivateLocationPtrOutputWithContext(ctx context.Context) SyntheticsPrivateLocationPtrOutput {
-	return o.ApplyT(func(v SyntheticsPrivateLocation) *SyntheticsPrivateLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsPrivateLocation) *SyntheticsPrivateLocation {
 		return &v
 	}).(SyntheticsPrivateLocationPtrOutput)
 }
 
-type SyntheticsPrivateLocationPtrOutput struct {
-	*pulumi.OutputState
-}
+type SyntheticsPrivateLocationPtrOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsPrivateLocationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SyntheticsPrivateLocation)(nil))
@@ -279,6 +275,16 @@ func (o SyntheticsPrivateLocationPtrOutput) ToSyntheticsPrivateLocationPtrOutput
 
 func (o SyntheticsPrivateLocationPtrOutput) ToSyntheticsPrivateLocationPtrOutputWithContext(ctx context.Context) SyntheticsPrivateLocationPtrOutput {
 	return o
+}
+
+func (o SyntheticsPrivateLocationPtrOutput) Elem() SyntheticsPrivateLocationOutput {
+	return o.ApplyT(func(v *SyntheticsPrivateLocation) SyntheticsPrivateLocation {
+		if v != nil {
+			return *v
+		}
+		var ret SyntheticsPrivateLocation
+		return ret
+	}).(SyntheticsPrivateLocationOutput)
 }
 
 type SyntheticsPrivateLocationArrayOutput struct{ *pulumi.OutputState }
@@ -322,6 +328,10 @@ func (o SyntheticsPrivateLocationMapOutput) MapIndex(k pulumi.StringInput) Synth
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsPrivateLocationInput)(nil)).Elem(), &SyntheticsPrivateLocation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsPrivateLocationPtrInput)(nil)).Elem(), &SyntheticsPrivateLocation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsPrivateLocationArrayInput)(nil)).Elem(), SyntheticsPrivateLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsPrivateLocationMapInput)(nil)).Elem(), SyntheticsPrivateLocationMap{})
 	pulumi.RegisterOutputType(SyntheticsPrivateLocationOutput{})
 	pulumi.RegisterOutputType(SyntheticsPrivateLocationPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsPrivateLocationArrayOutput{})

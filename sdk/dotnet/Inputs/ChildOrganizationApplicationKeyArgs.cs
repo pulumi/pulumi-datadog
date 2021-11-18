@@ -9,4 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.Inputs
 {
+
+    public sealed class ChildOrganizationApplicationKeyArgs : Pulumi.ResourceArgs
+    {
+        [Input("hash")]
+        public Input<string>? Hash { get; set; }
+
+        /// <summary>
+        /// Name for Child Organization after creation.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
+
+        public ChildOrganizationApplicationKeyArgs()
+        {
+        }
+    }
 }

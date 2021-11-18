@@ -473,14 +473,14 @@ class Dashboard(pulumi.CustomResource):
             template_variable_presets=[datadog.DashboardTemplateVariablePresetArgs(
                 name="preset_1",
                 template_variables=[
-                    {
-                        "name": "var_1",
-                        "value": "host.dc",
-                    },
-                    {
-                        "name": "var_2",
-                        "value": "my_service",
-                    },
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_1",
+                        value="host.dc",
+                    ),
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_2",
+                        value="my_service",
+                    ),
                 ],
             )],
             title="Ordered Layout Dashboard",
@@ -888,14 +888,14 @@ class Dashboard(pulumi.CustomResource):
             template_variable_presets=[datadog.DashboardTemplateVariablePresetArgs(
                 name="preset_1",
                 template_variables=[
-                    {
-                        "name": "var_1",
-                        "value": "host.dc",
-                    },
-                    {
-                        "name": "var_2",
-                        "value": "my_service",
-                    },
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_1",
+                        value="host.dc",
+                    ),
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_2",
+                        value="my_service",
+                    ),
                 ],
             )],
             title="Free Layout Dashboard",
@@ -1195,14 +1195,14 @@ class Dashboard(pulumi.CustomResource):
             template_variable_presets=[datadog.DashboardTemplateVariablePresetArgs(
                 name="preset_1",
                 template_variables=[
-                    {
-                        "name": "var_1",
-                        "value": "host.dc",
-                    },
-                    {
-                        "name": "var_2",
-                        "value": "my_service",
-                    },
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_1",
+                        value="host.dc",
+                    ),
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_2",
+                        value="my_service",
+                    ),
                 ],
             )],
             title="Ordered Layout Dashboard",
@@ -1610,14 +1610,14 @@ class Dashboard(pulumi.CustomResource):
             template_variable_presets=[datadog.DashboardTemplateVariablePresetArgs(
                 name="preset_1",
                 template_variables=[
-                    {
-                        "name": "var_1",
-                        "value": "host.dc",
-                    },
-                    {
-                        "name": "var_2",
-                        "value": "my_service",
-                    },
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_1",
+                        value="host.dc",
+                    ),
+                    datadog.DashboardTemplateVariablePresetTemplateVariableArgs(
+                        name="var_2",
+                        value="my_service",
+                    ),
                 ],
             )],
             title="Free Layout Dashboard",

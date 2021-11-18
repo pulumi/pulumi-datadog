@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetRolesResult> InvokeAsync(GetRolesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about multiple roles for use in other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Datadog.GetRoles.InvokeAsync(new Datadog.GetRolesArgs
+        ///         {
+        ///             Filter = "Datadog",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRolesResult> Invoke(GetRolesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRolesResult>("datadog:index/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Datadog
         public string? Filter { get; set; }
 
         public GetRolesArgs()
+        {
+        }
+    }
+
+    public sealed class GetRolesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Filter all roles by the given string.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        public GetRolesInvokeArgs()
         {
         }
     }

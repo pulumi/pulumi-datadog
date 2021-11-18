@@ -31,27 +31,27 @@ import (
 // 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
 // 			IsReadOnly:  pulumi.Bool(true),
 // 			LayoutType:  pulumi.String("ordered"),
-// 			TemplateVariables: datadog.DashboardTemplateVariableArray{
-// 				&datadog.DashboardTemplateVariableArgs{
+// 			TemplateVariables: DashboardTemplateVariableArray{
+// 				&DashboardTemplateVariableArgs{
 // 					Default: pulumi.String("aws"),
 // 					Name:    pulumi.String("var_1"),
 // 					Prefix:  pulumi.String("host"),
 // 				},
-// 				&datadog.DashboardTemplateVariableArgs{
+// 				&DashboardTemplateVariableArgs{
 // 					Default: pulumi.String("autoscaling"),
 // 					Name:    pulumi.String("var_2"),
 // 					Prefix:  pulumi.String("service_name"),
 // 				},
 // 			},
-// 			TemplateVariablePresets: datadog.DashboardTemplateVariablePresetArray{
-// 				&datadog.DashboardTemplateVariablePresetArgs{
+// 			TemplateVariablePresets: DashboardTemplateVariablePresetArray{
+// 				&DashboardTemplateVariablePresetArgs{
 // 					Name: pulumi.String("preset_1"),
-// 					TemplateVariables: datadog.DashboardTemplateVariablePresetTemplateVariableArray{
-// 						&datadog.DashboardTemplateVariablePresetTemplateVariableArgs{
+// 					TemplateVariables: DashboardTemplateVariablePresetTemplateVariableArray{
+// 						&DashboardTemplateVariablePresetTemplateVariableArgs{
 // 							Name:  pulumi.String("var_1"),
 // 							Value: pulumi.String("host.dc"),
 // 						},
-// 						&datadog.DashboardTemplateVariablePresetTemplateVariableArgs{
+// 						&DashboardTemplateVariablePresetTemplateVariableArgs{
 // 							Name:  pulumi.String("var_2"),
 // 							Value: pulumi.String("my_service"),
 // 						},
@@ -59,17 +59,17 @@ import (
 // 				},
 // 			},
 // 			Title: pulumi.String("Ordered Layout Dashboard"),
-// 			Widgets: datadog.DashboardWidgetArray{
-// 				&datadog.DashboardWidgetArgs{
-// 					AlertGraphDefinition: &datadog.DashboardWidgetAlertGraphDefinitionArgs{
+// 			Widgets: DashboardWidgetArray{
+// 				&DashboardWidgetArgs{
+// 					AlertGraphDefinition: &DashboardWidgetAlertGraphDefinitionArgs{
 // 						AlertId:  pulumi.String("895605"),
 // 						LiveSpan: pulumi.String("1h"),
 // 						Title:    pulumi.String("Widget Title"),
 // 						VizType:  pulumi.String("timeseries"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					AlertValueDefinition: &datadog.DashboardWidgetAlertValueDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					AlertValueDefinition: &DashboardWidgetAlertValueDefinitionArgs{
 // 						AlertId:   pulumi.String("895605"),
 // 						Precision: pulumi.Int(3),
 // 						TextAlign: pulumi.String("center"),
@@ -77,8 +77,8 @@ import (
 // 						Unit:      pulumi.String("b"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					AlertValueDefinition: &datadog.DashboardWidgetAlertValueDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					AlertValueDefinition: &DashboardWidgetAlertValueDefinitionArgs{
 // 						AlertId:   pulumi.String("895605"),
 // 						Precision: pulumi.Int(3),
 // 						TextAlign: pulumi.String("center"),
@@ -86,43 +86,43 @@ import (
 // 						Unit:      pulumi.String("b"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					ChangeDefinition: &datadog.DashboardWidgetChangeDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					ChangeDefinition: &DashboardWidgetChangeDefinitionArgs{
 // 						LiveSpan: pulumi.String("1h"),
-// 						Request: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"changeType":   pulumi.String("absolute"),
-// 								"compareTo":    pulumi.String("week_before"),
-// 								"increaseGood": pulumi.Bool(true),
-// 								"orderBy":      pulumi.String("name"),
-// 								"orderDir":     pulumi.String("desc"),
-// 								"q":            pulumi.String("avg:system.load.1{env:staging} by {account}"),
-// 								"showPresent":  pulumi.Bool(true),
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"changeType":   "absolute",
+// 								"compareTo":    "week_before",
+// 								"increaseGood": true,
+// 								"orderBy":      "name",
+// 								"orderDir":     "desc",
+// 								"q":            "avg:system.load.1{env:staging} by {account}",
+// 								"showPresent":  true,
 // 							},
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					DistributionDefinition: &datadog.DashboardWidgetDistributionDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					DistributionDefinition: &DashboardWidgetDistributionDefinitionArgs{
 // 						LiveSpan: pulumi.String("1h"),
-// 						Request: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"q": pulumi.String("avg:system.load.1{env:staging} by {account}"),
-// 								"style": pulumi.StringMap{
-// 									"palette": pulumi.String("warm"),
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"q": "avg:system.load.1{env:staging} by {account}",
+// 								"style": map[string]interface{}{
+// 									"palette": "warm",
 // 								},
 // 							},
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					CheckStatusDefinition: &datadog.DashboardWidgetCheckStatusDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					CheckStatusDefinition: &DashboardWidgetCheckStatusDefinitionArgs{
 // 						Check: pulumi.String("aws.ecs.agent_connected"),
-// 						GroupBy: pulumi.StringArray{
-// 							pulumi.String("account"),
-// 							pulumi.String("cluster"),
+// 						GroupBy: []string{
+// 							"account",
+// 							"cluster",
 // 						},
 // 						Grouping: pulumi.String("cluster"),
 // 						LiveSpan: pulumi.String("1h"),
@@ -133,19 +133,19 @@ import (
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					HeatmapDefinition: &datadog.DashboardWidgetHeatmapDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					HeatmapDefinition: &DashboardWidgetHeatmapDefinitionArgs{
 // 						LiveSpan: pulumi.String("1h"),
-// 						Request: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"q": pulumi.String("avg:system.load.1{env:staging} by {account}"),
-// 								"style": pulumi.StringMap{
-// 									"palette": pulumi.String("warm"),
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"q": "avg:system.load.1{env:staging} by {account}",
+// 								"style": map[string]interface{}{
+// 									"palette": "warm",
 // 								},
 // 							},
 // 						},
 // 						Title: pulumi.String("Widget Title"),
-// 						Yaxis: &datadog.DashboardWidgetHeatmapDefinitionYaxisArgs{
+// 						Yaxis: &DashboardWidgetHeatmapDefinitionYaxisArgs{
 // 							IncludeZero: pulumi.Bool(true),
 // 							Max:         pulumi.String("2"),
 // 							Min:         pulumi.String("1"),
@@ -153,32 +153,32 @@ import (
 // 						},
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					HostmapDefinition: &datadog.DashboardWidgetHostmapDefinitionArgs{
-// 						Group: pulumi.StringArray{
-// 							pulumi.String("host"),
-// 							pulumi.String("region"),
+// 				&DashboardWidgetArgs{
+// 					HostmapDefinition: &DashboardWidgetHostmapDefinitionArgs{
+// 						Group: []string{
+// 							"host",
+// 							"region",
 // 						},
 // 						NoGroupHosts:  pulumi.Bool(true),
 // 						NoMetricHosts: pulumi.Bool(true),
 // 						NodeType:      pulumi.String("container"),
-// 						Request: &datadog.DashboardWidgetHostmapDefinitionRequestArgs{
-// 							Fill: pulumi.StringMapArray{
-// 								pulumi.StringMap{
-// 									"q": pulumi.String("avg:system.load.1{*} by {host}"),
+// 						Request: &DashboardWidgetHostmapDefinitionRequestArgs{
+// 							Fill: []map[string]interface{}{
+// 								map[string]interface{}{
+// 									"q": "avg:system.load.1{*} by {host}",
 // 								},
 // 							},
-// 							Size: pulumi.StringMapArray{
-// 								pulumi.StringMap{
-// 									"q": pulumi.String("avg:memcache.uptime{*} by {host}"),
+// 							Size: []map[string]interface{}{
+// 								map[string]interface{}{
+// 									"q": "avg:memcache.uptime{*} by {host}",
 // 								},
 // 							},
 // 						},
-// 						Scope: pulumi.StringArray{
-// 							pulumi.String("region:us-east-1"),
-// 							pulumi.String("aws_account:727006795293"),
+// 						Scope: []string{
+// 							"region:us-east-1",
+// 							"aws_account:727006795293",
 // 						},
-// 						Style: &datadog.DashboardWidgetHostmapDefinitionStyleArgs{
+// 						Style: &DashboardWidgetHostmapDefinitionStyleArgs{
 // 							FillMax:     pulumi.String("20"),
 // 							FillMin:     pulumi.String("10"),
 // 							Palette:     pulumi.String("yellow_to_green"),
@@ -187,8 +187,8 @@ import (
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					NoteDefinition: &datadog.DashboardWidgetNoteDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					NoteDefinition: &DashboardWidgetNoteDefinitionArgs{
 // 						BackgroundColor: pulumi.String("pink"),
 // 						Content:         pulumi.String("note text"),
 // 						FontSize:        pulumi.String("14"),
@@ -198,89 +198,89 @@ import (
 // 						TickPos:         pulumi.String(fmt.Sprintf("%v%v", "50", "%")),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					QueryValueDefinition: &datadog.DashboardWidgetQueryValueDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					QueryValueDefinition: &DashboardWidgetQueryValueDefinitionArgs{
 // 						Autoscale:  pulumi.Bool(true),
 // 						CustomUnit: pulumi.String("xx"),
 // 						LiveSpan:   pulumi.String("1h"),
 // 						Precision:  pulumi.Int(4),
-// 						Request: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"aggregator": pulumi.String("sum"),
-// 								"conditionalFormats": pulumi.StringMapArray{
-// 									pulumi.StringMap{
-// 										"comparator": pulumi.String("<"),
-// 										"palette":    pulumi.String("white_on_green"),
-// 										"value":      pulumi.String("2"),
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"aggregator": "sum",
+// 								"conditionalFormats": []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"comparator": "<",
+// 										"palette":    "white_on_green",
+// 										"value":      "2",
 // 									},
-// 									pulumi.StringMap{
-// 										"comparator": pulumi.String(">"),
-// 										"palette":    pulumi.String("white_on_red"),
-// 										"value":      pulumi.String("2.2"),
+// 									map[string]interface{}{
+// 										"comparator": ">",
+// 										"palette":    "white_on_red",
+// 										"value":      "2.2",
 // 									},
 // 								},
-// 								"q": pulumi.String("avg:system.load.1{env:staging} by {account}"),
+// 								"q": "avg:system.load.1{env:staging} by {account}",
 // 							},
 // 						},
 // 						TextAlign: pulumi.String("right"),
 // 						Title:     pulumi.String("Widget Title"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					QueryTableDefinition: &datadog.DashboardWidgetQueryTableDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					QueryTableDefinition: &DashboardWidgetQueryTableDefinitionArgs{
 // 						LiveSpan: pulumi.String("1h"),
-// 						Request: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"aggregator": pulumi.String("sum"),
-// 								"conditionalFormats": pulumi.StringMapArray{
-// 									pulumi.StringMap{
-// 										"comparator": pulumi.String("<"),
-// 										"palette":    pulumi.String("white_on_green"),
-// 										"value":      pulumi.String("2"),
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"aggregator": "sum",
+// 								"conditionalFormats": []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"comparator": "<",
+// 										"palette":    "white_on_green",
+// 										"value":      "2",
 // 									},
-// 									pulumi.StringMap{
-// 										"comparator": pulumi.String(">"),
-// 										"palette":    pulumi.String("white_on_red"),
-// 										"value":      pulumi.String("2.2"),
+// 									map[string]interface{}{
+// 										"comparator": ">",
+// 										"palette":    "white_on_red",
+// 										"value":      "2.2",
 // 									},
 // 								},
-// 								"limit": pulumi.String("10"),
-// 								"q":     pulumi.String("avg:system.load.1{env:staging} by {account}"),
+// 								"limit": "10",
+// 								"q":     "avg:system.load.1{env:staging} by {account}",
 // 							},
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					ScatterplotDefinition: &datadog.DashboardWidgetScatterplotDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					ScatterplotDefinition: &DashboardWidgetScatterplotDefinitionArgs{
 // 						ColorByGroups: pulumi.StringArray{
 // 							pulumi.String("account"),
 // 							pulumi.String("apm-role-group"),
 // 						},
 // 						LiveSpan: pulumi.String("1h"),
-// 						Request: &datadog.DashboardWidgetScatterplotDefinitionRequestArgs{
-// 							X: pulumi.StringMapArray{
-// 								pulumi.StringMap{
-// 									"aggregator": pulumi.String("max"),
-// 									"q":          pulumi.String("avg:system.cpu.user{*} by {service, account}"),
+// 						Request: &DashboardWidgetScatterplotDefinitionRequestArgs{
+// 							X: []map[string]interface{}{
+// 								map[string]interface{}{
+// 									"aggregator": "max",
+// 									"q":          "avg:system.cpu.user{*} by {service, account}",
 // 								},
 // 							},
-// 							Y: pulumi.StringMapArray{
-// 								pulumi.StringMap{
-// 									"aggregator": pulumi.String("min"),
-// 									"q":          pulumi.String("avg:system.mem.used{*} by {service, account}"),
+// 							Y: []map[string]interface{}{
+// 								map[string]interface{}{
+// 									"aggregator": "min",
+// 									"q":          "avg:system.mem.used{*} by {service, account}",
 // 								},
 // 							},
 // 						},
 // 						Title: pulumi.String("Widget Title"),
-// 						Xaxis: &datadog.DashboardWidgetScatterplotDefinitionXaxisArgs{
+// 						Xaxis: &DashboardWidgetScatterplotDefinitionXaxisArgs{
 // 							IncludeZero: pulumi.Bool(true),
 // 							Label:       pulumi.String("x"),
 // 							Max:         pulumi.String("2000"),
 // 							Min:         pulumi.String("1"),
 // 							Scale:       pulumi.String("pow"),
 // 						},
-// 						Yaxis: &datadog.DashboardWidgetScatterplotDefinitionYaxisArgs{
+// 						Yaxis: &DashboardWidgetScatterplotDefinitionYaxisArgs{
 // 							IncludeZero: pulumi.Bool(false),
 // 							Label:       pulumi.String("y"),
 // 							Max:         pulumi.String("2222"),
@@ -289,8 +289,8 @@ import (
 // 						},
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					ServicemapDefinition: &datadog.DashboardWidgetServicemapDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					ServicemapDefinition: &DashboardWidgetServicemapDefinitionArgs{
 // 						Filters: pulumi.StringArray{
 // 							pulumi.String("env:prod"),
 // 							pulumi.String("datacenter:dc1"),
@@ -301,164 +301,164 @@ import (
 // 						TitleSize:  pulumi.String("16"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
-// 						Event: pulumi.StringMapArray{
-// 							pulumi.StringMap{
-// 								"q": pulumi.String("sources:test tags:1"),
+// 				&DashboardWidgetArgs{
+// 					TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
+// 						Event: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"q": "sources:test tags:1",
 // 							},
-// 							pulumi.StringMap{
-// 								"q": pulumi.String("sources:test tags:2"),
+// 							map[string]interface{}{
+// 								"q": "sources:test tags:2",
 // 							},
 // 						},
 // 						LegendSize: pulumi.String("2"),
 // 						LiveSpan:   pulumi.String("1h"),
-// 						Marker: pulumi.StringMapArray{
-// 							pulumi.StringMap{
-// 								"displayType": pulumi.String("error dashed"),
-// 								"label":       pulumi.String(" z=6 "),
-// 								"value":       pulumi.String("y = 4"),
+// 						Marker: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"displayType": "error dashed",
+// 								"label":       " z=6 ",
+// 								"value":       "y = 4",
 // 							},
-// 							pulumi.StringMap{
-// 								"displayType": pulumi.String("ok solid"),
-// 								"label":       pulumi.String(" x=8 "),
-// 								"value":       pulumi.String("10 < y < 999"),
+// 							map[string]interface{}{
+// 								"displayType": "ok solid",
+// 								"label":       " x=8 ",
+// 								"value":       "10 < y < 999",
 // 							},
 // 						},
-// 						Request: pulumi.Array{
-// 							pulumi.Map{
-// 								"displayType": pulumi.String("line"),
-// 								"metadata": pulumi.StringMapArray{
-// 									pulumi.StringMap{
-// 										"aliasName":  pulumi.String("Alpha"),
-// 										"expression": pulumi.String("avg:system.cpu.user{app:general} by {env}"),
+// 						Request: []interface{}{
+// 							map[string]interface{}{
+// 								"displayType": "line",
+// 								"metadata": []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"aliasName":  "Alpha",
+// 										"expression": "avg:system.cpu.user{app:general} by {env}",
 // 									},
 // 								},
-// 								"q": pulumi.String("avg:system.cpu.user{app:general} by {env}"),
-// 								"style": pulumi.StringMap{
-// 									"lineType":  pulumi.String("dashed"),
-// 									"lineWidth": pulumi.String("thin"),
-// 									"palette":   pulumi.String("warm"),
+// 								"q": "avg:system.cpu.user{app:general} by {env}",
+// 								"style": map[string]interface{}{
+// 									"lineType":  "dashed",
+// 									"lineWidth": "thin",
+// 									"palette":   "warm",
 // 								},
 // 							},
-// 							pulumi.Map{
-// 								"displayType": pulumi.String("area"),
-// 								"logQuery": pulumi.Map{
-// 									"computeQuery": pulumi.Map{
-// 										"aggregation": pulumi.String("avg"),
-// 										"facet":       pulumi.String("@duration"),
-// 										"interval":    pulumi.Float64(5000),
+// 							map[string]interface{}{
+// 								"displayType": "area",
+// 								"logQuery": map[string]interface{}{
+// 									"computeQuery": map[string]interface{}{
+// 										"aggregation": "avg",
+// 										"facet":       "@duration",
+// 										"interval":    5000,
 // 									},
-// 									"groupBy": pulumi.MapArray{
-// 										pulumi.Map{
-// 											"facet": pulumi.String("host"),
-// 											"limit": pulumi.Float64(10),
-// 											"sortQuery": pulumi.StringMap{
-// 												"aggregation": pulumi.String("avg"),
-// 												"facet":       pulumi.String("@duration"),
-// 												"order":       pulumi.String("desc"),
+// 									"groupBy": []map[string]interface{}{
+// 										map[string]interface{}{
+// 											"facet": "host",
+// 											"limit": 10,
+// 											"sortQuery": map[string]interface{}{
+// 												"aggregation": "avg",
+// 												"facet":       "@duration",
+// 												"order":       "desc",
 // 											},
 // 										},
 // 									},
-// 									"index":       pulumi.String("mcnulty"),
-// 									"searchQuery": pulumi.String("status:info"),
+// 									"index":       "mcnulty",
+// 									"searchQuery": "status:info",
 // 								},
 // 							},
-// 							pulumi.Map{
-// 								"apmQuery": pulumi.Map{
-// 									"computeQuery": pulumi.Map{
-// 										"aggregation": pulumi.String("avg"),
-// 										"facet":       pulumi.String("@duration"),
-// 										"interval":    pulumi.Float64(5000),
+// 							map[string]interface{}{
+// 								"apmQuery": map[string]interface{}{
+// 									"computeQuery": map[string]interface{}{
+// 										"aggregation": "avg",
+// 										"facet":       "@duration",
+// 										"interval":    5000,
 // 									},
-// 									"groupBy": pulumi.MapArray{
-// 										pulumi.Map{
-// 											"facet": pulumi.String("resource_name"),
-// 											"limit": pulumi.Float64(50),
-// 											"sortQuery": pulumi.StringMap{
-// 												"aggregation": pulumi.String("avg"),
-// 												"facet":       pulumi.String("@string_query.interval"),
-// 												"order":       pulumi.String("desc"),
+// 									"groupBy": []map[string]interface{}{
+// 										map[string]interface{}{
+// 											"facet": "resource_name",
+// 											"limit": 50,
+// 											"sortQuery": map[string]interface{}{
+// 												"aggregation": "avg",
+// 												"facet":       "@string_query.interval",
+// 												"order":       "desc",
 // 											},
 // 										},
 // 									},
-// 									"index":       pulumi.String("apm-search"),
-// 									"searchQuery": pulumi.String("type:web"),
+// 									"index":       "apm-search",
+// 									"searchQuery": "type:web",
 // 								},
-// 								"displayType": pulumi.String("bars"),
+// 								"displayType": "bars",
 // 							},
-// 							pulumi.Map{
-// 								"displayType": pulumi.String("area"),
-// 								"processQuery": pulumi.Map{
-// 									"filterBy": pulumi.StringArray{
-// 										pulumi.String("active"),
+// 							map[string]interface{}{
+// 								"displayType": "area",
+// 								"processQuery": map[string]interface{}{
+// 									"filterBy": []string{
+// 										"active",
 // 									},
-// 									"limit":    pulumi.Float64(50),
-// 									"metric":   pulumi.String("process.stat.cpu.total_pct"),
-// 									"searchBy": pulumi.String("error"),
+// 									"limit":    50,
+// 									"metric":   "process.stat.cpu.total_pct",
+// 									"searchBy": "error",
 // 								},
 // 							},
 // 						},
 // 						ShowLegend: pulumi.Bool(true),
 // 						Title:      pulumi.String("Widget Title"),
-// 						Yaxis: &datadog.DashboardWidgetTimeseriesDefinitionYaxisArgs{
+// 						Yaxis: &DashboardWidgetTimeseriesDefinitionYaxisArgs{
 // 							IncludeZero: pulumi.Bool(false),
 // 							Max:         pulumi.String("100"),
 // 							Scale:       pulumi.String("log"),
 // 						},
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					ToplistDefinition: &datadog.DashboardWidgetToplistDefinitionArgs{
-// 						Request: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"conditionalFormats": pulumi.StringMapArray{
-// 									pulumi.StringMap{
-// 										"comparator": pulumi.String("<"),
-// 										"palette":    pulumi.String("white_on_green"),
-// 										"value":      pulumi.String("2"),
+// 				&DashboardWidgetArgs{
+// 					ToplistDefinition: &DashboardWidgetToplistDefinitionArgs{
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"conditionalFormats": []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"comparator": "<",
+// 										"palette":    "white_on_green",
+// 										"value":      "2",
 // 									},
-// 									pulumi.StringMap{
-// 										"comparator": pulumi.String(">"),
-// 										"palette":    pulumi.String("white_on_red"),
-// 										"value":      pulumi.String("2.2"),
+// 									map[string]interface{}{
+// 										"comparator": ">",
+// 										"palette":    "white_on_red",
+// 										"value":      "2.2",
 // 									},
 // 								},
-// 								"q": pulumi.String("avg:system.cpu.user{app:general} by {env}"),
+// 								"q": "avg:system.cpu.user{app:general} by {env}",
 // 							},
 // 						},
 // 						Title: pulumi.String("Widget Title"),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					GroupDefinition: &datadog.DashboardWidgetGroupDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					GroupDefinition: &DashboardWidgetGroupDefinitionArgs{
 // 						LayoutType: pulumi.String("ordered"),
 // 						Title:      pulumi.String("Group Widget"),
-// 						Widget: pulumi.Array{
-// 							pulumi.MapMap{
-// 								"noteDefinition": pulumi.Map{
-// 									"backgroundColor": pulumi.String("pink"),
-// 									"content":         pulumi.String("cluster note widget"),
-// 									"fontSize":        pulumi.String("14"),
-// 									"showTick":        pulumi.Bool(true),
-// 									"textAlign":       pulumi.String("center"),
-// 									"tickEdge":        pulumi.String("left"),
-// 									"tickPos":         pulumi.String(fmt.Sprintf("%v%v", "50", "%")),
+// 						Widget: []interface{}{
+// 							map[string]interface{}{
+// 								"noteDefinition": map[string]interface{}{
+// 									"backgroundColor": "pink",
+// 									"content":         "cluster note widget",
+// 									"fontSize":        "14",
+// 									"showTick":        true,
+// 									"textAlign":       "center",
+// 									"tickEdge":        "left",
+// 									"tickPos":         fmt.Sprintf("%v%v", "50", "%"),
 // 								},
 // 							},
-// 							pulumi.StringMapMap{
-// 								"alertGraphDefinition": pulumi.StringMap{
-// 									"alertId":  pulumi.String("123"),
-// 									"liveSpan": pulumi.String("1h"),
-// 									"title":    pulumi.String("Alert Graph"),
-// 									"vizType":  pulumi.String("toplist"),
+// 							map[string]interface{}{
+// 								"alertGraphDefinition": map[string]interface{}{
+// 									"alertId":  "123",
+// 									"liveSpan": "1h",
+// 									"title":    "Alert Graph",
+// 									"vizType":  "toplist",
 // 								},
 // 							},
 // 						},
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					ServiceLevelObjectiveDefinition: &datadog.DashboardWidgetServiceLevelObjectiveDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					ServiceLevelObjectiveDefinition: &DashboardWidgetServiceLevelObjectiveDefinitionArgs{
 // 						ShowErrorBudget: pulumi.Bool(true),
 // 						SloId:           pulumi.String("56789"),
 // 						TimeWindows: pulumi.StringArray{
@@ -479,27 +479,27 @@ import (
 // 			Description: pulumi.String("Created using the Datadog provider in Terraform"),
 // 			IsReadOnly:  pulumi.Bool(false),
 // 			LayoutType:  pulumi.String("free"),
-// 			TemplateVariables: datadog.DashboardTemplateVariableArray{
-// 				&datadog.DashboardTemplateVariableArgs{
+// 			TemplateVariables: DashboardTemplateVariableArray{
+// 				&DashboardTemplateVariableArgs{
 // 					Default: pulumi.String("aws"),
 // 					Name:    pulumi.String("var_1"),
 // 					Prefix:  pulumi.String("host"),
 // 				},
-// 				&datadog.DashboardTemplateVariableArgs{
+// 				&DashboardTemplateVariableArgs{
 // 					Default: pulumi.String("autoscaling"),
 // 					Name:    pulumi.String("var_2"),
 // 					Prefix:  pulumi.String("service_name"),
 // 				},
 // 			},
-// 			TemplateVariablePresets: datadog.DashboardTemplateVariablePresetArray{
-// 				&datadog.DashboardTemplateVariablePresetArgs{
+// 			TemplateVariablePresets: DashboardTemplateVariablePresetArray{
+// 				&DashboardTemplateVariablePresetArgs{
 // 					Name: pulumi.String("preset_1"),
-// 					TemplateVariables: datadog.DashboardTemplateVariablePresetTemplateVariableArray{
-// 						&datadog.DashboardTemplateVariablePresetTemplateVariableArgs{
+// 					TemplateVariables: DashboardTemplateVariablePresetTemplateVariableArray{
+// 						&DashboardTemplateVariablePresetTemplateVariableArgs{
 // 							Name:  pulumi.String("var_1"),
 // 							Value: pulumi.String("host.dc"),
 // 						},
-// 						&datadog.DashboardTemplateVariablePresetTemplateVariableArgs{
+// 						&DashboardTemplateVariablePresetTemplateVariableArgs{
 // 							Name:  pulumi.String("var_2"),
 // 							Value: pulumi.String("my_service"),
 // 						},
@@ -507,9 +507,9 @@ import (
 // 				},
 // 			},
 // 			Title: pulumi.String("Free Layout Dashboard"),
-// 			Widgets: datadog.DashboardWidgetArray{
-// 				&datadog.DashboardWidgetArgs{
-// 					EventStreamDefinition: &datadog.DashboardWidgetEventStreamDefinitionArgs{
+// 			Widgets: DashboardWidgetArray{
+// 				&DashboardWidgetArgs{
+// 					EventStreamDefinition: &DashboardWidgetEventStreamDefinitionArgs{
 // 						EventSize:  pulumi.String("l"),
 // 						LiveSpan:   pulumi.String("1h"),
 // 						Query:      pulumi.String("*"),
@@ -517,68 +517,68 @@ import (
 // 						TitleAlign: pulumi.String("left"),
 // 						TitleSize:  pulumi.String("16"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(43),
 // 						Width:  pulumi.Int(32),
 // 						X:      pulumi.Int(0),
 // 						Y:      pulumi.Int(0),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					EventTimelineDefinition: &datadog.DashboardWidgetEventTimelineDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					EventTimelineDefinition: &DashboardWidgetEventTimelineDefinitionArgs{
 // 						LiveSpan:   pulumi.String("1h"),
 // 						Query:      pulumi.String("*"),
 // 						Title:      pulumi.String("Widget Title"),
 // 						TitleAlign: pulumi.String("left"),
 // 						TitleSize:  pulumi.String("16"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(9),
 // 						Width:  pulumi.Int(66),
 // 						X:      pulumi.Int(33),
 // 						Y:      pulumi.Int(60),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					FreeTextDefinition: &datadog.DashboardWidgetFreeTextDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					FreeTextDefinition: &DashboardWidgetFreeTextDefinitionArgs{
 // 						Color:     pulumi.String("#d00"),
 // 						FontSize:  pulumi.String("36"),
 // 						Text:      pulumi.String("free text content"),
 // 						TextAlign: pulumi.String("left"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(20),
 // 						Width:  pulumi.Int(34),
 // 						X:      pulumi.Int(33),
 // 						Y:      pulumi.Int(0),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					IframeDefinition: &datadog.DashboardWidgetIframeDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					IframeDefinition: &DashboardWidgetIframeDefinitionArgs{
 // 						Url: pulumi.String("http://google.com"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(46),
 // 						Width:  pulumi.Int(39),
 // 						X:      pulumi.Int(101),
 // 						Y:      pulumi.Int(0),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					ImageDefinition: &datadog.DashboardWidgetImageDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					ImageDefinition: &DashboardWidgetImageDefinitionArgs{
 // 						Margin: pulumi.String("small"),
 // 						Sizing: pulumi.String("fit"),
 // 						Url:    pulumi.String("https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(20),
 // 						Width:  pulumi.Int(30),
 // 						X:      pulumi.Int(69),
 // 						Y:      pulumi.Int(0),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					LogStreamDefinition: &datadog.DashboardWidgetLogStreamDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					LogStreamDefinition: &DashboardWidgetLogStreamDefinitionArgs{
 // 						Columns: pulumi.StringArray{
 // 							pulumi.String("core_host"),
 // 							pulumi.String("core_service"),
@@ -591,20 +591,20 @@ import (
 // 						Query:             pulumi.String("error"),
 // 						ShowDateColumn:    pulumi.Bool(true),
 // 						ShowMessageColumn: pulumi.Bool(true),
-// 						Sort: &datadog.DashboardWidgetLogStreamDefinitionSortArgs{
+// 						Sort: &DashboardWidgetLogStreamDefinitionSortArgs{
 // 							Column: pulumi.String("time"),
 // 							Order:  pulumi.String("desc"),
 // 						},
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(36),
 // 						Width:  pulumi.Int(32),
 // 						X:      pulumi.Int(0),
 // 						Y:      pulumi.Int(45),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					ManageStatusDefinition: &datadog.DashboardWidgetManageStatusDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					ManageStatusDefinition: &DashboardWidgetManageStatusDefinitionArgs{
 // 						ColorPreference:   pulumi.String("text"),
 // 						DisplayFormat:     pulumi.String("countsAndList"),
 // 						HideZeroCounts:    pulumi.Bool(true),
@@ -616,15 +616,15 @@ import (
 // 						TitleAlign:        pulumi.String("left"),
 // 						TitleSize:         pulumi.String("16"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(40),
 // 						Width:  pulumi.Int(30),
 // 						X:      pulumi.Int(101),
 // 						Y:      pulumi.Int(48),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					TraceServiceDefinition: &datadog.DashboardWidgetTraceServiceDefinitionArgs{
+// 				&DashboardWidgetArgs{
+// 					TraceServiceDefinition: &DashboardWidgetTraceServiceDefinitionArgs{
 // 						DisplayFormat:    pulumi.String("three_column"),
 // 						Env:              pulumi.String("datadog.com"),
 // 						LiveSpan:         pulumi.String("1h"),
@@ -641,123 +641,123 @@ import (
 // 						TitleAlign:       pulumi.String("center"),
 // 						TitleSize:        pulumi.String("13"),
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(38),
 // 						Width:  pulumi.Int(66),
 // 						X:      pulumi.Int(33),
 // 						Y:      pulumi.Int(21),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
-// 						Request: pulumi.ArrayMapArray{
-// 							pulumi.ArrayMap{
-// 								"formula": pulumi.Array{
-// 									pulumi.StringMap{
-// 										"alias":             pulumi.String("my ff query"),
-// 										"formulaExpression": pulumi.String("my_query_1 + my_query_2"),
+// 				&DashboardWidgetArgs{
+// 					TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"formula": []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"alias":             "my ff query",
+// 										"formulaExpression": "my_query_1 + my_query_2",
 // 									},
-// 									pulumi.Map{
-// 										"alias":             pulumi.String("my second ff query"),
-// 										"formulaExpression": pulumi.String("my_query_1 * my_query_2"),
-// 										"limit": pulumi.Map{
-// 											"count": pulumi.Float64(5),
-// 											"order": pulumi.String("desc"),
+// 									map[string]interface{}{
+// 										"alias":             "my second ff query",
+// 										"formulaExpression": "my_query_1 * my_query_2",
+// 										"limit": map[string]interface{}{
+// 											"count": 5,
+// 											"order": "desc",
 // 										},
 // 									},
 // 								},
-// 								"query": pulumi.Array{
-// 									pulumi.StringMapMap{
-// 										"metricQuery": pulumi.StringMap{
-// 											"aggregator": pulumi.String("sum"),
-// 											"dataSource": pulumi.String("metrics"),
-// 											"name":       pulumi.String("my_query_1"),
-// 											"query":      pulumi.String("avg:system.cpu.user{app:general} by {env}"),
+// 								"query": []interface{}{
+// 									map[string]interface{}{
+// 										"metricQuery": map[string]interface{}{
+// 											"aggregator": "sum",
+// 											"dataSource": "metrics",
+// 											"name":       "my_query_1",
+// 											"query":      "avg:system.cpu.user{app:general} by {env}",
 // 										},
 // 									},
-// 									pulumi.StringMapMap{
-// 										"metricQuery": pulumi.StringMap{
-// 											"aggregator": pulumi.String("sum"),
-// 											"name":       pulumi.String("my_query_2"),
-// 											"query":      pulumi.String("avg:system.cpu.user{app:general} by {env}"),
+// 									map[string]interface{}{
+// 										"metricQuery": map[string]interface{}{
+// 											"aggregator": "sum",
+// 											"name":       "my_query_2",
+// 											"query":      "avg:system.cpu.user{app:general} by {env}",
 // 										},
 // 									},
 // 								},
 // 							},
 // 						},
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(16),
 // 						Width:  pulumi.Int(25),
 // 						X:      pulumi.Int(58),
 // 						Y:      pulumi.Int(83),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
-// 						Request: pulumi.MapMapArrayMapArray{
-// 							pulumi.MapMapArrayMap{
-// 								"query": pulumi.MapMapArray{
-// 									pulumi.MapMap{
-// 										"eventQuery": pulumi.Map{
-// 											"compute": pulumi.StringMapArray{
-// 												pulumi.StringMap{
-// 													"aggregation": pulumi.String("count"),
+// 				&DashboardWidgetArgs{
+// 					TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"query": []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"eventQuery": map[string]interface{}{
+// 											"compute": []map[string]interface{}{
+// 												map[string]interface{}{
+// 													"aggregation": "count",
 // 												},
 // 											},
-// 											"dataSource": pulumi.String("logs"),
-// 											"groupBy": pulumi.MapArray{
-// 												pulumi.Map{
-// 													"facet": pulumi.String("host"),
-// 													"limit": pulumi.Float64(10),
-// 													"sort": pulumi.StringMap{
-// 														"aggregation": pulumi.String("avg"),
-// 														"metric":      pulumi.String("@lambda.max_memory_used"),
+// 											"dataSource": "logs",
+// 											"groupBy": []map[string]interface{}{
+// 												map[string]interface{}{
+// 													"facet": "host",
+// 													"limit": 10,
+// 													"sort": map[string]interface{}{
+// 														"aggregation": "avg",
+// 														"metric":      "@lambda.max_memory_used",
 // 													},
 // 												},
 // 											},
-// 											"indexes": pulumi.StringArray{
-// 												pulumi.String("days-3"),
+// 											"indexes": []string{
+// 												"days-3",
 // 											},
-// 											"name": pulumi.String("my-query"),
+// 											"name": "my-query",
 // 										},
 // 									},
 // 								},
 // 							},
 // 						},
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(16),
 // 						Width:  pulumi.Int(28),
 // 						X:      pulumi.Int(29),
 // 						Y:      pulumi.Int(83),
 // 					},
 // 				},
-// 				&datadog.DashboardWidgetArgs{
-// 					TimeseriesDefinition: &datadog.DashboardWidgetTimeseriesDefinitionArgs{
-// 						Request: pulumi.MapMapArrayMapArray{
-// 							pulumi.MapMapArrayMap{
-// 								"query": pulumi.MapMapArray{
-// 									pulumi.MapMap{
-// 										"processQuery": pulumi.Map{
-// 											"aggregator":      pulumi.String("sum"),
-// 											"dataSource":      pulumi.String("process"),
-// 											"isNormalizedCpu": pulumi.Bool(true),
-// 											"limit":           pulumi.Float64(10),
-// 											"metric":          pulumi.String("process.stat.cpu.total_pct"),
-// 											"name":            pulumi.String("my_process_query"),
-// 											"sort":            pulumi.String("asc"),
-// 											"tagFilters": pulumi.StringArray{
-// 												pulumi.String("some_filter"),
+// 				&DashboardWidgetArgs{
+// 					TimeseriesDefinition: &DashboardWidgetTimeseriesDefinitionArgs{
+// 						Request: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"query": []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"processQuery": map[string]interface{}{
+// 											"aggregator":      "sum",
+// 											"dataSource":      "process",
+// 											"isNormalizedCpu": true,
+// 											"limit":           10,
+// 											"metric":          "process.stat.cpu.total_pct",
+// 											"name":            "my_process_query",
+// 											"sort":            "asc",
+// 											"tagFilters": []string{
+// 												"some_filter",
 // 											},
-// 											"textFilter": pulumi.String("abc"),
+// 											"textFilter": "abc",
 // 										},
 // 									},
 // 								},
 // 							},
 // 						},
 // 					},
-// 					WidgetLayout: &datadog.DashboardWidgetWidgetLayoutArgs{
+// 					WidgetLayout: &DashboardWidgetWidgetLayoutArgs{
 // 						Height: pulumi.Int(16),
 // 						Width:  pulumi.Int(28),
 // 						X:      pulumi.Int(0),
@@ -1027,7 +1027,7 @@ type DashboardArrayInput interface {
 type DashboardArray []DashboardInput
 
 func (DashboardArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Dashboard)(nil))
+	return reflect.TypeOf((*[]*Dashboard)(nil)).Elem()
 }
 
 func (i DashboardArray) ToDashboardArrayOutput() DashboardArrayOutput {
@@ -1052,7 +1052,7 @@ type DashboardMapInput interface {
 type DashboardMap map[string]DashboardInput
 
 func (DashboardMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Dashboard)(nil))
+	return reflect.TypeOf((*map[string]*Dashboard)(nil)).Elem()
 }
 
 func (i DashboardMap) ToDashboardMapOutput() DashboardMapOutput {
@@ -1063,9 +1063,7 @@ func (i DashboardMap) ToDashboardMapOutputWithContext(ctx context.Context) Dashb
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardMapOutput)
 }
 
-type DashboardOutput struct {
-	*pulumi.OutputState
-}
+type DashboardOutput struct{ *pulumi.OutputState }
 
 func (DashboardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Dashboard)(nil))
@@ -1084,14 +1082,12 @@ func (o DashboardOutput) ToDashboardPtrOutput() DashboardPtrOutput {
 }
 
 func (o DashboardOutput) ToDashboardPtrOutputWithContext(ctx context.Context) DashboardPtrOutput {
-	return o.ApplyT(func(v Dashboard) *Dashboard {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dashboard) *Dashboard {
 		return &v
 	}).(DashboardPtrOutput)
 }
 
-type DashboardPtrOutput struct {
-	*pulumi.OutputState
-}
+type DashboardPtrOutput struct{ *pulumi.OutputState }
 
 func (DashboardPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Dashboard)(nil))
@@ -1103,6 +1099,16 @@ func (o DashboardPtrOutput) ToDashboardPtrOutput() DashboardPtrOutput {
 
 func (o DashboardPtrOutput) ToDashboardPtrOutputWithContext(ctx context.Context) DashboardPtrOutput {
 	return o
+}
+
+func (o DashboardPtrOutput) Elem() DashboardOutput {
+	return o.ApplyT(func(v *Dashboard) Dashboard {
+		if v != nil {
+			return *v
+		}
+		var ret Dashboard
+		return ret
+	}).(DashboardOutput)
 }
 
 type DashboardArrayOutput struct{ *pulumi.OutputState }
@@ -1146,6 +1152,10 @@ func (o DashboardMapOutput) MapIndex(k pulumi.StringInput) DashboardOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardInput)(nil)).Elem(), &Dashboard{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPtrInput)(nil)).Elem(), &Dashboard{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardArrayInput)(nil)).Elem(), DashboardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardMapInput)(nil)).Elem(), DashboardMap{})
 	pulumi.RegisterOutputType(DashboardOutput{})
 	pulumi.RegisterOutputType(DashboardPtrOutput{})
 	pulumi.RegisterOutputType(DashboardArrayOutput{})

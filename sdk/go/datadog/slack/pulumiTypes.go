@@ -115,7 +115,7 @@ func (o ChannelDisplayOutput) ToChannelDisplayPtrOutput() ChannelDisplayPtrOutpu
 }
 
 func (o ChannelDisplayOutput) ToChannelDisplayPtrOutputWithContext(ctx context.Context) ChannelDisplayPtrOutput {
-	return o.ApplyT(func(v ChannelDisplay) *ChannelDisplay {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDisplay) *ChannelDisplay {
 		return &v
 	}).(ChannelDisplayPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o ChannelDisplayPtrOutput) ToChannelDisplayPtrOutputWithContext(ctx contex
 }
 
 func (o ChannelDisplayPtrOutput) Elem() ChannelDisplayOutput {
-	return o.ApplyT(func(v *ChannelDisplay) ChannelDisplay { return *v }).(ChannelDisplayOutput)
+	return o.ApplyT(func(v *ChannelDisplay) ChannelDisplay {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelDisplay
+		return ret
+	}).(ChannelDisplayOutput)
 }
 
 // Show the main body of the alert event.
@@ -199,6 +205,8 @@ func (o ChannelDisplayPtrOutput) Tags() pulumi.BoolPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDisplayInput)(nil)).Elem(), ChannelDisplayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDisplayPtrInput)(nil)).Elem(), ChannelDisplayArgs{})
 	pulumi.RegisterOutputType(ChannelDisplayOutput{})
 	pulumi.RegisterOutputType(ChannelDisplayPtrOutput{})
 }

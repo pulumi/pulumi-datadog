@@ -32,8 +32,8 @@ import (
 // 				pulumi.Any(datadog_logs_integration_pipeline.Python.Id),
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			"datadog_logs_custom_pipeline.sample_pipeline",
-// 			"datadog_logs_integration_pipeline.python",
+// 			pulumi.Resource("datadog_logs_custom_pipeline.sample_pipeline"),
+// 			pulumi.Resource("datadog_logs_integration_pipeline.python"),
 // 		}))
 // 		if err != nil {
 // 			return err
@@ -192,7 +192,7 @@ type LogsPipelineOrderArrayInput interface {
 type LogsPipelineOrderArray []LogsPipelineOrderInput
 
 func (LogsPipelineOrderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogsPipelineOrder)(nil))
+	return reflect.TypeOf((*[]*LogsPipelineOrder)(nil)).Elem()
 }
 
 func (i LogsPipelineOrderArray) ToLogsPipelineOrderArrayOutput() LogsPipelineOrderArrayOutput {
@@ -217,7 +217,7 @@ type LogsPipelineOrderMapInput interface {
 type LogsPipelineOrderMap map[string]LogsPipelineOrderInput
 
 func (LogsPipelineOrderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogsPipelineOrder)(nil))
+	return reflect.TypeOf((*map[string]*LogsPipelineOrder)(nil)).Elem()
 }
 
 func (i LogsPipelineOrderMap) ToLogsPipelineOrderMapOutput() LogsPipelineOrderMapOutput {
@@ -228,9 +228,7 @@ func (i LogsPipelineOrderMap) ToLogsPipelineOrderMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogsPipelineOrderMapOutput)
 }
 
-type LogsPipelineOrderOutput struct {
-	*pulumi.OutputState
-}
+type LogsPipelineOrderOutput struct{ *pulumi.OutputState }
 
 func (LogsPipelineOrderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogsPipelineOrder)(nil))
@@ -249,14 +247,12 @@ func (o LogsPipelineOrderOutput) ToLogsPipelineOrderPtrOutput() LogsPipelineOrde
 }
 
 func (o LogsPipelineOrderOutput) ToLogsPipelineOrderPtrOutputWithContext(ctx context.Context) LogsPipelineOrderPtrOutput {
-	return o.ApplyT(func(v LogsPipelineOrder) *LogsPipelineOrder {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsPipelineOrder) *LogsPipelineOrder {
 		return &v
 	}).(LogsPipelineOrderPtrOutput)
 }
 
-type LogsPipelineOrderPtrOutput struct {
-	*pulumi.OutputState
-}
+type LogsPipelineOrderPtrOutput struct{ *pulumi.OutputState }
 
 func (LogsPipelineOrderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogsPipelineOrder)(nil))
@@ -268,6 +264,16 @@ func (o LogsPipelineOrderPtrOutput) ToLogsPipelineOrderPtrOutput() LogsPipelineO
 
 func (o LogsPipelineOrderPtrOutput) ToLogsPipelineOrderPtrOutputWithContext(ctx context.Context) LogsPipelineOrderPtrOutput {
 	return o
+}
+
+func (o LogsPipelineOrderPtrOutput) Elem() LogsPipelineOrderOutput {
+	return o.ApplyT(func(v *LogsPipelineOrder) LogsPipelineOrder {
+		if v != nil {
+			return *v
+		}
+		var ret LogsPipelineOrder
+		return ret
+	}).(LogsPipelineOrderOutput)
 }
 
 type LogsPipelineOrderArrayOutput struct{ *pulumi.OutputState }
@@ -311,6 +317,10 @@ func (o LogsPipelineOrderMapOutput) MapIndex(k pulumi.StringInput) LogsPipelineO
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsPipelineOrderInput)(nil)).Elem(), &LogsPipelineOrder{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsPipelineOrderPtrInput)(nil)).Elem(), &LogsPipelineOrder{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsPipelineOrderArrayInput)(nil)).Elem(), LogsPipelineOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsPipelineOrderMapInput)(nil)).Elem(), LogsPipelineOrderMap{})
 	pulumi.RegisterOutputType(LogsPipelineOrderOutput{})
 	pulumi.RegisterOutputType(LogsPipelineOrderPtrOutput{})
 	pulumi.RegisterOutputType(LogsPipelineOrderArrayOutput{})

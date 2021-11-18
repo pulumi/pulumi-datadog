@@ -198,7 +198,7 @@ type WebhookCustomVariableArrayInput interface {
 type WebhookCustomVariableArray []WebhookCustomVariableInput
 
 func (WebhookCustomVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WebhookCustomVariable)(nil))
+	return reflect.TypeOf((*[]*WebhookCustomVariable)(nil)).Elem()
 }
 
 func (i WebhookCustomVariableArray) ToWebhookCustomVariableArrayOutput() WebhookCustomVariableArrayOutput {
@@ -223,7 +223,7 @@ type WebhookCustomVariableMapInput interface {
 type WebhookCustomVariableMap map[string]WebhookCustomVariableInput
 
 func (WebhookCustomVariableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WebhookCustomVariable)(nil))
+	return reflect.TypeOf((*map[string]*WebhookCustomVariable)(nil)).Elem()
 }
 
 func (i WebhookCustomVariableMap) ToWebhookCustomVariableMapOutput() WebhookCustomVariableMapOutput {
@@ -234,9 +234,7 @@ func (i WebhookCustomVariableMap) ToWebhookCustomVariableMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookCustomVariableMapOutput)
 }
 
-type WebhookCustomVariableOutput struct {
-	*pulumi.OutputState
-}
+type WebhookCustomVariableOutput struct{ *pulumi.OutputState }
 
 func (WebhookCustomVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebhookCustomVariable)(nil))
@@ -255,14 +253,12 @@ func (o WebhookCustomVariableOutput) ToWebhookCustomVariablePtrOutput() WebhookC
 }
 
 func (o WebhookCustomVariableOutput) ToWebhookCustomVariablePtrOutputWithContext(ctx context.Context) WebhookCustomVariablePtrOutput {
-	return o.ApplyT(func(v WebhookCustomVariable) *WebhookCustomVariable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookCustomVariable) *WebhookCustomVariable {
 		return &v
 	}).(WebhookCustomVariablePtrOutput)
 }
 
-type WebhookCustomVariablePtrOutput struct {
-	*pulumi.OutputState
-}
+type WebhookCustomVariablePtrOutput struct{ *pulumi.OutputState }
 
 func (WebhookCustomVariablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WebhookCustomVariable)(nil))
@@ -274,6 +270,16 @@ func (o WebhookCustomVariablePtrOutput) ToWebhookCustomVariablePtrOutput() Webho
 
 func (o WebhookCustomVariablePtrOutput) ToWebhookCustomVariablePtrOutputWithContext(ctx context.Context) WebhookCustomVariablePtrOutput {
 	return o
+}
+
+func (o WebhookCustomVariablePtrOutput) Elem() WebhookCustomVariableOutput {
+	return o.ApplyT(func(v *WebhookCustomVariable) WebhookCustomVariable {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookCustomVariable
+		return ret
+	}).(WebhookCustomVariableOutput)
 }
 
 type WebhookCustomVariableArrayOutput struct{ *pulumi.OutputState }
@@ -317,6 +323,10 @@ func (o WebhookCustomVariableMapOutput) MapIndex(k pulumi.StringInput) WebhookCu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookCustomVariableInput)(nil)).Elem(), &WebhookCustomVariable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookCustomVariablePtrInput)(nil)).Elem(), &WebhookCustomVariable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookCustomVariableArrayInput)(nil)).Elem(), WebhookCustomVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookCustomVariableMapInput)(nil)).Elem(), WebhookCustomVariableMap{})
 	pulumi.RegisterOutputType(WebhookCustomVariableOutput{})
 	pulumi.RegisterOutputType(WebhookCustomVariablePtrOutput{})
 	pulumi.RegisterOutputType(WebhookCustomVariableArrayOutput{})

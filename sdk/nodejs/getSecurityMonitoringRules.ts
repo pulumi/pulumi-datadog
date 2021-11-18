@@ -93,3 +93,29 @@ export interface GetSecurityMonitoringRulesResult {
      */
     readonly userOnlyFilter?: boolean;
 }
+
+export function getSecurityMonitoringRulesOutput(args?: GetSecurityMonitoringRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityMonitoringRulesResult> {
+    return pulumi.output(args).apply(a => getSecurityMonitoringRules(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSecurityMonitoringRules.
+ */
+export interface GetSecurityMonitoringRulesOutputArgs {
+    /**
+     * Limit the search to default rules
+     */
+    defaultOnlyFilter?: pulumi.Input<boolean>;
+    /**
+     * A rule name to limit the search
+     */
+    nameFilter?: pulumi.Input<string>;
+    /**
+     * A list of tags to limit the search
+     */
+    tagsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Limit the search to user rules
+     */
+    userOnlyFilter?: pulumi.Input<boolean>;
+}

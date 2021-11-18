@@ -28,15 +28,15 @@ import (
 // 		_, err := datadog.NewServiceLevelObjective(ctx, "exampleSlo", &datadog.ServiceLevelObjectiveArgs{
 // 			Description: pulumi.String("some updated description about example_slo SLO"),
 // 			Name:        pulumi.String("example slo"),
-// 			Query: &datadog.ServiceLevelObjectiveQueryArgs{
+// 			Query: &ServiceLevelObjectiveQueryArgs{
 // 				Denominator: pulumi.String("sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()"),
 // 				Numerator:   pulumi.String("sum:my.metric{type:good}.as_count()"),
 // 			},
 // 			Tags: pulumi.StringArray{
 // 				pulumi.String("foo:bar"),
 // 			},
-// 			Thresholds: datadog.ServiceLevelObjectiveThresholdArray{
-// 				&datadog.ServiceLevelObjectiveThresholdArgs{
+// 			Thresholds: ServiceLevelObjectiveThresholdArray{
+// 				&ServiceLevelObjectiveThresholdArgs{
 // 					Target:    pulumi.Float64(99.5),
 // 					Timeframe: pulumi.String("7d"),
 // 					Warning:   pulumi.Float64(99.8),
@@ -256,7 +256,7 @@ type SloCorrectionArrayInput interface {
 type SloCorrectionArray []SloCorrectionInput
 
 func (SloCorrectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SloCorrection)(nil))
+	return reflect.TypeOf((*[]*SloCorrection)(nil)).Elem()
 }
 
 func (i SloCorrectionArray) ToSloCorrectionArrayOutput() SloCorrectionArrayOutput {
@@ -281,7 +281,7 @@ type SloCorrectionMapInput interface {
 type SloCorrectionMap map[string]SloCorrectionInput
 
 func (SloCorrectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SloCorrection)(nil))
+	return reflect.TypeOf((*map[string]*SloCorrection)(nil)).Elem()
 }
 
 func (i SloCorrectionMap) ToSloCorrectionMapOutput() SloCorrectionMapOutput {
@@ -292,9 +292,7 @@ func (i SloCorrectionMap) ToSloCorrectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SloCorrectionMapOutput)
 }
 
-type SloCorrectionOutput struct {
-	*pulumi.OutputState
-}
+type SloCorrectionOutput struct{ *pulumi.OutputState }
 
 func (SloCorrectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SloCorrection)(nil))
@@ -313,14 +311,12 @@ func (o SloCorrectionOutput) ToSloCorrectionPtrOutput() SloCorrectionPtrOutput {
 }
 
 func (o SloCorrectionOutput) ToSloCorrectionPtrOutputWithContext(ctx context.Context) SloCorrectionPtrOutput {
-	return o.ApplyT(func(v SloCorrection) *SloCorrection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SloCorrection) *SloCorrection {
 		return &v
 	}).(SloCorrectionPtrOutput)
 }
 
-type SloCorrectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type SloCorrectionPtrOutput struct{ *pulumi.OutputState }
 
 func (SloCorrectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SloCorrection)(nil))
@@ -332,6 +328,16 @@ func (o SloCorrectionPtrOutput) ToSloCorrectionPtrOutput() SloCorrectionPtrOutpu
 
 func (o SloCorrectionPtrOutput) ToSloCorrectionPtrOutputWithContext(ctx context.Context) SloCorrectionPtrOutput {
 	return o
+}
+
+func (o SloCorrectionPtrOutput) Elem() SloCorrectionOutput {
+	return o.ApplyT(func(v *SloCorrection) SloCorrection {
+		if v != nil {
+			return *v
+		}
+		var ret SloCorrection
+		return ret
+	}).(SloCorrectionOutput)
 }
 
 type SloCorrectionArrayOutput struct{ *pulumi.OutputState }
@@ -375,6 +381,10 @@ func (o SloCorrectionMapOutput) MapIndex(k pulumi.StringInput) SloCorrectionOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionInput)(nil)).Elem(), &SloCorrection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionPtrInput)(nil)).Elem(), &SloCorrection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionArrayInput)(nil)).Elem(), SloCorrectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionMapInput)(nil)).Elem(), SloCorrectionMap{})
 	pulumi.RegisterOutputType(SloCorrectionOutput{})
 	pulumi.RegisterOutputType(SloCorrectionPtrOutput{})
 	pulumi.RegisterOutputType(SloCorrectionArrayOutput{})

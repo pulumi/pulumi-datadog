@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetApplicationKeyResult> InvokeAsync(GetApplicationKeyArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing application key.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Datadog.GetApplicationKey.InvokeAsync(new Datadog.GetApplicationKeyArgs
+        ///         {
+        ///             Name = "foo-application",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetApplicationKeyResult> Invoke(GetApplicationKeyInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationKeyResult>("datadog:index/getApplicationKey:getApplicationKey", args ?? new GetApplicationKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Datadog
         public string? Name { get; set; }
 
         public GetApplicationKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Id for Application Key.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Name for Application Key.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetApplicationKeyInvokeArgs()
         {
         }
     }

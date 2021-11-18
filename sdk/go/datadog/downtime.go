@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewDowntime(ctx, "foo", &datadog.DowntimeArgs{
 // 			End: pulumi.Int(1483365600),
-// 			Recurrence: &datadog.DowntimeRecurrenceArgs{
+// 			Recurrence: &DowntimeRecurrenceArgs{
 // 				Period: pulumi.Int(1),
 // 				Type:   pulumi.String("days"),
 // 			},
@@ -286,7 +286,7 @@ type DowntimeArrayInput interface {
 type DowntimeArray []DowntimeInput
 
 func (DowntimeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Downtime)(nil))
+	return reflect.TypeOf((*[]*Downtime)(nil)).Elem()
 }
 
 func (i DowntimeArray) ToDowntimeArrayOutput() DowntimeArrayOutput {
@@ -311,7 +311,7 @@ type DowntimeMapInput interface {
 type DowntimeMap map[string]DowntimeInput
 
 func (DowntimeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Downtime)(nil))
+	return reflect.TypeOf((*map[string]*Downtime)(nil)).Elem()
 }
 
 func (i DowntimeMap) ToDowntimeMapOutput() DowntimeMapOutput {
@@ -322,9 +322,7 @@ func (i DowntimeMap) ToDowntimeMapOutputWithContext(ctx context.Context) Downtim
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeMapOutput)
 }
 
-type DowntimeOutput struct {
-	*pulumi.OutputState
-}
+type DowntimeOutput struct{ *pulumi.OutputState }
 
 func (DowntimeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Downtime)(nil))
@@ -343,14 +341,12 @@ func (o DowntimeOutput) ToDowntimePtrOutput() DowntimePtrOutput {
 }
 
 func (o DowntimeOutput) ToDowntimePtrOutputWithContext(ctx context.Context) DowntimePtrOutput {
-	return o.ApplyT(func(v Downtime) *Downtime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Downtime) *Downtime {
 		return &v
 	}).(DowntimePtrOutput)
 }
 
-type DowntimePtrOutput struct {
-	*pulumi.OutputState
-}
+type DowntimePtrOutput struct{ *pulumi.OutputState }
 
 func (DowntimePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Downtime)(nil))
@@ -362,6 +358,16 @@ func (o DowntimePtrOutput) ToDowntimePtrOutput() DowntimePtrOutput {
 
 func (o DowntimePtrOutput) ToDowntimePtrOutputWithContext(ctx context.Context) DowntimePtrOutput {
 	return o
+}
+
+func (o DowntimePtrOutput) Elem() DowntimeOutput {
+	return o.ApplyT(func(v *Downtime) Downtime {
+		if v != nil {
+			return *v
+		}
+		var ret Downtime
+		return ret
+	}).(DowntimeOutput)
 }
 
 type DowntimeArrayOutput struct{ *pulumi.OutputState }
@@ -405,6 +411,10 @@ func (o DowntimeMapOutput) MapIndex(k pulumi.StringInput) DowntimeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeInput)(nil)).Elem(), &Downtime{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimePtrInput)(nil)).Elem(), &Downtime{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeArrayInput)(nil)).Elem(), DowntimeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeMapInput)(nil)).Elem(), DowntimeMap{})
 	pulumi.RegisterOutputType(DowntimeOutput{})
 	pulumi.RegisterOutputType(DowntimePtrOutput{})
 	pulumi.RegisterOutputType(DowntimeArrayOutput{})

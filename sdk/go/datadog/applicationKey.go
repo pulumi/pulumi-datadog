@@ -176,7 +176,7 @@ type ApplicationKeyArrayInput interface {
 type ApplicationKeyArray []ApplicationKeyInput
 
 func (ApplicationKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApplicationKey)(nil))
+	return reflect.TypeOf((*[]*ApplicationKey)(nil)).Elem()
 }
 
 func (i ApplicationKeyArray) ToApplicationKeyArrayOutput() ApplicationKeyArrayOutput {
@@ -201,7 +201,7 @@ type ApplicationKeyMapInput interface {
 type ApplicationKeyMap map[string]ApplicationKeyInput
 
 func (ApplicationKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApplicationKey)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationKey)(nil)).Elem()
 }
 
 func (i ApplicationKeyMap) ToApplicationKeyMapOutput() ApplicationKeyMapOutput {
@@ -212,9 +212,7 @@ func (i ApplicationKeyMap) ToApplicationKeyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationKeyMapOutput)
 }
 
-type ApplicationKeyOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationKeyOutput struct{ *pulumi.OutputState }
 
 func (ApplicationKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationKey)(nil))
@@ -233,14 +231,12 @@ func (o ApplicationKeyOutput) ToApplicationKeyPtrOutput() ApplicationKeyPtrOutpu
 }
 
 func (o ApplicationKeyOutput) ToApplicationKeyPtrOutputWithContext(ctx context.Context) ApplicationKeyPtrOutput {
-	return o.ApplyT(func(v ApplicationKey) *ApplicationKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationKey) *ApplicationKey {
 		return &v
 	}).(ApplicationKeyPtrOutput)
 }
 
-type ApplicationKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApplicationKey)(nil))
@@ -252,6 +248,16 @@ func (o ApplicationKeyPtrOutput) ToApplicationKeyPtrOutput() ApplicationKeyPtrOu
 
 func (o ApplicationKeyPtrOutput) ToApplicationKeyPtrOutputWithContext(ctx context.Context) ApplicationKeyPtrOutput {
 	return o
+}
+
+func (o ApplicationKeyPtrOutput) Elem() ApplicationKeyOutput {
+	return o.ApplyT(func(v *ApplicationKey) ApplicationKey {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationKey
+		return ret
+	}).(ApplicationKeyOutput)
 }
 
 type ApplicationKeyArrayOutput struct{ *pulumi.OutputState }
@@ -295,6 +301,10 @@ func (o ApplicationKeyMapOutput) MapIndex(k pulumi.StringInput) ApplicationKeyOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKeyInput)(nil)).Elem(), &ApplicationKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKeyPtrInput)(nil)).Elem(), &ApplicationKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKeyArrayInput)(nil)).Elem(), ApplicationKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationKeyMapInput)(nil)).Elem(), ApplicationKeyMap{})
 	pulumi.RegisterOutputType(ApplicationKeyOutput{})
 	pulumi.RegisterOutputType(ApplicationKeyPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationKeyArrayOutput{})

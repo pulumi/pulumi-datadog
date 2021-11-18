@@ -60,12 +60,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_datadog.aws as aws
-    import pulumi_datadog.azure as azure
-    import pulumi_datadog.config as config
-    import pulumi_datadog.gcp as gcp
-    import pulumi_datadog.pagerduty as pagerduty
-    import pulumi_datadog.slack as slack
+    import pulumi_datadog.aws as __aws
+    aws = __aws
+    import pulumi_datadog.azure as __azure
+    azure = __azure
+    import pulumi_datadog.config as __config
+    config = __config
+    import pulumi_datadog.gcp as __gcp
+    gcp = __gcp
+    import pulumi_datadog.pagerduty as __pagerduty
+    pagerduty = __pagerduty
+    import pulumi_datadog.slack as __slack
+    slack = __slack
 else:
     aws = _utilities.lazy_import('pulumi_datadog.aws')
     azure = _utilities.lazy_import('pulumi_datadog.azure')

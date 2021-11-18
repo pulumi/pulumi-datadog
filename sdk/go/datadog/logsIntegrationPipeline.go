@@ -168,7 +168,7 @@ type LogsIntegrationPipelineArrayInput interface {
 type LogsIntegrationPipelineArray []LogsIntegrationPipelineInput
 
 func (LogsIntegrationPipelineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogsIntegrationPipeline)(nil))
+	return reflect.TypeOf((*[]*LogsIntegrationPipeline)(nil)).Elem()
 }
 
 func (i LogsIntegrationPipelineArray) ToLogsIntegrationPipelineArrayOutput() LogsIntegrationPipelineArrayOutput {
@@ -193,7 +193,7 @@ type LogsIntegrationPipelineMapInput interface {
 type LogsIntegrationPipelineMap map[string]LogsIntegrationPipelineInput
 
 func (LogsIntegrationPipelineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogsIntegrationPipeline)(nil))
+	return reflect.TypeOf((*map[string]*LogsIntegrationPipeline)(nil)).Elem()
 }
 
 func (i LogsIntegrationPipelineMap) ToLogsIntegrationPipelineMapOutput() LogsIntegrationPipelineMapOutput {
@@ -204,9 +204,7 @@ func (i LogsIntegrationPipelineMap) ToLogsIntegrationPipelineMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineMapOutput)
 }
 
-type LogsIntegrationPipelineOutput struct {
-	*pulumi.OutputState
-}
+type LogsIntegrationPipelineOutput struct{ *pulumi.OutputState }
 
 func (LogsIntegrationPipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogsIntegrationPipeline)(nil))
@@ -225,14 +223,12 @@ func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelinePtrOutput() Logs
 }
 
 func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
-	return o.ApplyT(func(v LogsIntegrationPipeline) *LogsIntegrationPipeline {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsIntegrationPipeline) *LogsIntegrationPipeline {
 		return &v
 	}).(LogsIntegrationPipelinePtrOutput)
 }
 
-type LogsIntegrationPipelinePtrOutput struct {
-	*pulumi.OutputState
-}
+type LogsIntegrationPipelinePtrOutput struct{ *pulumi.OutputState }
 
 func (LogsIntegrationPipelinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogsIntegrationPipeline)(nil))
@@ -244,6 +240,16 @@ func (o LogsIntegrationPipelinePtrOutput) ToLogsIntegrationPipelinePtrOutput() L
 
 func (o LogsIntegrationPipelinePtrOutput) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
 	return o
+}
+
+func (o LogsIntegrationPipelinePtrOutput) Elem() LogsIntegrationPipelineOutput {
+	return o.ApplyT(func(v *LogsIntegrationPipeline) LogsIntegrationPipeline {
+		if v != nil {
+			return *v
+		}
+		var ret LogsIntegrationPipeline
+		return ret
+	}).(LogsIntegrationPipelineOutput)
 }
 
 type LogsIntegrationPipelineArrayOutput struct{ *pulumi.OutputState }
@@ -287,6 +293,10 @@ func (o LogsIntegrationPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsInt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelineInput)(nil)).Elem(), &LogsIntegrationPipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelinePtrInput)(nil)).Elem(), &LogsIntegrationPipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelineArrayInput)(nil)).Elem(), LogsIntegrationPipelineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelineMapInput)(nil)).Elem(), LogsIntegrationPipelineMap{})
 	pulumi.RegisterOutputType(LogsIntegrationPipelineOutput{})
 	pulumi.RegisterOutputType(LogsIntegrationPipelinePtrOutput{})
 	pulumi.RegisterOutputType(LogsIntegrationPipelineArrayOutput{})

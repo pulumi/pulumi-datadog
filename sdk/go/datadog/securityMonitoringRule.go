@@ -26,8 +26,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewSecurityMonitoringRule(ctx, "myrule", &datadog.SecurityMonitoringRuleArgs{
-// 			Cases: datadog.SecurityMonitoringRuleCaseArray{
-// 				&datadog.SecurityMonitoringRuleCaseArgs{
+// 			Cases: SecurityMonitoringRuleCaseArray{
+// 				&SecurityMonitoringRuleCaseArgs{
 // 					Condition: pulumi.String("errors > 3 && warnings > 10"),
 // 					Notifications: pulumi.StringArray{
 // 						pulumi.String("@user"),
@@ -38,13 +38,13 @@ import (
 // 			Enabled: pulumi.Bool(true),
 // 			Message: pulumi.String("The rule has triggered."),
 // 			Name:    pulumi.String("My rule"),
-// 			Options: &datadog.SecurityMonitoringRuleOptionsArgs{
+// 			Options: &SecurityMonitoringRuleOptionsArgs{
 // 				EvaluationWindow:  pulumi.Int(300),
 // 				KeepAlive:         pulumi.Int(600),
 // 				MaxSignalDuration: pulumi.Int(900),
 // 			},
-// 			Queries: datadog.SecurityMonitoringRuleQueryArray{
-// 				&datadog.SecurityMonitoringRuleQueryArgs{
+// 			Queries: SecurityMonitoringRuleQueryArray{
+// 				&SecurityMonitoringRuleQueryArgs{
 // 					Aggregation: pulumi.String("count"),
 // 					GroupByFields: pulumi.StringArray{
 // 						pulumi.String("host"),
@@ -52,7 +52,7 @@ import (
 // 					Name:  pulumi.String("errors"),
 // 					Query: pulumi.String("status:error"),
 // 				},
-// 				&datadog.SecurityMonitoringRuleQueryArgs{
+// 				&SecurityMonitoringRuleQueryArgs{
 // 					Aggregation: pulumi.String("count"),
 // 					GroupByFields: pulumi.StringArray{
 // 						pulumi.String("host"),
@@ -308,7 +308,7 @@ type SecurityMonitoringRuleArrayInput interface {
 type SecurityMonitoringRuleArray []SecurityMonitoringRuleInput
 
 func (SecurityMonitoringRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurityMonitoringRule)(nil))
+	return reflect.TypeOf((*[]*SecurityMonitoringRule)(nil)).Elem()
 }
 
 func (i SecurityMonitoringRuleArray) ToSecurityMonitoringRuleArrayOutput() SecurityMonitoringRuleArrayOutput {
@@ -333,7 +333,7 @@ type SecurityMonitoringRuleMapInput interface {
 type SecurityMonitoringRuleMap map[string]SecurityMonitoringRuleInput
 
 func (SecurityMonitoringRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurityMonitoringRule)(nil))
+	return reflect.TypeOf((*map[string]*SecurityMonitoringRule)(nil)).Elem()
 }
 
 func (i SecurityMonitoringRuleMap) ToSecurityMonitoringRuleMapOutput() SecurityMonitoringRuleMapOutput {
@@ -344,9 +344,7 @@ func (i SecurityMonitoringRuleMap) ToSecurityMonitoringRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringRuleMapOutput)
 }
 
-type SecurityMonitoringRuleOutput struct {
-	*pulumi.OutputState
-}
+type SecurityMonitoringRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityMonitoringRule)(nil))
@@ -365,14 +363,12 @@ func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRulePtrOutput() Securi
 }
 
 func (o SecurityMonitoringRuleOutput) ToSecurityMonitoringRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringRulePtrOutput {
-	return o.ApplyT(func(v SecurityMonitoringRule) *SecurityMonitoringRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringRule) *SecurityMonitoringRule {
 		return &v
 	}).(SecurityMonitoringRulePtrOutput)
 }
 
-type SecurityMonitoringRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurityMonitoringRulePtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurityMonitoringRule)(nil))
@@ -384,6 +380,16 @@ func (o SecurityMonitoringRulePtrOutput) ToSecurityMonitoringRulePtrOutput() Sec
 
 func (o SecurityMonitoringRulePtrOutput) ToSecurityMonitoringRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringRulePtrOutput {
 	return o
+}
+
+func (o SecurityMonitoringRulePtrOutput) Elem() SecurityMonitoringRuleOutput {
+	return o.ApplyT(func(v *SecurityMonitoringRule) SecurityMonitoringRule {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityMonitoringRule
+		return ret
+	}).(SecurityMonitoringRuleOutput)
 }
 
 type SecurityMonitoringRuleArrayOutput struct{ *pulumi.OutputState }
@@ -427,6 +433,10 @@ func (o SecurityMonitoringRuleMapOutput) MapIndex(k pulumi.StringInput) Security
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleInput)(nil)).Elem(), &SecurityMonitoringRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRulePtrInput)(nil)).Elem(), &SecurityMonitoringRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleArrayInput)(nil)).Elem(), SecurityMonitoringRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringRuleMapInput)(nil)).Elem(), SecurityMonitoringRuleMap{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRulePtrOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringRuleArrayOutput{})

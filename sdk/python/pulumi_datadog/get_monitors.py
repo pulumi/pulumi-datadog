@@ -13,6 +13,7 @@ __all__ = [
     'GetMonitorsResult',
     'AwaitableGetMonitorsResult',
     'get_monitors',
+    'get_monitors_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,19 @@ def get_monitors(monitor_tags_filters: Optional[Sequence[str]] = None,
         monitors=__ret__.monitors,
         name_filter=__ret__.name_filter,
         tags_filters=__ret__.tags_filters)
+
+
+@_utilities.lift_output_func(get_monitors)
+def get_monitors_output(monitor_tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                        name_filter: Optional[pulumi.Input[Optional[str]]] = None,
+                        tags_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorsResult]:
+    """
+    Use this data source to list several existing monitors for use in other resources.
+
+
+    :param Sequence[str] monitor_tags_filters: A list of monitor tags to limit the search. This filters on the tags set on the monitor itself.
+    :param str name_filter: A monitor name to limit the search.
+    :param Sequence[str] tags_filters: A list of tags to limit the search. This filters on the monitor scope.
+    """
+    ...

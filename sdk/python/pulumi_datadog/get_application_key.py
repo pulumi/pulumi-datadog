@@ -12,6 +12,7 @@ __all__ = [
     'GetApplicationKeyResult',
     'AwaitableGetApplicationKeyResult',
     'get_application_key',
+    'get_application_key_output',
 ]
 
 @pulumi.output_type
@@ -98,3 +99,26 @@ def get_application_key(id: Optional[str] = None,
         id=__ret__.id,
         key=__ret__.key,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_application_key)
+def get_application_key_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                               name: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationKeyResult]:
+    """
+    Use this data source to retrieve information about an existing application key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    foo = datadog.get_application_key(name="foo-application")
+    ```
+
+
+    :param str id: Id for Application Key.
+    :param str name: Name for Application Key.
+    """
+    ...

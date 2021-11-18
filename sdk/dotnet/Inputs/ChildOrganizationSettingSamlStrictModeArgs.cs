@@ -9,4 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Datadog.Inputs
 {
+
+    public sealed class ChildOrganizationSettingSamlStrictModeArgs : Pulumi.ResourceArgs
+    {
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        public ChildOrganizationSettingSamlStrictModeArgs()
+        {
+        }
+    }
 }

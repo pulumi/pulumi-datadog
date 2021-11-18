@@ -228,7 +228,7 @@ type MetricMetadataArrayInput interface {
 type MetricMetadataArray []MetricMetadataInput
 
 func (MetricMetadataArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MetricMetadata)(nil))
+	return reflect.TypeOf((*[]*MetricMetadata)(nil)).Elem()
 }
 
 func (i MetricMetadataArray) ToMetricMetadataArrayOutput() MetricMetadataArrayOutput {
@@ -253,7 +253,7 @@ type MetricMetadataMapInput interface {
 type MetricMetadataMap map[string]MetricMetadataInput
 
 func (MetricMetadataMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MetricMetadata)(nil))
+	return reflect.TypeOf((*map[string]*MetricMetadata)(nil)).Elem()
 }
 
 func (i MetricMetadataMap) ToMetricMetadataMapOutput() MetricMetadataMapOutput {
@@ -264,9 +264,7 @@ func (i MetricMetadataMap) ToMetricMetadataMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricMetadataMapOutput)
 }
 
-type MetricMetadataOutput struct {
-	*pulumi.OutputState
-}
+type MetricMetadataOutput struct{ *pulumi.OutputState }
 
 func (MetricMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricMetadata)(nil))
@@ -285,14 +283,12 @@ func (o MetricMetadataOutput) ToMetricMetadataPtrOutput() MetricMetadataPtrOutpu
 }
 
 func (o MetricMetadataOutput) ToMetricMetadataPtrOutputWithContext(ctx context.Context) MetricMetadataPtrOutput {
-	return o.ApplyT(func(v MetricMetadata) *MetricMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricMetadata) *MetricMetadata {
 		return &v
 	}).(MetricMetadataPtrOutput)
 }
 
-type MetricMetadataPtrOutput struct {
-	*pulumi.OutputState
-}
+type MetricMetadataPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricMetadataPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MetricMetadata)(nil))
@@ -304,6 +300,16 @@ func (o MetricMetadataPtrOutput) ToMetricMetadataPtrOutput() MetricMetadataPtrOu
 
 func (o MetricMetadataPtrOutput) ToMetricMetadataPtrOutputWithContext(ctx context.Context) MetricMetadataPtrOutput {
 	return o
+}
+
+func (o MetricMetadataPtrOutput) Elem() MetricMetadataOutput {
+	return o.ApplyT(func(v *MetricMetadata) MetricMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret MetricMetadata
+		return ret
+	}).(MetricMetadataOutput)
 }
 
 type MetricMetadataArrayOutput struct{ *pulumi.OutputState }
@@ -347,6 +353,10 @@ func (o MetricMetadataMapOutput) MapIndex(k pulumi.StringInput) MetricMetadataOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricMetadataInput)(nil)).Elem(), &MetricMetadata{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricMetadataPtrInput)(nil)).Elem(), &MetricMetadata{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricMetadataArrayInput)(nil)).Elem(), MetricMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricMetadataMapInput)(nil)).Elem(), MetricMetadataMap{})
 	pulumi.RegisterOutputType(MetricMetadataOutput{})
 	pulumi.RegisterOutputType(MetricMetadataPtrOutput{})
 	pulumi.RegisterOutputType(MetricMetadataArrayOutput{})

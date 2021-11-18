@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Datadog
 {
@@ -64,6 +65,60 @@ namespace Pulumi.Datadog
         /// </summary>
         public static Task<GetDashboardListResult> InvokeAsync(GetDashboardListArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardListResult>("datadog:index/getDashboardList:getDashboardList", args ?? new GetDashboardListArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about an existing dashboard list, for use in other resources. In particular, it can be used in a dashboard to register it in the list.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Datadog.GetDashboardList.InvokeAsync(new Datadog.GetDashboardListArgs
+        ///         {
+        ///             Name = "My super list",
+        ///         }));
+        ///         // Create a dashboard and register it in the list above.
+        ///         var time = new Datadog.Dashboard("time", new Datadog.DashboardArgs
+        ///         {
+        ///             DashboardLists = 
+        ///             {
+        ///                 test.Apply(test =&gt; test.Id),
+        ///             },
+        ///             Description = "Created using the Datadog provider in Terraform",
+        ///             IsReadOnly = true,
+        ///             LayoutType = "ordered",
+        ///             Title = "TF Test Layout Dashboard",
+        ///             Widgets = 
+        ///             {
+        ///                 new Datadog.Inputs.DashboardWidgetArgs
+        ///                 {
+        ///                     AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
+        ///                     {
+        ///                         AlertId = "1234",
+        ///                         LiveSpan = "1h",
+        ///                         Title = "Widget Title",
+        ///                         VizType = "timeseries",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDashboardListResult> Invoke(GetDashboardListInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDashboardListResult>("datadog:index/getDashboardList:getDashboardList", args ?? new GetDashboardListInvokeArgs(), options.WithVersion());
     }
 
 
@@ -76,6 +131,19 @@ namespace Pulumi.Datadog
         public string Name { get; set; } = null!;
 
         public GetDashboardListArgs()
+        {
+        }
+    }
+
+    public sealed class GetDashboardListInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A dashboard list name to limit the search.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetDashboardListInvokeArgs()
         {
         }
     }

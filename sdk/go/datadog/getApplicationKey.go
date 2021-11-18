@@ -4,6 +4,9 @@
 package datadog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "foo-application"
-// 		_, err := datadog.LookupApplicationKey(ctx, &datadog.LookupApplicationKeyArgs{
+// 		_, err := datadog.LookupApplicationKey(ctx, &GetApplicationKeyArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -57,4 +60,59 @@ type LookupApplicationKeyResult struct {
 	Key string `pulumi:"key"`
 	// Name for Application Key.
 	Name *string `pulumi:"name"`
+}
+
+func LookupApplicationKeyOutput(ctx *pulumi.Context, args LookupApplicationKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationKeyResult, error) {
+			args := v.(LookupApplicationKeyArgs)
+			r, err := LookupApplicationKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationKeyResultOutput)
+}
+
+// A collection of arguments for invoking getApplicationKey.
+type LookupApplicationKeyOutputArgs struct {
+	// Id for Application Key.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name for Application Key.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupApplicationKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationKeyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getApplicationKey.
+type LookupApplicationKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationKeyResult)(nil)).Elem()
+}
+
+func (o LookupApplicationKeyResultOutput) ToLookupApplicationKeyResultOutput() LookupApplicationKeyResultOutput {
+	return o
+}
+
+func (o LookupApplicationKeyResultOutput) ToLookupApplicationKeyResultOutputWithContext(ctx context.Context) LookupApplicationKeyResultOutput {
+	return o
+}
+
+// Id for Application Key.
+func (o LookupApplicationKeyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The value of the Application Key.
+func (o LookupApplicationKeyResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationKeyResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Name for Application Key.
+func (o LookupApplicationKeyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationKeyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationKeyResultOutput{})
 }

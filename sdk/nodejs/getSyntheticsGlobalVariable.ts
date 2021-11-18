@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -47,4 +46,18 @@ export interface GetSyntheticsGlobalVariableResult {
      * A list of tags assigned to the Synthetics global variable.
      */
     readonly tags: string[];
+}
+
+export function getSyntheticsGlobalVariableOutput(args: GetSyntheticsGlobalVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyntheticsGlobalVariableResult> {
+    return pulumi.output(args).apply(a => getSyntheticsGlobalVariable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSyntheticsGlobalVariable.
+ */
+export interface GetSyntheticsGlobalVariableOutputArgs {
+    /**
+     * The synthetics global variable name to search for. Must only match one global variable.
+     */
+    name: pulumi.Input<string>;
 }

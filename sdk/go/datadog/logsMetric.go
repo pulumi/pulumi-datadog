@@ -26,19 +26,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datadog.NewLogsMetric(ctx, "testingLogsMetric", &datadog.LogsMetricArgs{
-// 			Compute: &datadog.LogsMetricComputeArgs{
+// 			Compute: &LogsMetricComputeArgs{
 // 				AggregationType: pulumi.String("distribution"),
 // 				Path:            pulumi.String("@duration"),
 // 			},
-// 			Filter: &datadog.LogsMetricFilterArgs{
+// 			Filter: &LogsMetricFilterArgs{
 // 				Query: pulumi.String("service:test"),
 // 			},
-// 			GroupBies: datadog.LogsMetricGroupByArray{
-// 				&datadog.LogsMetricGroupByArgs{
+// 			GroupBies: LogsMetricGroupByArray{
+// 				&LogsMetricGroupByArgs{
 // 					Path:    pulumi.String("@status"),
 // 					TagName: pulumi.String("status"),
 // 				},
-// 				&datadog.LogsMetricGroupByArgs{
+// 				&LogsMetricGroupByArgs{
 // 					Path:    pulumi.String("@version"),
 // 					TagName: pulumi.String("version"),
 // 				},
@@ -223,7 +223,7 @@ type LogsMetricArrayInput interface {
 type LogsMetricArray []LogsMetricInput
 
 func (LogsMetricArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogsMetric)(nil))
+	return reflect.TypeOf((*[]*LogsMetric)(nil)).Elem()
 }
 
 func (i LogsMetricArray) ToLogsMetricArrayOutput() LogsMetricArrayOutput {
@@ -248,7 +248,7 @@ type LogsMetricMapInput interface {
 type LogsMetricMap map[string]LogsMetricInput
 
 func (LogsMetricMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogsMetric)(nil))
+	return reflect.TypeOf((*map[string]*LogsMetric)(nil)).Elem()
 }
 
 func (i LogsMetricMap) ToLogsMetricMapOutput() LogsMetricMapOutput {
@@ -259,9 +259,7 @@ func (i LogsMetricMap) ToLogsMetricMapOutputWithContext(ctx context.Context) Log
 	return pulumi.ToOutputWithContext(ctx, i).(LogsMetricMapOutput)
 }
 
-type LogsMetricOutput struct {
-	*pulumi.OutputState
-}
+type LogsMetricOutput struct{ *pulumi.OutputState }
 
 func (LogsMetricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogsMetric)(nil))
@@ -280,14 +278,12 @@ func (o LogsMetricOutput) ToLogsMetricPtrOutput() LogsMetricPtrOutput {
 }
 
 func (o LogsMetricOutput) ToLogsMetricPtrOutputWithContext(ctx context.Context) LogsMetricPtrOutput {
-	return o.ApplyT(func(v LogsMetric) *LogsMetric {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsMetric) *LogsMetric {
 		return &v
 	}).(LogsMetricPtrOutput)
 }
 
-type LogsMetricPtrOutput struct {
-	*pulumi.OutputState
-}
+type LogsMetricPtrOutput struct{ *pulumi.OutputState }
 
 func (LogsMetricPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogsMetric)(nil))
@@ -299,6 +295,16 @@ func (o LogsMetricPtrOutput) ToLogsMetricPtrOutput() LogsMetricPtrOutput {
 
 func (o LogsMetricPtrOutput) ToLogsMetricPtrOutputWithContext(ctx context.Context) LogsMetricPtrOutput {
 	return o
+}
+
+func (o LogsMetricPtrOutput) Elem() LogsMetricOutput {
+	return o.ApplyT(func(v *LogsMetric) LogsMetric {
+		if v != nil {
+			return *v
+		}
+		var ret LogsMetric
+		return ret
+	}).(LogsMetricOutput)
 }
 
 type LogsMetricArrayOutput struct{ *pulumi.OutputState }
@@ -342,6 +348,10 @@ func (o LogsMetricMapOutput) MapIndex(k pulumi.StringInput) LogsMetricOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsMetricInput)(nil)).Elem(), &LogsMetric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsMetricPtrInput)(nil)).Elem(), &LogsMetric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsMetricArrayInput)(nil)).Elem(), LogsMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsMetricMapInput)(nil)).Elem(), LogsMetricMap{})
 	pulumi.RegisterOutputType(LogsMetricOutput{})
 	pulumi.RegisterOutputType(LogsMetricPtrOutput{})
 	pulumi.RegisterOutputType(LogsMetricArrayOutput{})

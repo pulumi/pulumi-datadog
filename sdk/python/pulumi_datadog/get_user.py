@@ -12,6 +12,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -99,3 +100,15 @@ def get_user(filter: Optional[str] = None,
         filter=__ret__.filter,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(filter: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Use this data source to retrieve information about an existing user to use it in an other resources.
+
+
+    :param str filter: Filter all users by the given string.
+    """
+    ...
