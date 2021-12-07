@@ -867,6 +867,7 @@ __all__ = [
     'LogsMetricComputeArgs',
     'LogsMetricFilterArgs',
     'LogsMetricGroupByArgs',
+    'MetricTagConfigurationAggregationArgs',
     'MonitorMonitorThresholdWindowsArgs',
     'MonitorMonitorThresholdsArgs',
     'OrganizationSettingsSettingsArgs',
@@ -48976,6 +48977,43 @@ class LogsMetricGroupByArgs:
     @tag_name.setter
     def tag_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "tag_name", value)
+
+
+@pulumi.input_type
+class MetricTagConfigurationAggregationArgs:
+    def __init__(__self__, *,
+                 space: pulumi.Input[str],
+                 time: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] space: A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+        :param pulumi.Input[str] time: A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+        """
+        pulumi.set(__self__, "space", space)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def space(self) -> pulumi.Input[str]:
+        """
+        A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+        """
+        return pulumi.get(self, "space")
+
+    @space.setter
+    def space(self, value: pulumi.Input[str]):
+        pulumi.set(self, "space", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[str]:
+        """
+        A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time", value)
 
 
 @pulumi.input_type

@@ -114,7 +114,7 @@ type LogsIntegrationPipelineInput interface {
 }
 
 func (*LogsIntegrationPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIntegrationPipeline)(nil))
+	return reflect.TypeOf((**LogsIntegrationPipeline)(nil)).Elem()
 }
 
 func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelineOutput() LogsIntegrationPipelineOutput {
@@ -123,35 +123,6 @@ func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelineOutput() LogsIntegrat
 
 func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelineOutputWithContext(ctx context.Context) LogsIntegrationPipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelineOutput)
-}
-
-func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
-	return i.ToLogsIntegrationPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *LogsIntegrationPipeline) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelinePtrOutput)
-}
-
-type LogsIntegrationPipelinePtrInput interface {
-	pulumi.Input
-
-	ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput
-	ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput
-}
-
-type logsIntegrationPipelinePtrType LogsIntegrationPipelineArgs
-
-func (*logsIntegrationPipelinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsIntegrationPipeline)(nil))
-}
-
-func (i *logsIntegrationPipelinePtrType) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
-	return i.ToLogsIntegrationPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *logsIntegrationPipelinePtrType) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsIntegrationPipelinePtrOutput)
 }
 
 // LogsIntegrationPipelineArrayInput is an input type that accepts LogsIntegrationPipelineArray and LogsIntegrationPipelineArrayOutput values.
@@ -207,7 +178,7 @@ func (i LogsIntegrationPipelineMap) ToLogsIntegrationPipelineMapOutputWithContex
 type LogsIntegrationPipelineOutput struct{ *pulumi.OutputState }
 
 func (LogsIntegrationPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIntegrationPipeline)(nil))
+	return reflect.TypeOf((**LogsIntegrationPipeline)(nil)).Elem()
 }
 
 func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutput() LogsIntegrationPipelineOutput {
@@ -218,44 +189,10 @@ func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelineOutputWithContex
 	return o
 }
 
-func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
-	return o.ToLogsIntegrationPipelinePtrOutputWithContext(context.Background())
-}
-
-func (o LogsIntegrationPipelineOutput) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsIntegrationPipeline) *LogsIntegrationPipeline {
-		return &v
-	}).(LogsIntegrationPipelinePtrOutput)
-}
-
-type LogsIntegrationPipelinePtrOutput struct{ *pulumi.OutputState }
-
-func (LogsIntegrationPipelinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsIntegrationPipeline)(nil))
-}
-
-func (o LogsIntegrationPipelinePtrOutput) ToLogsIntegrationPipelinePtrOutput() LogsIntegrationPipelinePtrOutput {
-	return o
-}
-
-func (o LogsIntegrationPipelinePtrOutput) ToLogsIntegrationPipelinePtrOutputWithContext(ctx context.Context) LogsIntegrationPipelinePtrOutput {
-	return o
-}
-
-func (o LogsIntegrationPipelinePtrOutput) Elem() LogsIntegrationPipelineOutput {
-	return o.ApplyT(func(v *LogsIntegrationPipeline) LogsIntegrationPipeline {
-		if v != nil {
-			return *v
-		}
-		var ret LogsIntegrationPipeline
-		return ret
-	}).(LogsIntegrationPipelineOutput)
-}
-
 type LogsIntegrationPipelineArrayOutput struct{ *pulumi.OutputState }
 
 func (LogsIntegrationPipelineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsIntegrationPipeline)(nil))
+	return reflect.TypeOf((*[]*LogsIntegrationPipeline)(nil)).Elem()
 }
 
 func (o LogsIntegrationPipelineArrayOutput) ToLogsIntegrationPipelineArrayOutput() LogsIntegrationPipelineArrayOutput {
@@ -267,15 +204,15 @@ func (o LogsIntegrationPipelineArrayOutput) ToLogsIntegrationPipelineArrayOutput
 }
 
 func (o LogsIntegrationPipelineArrayOutput) Index(i pulumi.IntInput) LogsIntegrationPipelineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsIntegrationPipeline {
-		return vs[0].([]LogsIntegrationPipeline)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsIntegrationPipeline {
+		return vs[0].([]*LogsIntegrationPipeline)[vs[1].(int)]
 	}).(LogsIntegrationPipelineOutput)
 }
 
 type LogsIntegrationPipelineMapOutput struct{ *pulumi.OutputState }
 
 func (LogsIntegrationPipelineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogsIntegrationPipeline)(nil))
+	return reflect.TypeOf((*map[string]*LogsIntegrationPipeline)(nil)).Elem()
 }
 
 func (o LogsIntegrationPipelineMapOutput) ToLogsIntegrationPipelineMapOutput() LogsIntegrationPipelineMapOutput {
@@ -287,18 +224,16 @@ func (o LogsIntegrationPipelineMapOutput) ToLogsIntegrationPipelineMapOutputWith
 }
 
 func (o LogsIntegrationPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsIntegrationPipelineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsIntegrationPipeline {
-		return vs[0].(map[string]LogsIntegrationPipeline)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogsIntegrationPipeline {
+		return vs[0].(map[string]*LogsIntegrationPipeline)[vs[1].(string)]
 	}).(LogsIntegrationPipelineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelineInput)(nil)).Elem(), &LogsIntegrationPipeline{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelinePtrInput)(nil)).Elem(), &LogsIntegrationPipeline{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelineArrayInput)(nil)).Elem(), LogsIntegrationPipelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsIntegrationPipelineMapInput)(nil)).Elem(), LogsIntegrationPipelineMap{})
 	pulumi.RegisterOutputType(LogsIntegrationPipelineOutput{})
-	pulumi.RegisterOutputType(LogsIntegrationPipelinePtrOutput{})
 	pulumi.RegisterOutputType(LogsIntegrationPipelineArrayOutput{})
 	pulumi.RegisterOutputType(LogsIntegrationPipelineMapOutput{})
 }

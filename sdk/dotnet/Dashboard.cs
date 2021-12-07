@@ -987,7 +987,7 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this dashboard is read-only.
+        /// Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
         /// </summary>
         [Output("isReadOnly")]
         public Output<bool?> IsReadOnly { get; private set; } = null!;
@@ -1011,7 +1011,7 @@ namespace Pulumi.Datadog
         public Output<string?> ReflowType { get; private set; } = null!;
 
         /// <summary>
-        /// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        /// UUIDs of roles whose associated users are authorized to edit the dashboard.
         /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
@@ -1111,7 +1111,7 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this dashboard is read-only.
+        /// Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
         /// </summary>
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
@@ -1144,7 +1144,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        /// UUIDs of roles whose associated users are authorized to edit the dashboard.
         /// </summary>
         public InputList<string> RestrictedRoles
         {
@@ -1238,7 +1238,7 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this dashboard is read-only.
+        /// Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
         /// </summary>
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
@@ -1271,7 +1271,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+        /// UUIDs of roles whose associated users are authorized to edit the dashboard.
         /// </summary>
         public InputList<string> RestrictedRoles
         {

@@ -91,24 +91,24 @@ export class MonitorJson extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitorJsonArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorJsonArgs | MonitorJsonState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorJsonState | undefined;
-            inputs["monitor"] = state ? state.monitor : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["monitor"] = state ? state.monitor : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as MonitorJsonArgs | undefined;
             if ((!args || args.monitor === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitor'");
             }
-            inputs["monitor"] = args ? args.monitor : undefined;
-            inputs["url"] = args ? args.url : undefined;
+            resourceInputs["monitor"] = args ? args.monitor : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MonitorJson.__pulumiType, name, inputs, opts);
+        super(MonitorJson.__pulumiType, name, resourceInputs, opts);
     }
 }
 

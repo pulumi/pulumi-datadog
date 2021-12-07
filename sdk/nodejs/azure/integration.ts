@@ -59,6 +59,10 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /**
+     * Silence monitors for expected Azure VM shutdowns.
+     */
+    public readonly automute!: pulumi.Output<boolean | undefined>;
+    /**
      * Your Azure web application ID.
      */
     public readonly clientId!: pulumi.Output<string>;
@@ -84,14 +88,15 @@ export class Integration extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["clientSecret"] = state ? state.clientSecret : undefined;
-            inputs["hostFilters"] = state ? state.hostFilters : undefined;
-            inputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["automute"] = state ? state.automute : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
+            resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
+            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
             if ((!args || args.clientId === undefined) && !opts.urn) {
@@ -103,15 +108,16 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.tenantName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantName'");
             }
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["hostFilters"] = args ? args.hostFilters : undefined;
-            inputs["tenantName"] = args ? args.tenantName : undefined;
+            resourceInputs["automute"] = args ? args.automute : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
+            resourceInputs["tenantName"] = args ? args.tenantName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Integration.__pulumiType, name, inputs, opts);
+        super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
 
@@ -119,6 +125,10 @@ export class Integration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Integration resources.
  */
 export interface IntegrationState {
+    /**
+     * Silence monitors for expected Azure VM shutdowns.
+     */
+    automute?: pulumi.Input<boolean>;
     /**
      * Your Azure web application ID.
      */
@@ -141,6 +151,10 @@ export interface IntegrationState {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
+    /**
+     * Silence monitors for expected Azure VM shutdowns.
+     */
+    automute?: pulumi.Input<boolean>;
     /**
      * Your Azure web application ID.
      */

@@ -48,20 +48,20 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["apiUrl"] = args ? args.apiUrl : undefined;
-            inputs["appKey"] = args ? args.appKey : undefined;
-            inputs["httpClientRetryEnabled"] = pulumi.output(args ? args.httpClientRetryEnabled : undefined).apply(JSON.stringify);
-            inputs["httpClientRetryTimeout"] = pulumi.output(args ? args.httpClientRetryTimeout : undefined).apply(JSON.stringify);
-            inputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
+            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
+            resourceInputs["appKey"] = args ? args.appKey : undefined;
+            resourceInputs["httpClientRetryEnabled"] = pulumi.output(args ? args.httpClientRetryEnabled : undefined).apply(JSON.stringify);
+            resourceInputs["httpClientRetryTimeout"] = pulumi.output(args ? args.httpClientRetryTimeout : undefined).apply(JSON.stringify);
+            resourceInputs["validate"] = pulumi.output(args ? args.validate : undefined).apply(JSON.stringify);
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Provider.__pulumiType, name, inputs, opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

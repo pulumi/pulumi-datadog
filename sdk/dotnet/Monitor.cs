@@ -106,8 +106,7 @@ namespace Pulumi.Datadog
         public Output<bool?> IncludeTags { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-        /// `false`.
+        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         /// </summary>
         [Output("locked")]
         public Output<bool?> Locked { get; private set; } = null!;
@@ -337,8 +336,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IncludeTags { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-        /// `false`.
+        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         /// </summary>
         [Input("locked")]
         public Input<bool>? Locked { get; set; }
@@ -546,8 +544,7 @@ namespace Pulumi.Datadog
         public Input<bool>? IncludeTags { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-        /// `false`.
+        /// A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         /// </summary>
         [Input("locked")]
         public Input<bool>? Locked { get; set; }

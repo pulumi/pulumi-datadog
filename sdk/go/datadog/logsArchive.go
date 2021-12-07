@@ -186,7 +186,7 @@ type LogsArchiveInput interface {
 }
 
 func (*LogsArchive) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchive)(nil))
+	return reflect.TypeOf((**LogsArchive)(nil)).Elem()
 }
 
 func (i *LogsArchive) ToLogsArchiveOutput() LogsArchiveOutput {
@@ -195,35 +195,6 @@ func (i *LogsArchive) ToLogsArchiveOutput() LogsArchiveOutput {
 
 func (i *LogsArchive) ToLogsArchiveOutputWithContext(ctx context.Context) LogsArchiveOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveOutput)
-}
-
-func (i *LogsArchive) ToLogsArchivePtrOutput() LogsArchivePtrOutput {
-	return i.ToLogsArchivePtrOutputWithContext(context.Background())
-}
-
-func (i *LogsArchive) ToLogsArchivePtrOutputWithContext(ctx context.Context) LogsArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchivePtrOutput)
-}
-
-type LogsArchivePtrInput interface {
-	pulumi.Input
-
-	ToLogsArchivePtrOutput() LogsArchivePtrOutput
-	ToLogsArchivePtrOutputWithContext(ctx context.Context) LogsArchivePtrOutput
-}
-
-type logsArchivePtrType LogsArchiveArgs
-
-func (*logsArchivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchive)(nil))
-}
-
-func (i *logsArchivePtrType) ToLogsArchivePtrOutput() LogsArchivePtrOutput {
-	return i.ToLogsArchivePtrOutputWithContext(context.Background())
-}
-
-func (i *logsArchivePtrType) ToLogsArchivePtrOutputWithContext(ctx context.Context) LogsArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchivePtrOutput)
 }
 
 // LogsArchiveArrayInput is an input type that accepts LogsArchiveArray and LogsArchiveArrayOutput values.
@@ -279,7 +250,7 @@ func (i LogsArchiveMap) ToLogsArchiveMapOutputWithContext(ctx context.Context) L
 type LogsArchiveOutput struct{ *pulumi.OutputState }
 
 func (LogsArchiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchive)(nil))
+	return reflect.TypeOf((**LogsArchive)(nil)).Elem()
 }
 
 func (o LogsArchiveOutput) ToLogsArchiveOutput() LogsArchiveOutput {
@@ -290,44 +261,10 @@ func (o LogsArchiveOutput) ToLogsArchiveOutputWithContext(ctx context.Context) L
 	return o
 }
 
-func (o LogsArchiveOutput) ToLogsArchivePtrOutput() LogsArchivePtrOutput {
-	return o.ToLogsArchivePtrOutputWithContext(context.Background())
-}
-
-func (o LogsArchiveOutput) ToLogsArchivePtrOutputWithContext(ctx context.Context) LogsArchivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchive) *LogsArchive {
-		return &v
-	}).(LogsArchivePtrOutput)
-}
-
-type LogsArchivePtrOutput struct{ *pulumi.OutputState }
-
-func (LogsArchivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchive)(nil))
-}
-
-func (o LogsArchivePtrOutput) ToLogsArchivePtrOutput() LogsArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchivePtrOutput) ToLogsArchivePtrOutputWithContext(ctx context.Context) LogsArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchivePtrOutput) Elem() LogsArchiveOutput {
-	return o.ApplyT(func(v *LogsArchive) LogsArchive {
-		if v != nil {
-			return *v
-		}
-		var ret LogsArchive
-		return ret
-	}).(LogsArchiveOutput)
-}
-
 type LogsArchiveArrayOutput struct{ *pulumi.OutputState }
 
 func (LogsArchiveArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsArchive)(nil))
+	return reflect.TypeOf((*[]*LogsArchive)(nil)).Elem()
 }
 
 func (o LogsArchiveArrayOutput) ToLogsArchiveArrayOutput() LogsArchiveArrayOutput {
@@ -339,15 +276,15 @@ func (o LogsArchiveArrayOutput) ToLogsArchiveArrayOutputWithContext(ctx context.
 }
 
 func (o LogsArchiveArrayOutput) Index(i pulumi.IntInput) LogsArchiveOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsArchive {
-		return vs[0].([]LogsArchive)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsArchive {
+		return vs[0].([]*LogsArchive)[vs[1].(int)]
 	}).(LogsArchiveOutput)
 }
 
 type LogsArchiveMapOutput struct{ *pulumi.OutputState }
 
 func (LogsArchiveMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogsArchive)(nil))
+	return reflect.TypeOf((*map[string]*LogsArchive)(nil)).Elem()
 }
 
 func (o LogsArchiveMapOutput) ToLogsArchiveMapOutput() LogsArchiveMapOutput {
@@ -359,18 +296,16 @@ func (o LogsArchiveMapOutput) ToLogsArchiveMapOutputWithContext(ctx context.Cont
 }
 
 func (o LogsArchiveMapOutput) MapIndex(k pulumi.StringInput) LogsArchiveOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsArchive {
-		return vs[0].(map[string]LogsArchive)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogsArchive {
+		return vs[0].(map[string]*LogsArchive)[vs[1].(string)]
 	}).(LogsArchiveOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveInput)(nil)).Elem(), &LogsArchive{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchivePtrInput)(nil)).Elem(), &LogsArchive{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveArrayInput)(nil)).Elem(), LogsArchiveArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveMapInput)(nil)).Elem(), LogsArchiveMap{})
 	pulumi.RegisterOutputType(LogsArchiveOutput{})
-	pulumi.RegisterOutputType(LogsArchivePtrOutput{})
 	pulumi.RegisterOutputType(LogsArchiveArrayOutput{})
 	pulumi.RegisterOutputType(LogsArchiveMapOutput{})
 }

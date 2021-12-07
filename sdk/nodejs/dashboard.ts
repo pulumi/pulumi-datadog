@@ -749,7 +749,9 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     *
+     * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     public readonly isReadOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -765,7 +767,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly reflowType!: pulumi.Output<string | undefined>;
     /**
-     * Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+     * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
     public readonly restrictedRoles!: pulumi.Output<string[] | undefined>;
     /**
@@ -798,23 +800,23 @@ export class Dashboard extends pulumi.CustomResource {
      */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DashboardArgs | DashboardState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardState | undefined;
-            inputs["dashboardLists"] = state ? state.dashboardLists : undefined;
-            inputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["isReadOnly"] = state ? state.isReadOnly : undefined;
-            inputs["layoutType"] = state ? state.layoutType : undefined;
-            inputs["notifyLists"] = state ? state.notifyLists : undefined;
-            inputs["reflowType"] = state ? state.reflowType : undefined;
-            inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
-            inputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
-            inputs["templateVariables"] = state ? state.templateVariables : undefined;
-            inputs["title"] = state ? state.title : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["widgets"] = state ? state.widgets : undefined;
+            resourceInputs["dashboardLists"] = state ? state.dashboardLists : undefined;
+            resourceInputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["isReadOnly"] = state ? state.isReadOnly : undefined;
+            resourceInputs["layoutType"] = state ? state.layoutType : undefined;
+            resourceInputs["notifyLists"] = state ? state.notifyLists : undefined;
+            resourceInputs["reflowType"] = state ? state.reflowType : undefined;
+            resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
+            resourceInputs["templateVariablePresets"] = state ? state.templateVariablePresets : undefined;
+            resourceInputs["templateVariables"] = state ? state.templateVariables : undefined;
+            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["widgets"] = state ? state.widgets : undefined;
         } else {
             const args = argsOrState as DashboardArgs | undefined;
             if ((!args || args.layoutType === undefined) && !opts.urn) {
@@ -823,24 +825,24 @@ export class Dashboard extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            inputs["dashboardLists"] = args ? args.dashboardLists : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["isReadOnly"] = args ? args.isReadOnly : undefined;
-            inputs["layoutType"] = args ? args.layoutType : undefined;
-            inputs["notifyLists"] = args ? args.notifyLists : undefined;
-            inputs["reflowType"] = args ? args.reflowType : undefined;
-            inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
-            inputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
-            inputs["templateVariables"] = args ? args.templateVariables : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["widgets"] = args ? args.widgets : undefined;
-            inputs["dashboardListsRemoveds"] = undefined /*out*/;
+            resourceInputs["dashboardLists"] = args ? args.dashboardLists : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isReadOnly"] = args ? args.isReadOnly : undefined;
+            resourceInputs["layoutType"] = args ? args.layoutType : undefined;
+            resourceInputs["notifyLists"] = args ? args.notifyLists : undefined;
+            resourceInputs["reflowType"] = args ? args.reflowType : undefined;
+            resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
+            resourceInputs["templateVariablePresets"] = args ? args.templateVariablePresets : undefined;
+            resourceInputs["templateVariables"] = args ? args.templateVariables : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["widgets"] = args ? args.widgets : undefined;
+            resourceInputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Dashboard.__pulumiType, name, inputs, opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts);
     }
 }
 
@@ -861,7 +863,9 @@ export interface DashboardState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     *
+     * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
@@ -877,7 +881,7 @@ export interface DashboardState {
      */
     reflowType?: pulumi.Input<string>;
     /**
-     * Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+     * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -915,7 +919,9 @@ export interface DashboardArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Whether this dashboard is read-only.
+     * Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+     *
+     * @deprecated Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
      */
     isReadOnly?: pulumi.Input<boolean>;
     /**
@@ -931,7 +937,7 @@ export interface DashboardArgs {
      */
     reflowType?: pulumi.Input<string>;
     /**
-     * Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+     * UUIDs of roles whose associated users are authorized to edit the dashboard.
      */
     restrictedRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**

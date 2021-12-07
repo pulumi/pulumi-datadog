@@ -136,7 +136,7 @@ type LogsIndexOrderInput interface {
 }
 
 func (*LogsIndexOrder) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIndexOrder)(nil))
+	return reflect.TypeOf((**LogsIndexOrder)(nil)).Elem()
 }
 
 func (i *LogsIndexOrder) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
@@ -145,35 +145,6 @@ func (i *LogsIndexOrder) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
 
 func (i *LogsIndexOrder) ToLogsIndexOrderOutputWithContext(ctx context.Context) LogsIndexOrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderOutput)
-}
-
-func (i *LogsIndexOrder) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
-	return i.ToLogsIndexOrderPtrOutputWithContext(context.Background())
-}
-
-func (i *LogsIndexOrder) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderPtrOutput)
-}
-
-type LogsIndexOrderPtrInput interface {
-	pulumi.Input
-
-	ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput
-	ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput
-}
-
-type logsIndexOrderPtrType LogsIndexOrderArgs
-
-func (*logsIndexOrderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsIndexOrder)(nil))
-}
-
-func (i *logsIndexOrderPtrType) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
-	return i.ToLogsIndexOrderPtrOutputWithContext(context.Background())
-}
-
-func (i *logsIndexOrderPtrType) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsIndexOrderPtrOutput)
 }
 
 // LogsIndexOrderArrayInput is an input type that accepts LogsIndexOrderArray and LogsIndexOrderArrayOutput values.
@@ -229,7 +200,7 @@ func (i LogsIndexOrderMap) ToLogsIndexOrderMapOutputWithContext(ctx context.Cont
 type LogsIndexOrderOutput struct{ *pulumi.OutputState }
 
 func (LogsIndexOrderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsIndexOrder)(nil))
+	return reflect.TypeOf((**LogsIndexOrder)(nil)).Elem()
 }
 
 func (o LogsIndexOrderOutput) ToLogsIndexOrderOutput() LogsIndexOrderOutput {
@@ -240,44 +211,10 @@ func (o LogsIndexOrderOutput) ToLogsIndexOrderOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o LogsIndexOrderOutput) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
-	return o.ToLogsIndexOrderPtrOutputWithContext(context.Background())
-}
-
-func (o LogsIndexOrderOutput) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsIndexOrder) *LogsIndexOrder {
-		return &v
-	}).(LogsIndexOrderPtrOutput)
-}
-
-type LogsIndexOrderPtrOutput struct{ *pulumi.OutputState }
-
-func (LogsIndexOrderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsIndexOrder)(nil))
-}
-
-func (o LogsIndexOrderPtrOutput) ToLogsIndexOrderPtrOutput() LogsIndexOrderPtrOutput {
-	return o
-}
-
-func (o LogsIndexOrderPtrOutput) ToLogsIndexOrderPtrOutputWithContext(ctx context.Context) LogsIndexOrderPtrOutput {
-	return o
-}
-
-func (o LogsIndexOrderPtrOutput) Elem() LogsIndexOrderOutput {
-	return o.ApplyT(func(v *LogsIndexOrder) LogsIndexOrder {
-		if v != nil {
-			return *v
-		}
-		var ret LogsIndexOrder
-		return ret
-	}).(LogsIndexOrderOutput)
-}
-
 type LogsIndexOrderArrayOutput struct{ *pulumi.OutputState }
 
 func (LogsIndexOrderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsIndexOrder)(nil))
+	return reflect.TypeOf((*[]*LogsIndexOrder)(nil)).Elem()
 }
 
 func (o LogsIndexOrderArrayOutput) ToLogsIndexOrderArrayOutput() LogsIndexOrderArrayOutput {
@@ -289,15 +226,15 @@ func (o LogsIndexOrderArrayOutput) ToLogsIndexOrderArrayOutputWithContext(ctx co
 }
 
 func (o LogsIndexOrderArrayOutput) Index(i pulumi.IntInput) LogsIndexOrderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsIndexOrder {
-		return vs[0].([]LogsIndexOrder)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsIndexOrder {
+		return vs[0].([]*LogsIndexOrder)[vs[1].(int)]
 	}).(LogsIndexOrderOutput)
 }
 
 type LogsIndexOrderMapOutput struct{ *pulumi.OutputState }
 
 func (LogsIndexOrderMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogsIndexOrder)(nil))
+	return reflect.TypeOf((*map[string]*LogsIndexOrder)(nil)).Elem()
 }
 
 func (o LogsIndexOrderMapOutput) ToLogsIndexOrderMapOutput() LogsIndexOrderMapOutput {
@@ -309,18 +246,16 @@ func (o LogsIndexOrderMapOutput) ToLogsIndexOrderMapOutputWithContext(ctx contex
 }
 
 func (o LogsIndexOrderMapOutput) MapIndex(k pulumi.StringInput) LogsIndexOrderOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsIndexOrder {
-		return vs[0].(map[string]LogsIndexOrder)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogsIndexOrder {
+		return vs[0].(map[string]*LogsIndexOrder)[vs[1].(string)]
 	}).(LogsIndexOrderOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsIndexOrderInput)(nil)).Elem(), &LogsIndexOrder{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsIndexOrderPtrInput)(nil)).Elem(), &LogsIndexOrder{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsIndexOrderArrayInput)(nil)).Elem(), LogsIndexOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsIndexOrderMapInput)(nil)).Elem(), LogsIndexOrderMap{})
 	pulumi.RegisterOutputType(LogsIndexOrderOutput{})
-	pulumi.RegisterOutputType(LogsIndexOrderPtrOutput{})
 	pulumi.RegisterOutputType(LogsIndexOrderArrayOutput{})
 	pulumi.RegisterOutputType(LogsIndexOrderMapOutput{})
 }

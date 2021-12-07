@@ -98,17 +98,17 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogsArchiveArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsArchiveArgs | LogsArchiveState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsArchiveState | undefined;
-            inputs["azureArchive"] = state ? state.azureArchive : undefined;
-            inputs["gcsArchive"] = state ? state.gcsArchive : undefined;
-            inputs["includeTags"] = state ? state.includeTags : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["rehydrationTags"] = state ? state.rehydrationTags : undefined;
-            inputs["s3Archive"] = state ? state.s3Archive : undefined;
+            resourceInputs["azureArchive"] = state ? state.azureArchive : undefined;
+            resourceInputs["gcsArchive"] = state ? state.gcsArchive : undefined;
+            resourceInputs["includeTags"] = state ? state.includeTags : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["rehydrationTags"] = state ? state.rehydrationTags : undefined;
+            resourceInputs["s3Archive"] = state ? state.s3Archive : undefined;
         } else {
             const args = argsOrState as LogsArchiveArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -117,18 +117,18 @@ export class LogsArchive extends pulumi.CustomResource {
             if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            inputs["azureArchive"] = args ? args.azureArchive : undefined;
-            inputs["gcsArchive"] = args ? args.gcsArchive : undefined;
-            inputs["includeTags"] = args ? args.includeTags : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
-            inputs["s3Archive"] = args ? args.s3Archive : undefined;
+            resourceInputs["azureArchive"] = args ? args.azureArchive : undefined;
+            resourceInputs["gcsArchive"] = args ? args.gcsArchive : undefined;
+            resourceInputs["includeTags"] = args ? args.includeTags : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["rehydrationTags"] = args ? args.rehydrationTags : undefined;
+            resourceInputs["s3Archive"] = args ? args.s3Archive : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LogsArchive.__pulumiType, name, inputs, opts);
+        super(LogsArchive.__pulumiType, name, resourceInputs, opts);
     }
 }
 

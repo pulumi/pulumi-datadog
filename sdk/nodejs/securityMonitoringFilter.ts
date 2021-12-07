@@ -101,16 +101,16 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityMonitoringFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityMonitoringFilterArgs | SecurityMonitoringFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringFilterState | undefined;
-            inputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
-            inputs["filteredDataType"] = state ? state.filteredDataType : undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
+            resourceInputs["filteredDataType"] = state ? state.filteredDataType : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringFilterArgs | undefined;
             if ((!args || args.isEnabled === undefined) && !opts.urn) {
@@ -122,17 +122,17 @@ export class SecurityMonitoringFilter extends pulumi.CustomResource {
             if ((!args || args.query === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            inputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
-            inputs["filteredDataType"] = args ? args.filteredDataType : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
+            resourceInputs["filteredDataType"] = args ? args.filteredDataType : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SecurityMonitoringFilter.__pulumiType, name, inputs, opts);
+        super(SecurityMonitoringFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

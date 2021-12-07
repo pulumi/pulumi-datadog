@@ -101,17 +101,17 @@ export class Integration extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            inputs["automute"] = state ? state.automute : undefined;
-            inputs["clientEmail"] = state ? state.clientEmail : undefined;
-            inputs["clientId"] = state ? state.clientId : undefined;
-            inputs["hostFilters"] = state ? state.hostFilters : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["privateKeyId"] = state ? state.privateKeyId : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["automute"] = state ? state.automute : undefined;
+            resourceInputs["clientEmail"] = state ? state.clientEmail : undefined;
+            resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["hostFilters"] = state ? state.hostFilters : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["privateKeyId"] = state ? state.privateKeyId : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
             if ((!args || args.clientEmail === undefined) && !opts.urn) {
@@ -129,18 +129,18 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["automute"] = args ? args.automute : undefined;
-            inputs["clientEmail"] = args ? args.clientEmail : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["hostFilters"] = args ? args.hostFilters : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["privateKeyId"] = args ? args.privateKeyId : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["automute"] = args ? args.automute : undefined;
+            resourceInputs["clientEmail"] = args ? args.clientEmail : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["hostFilters"] = args ? args.hostFilters : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Integration.__pulumiType, name, inputs, opts);
+        super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

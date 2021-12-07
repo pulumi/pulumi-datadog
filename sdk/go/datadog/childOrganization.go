@@ -146,7 +146,7 @@ type ChildOrganizationInput interface {
 }
 
 func (*ChildOrganization) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChildOrganization)(nil))
+	return reflect.TypeOf((**ChildOrganization)(nil)).Elem()
 }
 
 func (i *ChildOrganization) ToChildOrganizationOutput() ChildOrganizationOutput {
@@ -155,35 +155,6 @@ func (i *ChildOrganization) ToChildOrganizationOutput() ChildOrganizationOutput 
 
 func (i *ChildOrganization) ToChildOrganizationOutputWithContext(ctx context.Context) ChildOrganizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChildOrganizationOutput)
-}
-
-func (i *ChildOrganization) ToChildOrganizationPtrOutput() ChildOrganizationPtrOutput {
-	return i.ToChildOrganizationPtrOutputWithContext(context.Background())
-}
-
-func (i *ChildOrganization) ToChildOrganizationPtrOutputWithContext(ctx context.Context) ChildOrganizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChildOrganizationPtrOutput)
-}
-
-type ChildOrganizationPtrInput interface {
-	pulumi.Input
-
-	ToChildOrganizationPtrOutput() ChildOrganizationPtrOutput
-	ToChildOrganizationPtrOutputWithContext(ctx context.Context) ChildOrganizationPtrOutput
-}
-
-type childOrganizationPtrType ChildOrganizationArgs
-
-func (*childOrganizationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChildOrganization)(nil))
-}
-
-func (i *childOrganizationPtrType) ToChildOrganizationPtrOutput() ChildOrganizationPtrOutput {
-	return i.ToChildOrganizationPtrOutputWithContext(context.Background())
-}
-
-func (i *childOrganizationPtrType) ToChildOrganizationPtrOutputWithContext(ctx context.Context) ChildOrganizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChildOrganizationPtrOutput)
 }
 
 // ChildOrganizationArrayInput is an input type that accepts ChildOrganizationArray and ChildOrganizationArrayOutput values.
@@ -239,7 +210,7 @@ func (i ChildOrganizationMap) ToChildOrganizationMapOutputWithContext(ctx contex
 type ChildOrganizationOutput struct{ *pulumi.OutputState }
 
 func (ChildOrganizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChildOrganization)(nil))
+	return reflect.TypeOf((**ChildOrganization)(nil)).Elem()
 }
 
 func (o ChildOrganizationOutput) ToChildOrganizationOutput() ChildOrganizationOutput {
@@ -250,44 +221,10 @@ func (o ChildOrganizationOutput) ToChildOrganizationOutputWithContext(ctx contex
 	return o
 }
 
-func (o ChildOrganizationOutput) ToChildOrganizationPtrOutput() ChildOrganizationPtrOutput {
-	return o.ToChildOrganizationPtrOutputWithContext(context.Background())
-}
-
-func (o ChildOrganizationOutput) ToChildOrganizationPtrOutputWithContext(ctx context.Context) ChildOrganizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChildOrganization) *ChildOrganization {
-		return &v
-	}).(ChildOrganizationPtrOutput)
-}
-
-type ChildOrganizationPtrOutput struct{ *pulumi.OutputState }
-
-func (ChildOrganizationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChildOrganization)(nil))
-}
-
-func (o ChildOrganizationPtrOutput) ToChildOrganizationPtrOutput() ChildOrganizationPtrOutput {
-	return o
-}
-
-func (o ChildOrganizationPtrOutput) ToChildOrganizationPtrOutputWithContext(ctx context.Context) ChildOrganizationPtrOutput {
-	return o
-}
-
-func (o ChildOrganizationPtrOutput) Elem() ChildOrganizationOutput {
-	return o.ApplyT(func(v *ChildOrganization) ChildOrganization {
-		if v != nil {
-			return *v
-		}
-		var ret ChildOrganization
-		return ret
-	}).(ChildOrganizationOutput)
-}
-
 type ChildOrganizationArrayOutput struct{ *pulumi.OutputState }
 
 func (ChildOrganizationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChildOrganization)(nil))
+	return reflect.TypeOf((*[]*ChildOrganization)(nil)).Elem()
 }
 
 func (o ChildOrganizationArrayOutput) ToChildOrganizationArrayOutput() ChildOrganizationArrayOutput {
@@ -299,15 +236,15 @@ func (o ChildOrganizationArrayOutput) ToChildOrganizationArrayOutputWithContext(
 }
 
 func (o ChildOrganizationArrayOutput) Index(i pulumi.IntInput) ChildOrganizationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChildOrganization {
-		return vs[0].([]ChildOrganization)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChildOrganization {
+		return vs[0].([]*ChildOrganization)[vs[1].(int)]
 	}).(ChildOrganizationOutput)
 }
 
 type ChildOrganizationMapOutput struct{ *pulumi.OutputState }
 
 func (ChildOrganizationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ChildOrganization)(nil))
+	return reflect.TypeOf((*map[string]*ChildOrganization)(nil)).Elem()
 }
 
 func (o ChildOrganizationMapOutput) ToChildOrganizationMapOutput() ChildOrganizationMapOutput {
@@ -319,18 +256,16 @@ func (o ChildOrganizationMapOutput) ToChildOrganizationMapOutputWithContext(ctx 
 }
 
 func (o ChildOrganizationMapOutput) MapIndex(k pulumi.StringInput) ChildOrganizationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ChildOrganization {
-		return vs[0].(map[string]ChildOrganization)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ChildOrganization {
+		return vs[0].(map[string]*ChildOrganization)[vs[1].(string)]
 	}).(ChildOrganizationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChildOrganizationInput)(nil)).Elem(), &ChildOrganization{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChildOrganizationPtrInput)(nil)).Elem(), &ChildOrganization{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChildOrganizationArrayInput)(nil)).Elem(), ChildOrganizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChildOrganizationMapInput)(nil)).Elem(), ChildOrganizationMap{})
 	pulumi.RegisterOutputType(ChildOrganizationOutput{})
-	pulumi.RegisterOutputType(ChildOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(ChildOrganizationArrayOutput{})
 	pulumi.RegisterOutputType(ChildOrganizationMapOutput{})
 }

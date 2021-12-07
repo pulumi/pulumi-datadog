@@ -134,7 +134,7 @@ type IntegrationLambdaArnInput interface {
 }
 
 func (*IntegrationLambdaArn) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationLambdaArn)(nil))
+	return reflect.TypeOf((**IntegrationLambdaArn)(nil)).Elem()
 }
 
 func (i *IntegrationLambdaArn) ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput {
@@ -143,35 +143,6 @@ func (i *IntegrationLambdaArn) ToIntegrationLambdaArnOutput() IntegrationLambdaA
 
 func (i *IntegrationLambdaArn) ToIntegrationLambdaArnOutputWithContext(ctx context.Context) IntegrationLambdaArnOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnOutput)
-}
-
-func (i *IntegrationLambdaArn) ToIntegrationLambdaArnPtrOutput() IntegrationLambdaArnPtrOutput {
-	return i.ToIntegrationLambdaArnPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationLambdaArn) ToIntegrationLambdaArnPtrOutputWithContext(ctx context.Context) IntegrationLambdaArnPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnPtrOutput)
-}
-
-type IntegrationLambdaArnPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationLambdaArnPtrOutput() IntegrationLambdaArnPtrOutput
-	ToIntegrationLambdaArnPtrOutputWithContext(ctx context.Context) IntegrationLambdaArnPtrOutput
-}
-
-type integrationLambdaArnPtrType IntegrationLambdaArnArgs
-
-func (*integrationLambdaArnPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationLambdaArn)(nil))
-}
-
-func (i *integrationLambdaArnPtrType) ToIntegrationLambdaArnPtrOutput() IntegrationLambdaArnPtrOutput {
-	return i.ToIntegrationLambdaArnPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationLambdaArnPtrType) ToIntegrationLambdaArnPtrOutputWithContext(ctx context.Context) IntegrationLambdaArnPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationLambdaArnPtrOutput)
 }
 
 // IntegrationLambdaArnArrayInput is an input type that accepts IntegrationLambdaArnArray and IntegrationLambdaArnArrayOutput values.
@@ -227,7 +198,7 @@ func (i IntegrationLambdaArnMap) ToIntegrationLambdaArnMapOutputWithContext(ctx 
 type IntegrationLambdaArnOutput struct{ *pulumi.OutputState }
 
 func (IntegrationLambdaArnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationLambdaArn)(nil))
+	return reflect.TypeOf((**IntegrationLambdaArn)(nil)).Elem()
 }
 
 func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutput() IntegrationLambdaArnOutput {
@@ -238,44 +209,10 @@ func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnOutputWithContext(ctx 
 	return o
 }
 
-func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnPtrOutput() IntegrationLambdaArnPtrOutput {
-	return o.ToIntegrationLambdaArnPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationLambdaArnOutput) ToIntegrationLambdaArnPtrOutputWithContext(ctx context.Context) IntegrationLambdaArnPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationLambdaArn) *IntegrationLambdaArn {
-		return &v
-	}).(IntegrationLambdaArnPtrOutput)
-}
-
-type IntegrationLambdaArnPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationLambdaArnPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationLambdaArn)(nil))
-}
-
-func (o IntegrationLambdaArnPtrOutput) ToIntegrationLambdaArnPtrOutput() IntegrationLambdaArnPtrOutput {
-	return o
-}
-
-func (o IntegrationLambdaArnPtrOutput) ToIntegrationLambdaArnPtrOutputWithContext(ctx context.Context) IntegrationLambdaArnPtrOutput {
-	return o
-}
-
-func (o IntegrationLambdaArnPtrOutput) Elem() IntegrationLambdaArnOutput {
-	return o.ApplyT(func(v *IntegrationLambdaArn) IntegrationLambdaArn {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationLambdaArn
-		return ret
-	}).(IntegrationLambdaArnOutput)
-}
-
 type IntegrationLambdaArnArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationLambdaArnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationLambdaArn)(nil))
+	return reflect.TypeOf((*[]*IntegrationLambdaArn)(nil)).Elem()
 }
 
 func (o IntegrationLambdaArnArrayOutput) ToIntegrationLambdaArnArrayOutput() IntegrationLambdaArnArrayOutput {
@@ -287,15 +224,15 @@ func (o IntegrationLambdaArnArrayOutput) ToIntegrationLambdaArnArrayOutputWithCo
 }
 
 func (o IntegrationLambdaArnArrayOutput) Index(i pulumi.IntInput) IntegrationLambdaArnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationLambdaArn {
-		return vs[0].([]IntegrationLambdaArn)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationLambdaArn {
+		return vs[0].([]*IntegrationLambdaArn)[vs[1].(int)]
 	}).(IntegrationLambdaArnOutput)
 }
 
 type IntegrationLambdaArnMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationLambdaArnMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationLambdaArn)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationLambdaArn)(nil)).Elem()
 }
 
 func (o IntegrationLambdaArnMapOutput) ToIntegrationLambdaArnMapOutput() IntegrationLambdaArnMapOutput {
@@ -307,18 +244,16 @@ func (o IntegrationLambdaArnMapOutput) ToIntegrationLambdaArnMapOutputWithContex
 }
 
 func (o IntegrationLambdaArnMapOutput) MapIndex(k pulumi.StringInput) IntegrationLambdaArnOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationLambdaArn {
-		return vs[0].(map[string]IntegrationLambdaArn)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationLambdaArn {
+		return vs[0].(map[string]*IntegrationLambdaArn)[vs[1].(string)]
 	}).(IntegrationLambdaArnOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLambdaArnInput)(nil)).Elem(), &IntegrationLambdaArn{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLambdaArnPtrInput)(nil)).Elem(), &IntegrationLambdaArn{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLambdaArnArrayInput)(nil)).Elem(), IntegrationLambdaArnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationLambdaArnMapInput)(nil)).Elem(), IntegrationLambdaArnMap{})
 	pulumi.RegisterOutputType(IntegrationLambdaArnOutput{})
-	pulumi.RegisterOutputType(IntegrationLambdaArnPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationLambdaArnArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationLambdaArnMapOutput{})
 }

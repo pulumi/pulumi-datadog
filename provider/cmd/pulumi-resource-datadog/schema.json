@@ -37396,6 +37396,33 @@
                 "tagName"
             ]
         },
+        "datadog:index/MetricTagConfigurationAggregation:MetricTagConfigurationAggregation": {
+            "properties": {
+                "space": {
+                    "type": "string",
+                    "description": "A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "time": {
+                    "type": "string",
+                    "description": "A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "space",
+                "time"
+            ]
+        },
         "datadog:index/MonitorMonitorThresholdWindows:MonitorMonitorThresholdWindows": {
             "properties": {
                 "recoveryWindow": {
@@ -40553,6 +40580,10 @@
         "datadog:azure/integration:Integration": {
             "description": "Provides a Datadog - Microsoft Azure integration resource. This can be used to create and manage the integrations.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a new Datadog - Microsoft Azure integration\nconst sandbox = new datadog.azure.Integration(\"sandbox\", {\n    clientId: \"\u003cazure_client_id\u003e\",\n    clientSecret: \"\u003cazure_client_secret_key\u003e\",\n    hostFilters: \"examplefilter:true,example:true\",\n    tenantName: \"\u003cazure_tenant_name\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a new Datadog - Microsoft Azure integration\nsandbox = datadog.azure.Integration(\"sandbox\",\n    client_id=\"\u003cazure_client_id\u003e\",\n    client_secret=\"\u003cazure_client_secret_key\u003e\",\n    host_filters=\"examplefilter:true,example:true\",\n    tenant_name=\"\u003cazure_tenant_name\u003e\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a new Datadog - Microsoft Azure integration\n        var sandbox = new Datadog.Azure.Integration(\"sandbox\", new Datadog.Azure.IntegrationArgs\n        {\n            ClientId = \"\u003cazure_client_id\u003e\",\n            ClientSecret = \"\u003cazure_client_secret_key\u003e\",\n            HostFilters = \"examplefilter:true,example:true\",\n            TenantName = \"\u003cazure_tenant_name\u003e\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog/azure\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azure.NewIntegration(ctx, \"sandbox\", \u0026azure.IntegrationArgs{\n\t\t\tClientId:     pulumi.String(\"\u003cazure_client_id\u003e\"),\n\t\t\tClientSecret: pulumi.String(\"\u003cazure_client_secret_key\u003e\"),\n\t\t\tHostFilters:  pulumi.String(\"examplefilter:true,example:true\"),\n\t\t\tTenantName:   pulumi.String(\"\u003cazure_tenant_name\u003e\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n# Microsoft Azure integrations can be imported using their `tenant name` and `client` id separated with a colon (`:`).\n\n```sh\n $ pulumi import datadog:azure/integration:Integration sandbox ${tenant_name}:${client_id}\n```\n\n ",
             "properties": {
+                "automute": {
+                    "type": "boolean",
+                    "description": "Silence monitors for expected Azure VM shutdowns.\n"
+                },
                 "clientId": {
                     "type": "string",
                     "description": "Your Azure web application ID.\n"
@@ -40576,6 +40607,10 @@
                 "tenantName"
             ],
             "inputProperties": {
+                "automute": {
+                    "type": "boolean",
+                    "description": "Silence monitors for expected Azure VM shutdowns.\n"
+                },
                 "clientId": {
                     "type": "string",
                     "description": "Your Azure web application ID.\n"
@@ -40601,6 +40636,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Integration resources.\n",
                 "properties": {
+                    "automute": {
+                        "type": "boolean",
+                        "description": "Silence monitors for expected Azure VM shutdowns.\n"
+                    },
                     "clientId": {
                         "type": "string",
                         "description": "Your Azure web application ID.\n"
@@ -40944,7 +40983,8 @@
                 },
                 "isReadOnly": {
                     "type": "boolean",
-                    "description": "Whether this dashboard is read-only.\n"
+                    "description": "Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.\n",
+                    "deprecationMessage": "Prefer using `restricted_roles` to define which roles are required to edit the dashboard."
                 },
                 "layoutType": {
                     "type": "string",
@@ -40966,7 +41006,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**\n"
+                    "description": "UUIDs of roles whose associated users are authorized to edit the dashboard.\n"
                 },
                 "templateVariablePresets": {
                     "type": "array",
@@ -41018,7 +41058,8 @@
                 },
                 "isReadOnly": {
                     "type": "boolean",
-                    "description": "Whether this dashboard is read-only.\n"
+                    "description": "Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.\n",
+                    "deprecationMessage": "Prefer using `restricted_roles` to define which roles are required to edit the dashboard."
                 },
                 "layoutType": {
                     "type": "string",
@@ -41040,7 +41081,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**\n"
+                    "description": "UUIDs of roles whose associated users are authorized to edit the dashboard.\n"
                 },
                 "templateVariablePresets": {
                     "type": "array",
@@ -41099,7 +41140,8 @@
                     },
                     "isReadOnly": {
                         "type": "boolean",
-                        "description": "Whether this dashboard is read-only.\n"
+                        "description": "Whether this dashboard is read-only. **Deprecated.** Prefer using `restricted_roles` to define which roles are required to edit the dashboard.\n",
+                        "deprecationMessage": "Prefer using `restricted_roles` to define which roles are required to edit the dashboard."
                     },
                     "layoutType": {
                         "type": "string",
@@ -41121,7 +41163,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**\n"
+                        "description": "UUIDs of roles whose associated users are authorized to edit the dashboard.\n"
                     },
                     "templateVariablePresets": {
                         "type": "array",
@@ -41324,7 +41366,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies\n"
+                    "description": "A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced\n"
                 },
                 "recurrence": {
                     "$ref": "#/types/datadog:index/DowntimeRecurrence:DowntimeRecurrence",
@@ -41378,7 +41420,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies\n"
+                    "description": "A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced\n"
                 },
                 "recurrence": {
                     "$ref": "#/types/datadog:index/DowntimeRecurrence:DowntimeRecurrence",
@@ -41443,7 +41485,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies\n"
+                        "description": "A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced\n"
                     },
                     "recurrence": {
                         "$ref": "#/types/datadog:index/DowntimeRecurrence:DowntimeRecurrence",
@@ -42128,11 +42170,18 @@
             }
         },
         "datadog:index/metricTagConfiguration:MetricTagConfiguration": {
-            "description": "Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a tag configuration for a Datadog distribution metric with/without percentiles\nconst exampleDistMetric = new datadog.MetricTagConfiguration(\"example_dist_metric\", {\n    includePercentiles: false,\n    metricName: \"example.terraform.dist.metric\",\n    metricType: \"distribution\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n// Manage tag configurations for a Datadog count or gauge metric\nconst exampleCountMetric = new datadog.MetricTagConfiguration(\"example_count_metric\", {\n    metricName: \"example.terraform.count.metric\",\n    metricType: \"count\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a tag configuration for a Datadog distribution metric with/without percentiles\nexample_dist_metric = datadog.MetricTagConfiguration(\"exampleDistMetric\",\n    include_percentiles=False,\n    metric_name=\"example.terraform.dist.metric\",\n    metric_type=\"distribution\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n# Manage tag configurations for a Datadog count or gauge metric\nexample_count_metric = datadog.MetricTagConfiguration(\"exampleCountMetric\",\n    metric_name=\"example.terraform.count.metric\",\n    metric_type=\"count\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Manage a tag configuration for a Datadog distribution metric with/without percentiles\n        var exampleDistMetric = new Datadog.MetricTagConfiguration(\"exampleDistMetric\", new Datadog.MetricTagConfigurationArgs\n        {\n            IncludePercentiles = false,\n            MetricName = \"example.terraform.dist.metric\",\n            MetricType = \"distribution\",\n            Tags = \n            {\n                \"sport\",\n                \"datacenter\",\n            },\n        });\n        // Manage tag configurations for a Datadog count or gauge metric\n        var exampleCountMetric = new Datadog.MetricTagConfiguration(\"exampleCountMetric\", new Datadog.MetricTagConfigurationArgs\n        {\n            MetricName = \"example.terraform.count.metric\",\n            MetricType = \"count\",\n            Tags = \n            {\n                \"sport\",\n                \"datacenter\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricTagConfiguration(ctx, \"exampleDistMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tIncludePercentiles: pulumi.Bool(false),\n\t\t\tMetricName:         pulumi.String(\"example.terraform.dist.metric\"),\n\t\t\tMetricType:         pulumi.String(\"distribution\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewMetricTagConfiguration(ctx, \"exampleCountMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tMetricName: pulumi.String(\"example.terraform.count.metric\"),\n\t\t\tMetricType: pulumi.String(\"count\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Provides a Datadog metric tag configuration resource. This can be used to modify tag configurations for metrics.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Manage a tag configuration for a Datadog distribution metric with/without percentiles\nconst exampleDistMetric = new datadog.MetricTagConfiguration(\"example_dist_metric\", {\n    includePercentiles: false,\n    metricName: \"example.terraform.dist.metric\",\n    metricType: \"distribution\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n// Manage tag configurations for a Datadog count or gauge metric\nconst exampleCountMetric = new datadog.MetricTagConfiguration(\"example_count_metric\", {\n    aggregations: [\n        {\n            space: \"min\",\n            time: \"avg\",\n        },\n        {\n            space: \"max\",\n            time: \"avg\",\n        },\n    ],\n    metricName: \"example.terraform.count.metric\",\n    metricType: \"count\",\n    tags: [\n        \"sport\",\n        \"datacenter\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Manage a tag configuration for a Datadog distribution metric with/without percentiles\nexample_dist_metric = datadog.MetricTagConfiguration(\"exampleDistMetric\",\n    include_percentiles=False,\n    metric_name=\"example.terraform.dist.metric\",\n    metric_type=\"distribution\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n# Manage tag configurations for a Datadog count or gauge metric\nexample_count_metric = datadog.MetricTagConfiguration(\"exampleCountMetric\",\n    aggregations=[\n        datadog.MetricTagConfigurationAggregationArgs(\n            space=\"min\",\n            time=\"avg\",\n        ),\n        datadog.MetricTagConfigurationAggregationArgs(\n            space=\"max\",\n            time=\"avg\",\n        ),\n    ],\n    metric_name=\"example.terraform.count.metric\",\n    metric_type=\"count\",\n    tags=[\n        \"sport\",\n        \"datacenter\",\n    ])\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Manage a tag configuration for a Datadog distribution metric with/without percentiles\n        var exampleDistMetric = new Datadog.MetricTagConfiguration(\"exampleDistMetric\", new Datadog.MetricTagConfigurationArgs\n        {\n            IncludePercentiles = false,\n            MetricName = \"example.terraform.dist.metric\",\n            MetricType = \"distribution\",\n            Tags = \n            {\n                \"sport\",\n                \"datacenter\",\n            },\n        });\n        // Manage tag configurations for a Datadog count or gauge metric\n        var exampleCountMetric = new Datadog.MetricTagConfiguration(\"exampleCountMetric\", new Datadog.MetricTagConfigurationArgs\n        {\n            Aggregations = \n            {\n                new Datadog.Inputs.MetricTagConfigurationAggregationArgs\n                {\n                    Space = \"min\",\n                    Time = \"avg\",\n                },\n                new Datadog.Inputs.MetricTagConfigurationAggregationArgs\n                {\n                    Space = \"max\",\n                    Time = \"avg\",\n                },\n            },\n            MetricName = \"example.terraform.count.metric\",\n            MetricType = \"count\",\n            Tags = \n            {\n                \"sport\",\n                \"datacenter\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewMetricTagConfiguration(ctx, \"exampleDistMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tIncludePercentiles: pulumi.Bool(false),\n\t\t\tMetricName:         pulumi.String(\"example.terraform.dist.metric\"),\n\t\t\tMetricType:         pulumi.String(\"distribution\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewMetricTagConfiguration(ctx, \"exampleCountMetric\", \u0026datadog.MetricTagConfigurationArgs{\n\t\t\tAggregations: MetricTagConfigurationAggregationArray{\n\t\t\t\t\u0026MetricTagConfigurationAggregationArgs{\n\t\t\t\t\tSpace: pulumi.String(\"min\"),\n\t\t\t\t\tTime:  pulumi.String(\"avg\"),\n\t\t\t\t},\n\t\t\t\t\u0026MetricTagConfigurationAggregationArgs{\n\t\t\t\t\tSpace: pulumi.String(\"max\"),\n\t\t\t\t\tTime:  pulumi.String(\"avg\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tMetricName: pulumi.String(\"example.terraform.count.metric\"),\n\t\t\tMetricType: pulumi.String(\"count\"),\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"sport\"),\n\t\t\t\tpulumi.String(\"datacenter\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
+                "aggregations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/MetricTagConfigurationAggregation:MetricTagConfigurationAggregation"
+                    },
+                    "description": "A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.\n"
+                },
                 "includePercentiles": {
                     "type": "boolean",
-                    "description": "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.\n"
+                    "description": "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.\n"
                 },
                 "metricName": {
                     "type": "string",
@@ -42151,14 +42200,22 @@
                 }
             },
             "required": [
+                "aggregations",
                 "metricName",
                 "metricType",
                 "tags"
             ],
             "inputProperties": {
+                "aggregations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/MetricTagConfigurationAggregation:MetricTagConfigurationAggregation"
+                    },
+                    "description": "A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.\n"
+                },
                 "includePercentiles": {
                     "type": "boolean",
-                    "description": "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.\n"
+                    "description": "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.\n"
                 },
                 "metricName": {
                     "type": "string",
@@ -42184,9 +42241,16 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering MetricTagConfiguration resources.\n",
                 "properties": {
+                    "aggregations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/datadog:index/MetricTagConfigurationAggregation:MetricTagConfigurationAggregation"
+                        },
+                        "description": "A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.\n"
+                    },
                     "includePercentiles": {
                         "type": "boolean",
-                        "description": "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.\n"
+                        "description": "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.\n"
                     },
                     "metricName": {
                         "type": "string",
@@ -42236,7 +42300,7 @@
                 },
                 "locked": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to\n`false`.\n"
+                    "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.\n"
                 },
                 "message": {
                     "type": "string",
@@ -42362,7 +42426,7 @@
                 },
                 "locked": {
                     "type": "boolean",
-                    "description": "A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to\n`false`.\n"
+                    "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.\n"
                 },
                 "message": {
                     "type": "string",
@@ -42489,7 +42553,7 @@
                     },
                     "locked": {
                         "type": "boolean",
-                        "description": "A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to\n`false`.\n"
+                        "description": "A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.\n"
                     },
                     "message": {
                         "type": "string",
@@ -43276,7 +43340,7 @@
             }
         },
         "datadog:index/sloCorrection:SloCorrection": {
-            "description": "Resource for interacting with the slo_correction API.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst exampleSlo = new datadog.ServiceLevelObjective(\"example_slo\", {\n    description: \"some updated description about example_slo SLO\",\n    name: \"example slo\",\n    query: {\n        denominator: \"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\",\n        numerator: \"sum:my.metric{type:good}.as_count()\",\n    },\n    tags: [\"foo:bar\"],\n    thresholds: [{\n        target: 99.5,\n        timeframe: \"7d\",\n        warning: 99.8,\n    }],\n    type: \"metric\",\n});\nconst exampleSloCorrection = new datadog.SloCorrection(\"example_slo_correction\", {\n    category: \"Scheduled Maintenance\",\n    description: \"correction example\",\n    end: 1735718600,\n    sloId: \"datadog_service_level_objective.example_slo.id\",\n    start: 1735707000,\n    timezone: \"UTC\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample_slo = datadog.ServiceLevelObjective(\"exampleSlo\",\n    description=\"some updated description about example_slo SLO\",\n    name=\"example slo\",\n    query=datadog.ServiceLevelObjectiveQueryArgs(\n        denominator=\"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\",\n        numerator=\"sum:my.metric{type:good}.as_count()\",\n    ),\n    tags=[\"foo:bar\"],\n    thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(\n        target=99.5,\n        timeframe=\"7d\",\n        warning=99.8,\n    )],\n    type=\"metric\")\nexample_slo_correction = datadog.SloCorrection(\"exampleSloCorrection\",\n    category=\"Scheduled Maintenance\",\n    description=\"correction example\",\n    end=1735718600,\n    slo_id=\"datadog_service_level_objective.example_slo.id\",\n    start=1735707000,\n    timezone=\"UTC\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleSlo = new Datadog.ServiceLevelObjective(\"exampleSlo\", new Datadog.ServiceLevelObjectiveArgs\n        {\n            Description = \"some updated description about example_slo SLO\",\n            Name = \"example slo\",\n            Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs\n            {\n                Denominator = \"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\",\n                Numerator = \"sum:my.metric{type:good}.as_count()\",\n            },\n            Tags = \n            {\n                \"foo:bar\",\n            },\n            Thresholds = \n            {\n                new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n                {\n                    Target = 99.5,\n                    Timeframe = \"7d\",\n                    Warning = 99.8,\n                },\n            },\n            Type = \"metric\",\n        });\n        var exampleSloCorrection = new Datadog.SloCorrection(\"exampleSloCorrection\", new Datadog.SloCorrectionArgs\n        {\n            Category = \"Scheduled Maintenance\",\n            Description = \"correction example\",\n            End = 1735718600,\n            SloId = \"datadog_service_level_objective.example_slo.id\",\n            Start = 1735707000,\n            Timezone = \"UTC\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceLevelObjective(ctx, \"exampleSlo\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"some updated description about example_slo SLO\"),\n\t\t\tName:        pulumi.String(\"example slo\"),\n\t\t\tQuery: \u0026ServiceLevelObjectiveQueryArgs{\n\t\t\t\tDenominator: pulumi.String(\"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\"),\n\t\t\t\tNumerator:   pulumi.String(\"sum:my.metric{type:good}.as_count()\"),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t},\n\t\t\tThresholds: ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.5),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.8),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"metric\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewSloCorrection(ctx, \"exampleSloCorrection\", \u0026datadog.SloCorrectionArgs{\n\t\t\tCategory:    pulumi.String(\"Scheduled Maintenance\"),\n\t\t\tDescription: pulumi.String(\"correction example\"),\n\t\t\tEnd:         pulumi.Int(1735718600),\n\t\t\tSloId:       pulumi.String(\"datadog_service_level_objective.example_slo.id\"),\n\t\t\tStart:       pulumi.Int(1735707000),\n\t\t\tTimezone:    pulumi.String(\"UTC\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e\n```\n\n ",
+            "description": "Resource for interacting with the slo_correction API.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\nconst exampleSlo = new datadog.ServiceLevelObjective(\"example_slo\", {\n    description: \"some updated description about example_slo SLO\",\n    name: \"example slo\",\n    query: {\n        denominator: \"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\",\n        numerator: \"sum:my.metric{type:good}.as_count()\",\n    },\n    tags: [\"foo:bar\"],\n    thresholds: [{\n        target: 99.5,\n        timeframe: \"7d\",\n        warning: 99.8,\n    }],\n    type: \"metric\",\n});\nconst exampleSloCorrection = new datadog.SloCorrection(\"example_slo_correction\", {\n    category: \"Scheduled Maintenance\",\n    description: \"correction example\",\n    end: 1735718600,\n    sloId: \"datadog_service_level_objective.example_slo.id\",\n    start: 1735707000,\n    timezone: \"UTC\",\n});\nconst exampleSloCorrectionWithRecurrence = new datadog.SloCorrection(\"example_slo_correction_with_recurrence\", {\n    category: \"Scheduled Maintenance\",\n    description: \"correction example with recurrence\",\n    duration: 3600,\n    rrule: \"FREQ=DAILY;INTERVAL=3;\",\n    sloId: \"datadog_service_level_objective.example_slo.id\",\n    start: 1735707000,\n    timezone: \"UTC\",\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\nexample_slo = datadog.ServiceLevelObjective(\"exampleSlo\",\n    description=\"some updated description about example_slo SLO\",\n    name=\"example slo\",\n    query=datadog.ServiceLevelObjectiveQueryArgs(\n        denominator=\"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\",\n        numerator=\"sum:my.metric{type:good}.as_count()\",\n    ),\n    tags=[\"foo:bar\"],\n    thresholds=[datadog.ServiceLevelObjectiveThresholdArgs(\n        target=99.5,\n        timeframe=\"7d\",\n        warning=99.8,\n    )],\n    type=\"metric\")\nexample_slo_correction = datadog.SloCorrection(\"exampleSloCorrection\",\n    category=\"Scheduled Maintenance\",\n    description=\"correction example\",\n    end=1735718600,\n    slo_id=\"datadog_service_level_objective.example_slo.id\",\n    start=1735707000,\n    timezone=\"UTC\")\nexample_slo_correction_with_recurrence = datadog.SloCorrection(\"exampleSloCorrectionWithRecurrence\",\n    category=\"Scheduled Maintenance\",\n    description=\"correction example with recurrence\",\n    duration=3600,\n    rrule=\"FREQ=DAILY;INTERVAL=3;\",\n    slo_id=\"datadog_service_level_objective.example_slo.id\",\n    start=1735707000,\n    timezone=\"UTC\")\n```\n```csharp\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleSlo = new Datadog.ServiceLevelObjective(\"exampleSlo\", new Datadog.ServiceLevelObjectiveArgs\n        {\n            Description = \"some updated description about example_slo SLO\",\n            Name = \"example slo\",\n            Query = new Datadog.Inputs.ServiceLevelObjectiveQueryArgs\n            {\n                Denominator = \"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\",\n                Numerator = \"sum:my.metric{type:good}.as_count()\",\n            },\n            Tags = \n            {\n                \"foo:bar\",\n            },\n            Thresholds = \n            {\n                new Datadog.Inputs.ServiceLevelObjectiveThresholdArgs\n                {\n                    Target = 99.5,\n                    Timeframe = \"7d\",\n                    Warning = 99.8,\n                },\n            },\n            Type = \"metric\",\n        });\n        var exampleSloCorrection = new Datadog.SloCorrection(\"exampleSloCorrection\", new Datadog.SloCorrectionArgs\n        {\n            Category = \"Scheduled Maintenance\",\n            Description = \"correction example\",\n            End = 1735718600,\n            SloId = \"datadog_service_level_objective.example_slo.id\",\n            Start = 1735707000,\n            Timezone = \"UTC\",\n        });\n        var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection(\"exampleSloCorrectionWithRecurrence\", new Datadog.SloCorrectionArgs\n        {\n            Category = \"Scheduled Maintenance\",\n            Description = \"correction example with recurrence\",\n            Duration = 3600,\n            Rrule = \"FREQ=DAILY;INTERVAL=3;\",\n            SloId = \"datadog_service_level_objective.example_slo.id\",\n            Start = 1735707000,\n            Timezone = \"UTC\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v4/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := datadog.NewServiceLevelObjective(ctx, \"exampleSlo\", \u0026datadog.ServiceLevelObjectiveArgs{\n\t\t\tDescription: pulumi.String(\"some updated description about example_slo SLO\"),\n\t\t\tName:        pulumi.String(\"example slo\"),\n\t\t\tQuery: \u0026ServiceLevelObjectiveQueryArgs{\n\t\t\t\tDenominator: pulumi.String(\"sum:my.metric{type:good}.as_count() + sum:my.metric{type:bad}.as_count()\"),\n\t\t\t\tNumerator:   pulumi.String(\"sum:my.metric{type:good}.as_count()\"),\n\t\t\t},\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"foo:bar\"),\n\t\t\t},\n\t\t\tThresholds: ServiceLevelObjectiveThresholdArray{\n\t\t\t\t\u0026ServiceLevelObjectiveThresholdArgs{\n\t\t\t\t\tTarget:    pulumi.Float64(99.5),\n\t\t\t\t\tTimeframe: pulumi.String(\"7d\"),\n\t\t\t\t\tWarning:   pulumi.Float64(99.8),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"metric\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewSloCorrection(ctx, \"exampleSloCorrection\", \u0026datadog.SloCorrectionArgs{\n\t\t\tCategory:    pulumi.String(\"Scheduled Maintenance\"),\n\t\t\tDescription: pulumi.String(\"correction example\"),\n\t\t\tEnd:         pulumi.Int(1735718600),\n\t\t\tSloId:       pulumi.String(\"datadog_service_level_objective.example_slo.id\"),\n\t\t\tStart:       pulumi.Int(1735707000),\n\t\t\tTimezone:    pulumi.String(\"UTC\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = datadog.NewSloCorrection(ctx, \"exampleSloCorrectionWithRecurrence\", \u0026datadog.SloCorrectionArgs{\n\t\t\tCategory:    pulumi.String(\"Scheduled Maintenance\"),\n\t\t\tDescription: pulumi.String(\"correction example with recurrence\"),\n\t\t\tDuration:    pulumi.Int(3600),\n\t\t\tRrule:       pulumi.String(\"FREQ=DAILY;INTERVAL=3;\"),\n\t\t\tSloId:       pulumi.String(\"datadog_service_level_objective.example_slo.id\"),\n\t\t\tStart:       pulumi.Int(1735707000),\n\t\t\tTimezone:    pulumi.String(\"UTC\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import datadog:index/sloCorrection:SloCorrection testing_slo_correction 11111111-3fee-11eb-8a13-77cd9f15119e\n```\n\n ",
             "properties": {
                 "category": {
                     "type": "string",
@@ -43286,9 +43350,17 @@
                     "type": "string",
                     "description": "Description of the correction being made.\n"
                 },
+                "duration": {
+                    "type": "integer",
+                    "description": "Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)\n"
+                },
                 "end": {
                     "type": "integer",
-                    "description": "Ending time of the correction in epoch seconds.\n"
+                    "description": "Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified\n"
+                },
+                "rrule": {
+                    "type": "string",
+                    "description": "Recurrence rules as defined in the iCalendar RFC 5545.\n"
                 },
                 "sloId": {
                     "type": "string",
@@ -43305,7 +43377,6 @@
             },
             "required": [
                 "category",
-                "end",
                 "sloId",
                 "start"
             ],
@@ -43318,9 +43389,17 @@
                     "type": "string",
                     "description": "Description of the correction being made.\n"
                 },
+                "duration": {
+                    "type": "integer",
+                    "description": "Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)\n"
+                },
                 "end": {
                     "type": "integer",
-                    "description": "Ending time of the correction in epoch seconds.\n"
+                    "description": "Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified\n"
+                },
+                "rrule": {
+                    "type": "string",
+                    "description": "Recurrence rules as defined in the iCalendar RFC 5545.\n"
                 },
                 "sloId": {
                     "type": "string",
@@ -43337,7 +43416,6 @@
             },
             "requiredInputs": [
                 "category",
-                "end",
                 "sloId",
                 "start"
             ],
@@ -43352,9 +43430,17 @@
                         "type": "string",
                         "description": "Description of the correction being made.\n"
                     },
+                    "duration": {
+                        "type": "integer",
+                        "description": "Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)\n"
+                    },
                     "end": {
                         "type": "integer",
-                        "description": "Ending time of the correction in epoch seconds.\n"
+                        "description": "Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified\n"
+                    },
+                    "rrule": {
+                        "type": "string",
+                        "description": "Recurrence rules as defined in the iCalendar RFC 5545.\n"
                     },
                     "sloId": {
                         "type": "string",

@@ -558,28 +558,28 @@ export class DashboardJson extends pulumi.CustomResource {
      */
     constructor(name: string, args: DashboardJsonArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DashboardJsonArgs | DashboardJsonState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DashboardJsonState | undefined;
-            inputs["dashboard"] = state ? state.dashboard : undefined;
-            inputs["dashboardLists"] = state ? state.dashboardLists : undefined;
-            inputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["dashboard"] = state ? state.dashboard : undefined;
+            resourceInputs["dashboardLists"] = state ? state.dashboardLists : undefined;
+            resourceInputs["dashboardListsRemoveds"] = state ? state.dashboardListsRemoveds : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as DashboardJsonArgs | undefined;
             if ((!args || args.dashboard === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dashboard'");
             }
-            inputs["dashboard"] = args ? args.dashboard : undefined;
-            inputs["dashboardLists"] = args ? args.dashboardLists : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["dashboardListsRemoveds"] = undefined /*out*/;
+            resourceInputs["dashboard"] = args ? args.dashboard : undefined;
+            resourceInputs["dashboardLists"] = args ? args.dashboardLists : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["dashboardListsRemoveds"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DashboardJson.__pulumiType, name, inputs, opts);
+        super(DashboardJson.__pulumiType, name, resourceInputs, opts);
     }
 }
 

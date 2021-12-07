@@ -132,20 +132,20 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityMonitoringRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityMonitoringRuleArgs | SecurityMonitoringRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityMonitoringRuleState | undefined;
-            inputs["cases"] = state ? state.cases : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["hasExtendedTitle"] = state ? state.hasExtendedTitle : undefined;
-            inputs["message"] = state ? state.message : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["options"] = state ? state.options : undefined;
-            inputs["queries"] = state ? state.queries : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["cases"] = state ? state.cases : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["hasExtendedTitle"] = state ? state.hasExtendedTitle : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["queries"] = state ? state.queries : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityMonitoringRuleArgs | undefined;
             if ((!args || args.cases === undefined) && !opts.urn) {
@@ -160,21 +160,21 @@ export class SecurityMonitoringRule extends pulumi.CustomResource {
             if ((!args || args.queries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queries'");
             }
-            inputs["cases"] = args ? args.cases : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["hasExtendedTitle"] = args ? args.hasExtendedTitle : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["queries"] = args ? args.queries : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["cases"] = args ? args.cases : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["hasExtendedTitle"] = args ? args.hasExtendedTitle : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["queries"] = args ? args.queries : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SecurityMonitoringRule.__pulumiType, name, inputs, opts);
+        super(SecurityMonitoringRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

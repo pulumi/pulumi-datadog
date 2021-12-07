@@ -868,6 +868,7 @@ __all__ = [
     'LogsMetricCompute',
     'LogsMetricFilter',
     'LogsMetricGroupBy',
+    'MetricTagConfigurationAggregation',
     'MonitorMonitorThresholdWindows',
     'MonitorMonitorThresholds',
     'OrganizationSettingsSettings',
@@ -44548,6 +44549,35 @@ class LogsMetricGroupBy(dict):
         Name of the tag that gets created.
         """
         return pulumi.get(self, "tag_name")
+
+
+@pulumi.output_type
+class MetricTagConfigurationAggregation(dict):
+    def __init__(__self__, *,
+                 space: str,
+                 time: str):
+        """
+        :param str space: A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+        :param str time: A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+        """
+        pulumi.set(__self__, "space", space)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def space(self) -> str:
+        """
+        A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+        """
+        return pulumi.get(self, "space")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+        """
+        return pulumi.get(self, "time")
 
 
 @pulumi.output_type

@@ -71,24 +71,24 @@ export class ApplicationKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationKeyArgs | ApplicationKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationKeyState | undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ApplicationKeyArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["key"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["key"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApplicationKey.__pulumiType, name, inputs, opts);
+        super(ApplicationKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

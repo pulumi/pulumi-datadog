@@ -37,6 +37,19 @@ namespace Pulumi.Datadog
     ///         // Manage tag configurations for a Datadog count or gauge metric
     ///         var exampleCountMetric = new Datadog.MetricTagConfiguration("exampleCountMetric", new Datadog.MetricTagConfigurationArgs
     ///         {
+    ///             Aggregations = 
+    ///             {
+    ///                 new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///                 {
+    ///                     Space = "min",
+    ///                     Time = "avg",
+    ///                 },
+    ///                 new Datadog.Inputs.MetricTagConfigurationAggregationArgs
+    ///                 {
+    ///                     Space = "max",
+    ///                     Time = "avg",
+    ///                 },
+    ///             },
     ///             MetricName = "example.terraform.count.metric",
     ///             MetricType = "count",
     ///             Tags = 
@@ -54,7 +67,13 @@ namespace Pulumi.Datadog
     public partial class MetricTagConfiguration : Pulumi.CustomResource
     {
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// </summary>
+        [Output("aggregations")]
+        public Output<ImmutableArray<Outputs.MetricTagConfigurationAggregation>> Aggregations { get; private set; } = null!;
+
+        /// <summary>
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         /// </summary>
         [Output("includePercentiles")]
         public Output<bool?> IncludePercentiles { get; private set; } = null!;
@@ -123,8 +142,20 @@ namespace Pulumi.Datadog
 
     public sealed class MetricTagConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("aggregations")]
+        private InputList<Inputs.MetricTagConfigurationAggregationArgs>? _aggregations;
+
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// </summary>
+        public InputList<Inputs.MetricTagConfigurationAggregationArgs> Aggregations
+        {
+            get => _aggregations ?? (_aggregations = new InputList<Inputs.MetricTagConfigurationAggregationArgs>());
+            set => _aggregations = value;
+        }
+
+        /// <summary>
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }
@@ -160,8 +191,20 @@ namespace Pulumi.Datadog
 
     public sealed class MetricTagConfigurationState : Pulumi.ResourceArgs
     {
+        [Input("aggregations")]
+        private InputList<Inputs.MetricTagConfigurationAggregationGetArgs>? _aggregations;
+
         /// <summary>
-        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metric_type of distribution.
+        /// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge.
+        /// </summary>
+        public InputList<Inputs.MetricTagConfigurationAggregationGetArgs> Aggregations
+        {
+            get => _aggregations ?? (_aggregations = new InputList<Inputs.MetricTagConfigurationAggregationGetArgs>());
+            set => _aggregations = value;
+        }
+
+        /// <summary>
+        /// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         /// </summary>
         [Input("includePercentiles")]
         public Input<bool>? IncludePercentiles { get; set; }

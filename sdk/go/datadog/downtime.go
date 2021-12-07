@@ -66,7 +66,7 @@ type Downtime struct {
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// When specified, this downtime will only apply to this monitor
 	MonitorId pulumi.IntPtrOutput `pulumi:"monitorId"`
-	// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags pulumi.StringArrayOutput `pulumi:"monitorTags"`
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrOutput `pulumi:"recurrence"`
@@ -126,7 +126,7 @@ type downtimeState struct {
 	Message *string `pulumi:"message"`
 	// When specified, this downtime will only apply to this monitor
 	MonitorId *int `pulumi:"monitorId"`
-	// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags []string `pulumi:"monitorTags"`
 	// Optional recurring schedule for this downtime
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
@@ -155,7 +155,7 @@ type DowntimeState struct {
 	Message pulumi.StringPtrInput
 	// When specified, this downtime will only apply to this monitor
 	MonitorId pulumi.IntPtrInput
-	// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags pulumi.StringArrayInput
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrInput
@@ -182,7 +182,7 @@ type downtimeArgs struct {
 	Message *string `pulumi:"message"`
 	// When specified, this downtime will only apply to this monitor
 	MonitorId *int `pulumi:"monitorId"`
-	// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags []string `pulumi:"monitorTags"`
 	// Optional recurring schedule for this downtime
 	Recurrence *DowntimeRecurrence `pulumi:"recurrence"`
@@ -206,7 +206,7 @@ type DowntimeArgs struct {
 	Message pulumi.StringPtrInput
 	// When specified, this downtime will only apply to this monitor
 	MonitorId pulumi.IntPtrInput
-	// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+	// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
 	MonitorTags pulumi.StringArrayInput
 	// Optional recurring schedule for this downtime
 	Recurrence DowntimeRecurrencePtrInput
@@ -232,7 +232,7 @@ type DowntimeInput interface {
 }
 
 func (*Downtime) ElementType() reflect.Type {
-	return reflect.TypeOf((*Downtime)(nil))
+	return reflect.TypeOf((**Downtime)(nil)).Elem()
 }
 
 func (i *Downtime) ToDowntimeOutput() DowntimeOutput {
@@ -241,35 +241,6 @@ func (i *Downtime) ToDowntimeOutput() DowntimeOutput {
 
 func (i *Downtime) ToDowntimeOutputWithContext(ctx context.Context) DowntimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DowntimeOutput)
-}
-
-func (i *Downtime) ToDowntimePtrOutput() DowntimePtrOutput {
-	return i.ToDowntimePtrOutputWithContext(context.Background())
-}
-
-func (i *Downtime) ToDowntimePtrOutputWithContext(ctx context.Context) DowntimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DowntimePtrOutput)
-}
-
-type DowntimePtrInput interface {
-	pulumi.Input
-
-	ToDowntimePtrOutput() DowntimePtrOutput
-	ToDowntimePtrOutputWithContext(ctx context.Context) DowntimePtrOutput
-}
-
-type downtimePtrType DowntimeArgs
-
-func (*downtimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Downtime)(nil))
-}
-
-func (i *downtimePtrType) ToDowntimePtrOutput() DowntimePtrOutput {
-	return i.ToDowntimePtrOutputWithContext(context.Background())
-}
-
-func (i *downtimePtrType) ToDowntimePtrOutputWithContext(ctx context.Context) DowntimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DowntimePtrOutput)
 }
 
 // DowntimeArrayInput is an input type that accepts DowntimeArray and DowntimeArrayOutput values.
@@ -325,7 +296,7 @@ func (i DowntimeMap) ToDowntimeMapOutputWithContext(ctx context.Context) Downtim
 type DowntimeOutput struct{ *pulumi.OutputState }
 
 func (DowntimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Downtime)(nil))
+	return reflect.TypeOf((**Downtime)(nil)).Elem()
 }
 
 func (o DowntimeOutput) ToDowntimeOutput() DowntimeOutput {
@@ -336,44 +307,10 @@ func (o DowntimeOutput) ToDowntimeOutputWithContext(ctx context.Context) Downtim
 	return o
 }
 
-func (o DowntimeOutput) ToDowntimePtrOutput() DowntimePtrOutput {
-	return o.ToDowntimePtrOutputWithContext(context.Background())
-}
-
-func (o DowntimeOutput) ToDowntimePtrOutputWithContext(ctx context.Context) DowntimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Downtime) *Downtime {
-		return &v
-	}).(DowntimePtrOutput)
-}
-
-type DowntimePtrOutput struct{ *pulumi.OutputState }
-
-func (DowntimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Downtime)(nil))
-}
-
-func (o DowntimePtrOutput) ToDowntimePtrOutput() DowntimePtrOutput {
-	return o
-}
-
-func (o DowntimePtrOutput) ToDowntimePtrOutputWithContext(ctx context.Context) DowntimePtrOutput {
-	return o
-}
-
-func (o DowntimePtrOutput) Elem() DowntimeOutput {
-	return o.ApplyT(func(v *Downtime) Downtime {
-		if v != nil {
-			return *v
-		}
-		var ret Downtime
-		return ret
-	}).(DowntimeOutput)
-}
-
 type DowntimeArrayOutput struct{ *pulumi.OutputState }
 
 func (DowntimeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Downtime)(nil))
+	return reflect.TypeOf((*[]*Downtime)(nil)).Elem()
 }
 
 func (o DowntimeArrayOutput) ToDowntimeArrayOutput() DowntimeArrayOutput {
@@ -385,15 +322,15 @@ func (o DowntimeArrayOutput) ToDowntimeArrayOutputWithContext(ctx context.Contex
 }
 
 func (o DowntimeArrayOutput) Index(i pulumi.IntInput) DowntimeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Downtime {
-		return vs[0].([]Downtime)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Downtime {
+		return vs[0].([]*Downtime)[vs[1].(int)]
 	}).(DowntimeOutput)
 }
 
 type DowntimeMapOutput struct{ *pulumi.OutputState }
 
 func (DowntimeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Downtime)(nil))
+	return reflect.TypeOf((*map[string]*Downtime)(nil)).Elem()
 }
 
 func (o DowntimeMapOutput) ToDowntimeMapOutput() DowntimeMapOutput {
@@ -405,18 +342,16 @@ func (o DowntimeMapOutput) ToDowntimeMapOutputWithContext(ctx context.Context) D
 }
 
 func (o DowntimeMapOutput) MapIndex(k pulumi.StringInput) DowntimeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Downtime {
-		return vs[0].(map[string]Downtime)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Downtime {
+		return vs[0].(map[string]*Downtime)[vs[1].(string)]
 	}).(DowntimeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeInput)(nil)).Elem(), &Downtime{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DowntimePtrInput)(nil)).Elem(), &Downtime{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeArrayInput)(nil)).Elem(), DowntimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeMapInput)(nil)).Elem(), DowntimeMap{})
 	pulumi.RegisterOutputType(DowntimeOutput{})
-	pulumi.RegisterOutputType(DowntimePtrOutput{})
 	pulumi.RegisterOutputType(DowntimeArrayOutput{})
 	pulumi.RegisterOutputType(DowntimeMapOutput{})
 }

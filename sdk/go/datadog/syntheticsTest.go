@@ -622,7 +622,7 @@ type SyntheticsTestInput interface {
 }
 
 func (*SyntheticsTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsTest)(nil))
+	return reflect.TypeOf((**SyntheticsTest)(nil)).Elem()
 }
 
 func (i *SyntheticsTest) ToSyntheticsTestOutput() SyntheticsTestOutput {
@@ -631,35 +631,6 @@ func (i *SyntheticsTest) ToSyntheticsTestOutput() SyntheticsTestOutput {
 
 func (i *SyntheticsTest) ToSyntheticsTestOutputWithContext(ctx context.Context) SyntheticsTestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestOutput)
-}
-
-func (i *SyntheticsTest) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
-	return i.ToSyntheticsTestPtrOutputWithContext(context.Background())
-}
-
-func (i *SyntheticsTest) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestPtrOutput)
-}
-
-type SyntheticsTestPtrInput interface {
-	pulumi.Input
-
-	ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput
-	ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput
-}
-
-type syntheticsTestPtrType SyntheticsTestArgs
-
-func (*syntheticsTestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SyntheticsTest)(nil))
-}
-
-func (i *syntheticsTestPtrType) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
-	return i.ToSyntheticsTestPtrOutputWithContext(context.Background())
-}
-
-func (i *syntheticsTestPtrType) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyntheticsTestPtrOutput)
 }
 
 // SyntheticsTestArrayInput is an input type that accepts SyntheticsTestArray and SyntheticsTestArrayOutput values.
@@ -715,7 +686,7 @@ func (i SyntheticsTestMap) ToSyntheticsTestMapOutputWithContext(ctx context.Cont
 type SyntheticsTestOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyntheticsTest)(nil))
+	return reflect.TypeOf((**SyntheticsTest)(nil)).Elem()
 }
 
 func (o SyntheticsTestOutput) ToSyntheticsTestOutput() SyntheticsTestOutput {
@@ -726,44 +697,10 @@ func (o SyntheticsTestOutput) ToSyntheticsTestOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SyntheticsTestOutput) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
-	return o.ToSyntheticsTestPtrOutputWithContext(context.Background())
-}
-
-func (o SyntheticsTestOutput) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyntheticsTest) *SyntheticsTest {
-		return &v
-	}).(SyntheticsTestPtrOutput)
-}
-
-type SyntheticsTestPtrOutput struct{ *pulumi.OutputState }
-
-func (SyntheticsTestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SyntheticsTest)(nil))
-}
-
-func (o SyntheticsTestPtrOutput) ToSyntheticsTestPtrOutput() SyntheticsTestPtrOutput {
-	return o
-}
-
-func (o SyntheticsTestPtrOutput) ToSyntheticsTestPtrOutputWithContext(ctx context.Context) SyntheticsTestPtrOutput {
-	return o
-}
-
-func (o SyntheticsTestPtrOutput) Elem() SyntheticsTestOutput {
-	return o.ApplyT(func(v *SyntheticsTest) SyntheticsTest {
-		if v != nil {
-			return *v
-		}
-		var ret SyntheticsTest
-		return ret
-	}).(SyntheticsTestOutput)
-}
-
 type SyntheticsTestArrayOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsTestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SyntheticsTest)(nil))
+	return reflect.TypeOf((*[]*SyntheticsTest)(nil)).Elem()
 }
 
 func (o SyntheticsTestArrayOutput) ToSyntheticsTestArrayOutput() SyntheticsTestArrayOutput {
@@ -775,15 +712,15 @@ func (o SyntheticsTestArrayOutput) ToSyntheticsTestArrayOutputWithContext(ctx co
 }
 
 func (o SyntheticsTestArrayOutput) Index(i pulumi.IntInput) SyntheticsTestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyntheticsTest {
-		return vs[0].([]SyntheticsTest)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyntheticsTest {
+		return vs[0].([]*SyntheticsTest)[vs[1].(int)]
 	}).(SyntheticsTestOutput)
 }
 
 type SyntheticsTestMapOutput struct{ *pulumi.OutputState }
 
 func (SyntheticsTestMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SyntheticsTest)(nil))
+	return reflect.TypeOf((*map[string]*SyntheticsTest)(nil)).Elem()
 }
 
 func (o SyntheticsTestMapOutput) ToSyntheticsTestMapOutput() SyntheticsTestMapOutput {
@@ -795,18 +732,16 @@ func (o SyntheticsTestMapOutput) ToSyntheticsTestMapOutputWithContext(ctx contex
 }
 
 func (o SyntheticsTestMapOutput) MapIndex(k pulumi.StringInput) SyntheticsTestOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SyntheticsTest {
-		return vs[0].(map[string]SyntheticsTest)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SyntheticsTest {
+		return vs[0].(map[string]*SyntheticsTest)[vs[1].(string)]
 	}).(SyntheticsTestOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestInput)(nil)).Elem(), &SyntheticsTest{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestPtrInput)(nil)).Elem(), &SyntheticsTest{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestArrayInput)(nil)).Elem(), SyntheticsTestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SyntheticsTestMapInput)(nil)).Elem(), SyntheticsTestMap{})
 	pulumi.RegisterOutputType(SyntheticsTestOutput{})
-	pulumi.RegisterOutputType(SyntheticsTestPtrOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestArrayOutput{})
 	pulumi.RegisterOutputType(SyntheticsTestMapOutput{})
 }

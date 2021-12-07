@@ -788,7 +788,9 @@ type Dashboard struct {
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	//
+	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringOutput `pulumi:"layoutType"`
@@ -796,7 +798,7 @@ type Dashboard struct {
 	NotifyLists pulumi.StringArrayOutput `pulumi:"notifyLists"`
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrOutput `pulumi:"reflowType"`
-	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayOutput `pulumi:"restrictedRoles"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayOutput `pulumi:"templateVariablePresets"`
@@ -851,7 +853,9 @@ type dashboardState struct {
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	//
+	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType *string `pulumi:"layoutType"`
@@ -859,7 +863,7 @@ type dashboardState struct {
 	NotifyLists []string `pulumi:"notifyLists"`
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
-	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
@@ -880,7 +884,9 @@ type DashboardState struct {
 	DashboardListsRemoveds pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	//
+	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringPtrInput
@@ -888,7 +894,7 @@ type DashboardState struct {
 	NotifyLists pulumi.StringArrayInput
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput
-	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
@@ -911,7 +917,9 @@ type dashboardArgs struct {
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	//
+	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType string `pulumi:"layoutType"`
@@ -919,7 +927,7 @@ type dashboardArgs struct {
 	NotifyLists []string `pulumi:"notifyLists"`
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType *string `pulumi:"reflowType"`
-	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles []string `pulumi:"restrictedRoles"`
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets []DashboardTemplateVariablePreset `pulumi:"templateVariablePresets"`
@@ -939,7 +947,9 @@ type DashboardArgs struct {
 	DashboardLists pulumi.IntArrayInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
-	// Whether this dashboard is read-only.
+	// Whether this dashboard is read-only. **Deprecated.** Prefer using `restrictedRoles` to define which roles are required to edit the dashboard.
+	//
+	// Deprecated: Prefer using `restricted_roles` to define which roles are required to edit the dashboard.
 	IsReadOnly pulumi.BoolPtrInput
 	// The layout type of the dashboard. Valid values are `ordered`, `free`.
 	LayoutType pulumi.StringInput
@@ -947,7 +957,7 @@ type DashboardArgs struct {
 	NotifyLists pulumi.StringArrayInput
 	// The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
 	ReflowType pulumi.StringPtrInput
-	// Role UUIDs corresponding to users authorized to edit the dashboard. **This feature is currently in beta.**
+	// UUIDs of roles whose associated users are authorized to edit the dashboard.
 	RestrictedRoles pulumi.StringArrayInput
 	// The list of selectable template variable presets for this dashboard.
 	TemplateVariablePresets DashboardTemplateVariablePresetArrayInput
@@ -973,7 +983,7 @@ type DashboardInput interface {
 }
 
 func (*Dashboard) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dashboard)(nil))
+	return reflect.TypeOf((**Dashboard)(nil)).Elem()
 }
 
 func (i *Dashboard) ToDashboardOutput() DashboardOutput {
@@ -982,35 +992,6 @@ func (i *Dashboard) ToDashboardOutput() DashboardOutput {
 
 func (i *Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardOutput)
-}
-
-func (i *Dashboard) ToDashboardPtrOutput() DashboardPtrOutput {
-	return i.ToDashboardPtrOutputWithContext(context.Background())
-}
-
-func (i *Dashboard) ToDashboardPtrOutputWithContext(ctx context.Context) DashboardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPtrOutput)
-}
-
-type DashboardPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPtrOutput() DashboardPtrOutput
-	ToDashboardPtrOutputWithContext(ctx context.Context) DashboardPtrOutput
-}
-
-type dashboardPtrType DashboardArgs
-
-func (*dashboardPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Dashboard)(nil))
-}
-
-func (i *dashboardPtrType) ToDashboardPtrOutput() DashboardPtrOutput {
-	return i.ToDashboardPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPtrType) ToDashboardPtrOutputWithContext(ctx context.Context) DashboardPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPtrOutput)
 }
 
 // DashboardArrayInput is an input type that accepts DashboardArray and DashboardArrayOutput values.
@@ -1066,7 +1047,7 @@ func (i DashboardMap) ToDashboardMapOutputWithContext(ctx context.Context) Dashb
 type DashboardOutput struct{ *pulumi.OutputState }
 
 func (DashboardOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dashboard)(nil))
+	return reflect.TypeOf((**Dashboard)(nil)).Elem()
 }
 
 func (o DashboardOutput) ToDashboardOutput() DashboardOutput {
@@ -1077,44 +1058,10 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
-func (o DashboardOutput) ToDashboardPtrOutput() DashboardPtrOutput {
-	return o.ToDashboardPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardOutput) ToDashboardPtrOutputWithContext(ctx context.Context) DashboardPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dashboard) *Dashboard {
-		return &v
-	}).(DashboardPtrOutput)
-}
-
-type DashboardPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Dashboard)(nil))
-}
-
-func (o DashboardPtrOutput) ToDashboardPtrOutput() DashboardPtrOutput {
-	return o
-}
-
-func (o DashboardPtrOutput) ToDashboardPtrOutputWithContext(ctx context.Context) DashboardPtrOutput {
-	return o
-}
-
-func (o DashboardPtrOutput) Elem() DashboardOutput {
-	return o.ApplyT(func(v *Dashboard) Dashboard {
-		if v != nil {
-			return *v
-		}
-		var ret Dashboard
-		return ret
-	}).(DashboardOutput)
-}
-
 type DashboardArrayOutput struct{ *pulumi.OutputState }
 
 func (DashboardArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Dashboard)(nil))
+	return reflect.TypeOf((*[]*Dashboard)(nil)).Elem()
 }
 
 func (o DashboardArrayOutput) ToDashboardArrayOutput() DashboardArrayOutput {
@@ -1126,15 +1073,15 @@ func (o DashboardArrayOutput) ToDashboardArrayOutputWithContext(ctx context.Cont
 }
 
 func (o DashboardArrayOutput) Index(i pulumi.IntInput) DashboardOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Dashboard {
-		return vs[0].([]Dashboard)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Dashboard {
+		return vs[0].([]*Dashboard)[vs[1].(int)]
 	}).(DashboardOutput)
 }
 
 type DashboardMapOutput struct{ *pulumi.OutputState }
 
 func (DashboardMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Dashboard)(nil))
+	return reflect.TypeOf((*map[string]*Dashboard)(nil)).Elem()
 }
 
 func (o DashboardMapOutput) ToDashboardMapOutput() DashboardMapOutput {
@@ -1146,18 +1093,16 @@ func (o DashboardMapOutput) ToDashboardMapOutputWithContext(ctx context.Context)
 }
 
 func (o DashboardMapOutput) MapIndex(k pulumi.StringInput) DashboardOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Dashboard {
-		return vs[0].(map[string]Dashboard)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Dashboard {
+		return vs[0].(map[string]*Dashboard)[vs[1].(string)]
 	}).(DashboardOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardInput)(nil)).Elem(), &Dashboard{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPtrInput)(nil)).Elem(), &Dashboard{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardArrayInput)(nil)).Elem(), DashboardArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardMapInput)(nil)).Elem(), DashboardMap{})
 	pulumi.RegisterOutputType(DashboardOutput{})
-	pulumi.RegisterOutputType(DashboardPtrOutput{})
 	pulumi.RegisterOutputType(DashboardArrayOutput{})
 	pulumi.RegisterOutputType(DashboardMapOutput{})
 }

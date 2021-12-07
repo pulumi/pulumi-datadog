@@ -142,7 +142,7 @@ type SecurityMonitoringDefaultRuleInput interface {
 }
 
 func (*SecurityMonitoringDefaultRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityMonitoringDefaultRule)(nil))
+	return reflect.TypeOf((**SecurityMonitoringDefaultRule)(nil)).Elem()
 }
 
 func (i *SecurityMonitoringDefaultRule) ToSecurityMonitoringDefaultRuleOutput() SecurityMonitoringDefaultRuleOutput {
@@ -151,35 +151,6 @@ func (i *SecurityMonitoringDefaultRule) ToSecurityMonitoringDefaultRuleOutput() 
 
 func (i *SecurityMonitoringDefaultRule) ToSecurityMonitoringDefaultRuleOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRuleOutput)
-}
-
-func (i *SecurityMonitoringDefaultRule) ToSecurityMonitoringDefaultRulePtrOutput() SecurityMonitoringDefaultRulePtrOutput {
-	return i.ToSecurityMonitoringDefaultRulePtrOutputWithContext(context.Background())
-}
-
-func (i *SecurityMonitoringDefaultRule) ToSecurityMonitoringDefaultRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRulePtrOutput)
-}
-
-type SecurityMonitoringDefaultRulePtrInput interface {
-	pulumi.Input
-
-	ToSecurityMonitoringDefaultRulePtrOutput() SecurityMonitoringDefaultRulePtrOutput
-	ToSecurityMonitoringDefaultRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRulePtrOutput
-}
-
-type securityMonitoringDefaultRulePtrType SecurityMonitoringDefaultRuleArgs
-
-func (*securityMonitoringDefaultRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityMonitoringDefaultRule)(nil))
-}
-
-func (i *securityMonitoringDefaultRulePtrType) ToSecurityMonitoringDefaultRulePtrOutput() SecurityMonitoringDefaultRulePtrOutput {
-	return i.ToSecurityMonitoringDefaultRulePtrOutputWithContext(context.Background())
-}
-
-func (i *securityMonitoringDefaultRulePtrType) ToSecurityMonitoringDefaultRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityMonitoringDefaultRulePtrOutput)
 }
 
 // SecurityMonitoringDefaultRuleArrayInput is an input type that accepts SecurityMonitoringDefaultRuleArray and SecurityMonitoringDefaultRuleArrayOutput values.
@@ -235,7 +206,7 @@ func (i SecurityMonitoringDefaultRuleMap) ToSecurityMonitoringDefaultRuleMapOutp
 type SecurityMonitoringDefaultRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringDefaultRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityMonitoringDefaultRule)(nil))
+	return reflect.TypeOf((**SecurityMonitoringDefaultRule)(nil)).Elem()
 }
 
 func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRuleOutput() SecurityMonitoringDefaultRuleOutput {
@@ -246,44 +217,10 @@ func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRuleOutp
 	return o
 }
 
-func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRulePtrOutput() SecurityMonitoringDefaultRulePtrOutput {
-	return o.ToSecurityMonitoringDefaultRulePtrOutputWithContext(context.Background())
-}
-
-func (o SecurityMonitoringDefaultRuleOutput) ToSecurityMonitoringDefaultRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityMonitoringDefaultRule) *SecurityMonitoringDefaultRule {
-		return &v
-	}).(SecurityMonitoringDefaultRulePtrOutput)
-}
-
-type SecurityMonitoringDefaultRulePtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityMonitoringDefaultRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityMonitoringDefaultRule)(nil))
-}
-
-func (o SecurityMonitoringDefaultRulePtrOutput) ToSecurityMonitoringDefaultRulePtrOutput() SecurityMonitoringDefaultRulePtrOutput {
-	return o
-}
-
-func (o SecurityMonitoringDefaultRulePtrOutput) ToSecurityMonitoringDefaultRulePtrOutputWithContext(ctx context.Context) SecurityMonitoringDefaultRulePtrOutput {
-	return o
-}
-
-func (o SecurityMonitoringDefaultRulePtrOutput) Elem() SecurityMonitoringDefaultRuleOutput {
-	return o.ApplyT(func(v *SecurityMonitoringDefaultRule) SecurityMonitoringDefaultRule {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityMonitoringDefaultRule
-		return ret
-	}).(SecurityMonitoringDefaultRuleOutput)
-}
-
 type SecurityMonitoringDefaultRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringDefaultRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityMonitoringDefaultRule)(nil))
+	return reflect.TypeOf((*[]*SecurityMonitoringDefaultRule)(nil)).Elem()
 }
 
 func (o SecurityMonitoringDefaultRuleArrayOutput) ToSecurityMonitoringDefaultRuleArrayOutput() SecurityMonitoringDefaultRuleArrayOutput {
@@ -295,15 +232,15 @@ func (o SecurityMonitoringDefaultRuleArrayOutput) ToSecurityMonitoringDefaultRul
 }
 
 func (o SecurityMonitoringDefaultRuleArrayOutput) Index(i pulumi.IntInput) SecurityMonitoringDefaultRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRule {
-		return vs[0].([]SecurityMonitoringDefaultRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityMonitoringDefaultRule {
+		return vs[0].([]*SecurityMonitoringDefaultRule)[vs[1].(int)]
 	}).(SecurityMonitoringDefaultRuleOutput)
 }
 
 type SecurityMonitoringDefaultRuleMapOutput struct{ *pulumi.OutputState }
 
 func (SecurityMonitoringDefaultRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecurityMonitoringDefaultRule)(nil))
+	return reflect.TypeOf((*map[string]*SecurityMonitoringDefaultRule)(nil)).Elem()
 }
 
 func (o SecurityMonitoringDefaultRuleMapOutput) ToSecurityMonitoringDefaultRuleMapOutput() SecurityMonitoringDefaultRuleMapOutput {
@@ -315,18 +252,16 @@ func (o SecurityMonitoringDefaultRuleMapOutput) ToSecurityMonitoringDefaultRuleM
 }
 
 func (o SecurityMonitoringDefaultRuleMapOutput) MapIndex(k pulumi.StringInput) SecurityMonitoringDefaultRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityMonitoringDefaultRule {
-		return vs[0].(map[string]SecurityMonitoringDefaultRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SecurityMonitoringDefaultRule {
+		return vs[0].(map[string]*SecurityMonitoringDefaultRule)[vs[1].(string)]
 	}).(SecurityMonitoringDefaultRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleInput)(nil)).Elem(), &SecurityMonitoringDefaultRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRulePtrInput)(nil)).Elem(), &SecurityMonitoringDefaultRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleArrayInput)(nil)).Elem(), SecurityMonitoringDefaultRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityMonitoringDefaultRuleMapInput)(nil)).Elem(), SecurityMonitoringDefaultRuleMap{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleOutput{})
-	pulumi.RegisterOutputType(SecurityMonitoringDefaultRulePtrOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleArrayOutput{})
 	pulumi.RegisterOutputType(SecurityMonitoringDefaultRuleMapOutput{})
 }

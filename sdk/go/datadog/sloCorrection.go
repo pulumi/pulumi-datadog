@@ -58,6 +58,18 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = datadog.NewSloCorrection(ctx, "exampleSloCorrectionWithRecurrence", &datadog.SloCorrectionArgs{
+// 			Category:    pulumi.String("Scheduled Maintenance"),
+// 			Description: pulumi.String("correction example with recurrence"),
+// 			Duration:    pulumi.Int(3600),
+// 			Rrule:       pulumi.String("FREQ=DAILY;INTERVAL=3;"),
+// 			SloId:       pulumi.String("datadog_service_level_objective.example_slo.id"),
+// 			Start:       pulumi.Int(1735707000),
+// 			Timezone:    pulumi.String("UTC"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }
@@ -75,8 +87,12 @@ type SloCorrection struct {
 	Category pulumi.StringOutput `pulumi:"category"`
 	// Description of the correction being made.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Ending time of the correction in epoch seconds.
-	End pulumi.IntOutput `pulumi:"end"`
+	// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+	Duration pulumi.IntPtrOutput `pulumi:"duration"`
+	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+	End pulumi.IntPtrOutput `pulumi:"end"`
+	// Recurrence rules as defined in the iCalendar RFC 5545.
+	Rrule pulumi.StringPtrOutput `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringOutput `pulumi:"sloId"`
 	// Starting time of the correction in epoch seconds.
@@ -94,9 +110,6 @@ func NewSloCorrection(ctx *pulumi.Context,
 
 	if args.Category == nil {
 		return nil, errors.New("invalid value for required argument 'Category'")
-	}
-	if args.End == nil {
-		return nil, errors.New("invalid value for required argument 'End'")
 	}
 	if args.SloId == nil {
 		return nil, errors.New("invalid value for required argument 'SloId'")
@@ -130,8 +143,12 @@ type sloCorrectionState struct {
 	Category *string `pulumi:"category"`
 	// Description of the correction being made.
 	Description *string `pulumi:"description"`
-	// Ending time of the correction in epoch seconds.
+	// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+	Duration *int `pulumi:"duration"`
+	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End *int `pulumi:"end"`
+	// Recurrence rules as defined in the iCalendar RFC 5545.
+	Rrule *string `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId *string `pulumi:"sloId"`
 	// Starting time of the correction in epoch seconds.
@@ -145,8 +162,12 @@ type SloCorrectionState struct {
 	Category pulumi.StringPtrInput
 	// Description of the correction being made.
 	Description pulumi.StringPtrInput
-	// Ending time of the correction in epoch seconds.
+	// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+	Duration pulumi.IntPtrInput
+	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
 	End pulumi.IntPtrInput
+	// Recurrence rules as defined in the iCalendar RFC 5545.
+	Rrule pulumi.StringPtrInput
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringPtrInput
 	// Starting time of the correction in epoch seconds.
@@ -164,8 +185,12 @@ type sloCorrectionArgs struct {
 	Category string `pulumi:"category"`
 	// Description of the correction being made.
 	Description *string `pulumi:"description"`
-	// Ending time of the correction in epoch seconds.
-	End int `pulumi:"end"`
+	// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+	Duration *int `pulumi:"duration"`
+	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+	End *int `pulumi:"end"`
+	// Recurrence rules as defined in the iCalendar RFC 5545.
+	Rrule *string `pulumi:"rrule"`
 	// ID of the SLO that this correction will be applied to.
 	SloId string `pulumi:"sloId"`
 	// Starting time of the correction in epoch seconds.
@@ -180,8 +205,12 @@ type SloCorrectionArgs struct {
 	Category pulumi.StringInput
 	// Description of the correction being made.
 	Description pulumi.StringPtrInput
-	// Ending time of the correction in epoch seconds.
-	End pulumi.IntInput
+	// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+	Duration pulumi.IntPtrInput
+	// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+	End pulumi.IntPtrInput
+	// Recurrence rules as defined in the iCalendar RFC 5545.
+	Rrule pulumi.StringPtrInput
 	// ID of the SLO that this correction will be applied to.
 	SloId pulumi.StringInput
 	// Starting time of the correction in epoch seconds.
@@ -202,7 +231,7 @@ type SloCorrectionInput interface {
 }
 
 func (*SloCorrection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SloCorrection)(nil))
+	return reflect.TypeOf((**SloCorrection)(nil)).Elem()
 }
 
 func (i *SloCorrection) ToSloCorrectionOutput() SloCorrectionOutput {
@@ -211,35 +240,6 @@ func (i *SloCorrection) ToSloCorrectionOutput() SloCorrectionOutput {
 
 func (i *SloCorrection) ToSloCorrectionOutputWithContext(ctx context.Context) SloCorrectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SloCorrectionOutput)
-}
-
-func (i *SloCorrection) ToSloCorrectionPtrOutput() SloCorrectionPtrOutput {
-	return i.ToSloCorrectionPtrOutputWithContext(context.Background())
-}
-
-func (i *SloCorrection) ToSloCorrectionPtrOutputWithContext(ctx context.Context) SloCorrectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SloCorrectionPtrOutput)
-}
-
-type SloCorrectionPtrInput interface {
-	pulumi.Input
-
-	ToSloCorrectionPtrOutput() SloCorrectionPtrOutput
-	ToSloCorrectionPtrOutputWithContext(ctx context.Context) SloCorrectionPtrOutput
-}
-
-type sloCorrectionPtrType SloCorrectionArgs
-
-func (*sloCorrectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SloCorrection)(nil))
-}
-
-func (i *sloCorrectionPtrType) ToSloCorrectionPtrOutput() SloCorrectionPtrOutput {
-	return i.ToSloCorrectionPtrOutputWithContext(context.Background())
-}
-
-func (i *sloCorrectionPtrType) ToSloCorrectionPtrOutputWithContext(ctx context.Context) SloCorrectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SloCorrectionPtrOutput)
 }
 
 // SloCorrectionArrayInput is an input type that accepts SloCorrectionArray and SloCorrectionArrayOutput values.
@@ -295,7 +295,7 @@ func (i SloCorrectionMap) ToSloCorrectionMapOutputWithContext(ctx context.Contex
 type SloCorrectionOutput struct{ *pulumi.OutputState }
 
 func (SloCorrectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SloCorrection)(nil))
+	return reflect.TypeOf((**SloCorrection)(nil)).Elem()
 }
 
 func (o SloCorrectionOutput) ToSloCorrectionOutput() SloCorrectionOutput {
@@ -306,44 +306,10 @@ func (o SloCorrectionOutput) ToSloCorrectionOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SloCorrectionOutput) ToSloCorrectionPtrOutput() SloCorrectionPtrOutput {
-	return o.ToSloCorrectionPtrOutputWithContext(context.Background())
-}
-
-func (o SloCorrectionOutput) ToSloCorrectionPtrOutputWithContext(ctx context.Context) SloCorrectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SloCorrection) *SloCorrection {
-		return &v
-	}).(SloCorrectionPtrOutput)
-}
-
-type SloCorrectionPtrOutput struct{ *pulumi.OutputState }
-
-func (SloCorrectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SloCorrection)(nil))
-}
-
-func (o SloCorrectionPtrOutput) ToSloCorrectionPtrOutput() SloCorrectionPtrOutput {
-	return o
-}
-
-func (o SloCorrectionPtrOutput) ToSloCorrectionPtrOutputWithContext(ctx context.Context) SloCorrectionPtrOutput {
-	return o
-}
-
-func (o SloCorrectionPtrOutput) Elem() SloCorrectionOutput {
-	return o.ApplyT(func(v *SloCorrection) SloCorrection {
-		if v != nil {
-			return *v
-		}
-		var ret SloCorrection
-		return ret
-	}).(SloCorrectionOutput)
-}
-
 type SloCorrectionArrayOutput struct{ *pulumi.OutputState }
 
 func (SloCorrectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SloCorrection)(nil))
+	return reflect.TypeOf((*[]*SloCorrection)(nil)).Elem()
 }
 
 func (o SloCorrectionArrayOutput) ToSloCorrectionArrayOutput() SloCorrectionArrayOutput {
@@ -355,15 +321,15 @@ func (o SloCorrectionArrayOutput) ToSloCorrectionArrayOutputWithContext(ctx cont
 }
 
 func (o SloCorrectionArrayOutput) Index(i pulumi.IntInput) SloCorrectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SloCorrection {
-		return vs[0].([]SloCorrection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SloCorrection {
+		return vs[0].([]*SloCorrection)[vs[1].(int)]
 	}).(SloCorrectionOutput)
 }
 
 type SloCorrectionMapOutput struct{ *pulumi.OutputState }
 
 func (SloCorrectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SloCorrection)(nil))
+	return reflect.TypeOf((*map[string]*SloCorrection)(nil)).Elem()
 }
 
 func (o SloCorrectionMapOutput) ToSloCorrectionMapOutput() SloCorrectionMapOutput {
@@ -375,18 +341,16 @@ func (o SloCorrectionMapOutput) ToSloCorrectionMapOutputWithContext(ctx context.
 }
 
 func (o SloCorrectionMapOutput) MapIndex(k pulumi.StringInput) SloCorrectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SloCorrection {
-		return vs[0].(map[string]SloCorrection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SloCorrection {
+		return vs[0].(map[string]*SloCorrection)[vs[1].(string)]
 	}).(SloCorrectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionInput)(nil)).Elem(), &SloCorrection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionPtrInput)(nil)).Elem(), &SloCorrection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionArrayInput)(nil)).Elem(), SloCorrectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SloCorrectionMapInput)(nil)).Elem(), SloCorrectionMap{})
 	pulumi.RegisterOutputType(SloCorrectionOutput{})
-	pulumi.RegisterOutputType(SloCorrectionPtrOutput{})
 	pulumi.RegisterOutputType(SloCorrectionArrayOutput{})
 	pulumi.RegisterOutputType(SloCorrectionMapOutput{})
 }

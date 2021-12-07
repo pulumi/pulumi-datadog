@@ -74,12 +74,12 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationLogCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationLogCollectionArgs | IntegrationLogCollectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationLogCollectionState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["services"] = state ? state.services : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["services"] = state ? state.services : undefined;
         } else {
             const args = argsOrState as IntegrationLogCollectionArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -88,13 +88,13 @@ export class IntegrationLogCollection extends pulumi.CustomResource {
             if ((!args || args.services === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'services'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["services"] = args ? args.services : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["services"] = args ? args.services : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IntegrationLogCollection.__pulumiType, name, inputs, opts);
+        super(IntegrationLogCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

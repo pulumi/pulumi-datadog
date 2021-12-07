@@ -95,7 +95,7 @@ namespace Pulumi.Datadog
         public Output<int?> MonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         /// </summary>
         [Output("monitorTags")]
         public Output<ImmutableArray<string>> MonitorTags { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _monitorTags;
 
         /// <summary>
-        /// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         /// </summary>
         public InputList<string> MonitorTags
         {
@@ -301,7 +301,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _monitorTags;
 
         /// <summary>
-        /// A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        /// A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         /// </summary>
         public InputList<string> MonitorTags
         {

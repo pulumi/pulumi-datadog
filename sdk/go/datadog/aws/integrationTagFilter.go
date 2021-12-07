@@ -146,7 +146,7 @@ type IntegrationTagFilterInput interface {
 }
 
 func (*IntegrationTagFilter) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationTagFilter)(nil))
+	return reflect.TypeOf((**IntegrationTagFilter)(nil)).Elem()
 }
 
 func (i *IntegrationTagFilter) ToIntegrationTagFilterOutput() IntegrationTagFilterOutput {
@@ -155,35 +155,6 @@ func (i *IntegrationTagFilter) ToIntegrationTagFilterOutput() IntegrationTagFilt
 
 func (i *IntegrationTagFilter) ToIntegrationTagFilterOutputWithContext(ctx context.Context) IntegrationTagFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagFilterOutput)
-}
-
-func (i *IntegrationTagFilter) ToIntegrationTagFilterPtrOutput() IntegrationTagFilterPtrOutput {
-	return i.ToIntegrationTagFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *IntegrationTagFilter) ToIntegrationTagFilterPtrOutputWithContext(ctx context.Context) IntegrationTagFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagFilterPtrOutput)
-}
-
-type IntegrationTagFilterPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationTagFilterPtrOutput() IntegrationTagFilterPtrOutput
-	ToIntegrationTagFilterPtrOutputWithContext(ctx context.Context) IntegrationTagFilterPtrOutput
-}
-
-type integrationTagFilterPtrType IntegrationTagFilterArgs
-
-func (*integrationTagFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationTagFilter)(nil))
-}
-
-func (i *integrationTagFilterPtrType) ToIntegrationTagFilterPtrOutput() IntegrationTagFilterPtrOutput {
-	return i.ToIntegrationTagFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationTagFilterPtrType) ToIntegrationTagFilterPtrOutputWithContext(ctx context.Context) IntegrationTagFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagFilterPtrOutput)
 }
 
 // IntegrationTagFilterArrayInput is an input type that accepts IntegrationTagFilterArray and IntegrationTagFilterArrayOutput values.
@@ -239,7 +210,7 @@ func (i IntegrationTagFilterMap) ToIntegrationTagFilterMapOutputWithContext(ctx 
 type IntegrationTagFilterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTagFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationTagFilter)(nil))
+	return reflect.TypeOf((**IntegrationTagFilter)(nil)).Elem()
 }
 
 func (o IntegrationTagFilterOutput) ToIntegrationTagFilterOutput() IntegrationTagFilterOutput {
@@ -250,44 +221,10 @@ func (o IntegrationTagFilterOutput) ToIntegrationTagFilterOutputWithContext(ctx 
 	return o
 }
 
-func (o IntegrationTagFilterOutput) ToIntegrationTagFilterPtrOutput() IntegrationTagFilterPtrOutput {
-	return o.ToIntegrationTagFilterPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationTagFilterOutput) ToIntegrationTagFilterPtrOutputWithContext(ctx context.Context) IntegrationTagFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationTagFilter) *IntegrationTagFilter {
-		return &v
-	}).(IntegrationTagFilterPtrOutput)
-}
-
-type IntegrationTagFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationTagFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationTagFilter)(nil))
-}
-
-func (o IntegrationTagFilterPtrOutput) ToIntegrationTagFilterPtrOutput() IntegrationTagFilterPtrOutput {
-	return o
-}
-
-func (o IntegrationTagFilterPtrOutput) ToIntegrationTagFilterPtrOutputWithContext(ctx context.Context) IntegrationTagFilterPtrOutput {
-	return o
-}
-
-func (o IntegrationTagFilterPtrOutput) Elem() IntegrationTagFilterOutput {
-	return o.ApplyT(func(v *IntegrationTagFilter) IntegrationTagFilter {
-		if v != nil {
-			return *v
-		}
-		var ret IntegrationTagFilter
-		return ret
-	}).(IntegrationTagFilterOutput)
-}
-
 type IntegrationTagFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTagFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IntegrationTagFilter)(nil))
+	return reflect.TypeOf((*[]*IntegrationTagFilter)(nil)).Elem()
 }
 
 func (o IntegrationTagFilterArrayOutput) ToIntegrationTagFilterArrayOutput() IntegrationTagFilterArrayOutput {
@@ -299,15 +236,15 @@ func (o IntegrationTagFilterArrayOutput) ToIntegrationTagFilterArrayOutputWithCo
 }
 
 func (o IntegrationTagFilterArrayOutput) Index(i pulumi.IntInput) IntegrationTagFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationTagFilter {
-		return vs[0].([]IntegrationTagFilter)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationTagFilter {
+		return vs[0].([]*IntegrationTagFilter)[vs[1].(int)]
 	}).(IntegrationTagFilterOutput)
 }
 
 type IntegrationTagFilterMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTagFilterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IntegrationTagFilter)(nil))
+	return reflect.TypeOf((*map[string]*IntegrationTagFilter)(nil)).Elem()
 }
 
 func (o IntegrationTagFilterMapOutput) ToIntegrationTagFilterMapOutput() IntegrationTagFilterMapOutput {
@@ -319,18 +256,16 @@ func (o IntegrationTagFilterMapOutput) ToIntegrationTagFilterMapOutputWithContex
 }
 
 func (o IntegrationTagFilterMapOutput) MapIndex(k pulumi.StringInput) IntegrationTagFilterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IntegrationTagFilter {
-		return vs[0].(map[string]IntegrationTagFilter)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IntegrationTagFilter {
+		return vs[0].(map[string]*IntegrationTagFilter)[vs[1].(string)]
 	}).(IntegrationTagFilterOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTagFilterInput)(nil)).Elem(), &IntegrationTagFilter{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTagFilterPtrInput)(nil)).Elem(), &IntegrationTagFilter{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTagFilterArrayInput)(nil)).Elem(), IntegrationTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTagFilterMapInput)(nil)).Elem(), IntegrationTagFilterMap{})
 	pulumi.RegisterOutputType(IntegrationTagFilterOutput{})
-	pulumi.RegisterOutputType(IntegrationTagFilterPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationTagFilterMapOutput{})
 }

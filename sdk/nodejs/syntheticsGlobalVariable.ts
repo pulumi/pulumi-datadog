@@ -103,18 +103,18 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
      */
     constructor(name: string, args: SyntheticsGlobalVariableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyntheticsGlobalVariableArgs | SyntheticsGlobalVariableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsGlobalVariableState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parseTestId"] = state ? state.parseTestId : undefined;
-            inputs["parseTestOptions"] = state ? state.parseTestOptions : undefined;
-            inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
-            inputs["secure"] = state ? state.secure : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parseTestId"] = state ? state.parseTestId : undefined;
+            resourceInputs["parseTestOptions"] = state ? state.parseTestOptions : undefined;
+            resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
+            resourceInputs["secure"] = state ? state.secure : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as SyntheticsGlobalVariableArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -123,19 +123,19 @@ export class SyntheticsGlobalVariable extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parseTestId"] = args ? args.parseTestId : undefined;
-            inputs["parseTestOptions"] = args ? args.parseTestOptions : undefined;
-            inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
-            inputs["secure"] = args ? args.secure : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parseTestId"] = args ? args.parseTestId : undefined;
+            resourceInputs["parseTestOptions"] = args ? args.parseTestOptions : undefined;
+            resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
+            resourceInputs["secure"] = args ? args.secure : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SyntheticsGlobalVariable.__pulumiType, name, inputs, opts);
+        super(SyntheticsGlobalVariable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

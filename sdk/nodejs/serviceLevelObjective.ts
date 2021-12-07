@@ -161,20 +161,20 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceLevelObjectiveArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceLevelObjectiveArgs | ServiceLevelObjectiveState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceLevelObjectiveState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceDelete"] = state ? state.forceDelete : undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["monitorIds"] = state ? state.monitorIds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["thresholds"] = state ? state.thresholds : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["validate"] = state ? state.validate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["monitorIds"] = state ? state.monitorIds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["thresholds"] = state ? state.thresholds : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as ServiceLevelObjectiveArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -186,21 +186,21 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceDelete"] = args ? args.forceDelete : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["monitorIds"] = args ? args.monitorIds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["thresholds"] = args ? args.thresholds : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["monitorIds"] = args ? args.monitorIds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["thresholds"] = args ? args.thresholds : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validate"] = args ? args.validate : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ServiceLevelObjective.__pulumiType, name, inputs, opts);
+        super(ServiceLevelObjective.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -38,6 +38,16 @@ import (
 // 			return err
 // 		}
 // 		_, err = datadog.NewMetricTagConfiguration(ctx, "exampleCountMetric", &datadog.MetricTagConfigurationArgs{
+// 			Aggregations: MetricTagConfigurationAggregationArray{
+// 				&MetricTagConfigurationAggregationArgs{
+// 					Space: pulumi.String("min"),
+// 					Time:  pulumi.String("avg"),
+// 				},
+// 				&MetricTagConfigurationAggregationArgs{
+// 					Space: pulumi.String("max"),
+// 					Time:  pulumi.String("avg"),
+// 				},
+// 			},
 // 			MetricName: pulumi.String("example.terraform.count.metric"),
 // 			MetricType: pulumi.String("count"),
 // 			Tags: pulumi.StringArray{
@@ -55,7 +65,9 @@ import (
 type MetricTagConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metricType of distribution.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	Aggregations MetricTagConfigurationAggregationArrayOutput `pulumi:"aggregations"`
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
 	IncludePercentiles pulumi.BoolPtrOutput `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
@@ -103,7 +115,9 @@ func GetMetricTagConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MetricTagConfiguration resources.
 type metricTagConfigurationState struct {
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metricType of distribution.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	Aggregations []MetricTagConfigurationAggregation `pulumi:"aggregations"`
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
 	IncludePercentiles *bool `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName *string `pulumi:"metricName"`
@@ -114,7 +128,9 @@ type metricTagConfigurationState struct {
 }
 
 type MetricTagConfigurationState struct {
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metricType of distribution.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	Aggregations MetricTagConfigurationAggregationArrayInput
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
 	IncludePercentiles pulumi.BoolPtrInput
 	// The metric name for this resource.
 	MetricName pulumi.StringPtrInput
@@ -129,7 +145,9 @@ func (MetricTagConfigurationState) ElementType() reflect.Type {
 }
 
 type metricTagConfigurationArgs struct {
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metricType of distribution.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	Aggregations []MetricTagConfigurationAggregation `pulumi:"aggregations"`
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
 	IncludePercentiles *bool `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName string `pulumi:"metricName"`
@@ -141,7 +159,9 @@ type metricTagConfigurationArgs struct {
 
 // The set of arguments for constructing a MetricTagConfiguration resource.
 type MetricTagConfigurationArgs struct {
-	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a metricType of distribution.
+	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge.
+	Aggregations MetricTagConfigurationAggregationArrayInput
+	// Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metricType` of distribution.
 	IncludePercentiles pulumi.BoolPtrInput
 	// The metric name for this resource.
 	MetricName pulumi.StringInput
@@ -163,7 +183,7 @@ type MetricTagConfigurationInput interface {
 }
 
 func (*MetricTagConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricTagConfiguration)(nil))
+	return reflect.TypeOf((**MetricTagConfiguration)(nil)).Elem()
 }
 
 func (i *MetricTagConfiguration) ToMetricTagConfigurationOutput() MetricTagConfigurationOutput {
@@ -172,35 +192,6 @@ func (i *MetricTagConfiguration) ToMetricTagConfigurationOutput() MetricTagConfi
 
 func (i *MetricTagConfiguration) ToMetricTagConfigurationOutputWithContext(ctx context.Context) MetricTagConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricTagConfigurationOutput)
-}
-
-func (i *MetricTagConfiguration) ToMetricTagConfigurationPtrOutput() MetricTagConfigurationPtrOutput {
-	return i.ToMetricTagConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *MetricTagConfiguration) ToMetricTagConfigurationPtrOutputWithContext(ctx context.Context) MetricTagConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricTagConfigurationPtrOutput)
-}
-
-type MetricTagConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToMetricTagConfigurationPtrOutput() MetricTagConfigurationPtrOutput
-	ToMetricTagConfigurationPtrOutputWithContext(ctx context.Context) MetricTagConfigurationPtrOutput
-}
-
-type metricTagConfigurationPtrType MetricTagConfigurationArgs
-
-func (*metricTagConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricTagConfiguration)(nil))
-}
-
-func (i *metricTagConfigurationPtrType) ToMetricTagConfigurationPtrOutput() MetricTagConfigurationPtrOutput {
-	return i.ToMetricTagConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *metricTagConfigurationPtrType) ToMetricTagConfigurationPtrOutputWithContext(ctx context.Context) MetricTagConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricTagConfigurationPtrOutput)
 }
 
 // MetricTagConfigurationArrayInput is an input type that accepts MetricTagConfigurationArray and MetricTagConfigurationArrayOutput values.
@@ -256,7 +247,7 @@ func (i MetricTagConfigurationMap) ToMetricTagConfigurationMapOutputWithContext(
 type MetricTagConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MetricTagConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricTagConfiguration)(nil))
+	return reflect.TypeOf((**MetricTagConfiguration)(nil)).Elem()
 }
 
 func (o MetricTagConfigurationOutput) ToMetricTagConfigurationOutput() MetricTagConfigurationOutput {
@@ -267,44 +258,10 @@ func (o MetricTagConfigurationOutput) ToMetricTagConfigurationOutputWithContext(
 	return o
 }
 
-func (o MetricTagConfigurationOutput) ToMetricTagConfigurationPtrOutput() MetricTagConfigurationPtrOutput {
-	return o.ToMetricTagConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o MetricTagConfigurationOutput) ToMetricTagConfigurationPtrOutputWithContext(ctx context.Context) MetricTagConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricTagConfiguration) *MetricTagConfiguration {
-		return &v
-	}).(MetricTagConfigurationPtrOutput)
-}
-
-type MetricTagConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (MetricTagConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricTagConfiguration)(nil))
-}
-
-func (o MetricTagConfigurationPtrOutput) ToMetricTagConfigurationPtrOutput() MetricTagConfigurationPtrOutput {
-	return o
-}
-
-func (o MetricTagConfigurationPtrOutput) ToMetricTagConfigurationPtrOutputWithContext(ctx context.Context) MetricTagConfigurationPtrOutput {
-	return o
-}
-
-func (o MetricTagConfigurationPtrOutput) Elem() MetricTagConfigurationOutput {
-	return o.ApplyT(func(v *MetricTagConfiguration) MetricTagConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret MetricTagConfiguration
-		return ret
-	}).(MetricTagConfigurationOutput)
-}
-
 type MetricTagConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (MetricTagConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricTagConfiguration)(nil))
+	return reflect.TypeOf((*[]*MetricTagConfiguration)(nil)).Elem()
 }
 
 func (o MetricTagConfigurationArrayOutput) ToMetricTagConfigurationArrayOutput() MetricTagConfigurationArrayOutput {
@@ -316,15 +273,15 @@ func (o MetricTagConfigurationArrayOutput) ToMetricTagConfigurationArrayOutputWi
 }
 
 func (o MetricTagConfigurationArrayOutput) Index(i pulumi.IntInput) MetricTagConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricTagConfiguration {
-		return vs[0].([]MetricTagConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricTagConfiguration {
+		return vs[0].([]*MetricTagConfiguration)[vs[1].(int)]
 	}).(MetricTagConfigurationOutput)
 }
 
 type MetricTagConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (MetricTagConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MetricTagConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*MetricTagConfiguration)(nil)).Elem()
 }
 
 func (o MetricTagConfigurationMapOutput) ToMetricTagConfigurationMapOutput() MetricTagConfigurationMapOutput {
@@ -336,18 +293,16 @@ func (o MetricTagConfigurationMapOutput) ToMetricTagConfigurationMapOutputWithCo
 }
 
 func (o MetricTagConfigurationMapOutput) MapIndex(k pulumi.StringInput) MetricTagConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MetricTagConfiguration {
-		return vs[0].(map[string]MetricTagConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MetricTagConfiguration {
+		return vs[0].(map[string]*MetricTagConfiguration)[vs[1].(string)]
 	}).(MetricTagConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationInput)(nil)).Elem(), &MetricTagConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationPtrInput)(nil)).Elem(), &MetricTagConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationArrayInput)(nil)).Elem(), MetricTagConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationMapInput)(nil)).Elem(), MetricTagConfigurationMap{})
 	pulumi.RegisterOutputType(MetricTagConfigurationOutput{})
-	pulumi.RegisterOutputType(MetricTagConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MetricTagConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricTagConfigurationMapOutput{})
 }
