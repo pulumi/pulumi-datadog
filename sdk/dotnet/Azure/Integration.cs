@@ -47,6 +47,12 @@ namespace Pulumi.Datadog.Azure
     public partial class Integration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Silence monitors for expected Azure VM shutdowns.
+        /// </summary>
+        [Output("automute")]
+        public Output<bool?> Automute { get; private set; } = null!;
+
+        /// <summary>
         /// Your Azure web application ID.
         /// </summary>
         [Output("clientId")]
@@ -117,6 +123,12 @@ namespace Pulumi.Datadog.Azure
     public sealed class IntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Silence monitors for expected Azure VM shutdowns.
+        /// </summary>
+        [Input("automute")]
+        public Input<bool>? Automute { get; set; }
+
+        /// <summary>
         /// Your Azure web application ID.
         /// </summary>
         [Input("clientId", required: true)]
@@ -147,6 +159,12 @@ namespace Pulumi.Datadog.Azure
 
     public sealed class IntegrationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Silence monitors for expected Azure VM shutdowns.
+        /// </summary>
+        [Input("automute")]
+        public Input<bool>? Automute { get; set; }
+
         /// <summary>
         /// Your Azure web application ID.
         /// </summary>

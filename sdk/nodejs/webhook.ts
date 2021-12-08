@@ -91,15 +91,15 @@ export class Webhook extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            inputs["customHeaders"] = state ? state.customHeaders : undefined;
-            inputs["encodeAs"] = state ? state.encodeAs : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["payload"] = state ? state.payload : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
+            resourceInputs["encodeAs"] = state ? state.encodeAs : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["payload"] = state ? state.payload : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -108,16 +108,16 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["customHeaders"] = args ? args.customHeaders : undefined;
-            inputs["encodeAs"] = args ? args.encodeAs : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["payload"] = args ? args.payload : undefined;
-            inputs["url"] = args ? args.url : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["encodeAs"] = args ? args.encodeAs : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["payload"] = args ? args.payload : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Webhook.__pulumiType, name, inputs, opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,25 +80,25 @@ export class OrganizationSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args?: OrganizationSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationSettingsArgs | OrganizationSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationSettingsState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicId"] = state ? state.publicId : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicId"] = state ? state.publicId : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as OrganizationSettingsArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["description"] = undefined /*out*/;
-            inputs["publicId"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["publicId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationSettings.__pulumiType, name, inputs, opts);
+        super(OrganizationSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -69,8 +69,7 @@ class MonitorArgs:
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
                Defaults to `true`.
-        :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-               `false`.
+        :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
         :param pulumi.Input['MonitorMonitorThresholdsArgs'] monitor_thresholds: Alert thresholds of the monitor.
@@ -290,8 +289,7 @@ class MonitorArgs:
     @pulumi.getter
     def locked(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-        `false`.
+        A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         """
         return pulumi.get(self, "locked")
 
@@ -544,8 +542,7 @@ class _MonitorState:
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
                Defaults to `true`.
-        :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-               `false`.
+        :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
         :param pulumi.Input['MonitorMonitorThresholdWindowsArgs'] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
@@ -725,8 +722,7 @@ class _MonitorState:
     @pulumi.getter
     def locked(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-        `false`.
+        A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         """
         return pulumi.get(self, "locked")
 
@@ -1077,8 +1073,7 @@ class Monitor(pulumi.CustomResource):
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
                Defaults to `true`.
-        :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-               `false`.
+        :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
@@ -1311,8 +1306,7 @@ class Monitor(pulumi.CustomResource):
                `false`.
         :param pulumi.Input[bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
                Defaults to `true`.
-        :param pulumi.Input[bool] locked: A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-               `false`.
+        :param pulumi.Input[bool] locked: A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         :param pulumi.Input[str] message: A message to include with notifications for this monitor.
         :param pulumi.Input[pulumi.InputType['MonitorMonitorThresholdWindowsArgs']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are
                required for, anomaly monitors.
@@ -1443,8 +1437,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def locked(self) -> pulumi.Output[Optional[bool]]:
         """
-        A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-        `false`.
+        A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
         """
         return pulumi.get(self, "locked")
 

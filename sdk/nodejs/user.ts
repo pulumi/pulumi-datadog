@@ -95,34 +95,34 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["disabled"] = state ? state.disabled : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["sendUserInvitation"] = state ? state.sendUserInvitation : undefined;
-            inputs["userInvitationId"] = state ? state.userInvitationId : undefined;
-            inputs["verified"] = state ? state.verified : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["sendUserInvitation"] = state ? state.sendUserInvitation : undefined;
+            resourceInputs["userInvitationId"] = state ? state.userInvitationId : undefined;
+            resourceInputs["verified"] = state ? state.verified : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["disabled"] = args ? args.disabled : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["sendUserInvitation"] = args ? args.sendUserInvitation : undefined;
-            inputs["userInvitationId"] = undefined /*out*/;
-            inputs["verified"] = undefined /*out*/;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["sendUserInvitation"] = args ? args.sendUserInvitation : undefined;
+            resourceInputs["userInvitationId"] = undefined /*out*/;
+            resourceInputs["verified"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(User.__pulumiType, name, inputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

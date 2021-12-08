@@ -55,6 +55,16 @@ namespace Pulumi.Datadog
     ///             Start = 1735707000,
     ///             Timezone = "UTC",
     ///         });
+    ///         var exampleSloCorrectionWithRecurrence = new Datadog.SloCorrection("exampleSloCorrectionWithRecurrence", new Datadog.SloCorrectionArgs
+    ///         {
+    ///             Category = "Scheduled Maintenance",
+    ///             Description = "correction example with recurrence",
+    ///             Duration = 3600,
+    ///             Rrule = "FREQ=DAILY;INTERVAL=3;",
+    ///             SloId = "datadog_service_level_objective.example_slo.id",
+    ///             Start = 1735707000,
+    ///             Timezone = "UTC",
+    ///         });
     ///     }
     /// 
     /// }
@@ -82,10 +92,22 @@ namespace Pulumi.Datadog
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds.
+        /// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        /// </summary>
+        [Output("duration")]
+        public Output<int?> Duration { get; private set; } = null!;
+
+        /// <summary>
+        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         /// </summary>
         [Output("end")]
-        public Output<int> End { get; private set; } = null!;
+        public Output<int?> End { get; private set; } = null!;
+
+        /// <summary>
+        /// Recurrence rules as defined in the iCalendar RFC 5545.
+        /// </summary>
+        [Output("rrule")]
+        public Output<string?> Rrule { get; private set; } = null!;
 
         /// <summary>
         /// ID of the SLO that this correction will be applied to.
@@ -164,10 +186,22 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds.
+        /// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         /// </summary>
-        [Input("end", required: true)]
-        public Input<int> End { get; set; } = null!;
+        [Input("duration")]
+        public Input<int>? Duration { get; set; }
+
+        /// <summary>
+        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        /// </summary>
+        [Input("end")]
+        public Input<int>? End { get; set; }
+
+        /// <summary>
+        /// Recurrence rules as defined in the iCalendar RFC 5545.
+        /// </summary>
+        [Input("rrule")]
+        public Input<string>? Rrule { get; set; }
 
         /// <summary>
         /// ID of the SLO that this correction will be applied to.
@@ -207,10 +241,22 @@ namespace Pulumi.Datadog
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Ending time of the correction in epoch seconds.
+        /// Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        /// </summary>
+        [Input("duration")]
+        public Input<int>? Duration { get; set; }
+
+        /// <summary>
+        /// Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         /// </summary>
         [Input("end")]
         public Input<int>? End { get; set; }
+
+        /// <summary>
+        /// Recurrence rules as defined in the iCalendar RFC 5545.
+        /// </summary>
+        [Input("rrule")]
+        public Input<string>? Rrule { get; set; }
 
         /// <summary>
         /// ID of the SLO that this correction will be applied to.

@@ -314,7 +314,7 @@ type LogsCustomPipelineInput interface {
 }
 
 func (*LogsCustomPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipeline)(nil))
+	return reflect.TypeOf((**LogsCustomPipeline)(nil)).Elem()
 }
 
 func (i *LogsCustomPipeline) ToLogsCustomPipelineOutput() LogsCustomPipelineOutput {
@@ -323,35 +323,6 @@ func (i *LogsCustomPipeline) ToLogsCustomPipelineOutput() LogsCustomPipelineOutp
 
 func (i *LogsCustomPipeline) ToLogsCustomPipelineOutputWithContext(ctx context.Context) LogsCustomPipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineOutput)
-}
-
-func (i *LogsCustomPipeline) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
-	return i.ToLogsCustomPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *LogsCustomPipeline) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelinePtrOutput)
-}
-
-type LogsCustomPipelinePtrInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput
-	ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput
-}
-
-type logsCustomPipelinePtrType LogsCustomPipelineArgs
-
-func (*logsCustomPipelinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipeline)(nil))
-}
-
-func (i *logsCustomPipelinePtrType) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
-	return i.ToLogsCustomPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *logsCustomPipelinePtrType) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelinePtrOutput)
 }
 
 // LogsCustomPipelineArrayInput is an input type that accepts LogsCustomPipelineArray and LogsCustomPipelineArrayOutput values.
@@ -407,7 +378,7 @@ func (i LogsCustomPipelineMap) ToLogsCustomPipelineMapOutputWithContext(ctx cont
 type LogsCustomPipelineOutput struct{ *pulumi.OutputState }
 
 func (LogsCustomPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipeline)(nil))
+	return reflect.TypeOf((**LogsCustomPipeline)(nil)).Elem()
 }
 
 func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutput() LogsCustomPipelineOutput {
@@ -418,44 +389,10 @@ func (o LogsCustomPipelineOutput) ToLogsCustomPipelineOutputWithContext(ctx cont
 	return o
 }
 
-func (o LogsCustomPipelineOutput) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
-	return o.ToLogsCustomPipelinePtrOutputWithContext(context.Background())
-}
-
-func (o LogsCustomPipelineOutput) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipeline) *LogsCustomPipeline {
-		return &v
-	}).(LogsCustomPipelinePtrOutput)
-}
-
-type LogsCustomPipelinePtrOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipeline)(nil))
-}
-
-func (o LogsCustomPipelinePtrOutput) ToLogsCustomPipelinePtrOutput() LogsCustomPipelinePtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelinePtrOutput) ToLogsCustomPipelinePtrOutputWithContext(ctx context.Context) LogsCustomPipelinePtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelinePtrOutput) Elem() LogsCustomPipelineOutput {
-	return o.ApplyT(func(v *LogsCustomPipeline) LogsCustomPipeline {
-		if v != nil {
-			return *v
-		}
-		var ret LogsCustomPipeline
-		return ret
-	}).(LogsCustomPipelineOutput)
-}
-
 type LogsCustomPipelineArrayOutput struct{ *pulumi.OutputState }
 
 func (LogsCustomPipelineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsCustomPipeline)(nil))
+	return reflect.TypeOf((*[]*LogsCustomPipeline)(nil)).Elem()
 }
 
 func (o LogsCustomPipelineArrayOutput) ToLogsCustomPipelineArrayOutput() LogsCustomPipelineArrayOutput {
@@ -467,15 +404,15 @@ func (o LogsCustomPipelineArrayOutput) ToLogsCustomPipelineArrayOutputWithContex
 }
 
 func (o LogsCustomPipelineArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipeline {
-		return vs[0].([]LogsCustomPipeline)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogsCustomPipeline {
+		return vs[0].([]*LogsCustomPipeline)[vs[1].(int)]
 	}).(LogsCustomPipelineOutput)
 }
 
 type LogsCustomPipelineMapOutput struct{ *pulumi.OutputState }
 
 func (LogsCustomPipelineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LogsCustomPipeline)(nil))
+	return reflect.TypeOf((*map[string]*LogsCustomPipeline)(nil)).Elem()
 }
 
 func (o LogsCustomPipelineMapOutput) ToLogsCustomPipelineMapOutput() LogsCustomPipelineMapOutput {
@@ -487,18 +424,16 @@ func (o LogsCustomPipelineMapOutput) ToLogsCustomPipelineMapOutputWithContext(ct
 }
 
 func (o LogsCustomPipelineMapOutput) MapIndex(k pulumi.StringInput) LogsCustomPipelineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LogsCustomPipeline {
-		return vs[0].(map[string]LogsCustomPipeline)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LogsCustomPipeline {
+		return vs[0].(map[string]*LogsCustomPipeline)[vs[1].(string)]
 	}).(LogsCustomPipelineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineInput)(nil)).Elem(), &LogsCustomPipeline{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelinePtrInput)(nil)).Elem(), &LogsCustomPipeline{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineArrayInput)(nil)).Elem(), LogsCustomPipelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineMapInput)(nil)).Elem(), LogsCustomPipelineMap{})
 	pulumi.RegisterOutputType(LogsCustomPipelineOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelinePtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineArrayOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineMapOutput{})
 }

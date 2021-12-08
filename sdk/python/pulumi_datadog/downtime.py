@@ -32,7 +32,7 @@ class DowntimeArgs:
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         :param pulumi.Input['DowntimeRecurrenceArgs'] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[int] start: Specify when this downtime should start
         :param pulumi.Input[str] start_date: String representing date and time to start the downtime in RFC3339 format.
@@ -122,7 +122,7 @@ class DowntimeArgs:
     @pulumi.getter(name="monitorTags")
     def monitor_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         """
         return pulumi.get(self, "monitor_tags")
 
@@ -204,7 +204,7 @@ class _DowntimeState:
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         :param pulumi.Input['DowntimeRecurrenceArgs'] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
@@ -326,7 +326,7 @@ class _DowntimeState:
     @pulumi.getter(name="monitorTags")
     def monitor_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         """
         return pulumi.get(self, "monitor_tags")
 
@@ -444,7 +444,7 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
@@ -573,7 +573,7 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: String representing date and time to end the downtime in RFC3339 format.
         :param pulumi.Input[str] message: An optional message to provide when creating the downtime, can include notification handles
         :param pulumi.Input[int] monitor_id: When specified, this downtime will only apply to this monitor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         :param pulumi.Input[pulumi.InputType['DowntimeRecurrenceArgs']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[int] start: Specify when this downtime should start
@@ -659,7 +659,7 @@ class Downtime(pulumi.CustomResource):
     @pulumi.getter(name="monitorTags")
     def monitor_tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+        A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         """
         return pulumi.get(self, "monitor_tags")
 

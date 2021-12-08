@@ -151,7 +151,7 @@ type ChannelInput interface {
 }
 
 func (*Channel) ElementType() reflect.Type {
-	return reflect.TypeOf((*Channel)(nil))
+	return reflect.TypeOf((**Channel)(nil)).Elem()
 }
 
 func (i *Channel) ToChannelOutput() ChannelOutput {
@@ -160,35 +160,6 @@ func (i *Channel) ToChannelOutput() ChannelOutput {
 
 func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutput)
-}
-
-func (i *Channel) ToChannelPtrOutput() ChannelPtrOutput {
-	return i.ToChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *Channel) ToChannelPtrOutputWithContext(ctx context.Context) ChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelPtrOutput)
-}
-
-type ChannelPtrInput interface {
-	pulumi.Input
-
-	ToChannelPtrOutput() ChannelPtrOutput
-	ToChannelPtrOutputWithContext(ctx context.Context) ChannelPtrOutput
-}
-
-type channelPtrType ChannelArgs
-
-func (*channelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Channel)(nil))
-}
-
-func (i *channelPtrType) ToChannelPtrOutput() ChannelPtrOutput {
-	return i.ToChannelPtrOutputWithContext(context.Background())
-}
-
-func (i *channelPtrType) ToChannelPtrOutputWithContext(ctx context.Context) ChannelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelPtrOutput)
 }
 
 // ChannelArrayInput is an input type that accepts ChannelArray and ChannelArrayOutput values.
@@ -244,7 +215,7 @@ func (i ChannelMap) ToChannelMapOutputWithContext(ctx context.Context) ChannelMa
 type ChannelOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Channel)(nil))
+	return reflect.TypeOf((**Channel)(nil)).Elem()
 }
 
 func (o ChannelOutput) ToChannelOutput() ChannelOutput {
@@ -255,44 +226,10 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
-func (o ChannelOutput) ToChannelPtrOutput() ChannelPtrOutput {
-	return o.ToChannelPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelOutput) ToChannelPtrOutputWithContext(ctx context.Context) ChannelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Channel) *Channel {
-		return &v
-	}).(ChannelPtrOutput)
-}
-
-type ChannelPtrOutput struct{ *pulumi.OutputState }
-
-func (ChannelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Channel)(nil))
-}
-
-func (o ChannelPtrOutput) ToChannelPtrOutput() ChannelPtrOutput {
-	return o
-}
-
-func (o ChannelPtrOutput) ToChannelPtrOutputWithContext(ctx context.Context) ChannelPtrOutput {
-	return o
-}
-
-func (o ChannelPtrOutput) Elem() ChannelOutput {
-	return o.ApplyT(func(v *Channel) Channel {
-		if v != nil {
-			return *v
-		}
-		var ret Channel
-		return ret
-	}).(ChannelOutput)
-}
-
 type ChannelArrayOutput struct{ *pulumi.OutputState }
 
 func (ChannelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Channel)(nil))
+	return reflect.TypeOf((*[]*Channel)(nil)).Elem()
 }
 
 func (o ChannelArrayOutput) ToChannelArrayOutput() ChannelArrayOutput {
@@ -304,15 +241,15 @@ func (o ChannelArrayOutput) ToChannelArrayOutputWithContext(ctx context.Context)
 }
 
 func (o ChannelArrayOutput) Index(i pulumi.IntInput) ChannelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Channel {
-		return vs[0].([]Channel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Channel {
+		return vs[0].([]*Channel)[vs[1].(int)]
 	}).(ChannelOutput)
 }
 
 type ChannelMapOutput struct{ *pulumi.OutputState }
 
 func (ChannelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Channel)(nil))
+	return reflect.TypeOf((*map[string]*Channel)(nil)).Elem()
 }
 
 func (o ChannelMapOutput) ToChannelMapOutput() ChannelMapOutput {
@@ -324,18 +261,16 @@ func (o ChannelMapOutput) ToChannelMapOutputWithContext(ctx context.Context) Cha
 }
 
 func (o ChannelMapOutput) MapIndex(k pulumi.StringInput) ChannelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Channel {
-		return vs[0].(map[string]Channel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Channel {
+		return vs[0].(map[string]*Channel)[vs[1].(string)]
 	}).(ChannelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInput)(nil)).Elem(), &Channel{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPtrInput)(nil)).Elem(), &Channel{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelArrayInput)(nil)).Elem(), ChannelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMapInput)(nil)).Elem(), ChannelMap{})
 	pulumi.RegisterOutputType(ChannelOutput{})
-	pulumi.RegisterOutputType(ChannelPtrOutput{})
 	pulumi.RegisterOutputType(ChannelArrayOutput{})
 	pulumi.RegisterOutputType(ChannelMapOutput{})
 }

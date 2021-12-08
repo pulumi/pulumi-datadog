@@ -86,34 +86,34 @@ export class ChildOrganization extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChildOrganizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChildOrganizationArgs | ChildOrganizationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChildOrganizationState | undefined;
-            inputs["apiKeys"] = state ? state.apiKeys : undefined;
-            inputs["applicationKeys"] = state ? state.applicationKeys : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publicId"] = state ? state.publicId : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
-            inputs["users"] = state ? state.users : undefined;
+            resourceInputs["apiKeys"] = state ? state.apiKeys : undefined;
+            resourceInputs["applicationKeys"] = state ? state.applicationKeys : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicId"] = state ? state.publicId : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as ChildOrganizationArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["apiKeys"] = undefined /*out*/;
-            inputs["applicationKeys"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["publicId"] = undefined /*out*/;
-            inputs["settings"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiKeys"] = undefined /*out*/;
+            resourceInputs["applicationKeys"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["publicId"] = undefined /*out*/;
+            resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ChildOrganization.__pulumiType, name, inputs, opts);
+        super(ChildOrganization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

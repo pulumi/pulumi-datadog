@@ -85,28 +85,28 @@ export class SyntheticsPrivateLocation extends pulumi.CustomResource {
      */
     constructor(name: string, args: SyntheticsPrivateLocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyntheticsPrivateLocationArgs | SyntheticsPrivateLocationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsPrivateLocationState | undefined;
-            inputs["config"] = state ? state.config : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["config"] = state ? state.config : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SyntheticsPrivateLocationArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["config"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["config"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SyntheticsPrivateLocation.__pulumiType, name, inputs, opts);
+        super(SyntheticsPrivateLocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

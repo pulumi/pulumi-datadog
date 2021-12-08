@@ -230,14 +230,14 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogsCustomPipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsCustomPipelineArgs | LogsCustomPipelineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsCustomPipelineState | undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["processors"] = state ? state.processors : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["processors"] = state ? state.processors : undefined;
         } else {
             const args = argsOrState as LogsCustomPipelineArgs | undefined;
             if ((!args || args.filters === undefined) && !opts.urn) {
@@ -246,15 +246,15 @@ export class LogsCustomPipeline extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["processors"] = args ? args.processors : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["processors"] = args ? args.processors : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LogsCustomPipeline.__pulumiType, name, inputs, opts);
+        super(LogsCustomPipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -36,6 +36,15 @@ import * as utilities from "./utilities";
  *     start: 1735707000,
  *     timezone: "UTC",
  * });
+ * const exampleSloCorrectionWithRecurrence = new datadog.SloCorrection("example_slo_correction_with_recurrence", {
+ *     category: "Scheduled Maintenance",
+ *     description: "correction example with recurrence",
+ *     duration: 3600,
+ *     rrule: "FREQ=DAILY;INTERVAL=3;",
+ *     sloId: "datadog_service_level_objective.example_slo.id",
+ *     start: 1735707000,
+ *     timezone: "UTC",
+ * });
  * ```
  *
  * ## Import
@@ -81,9 +90,17 @@ export class SloCorrection extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Ending time of the correction in epoch seconds.
+     * Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
      */
-    public readonly end!: pulumi.Output<number>;
+    public readonly duration!: pulumi.Output<number | undefined>;
+    /**
+     * Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+     */
+    public readonly end!: pulumi.Output<number | undefined>;
+    /**
+     * Recurrence rules as defined in the iCalendar RFC 5545.
+     */
+    public readonly rrule!: pulumi.Output<string | undefined>;
     /**
      * ID of the SLO that this correction will be applied to.
      */
@@ -106,23 +123,22 @@ export class SloCorrection extends pulumi.CustomResource {
      */
     constructor(name: string, args: SloCorrectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SloCorrectionArgs | SloCorrectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SloCorrectionState | undefined;
-            inputs["category"] = state ? state.category : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["end"] = state ? state.end : undefined;
-            inputs["sloId"] = state ? state.sloId : undefined;
-            inputs["start"] = state ? state.start : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["category"] = state ? state.category : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["duration"] = state ? state.duration : undefined;
+            resourceInputs["end"] = state ? state.end : undefined;
+            resourceInputs["rrule"] = state ? state.rrule : undefined;
+            resourceInputs["sloId"] = state ? state.sloId : undefined;
+            resourceInputs["start"] = state ? state.start : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as SloCorrectionArgs | undefined;
             if ((!args || args.category === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'category'");
-            }
-            if ((!args || args.end === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'end'");
             }
             if ((!args || args.sloId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sloId'");
@@ -130,17 +146,19 @@ export class SloCorrection extends pulumi.CustomResource {
             if ((!args || args.start === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'start'");
             }
-            inputs["category"] = args ? args.category : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["end"] = args ? args.end : undefined;
-            inputs["sloId"] = args ? args.sloId : undefined;
-            inputs["start"] = args ? args.start : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["duration"] = args ? args.duration : undefined;
+            resourceInputs["end"] = args ? args.end : undefined;
+            resourceInputs["rrule"] = args ? args.rrule : undefined;
+            resourceInputs["sloId"] = args ? args.sloId : undefined;
+            resourceInputs["start"] = args ? args.start : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SloCorrection.__pulumiType, name, inputs, opts);
+        super(SloCorrection.__pulumiType, name, resourceInputs, opts);
     }
 }
 
@@ -157,9 +175,17 @@ export interface SloCorrectionState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Ending time of the correction in epoch seconds.
+     * Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+     */
+    duration?: pulumi.Input<number>;
+    /**
+     * Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
      */
     end?: pulumi.Input<number>;
+    /**
+     * Recurrence rules as defined in the iCalendar RFC 5545.
+     */
+    rrule?: pulumi.Input<string>;
     /**
      * ID of the SLO that this correction will be applied to.
      */
@@ -187,9 +213,17 @@ export interface SloCorrectionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Ending time of the correction in epoch seconds.
+     * Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
      */
-    end: pulumi.Input<number>;
+    duration?: pulumi.Input<number>;
+    /**
+     * Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+     */
+    end?: pulumi.Input<number>;
+    /**
+     * Recurrence rules as defined in the iCalendar RFC 5545.
+     */
+    rrule?: pulumi.Input<string>;
     /**
      * ID of the SLO that this correction will be applied to.
      */

@@ -79,13 +79,13 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationTagFilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationTagFilterArgs | IntegrationTagFilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationTagFilterState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["namespace"] = state ? state.namespace : undefined;
-            inputs["tagFilterStr"] = state ? state.tagFilterStr : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["tagFilterStr"] = state ? state.tagFilterStr : undefined;
         } else {
             const args = argsOrState as IntegrationTagFilterArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -97,14 +97,14 @@ export class IntegrationTagFilter extends pulumi.CustomResource {
             if ((!args || args.tagFilterStr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tagFilterStr'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["tagFilterStr"] = args ? args.tagFilterStr : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["tagFilterStr"] = args ? args.tagFilterStr : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IntegrationTagFilter.__pulumiType, name, inputs, opts);
+        super(IntegrationTagFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -387,31 +387,31 @@ export class SyntheticsTest extends pulumi.CustomResource {
      */
     constructor(name: string, args: SyntheticsTestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SyntheticsTestArgs | SyntheticsTestState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyntheticsTestState | undefined;
-            inputs["apiSteps"] = state ? state.apiSteps : undefined;
-            inputs["assertions"] = state ? state.assertions : undefined;
-            inputs["browserSteps"] = state ? state.browserSteps : undefined;
-            inputs["browserVariables"] = state ? state.browserVariables : undefined;
-            inputs["configVariables"] = state ? state.configVariables : undefined;
-            inputs["deviceIds"] = state ? state.deviceIds : undefined;
-            inputs["locations"] = state ? state.locations : undefined;
-            inputs["message"] = state ? state.message : undefined;
-            inputs["monitorId"] = state ? state.monitorId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["optionsList"] = state ? state.optionsList : undefined;
-            inputs["requestBasicauth"] = state ? state.requestBasicauth : undefined;
-            inputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
-            inputs["requestDefinition"] = state ? state.requestDefinition : undefined;
-            inputs["requestHeaders"] = state ? state.requestHeaders : undefined;
-            inputs["requestQuery"] = state ? state.requestQuery : undefined;
-            inputs["setCookie"] = state ? state.setCookie : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["subtype"] = state ? state.subtype : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["apiSteps"] = state ? state.apiSteps : undefined;
+            resourceInputs["assertions"] = state ? state.assertions : undefined;
+            resourceInputs["browserSteps"] = state ? state.browserSteps : undefined;
+            resourceInputs["browserVariables"] = state ? state.browserVariables : undefined;
+            resourceInputs["configVariables"] = state ? state.configVariables : undefined;
+            resourceInputs["deviceIds"] = state ? state.deviceIds : undefined;
+            resourceInputs["locations"] = state ? state.locations : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["optionsList"] = state ? state.optionsList : undefined;
+            resourceInputs["requestBasicauth"] = state ? state.requestBasicauth : undefined;
+            resourceInputs["requestClientCertificate"] = state ? state.requestClientCertificate : undefined;
+            resourceInputs["requestDefinition"] = state ? state.requestDefinition : undefined;
+            resourceInputs["requestHeaders"] = state ? state.requestHeaders : undefined;
+            resourceInputs["requestQuery"] = state ? state.requestQuery : undefined;
+            resourceInputs["setCookie"] = state ? state.setCookie : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subtype"] = state ? state.subtype : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SyntheticsTestArgs | undefined;
             if ((!args || args.locations === undefined) && !opts.urn) {
@@ -426,32 +426,32 @@ export class SyntheticsTest extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["apiSteps"] = args ? args.apiSteps : undefined;
-            inputs["assertions"] = args ? args.assertions : undefined;
-            inputs["browserSteps"] = args ? args.browserSteps : undefined;
-            inputs["browserVariables"] = args ? args.browserVariables : undefined;
-            inputs["configVariables"] = args ? args.configVariables : undefined;
-            inputs["deviceIds"] = args ? args.deviceIds : undefined;
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["optionsList"] = args ? args.optionsList : undefined;
-            inputs["requestBasicauth"] = args ? args.requestBasicauth : undefined;
-            inputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
-            inputs["requestDefinition"] = args ? args.requestDefinition : undefined;
-            inputs["requestHeaders"] = args ? args.requestHeaders : undefined;
-            inputs["requestQuery"] = args ? args.requestQuery : undefined;
-            inputs["setCookie"] = args ? args.setCookie : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["subtype"] = args ? args.subtype : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["monitorId"] = undefined /*out*/;
+            resourceInputs["apiSteps"] = args ? args.apiSteps : undefined;
+            resourceInputs["assertions"] = args ? args.assertions : undefined;
+            resourceInputs["browserSteps"] = args ? args.browserSteps : undefined;
+            resourceInputs["browserVariables"] = args ? args.browserVariables : undefined;
+            resourceInputs["configVariables"] = args ? args.configVariables : undefined;
+            resourceInputs["deviceIds"] = args ? args.deviceIds : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["optionsList"] = args ? args.optionsList : undefined;
+            resourceInputs["requestBasicauth"] = args ? args.requestBasicauth : undefined;
+            resourceInputs["requestClientCertificate"] = args ? args.requestClientCertificate : undefined;
+            resourceInputs["requestDefinition"] = args ? args.requestDefinition : undefined;
+            resourceInputs["requestHeaders"] = args ? args.requestHeaders : undefined;
+            resourceInputs["requestQuery"] = args ? args.requestQuery : undefined;
+            resourceInputs["setCookie"] = args ? args.setCookie : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["subtype"] = args ? args.subtype : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["monitorId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SyntheticsTest.__pulumiType, name, inputs, opts);
+        super(SyntheticsTest.__pulumiType, name, resourceInputs, opts);
     }
 }
 

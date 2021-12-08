@@ -105,8 +105,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly includeTags!: pulumi.Output<boolean | undefined>;
     /**
-     * A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-     * `false`.
+     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      */
     public readonly locked!: pulumi.Output<boolean | undefined>;
     /**
@@ -216,37 +215,37 @@ export class Monitor extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorArgs | MonitorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            inputs["enableLogsSample"] = state ? state.enableLogsSample : undefined;
-            inputs["escalationMessage"] = state ? state.escalationMessage : undefined;
-            inputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
-            inputs["forceDelete"] = state ? state.forceDelete : undefined;
-            inputs["groupbySimpleMonitor"] = state ? state.groupbySimpleMonitor : undefined;
-            inputs["includeTags"] = state ? state.includeTags : undefined;
-            inputs["locked"] = state ? state.locked : undefined;
-            inputs["message"] = state ? state.message : undefined;
-            inputs["monitorThresholdWindows"] = state ? state.monitorThresholdWindows : undefined;
-            inputs["monitorThresholds"] = state ? state.monitorThresholds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["newGroupDelay"] = state ? state.newGroupDelay : undefined;
-            inputs["newHostDelay"] = state ? state.newHostDelay : undefined;
-            inputs["noDataTimeframe"] = state ? state.noDataTimeframe : undefined;
-            inputs["notifyAudit"] = state ? state.notifyAudit : undefined;
-            inputs["notifyNoData"] = state ? state.notifyNoData : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["query"] = state ? state.query : undefined;
-            inputs["renotifyInterval"] = state ? state.renotifyInterval : undefined;
-            inputs["renotifyOccurrences"] = state ? state.renotifyOccurrences : undefined;
-            inputs["renotifyStatuses"] = state ? state.renotifyStatuses : undefined;
-            inputs["requireFullWindow"] = state ? state.requireFullWindow : undefined;
-            inputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["timeoutH"] = state ? state.timeoutH : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["validate"] = state ? state.validate : undefined;
+            resourceInputs["enableLogsSample"] = state ? state.enableLogsSample : undefined;
+            resourceInputs["escalationMessage"] = state ? state.escalationMessage : undefined;
+            resourceInputs["evaluationDelay"] = state ? state.evaluationDelay : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["groupbySimpleMonitor"] = state ? state.groupbySimpleMonitor : undefined;
+            resourceInputs["includeTags"] = state ? state.includeTags : undefined;
+            resourceInputs["locked"] = state ? state.locked : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["monitorThresholdWindows"] = state ? state.monitorThresholdWindows : undefined;
+            resourceInputs["monitorThresholds"] = state ? state.monitorThresholds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["newGroupDelay"] = state ? state.newGroupDelay : undefined;
+            resourceInputs["newHostDelay"] = state ? state.newHostDelay : undefined;
+            resourceInputs["noDataTimeframe"] = state ? state.noDataTimeframe : undefined;
+            resourceInputs["notifyAudit"] = state ? state.notifyAudit : undefined;
+            resourceInputs["notifyNoData"] = state ? state.notifyNoData : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["renotifyInterval"] = state ? state.renotifyInterval : undefined;
+            resourceInputs["renotifyOccurrences"] = state ? state.renotifyOccurrences : undefined;
+            resourceInputs["renotifyStatuses"] = state ? state.renotifyStatuses : undefined;
+            resourceInputs["requireFullWindow"] = state ? state.requireFullWindow : undefined;
+            resourceInputs["restrictedRoles"] = state ? state.restrictedRoles : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timeoutH"] = state ? state.timeoutH : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["validate"] = state ? state.validate : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
             if ((!args || args.message === undefined) && !opts.urn) {
@@ -261,38 +260,38 @@ export class Monitor extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["enableLogsSample"] = args ? args.enableLogsSample : undefined;
-            inputs["escalationMessage"] = args ? args.escalationMessage : undefined;
-            inputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
-            inputs["forceDelete"] = args ? args.forceDelete : undefined;
-            inputs["groupbySimpleMonitor"] = args ? args.groupbySimpleMonitor : undefined;
-            inputs["includeTags"] = args ? args.includeTags : undefined;
-            inputs["locked"] = args ? args.locked : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["monitorThresholdWindows"] = args ? args.monitorThresholdWindows : undefined;
-            inputs["monitorThresholds"] = args ? args.monitorThresholds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["newGroupDelay"] = args ? args.newGroupDelay : undefined;
-            inputs["newHostDelay"] = args ? args.newHostDelay : undefined;
-            inputs["noDataTimeframe"] = args ? args.noDataTimeframe : undefined;
-            inputs["notifyAudit"] = args ? args.notifyAudit : undefined;
-            inputs["notifyNoData"] = args ? args.notifyNoData : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["renotifyInterval"] = args ? args.renotifyInterval : undefined;
-            inputs["renotifyOccurrences"] = args ? args.renotifyOccurrences : undefined;
-            inputs["renotifyStatuses"] = args ? args.renotifyStatuses : undefined;
-            inputs["requireFullWindow"] = args ? args.requireFullWindow : undefined;
-            inputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeoutH"] = args ? args.timeoutH : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["enableLogsSample"] = args ? args.enableLogsSample : undefined;
+            resourceInputs["escalationMessage"] = args ? args.escalationMessage : undefined;
+            resourceInputs["evaluationDelay"] = args ? args.evaluationDelay : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["groupbySimpleMonitor"] = args ? args.groupbySimpleMonitor : undefined;
+            resourceInputs["includeTags"] = args ? args.includeTags : undefined;
+            resourceInputs["locked"] = args ? args.locked : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["monitorThresholdWindows"] = args ? args.monitorThresholdWindows : undefined;
+            resourceInputs["monitorThresholds"] = args ? args.monitorThresholds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["newGroupDelay"] = args ? args.newGroupDelay : undefined;
+            resourceInputs["newHostDelay"] = args ? args.newHostDelay : undefined;
+            resourceInputs["noDataTimeframe"] = args ? args.noDataTimeframe : undefined;
+            resourceInputs["notifyAudit"] = args ? args.notifyAudit : undefined;
+            resourceInputs["notifyNoData"] = args ? args.notifyNoData : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["renotifyInterval"] = args ? args.renotifyInterval : undefined;
+            resourceInputs["renotifyOccurrences"] = args ? args.renotifyOccurrences : undefined;
+            resourceInputs["renotifyStatuses"] = args ? args.renotifyStatuses : undefined;
+            resourceInputs["requireFullWindow"] = args ? args.requireFullWindow : undefined;
+            resourceInputs["restrictedRoles"] = args ? args.restrictedRoles : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeoutH"] = args ? args.timeoutH : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["validate"] = args ? args.validate : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Monitor.__pulumiType, name, inputs, opts);
+        super(Monitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 
@@ -332,8 +331,7 @@ export interface MonitorState {
      */
     includeTags?: pulumi.Input<boolean>;
     /**
-     * A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-     * `false`.
+     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      */
     locked?: pulumi.Input<boolean>;
     /**
@@ -471,8 +469,7 @@ export interface MonitorArgs {
      */
     includeTags?: pulumi.Input<boolean>;
     /**
-     * A boolean indicating whether changes to to this monitor should be restricted to the creator or admins. Defaults to
-     * `false`.
+     * A boolean indicating whether changes to this monitor should be restricted to the creator or admins. Defaults to `false`.
      */
     locked?: pulumi.Input<boolean>;
     /**

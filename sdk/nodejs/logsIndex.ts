@@ -74,16 +74,16 @@ export class LogsIndex extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogsIndexArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsIndexArgs | LogsIndexState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsIndexState | undefined;
-            inputs["dailyLimit"] = state ? state.dailyLimit : undefined;
-            inputs["disableDailyLimit"] = state ? state.disableDailyLimit : undefined;
-            inputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["retentionDays"] = state ? state.retentionDays : undefined;
+            resourceInputs["dailyLimit"] = state ? state.dailyLimit : undefined;
+            resourceInputs["disableDailyLimit"] = state ? state.disableDailyLimit : undefined;
+            resourceInputs["exclusionFilters"] = state ? state.exclusionFilters : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
         } else {
             const args = argsOrState as LogsIndexArgs | undefined;
             if ((!args || args.filters === undefined) && !opts.urn) {
@@ -92,17 +92,17 @@ export class LogsIndex extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["dailyLimit"] = args ? args.dailyLimit : undefined;
-            inputs["disableDailyLimit"] = args ? args.disableDailyLimit : undefined;
-            inputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["dailyLimit"] = args ? args.dailyLimit : undefined;
+            resourceInputs["disableDailyLimit"] = args ? args.disableDailyLimit : undefined;
+            resourceInputs["exclusionFilters"] = args ? args.exclusionFilters : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LogsIndex.__pulumiType, name, inputs, opts);
+        super(LogsIndex.__pulumiType, name, resourceInputs, opts);
     }
 }
 

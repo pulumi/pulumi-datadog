@@ -16,17 +16,21 @@ class IntegrationArgs:
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
                  tenant_name: pulumi.Input[str],
+                 automute: Optional[pulumi.Input[bool]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
+        :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "tenant_name", tenant_name)
+        if automute is not None:
+            pulumi.set(__self__, "automute", automute)
         if host_filters is not None:
             pulumi.set(__self__, "host_filters", host_filters)
 
@@ -67,6 +71,18 @@ class IntegrationArgs:
         pulumi.set(self, "tenant_name", value)
 
     @property
+    @pulumi.getter
+    def automute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Silence monitors for expected Azure VM shutdowns.
+        """
+        return pulumi.get(self, "automute")
+
+    @automute.setter
+    def automute(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automute", value)
+
+    @property
     @pulumi.getter(name="hostFilters")
     def host_filters(self) -> Optional[pulumi.Input[str]]:
         """
@@ -82,17 +98,21 @@ class IntegrationArgs:
 @pulumi.input_type
 class _IntegrationState:
     def __init__(__self__, *,
+                 automute: Optional[pulumi.Input[bool]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Integration resources.
+        :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
         :param pulumi.Input[str] tenant_name: Your Azure Active Directory ID.
         """
+        if automute is not None:
+            pulumi.set(__self__, "automute", automute)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -101,6 +121,18 @@ class _IntegrationState:
             pulumi.set(__self__, "host_filters", host_filters)
         if tenant_name is not None:
             pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @property
+    @pulumi.getter
+    def automute(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Silence monitors for expected Azure VM shutdowns.
+        """
+        return pulumi.get(self, "automute")
+
+    @automute.setter
+    def automute(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automute", value)
 
     @property
     @pulumi.getter(name="clientId")
@@ -156,6 +188,7 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automute: Optional[pulumi.Input[bool]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
@@ -188,6 +221,7 @@ class Integration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
@@ -239,6 +273,7 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automute: Optional[pulumi.Input[bool]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  host_filters: Optional[pulumi.Input[str]] = None,
@@ -255,6 +290,7 @@ class Integration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationArgs.__new__(IntegrationArgs)
 
+            __props__.__dict__["automute"] = automute
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
@@ -275,6 +311,7 @@ class Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            automute: Optional[pulumi.Input[bool]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
             host_filters: Optional[pulumi.Input[str]] = None,
@@ -286,6 +323,7 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automute: Silence monitors for expected Azure VM shutdowns.
         :param pulumi.Input[str] client_id: Your Azure web application ID.
         :param pulumi.Input[str] client_secret: (Required for Initial Creation) Your Azure web application secret key.
         :param pulumi.Input[str] host_filters: String of host tag(s) (in the form `key:value,key:value`) defines a filter that Datadog will use when collecting metrics from Azure. Limit the Azure instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog. e.x. `env:production,deploymentgroup:red`
@@ -295,11 +333,20 @@ class Integration(pulumi.CustomResource):
 
         __props__ = _IntegrationState.__new__(_IntegrationState)
 
+        __props__.__dict__["automute"] = automute
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["host_filters"] = host_filters
         __props__.__dict__["tenant_name"] = tenant_name
         return Integration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def automute(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Silence monitors for expected Azure VM shutdowns.
+        """
+        return pulumi.get(self, "automute")
 
     @property
     @pulumi.getter(name="clientId")

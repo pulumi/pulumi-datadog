@@ -76,12 +76,12 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationLambdaArnArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationLambdaArnArgs | IntegrationLambdaArnState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationLambdaArnState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["lambdaArn"] = state ? state.lambdaArn : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["lambdaArn"] = state ? state.lambdaArn : undefined;
         } else {
             const args = argsOrState as IntegrationLambdaArnArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -90,13 +90,13 @@ export class IntegrationLambdaArn extends pulumi.CustomResource {
             if ((!args || args.lambdaArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lambdaArn'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["lambdaArn"] = args ? args.lambdaArn : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["lambdaArn"] = args ? args.lambdaArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IntegrationLambdaArn.__pulumiType, name, inputs, opts);
+        super(IntegrationLambdaArn.__pulumiType, name, resourceInputs, opts);
     }
 }
 

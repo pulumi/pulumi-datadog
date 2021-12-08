@@ -14,26 +14,35 @@ __all__ = ['SloCorrectionArgs', 'SloCorrection']
 class SloCorrectionArgs:
     def __init__(__self__, *,
                  category: pulumi.Input[str],
-                 end: pulumi.Input[int],
                  slo_id: pulumi.Input[str],
                  start: pulumi.Input[int],
                  description: Optional[pulumi.Input[str]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
+                 end: Optional[pulumi.Input[int]] = None,
+                 rrule: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SloCorrection resource.
         :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
         :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] description: Description of the correction being made.
+        :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
         """
         pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "end", end)
         pulumi.set(__self__, "slo_id", slo_id)
         pulumi.set(__self__, "start", start)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if rrule is not None:
+            pulumi.set(__self__, "rrule", rrule)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -48,18 +57,6 @@ class SloCorrectionArgs:
     @category.setter
     def category(self, value: pulumi.Input[str]):
         pulumi.set(self, "category", value)
-
-    @property
-    @pulumi.getter
-    def end(self) -> pulumi.Input[int]:
-        """
-        Ending time of the correction in epoch seconds.
-        """
-        return pulumi.get(self, "end")
-
-    @end.setter
-    def end(self, value: pulumi.Input[int]):
-        pulumi.set(self, "end", value)
 
     @property
     @pulumi.getter(name="sloId")
@@ -99,6 +96,42 @@ class SloCorrectionArgs:
 
     @property
     @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[pulumi.Input[int]]:
+        """
+        Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        """
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "end", value)
+
+    @property
+    @pulumi.getter
+    def rrule(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recurrence rules as defined in the iCalendar RFC 5545.
+        """
+        return pulumi.get(self, "rrule")
+
+    @rrule.setter
+    def rrule(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rrule", value)
+
+    @property
+    @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         The timezone to display in the UI for the correction times (defaults to "UTC")
@@ -115,7 +148,9 @@ class _SloCorrectionState:
     def __init__(__self__, *,
                  category: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
                  end: Optional[pulumi.Input[int]] = None,
+                 rrule: Optional[pulumi.Input[str]] = None,
                  slo_id: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[int]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
@@ -123,7 +158,9 @@ class _SloCorrectionState:
         Input properties used for looking up and filtering SloCorrection resources.
         :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[str] description: Description of the correction being made.
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
+        :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
         :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
@@ -132,8 +169,12 @@ class _SloCorrectionState:
             pulumi.set(__self__, "category", category)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
         if end is not None:
             pulumi.set(__self__, "end", end)
+        if rrule is not None:
+            pulumi.set(__self__, "rrule", rrule)
         if slo_id is not None:
             pulumi.set(__self__, "slo_id", slo_id)
         if start is not None:
@@ -167,15 +208,39 @@ class _SloCorrectionState:
 
     @property
     @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter
     def end(self) -> Optional[pulumi.Input[int]]:
         """
-        Ending time of the correction in epoch seconds.
+        Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         """
         return pulumi.get(self, "end")
 
     @end.setter
     def end(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "end", value)
+
+    @property
+    @pulumi.getter
+    def rrule(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recurrence rules as defined in the iCalendar RFC 5545.
+        """
+        return pulumi.get(self, "rrule")
+
+    @rrule.setter
+    def rrule(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rrule", value)
 
     @property
     @pulumi.getter(name="sloId")
@@ -221,7 +286,9 @@ class SloCorrection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
                  end: Optional[pulumi.Input[int]] = None,
+                 rrule: Optional[pulumi.Input[str]] = None,
                  slo_id: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[int]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -256,6 +323,14 @@ class SloCorrection(pulumi.CustomResource):
             slo_id="datadog_service_level_objective.example_slo.id",
             start=1735707000,
             timezone="UTC")
+        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
+            category="Scheduled Maintenance",
+            description="correction example with recurrence",
+            duration=3600,
+            rrule="FREQ=DAILY;INTERVAL=3;",
+            slo_id="datadog_service_level_objective.example_slo.id",
+            start=1735707000,
+            timezone="UTC")
         ```
 
         ## Import
@@ -268,7 +343,9 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[str] description: Description of the correction being made.
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
+        :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
         :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
@@ -309,6 +386,14 @@ class SloCorrection(pulumi.CustomResource):
             slo_id="datadog_service_level_objective.example_slo.id",
             start=1735707000,
             timezone="UTC")
+        example_slo_correction_with_recurrence = datadog.SloCorrection("exampleSloCorrectionWithRecurrence",
+            category="Scheduled Maintenance",
+            description="correction example with recurrence",
+            duration=3600,
+            rrule="FREQ=DAILY;INTERVAL=3;",
+            slo_id="datadog_service_level_objective.example_slo.id",
+            start=1735707000,
+            timezone="UTC")
         ```
 
         ## Import
@@ -334,7 +419,9 @@ class SloCorrection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
                  end: Optional[pulumi.Input[int]] = None,
+                 rrule: Optional[pulumi.Input[str]] = None,
                  slo_id: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[int]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -354,9 +441,9 @@ class SloCorrection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'category'")
             __props__.__dict__["category"] = category
             __props__.__dict__["description"] = description
-            if end is None and not opts.urn:
-                raise TypeError("Missing required property 'end'")
+            __props__.__dict__["duration"] = duration
             __props__.__dict__["end"] = end
+            __props__.__dict__["rrule"] = rrule
             if slo_id is None and not opts.urn:
                 raise TypeError("Missing required property 'slo_id'")
             __props__.__dict__["slo_id"] = slo_id
@@ -376,7 +463,9 @@ class SloCorrection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             category: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            duration: Optional[pulumi.Input[int]] = None,
             end: Optional[pulumi.Input[int]] = None,
+            rrule: Optional[pulumi.Input[str]] = None,
             slo_id: Optional[pulumi.Input[str]] = None,
             start: Optional[pulumi.Input[int]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'SloCorrection':
@@ -389,7 +478,9 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
         :param pulumi.Input[str] description: Description of the correction being made.
-        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds.
+        :param pulumi.Input[int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        :param pulumi.Input[int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
+        :param pulumi.Input[str] rrule: Recurrence rules as defined in the iCalendar RFC 5545.
         :param pulumi.Input[str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[str] timezone: The timezone to display in the UI for the correction times (defaults to "UTC")
@@ -400,7 +491,9 @@ class SloCorrection(pulumi.CustomResource):
 
         __props__.__dict__["category"] = category
         __props__.__dict__["description"] = description
+        __props__.__dict__["duration"] = duration
         __props__.__dict__["end"] = end
+        __props__.__dict__["rrule"] = rrule
         __props__.__dict__["slo_id"] = slo_id
         __props__.__dict__["start"] = start
         __props__.__dict__["timezone"] = timezone
@@ -424,11 +517,27 @@ class SloCorrection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def end(self) -> pulumi.Output[int]:
+    def duration(self) -> pulumi.Output[Optional[int]]:
         """
-        Ending time of the correction in epoch seconds.
+        Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def end(self) -> pulumi.Output[Optional[int]]:
+        """
+        Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         """
         return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def rrule(self) -> pulumi.Output[Optional[str]]:
+        """
+        Recurrence rules as defined in the iCalendar RFC 5545.
+        """
+        return pulumi.get(self, "rrule")
 
     @property
     @pulumi.getter(name="sloId")

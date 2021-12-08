@@ -90,7 +90,7 @@ export class Downtime extends pulumi.CustomResource {
      */
     public readonly monitorId!: pulumi.Output<number | undefined>;
     /**
-     * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
     public readonly monitorTags!: pulumi.Output<string[] | undefined>;
     /**
@@ -123,46 +123,46 @@ export class Downtime extends pulumi.CustomResource {
      */
     constructor(name: string, args: DowntimeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DowntimeArgs | DowntimeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DowntimeState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["activeChildId"] = state ? state.activeChildId : undefined;
-            inputs["disabled"] = state ? state.disabled : undefined;
-            inputs["end"] = state ? state.end : undefined;
-            inputs["endDate"] = state ? state.endDate : undefined;
-            inputs["message"] = state ? state.message : undefined;
-            inputs["monitorId"] = state ? state.monitorId : undefined;
-            inputs["monitorTags"] = state ? state.monitorTags : undefined;
-            inputs["recurrence"] = state ? state.recurrence : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["start"] = state ? state.start : undefined;
-            inputs["startDate"] = state ? state.startDate : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["activeChildId"] = state ? state.activeChildId : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["end"] = state ? state.end : undefined;
+            resourceInputs["endDate"] = state ? state.endDate : undefined;
+            resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
+            resourceInputs["monitorTags"] = state ? state.monitorTags : undefined;
+            resourceInputs["recurrence"] = state ? state.recurrence : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["start"] = state ? state.start : undefined;
+            resourceInputs["startDate"] = state ? state.startDate : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as DowntimeArgs | undefined;
             if ((!args || args.scopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            inputs["end"] = args ? args.end : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["monitorId"] = args ? args.monitorId : undefined;
-            inputs["monitorTags"] = args ? args.monitorTags : undefined;
-            inputs["recurrence"] = args ? args.recurrence : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["start"] = args ? args.start : undefined;
-            inputs["startDate"] = args ? args.startDate : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
-            inputs["active"] = undefined /*out*/;
-            inputs["activeChildId"] = undefined /*out*/;
-            inputs["disabled"] = undefined /*out*/;
+            resourceInputs["end"] = args ? args.end : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["monitorId"] = args ? args.monitorId : undefined;
+            resourceInputs["monitorTags"] = args ? args.monitorTags : undefined;
+            resourceInputs["recurrence"] = args ? args.recurrence : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["start"] = args ? args.start : undefined;
+            resourceInputs["startDate"] = args ? args.startDate : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["active"] = undefined /*out*/;
+            resourceInputs["activeChildId"] = undefined /*out*/;
+            resourceInputs["disabled"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Downtime.__pulumiType, name, inputs, opts);
+        super(Downtime.__pulumiType, name, resourceInputs, opts);
     }
 }
 
@@ -199,7 +199,7 @@ export interface DowntimeState {
      */
     monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -245,7 +245,7 @@ export interface DowntimeArgs {
      */
     monitorId?: pulumi.Input<number>;
     /**
-     * A list of monitor tags (up to 25), i.e. tags that are applied directly to monitors to which the downtime applies
+     * A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
      */
     monitorTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -49,6 +49,8 @@ import (
 type Integration struct {
 	pulumi.CustomResourceState
 
+	// Silence monitors for expected Azure VM shutdowns.
+	Automute pulumi.BoolPtrOutput `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
@@ -97,6 +99,8 @@ func GetIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Integration resources.
 type integrationState struct {
+	// Silence monitors for expected Azure VM shutdowns.
+	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId *string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
@@ -108,6 +112,8 @@ type integrationState struct {
 }
 
 type IntegrationState struct {
+	// Silence monitors for expected Azure VM shutdowns.
+	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringPtrInput
 	// (Required for Initial Creation) Your Azure web application secret key.
@@ -123,6 +129,8 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
+	// Silence monitors for expected Azure VM shutdowns.
+	Automute *bool `pulumi:"automute"`
 	// Your Azure web application ID.
 	ClientId string `pulumi:"clientId"`
 	// (Required for Initial Creation) Your Azure web application secret key.
@@ -135,6 +143,8 @@ type integrationArgs struct {
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
+	// Silence monitors for expected Azure VM shutdowns.
+	Automute pulumi.BoolPtrInput
 	// Your Azure web application ID.
 	ClientId pulumi.StringInput
 	// (Required for Initial Creation) Your Azure web application secret key.
@@ -157,7 +167,7 @@ type IntegrationInput interface {
 }
 
 func (*Integration) ElementType() reflect.Type {
-	return reflect.TypeOf((*Integration)(nil))
+	return reflect.TypeOf((**Integration)(nil)).Elem()
 }
 
 func (i *Integration) ToIntegrationOutput() IntegrationOutput {
@@ -166,35 +176,6 @@ func (i *Integration) ToIntegrationOutput() IntegrationOutput {
 
 func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOutput)
-}
-
-func (i *Integration) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return i.ToIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *Integration) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationPtrOutput)
-}
-
-type IntegrationPtrInput interface {
-	pulumi.Input
-
-	ToIntegrationPtrOutput() IntegrationPtrOutput
-	ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput
-}
-
-type integrationPtrType IntegrationArgs
-
-func (*integrationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Integration)(nil))
-}
-
-func (i *integrationPtrType) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return i.ToIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (i *integrationPtrType) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationPtrOutput)
 }
 
 // IntegrationArrayInput is an input type that accepts IntegrationArray and IntegrationArrayOutput values.
@@ -250,7 +231,7 @@ func (i IntegrationMap) ToIntegrationMapOutputWithContext(ctx context.Context) I
 type IntegrationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Integration)(nil))
+	return reflect.TypeOf((**Integration)(nil)).Elem()
 }
 
 func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
@@ -261,44 +242,10 @@ func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) I
 	return o
 }
 
-func (o IntegrationOutput) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return o.ToIntegrationPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationOutput) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Integration) *Integration {
-		return &v
-	}).(IntegrationPtrOutput)
-}
-
-type IntegrationPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Integration)(nil))
-}
-
-func (o IntegrationPtrOutput) ToIntegrationPtrOutput() IntegrationPtrOutput {
-	return o
-}
-
-func (o IntegrationPtrOutput) ToIntegrationPtrOutputWithContext(ctx context.Context) IntegrationPtrOutput {
-	return o
-}
-
-func (o IntegrationPtrOutput) Elem() IntegrationOutput {
-	return o.ApplyT(func(v *Integration) Integration {
-		if v != nil {
-			return *v
-		}
-		var ret Integration
-		return ret
-	}).(IntegrationOutput)
-}
-
 type IntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (IntegrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Integration)(nil))
+	return reflect.TypeOf((*[]*Integration)(nil)).Elem()
 }
 
 func (o IntegrationArrayOutput) ToIntegrationArrayOutput() IntegrationArrayOutput {
@@ -310,15 +257,15 @@ func (o IntegrationArrayOutput) ToIntegrationArrayOutputWithContext(ctx context.
 }
 
 func (o IntegrationArrayOutput) Index(i pulumi.IntInput) IntegrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Integration {
-		return vs[0].([]Integration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Integration {
+		return vs[0].([]*Integration)[vs[1].(int)]
 	}).(IntegrationOutput)
 }
 
 type IntegrationMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Integration)(nil))
+	return reflect.TypeOf((*map[string]*Integration)(nil)).Elem()
 }
 
 func (o IntegrationMapOutput) ToIntegrationMapOutput() IntegrationMapOutput {
@@ -330,18 +277,16 @@ func (o IntegrationMapOutput) ToIntegrationMapOutputWithContext(ctx context.Cont
 }
 
 func (o IntegrationMapOutput) MapIndex(k pulumi.StringInput) IntegrationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Integration {
-		return vs[0].(map[string]Integration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Integration {
+		return vs[0].(map[string]*Integration)[vs[1].(string)]
 	}).(IntegrationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationInput)(nil)).Elem(), &Integration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationPtrInput)(nil)).Elem(), &Integration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationArrayInput)(nil)).Elem(), IntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMapInput)(nil)).Elem(), IntegrationMap{})
 	pulumi.RegisterOutputType(IntegrationOutput{})
-	pulumi.RegisterOutputType(IntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationMapOutput{})
 }

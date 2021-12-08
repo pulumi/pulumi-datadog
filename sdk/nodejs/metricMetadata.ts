@@ -89,34 +89,34 @@ export class MetricMetadata extends pulumi.CustomResource {
      */
     constructor(name: string, args: MetricMetadataArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MetricMetadataArgs | MetricMetadataState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricMetadataState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["metric"] = state ? state.metric : undefined;
-            inputs["perUnit"] = state ? state.perUnit : undefined;
-            inputs["shortName"] = state ? state.shortName : undefined;
-            inputs["statsdInterval"] = state ? state.statsdInterval : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["unit"] = state ? state.unit : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["metric"] = state ? state.metric : undefined;
+            resourceInputs["perUnit"] = state ? state.perUnit : undefined;
+            resourceInputs["shortName"] = state ? state.shortName : undefined;
+            resourceInputs["statsdInterval"] = state ? state.statsdInterval : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["unit"] = state ? state.unit : undefined;
         } else {
             const args = argsOrState as MetricMetadataArgs | undefined;
             if ((!args || args.metric === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metric'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["metric"] = args ? args.metric : undefined;
-            inputs["perUnit"] = args ? args.perUnit : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["statsdInterval"] = args ? args.statsdInterval : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["perUnit"] = args ? args.perUnit : undefined;
+            resourceInputs["shortName"] = args ? args.shortName : undefined;
+            resourceInputs["statsdInterval"] = args ? args.statsdInterval : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["unit"] = args ? args.unit : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MetricMetadata.__pulumiType, name, inputs, opts);
+        super(MetricMetadata.__pulumiType, name, resourceInputs, opts);
     }
 }
 

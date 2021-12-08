@@ -84,13 +84,13 @@ export class Channel extends pulumi.CustomResource {
      */
     constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ChannelArgs | ChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
-            inputs["channelName"] = state ? state.channelName : undefined;
-            inputs["display"] = state ? state.display : undefined;
+            resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["channelName"] = state ? state.channelName : undefined;
+            resourceInputs["display"] = state ? state.display : undefined;
         } else {
             const args = argsOrState as ChannelArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -102,14 +102,14 @@ export class Channel extends pulumi.CustomResource {
             if ((!args || args.display === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'display'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["channelName"] = args ? args.channelName : undefined;
-            inputs["display"] = args ? args.display : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["channelName"] = args ? args.channelName : undefined;
+            resourceInputs["display"] = args ? args.display : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Channel.__pulumiType, name, inputs, opts);
+        super(Channel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

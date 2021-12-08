@@ -6758,6 +6758,17 @@ export interface LogsMetricGroupBy {
     tagName: pulumi.Input<string>;
 }
 
+export interface MetricTagConfigurationAggregation {
+    /**
+     * A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+     */
+    space: pulumi.Input<string>;
+    /**
+     * A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+     */
+    time: pulumi.Input<string>;
+}
+
 export interface MonitorMonitorThresholdWindows {
     /**
      * Describes how long an anomalous metric must be normal before the alert recovers.
@@ -7424,6 +7435,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     url?: pulumi.Input<string>;
 }
+
 export namespace slack {
     export interface ChannelDisplay {
         /**

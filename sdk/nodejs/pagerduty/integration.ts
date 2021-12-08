@@ -81,26 +81,26 @@ export class Integration extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            inputs["apiToken"] = state ? state.apiToken : undefined;
-            inputs["schedules"] = state ? state.schedules : undefined;
-            inputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["apiToken"] = state ? state.apiToken : undefined;
+            resourceInputs["schedules"] = state ? state.schedules : undefined;
+            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
             if ((!args || args.subdomain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdomain'");
             }
-            inputs["apiToken"] = args ? args.apiToken : undefined;
-            inputs["schedules"] = args ? args.schedules : undefined;
-            inputs["subdomain"] = args ? args.subdomain : undefined;
+            resourceInputs["apiToken"] = args ? args.apiToken : undefined;
+            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["subdomain"] = args ? args.subdomain : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Integration.__pulumiType, name, inputs, opts);
+        super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

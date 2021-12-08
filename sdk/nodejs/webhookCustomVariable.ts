@@ -76,13 +76,13 @@ export class WebhookCustomVariable extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebhookCustomVariableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookCustomVariableArgs | WebhookCustomVariableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookCustomVariableState | undefined;
-            inputs["isSecret"] = state ? state.isSecret : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["isSecret"] = state ? state.isSecret : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as WebhookCustomVariableArgs | undefined;
             if ((!args || args.isSecret === undefined) && !opts.urn) {
@@ -94,14 +94,14 @@ export class WebhookCustomVariable extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["isSecret"] = args ? args.isSecret : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["value"] = args ? args.value : undefined;
+            resourceInputs["isSecret"] = args ? args.isSecret : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(WebhookCustomVariable.__pulumiType, name, inputs, opts);
+        super(WebhookCustomVariable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

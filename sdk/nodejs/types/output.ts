@@ -6866,6 +6866,17 @@ export interface LogsMetricGroupBy {
     tagName: string;
 }
 
+export interface MetricTagConfigurationAggregation {
+    /**
+     * A space aggregation for use in query. Valid values are `avg`, `max`, `min`, `sum`.
+     */
+    space: string;
+    /**
+     * A time aggregation for use in query. Valid values are `avg`, `count`, `max`, `min`, `sum`.
+     */
+    time: string;
+}
+
 export interface MonitorMonitorThresholdWindows {
     /**
      * Describes how long an anomalous metric must be normal before the alert recovers.
@@ -7532,6 +7543,7 @@ export interface SyntheticsTestRequestDefinition {
      */
     url?: string;
 }
+
 export namespace slack {
     export interface ChannelDisplay {
         /**

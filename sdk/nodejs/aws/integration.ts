@@ -116,35 +116,35 @@ export class Integration extends pulumi.CustomResource {
      */
     constructor(name: string, args?: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            inputs["accessKeyId"] = state ? state.accessKeyId : undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
-            inputs["excludedRegions"] = state ? state.excludedRegions : undefined;
-            inputs["externalId"] = state ? state.externalId : undefined;
-            inputs["filterTags"] = state ? state.filterTags : undefined;
-            inputs["hostTags"] = state ? state.hostTags : undefined;
-            inputs["roleName"] = state ? state.roleName : undefined;
-            inputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
+            resourceInputs["accessKeyId"] = state ? state.accessKeyId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["accountSpecificNamespaceRules"] = state ? state.accountSpecificNamespaceRules : undefined;
+            resourceInputs["excludedRegions"] = state ? state.excludedRegions : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
+            resourceInputs["filterTags"] = state ? state.filterTags : undefined;
+            resourceInputs["hostTags"] = state ? state.hostTags : undefined;
+            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
-            inputs["accessKeyId"] = args ? args.accessKeyId : undefined;
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["accountSpecificNamespaceRules"] = args ? args.accountSpecificNamespaceRules : undefined;
-            inputs["excludedRegions"] = args ? args.excludedRegions : undefined;
-            inputs["filterTags"] = args ? args.filterTags : undefined;
-            inputs["hostTags"] = args ? args.hostTags : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
-            inputs["externalId"] = undefined /*out*/;
+            resourceInputs["accessKeyId"] = args ? args.accessKeyId : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["accountSpecificNamespaceRules"] = args ? args.accountSpecificNamespaceRules : undefined;
+            resourceInputs["excludedRegions"] = args ? args.excludedRegions : undefined;
+            resourceInputs["filterTags"] = args ? args.filterTags : undefined;
+            resourceInputs["hostTags"] = args ? args.hostTags : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
+            resourceInputs["externalId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Integration.__pulumiType, name, inputs, opts);
+        super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

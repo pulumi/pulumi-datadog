@@ -96,14 +96,14 @@ export class LogsMetric extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogsMetricArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogsMetricArgs | LogsMetricState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogsMetricState | undefined;
-            inputs["compute"] = state ? state.compute : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["groupBies"] = state ? state.groupBies : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["compute"] = state ? state.compute : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["groupBies"] = state ? state.groupBies : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as LogsMetricArgs | undefined;
             if ((!args || args.compute === undefined) && !opts.urn) {
@@ -115,15 +115,15 @@ export class LogsMetric extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["compute"] = args ? args.compute : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["groupBies"] = args ? args.groupBies : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["compute"] = args ? args.compute : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["groupBies"] = args ? args.groupBies : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LogsMetric.__pulumiType, name, inputs, opts);
+        super(LogsMetric.__pulumiType, name, resourceInputs, opts);
     }
 }
 
